@@ -7,7 +7,7 @@ related_actions:
   - system_bridge.open_path
 ---
 
-The **Open URL** action opens a URL on a System Bridge server using the default application, such as the default web browser.
+The **System Bridge: Open URL** action opens a URL on a System Bridge server using the default application, such as the default web browser.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 

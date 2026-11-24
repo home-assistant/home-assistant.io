@@ -1,11 +1,11 @@
 ---
-title: "Device usage report"
+title: "Get device usage report"
 action: nintendo_parental_controls.device_usage_report
 domain: nintendo_parental_controls
 description: "Get today's application usage details for a device."
 ---
 
-The **Device usage report** action retrieves details regarding what Nintendo applications have been used today on a specified Nintendo Switch device.
+The **Nintendo Switch parental controls: Get device usage report** action retrieves details regarding what Nintendo applications have been used today on a specified Nintendo Switch device.
 
 This action returns response data containing a breakdown of application usage per player on the device.
 
@@ -19,7 +19,7 @@ To retrieve a device usage report from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Nintendo Switch parental controls: Device usage report**.
+5. From the search box, search for and select **Nintendo Switch parental controls: Get device usage report**.
 6. Choose the **Device**.
 7. In the **Response variable** field, enter a name to store the result, for example `usage_report`.
 8. Select **Save**.

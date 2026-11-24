@@ -1,0 +1,9 @@
+{
+  "domain": "ai_task",
+  "name": "AI Task",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

@@ -1,20 +1,10 @@
 ---
-title: Xiaomi
 description: Instructions on how to integrate a video feed (via FFmpeg) as a camera as well as a router within Home Assistant.
-ha_category:
-  - Camera
-  - Presence detection
 ha_release: 0.72
-ha_iot_class: Local Polling
 ha_domain: xiaomi
-ha_platforms:
-  - camera
-  - device_tracker
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
-ha_quality_scale: legacy
 ---
 
 This section shows you how to integrate a [Xiaomi router](http://miwifi.com) or a Xiaomi camera into Home Assistant.

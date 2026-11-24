@@ -1,18 +1,10 @@
 ---
-title: Yandex TTS
 description: Instructions on how to set up Yandex SpeechKit TTS with Home Assistant.
-ha_category:
-  - Text-to-speech
 ha_release: 0.36
-ha_iot_class: Cloud Push
 ha_domain: yandextts
-ha_platforms:
-  - tts
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Yandex TTS** {% term integration %} uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) text-to-speech engine to read a text with natural sounding voices.

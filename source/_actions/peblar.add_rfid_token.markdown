@@ -1,5 +1,5 @@
 ---
-title: "Add an RFID token"
+title: "Add RFID token"
 action: peblar.add_rfid_token
 domain: peblar
 description: "Adds a new RFID token to the Peblar charger's standalone authorization list."
@@ -10,7 +10,7 @@ related:
   - action: peblar.delete_rfid_token
 ---
 
-The **Add RFID token** action adds a new RFID token to the Peblar charger's standalone authorization list. Once added, the token can be used to authorize charging sessions on the charger without requiring a connection to an external backend.
+The **Peblar: Add RFID token** action adds a new RFID token to the Peblar charger's standalone authorization list. Once added, the token can be used to authorize charging sessions on the charger without requiring a connection to an external backend.
 
 {% note %}
 This action is only available on Peblar chargers that are equipped with an

@@ -1,19 +1,7 @@
 ---
-title: AWS S3
 description: Instructions on how to set up AWS S3 bucket to be used as a backup location.
 ha_release: 2025.5
-ha_category:
-  - Backup
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: aws_s3
-ha_codeowners:
-  - '@tomasbedrich'
-ha_integration_type: service
-ha_quality_scale: bronze
-ha_platforms:
-  - diagnostics
-  - sensor
 ---
 
 The **AWS S3** {% term integration %} allows you to use [AWS S3](https://aws.amazon.com/s3/) bucket with Home Assistant Backups.

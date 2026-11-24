@@ -1,17 +1,7 @@
 ---
-title: Fitbit
 description: Instructions on how to integrate Fitbit devices within Home Assistant.
-ha_category:
-  - Health
-ha_iot_class: Cloud Polling
 ha_release: 0.19
 ha_domain: fitbit
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_codeowners:
-  - '@allenporter'
-ha_config_flow: true
 ---
 
 The **Fitbit** {% term integration %} allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.

@@ -1,27 +1,15 @@
 ---
-title: OneDrive for Business
 description: Instructions on how to set up OneDrive for Business to be used with backups.
 ha_release: 2026.3
-ha_category:
-  - Backup
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: onedrive_for_business
-ha_codeowners:
-  - '@zweckj'
-ha_integration_type: service
 related:
-  - docs: /common-tasks/general/#backups
+  - docs: /common-tasks/general/backups/
     title: Backups
-ha_quality_scale: platinum
-ha_platforms:
-  - diagnostics
-  - sensor
 ---
 
-The **OneDrive for Business** {% term integration %} allows you to use [OneDrive for Business](https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
+The **OneDrive for Business** {% term integration %} allows you to use [OneDrive for Business](https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/backups/).
 
-Backup encryption is enabled by default and can be disabled as shown in the [backup documentation](/common-tasks/general/#to-define-the-backup-location-for-automatic-backups).
+Backup encryption is enabled by default and can be disabled as shown in the [backup documentation](/common-tasks/general/backups/#to-define-the-backup-location-for-automatic-backups).
 
 {% include integrations/config_flow.md %}
 
@@ -63,7 +51,7 @@ Make sure to configure the following settings on the app registration:
 
 The integration provides the following sensors, which are updated every 5 minutes:
 
-- **Total available storage**: The total size of your drive (disabled by default).
+- **Total available storage**: The total size of your drive ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)).
 - **Used storage**: The amount of storage you have used up.
 - **Remaining storage**: The amount of storage that is left in your drive.
 - **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`.

@@ -1,0 +1,18 @@
+{
+  "domain": "yeelightsunflower",
+  "name": "Yeelight Sunflower",
+  "codeowners": [
+    "@lindsaymarkward"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "lighting.bulbs_lamps"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "light"
+  ]
+}

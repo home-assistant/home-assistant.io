@@ -5,7 +5,7 @@ domain: overseerr
 description: "Creates a media request in Seerr."
 ---
 
-The **Request media** action creates a new media request in Seerr, for example to request a movie or series directly from an automation or script. You can find the media ID of the movie or series with the [Search media](/actions/overseerr.search_media/) action or in the Seerr URL of the media.
+The **Seerr: Request media** action creates a new media request in Seerr, for example to request a movie or series directly from an automation or script. You can find the media ID of the movie or series with the [Search media](/actions/overseerr.search_media/) action or in the Seerr URL of the media.
 
 This action returns its result in a response variable, which you can use in later steps, for example to notify yourself about the created request.
 

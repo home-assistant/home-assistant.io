@@ -1,19 +1,7 @@
 ---
-title: GeoSphere Austria Warnings
 description: Instructions on how to integrate official GeoSphere Austria weather warnings within Home Assistant.
-ha_category:
-  - Sensor
-  - Weather
 ha_release: 2026.8
-ha_iot_class: Cloud Polling
 ha_domain: geosphere_austria_warnings
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_codeowners:
-  - '@tklecka'
-ha_quality_scale: bronze
 ---
 
 The **GeoSphere Austria Warnings** {% term integration %} provides official weather warnings issued by the Austrian national weather service [GeoSphere Austria](https://www.geosphere.at) (formerly known as ZAMG).
@@ -49,7 +37,7 @@ Each entry adds one service {% term device %} named after the monitored municipa
 
 GeoSphere Austria publishes each warning with a start and an end time. A warning that has already started counts as *active*. A warning that GeoSphere Austria has issued but that starts later counts as an *advance* warning, so you can prepare before it takes effect.
 
-- **Warning level**
+- **Active warning level**
   - **Description**: The highest severity level of all currently active warnings.
   - **Possible states**: No warning, Yellow, Orange, Red.
 - **Active warnings**
@@ -62,9 +50,11 @@ GeoSphere Austria publishes each warning with a start and an end time. A warning
   - **Description**: The number of warnings that start later.
   - **Unit**: warnings
 
+If you added a location before Home Assistant 2026.11, its **Active warning level** sensor keeps its previous entity ID, for example `sensor.innsbruck_warning_level`.
+
 #### Warning details
 
-**Warning level** and **Advance warning level** add attributes describing one selected warning out of the warnings behind their state.
+**Active warning level** and **Advance warning level** add attributes describing one selected warning out of the warnings behind their state.
 
 The selection prefers warnings you can act on right now: heat and cold warnings rank one severity tier below storm, rain, snow, black ice, and thunderstorm warnings, because they describe an ambient condition rather than a sudden event. Among equally ranked warnings, the one that ends first is selected. The sensor state itself always reports the true highest severity and is never lowered by this ranking.
 
@@ -88,16 +78,16 @@ The real power of this integration is to allow the creation of automations based
 
 Get a notification when a weather warning becomes active.
 
-Entities are named after the monitored municipality, for example `sensor.innsbruck_warning_level`.
+Entities are named after the monitored municipality, for example `sensor.innsbruck_active_warning_level`.
 
-- **Trigger**: State
-  - **Entity**: Innsbruck warning level (`sensor.innsbruck_warning_level`)
+- **Trigger**: State changed
+  - **Entity**: Innsbruck active warning level (`sensor.innsbruck_active_warning_level`)
   - **To**: Yellow
   - **To**: Orange
   - **To**: Red
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-  - **Message**: `Warning level {{ states('sensor.innsbruck_warning_level') }} with {{ states('sensor.innsbruck_active_warnings') }} active warning(s) for Innsbruck.`
+  - **Message**: `Warning level {{ states('sensor.innsbruck_active_warning_level') }} with {{ states('sensor.innsbruck_active_warnings') }} active warning(s) for Innsbruck.`
   - **Title**: `Weather warning`
 
 {% details "YAML example for notifying on weather warning" %}
@@ -107,7 +97,7 @@ automation: |
   alias: "Notify on weather warning"
   triggers:
     - trigger: state
-      entity_id: sensor.innsbruck_warning_level
+      entity_id: sensor.innsbruck_active_warning_level
       to:
         - yellow
         - orange
@@ -119,7 +109,7 @@ automation: |
       data:
         title: "Weather warning"
         message: >-
-          Warning level {{ states('sensor.innsbruck_warning_level') }}
+          Warning level {{ states('sensor.innsbruck_active_warning_level') }}
           with {{ states('sensor.innsbruck_active_warnings') }}
           active warning(s) for Innsbruck.
 {% endexample %}
@@ -130,10 +120,9 @@ automation: |
 
 Get a notification when GeoSphere Austria issues an orange or red warning that starts later, together with the type of weather event and when it begins.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Innsbruck advance warning level (`sensor.innsbruck_advance_warning_level`)
-  - **To**: Orange
-  - **To**: Red
+  - **To**: Orange, Red
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: `{{ state_attr('sensor.innsbruck_advance_warning_level', 'type') }} warning for Innsbruck starts at {{ state_attr('sensor.innsbruck_advance_warning_level', 'start') | as_datetime | as_local }}.`

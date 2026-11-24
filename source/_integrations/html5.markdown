@@ -1,25 +1,12 @@
 ---
-title: HTML5 Push Notifications
 description: Instructions on how to use the HTML5 push notifications platform from Home Assistant.
-ha_category:
-  - Event
-  - Notifications
 ha_release: 0.27
-ha_config_flow: true
-ha_iot_class: Cloud Push
 ha_domain: html5
-ha_platforms:
-  - event
-  - notify
-ha_integration_type: service
 related:
   - url: https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API
     title: MDN Notifications API documentation
   - url: https://support.google.com/webmasters/answer/9008080#domain_name_verification
     title: Domain name verification
-ha_codeowners:
-  - '@alexyao2015'
-  - '@tr4nt0r'
 ---
 
 The **HTML5 Push Notifications** {% term integration %} lets you receive push notifications in supported browsers.

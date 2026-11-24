@@ -1,33 +1,12 @@
 ---
-title: Huum
 description: Instructions on how to integrate Huum saunas into Home Assistant.
 ha_release: 2024.2
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@frwickst'
-  - '@vincentwolsink'
 ha_domain: huum
-ha_integration_type: device
-ha_config_flow: true
-ha_quality_scale: silver
 related:
   - url: https://huum.eu/
     title: Huum
   - url: https://huum.eu/products/uku-wifi/
     title: Huum UKU WiFi smart sauna control system
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - light
-  - number
-  - sensor
-ha_category:
-  - Binary sensor
-  - Climate
-  - Light
-  - Number
-  - Sensor
 ---
 
 The **Huum** {% term integration %} lets you monitor and control your [Huum](https://huum.eu/) sauna from Home Assistant. Huum manufactures electric sauna heaters with smart connectivity, allowing you to adjust the temperature and, when your sauna controller supports these features, control the light and manage the steamer humidity level right from your dashboard.

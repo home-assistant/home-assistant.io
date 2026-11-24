@@ -23,7 +23,7 @@ A person and a user are two different concepts in Home Assistant:
 - A _person_ is used for presence detection. A person can be tracked, shown on the map, and used in automations that react when someone arrives or leaves.
 - A _user_ is a login account. It is what someone uses to sign in to Home Assistant, see their own dashboards, and, with the right permissions, manage the system.
 
-The two are linked only when the same individual needs both. You attach a user to a person by turning on **Allow login** for that person. This means you can have each one on its own:
+The two are linked only when the same individual needs both. You attach a user to a person by turning on **Allow login** for that person. You can then create a new user account, or [link an existing user account](/integrations/person/#linking-an-existing-user-account-to-a-person) that is not linked to a person yet. This means you can have each one on its own:
 
 - A _person without a user_ cannot sign in, but can still be tracked for presence, shown on the map, and used in automations. This is useful for household members, such as children, whose phone you track but who do not need their own login.
 - A _user without a person_ can sign in, but is not tracked for presence and does not appear on the map or in presence-based automations. This is useful for logins that do not belong to a tracked person, such as:
@@ -31,7 +31,9 @@ The two are linked only when the same individual needs both. You attach a user t
   - A local-only account for a wall-mounted tablet or kiosk.
   - An administrative or guest login where presence tracking is not needed.
 
-To create a user that is not linked to a person, add it from the **Users** tab instead of from **People**.
+To create a user that is not linked to a person, add it from the **Users** tab instead of from **People**. You can still [link it to a person](/integrations/person/#linking-an-existing-user-account-to-a-person) later.
+
+A user with **Local access only** turned on can sign in and connect only from your local network. This applies to every such user, whether or not the user is linked to a person. From outside your network, the user cannot sign in or use Home Assistant, neither through Home Assistant Cloud nor through direct remote access. This includes the Home Assistant app on a phone.
 
 ## About user accounts
 
@@ -50,6 +52,12 @@ User accounts come in two levels of access:
 - _Non-administrator users_ have restricted access. They can use Home Assistant and see their own dashboards, but cannot reach the configuration and system settings.
 
 You set whether a user is an administrator with the **Administrator** toggle when you create or edit their account.
+
+### Username format
+
+Usernames must be lowercase and can't start or end with a space. We recommend not using spaces at all. When someone signs in, Home Assistant ignores uppercase and lowercase letters, and spaces before or after the username.
+
+Some older usernames still contain uppercase letters or start or end with a space. Those keep working unless two usernames differ only in uppercase and lowercase letters, or in spaces before or after them. In that case, only one of these users can sign in. For example, `Bob` and `bob` match the same login.
 
 ## About your account profile
 
@@ -146,8 +154,7 @@ The username is the name that is used to log in. It can differ from the display 
 2. Select the person whose username you want to change.
 3. Next to the username, select {% icon "mdi:pencil" %} **Edit**.
 4. In the **Change username** dialog, enter the **New username** and select **Change**.
-   - The username must be lowercase and must not contain spaces.
-   - Signing in is case-sensitive.
+   - The username must be lowercase and can't start or end with a space. For details, refer to [Username format](#username-format).
 
 ## Changing authentication settings
 
@@ -179,9 +186,19 @@ Administrators can delete other people and their user accounts. Because a person
 
 Delete only the user when you want to revoke someone's access to Home Assistant while still tracking them for presence. For example, when a household member should no longer be able to sign in, but you still want their presence to drive automations and show on the map.
 
+{% important %}
+**Risk of losing the user account**
+
+Turning off **Allow login** permanently deletes the user account and its login credentials. You cannot link the same account to the person again later.
+
+To avoid this:
+
+- If the person should only stop signing in for a while, deactivate the user account instead. On the **Users** tab, select the user, turn off **Active**, and select **Save**.
+{% endimportant %}
+
 1. Go to {% my people title="**Settings** > **People**" %} and select the person whose login you want to delete.
 2. Turn off **Allow login**.
-3. To confirm, select **OK**.
+3. In the **Delete user account** dialog, select **Delete**.
 
 The user account and its login credentials are deleted, but the person remains.
 

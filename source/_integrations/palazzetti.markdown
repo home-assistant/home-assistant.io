@@ -1,28 +1,38 @@
 ---
-title: Palazzetti
 description: Instructions on how to integrate Palazzetti within Home Assistant.
-ha_category:
-  - Climate
 ha_release: 2024.11
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@dotvav'
 ha_domain: palazzetti
-ha_platforms:
-  - button
-  - climate
-  - diagnostics
-  - number
-  - sensor
-ha_integration_type: device
-ha_dhcp: true
 ---
 
-The **Palazzetti** {% term integration %} integrates the [Palazzetti](https://palazzettigroup.com/)
-stoves equipped with a [Connection Box](https://palazzettigroup.com/research-and-development/app/).
-It is accessing the device's local API. [WPalaControl](https://github.com/Domochip/WPalaControl)
-devices have a compatible API and are supported by this integration too.
+The **Palazzetti** {% term integration %} integrates pellet stoves manufactured by [Palazzetti](https://palazzettigroup.com/)
+and OEM or rebranded stoves using the same hardware architecture (such as Jøtul, TurboFonte, and others)
+equipped with a [Connection Box](https://palazzettigroup.com/research-and-development/app/).
+It accesses the device's local API. Third-party bridges such as [WPalaControl](https://github.com/Domochip/WPalaControl)
+implement a compatible API and are supported by this integration as well.
+
+## Supported devices and brands
+
+This integration supports pellet stoves equipped with a Palazzetti Connection Box, an OEM equivalent, or a compatible bridge (such as WPalaControl). Many manufacturers share this electronic architecture (Fumis controller).
+
+Compatible brands and their commercial gateway names include:
+
+- **Casatelli** (Kit Wi-Fi)
+- **Fonte Flamme** (FFBox / FFBox2)
+- **Godin** (Kit Wi-Fi C-Box)
+- **Invicta** (Kit Wi-Fi C-Box)
+- **Jøtul** (Jøtul Connection Box / CBox)
+- **Palazzetti** (Palazzetti Connection Box)
+- **Royal 1915** (Connection Box)
+- **TurboFonte** (Connection Box / CBox)
+- **WPalaControl** (open-source hardware bridge)
+
+### Identifying compatible hardware
+
+Compatible Wi-Fi modules connect directly to the stove's serial interface (RJ11/RJ12), communicate over local network HTTP (typically with hostname `connbox` or initial setup Wi-Fi SSID `connboxXXXXX`), and do not require a cloud service.
+
+{% note %}
+If your stove is equipped with a **Fumis WiRCU** Wi-Fi module (requiring a MAC address and PIN code to connect to the Fumis cloud), use the [Fumis](/integrations/fumis) integration instead.
+{% endnote %}
 
 ## Prerequisites
 
@@ -158,13 +168,15 @@ actions:
 
 {% enddetails %}
 
+## Data updates
+
+The Palazzetti integration {% term polling polls %} the device for new data every 60 seconds.
+
 ## Known limitations
 
 This integration does **not** yet support the following features and sensors:
 
 - Light and Door entities on stove models equipped with them.
-- Fan control other than the main one.
-- Combustion power control.
 
 ## Troubleshooting
 

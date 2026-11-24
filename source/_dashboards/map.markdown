@@ -141,7 +141,7 @@ entities:
   type: list
 geo_location_sources:
   required: false
-  description: List of geolocation sources or sources with their own settings. For more information, refer to [options for geolocation sources](#options-for-geolocation-sources). Shows all current entities of these sources. For valid sources, refer to the [Geolocation](/integrations/geo_location/) integration. To show all available sources, add `all` to the list. Either this, `show_all`, or the `entities` configuration option is required.
+  description: List of geolocation sources or sources with their own settings. For more information, refer to [options for geolocation sources](#options-for-geolocation-sources). Shows all current entities of these sources. For valid sources, refer to [integrations that provide geolocation entities](/integrations/geo_location/#integrations-that-provide-geolocation-entities). To show all available sources, add `all` to the list. Either this, `show_all`, or the `entities` configuration option is required.
   type: list
 show_all:
   required: false

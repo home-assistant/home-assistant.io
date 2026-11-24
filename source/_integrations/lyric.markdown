@@ -1,24 +1,7 @@
 ---
-title: Honeywell Lyric
 description: How to integrate the Honeywell Lyric integration into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Select
-  - Sensor
 ha_release: 2021.3
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@timmo001'
 ha_domain: lyric
-ha_platforms:
-  - binary_sensor
-  - climate
-  - select
-  - sensor
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 The **Honeywell Lyric** {% term integration %} integrates the Lyric thermostat platform into Home Assistant.

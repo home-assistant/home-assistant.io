@@ -1,20 +1,7 @@
 ---
-title: Google Weather
 description: Instructions on how to integrate Google Weather within Home Assistant.
-ha_category:
-  - Weather
 ha_release: 2025.12
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: google_weather
-ha_codeowners:
-  - '@tronikos'
-ha_integration_type: service
-ha_quality_scale: platinum
-ha_platforms:
-  - diagnostics
-  - sensor
-  - weather
 ---
 
 This {% term integration %} uses [Google Weather](https://developers.google.com/maps/documentation/weather) as a source for weather data for your location.

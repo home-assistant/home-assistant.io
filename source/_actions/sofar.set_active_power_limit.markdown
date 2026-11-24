@@ -92,7 +92,9 @@ limit:
 
 Some grid operators or tariffs ask for generation to be curtailed at short notice. This automation reacts to an `input_boolean` helper you toggle (by hand, or from another automation) by capping the inverter to 20% of rated power, and lifts the cap again when the helper turns off.
 
-- **Trigger**: State, `input_boolean.curtail_solar`, turns on
+- **Trigger**: State changed
+  - **Entity**: Curtail solar helper
+  - **To**: On
 - **Action**: Sofar: Set active power limit
 
 {% details "YAML example for reacting to a curtailment helper" %}

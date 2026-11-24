@@ -7,7 +7,7 @@ related_actions:
   - energyzero.get_gas_prices
 ---
 
-The **Get energy prices** action fetches the dynamic energy prices from EnergyZero for a period you choose.
+The **EnergyZero: Get energy prices** action fetches the dynamic energy prices from EnergyZero for a period you choose.
 
 You can retrieve market or all-in electricity prices at hourly or quarter-hourly intervals. By default, the action returns hourly market prices, regardless of the **Electricity price interval** selected in the [integration options](/integrations/energyzero/#options). Choosing a price type or interval for this action does not change your integration options or sensors.
 

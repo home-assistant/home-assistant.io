@@ -20,7 +20,7 @@ To get the heater profile from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the water heater you want to read.
-6. From the actions shown for that target, select **OSO Energy: Get heater profile**.
+6. From the actions shown for that target, under **OSO Energy**, select **Get heater profile**.
 7. Select **Save**.
 
 This action has no additional options beyond the target.

@@ -1,18 +1,10 @@
 ---
-title: MessageBird
 description: Instructions on how to add MessageBird notifications to Home Assistant.
-ha_category:
-  - Notifications
-ha_iot_class: Cloud Push
 ha_release: 0.16
 ha_domain: message_bird
-ha_platforms:
-  - notify
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **MessageBird** {% term integration %} sends notifications as SMS messages using [MessageBird](https://www.messagebird.com/) to your mobile phone.

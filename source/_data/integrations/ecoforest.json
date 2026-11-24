@@ -1,0 +1,21 @@
+{
+  "domain": "ecoforest",
+  "name": "Ecoforest",
+  "integration_type": "device",
+  "codeowners": [
+    "@pjanuario"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "number",
+    "sensor",
+    "switch"
+  ]
+}

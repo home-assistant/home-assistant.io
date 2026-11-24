@@ -1,0 +1,72 @@
+---
+// A photo with an optional phone crop: `image` from the Connect desk
+// breakpoint (992px), `mobileImage` below it, in one <picture>. Without a
+// `mobileImage`, `image` is used at every width.
+//
+// Encodes at quality 85 by default, which keeps the detail in product
+// photos (Astro's default is 80); `quality` raises it where a photo
+// needs more, such as a hero exported as an already compressed WebP.
+//
+// `media` moves the switch to another width, for a photo whose wide
+// crop needs more room than the Connect desk width gives it.
+//
+// Other attributes, such as `class`, go on the <picture>. The <img> is
+// rendered here, so style it from the parent with :global(img).
+import type { ImageMetadata } from "astro";
+import type { HTMLAttributes } from "astro/types";
+import { Image, getImage } from "astro:assets";
+import { connectDesk } from "../lib/breakpoints";
+
+interface Props extends HTMLAttributes<"picture"> {
+  image: ImageMetadata;
+  mobileImage?: ImageMetadata;
+  alt: string;
+  // For `image`.
+  widths: number[];
+  sizes: string;
+  // For `mobileImage`.
+  mobileWidths?: number[];
+  mobileSizes?: string;
+  loading?: "eager" | "lazy";
+  fetchpriority?: "high" | "low" | "auto";
+  // Encoding quality, 1 to 100.
+  quality?: number;
+  // The media query from which `image` is used.
+  media?: string;
+}
+
+const {
+  image,
+  mobileImage,
+  alt,
+  widths,
+  sizes,
+  mobileWidths = widths,
+  mobileSizes = sizes,
+  loading,
+  fetchpriority,
+  quality = 85,
+  media = connectDesk,
+  ...attrs
+} = Astro.props;
+
+const deskSet =
+  mobileImage && (await getImage({ src: image, widths, quality }));
+---
+
+<picture {...attrs}>
+  {
+    deskSet && (
+      <source media={media} srcset={deskSet.srcSet.attribute} sizes={sizes} />
+    )
+  }
+  <Image
+    src={mobileImage ?? image}
+    alt={alt}
+    quality={quality}
+    widths={mobileImage ? mobileWidths : widths}
+    sizes={mobileImage ? mobileSizes : sizes}
+    loading={loading}
+    fetchpriority={fetchpriority}
+  />
+</picture>

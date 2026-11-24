@@ -1,21 +1,7 @@
 ---
-title: Sleep as Android
 description: Instructions on how to integrate Sleep as Android with Home Assistant.
-ha_category:
-  - Event
-  - Sensor
-ha_iot_class: Local Push
 ha_release: 2025.9
-ha_config_flow: true
-ha_codeowners:
-  - '@tr4nt0r'
 ha_domain: sleep_as_android
-ha_integration_type: service
-ha_platforms:
-  - diagnostics
-  - event
-  - sensor
-ha_quality_scale: platinum
 ---
 
 The **Sleep as Android** {% term integration %} connects the Sleep as Android app to Home Assistant, allowing you to trigger automations based on alarm clock or sleep cycle events.

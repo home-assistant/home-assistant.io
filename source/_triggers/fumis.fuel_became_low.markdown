@@ -62,9 +62,9 @@ device_id:
 - Home Assistant checks your stove every 30 seconds, so it can take up to 30 seconds after the stove raises the alert before the trigger fires.
 - If you want to pick your own moment and your stove has a fuel level sensor, use a [Numeric state](/triggers/numeric_state/) trigger on the **Fuel level** sensor instead.
 
-### Available trigger data
+### Trigger variables
 
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variable:
+In addition to the [data that all triggers include](/docs/automation/trigger-data/#properties-of-all-triggers), this trigger includes the following data:
 
 - `trigger.device_id`: The device ID of the stove that reported its fuel became low.
 

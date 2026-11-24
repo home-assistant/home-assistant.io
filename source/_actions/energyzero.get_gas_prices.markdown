@@ -7,7 +7,7 @@ related_actions:
   - energyzero.get_energy_prices
 ---
 
-The **Get gas prices** action fetches the dynamic gas prices from EnergyZero for a period you choose.
+The **EnergyZero: Get gas prices** action fetches the dynamic gas prices from EnergyZero for a period you choose.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to show the prices in a template sensor.
 

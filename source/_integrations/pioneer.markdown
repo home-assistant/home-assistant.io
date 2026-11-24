@@ -1,18 +1,10 @@
 ---
-title: Pioneer
 description: Instructions on how to integrate a Pioneer Network Receivers into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 0.19
-ha_iot_class: Local Polling
 ha_domain: pioneer
-ha_platforms:
-  - media_player
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Pioneer** {% term integration %} allows you to control Pioneer Network Receivers. However, the more recent Pioneer models work with [Onkyo](/integrations/onkyo) platform instead.

@@ -1,43 +1,7 @@
 ---
-title: Universal Devices ISY/IoX
 description: Instructions on how to set up an ISY controller within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_release: 0.28
-ha_iot_class: Local Push
 ha_domain: isy994
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
-  - '@shbatm'
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - event
-  - fan
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - switch
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 ISY is a home automation controller capable of controlling Insteon, X10, Z-Wave and Zigbee/Matter devices connected to supported hardware manufactured by [Universal Devices, Inc.](https://www.universal-devices.com/).
@@ -80,7 +44,7 @@ There are several options available to further customize what is imported from t
 
 An Insteon door/window sensor will show up as a single binary sensor rather than two discrete devices like it does in the ISY Admin Console. Note that when in "Two Nodes" mode, the sensor will have an UNKNOWN state until the sensor changes for the first time since the last Home Assistant reboot. If you do not use Insteon scenes that are controlled directly from the door sensor, you may prefer to set the sensor to "One Node" mode using the ISY Admin Panel.
 
-Each Insteon leak sensor will also show up as a single binary sensor as opposed to the two nodes seen in the ISY Admin Console. The name of the device will be based on what the parent node is named in the ISY, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node in Home Assistant to be more clear, see the [Customization section](/docs/configuration/customizing-devices/) of your configuration.
+Each Insteon leak sensor will also show up as a single binary sensor as opposed to the two nodes seen in the ISY Admin Console. The name of the device will be based on what the parent node is named in the ISY, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node in Home Assistant to be more clear, see the [Customization section](/docs/configuration/customizing-entities/) of your configuration.
 
 If your leak or door/window sensor supports heartbeats, a new binary_sensor device will be added to Home Assistant to represent the battery state. The sensor will stay "Off" so long as the daily heartbeats occur. If a heartbeat is missed, the sensor will flip to "On". The name of this device will be based on the heartbeat node in the ISY.
 
@@ -92,7 +56,7 @@ Integer and State Variables from the ISY are imported as `number` entities. You 
 
 Insteon switches and dimmers (such as SwitchLinc and KeypadLinc) and KeypadLinc secondary buttons are exposed as `event` entities with the device class `button`. Each entity represents a physical button and fires when the ISY reports a control event for that button. The supported event types are `press_end`, `multi_press_end`, `long_press_start`, and `long_press_end`. A `direction` attribute (`up` or `down`) tells you which side of the paddle triggered the event, and events for double-taps include a `multi_press_count` attribute.
 
-Primary load buttons are enabled by default. KeypadLinc secondary buttons are disabled by default to avoid creating unused entities. To use them, enable the entity from the device page.
+Primary load buttons are enabled by default. KeypadLinc secondary buttons are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to avoid creating unused entities. To use them, enable the entity from the device page.
 
 You can use these entities directly as triggers in automations without needing to write event listeners. For details on automating on event entities and matching specific event types, see the [Event entity documentation](/integrations/event/).
 
@@ -186,7 +150,7 @@ My Programs
 
 A device is created by creating a directory, with the name for the device, under any of the following root directories:
 
-- *HA.binary_sensor* will create a binary sensor (see [Customizing Devices](/getting-started/customizing-devices/) to set the sensor class).
+- *HA.binary_sensor* will create a binary sensor (to set the sensor class, refer to [Device class](/integrations/homeassistant/#device-class)).
 - *HA.cover* will create a cover.
 - *HA.fan* will create a fan.
 - *HA.lock* will create a lock.

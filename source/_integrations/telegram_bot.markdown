@@ -1,20 +1,7 @@
 ---
-title: Telegram bot
 description: Telegram bot support
-ha_category:
-  - Notifications
 ha_release: 0.42
-ha_iot_class: Cloud Push
-ha_config_flow: true
 ha_domain: telegram_bot
-ha_integration_type: service
-ha_quality_scale: gold
-ha_codeowners:
-  - '@hanwg'
-ha_platforms:
-  - diagnostics
-  - event
-  - notify
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
@@ -161,6 +148,27 @@ Chat ID:
   description: ID representing the user or group chat to which messages can be sent.
 {% endconfiguration_basic %}
 
+### Recipients of send actions
+
+Actions that send content, such as `telegram_bot.send_message` and `telegram_bot.send_media_group`, send it to the chats that you can specify with these options:
+
+- `entity_id`: One or more Telegram bot [notify entities](#notifiers). Each notify entity represents one allowed chat ID.
+- `chat_id`: One or more allowed chat IDs. In the action dialog, **Chat ID** is under **Additional options**.
+- `config_entry_id`: The Telegram bot. In the action dialog, **Config entry ID** is under **Additional options**.
+
+When you have a single Telegram bot:
+
+- If you don't specify any of the options above, the bot is selected automatically and the action sends to the first chat ID you allowlisted for the bot.
+- If you want to send to other allowed chats, specify them with `entity_id` or `chat_id`.
+
+If you have more than one Telegram bot, specify one of the following:
+
+- `entity_id`: The action sends to the allowed chat ID of a specific bot notify entity or entities. If you also add a `chat_id`, the action ignores it.
+- `config_entry_id`: The action sends to the first chat ID you allowlisted for that bot.
+- `config_entry_id` and `chat_id`: The action sends to the specified allowed chat ID or IDs of that bot.
+
+If you have more than one Telegram bot and specify neither `entity_id` nor `config_entry_id`, the action fails with the error "Please specify at least 1 notify entity."
+
 ## Notifiers
 
 This integration will add a notify {% term entity %} for each configured chat ID.
@@ -178,26 +186,6 @@ data:
 {% enddetails %}
 
 {% include integrations/actions.md %}
-
-## Telegram notification platform
-
-{% warning %}
-
-The notification platform has been marked as legacy and might be deprecated in the future.
-Please use [notifiers](./#notifiers) instead.
-
-{% endwarning %}
-
-The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents, and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag`, `disable_web_page_preview`, and `message_thread_id` are also supported.
-
-The required YAML configuration now reduces to:
-
-```yaml
-notify:
-  - platform: telegram
-    name: NOTIFIER_NAME
-    chat_id: USER_CHAT_ID
-```
 
 ## Event entity
 
@@ -401,11 +389,11 @@ actions:
   - action: notify.persistent_notification
     data:
       message: >-
-      Message received.
-      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
-      First name: {{ trigger.to_state.attributes.from_first }}
-      Last name : {{ trigger.to_state.attributes.from_last }}
-      Message   : {{ trigger.to_state.attributes.text }}
+        Message received.
+        Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+        First name: {{ trigger.to_state.attributes.from_first }}
+        Last name : {{ trigger.to_state.attributes.from_last }}
+        Message   : {{ trigger.to_state.attributes.text }}
 ```
 
 ### Event: Message sent
@@ -425,13 +413,13 @@ bot:
   id: "<id of the bot>"
   last_name: "<last name of the bot>"
   username: "<username of the bot>"
-chat_id: "<origin chat id>"
-from_first: "<first name of the sender>"
-from_last: "<last name of the sender>"
-id: "<message id>"
+chat_id: "<id of the chat the message was sent to>"
+message_id: "<message id>"
+message_tag: "<message tag>"
 message_thread_id: "<message thread id>"
-user_id: "<id of the sender>"
 ```
+
+`message_tag` and `message_thread_id` are only included when the action that sent the message set them.
 
 Example automation:
 
@@ -449,9 +437,9 @@ actions:
   - action: notify.persistent_notification
     data:
       message: >-
-      Bot sent a message.
-      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
-      Message ID: {{ trigger.to_state.attributes.message_id }}
+        Bot sent a message.
+        Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+        Message ID: {{ trigger.to_state.attributes.message_id }}
         
 ```
 
@@ -671,10 +659,14 @@ actions:
 
 ## Example: send_media_group
 
+The following example sends a photo and a video as one album to the allowed chat of a specific bot notify entity.
+A media group must contain between 2 and 10 items. To learn how the action determines the chat, refer to [Recipients of send actions](#recipients-of-send-actions).
+
 ```yaml
 actions:
   - action: telegram_bot.send_media_group
     data:
+      entity_id: notify.telegram_bot_chat # Replace with your notify entity
       media:
         - url: https://example/image.jpg
           caption: My album

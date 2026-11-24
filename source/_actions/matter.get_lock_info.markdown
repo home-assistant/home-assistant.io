@@ -1,5 +1,5 @@
 ---
-title: "Get Matter lock info"
+title: "Get lock info"
 action: matter.get_lock_info
 domain: matter
 description: "Returns the capabilities of a Matter lock."
@@ -22,7 +22,7 @@ To get lock info from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the lock you want to query.
-6. From the actions shown for that target, select **Get Matter lock info**.
+6. From the actions shown for that target, under **Matter**, select **Get lock info**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -45,7 +45,7 @@ action: |
 
 This action has no options.
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Response data
 

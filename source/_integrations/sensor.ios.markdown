@@ -1,8 +1,6 @@
 ---
 title: "iOS Sensor"
 description: "Instructions on how to use the iOS sensors with Home Assistant."
-ha_category:
-  - Sensor
 ha_release: 0.31
 ha_iot_class: Local Push
 ha_domain: ios

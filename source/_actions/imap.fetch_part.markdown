@@ -9,7 +9,7 @@ related_actions:
   - imap.move
 ---
 
-The **Fetch message part** action fetches a single part or attachment from an email message on your IMAP server. Use it to retrieve the content of a specific part, such as an attachment, that you found with the [Fetch message](/actions/imap.fetch/) action or in the `imap_content` event data.
+The **IMAP: Fetch message part** action fetches a single part or attachment from an email message on your IMAP server. Use it to retrieve the content of a specific part, such as an attachment, that you found with the [Fetch message](/actions/imap.fetch/) action or in the `imap_content` event data.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 

@@ -1,5 +1,5 @@
 ---
-title: "Get sheet"
+title: "Get data from Google sheet"
 action: google_sheets.get_sheet
 domain: google_sheets
 description: "Retrieves rows of data from a Google Sheets document."
@@ -7,7 +7,7 @@ related_actions:
   - google_sheets.append_sheet
 ---
 
-Use this action to retrieve rows of data from a Google Sheets document, for example, to read back values you stored earlier. This action returns [response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data) that you can use in the rest of your automation or script.
+Use this action to retrieve rows of data from a Google Sheets document, for example, to read back values you stored earlier. This action returns [response data](/docs/automation/action/#action-response-data) that you can use in the rest of your automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -17,7 +17,7 @@ To get data from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Google Sheets: Get sheet**.
+5. From the search box, search for and select **Google Sheets: Get data from Google sheet**.
 6. Under **Integration**, select the **Sheet** you want to read from.
 7. Optionally, set a name for the **Worksheet**. Defaults to the first one in the document.
 8. Set the number of **Rows** to return.

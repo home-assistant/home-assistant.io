@@ -48,8 +48,6 @@ This fires when `timer.bedtime_story` is restarted.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple timers are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
@@ -57,9 +55,9 @@ behavior:
   type: string
   default: each
 for:
-  description: How long the timer must remain restarted before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the timer must remain restarted before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -71,6 +69,7 @@ for:
 
 - This trigger fires when you start a timer that is already active or paused.
 - If you start a timer that is idle, use [Timer started](/triggers/timer.started/) instead.
+- If you restart a timer twice in a row, the trigger only reacts to the first restart. It reacts again after the timer changes in another way in between, for example when you pause it.
 - The **For at least** option here adds extra delay after the timer is restarted.
 
 {% include triggers/try_it.md %}

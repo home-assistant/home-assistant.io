@@ -1,0 +1,20 @@
+{
+  "domain": "aurora",
+  "name": "Aurora",
+  "integration_type": "service",
+  "codeowners": [
+    "@djtimca"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

@@ -21,7 +21,7 @@ To send a command from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Denon AVR media players you want to send the command to.
-6. From the actions shown for that target, select **Get command**.
+6. From the actions shown for that target, under **Denon AVR Network Receivers**, select **Get command**.
 7. Fill in the options you want to use.
 8. Select **Save**.
 
@@ -59,7 +59,7 @@ command:
 ## Good to know
 
 - Append the specific command to the path `/goform/formiPhoneAppDirect.xml?`. For example, `/goform/formiPhoneAppDirect.xml?VSMONI2`.
-- The Denon AVR receiver also supports the standard media player controls, such as `turn_on` and `volume_up`. Calling the [`media_player.turn_on`](/integrations/media_player/) action is equivalent to calling **Get command** with the command `/goform/formiPhoneAppDirect.xml?PWON`.
+- The Denon AVR receiver also supports the standard media player controls, such as `turn_on` and `volume_up`. Calling the [`media_player.turn_on`](/integrations/media_player/) action is equivalent to calling **Denon AVR Network Receivers: Get command** with the command `/goform/formiPhoneAppDirect.xml?PWON`.
 
 {% include actions/targets.md domain="media_player" %}
 

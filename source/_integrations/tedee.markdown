@@ -1,24 +1,7 @@
 ---
-title: Tedee
 description: Instructions on how to integrate your Tedee lock with Home Assistant.
 ha_release: 2024.2
-ha_category:
-  - Binary sensor
-  - Lock
-  - Sensor
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: tedee
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - lock
-  - sensor
-ha_codeowners:
-  - '@patrickhilker'
-  - '@zweckj'
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 This {% term integration %} interacts with your [Tedee](https://tedee.com) locks by communicating with the Tedee bridge through HTTP. The integration will communicate with your lock locally.
@@ -62,7 +45,7 @@ This integration supports
 - **Charging**: indicates whether the battery is currently charging.
 - **Pullspring enabled**: indicates whether the pull spring setting is enabled.
 - **Semi locked**: indicates whether the lock is in a "semi-locked" position. "Semi-locked" means the lock has been turned manually and is between its normal end positions. The lock itself will be unavailable in this position.
-- **Lock uncalibrated** (disabled by default): Shows when the lock is in an "uncalibrated state".
+- **Lock uncalibrated** ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)): Shows when the lock is in an "uncalibrated state".
 - **Connectivity**: indicates whether the lock is currently connected to the bridge.
 
 {% note %}

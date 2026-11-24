@@ -1,18 +1,7 @@
 ---
-title: Hanna
 description: Instructions on how to integrate HannaCloud within Home Assistant.
 ha_release: 2025.12
-ha_category:
-  - Sensor
-ha_codeowners:
-  - '@bestycame'
-ha_quality_scale: bronze
 ha_domain: hanna
-ha_integration_type: hub
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_platforms:
-  - sensor
 ---
 
 The **Hanna** {% term integration %} fetches data from your [Hanna Pool Controller](https://www.hannainstruments.be/en/Applicatons-measure-analyze/swimming-pool/ph-chlorine-control/systems/) device, by connecting to your [HannaCloud](https://www.hannacloud.com) account.

@@ -1,15 +1,7 @@
 ---
-title: Elvia
 description: Documentation for the Elvia integration.
-ha_category:
-  - Energy
 ha_release: 2024.2
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@ludeeus'
 ha_domain: elvia
-ha_config_flow: true
-ha_integration_type: service
 ---
 
 The **Elvia** {% term integration %} will import your historical grid consumption.

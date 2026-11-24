@@ -1,5 +1,5 @@
 ---
-title: Start cleaning
+title: "Start vacuum cleaner"
 action: vacuum.start
 domain: vacuum
 description: "Starts or resumes a cleaning task on a vacuum."
@@ -36,8 +36,6 @@ The `entity_id` is optional; omit it to target all vacuums.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: The vacuum, area, or device to start cleaning.
@@ -61,8 +59,8 @@ When the last person leaves home, this automation starts the downstairs vacuum s
 
 - **Trigger**: Zone occupancy cleared
   - **Zone**: Home (`zone.home`)
-- **Action**: Start cleaning
-- **Target**: Downstairs vacuum
+- **Action**: Start vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for starting the vacuum when nobody is home" %}
 

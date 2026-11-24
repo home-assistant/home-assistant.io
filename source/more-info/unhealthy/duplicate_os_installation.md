@@ -29,8 +29,8 @@ If you have Home Assistant Yellow or any other device with non-removable storage
 
 For Home Assistant Yellow, the easiest way is to follow the [steps for reinstalling Home Assistant OS][yellow-rpiboot], but at the step where you would normally select the Home Assistant OS image, select the **Erase** option instead. Alternatively, once the device is initialized using the `rpiboot` utility, use any disk management tool to wipe the eMMC storage.
 
-[backup]: /common-tasks/general/#backups
+[backup]: /common-tasks/general/backups/
 [installation]: /installation/
 [onboarding]: /getting-started/onboarding/
-[data-disk]: /common-tasks/general/#external-data-disk
+[data-disk]: /common-tasks/os/#using-external-data-disk
 [yellow-rpiboot]: https://support.nabucasa.com/hc/articles/25485061432093

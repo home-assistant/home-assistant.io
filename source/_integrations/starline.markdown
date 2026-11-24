@@ -1,28 +1,7 @@
 ---
-title: StarLine
 description: Instructions on how to set up your StarLine account with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Car
-  - Lock
-  - Presence detection
-  - Sensor
-  - Switch
 ha_release: 0.103
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@anonym-tsk'
 ha_domain: starline
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - lock
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 The **StarLine** {% term integration %} lets you retrieve data of your [StarLine](https://www.alarmstarline.com/) security system from the [StarLine portal](https://my.starline.ru/). You will need a working StarLine account.

@@ -1,14 +1,7 @@
 ---
-title: Default Config
 description: The default configuration integration sets up a default set of integrations for Home Assistant.
-ha_category:
-  - Other
 ha_release: 0.88
 ha_domain: default_config
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: system
 ---
 
 This {% term integration %} is a meta integration that configures a default set of integrations for Home Assistant to load. The following integrations are loaded:

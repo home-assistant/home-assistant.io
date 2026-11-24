@@ -5,7 +5,7 @@ domain: volvo
 description: "Retrieves the URL for one or more vehicle-specific images."
 ---
 
-The **Get image URL** action retrieves the URLs of images of your vehicle from a specific angle. You can request all available images at once, or pick one or more specific angles.
+The **Volvo: Get image URL** action retrieves the URLs of images of your vehicle from a specific angle. You can request all available images at once, or pick one or more specific angles.
 
 This action returns [response data](#response-data) and does not change anything on your vehicle.
 

@@ -1,23 +1,7 @@
 ---
-title: Mealie
 description: Instructions on how to set up Mealie devices in Home Assistant.
-ha_category:
-  - Calendar
-  - To-do list
-ha_config_flow: true
 ha_release: 2024.7
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@joostlek'
-  - '@andrew-codechimp'
 ha_domain: mealie
-ha_platforms:
-  - calendar
-  - diagnostics
-  - sensor
-  - todo
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 [Mealie](https://mealie.io/) is an open source, self-hosted recipe manager, meal planner, and shopping list. The Mealie {% term integration %} will fetch and allow you to create and update data held in your Mealie instance.

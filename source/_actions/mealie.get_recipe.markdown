@@ -7,6 +7,7 @@ related_actions:
   - mealie.get_recipes
   - mealie.import_recipe
   - mealie.get_mealplan
+  - mealie.add_ingredient
 ---
 
 Use this action to get a recipe from Mealie by its ID or slug. The response includes the full details and steps for the recipe.

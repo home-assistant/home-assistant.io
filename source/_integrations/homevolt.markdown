@@ -1,25 +1,7 @@
 ---
-title: Homevolt
 description: Connect Homevolt batteries locally to expose sensors and controls in Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
-ha_iot_class: Local Polling
 ha_domain: homevolt
-ha_platforms:
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_config_flow: true
-ha_codeowners:
-  - '@danielhiversen'
-  - '@liudger'
-ha_integration_type: device
 ha_release: 2026.3
-ha_quality_scale: silver
-ha_zeroconf: true
 ---
 
 The **Homevolt** {% term integration %} lets Home Assistant read local data from your Homevolt battery over your network, no cloud required.
@@ -76,6 +58,10 @@ The {% term integration %} provides the following power controls:
 Each control accepts values from 0 to 11,000 W in 100 W increments.
 
 Controls are available only when **Local mode** is enabled. **Power setpoint** is available in **Inverter charge** and **Inverter discharge** modes. **Grid import limit** and **Grid export limit** are available in **Frequency reserve** mode. The number controls are unavailable in **Idle** and **Solar charge** modes.
+
+## Data updates
+
+The integration {% term polling polls %} the Homevolt battery every 15 seconds.
 
 ## Troubleshooting
 

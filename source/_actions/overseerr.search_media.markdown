@@ -5,7 +5,7 @@ domain: overseerr
 description: "Searches for media in Seerr."
 ---
 
-The **Search media** action searches for movies and series in Seerr. The results include the media ID that you need to create a media request with the [Request media](/actions/overseerr.request_media/) action.
+The **Seerr: Search media** action searches for movies and series in Seerr. The results include the media ID that you need to create a media request with the [Request media](/actions/overseerr.request_media/) action.
 
 This action returns its result in a response variable, which you can use in later steps, for example to request the first matching result.
 

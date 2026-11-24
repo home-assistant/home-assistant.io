@@ -20,7 +20,7 @@ To set the heater profile from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the water heater you want to set.
-6. From the actions shown for that target, select **OSO Energy: Set heater profile**.
+6. From the actions shown for that target, under **OSO Energy**, select **Set heater profile**.
 7. Set the target temperature for each hour you want to change.
 8. Select **Save**.
 

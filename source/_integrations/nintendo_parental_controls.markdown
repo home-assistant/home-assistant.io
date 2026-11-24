@@ -1,22 +1,7 @@
 ---
-title: Nintendo Switch parental controls
 description: The Nintendo Switch Parental Controls integration allows you to monitor and control screentime for children via the Nintendo Switch Parental Controls service.
 ha_release: 2025.11
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@pantherale0'
 ha_domain: nintendo_parental_controls
-ha_integration_type: service
-ha_platforms:
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_category:
-  - Gaming
-ha_quality_scale: bronze
-ha_config_flow: true
 ---
 
 The **Nintendo Switch Parental Controls** {% term integration %} integrates with the Nintendo Switch Parental Controls service, allowing parents to monitor and control screentime for their children.
@@ -98,6 +83,10 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
   - **Description**: The time that bedtime should end. Set to 00:00 to disable. Accepts values between 05:00 and 09:00 for the bedtime end time.
 
 {% include integrations/actions.md %}
+
+## Data updates
+
+The integration {% term polling polls %} Nintendo's servers every 60 seconds.
 
 ## Known limitations
 

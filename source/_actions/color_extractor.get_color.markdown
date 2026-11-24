@@ -7,7 +7,7 @@ related_actions:
   - color_extractor.turn_on
 ---
 
-The **Get predominant color** action extracts the predominant color from an image and returns it as response data. Unlike [Turn on](/actions/color_extractor.turn_on/), this action does not change any light. It only reports the color, so you can use the result however you like, for example to set a different light, store it, or drive another action.
+The **ColorExtractor: Get predominant color** action extracts the predominant color from an image and returns it as response data. Unlike [Turn on](/actions/color_extractor.turn_on/), this action does not change any light. It only reports the color, so you can use the result however you like, for example to set a different light, store it, or drive another action.
 
 To use the returned color in later steps, store it in a response variable. This action does not target an entity. Instead, you provide the image as a web URL or as a file on the system running Home Assistant.
 

@@ -7,7 +7,7 @@ related_actions:
   - growatt_server.write_ac_charge_times
 ---
 
-The **Read AC charge times** action reads the current AC charge periods from a supported SPH inverter and returns them as response data. This is useful when you want to check the current charge schedule before changing it.
+The **Growatt Server: Read AC charge times** action reads the current AC charge periods from a supported SPH inverter and returns them as response data. This is useful when you want to check the current charge schedule before changing it.
 
 {% include actions/ui_header.md %}
 
@@ -17,7 +17,7 @@ To read the AC charge times from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Growatt: Read AC charge times**.
+5. From the search box, search for and select **Growatt Server: Read AC charge times**.
 6. Choose the **Device**.
 7. Select **Save**.
 

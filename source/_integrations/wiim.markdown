@@ -1,20 +1,7 @@
 ---
-title: WiiM
 description: Instructions on how to integrate WiiM devices into Home Assistant.
-ha_category:
-  - Media player
 ha_domain: wiim
-ha_zeroconf: true
-ha_integration_type: device
 ha_release: 2026.4
-ha_codeowners:
-  - '@Linkplay2020'
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - media_player
-ha_iot_class: Local Push
-ha_quality_scale: platinum
 ---
 
 The **WiiM** {% term integration %} allows you to control different [WiiM](https://www.wiimhome.com) devices from Home Assistant.
@@ -39,6 +26,9 @@ The following WiiM devices are known to be supported:
 - WiiM Amp Pro
 - WiiM Ultra
 - WiiM Amp Ultra
+- WiiM Sound
+- WiiM Sound Lite
+- WiiM Bar
 - WiiM CI MOD S
 - WiiM CI MOD A80
 
@@ -68,6 +58,14 @@ The media player entity gives you complete control over your WiiM device from Ho
 - **Multiroom Audio**: Seamlessly group multiple WiiM devices to create synchronized multiroom playback. Use the standard Home Assistant services: `media_player.join` and `media_player.unjoin`.
 
 - **Media Browsing**: Browse presets, playlists, and the device’s current playback queue, enabling dynamic selection of media from the Home Assistant interface.
+
+### Audio output
+
+Devices with HTTP API support provide an **Audio Output** select entity. Use it to switch between the outputs reported by your device, such as Line Out or Optical Out. Available options depend on the device and its connected audio hardware.
+
+The select updates when the device reports an output change, including changes made in the WiiM app. It continues to receive updates when the media player entity is disabled.
+
+When the active output cannot be selected through this entity, its state is **Unknown**. If the device reports no selectable outputs, the entity is **Unavailable**.
 
 ## Examples
 
@@ -101,6 +99,19 @@ action: |
   data:
     group_members:
       - media_player.kitchen_wiim
+{% endexample %}
+
+### Select an audio output
+
+Use the `select.select_option` action with an option listed by your device's Audio Output entity:
+
+{% example %}
+action: |
+  action: select.select_option
+  target:
+    entity_id: select.living_room_wiim_audio_output
+  data:
+    option: "Optical Out"
 {% endexample %}
 
 ## Data updates

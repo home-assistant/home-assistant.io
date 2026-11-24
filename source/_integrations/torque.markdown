@@ -1,15 +1,7 @@
 ---
-title: Torque
 description: Instructions on how to integrate Torque sensors into Home Assistant.
-ha_category:
-  - Car
 ha_release: '0.10'
-ha_iot_class: Local Push
 ha_domain: torque
-ha_platforms:
-  - sensor
-ha_integration_type: integration
-ha_quality_scale: legacy
 ---
 
 The **Torque** {% term integration %} will allow you to monitor [Torque](https://torque-bhp.com/) data relayed from a Bluetooth OBD2 stick via the Torque mobile application.

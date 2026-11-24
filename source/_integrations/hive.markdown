@@ -1,30 +1,7 @@
 ---
-title: Hive
 description: Instructions on how to integrate Hive devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Hub
-  - Light
-  - Sensor
-  - Switch
-  - Water heater
 ha_release: 0.59
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@Rendili'
-  - '@KJonline'
 ha_domain: hive
-ha_platforms:
-  - binary_sensor
-  - climate
-  - light
-  - sensor
-  - switch
-  - water_heater
-ha_config_flow: true
-ha_integration_type: hub
-ha_homekit: true
 ---
 
 The **Hive** {% term integration %} for Home Assistant allows you to interact with supported devices and services offered by

@@ -22,7 +22,7 @@ To start the Morph effect from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Morph effect**.
+5. From the search box, search for and select **LIFX: Morph effect**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your LIFX lights are in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 7. Pick a value in **Theme**, or fill in **Palette** with your own colors. Use **Speed** to control how quickly the colors drift.
 8. Select **Save**.
@@ -98,7 +98,7 @@ The [Themes](/integrations/lifx/#themes) section of the LIFX integration page li
 - Each palette color is a list of four numbers in the order hue, saturation, brightness, Kelvin. A palette needs at least 2 and at most 16 colors. A saturation or brightness of 1 or less is read as a fraction, so `0.5` and `50` both mean 50%, and `1` means 100%, not 1%.
 - **Power on** is on by default, so a light that is off is turned on before the effect starts.
 - To stop the animation, use [Stop effect](/actions/lifx.effect_stop/).
-- You can also start this effect with default options by calling [Turn on a light](/actions/light.turn_on/) with the effect set to `effect_morph`.
+- You can also start this effect with default options by calling [Turn on light](/actions/light.turn_on/) with the effect set to `effect_morph`.
 
 {% include actions/try_it.md %}
 
@@ -109,15 +109,16 @@ The [Themes](/integrations/lifx/#themes) section of the LIFX integration page li
 Start a slow, warm Morph effect on the bedroom tiles at sunrise using your own palette of amber and gold.
 
 - **Trigger**: Sunrise
-- **Action**: Morph effect
+- **Action**: LIFX: Morph effect
   - **Target**: Bedroom tiles (`light.bedroom_tiles`)
+  - **Speed**: `20` seconds
+  - **Palette**: `[[40, 80, 60, 3500], [25, 90, 45, 2700], [55, 60, 70, 4000]]`
 
 {% example %}
 automation: |
   alias: "Sunrise morph in the bedroom"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   actions:
     - action: lifx.effect_morph
       target:
@@ -134,10 +135,12 @@ automation: |
 
 When someone rings the doorbell, run a fast, colorful Morph effect on the hallway tiles for 30 seconds, then stop it.
 
-- **Trigger**: Doorbell is pressed
-- **Action**: Morph effect
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
+- **Action**: LIFX: Morph effect
   - **Target**: Hallway tiles (`light.hallway_tiles`)
-- **Action**: Stop effect
+- **Action**: LIFX: Stop effect
   - **Target**: Hallway tiles (`light.hallway_tiles`)
 
 {% example %}

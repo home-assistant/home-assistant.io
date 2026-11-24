@@ -8,7 +8,7 @@ related_actions:
   - system_bridge.send_text
 ---
 
-The **Power command** action sends a power command to a System Bridge server, such as putting it to sleep, locking it, or shutting it down.
+The **System Bridge: Power command** action sends a power command to a System Bridge server, such as putting it to sleep, locking it, or shutting it down.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 

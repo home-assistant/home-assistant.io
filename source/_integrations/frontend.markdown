@@ -1,14 +1,7 @@
 ---
-title: Home Assistant frontend
 description: Provides the official frontend for Home Assistant.
-ha_category:
-  - Other
 ha_release: 0.7
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/frontend'
 ha_domain: frontend
-ha_integration_type: system
 ---
 
 The **Frontend** {% term integration %} provides the official frontend to control Home Assistant. It is enabled by default unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your {% term "`configuration.yaml`" %} file. If that is the case, enable it manually by adding the following to your configuration:
@@ -42,15 +35,15 @@ frontend:
     required: false
     type: list
   development_repo:
-    description: "Allows you to point to a directory containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. For more information, see [Frontend development](https://developers.home-assistant.io/docs/frontend/development)."
+    description: "Allows you to point to a directory containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. For more information, see [Frontend development](https://contributors.home-assistant.io/frontend/development/)."
     required: false
     type: string
   development_pr:
-    description: "Allows you to point to a specific frontend [pull request](https://github.com/home-assistant/frontend/pulls) containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. This requires `github_token` to be set. For more information, see [Frontend development](https://developers.home-assistant.io/docs/frontend/development#test-an-existing-pr)."
+    description: "Allows you to point to a specific frontend [pull request](https://github.com/home-assistant/frontend/pulls) containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. This requires `github_token` to be set. For more information, see [Frontend development](https://contributors.home-assistant.io/frontend/development/builds/#try-out-a-pull-request)."
     required: false
     type: integer
   github_token:
-    description: "GitHub token to use when fetching frontend files from a specific pull request. Required when `development_pr` is set. For more information, see [Creating a GitHub token](https://developers.home-assistant.io/docs/frontend/development#creating-a-github-token)."
+    description: "GitHub token to use when fetching frontend files from a specific pull request. Required when `development_pr` is set. For more information, see [Creating a GitHub token](https://contributors.home-assistant.io/frontend/development/builds/#create-a-github-token)."
     required: false
     type: string
 {% endconfiguration %}
@@ -108,6 +101,27 @@ frontend:
 ```
 
 The example above defines red color for open garage doors and brown color for inactive media players.
+
+### Panel, toolbar and table backgrounds
+
+The following variables are not set by default. If you leave them unset, the existing backgrounds remain unchanged.
+
+| Variable | Description |
+| -------- | ----------- |
+| `ha-panel-background` | Background of the area behind all panels, such as Settings, History, Logbook, Energy, Map and Profile. Accepts any CSS `background` value (color, gradient, image, including `fixed`). Dashboards are not affected, they keep using `lovelace-background`. |
+| `ha-panel-toolbar-background` | Background of the sticky search bars (Integrations, Installed apps) and of the tab bars in the automation and script traces. | 
+| `ha-data-table-background` | Background of data tables, including the group headers of grouped tables. |
+
+```yaml
+frontend:
+  themes:
+    my_theme:
+      ha-panel-background: "linear-gradient(135deg, #1e3c72, #2a5298) fixed"
+      ha-panel-toolbar-background: "rgba(0, 0, 0, 0.3)"
+      ha-data-table-background: "transparent"
+```
+
+Surfaces such as cards, menus and form fields keep their own colors. To see the panel background through cards, also set `ha-card-background` to a semi-transparent value.
 
 ### Unsupported theme variables
 

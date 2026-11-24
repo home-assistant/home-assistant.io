@@ -7,7 +7,7 @@ related_actions:
   - xiaomi_miio.light_reminder_off
 ---
 
-The **Light reminder on** action enables the eye fatigue reminder notification. This action only works with the Philips Eyecare Smart Lamp 2.
+The **Xiaomi Home: Light reminder on** action enables the eye fatigue reminder notification. This action only works with the Philips Eyecare Smart Lamp 2.
 
 {% include actions/ui_header.md %}
 
