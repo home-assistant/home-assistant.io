@@ -89,13 +89,13 @@ The integration {% term polling polls %} Météo-France for new data:
 - Rain within the next hour: every 5 minutes.
 - Weather alerts: every 15 minutes.
 
-## Examples
+## Météo-France automation examples
 
 {% include docs/paste_yaml_tip.md %}
 
 The examples below use the entities of a location named Paris. Replace them with your own.
 
-### Notify on orange or red weather alerts
+### Automation: Notify on orange or red weather alerts
 
 {% details "YAML example for weather alert notifications" %}
 
