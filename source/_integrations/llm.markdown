@@ -184,7 +184,7 @@ To find an area, a floor, or a label, the conversation agent first uses **Search
 
 To find a device or an entity, the conversation agent first uses **Search Home Assistant**.
 
-- **Get device settings** (`config__get_device_settings`): Returns the settings of a {% term device %}. These are the name from the integration, the name that you gave it, the area, the labels, and whether the device is disabled. It also returns the manufacturer and the model. For a [child device](/docs/configuration/customizing-entities/#parent-and-child-devices), it returns the ID of its parent device instead. Only reads.
+- **Get device settings** (`config__get_device_settings`): Returns the settings of a {% term device %}. These are the name from the integration, the name that you gave it, the area, the labels, and whether the device is disabled. It also returns the manufacturer and the model. A [child device](/docs/configuration/customizing-entities/#parent-and-child-devices) has no manufacturer and model. For a child device, it also returns the ID of its parent device. Only reads.
   - To do this yourself: Go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}, and select the device.
 - **Update device settings** (`config__update_device_settings`): Changes the name, the area, and the labels of a device. It can also disable or enable the device. A disabled device also disables its entities. It only changes the settings it's asked to change. Changes things.
   - To do this yourself: Refer to [Renaming a device](/docs/configuration/customizing-entities/#renaming-a-device) and [Assigning a device or entity to an area](/docs/organizing/areas/#assigning-a-device-or-entity-to-an-area).
