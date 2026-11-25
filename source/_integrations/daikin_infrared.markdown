@@ -1,18 +1,7 @@
 ---
-title: Daikin Infrared
 description: Integration to control Daikin air conditioners using an infrared emitter and to follow the Daikin remote using an infrared receiver.
-ha_categories:
-  - climate.heat_pumps_air_conditioning
-ha_release: 2026.12
-ha_iot_class: Assumed State
-ha_codeowners:
-  - '@javitonino'
+ha_release: '2026.12'
 ha_domain: daikin_infrared
-ha_config_flow: true
-ha_platforms:
-  - climate
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **Daikin Infrared** {% term integration %} lets you control a Daikin air conditioner from Home Assistant using any infrared emitter previously configured in Home Assistant. If you also have an infrared receiver, the integration can follow the physical Daikin remote, so Home Assistant stays in sync when you use it.
@@ -173,7 +162,7 @@ The infrared signal is probably not reaching the air conditioner. Infrared relie
 
 #### Resolution
 
-Make sure the infrared emitter points at the indoor unit and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/integrations/infrared/#the-device-does-not-respond-to-commands) on the Infrared integration page.
+Make sure the infrared emitter points at the indoor unit and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/connectivity/infrared/#the-device-does-not-respond-to-commands).
 
 {% enddetails %}
 
@@ -189,7 +178,7 @@ Home Assistant only follows the remote when you selected an infrared receiver du
 
 #### Resolution
 
-Check that you selected an infrared receiver during setup. If you didn't, remove the air conditioner from the integration and add it again with a receiver. Then make sure the receiver can see the remote when you use it, for example by placing it near the indoor unit. For more steps, refer to [An infrared receiver does not pick up signals](/integrations/infrared/#an-infrared-receiver-does-not-pick-up-signals) on the Infrared integration page.
+Check that you selected an infrared receiver during setup. If you didn't, remove the air conditioner from the integration and add it again with a receiver. Then make sure the receiver can see the remote when you use it, for example, by placing it near the indoor unit. For more steps, refer to [An infrared receiver does not pick up signals](/connectivity/infrared/#an-infrared-receiver-does-not-pick-up-signals).
 
 {% enddetails %}
 
