@@ -55,34 +55,25 @@ The **Schlage** integration provides the following entities for each lock.
 
 ### Binary sensors
 
-- **Keypad disabled**
-  - **Description**: Indicates that the keypad has been disabled because too many incorrect codes were entered.
-  - **Remarks**: Turns off again when the lock records a newer event in its activity log.
+- **Keypad disabled**: Indicates that the keypad has been disabled because too many incorrect codes were entered. Turns off again when the lock records a newer event in its activity log.
 
 ### Locks
 
-- **Lock**
-  - **Description**: Locks and unlocks the lock, and shows whether it is locked, unlocked, or jammed. The entity has the same name as the lock itself.
-  - **Remarks**: The `changed_by` attribute shows what last changed the lock, such as the thumbturn, the keypad, or a mobile device.
+- **Lock**: Locks and unlocks the lock, and shows whether it is locked, unlocked, or jammed. The entity has the same name as the lock itself. The `changed_by` attribute shows what last changed the lock, such as the thumbturn, the keypad, or a mobile device.
 
 ### Selects
 
-- **Auto-lock time**
-  - **Description**: How long the lock waits before it locks itself.
+- **Auto-lock time**: How long the lock waits before it locks itself. Each lock model accepts only some of the following options. Refer to [Known limitations](#known-limitations).
   - **Options**: Disabled, 5 seconds, 15 seconds, 30 seconds, 1 minute, 2 minutes, 4 minutes, 5 minutes, 6 minutes, 10 minutes, 15 minutes, 30 minutes
-  - **Remarks**: Each lock model accepts only some of these options. Refer to [Known limitations](#known-limitations).
 
 ### Sensors
 
-- **Battery**
-  - **Description**: The remaining battery level of the lock, as a percentage.
+- **Battery**: The remaining battery level of the lock, as a percentage.
 
 ### Switches
 
-- **1-touch locking**
-  - **Description**: When turned on, you can lock the door from the outside with a press of the Schlage button.
-- **Keypress beep**
-  - **Description**: When turned on, the lock beeps when you press a key.
+- **1-touch locking**: When turned on, you can lock the door from the outside with a press of the Schlage button.
+- **Keypress beep**: When turned on, the lock beeps when you press a key.
 
 {% include integrations/actions.md %}
 
