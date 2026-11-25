@@ -1,7 +1,7 @@
 ---
 title: Bambu Lab
 description: Instructions on how to follow your Bambu Lab 3D printer in Home Assistant, over your local network.
-ha_release: 2026.12
+ha_release: 2027.1
 ha_categories:
   - computers_network.printers
 ha_iot_class: Local Push
