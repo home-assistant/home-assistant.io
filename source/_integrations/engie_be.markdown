@@ -159,7 +159,7 @@ The integration could not look up your tariff while it was starting, for example
 
 ### The capacity tariff peak sensors show an old peak
 
-Early in the month, ENGIE has not published a peak for the current month yet, so the monthly sensors show the previous month's peak until the new one is published.
+Early in the month, ENGIE has not yet published a peak for the current month, so the monthly sensors show the previous month's peak until the new one is published. To check which peak you are seeing, look at the **Capacity tariff monthly peak start** sensor, which shows when that peak started.
 
 ## Removing the integration
 
