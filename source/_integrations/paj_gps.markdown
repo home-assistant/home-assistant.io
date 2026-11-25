@@ -1,19 +1,7 @@
 ---
-title: PAJ GPS
 description: Instructions on how to integrate PAJ GPS devices into Home Assistant.
-ha_categories:
-  - presence_location.trackers
 ha_release: 2026.6
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@skipperro'
 ha_domain: paj_gps
-ha_platforms:
-  - device_tracker
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **PAJ GPS** {% term integration %} allows you to incorporate PAJ GPS devices from <www.paj-gps.de> into your Home Assistant.

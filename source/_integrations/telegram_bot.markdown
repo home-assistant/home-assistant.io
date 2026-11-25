@@ -1,20 +1,7 @@
 ---
-title: Telegram bot
 description: Telegram bot support
-ha_categories:
-  - messaging_notifications.chat_apps
 ha_release: 0.42
-ha_iot_class: Cloud Push
-ha_config_flow: true
 ha_domain: telegram_bot
-ha_integration_type: service
-ha_quality_scale: gold
-ha_codeowners:
-  - '@hanwg'
-ha_platforms:
-  - diagnostics
-  - event
-  - notify
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
@@ -199,26 +186,6 @@ data:
 {% enddetails %}
 
 {% include integrations/actions.md %}
-
-## Telegram notification platform
-
-{% warning %}
-
-The notification platform has been marked as legacy and might be deprecated in the future.
-Please use [notifiers](./#notifiers) instead.
-
-{% endwarning %}
-
-The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents, and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag`, `disable_web_page_preview`, and `message_thread_id` are also supported.
-
-The required YAML configuration now reduces to:
-
-```yaml
-notify:
-  - platform: telegram
-    name: NOTIFIER_NAME
-    chat_id: USER_CHAT_ID
-```
 
 ## Event entity
 
@@ -422,11 +389,11 @@ actions:
   - action: notify.persistent_notification
     data:
       message: >-
-      Message received.
-      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
-      First name: {{ trigger.to_state.attributes.from_first }}
-      Last name : {{ trigger.to_state.attributes.from_last }}
-      Message   : {{ trigger.to_state.attributes.text }}
+        Message received.
+        Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+        First name: {{ trigger.to_state.attributes.from_first }}
+        Last name : {{ trigger.to_state.attributes.from_last }}
+        Message   : {{ trigger.to_state.attributes.text }}
 ```
 
 ### Event: Message sent
@@ -446,13 +413,13 @@ bot:
   id: "<id of the bot>"
   last_name: "<last name of the bot>"
   username: "<username of the bot>"
-chat_id: "<origin chat id>"
-from_first: "<first name of the sender>"
-from_last: "<last name of the sender>"
-id: "<message id>"
+chat_id: "<id of the chat the message was sent to>"
+message_id: "<message id>"
+message_tag: "<message tag>"
 message_thread_id: "<message thread id>"
-user_id: "<id of the sender>"
 ```
+
+`message_tag` and `message_thread_id` are only included when the action that sent the message set them.
 
 Example automation:
 
@@ -470,9 +437,9 @@ actions:
   - action: notify.persistent_notification
     data:
       message: >-
-      Bot sent a message.
-      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
-      Message ID: {{ trigger.to_state.attributes.message_id }}
+        Bot sent a message.
+        Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+        Message ID: {{ trigger.to_state.attributes.message_id }}
         
 ```
 

@@ -1,20 +1,7 @@
 ---
-title: Arcam FMJ Receivers
 description: Instructions on how to integrate Arcam FMJ Receivers into Home Assistant.
-ha_categories:
-  - media_entertainment.speakers_audio
 ha_release: 0.96
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@elupus'
 ha_domain: arcam_fmj
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - media_player
-  - sensor
-ha_integration_type: device
 ---
 
 The **Arcam FMJ Receivers** integration allows you to control [Arcam Receivers and Processors](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.

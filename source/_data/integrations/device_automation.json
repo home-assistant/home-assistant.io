@@ -1,0 +1,9 @@
+{
+  "domain": "device_automation",
+  "name": "Device automation",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

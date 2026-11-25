@@ -1,26 +1,7 @@
 ---
-title: SMLIGHT SLZB
 description: The SMLIGHT SLZB integration allows users to monitor and manage their SMLIGHT SLZB devices from directly within Home Assistant.
-ha_categories:
-  - hubs_protocols.wireless_protocols
 ha_release: 2024.9
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: smlight
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - sensor
-  - switch
-  - update
-ha_codeowners:
-  - '@tl-sl'
-ha_integration_type: device
-ha_dhcp: true
-ha_quality_scale: platinum
 ---
 
 The **SMLIGHT SLZB** {% term integration %} allows you to monitor and manage your [SLZB](https://smlight.tech/) devices directly from Home Assistant. This integration provides direct access to many features available in the SLZB device's web UI, such as managing firmware updates, monitoring device health through diagnostic sensors, and controlling settings like LED modes or restarting the device.
@@ -142,7 +123,7 @@ For more details, see the [Infrared integration](/integrations/infrared/).
 
 SMLIGHT SLZB U-series devices running SLZB-OS can act as a Bluetooth remote adapter (proxy). They scan for and forward Bluetooth advertisement data to Home Assistant.
 
-To use the Bluetooth remote adapter, select a [scanning mode](/integrations/bluetooth/#scanning-modes) in the integration options:
+To use the Bluetooth remote adapter, select a [scanning mode](/connectivity/bluetooth/#scanning-modes) in the integration options:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select **Configure** on the **SMLIGHT SLZB** card.
@@ -158,7 +139,7 @@ Changing the mode from **Disabled** to another mode, or back to **Disabled**, re
 SMLIGHT devices do _not_ support proxying active (GATT) connections.
 {% endtip %}
 
-For more details, see [Remote adapters (Bluetooth proxies)](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
+For more details, see [Remote adapters (Bluetooth proxies)](/connectivity/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
 
 ## Actions
 

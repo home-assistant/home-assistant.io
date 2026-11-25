@@ -14,7 +14,7 @@ Some integration cards show an icon:
 
 - The globe icon <img height="28px" src="/images/getting-started/globe-icon.png" alt="Globe icon"/> indicates that this integration requires the internet.
 - The file icon <img height="28px" src="/images/getting-started/config-file_icon.png" alt="Configuration file icon"/> indicates that this integration was not set up via the UI. You have either set it up in your {% term "`configuration.yaml`" %} file, or it is a dependency set up by another integration. If you want to configure it, you will need to do so in your {% term "`configuration.yaml`" %} file.
-- The custom icon <img height="28px" src="/images/getting-started/custom-icon.png" alt="Custom icon"/> indicates that this is not an official Home Assistant integration but that it was custom made. It could be imported from another source, for example downloaded from HACS.
+- The custom icon <img height="28px" src="/images/getting-started/custom-icon.png" alt="Custom icon"/> indicates that this is not an official Home Assistant integration but that it was custom made. It could be installed from another source, for example from the [Marketplace](/integrations/marketplace/) (formerly known as HACS).
 
 For a full list of compatible {% term integrations %}, refer to the [integrations](/integrations) documentation.
 
@@ -76,12 +76,8 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ## Apps
 
-Apps are third-party applications that extend Home Assistant with additional functionality. They run alongside Home Assistant on the same system and are installed and managed from Home Assistant. Apps are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
-
-Apps are installed from the app store under {% my supervisor title="**Settings** > **Apps**" %}. If you are curious now and feel like installing every app that looks interesting: beware that apps can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
+Apps are applications that run alongside Home Assistant on the same system, such as a file editor. Apps are only available on {% term "Home Assistant Operating System" %}. For details, refer to [Apps and integrations](/docs/apps-and-integrations/#apps).
 
 Among the most used apps are the ones that provide [file access and edit files](/docs/configuration/#to-set-up-access-to-the-files-and-prepare-an-editor) in Home Assistant.
-
-<p class='img'><img src='/images/getting-started/app-store.png' style='border: 0;box-shadow: none;' alt="Screenshot of the app store, showing all the installable apps">Screenshot of the app store, showing all the installable apps.</p>
 
 {% include getting-started/next_step.html step="Edit the dashboard" link="/getting-started/onboarding_dashboard/" %}

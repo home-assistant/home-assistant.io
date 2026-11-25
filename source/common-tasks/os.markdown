@@ -108,7 +108,6 @@ Alternatively, if the Operating Systems runs on a platform that uses the GRUB bo
 
 {% include common-tasks/network_storage.md %}
 {% include common-tasks/lost_password.md %}
-{% include common-tasks/third-party-addons.md %}
 {% include common-tasks/configuration_check.md %}
 
 ## Home Assistant versions
@@ -131,21 +130,3 @@ For more information, refer to the [Labs documentation](/integrations/labs).
 
 <!-- Accessing Home Assistant from the commandline-->
 {% include common-tasks/commandline.md %}
-
-## Enable duplicate log file
-
-By default, Home Assistant Core logs are sent to the Systemd Journal, which can be read using the [`ha core logs` command](/common-tasks/os/#home-assistant-via-the-command-line). If you need logs to also be written to a file (`/config/home-assistant.log`), you can enable the duplicated log file option using the [command line](/common-tasks/os/#home-assistant-via-the-command-line):
-
-```bash
-ha core options --duplicate-log-file=true
-ha core rebuild
-ha core restart
-```
-
-To disable it:
-
-```bash
-ha core options --duplicate-log-file=false
-ha core rebuild
-ha core restart
-```

@@ -1,17 +1,7 @@
 ---
-title: Google Drive
 description: Instructions on how to use Google Drive in Home Assistant.
-ha_categories:
-  - computers_network.cloud_developer_tools
-  - productivity_information.documents_photos
-ha_iot_class: Cloud Polling
 ha_release: '2025.2'
-ha_config_flow: true
 ha_domain: google_drive
-ha_codeowners:
-  - '@tronikos'
-ha_integration_type: service
-ha_quality_scale: platinum
 api: Google Drive API
 api_link: https://console.cloud.google.com/apis/library/drive.googleapis.com
 related:
@@ -21,9 +11,6 @@ related:
     title: Google Drive
   - url: https://console.cloud.google.com/apis/library/drive.googleapis.com
     title: Google Cloud console
-ha_platforms:
-  - diagnostics
-  - sensor
 ---
 
 This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with [Home Assistant Backups](/common-tasks/general/backups/).

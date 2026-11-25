@@ -59,6 +59,7 @@ value:
 ## Good to know
 
 - The value must be within the `min` and `max` range you configured for the input number, and it follows the configured `step`.
+- If the input number has a device class, enter the value in the unit the state is shown in. Home Assistant converts it to the helper's own unit. For more information, see [Unit conversion](/integrations/input_number/#unit-conversion).
 
 {% include actions/try_it.md %}
 

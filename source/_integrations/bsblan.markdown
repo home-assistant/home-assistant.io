@@ -1,24 +1,7 @@
 ---
-title: BSB-LAN
 description: Instructions on how to integrate BSBLan device into Home Assistant.
-ha_categories:
-  - climate.thermostats_heating
-  - diy_makers.boards_hardware
 ha_release: '0.110'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@liudger'
 ha_domain: bsblan
-ha_platforms:
-  - button
-  - climate
-  - diagnostics
-  - sensor
-  - water_heater
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: silver
 ---
 
 The **BSB-LAN** {% term integration %} integrates [BSB-LAN](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
@@ -232,3 +215,7 @@ To see a more detailed listing of the reported systems which are successfully us
 [Supported heating systems](https://docs.bsb-lan.de/supported_heating_systems.html)
 
 The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed. For autodiscovery, use the latest release: [release 5.0](https://github.com/fredlcore/bsb-lan/releases/tag/v5.0).
+
+## Data updates
+
+The integration {% term polling polls %} the BSB-LAN device every 12 seconds for state and sensor values, and every 5 minutes for the domestic hot water settings. Each schedule is read at startup and again after Home Assistant writes that schedule.

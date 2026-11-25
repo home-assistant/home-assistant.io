@@ -11,6 +11,8 @@
   {% include asides/docs_navigation.html %}
 {% elsif root == 'integrations' %}
   {% include asides/component_navigation.html %}
+{% elsif root == 'connectivity' %}
+  {% include asides/connectivity_navigation.html %}
 
 {% elsif root == 'getting-started' %}
   {% include asides/getting_started_navigation.html %}
@@ -32,8 +34,6 @@
   {% include asides/help_navigation.html %}
 {% elsif root == 'faq' %}
   {% include asides/faq_navigation.html %}
-{% elsif root == 'hassio' or root == 'apps' %}
-  {% include asides/apps_navigation.html %}
 {% elsif root == 'cloud' %}
   {% include asides/cloud_navigation.html %}
 {% elsif root == 'conference' %}

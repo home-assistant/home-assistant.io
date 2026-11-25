@@ -1,22 +1,7 @@
 ---
-title: Workday
 description: Check whether today, or a day you choose, is a workday, based on your workdays and the public holidays of your country.
-ha_categories:
-  - productivity_information.calendars_todos
-  - helpers.calculate_value
-ha_iot_class: Local Polling
 ha_release: 0.41
-ha_quality_scale: internal
-ha_config_flow: true
-ha_codeowners:
-  - '@fabaff'
-  - '@gjohansson-ST'
 ha_domain: workday
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - diagnostics
-ha_integration_type: service
 ---
 
 The **Workday** {% term integration %} indicates whether a day is a workday or not. By default, it checks today. With the **Offset** option, it can check a later or earlier day instead, such as tomorrow.

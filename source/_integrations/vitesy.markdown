@@ -1,21 +1,7 @@
 ---
-title: Vitesy
 description: Instructions on how to integrate Vitesy devices into Home Assistant.
-ha_categories:
-  - climate.air_purifiers_humidifiers
 ha_release: '2026.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@chemelli74'
 ha_domain: vitesy
-ha_platforms:
-  - binary_sensor
-  - button
-  - select
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Vitesy** {% term integration %} connects Home Assistant to your [Vitesy](https://vitesy.com/) air quality devices through the Vitesy Hub cloud service.
@@ -74,6 +60,14 @@ Each device in your Vitesy Hub account is added as a separate device in Home Ass
 - **Battery**
   - **Description**: Battery charge level. Shown as diagnostic information on the device page.
   - **Available for**: Shelfy
+- **Fan speed**
+  - **Description**: Fan speed of the program the device is running: **Low**, **Medium**, or **High**. Shown as diagnostic information on the device page.
+  - **Available for**: Devices whose active program reports a fan speed
+- **Power level**
+  - **Description**: Power level of the program the device is running: **Low**, **Medium**, or **High**. Shown as diagnostic information on the device page.
+  - **Available for**: Devices whose active program reports a power level
+- **Last update**
+  - **Description**: When the device last sent a measurement to Vitesy Hub. Shown as diagnostic information on the device page. This sensor is disabled by default.
 - **Filter change due**
   - **Description**: Date the purification filter is next due to be cleaned or replaced. Shown as diagnostic information on the device page.
 - **Fridge cleaning due**

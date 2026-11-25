@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How we'll build the device database, together"
+title: "How we’ll build the device database, together"
 description: "We're building a device database to help everyone make better choices for their smart home. Discover our plans and how you can help shape them."
 date: 2026-02-02 00:00:00
 date_formatted: "February 2, 2026"

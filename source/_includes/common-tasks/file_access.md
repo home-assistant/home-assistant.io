@@ -66,6 +66,7 @@ To install and use the **Studio Code Server** app, follow these steps:
 
 1. Go to {% my supervisor_addon title="**Settings** > **Apps** > **Studio Code Server**" addon="a0d7b954_vscode" %} and select **Install**.
 2. Optional: On the **Info** tab, turn on **Show in sidebar**.
+   - For what this option does, refer to [App options](/common-tasks/os/apps/#app-options).
 3. On the **Info** tab, select **Start**.
 4. For information on configuration settings, open the **Documentation** tab.
 5. To start browsing, on the **Info** tab, select **Open Web UI**.

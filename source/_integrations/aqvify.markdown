@@ -1,24 +1,12 @@
 ---
-title: Aqvify
 description: Instructions on how to set up Aqvify devices within Home Assistant.
-ha_categories:
-  - water
 ha_release: 2026.7
-ha_iot_class: Cloud Polling
 ha_domain: aqvify
-ha_codeowners:
-  - '@astrandb'
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_config_flow: true
-ha_integration_type: hub
 related:
   - url: https://www.aqvify.com/
     title: Aqvify web
   - url: https://app.aqvify.com/
     title: Aqvify user account
-ha_quality_scale: platinum
 ---
 
 The **Aqvify** {% term integration %} allows users to integrate their [Aqvify](https://www.aqvify.com) water well and tank sensors using the [official public API](https://public.aqvify.com/swagger/index.html).
@@ -69,7 +57,7 @@ automation: |
 
 ## Data updates
 
-The integration will poll the API for data every 60 seconds. This polling interval is designed to work within the rate limits of Aqvify APIs while providing timely updates.
+The integration polls the API for device data every 5 minutes, and for the previous hour's aggregated values every 30 minutes. These polling intervals are designed to work within the rate limits of Aqvify APIs while providing timely updates.
 
 ## Troubleshooting
 

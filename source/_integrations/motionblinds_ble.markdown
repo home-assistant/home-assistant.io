@@ -1,22 +1,7 @@
 ---
-title: Motionblinds Bluetooth
 description: Instructions on how to integrate Motionblinds Bluetooth motors into Home Assistant.
-ha_categories:
-  - blinds_curtains
-ha_iot_class: Assumed State
 ha_release: 2024.4
 ha_domain: motionblinds_ble
-ha_codeowners:
-  - '@LennP'
-  - '@jerrybboy'
-ha_config_flow: true
-ha_platforms:
-  - button
-  - cover
-  - diagnostics
-  - select
-  - sensor
-ha_integration_type: device
 ---
 
 This {% term integration %} adds support for [Motionblinds](https://motionblinds.com/) Bluetooth motors. Want to motorize your existing blinds? This can be done with Motionblinds motor CMD-03. Made-to-measure window coverings with Motionblinds are available through a worldwide reseller network.

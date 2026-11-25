@@ -1,19 +1,7 @@
 ---
-title: Airthings BLE
 description: Instructions on how to set up Airthings Devices over Bluetooth LE.
-ha_categories:
-  - sensors.air_quality
 ha_release: '2022.11'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@vincegio'
-  - '@LaStrada'
 ha_domain: airthings_ble
-ha_bluetooth: true
-ha_platforms:
-  - sensor
-ha_config_flow: true
-ha_integration_type: device
 ---
 
 Integrates Airthings BLE {% term sensors %} into Home Assistant.
@@ -22,7 +10,7 @@ Integrates Airthings BLE {% term sensors %} into Home Assistant.
 
 ## Prerequisites
 
-- A supported Airthings device (see [Supported devices](#supported-devices)) within Bluetooth range of your Home Assistant host, or of a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) that supports active connections.
+- A supported Airthings device (see [Supported devices](#supported-devices)) within Bluetooth range of your Home Assistant host, or of a [Bluetooth proxy](/connectivity/bluetooth/#remote-adapters-bluetooth-proxies) that supports active connections.
 - A working [Bluetooth](/integrations/bluetooth) integration.
 - The device must use Bluetooth connectivity. All supported devices except Wave Gen. 1 can connect through SmartLink instead, using a nearby Airthings device as a hub.
   - Bluetooth is then turned on only briefly after you wave at the device or press its button, and Home Assistant can't read it.
@@ -71,6 +59,7 @@ Sensor entities added to Home Assistant, depending on the device model:
 - Illuminance
 - Pressure (relative depending on home elevation)
 - Radon 1-day and longterm average, as well as levels
+- Radon 7-day, 30-day, and 1-year average, as well as levels (Corentium Home 2). The 7-day and 30-day sensors are disabled by default.
 - Temperature
 - VOC
 - Co2

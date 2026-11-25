@@ -1,20 +1,7 @@
 ---
-title: Blue Current
 description: Instructions on how to integrate Blue Current charge points within Home Assistant.
-ha_categories:
-  - energy.ev_charging
 ha_release: 2024.1
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@gleeuwen'
-  - '@jtodorova23'
 ha_domain: blue_current
-ha_platforms:
-  - button
-  - sensor
-  - switch
-ha_integration_type: hub
 ---
 
 [Blue Current](https://www.bluecurrent.nl/) is an Dutch company that makes electric car chargers.

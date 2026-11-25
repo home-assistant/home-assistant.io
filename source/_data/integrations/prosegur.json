@@ -1,0 +1,21 @@
+{
+  "domain": "prosegur",
+  "name": "Prosegur Alarm",
+  "integration_type": "hub",
+  "codeowners": [
+    "@dgomes"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "security_safety.alarm_systems"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "camera",
+    "diagnostics"
+  ]
+}

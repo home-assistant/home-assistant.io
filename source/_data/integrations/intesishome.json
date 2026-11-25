@@ -1,0 +1,18 @@
+{
+  "domain": "intesishome",
+  "name": "IntesisHome",
+  "codeowners": [
+    "@jnimmo"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "climate"
+  ]
+}

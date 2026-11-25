@@ -1,22 +1,10 @@
 ---
-title: OneDrive
 description: Instructions on how to set up OneDrive to be used with backups.
 ha_release: 2025.2
-ha_categories:
-  - productivity_information.documents_photos
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: onedrive
-ha_codeowners:
-  - '@zweckj'
-ha_integration_type: service
 related:
   - docs: /common-tasks/general/backups/
     title: Backups
-ha_quality_scale: platinum
-ha_platforms:
-  - diagnostics
-  - sensor
 ---
 
 This {% term integration %} allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/backups/) as well as uploading generic files to your OneDrive.

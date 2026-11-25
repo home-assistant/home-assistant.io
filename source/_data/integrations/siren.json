@@ -1,0 +1,10 @@
+{
+  "domain": "siren",
+  "name": "Siren",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core",
+    "@raman325"
+  ],
+  "quality_scale": "internal"
+}

@@ -1,23 +1,12 @@
 ---
-title: llama.cpp
 description: Instructions on how to integrate llama.cpp (and other OpenAI-compatible servers) as a conversation agent.
-ha_categories:
-  - ai_voice.ai_models
 ha_release: 2026.8
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: llama_cpp
-ha_integration_type: service
-ha_platforms:
-  - conversation
 related:
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing entities to Assist
+    title: Exposing entities to voice assistants
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Create an AI personality
-ha_quality_scale: bronze
-ha_codeowners:
-  - '@allenporter'
 ---
 
 The **llama.cpp** {% term integration %} allows you to use a local or remote server that implements the OpenAI-compatible chat completions API as a conversation agent in Home Assistant.
@@ -32,9 +21,9 @@ If you are using Ollama, you should prefer the official [Ollama](/integrations/o
 If you are using OpenRouter, you should prefer the official [OpenRouter](/integrations/open_router/) integration.
 {% endnote %}
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/triggers/conversation/).
+When you talk to a llama.cpp conversation agent through an {% term assistant %}, Home Assistant first checks your [sentence triggers](/triggers/conversation/). If one of them matches, the sentence trigger answers, and the conversation agent doesn't get the sentence. Sentence triggers don't run when you call the conversation agent directly, for example with the `conversation.process` action. They also don't run when you answer a follow-up question from the conversation agent.
 
 ## Prerequisites
 
@@ -64,8 +53,8 @@ The conversation agent has the following configuration options:
 {% configuration_basic %}
 Instructions:
   description: "Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/)."
-Control Home Assistant:
-  description: "Select the level of control over Home Assistant. The model can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it."
+AI tools:
+  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices."
 Recommended model settings:
   description: "Select whether to use recommended model settings. If enabled, default values are used for max tokens, temperature, and top P."
 {% endconfiguration_basic %}

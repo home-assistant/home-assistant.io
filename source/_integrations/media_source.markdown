@@ -1,14 +1,9 @@
 ---
-title: Media source
 description: Instructions on how to access your media with Home Assistant.
 ha_release: 0.115
 ha_domain: media_source
 ha_categories:
   - media_entertainment
-ha_codeowners:
-  - '@hunterjm'
-ha_quality_scale: internal
-ha_integration_type: system
 related:
   - docs: /more-info/local-media/setup-media/
     title: Setting up local media sources

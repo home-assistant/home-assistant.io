@@ -1,18 +1,7 @@
 ---
-title: Sonarr
 description: Instructions on how to integrate Sonarr with Home Assistant.
-ha_categories:
-  - media_entertainment.tv_streaming
 ha_release: 0.34
-ha_iot_class: Local Polling
 ha_domain: sonarr
-ha_config_flow: true
-ha_codeowners:
-  - '@ctalkington'
-ha_platforms:
-  - calendar
-  - sensor
-ha_integration_type: service
 ---
 
 The **Sonarr** {% term integration %} pulls data from a given [Sonarr](https://sonarr.tv/) instance.

@@ -1,22 +1,7 @@
 ---
-title: ScorpionTrack
 description: Instructions on how to integrate ScorpionTrack shared vehicle locations, speeds, and ignition states into Home Assistant.
-ha_categories:
-  - vehicles_transport.cars_evs
-  - presence_location.trackers
 ha_release: 2026.8
-ha_iot_class: Cloud Polling
 ha_domain: scorpiontrack
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - diagnostics
-  - sensor
-ha_config_flow: true
-ha_integration_type: hub
-ha_codeowners:
-  - '@Herbertmt978'
-ha_quality_scale: silver
 ---
 
 The **ScorpionTrack** {% term integration %} lets Home Assistant follow the location, speed, and ignition state of vehicles that have been shared through a public ScorpionTrack shared-location link.
@@ -54,6 +39,18 @@ You can paste either the full shared-location URL or just the token from that UR
 Share URL or token:
   description: "Paste the full ScorpionTrack shared-location URL or only the token from that URL."
 {% endconfiguration_basic %}
+
+## Reconfigure the share
+
+To check or update the link for an existing share:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select **ScorpionTrack**, then select the three dots {% icon "mdi:dots-vertical" %} menu for the share.
+3. Select **Reconfigure** and enter the share URL or token.
+
+Home Assistant checks the link before saving it and reloads the existing integration entry. The link must identify the same share. To use a different share, add it as a new integration entry.
+
+Reconfiguration does not renew or restore a share in ScorpionTrack.
 
 ## Supported functionality
 

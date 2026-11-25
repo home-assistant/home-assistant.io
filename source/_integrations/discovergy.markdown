@@ -1,19 +1,7 @@
 ---
-title: inexogy
 description: Instructions on how to integrate inexogy smart meters within Home Assistant.
-ha_categories:
-  - energy.meters_monitoring
 ha_release: '2023.7'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@jpbede'
 ha_domain: discovergy
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **inexogy** {% term integration %} allows users to integrate their [inexogy](https://inexogy.com/) smart meters into Home Assistant.

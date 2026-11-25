@@ -1,0 +1,15 @@
+{
+  "domain": "fixer",
+  "name": "Fixer",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "finance"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

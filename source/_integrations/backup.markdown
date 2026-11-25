@@ -1,19 +1,7 @@
 ---
-title: Backup
 description: Create and restore backups of your Home Assistant installation.
-ha_categories:
-  - computers_network
 ha_release: 2022.4
-ha_quality_scale: internal
 ha_domain: backup
-ha_codeowners:
-  - '@home-assistant/core'
-ha_iot_class: Calculated
-ha_platforms:
-  - diagnostics
-  - event
-  - sensor
-ha_integration_type: service
 related:
   - docs: /common-tasks/general/backups/
     title: Backups
@@ -88,6 +76,10 @@ The date and time of the last automatic backup that Home Assistant tried to crea
 ### Last successful automatic backup
 
 The date and time of the last automatic backup that Home Assistant created successfully.
+
+### Last successful automatic backup size
+
+The size of the last successful automatic backup, as it was created. You can use it to follow how the size of your backups changes over time, for example after changing what is included in them.
 
 ## Backup automation examples
 

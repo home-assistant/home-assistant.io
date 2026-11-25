@@ -1,20 +1,7 @@
 ---
-title: Yale Access Bluetooth
 description: Instructions on how to integrate Yale Access Bluetooth devices into Home Assistant.
-ha_categories:
-  - security_safety.locks_access
-ha_bluetooth: true
 ha_release: 2022.9
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@bdraco'
 ha_domain: yalexs_ble
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - lock
-  - sensor
-ha_integration_type: device
 ---
 
 Integrates [Yale Access](https://www.yalehome.com/us/en/products/smart-technology/yale-access) Bluetooth devices into Home Assistant.
@@ -55,7 +42,7 @@ Some Yale locks support a deadlock function (secure mode) for locking both the i
 
 ## Troubleshooting
 
-Lock operation requires setting up an encrypted connection highly sensitive to latency. It is recommended to use a [High-Performance Bluetooth adapter](/integrations/bluetooth/#known-working-high-performance-adapters) or [ESPHome Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) for stable operation.
+Lock operation requires setting up an encrypted connection highly sensitive to latency. It is recommended to use a [High-Performance Bluetooth adapter](/connectivity/bluetooth/#known-working-high-performance-adapters) or [ESPHome Bluetooth proxy](/connectivity/bluetooth/#remote-adapters-bluetooth-proxies) for stable operation.
 
 ## Push updates
 

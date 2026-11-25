@@ -1,12 +1,7 @@
 ---
-title: Device tracker
 description: Instructions on how to set up device tracking within Home Assistant.
 ha_release: 0.7
-ha_quality_scale: internal
 ha_domain: device_tracker
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
   - docs: /integrations/person/
     title: Person

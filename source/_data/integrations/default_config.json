@@ -1,0 +1,9 @@
+{
+  "domain": "default_config",
+  "name": "Default Config",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

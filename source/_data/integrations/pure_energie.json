@@ -1,0 +1,23 @@
+{
+  "domain": "pure_energie",
+  "name": "Pure Energie",
+  "integration_type": "device",
+  "codeowners": [
+    "@klaasnicolaas"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

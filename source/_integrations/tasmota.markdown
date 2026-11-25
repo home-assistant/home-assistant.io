@@ -1,24 +1,7 @@
 ---
-title: Tasmota
 description: Instructions on how to integrate Tasmota with Home Assistant.
-ha_categories:
-  - diy_makers
-  - plugs_switches
 ha_release: '0.117'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@emontnemery'
 ha_domain: tasmota
-ha_platforms:
-  - binary_sensor
-  - camera
-  - cover
-  - fan
-  - light
-  - sensor
-  - switch
-ha_integration_type: integration
 ---
 
 This {% term integration %} allows you to control [Tasmota](https://tasmota.github.io/docs/) devices over MQTT.

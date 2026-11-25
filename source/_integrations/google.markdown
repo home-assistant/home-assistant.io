@@ -1,18 +1,7 @@
 ---
-title: Google Calendar
 description: Instructions on how to use Google Calendar in Home Assistant.
-ha_categories:
-  - productivity_information.calendars_todos
-ha_iot_class: Cloud Polling
 ha_release: 0.33
-ha_config_flow: true
 ha_domain: google
-ha_platforms:
-  - calendar
-  - diagnostics
-ha_codeowners:
-  - '@allenporter'
-ha_integration_type: service
 api: Google Calendar API
 api_link: https://console.cloud.google.com/apis/library/calendar-json.googleapis.com
 ---
@@ -31,6 +20,13 @@ credentials but they will only work with Google Calendar.
 {% include integrations/config_flow.md %}
 
 {% include integrations/google_oauth.md %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Home Assistant access to Google Calendar:
+  description: "**Read/Write access (can create events)**, the default, lets Home Assistant create and delete events in the calendars you can edit. **Read-only access** only reads your calendars. After you change it, Home Assistant asks you to sign in to Google again, so that its access matches the new setting."
+{% endconfiguration_basic %}
 
 ## Troubleshooting
 

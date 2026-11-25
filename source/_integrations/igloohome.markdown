@@ -1,19 +1,7 @@
 ---
-title: igloohome
 description: Integrates igloohome smart access devices.
-ha_categories:
-  - security_safety.locks_access
 ha_release: 2025.2
-ha_config_flow: true
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@keithle888'
 ha_domain: igloohome
-ha_platforms:
-  - lock
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **igloohome** {% term integration %} grants Home Assistant access to paired [smart access device\(s\)](https://www.igloohome.co/#products) via the [igloodeveloper API](https://igloocompany.stoplight.io/docs/igloohome-api/1w1cuv56ge5xq-overview). The features of this integration include:
@@ -56,6 +44,10 @@ Client secret:
   required: true
   type: string
 {% endconfiguration_basic %}
+
+## Data updates
+
+The integration {% term polling polls %} the igloohome cloud every hour for battery levels. The lock entity shows an assumed lock state.
 
 ## Removing the integration
 
