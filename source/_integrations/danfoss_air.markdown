@@ -4,57 +4,70 @@ ha_release: 0.87
 ha_domain: danfoss_air
 ---
 
-The **Danfoss Air** {% term integration %} allows you to access information from your Danfoss Air HRV unit.
+The **Danfoss Air** {% term integration %} allows you to access information from your Danfoss Air HRV unit through its Air CCM module.
 
-*Note*: Danfoss Air CCM only accepts one TCP connection at a time. Due to this the integration will not work while you have the HRV PC-Tool open.
+{% note %}
+The Danfoss Air CCM only accepts one TCP connection at a time. Because of this, the integration will not work while you have the HRV PC-Tool open.
+{% endnote %}
 
-There is currently support for the following device types within Home Assistant:
+{% include integrations/config_flow.md %}
 
-- [Binary sensor](#binary-sensor)
-- [Sensor](#sensor)
-- [Switch](#switch)
+### Configuration parameters
 
-To enable Danfoss Air, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% configuration_basic %}
+Host:
+    description: "The hostname or IP address of the Danfoss Air CCM module. For example, `192.168.1.50`."
+{% endconfiguration_basic %}
 
-```yaml
-# Example configuration.yaml entry
-danfoss_air:
-  host: IP_ADDRESS_OF_CCM
-```
+If you configured Danfoss Air in your {% term "`configuration.yaml`" %} file, that configuration is imported automatically. Afterwards, remove the `danfoss_air` entry from your {% term "`configuration.yaml`" %} file.
 
-{% configuration %}
-host:
-  description: Danfoss Air CCM IP.
-  required: true
-  type: string
-{% endconfiguration %}
+## Supported functionality
 
-## Binary sensor
+### Binary sensors
 
-The following binary sensor is supported.
+- **Bypass active**
+  - **Description**: Whether heat recovery is currently bypassed.
+- **Away mode active**
+  - **Description**: Whether the unit is in away mode.
 
-- **Bypass active:** Indicator if heat recovery is currently bypassed.
+### Sensors
 
-## Sensor
+- **Outdoor temperature**
+  - **Description**: Outdoor air temperature.
+- **Supply temperature**
+  - **Description**: Temperature of the air supplied to the house.
+- **Extract temperature**
+  - **Description**: Temperature of the air extracted from the house.
+- **Exhaust temperature**
+  - **Description**: Temperature of the exhausted air.
+- **Remaining filter lifetime**
+  - **Description**: Remaining filter lifetime in percent.
+- **Humidity**
+  - **Description**: Relative humidity in percent.
+- **Fan step**
+  - **Description**: Fan step.
+- **Exhaust fan speed**
+  - **Description**: Speed of the exhaust fan.
+- **Supply fan speed**
+  - **Description**: Speed of the supply fan.
+- **Dial battery**
+  - **Description**: Battery level of the Air Dial in percent.
 
-The following sensors are supported.
+### Switches
 
-- **Outdoor temperature:** Outdoor air temperature.
-- **Supply temperature:** Air temperature of the air supplied to the house.
-- **Extract temperature:** Air temperature of the air extracted from the house.
-- **Exhaust temperature:** Exhausted air temperature.
-- **Remaining filter lifetime:** Remaining filter lifetime measured in percent.
-- **Humidity:** Relative humidity in percent.
-- **Fan step:** Fan step.
-- **Exhaust fan speed:** Exhausted fan speed.
-- **Supply fan speed:** Supply fan speed.
-- **Dial battery:** Dial battery level in percent.
+- **Boost**
+  - **Description**: Manually activates boost.
+- **Bypass**
+  - **Description**: Manually activates bypass.
+- **Automatic bypass**
+  - **Description**: Enables automatic bypass.
 
-## Switch
+## Data updates
 
-The following switches are supported.
+The integration polls the Danfoss Air CCM module for new data every 30 seconds, and reads all values at most once a minute. If the module cannot be reached, the entities become unavailable until it responds again.
 
-- **Boost:** Switch to manually activate boost.
-- **Bypass:** Switch to manually activate bypass.
-- **Automatic bypass:** Switch to enable automatic bypass.
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
