@@ -174,7 +174,9 @@ article {
       margin-bottom: 3em;
     }
 
-    > header + img + p{
+    > header + img + p,
+    > header + img + .alert,
+    > header + lite-youtube + .alert {
       margin-top: 24px;
     }
   }

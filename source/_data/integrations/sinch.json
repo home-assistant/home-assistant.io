@@ -9,6 +9,9 @@
   "categories": [
     "messaging_notifications.email_sms_calls"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "notify"
   ]

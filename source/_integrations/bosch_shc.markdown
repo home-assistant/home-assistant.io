@@ -51,12 +51,25 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact II
 - Battery powered devices
 
+A room climate control also gets **Call for heat**, **Schedule override active**, **Heating break**, and **Sustainable ventilation** binary sensors.
+
 A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguard is the source of an active smoke alarm and turns off when the alarm ends.
+
+An Outdoor Siren gets **Acoustic alarm** and **Visual alarm** binary sensors that turn on while the siren sounds or flashes, and a **Tamper** diagnostic binary sensor.
+
+Outdoor Sirens that report their power supply also get diagnostic **AC/DC error**, **Battery defect**, **Battery temperature abnormal**, and **Primary power supply outage** binary sensors that turn on while the fault is present.
+
+A Motion Detector II gets an **Occupancy** binary sensor and a **Tamper** diagnostic binary sensor that turns on when the device was tampered with.
+
+A Smoke Detection System gets a **Smoke** binary sensor. It turns on while the system reports a smoke alarm, including a pre-alarm or a muted alarm, and turns off when the alarm ends.
 
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
 - A Motion Detector II that supports it gets a **Reset tamper** button that confirms the device is back in place and clears an active tamper alarm.
+- An Outdoor Siren gets a **Test alarm** button that fires a short alarm at the configured sound level.
+- A Smart Plug or Smart Plug Compact gets a **Reset consumption value** button that resets the accumulated energy consumption.
+- A Micromodule Dimmer with a dimmer configuration gets **Preview max brightness** and **Preview min brightness** configuration buttons that flash the connected load at that brightness, to help with calibration. They are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ### Climate
 
@@ -79,11 +92,11 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 
 - A Motion Detector or Motion Detector II gets an event entity that fires whenever the device detects motion.
 - A Smoke Detector gets an event entity that fires whenever its alarm state changes.
-- A Smoke Detection System gets an event entity that fires whenever its alarm state changes: **Idle** (`alarm_off`), **Alarm** (`alarm_on`), or **Alarm muted** (`alarm_muted`).
 
 ### Light
 
-A Light Control micromodule dimmer gets a light entity that supports turning on and off and setting the brightness.
+- A Light Control micromodule dimmer gets a light entity that supports turning on and off and setting the brightness.
+- A Motion Detector II gets an **Orientation light** entity that supports turning on and off and setting the brightness.
 
 ### Number
 
@@ -97,6 +110,8 @@ The number platform lets you fine-tune numeric device settings:
 - A Smart Plug or Smart Plug Compact that supports it gets an **LED brightness** value (0 to 100 %), controlling the brightness of the plug's status LED.
 - A Micromodule Dimmer that supports calibration gets a **Dimming speed** value (1 to 10), controlling how quickly the dimmer changes brightness.
 - A Thermostat II or Room Thermostat II that supports display configuration gets a **Display brightness** value (0 to 100 %) and a **Display on-time** value (0 to 3600 seconds), controlling how bright the display is and how long it stays on after a button press.
+- A Micromodule Dimmer that supports calibration gets a **Minimum brightness** and a **Maximum brightness** value (0 to 100 %), setting the lowest and highest brightness the dimmer outputs.
+- A Heating circuit gets an **Eco temperature** and a **Comfort temperature** value, setting the temperatures used by the eco and comfort levels within the range the controller allows.
 
 ### Select
 
@@ -115,6 +130,7 @@ The select platform lets you choose between a set of predefined options. Select 
 - Micromodule Relay that supports it: an **Output mode** select, letting you choose between **Coupled**, **Disconnected on any key press**, **Disconnected on short press**, **Disconnected on long press**, or **Unsupported**. In YAML, the options are `attached`, `detached`, `detached_short_press`, `detached_long_press`, and `unsupported`.
 - Motion Detector II that supports it: a **Sensitivity for alarm system** select and a **Sensitivity for other cases** select, each letting you choose between **High**, **Medium**, or **Low**. In YAML, the medium option is `middle`.
 - Micromodule Dimmer that supports it: a **Dimmer phase control** select, letting you choose between **Trailing edge phase cut** and **Leading edge phase cut**. In YAML, the options are `trailing` and `leading`.
+- Motion Detector II: an **Orientation light response time** select, letting you choose between **Long** and **Short**. In YAML, the options are `long` and `short`.
 
 ### Sensors
 
@@ -124,9 +140,11 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Wall Thermostat
 - Room Thermostat II
 - Twinguard
+- Motion Detector II
 - Smart Plug
 - Smart Plug Compact
 - Light Switch
+- Micromodule Light Control
 - Micromodule Shutter Control
 - Micromodule Blinds
 
@@ -165,6 +183,10 @@ Some devices also get an additional, device-specific switch. These are configura
 - Smart Plug or Smart Plug Compact that supports energy-saving mode: **Energy-saving mode**
 - Twinguard that supports this feature: **Heartbeat**, which enables or disables its nightly self-test notification
 - Micromodule Relay that supports switch configuration: **Swap inputs** and **Swap outputs**
+
+### Update
+
+The Bosch Smart Home Controller gets a **Software update** entity. It shows the installed and the available firmware version and lets you start the installation when an update is offered.
 
 ### Valve
 

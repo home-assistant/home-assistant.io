@@ -10,5 +10,8 @@
   "quality_scale": "bronze",
   "categories": [
     "computers_network.cloud_developer_tools"
+  ],
+  "connectivity": [
+    "cloud"
   ]
 }

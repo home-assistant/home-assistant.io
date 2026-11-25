@@ -11,6 +11,9 @@
   "categories": [
     "blinds_curtains"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "cover",

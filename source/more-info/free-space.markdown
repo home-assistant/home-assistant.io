@@ -35,9 +35,9 @@ Follow these steps to check the available free disk space.
 
 The Home Assistant database can become very large. Follow these steps to reduce the size of the database.
 
-1. To view the size of the current database, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
-   - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **System information**.
-   - Scroll down to the **Recorder**, and check the **Estimated database size (MiB)**.
+1. To see what uses the most space in the database, go to **{% my storage title="Settings > System > Storage" %}**.
+   - On the **Database** card, select **Analyze**. This can take a while on a large database.
+   - The card shows the size of the database, its tables, and which entities and statistics use the most space. Sizes are estimates, especially on MariaDB and MySQL.
 2. [Purge the contents of the database](/integrations/recorder/#service-purge).
 3. To slow down the growth of the database, [filter](/integrations/recorder/#configure-filter) what you send to
 the database.

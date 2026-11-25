@@ -5,7 +5,7 @@ description: "Definitions of the most common terms used in Home Assistant: integ
 
 Home Assistant has a vocabulary of its own. Most of it comes up in everyday use: integrations, entities, devices, automations, dashboards. This page is a quick reference for what every term means and how the pieces fit together. Whenever you see a term you do not recognize in the documentation or in the user interface, you can come back here.
 
-{% assign entries = site.data.glossary | sort: 'term' %}
+{% assign entries = site.data.glossary | sort_natural: 'term' %}
 {% assign current_letter = '' %}
 
 {% for entry in entries %}

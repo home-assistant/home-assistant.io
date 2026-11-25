@@ -18,6 +18,9 @@
     "plugs_switches",
     "appliances_cleaning.cooking"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

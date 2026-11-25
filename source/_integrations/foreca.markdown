@@ -4,9 +4,9 @@ ha_release: '2026.11'
 ha_domain: foreca
 ---
 
-The **Foreca** {% term integration %} uses the [Foreca Weather API](https://developer.foreca.com) to provide weather forecasts for any location worldwide. [Foreca](https://business.foreca.com) is an independent weather company that has produced forecasts for consumer and business services since 1996.
+The **Foreca** {% term integration %} uses the [Foreca Weather API](https://business.foreca.com/weather-api) to provide weather forecasts for any location worldwide. [Foreca](https://business.foreca.com) is an independent weather company that has produced forecasts for consumer and business services since 1996.
 
-You can use this integration free of charge with a Foreca Weather API Freemium subscription, which is strictly for non-commercial use. It also works with [Foreca's premium packages](https://business.foreca.com/weather-api/pricing), which allow commercial use and provide higher request limits and further weather products.
+You can use this integration free of charge with a [Foreca Weather API Freemium](https://business.foreca.com/weather-api/free-weather-api) subscription, which is strictly for non-commercial use. It also works with [Foreca's premium packages](https://business.foreca.com/weather-api/pricing), which allow commercial use and provide higher request limits and further weather products.
 
 ## Use cases
 
@@ -45,9 +45,34 @@ To add another location later, select **Add location** on the Foreca entry under
 
 ### Weather
 
-The integration creates one weather {% term entity %} per location, providing the current conditions, a daily forecast for the next 10 days, and an hourly forecast for the next 48 hours.
+The integration creates one weather {% term entity %} per location, providing the current conditions, a daily forecast for the next 14 days, and an hourly forecast for the next 7 days.
 
 The current conditions include temperature, apparent temperature, dew point, humidity, air pressure, wind speed, wind gust speed, wind bearing, visibility, cloud coverage, and UV index.
+
+The daily forecast includes:
+
+- Condition
+- Maximum and minimum temperature
+- Maximum apparent temperature
+- Maximum dew point
+- Total precipitation and its probability
+- Maximum wind speed and wind gust speed
+- Wind bearing
+- Air pressure
+- Cloud coverage
+- UV index
+
+The hourly forecast includes:
+
+- Condition
+- Temperature and apparent temperature
+- Dew point
+- Humidity
+- Precipitation and its probability
+- Wind speed, wind gust speed, and wind bearing
+- Air pressure
+- Cloud coverage
+- UV index
 
 ### Sensors
 
@@ -57,24 +82,35 @@ Each location also gets three sensors for the current conditions:
 - **Precipitation probability**: the current probability of precipitation, in percent.
 - **Thunderstorm probability**: the current probability of thunder, in percent.
 
+These sensors come from the same requests as the weather entity, so they add nothing to your request count.
+
 Each location also gets the latest measurements from the nearest weather station:
 
-- **Observation station**: the name of the station the measurements come from.
-- **Observation time**: when the station took the measurements. Disabled by default.
+- **Observation station**: the name of the station the measurements come from. This is a diagnostic entity.
+- **Observation time**: when the station took the measurements. This is a diagnostic entity and is disabled by default.
 - **Observed temperature** and **Observed humidity**.
-- **Observed condition**: the weather the station reports, such as sunny, rainy or snowy. Disabled by default.
-- **Observed hourly precipitation**: the precipitation the station measured in its latest full hour. Its **Last reset** attribute shows when that hour started. It shows as unknown when that hour ended more than two hours before the station's latest measurements, for example when the station skips reports.
-- **Observed precipitation type**: the type of that hour's precipitation: rain, sleet, snow, hail, or icing. It shows as unknown when that hour had no precipitation, when the station cannot tell the type, or when the hourly precipitation is unknown. Disabled by default.
-- **Observed 24-hour precipitation**: the station's own total for its latest 24-hour period, which usually ends at 06:00 UTC. **Observed 3-hour precipitation**, **Observed 6-hour precipitation**, and **Observed 12-hour precipitation** give the totals for 3, 6, and 12 hours and are disabled by default. Their **Last reset** attribute shows when each period started. Which periods a station reports varies, and a total shows as unknown when the station does not report that period, or when the period ended more than its own length plus one hour before the station's latest measurements.
+- **Observed condition**: the weather the station reports, such as sunny, rainy, or snowy. Disabled by default.
+- **Observed hourly precipitation**: the precipitation the station measured in its latest full hour, in mm. Its **Last reset** attribute shows when that hour started. It shows as unknown when that hour ended more than two hours before the station's latest measurements, for example, when the station skips reports.
+- **Observed precipitation type**: the type of precipitation in the station's latest full hour: rain, sleet, snow, hail, or icing. It shows as unknown when there was no precipitation in that hour, when the station cannot determine the type, or when the hourly precipitation sensor is unknown. Disabled by default.
+- **Observed 24-hour precipitation**: the station's own total, in mm, for its latest 24-hour period, which usually ends at 06:00 UTC. **Observed 3-hour precipitation**, **Observed 6-hour precipitation**, and **Observed 12-hour precipitation** give the totals for 3, 6, and 12 hours and are disabled by default. Their **Last reset** attribute shows when each period started. Which periods a station reports varies, and a total shows as unknown when the station does not report that period, or when the period ended more than its own length plus one hour before the station's latest measurements.
 - **Observed apparent temperature**, **Observed pressure**, **Observed wind speed**, **Observed wind gust speed**, **Observed wind direction**, **Observed visibility**, and **Observed snow depth**. These are disabled by default.
 
 Where no station reports nearby, the observation sensors show as unknown.
 
+Each location also gets the US EPA air quality index for the current hour:
+
+- **Air quality index** and **Dominant pollutant**.
+- An index for each pollutant: **Carbon monoxide index**, **Nitrogen dioxide index**, **Ozone index**, **Sulphur dioxide index**, **PM10 index**, and **PM2.5 index**. These are disabled by default.
+
+{% include integrations/actions.md %}
+
 ## Data updates
 
-The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses five requests per location, around 240 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Every location you add polls separately, so that limit allows around 8 of them. Because the integration polls continuously, a Freemium key used this way does not go idle.
+The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses six requests per location: three for the forecast and current conditions, two for the weather station sensors, and one for the air quality sensors. That's around 290 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Each location you add polls separately, so that limit allows around 6 locations. You can save one request per update by disabling all of a location's observed precipitation total sensors, another by disabling all its other observation sensors, and another by disabling all its air quality sensors. Because the integration polls continuously, a Freemium key used this way does not go idle.
 
-The `weather.get_forecasts` action reads the forecast the integration has already retrieved, so using it in templates and automations costs no extra requests.
+The `weather.get_forecasts` and `foreca.get_forecasts_extra` actions read the forecast the integration has already retrieved, so using them in templates and automations costs no extra requests.
+
+The `foreca.get_3_hour_forecast`, `foreca.get_minute_forecast`, and `foreca.get_15_minute_forecast` actions request fresh data, so each call uses one request for every Foreca weather entity it targets.
 
 ## Known limitations
 
@@ -104,7 +140,7 @@ The `weather.get_forecasts` action reads the forecast the integration has alread
 
 #### Description
 
-The integration marks entities unavailable when the API cannot be reached or the daily request limit is exceeded. If only the weather station request fails, only the observation sensors are unavailable, and the rest keep updating.
+The integration marks entities as unavailable when the API cannot be reached or the daily request limit is exceeded. If only a weather station request or the air quality request fails, only the sensors that use it are unavailable, and the rest keep updating.
 
 #### Resolution
 

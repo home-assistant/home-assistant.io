@@ -5,5 +5,8 @@
   "iot_class": "cloud_push",
   "categories": [
     "ai_voice.voice_assistants"
+  ],
+  "connectivity": [
+    "cloud"
   ]
 }

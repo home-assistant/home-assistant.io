@@ -4,6 +4,8 @@ title: "2022.2: Let's start streamlining!"
 description: "Starting 2022 with media and device tracker improvements, diagnostics, added states to scenes, and streamlining lots of things!"
 date: 2022-02-02 00:00:00
 date_formatted: "Februari 02, 2022"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
@@ -14,6 +16,10 @@ og_image: /images/blog/2022-02/social.png
 ---
 
 <a href='/integrations/#version/2022.2'><img src='/images/blog/2022-02/social.png' style='border: 0;box-shadow: none;'></a>
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 I'm not sure if this is really fitting; it is February already... but since
 this is the first release of the year, I'm going to say it anyway:
