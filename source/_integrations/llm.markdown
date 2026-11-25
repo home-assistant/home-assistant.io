@@ -49,6 +49,7 @@ Many of the Home Assistant AI tools only read. The AI tools that change things c
 - Create, change, and delete {% term areas %}, floors, and labels.
 - Change the settings of {% term devices %} and {% term entities %}. For example, they can rename, disable, or move a device or an entity to another area. They can also change the entity ID.
 - Remove entities that their integration no longer provides.
+- Change the settings of the Energy dashboard. For example, they can add a solar panel or remove a gas meter.
 
 Each entry in [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools) says if the AI tool only reads or changes things.
 
@@ -243,7 +244,7 @@ These AI tools only read data. They can't change, run, or turn on or off your au
 
 #### History and log AI tools
 
-- **Get history** (`history__get_history`): Returns statistics of entities, not their individual state changes. For example, it can return the mean, minimum, and maximum temperature per 5 minutes or per hour. It only works for entities with statistics, such as sensors with a state class. Only reads.
+- **Get history** (`history__get_history`): Returns statistics, not individual state changes. For example, it can return the mean, minimum, and maximum temperature per 5 minutes or per hour. It works for entities with statistics, such as sensors with a state class. It also works for statistics that an integration adds without an entity. For example, the [Opower](/integrations/opower/) integration adds the energy use from your utility this way. Only reads.
   - To do this yourself: Use the {% my history title="**History**" %} panel.
 - **Get system log entries** (`system_log__get_entries`): Returns recent errors and warnings from the system log. It doesn't include info or debug messages. It can filter by level and by integration. Only reads.
   - To do this yourself: Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
@@ -252,6 +253,16 @@ These AI tools only read data. They can't change, run, or turn on or off your au
   - On {% term "Home Assistant Container" %} installations, and on other installations without the Supervisor, the ID is `system_log__get_logs`. It only reads the Home Assistant log, and it needs the log file.
   - To do this yourself: Under {% my logs title="**Settings** > **System** > **Logs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Show raw logs**.
 
+
+- **Search statistics** (`history__search_statistics`): Finds statistics by name, by the alias of the entity, or by ID. This includes statistics without an entity. It can filter by the type of unit, for example, energy or power. It can also filter by the type of statistic. For example, it can find only meters that count up, such as an energy meter, or only measurements, such as a temperature. For each statistic, it returns its ID, name, and unit. The conversation agent uses the ID with **Get history** or **Update energy preferences**. Only reads.
+  - To do this yourself: Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+
+#### Energy AI tools
+
+- **Get energy preferences** (`energy__get_preferences`): Returns the settings of the [Energy dashboard](/docs/energy/). These are your grid connections, solar panels, home batteries, and gas and water meters. It also returns the devices whose electricity, gas, or water use you track. Only reads.
+  - To do this yourself: Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
+- **Update energy preferences** (`energy__update_preferences`): Changes the settings of the Energy dashboard. It replaces each list that it changes, such as the list of solar panels, with a new list. Lists that it doesn't change stay the same. Afterwards, it returns the new settings, and any issues that Home Assistant found with them. Changes things.
+  - To do this yourself: Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
 
 ### List of Device control AI tools
 
@@ -384,11 +395,11 @@ If you removed the integration that added a set of AI tools, open the settings o
 
 {% enddetails %}
 
-{% details "Get history: “No statistics are recorded for this entity”" %}
+{% details "Get history: “No statistics are recorded for this ID”" %}
 
 ### Symptom: The conversation agent can't tell you the past values of an entity
 
-You ask the {% term "conversation agent" %} about the past values of an {% term entity %}, and it can't answer. Under **Show details** in the {% term Assist %} dialog, the result of `history__get_history` says "No statistics are recorded for this entity."
+You ask the {% term "conversation agent" %} about the past values of an {% term entity %}, and it can't answer. Under **Show details** in the {% term Assist %} dialog, the result of `history__get_history` says "No statistics are recorded for this ID."
 
 #### Description
 
