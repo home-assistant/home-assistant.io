@@ -133,7 +133,7 @@ automation: |
       target:
         entity_id: media_player.benq_projector
       data:
-        source: HDMI 1
+        source: hdmi_1
 {% endexample %}
 
 {% enddetails %}
