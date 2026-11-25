@@ -31,7 +31,7 @@ ADS type:
   description: The data type of the variable to write to. The value is converted to this type before it is written.
   required: true
 Value:
-  description: "The value to write to the variable. Enter a whole number for the integer types, a number with decimals such as `21.5` for `real` and `lreal`, text for `string`, and `true` or `false` for `bool`."
+  description: "The value to write to the variable. Enter a whole number for the integer types, a number with decimals such as `21.5` for `real` and `lreal`, and `1` or `0` for `bool`."
   required: true
 {% endoptions_ui %}
 
@@ -63,19 +63,18 @@ adsvar:
 adstype:
   description: >
     The data type of the variable to write to. One of `bool`, `byte`,
-    `date`, `dint`, `dt`, `dword`, `int`, `lreal`, `real`, `sint`,
-    `string`, `time`, `tod`, `udint`, `uint`, `usint`, or `word`. The value
-    is converted to this type before it is written.
+    `dint`, `dword`, `int`, `lreal`, `real`, `sint`, `udint`, `uint`,
+    `usint`, or `word`. The value is converted to this type before it is
+    written.
   required: true
   type: string
 value:
   description: >
     The value to write to the variable. A whole number for the integer
-    types (`time`, `date`, `dt`, and `tod` included), a number with
-    decimals for `real` and `lreal`, text for `string`, and `true` or
+    types, a number with decimals for `real` and `lreal`, and `true` or
     `false` for `bool`.
   required: true
-  type: [integer, float, string, boolean]
+  type: [integer, float, boolean]
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
