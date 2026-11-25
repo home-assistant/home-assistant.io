@@ -82,6 +82,7 @@ Atomberg limits the public API to 100 requests per day for your account. The Ato
 - The integration only works with Atomberg fans that have Wi-Fi. It can't control fans through an IR blaster or a remote.
 - The integration needs an internet connection. The Atomberg public API does not offer local control.
 - State changes made outside Home Assistant can take up to 30 minutes to appear. See [Data updates](#data-updates).
+- If your API key or refresh token stops working, remove the integration and add it again with new credentials.
 
 ## Troubleshooting
 
@@ -99,22 +100,6 @@ The API key or refresh token isn't valid. They might be mistyped, expired, or fr
 
 1. Generate a new API key and refresh token in the Atomberg Home app.
 2. Enter them again, copying them carefully.
-
-{% enddetails %}
-
-{% details "Home Assistant asks me to re-authenticate" %}
-
-### Symptom: A repair or notification asks you to sign in again
-
-#### Description
-
-Atomberg rejected your credentials. This can happen when the refresh token is replaced or expires.
-
-#### Resolution
-
-1. Generate a new API key and refresh token in the Atomberg Home app.
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Atomberg** integration.
-3. Follow the prompt to re-authenticate. Use credentials from the same Atomberg account.
 
 {% enddetails %}
 
