@@ -70,7 +70,7 @@ ac_mode:
   type: boolean
   default: false
 min_cycle_duration:
-  description: The minimum amount of time that must elapse before the switch specified in the *heater* option can be switched off.
+  description: The minimum amount of time that the switch specified in the *heater* option must stay on before it can be switched off. This option only sets a minimum on time. To set a minimum off time, use `cycle_cooldown`.
   required: false
   type: [time, integer]
 max_cycle_duration:
@@ -78,7 +78,7 @@ max_cycle_duration:
   required: false
   type: [time, integer]
 cycle_cooldown:
-  description: The minimum amount of time that must elapse before the switch specified in the *heater* option can be switched back on after being off.
+  description: The minimum amount of time that the switch specified in the *heater* option must stay off before it can be switched back on. This option only sets a minimum off time. To set a minimum on time, use `min_cycle_duration`.
   required: false
   type: [time, integer]
 cold_tolerance:
@@ -136,6 +136,8 @@ target_temp_step:
 {% endconfiguration %}
 
 Time for `min_cycle_duration`, `max_cycle_duration`, `cycle_cooldown` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds. If both `min_cycle_duration` and `max_cycle_duration` are set, the time for `max_cycle_duration` must be greater than `min_cycle_duration`.
+
+`min_cycle_duration` and `cycle_cooldown` are counted from the last time the switch specified in the *heater* option changed state. They only apply when the thermostat turns the switch on or off because the temperature changed. When you change the target temperature, the HVAC mode, or the preset mode, the thermostat responds right away and does not wait for these times to elapse.
 
 Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' HVAC modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 

@@ -1,13 +1,15 @@
 ---
 title: "Radio frequency"
 connectivity: rf
-description: "Control radio frequency devices, like remote outlets, garage doors, and string lights, from Home Assistant with a radio frequency remote adapter."
+description: "Radio frequency control uses radio signals to send commands to devices such as remote outlets and garage doors. These signals can pass through walls."
 related:
   - docs: /integrations/radio_frequency/
     title: Radio Frequency integration
   - url: https://esphome.io/projects/?type=irrf
     title: ESPHome radio frequency proxy projects
 ---
+
+Radio frequency (RF) control uses radio signals, on a frequency such as 433&nbsp;MHz, to send commands to a device. Many remote outlets, garage doors, and string lights come with an RF remote control. Unlike infrared, RF signals can pass through walls.
 
 You can control radio frequency-controlled devices, such as a remote outlet, garage door, or string lights, from Home Assistant without touching the handheld remote control. Home Assistant can also receive signals from a handheld <abbr title="Radio frequency">RF</abbr> remote. Home Assistant does this through a [radio frequency remote adapter](#radio-frequency-remote-adapters). To learn how the integrations work together, refer to the [Radio Frequency](/integrations/radio_frequency/) {% term integration %}.
 

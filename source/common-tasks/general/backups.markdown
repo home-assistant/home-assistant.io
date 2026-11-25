@@ -120,7 +120,6 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
    - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
    - If you want to back up to your NAS (such as [Synology](/integrations/synology_dsm/#backup-location)) or a cloud provider (such as [Google Drive](/integrations/google_drive/) or [Microsoft OneDrive](/integrations/onedrive/)), check their integration documentation for specific instructions on setting up a Home Assistant backup.
    - If you don't see your network storage or local disk, you haven't added it with the **Backup** usage. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) or [adding a local disk](/common-tasks/os/#adding-a-local-disk), and select the **Backup** usage.
-   ![Define the backup locations](/images/screenshots/network-storage/backup_locations_encryption.png)
 3. To change the encryption or the retention of a location, select the cog {% icon "mdi:cog" %} next to it.
    - Under **Encryption**, select **Turn off** or **Turn on**. Backups on Home Assistant Cloud are always encrypted.
    - Under **Retention for this system**, or the retention for another location, select **Use global settings**, or set a retention for this location only. Home Assistant Cloud always keeps only one backup.
@@ -194,7 +193,7 @@ You can download the backup from the backups page in Home Assistant, or from you
 
 On {% term "Home Assistant Operating System" %}, Home Assistant can create a backup of an app before it updates the app. This app update backup contains the app and its data, so you can go back to the previous version of the app if needed.
 
-- App update backups are stored in the default local backup location. This is the system itself, unless you added network storage for backups. The first network storage that you add with the **Backup** usage becomes the default location. For details, refer to [Change default local backup location](/common-tasks/os/#change-default-local-backup-location).
+- App update backups are stored in the default local backup location. This is the system itself, unless you added network storage or a local disk for backups. The first storage that you add with the **Backup** usage becomes the default location. For details, refer to [Default local backup location](/common-tasks/os/#default-local-backup-location).
 - By default, Home Assistant keeps one app update backup per app, and deletes older ones.
 - The retention of automatic backups doesn't delete app update backups.
 

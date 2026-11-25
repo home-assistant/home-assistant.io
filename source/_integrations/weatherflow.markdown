@@ -143,6 +143,10 @@ This {% term integration %} will expose these {% term event %} {% term entities 
 - **Precipitation start**
   - **Description**: Fires when precipitation starts at the station.
 
+## Data updates
+
+The integration doesn't {% term polling poll %}. It listens for the updates your WeatherFlow hub broadcasts over UDP on your local network and updates the entities as they arrive. For the port this needs, see [Networking notes](#networking-notes).
+
 ## Known limitations
 
 ### Lightning detection

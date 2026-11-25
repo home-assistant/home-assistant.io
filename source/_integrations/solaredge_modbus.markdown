@@ -24,6 +24,7 @@ Reading the inverter directly, rather than through SolarEdge's cloud, is worth i
 
 This integration has been tested with, or reported to work on, the following inverters:
 
+- SE3800
 - SE4K
 - SE5000H
 - SE8000H
@@ -78,7 +79,7 @@ The following older models have been reported to use a different menu procedure 
 **SE3000H-RW000NNN2** (firmware `0003.2537`):
 
 1. Press and hold **OK**, the button on the far right, for about five seconds until the password prompt appears.
-2. Enter the password `123121312`.
+2. Enter the password `12312312`.
 3. Go to **Communication** > **LAN Conf** > **Modbus TCP**, and select port `502`. The selected port is sufficient to enable Modbus TCP.
 
 {% enddetails %}
@@ -137,8 +138,8 @@ Your inverter is added as a device, with any energy meter or battery wired to it
 
 ### Inverter sensors
 
-- **Power**: The AC power the inverter is feeding into your home right now. The [Energy dashboard](#energy-dashboard) uses this one for live power flow.
-- **Energy**: The total energy the inverter has produced since it was installed. This is the sensor to use for solar production on the [Energy dashboard](#energy-dashboard).
+- **Power**: The AC power the inverter is feeding into your home right now. With a DC-coupled battery, this can include power discharged from the battery. See [Energy dashboard](#energy-dashboard) before using it for solar production.
+- **Energy**: The total AC energy delivered by the inverter since it was installed. With a DC-coupled battery, this can include energy discharged from the battery. See [Energy dashboard](#energy-dashboard) before using it for solar production.
 - **Current**: The AC current the inverter is delivering.
 - **Current phase A**, **Current phase B**, **Current phase C**: The current per phase. Only added for inverters that report per phase.
 - **DC power**: The power coming in from your solar panels.
@@ -240,7 +241,15 @@ They can also affect what your installation is allowed to do. Export limits in p
 
 ## Energy dashboard
 
-Your inverter's production fits straight into the [Energy dashboard](/docs/energy/solar-panels/), next to what your home consumes.
+You can use this integration's sensors in the [Energy dashboard](/docs/energy/solar-panels/).
+
+{% important %}
+If you have a DC-coupled battery, connected to the inverter on the same side as the solar panels, the inverter's **Energy** and **Power** sensors do not measure solar production separately. Battery discharge can be included in the inverter's output, while solar energy used to charge the battery directly does not pass through its AC output. Selecting these sensors as solar production can therefore count battery discharge as solar production and miss solar energy stored in the battery.
+
+The integration does not calculate separate solar production sensors for this setup. Subtracting battery discharge alone does not account for solar energy charging the battery directly.
+{% endimportant %}
+
+If your inverter has no DC-coupled battery, add its solar production as follows:
 
 1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
 2. Under **Solar panels**, select **Add solar production**.

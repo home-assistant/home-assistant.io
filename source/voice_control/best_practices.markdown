@@ -17,7 +17,7 @@ related:
 ---
 Voice control feels effortless when it is set up well, and frustrating when it is not. The good news is that getting Assist to feel natural mostly comes down to a few simple choices: which devices it can see, how things are named, and how your home is organized into areas. This page collects the small habits that make a big difference.
 
-In Home Assistant, you decide what Assist has access to. Assist can only see and control the entities that you expose to it. Home Assistant exposes common devices as you add them. Examples are lights and switches. Locks and alarm control panels stay unexposed until you expose them yourself. Garage doors and gates are covers, so Home Assistant exposes them automatically. You can change this for every entity. For details, refer to [what Home Assistant exposes automatically](/voice_control/voice_remote_expose_devices/#entities-that-are-exposed-automatically).
+In Home Assistant, you decide what Assist has access to. Assist can only see and control the entities that you expose to it. There's one exception: a {% term "conversation agent" %} with the **Home Assistant** set of {% term "AI tools" %} selected can reach all entities. This includes entities that you never exposed or stopped exposing. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). Home Assistant exposes common devices as you add them. Examples are lights and switches. Locks and alarm control panels stay unexposed until you expose them yourself. Garage doors and gates are covers, so Home Assistant exposes them automatically. You can change this for every entity. For details, refer to [what Home Assistant exposes automatically](/voice_control/voice_remote_expose_devices/#entities-that-are-exposed-automatically).
 
 Some best practices we recommend to have an efficient setup are:
 
@@ -25,7 +25,7 @@ Some best practices we recommend to have an efficient setup are:
 
 Learn how in [Exposing your entities to Assist](/voice_control/voice_remote_expose_devices/).
 
-Home Assistant exposes some new entities to Assist automatically. If you want to decide on every entity yourself, [turn off **Expose new entities**](/voice_control/voice_remote_expose_devices/#turning-off-expose-new-entities).
+Home Assistant exposes some new entities to Assist automatically. If you want to decide on every entity yourself, [turn off **Expose new entities**](/voice_control/voice_remote_expose_devices/#changing-expose-new-entities).
 
 It might be tempting to expose all entities to Assist, but doing so will come with a performance penalty. The more entity names and aliases the parser will have to go through, the more time it will spend matching. And if you’re using a LLM-based conversation agent, it will incur a higher cost per request, due to the larger context size. Only expose the bare minimum you know you are going to use with voice assistants.
 
@@ -39,11 +39,7 @@ Assist relies heavily on entity names, domains, and areas. Below you will find t
 So make sure your devices and entities are correctly assigned to areas, and your areas are correctly assigned to floors.
 Learn how [here](/voice_control/assign_areas_floors/).
 
-Not having good ways to address entities in common speech will greatly hinder your voice experience with Assist. You can expect to have a hard time asking Assist to “turn on Tuya Light Controller 0E54B1 Light 1”. You should therefore name your devices and entities logically, using a schema such as `<area> [<identifier_or_descriptor>] [<domain>].`
-
-For example, `light.living_room_lamp` might be the entity ID of `Living room lamp`. `Kitchen light` would be enough for the `light.kitchen` if you only have one light fixture in that room.
-
-Note that this convention is only a recommendation, actual naming of your devices and entities might depend on your language or personal preference.
+Give your devices and entities short names that are easy to remember. A phrase like “Turn on Tuya Light Controller 0E54B1 Light 1” is hard to say. Name each device and entity for what it is, without the area. For example, name a light `Lamp` instead of `Living room lamp`. Assist takes the area from your sentence or from the voice satellite you're talking to. For more tips, refer to the [naming recommendations](/docs/configuration/customizing-entities/#recommendations-on-entity-naming-and-related-elements).
 
 If you ever find yourself mentioning a certain device or entity in a certain way, make sure to [add that as an alias](/voice_control/aliases/), as it would probably be the most natural way to refer to the entity.
 
@@ -79,7 +75,7 @@ To talk to Assist, you can either use your phone or a custom device (and use the
 
 ### Let AI run your scripts
 
-You can use a conversation agent that uses AI. To add one, set up an [AI integration](/integrations/category/ai_voice/ai_models/). Examples are OpenAI, Google Gemini, and Ollama for local models. Each script that you expose to Assist becomes an {% term "AI tool" %} in the **Device control** set. If **Device control** is selected in the **AI tools** option of the conversation agent, it can call the script directly. Home Assistant never exposes scripts automatically, so expose the scripts that you want it to use. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the conversation agent doesn't know the script exists or when to use it.
+You can use a conversation agent that uses AI. To add one, set up an [AI integration](/integrations/category/ai_voice/ai_models/). Examples are OpenAI, Google Gemini, and Ollama for local models. Each script that you expose to Assist becomes an {% term "AI tool" %} in the [**Device control** set](/integrations/llm/#sets-of-ai-tools). If **Device control** is selected in the **AI tools** option of the conversation agent, it can call the script directly. Home Assistant never exposes scripts automatically, so expose the scripts that you want it to use. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the conversation agent doesn't know the script exists or when to use it.
 
 Find out [how to write these descriptions](/voice_control/exposing_scripts_to_llms/) when you're ready to expose your scripts.
 

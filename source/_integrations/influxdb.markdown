@@ -125,14 +125,13 @@ include:
       description: The list of domains to be included in recording to InfluxDB.
       required: false
 tags:
-  type: [string, list]
+  type: map
   description: Tags to mark the data.
-  default: 0
+  required: false
 tags_attributes:
   type: [string, list]
-  description: The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
+  description: The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `device_class`, you can group or filter by device class, such as all temperature sensors, in addition to entity IDs.
   required: false
-  default: 0
 ignore_attributes:
   type: [string, list]
   description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you to reduce the amount of data stored in InfluxDB. Please be aware of the underlying InfluxDB mechanism that converts non-string attributes to strings and adds a `_str` suffix to the attribute name in this case. It means that when you want to ignore, for example, the `icon_str` attribute that shows in your InfluxDB instance, you need to provide `icon` to `ignore_attributes`.
@@ -228,7 +227,7 @@ influxdb:
   tags:
     source: HA
   tags_attributes:
-    - friendly_name
+    - device_class
   default_measurement: units
   exclude:
     entities:

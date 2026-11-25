@@ -4,7 +4,7 @@ ha_release: 2026.6
 ha_domain: ovhcloud_ai_endpoints
 related:
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing entities to Assist
+    title: Exposing entities to voice assistants
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Create an AI personality
 ---
@@ -12,6 +12,8 @@ related:
 The **OVHcloud AI Endpoints** {% term integration %} adds a conversation agent powered by [OVHcloud AI Endpoints](https://endpoints.ai.cloud.ovh.net/) to Home Assistant. OVHcloud AI Endpoints is a serverless inference platform that gives you access to a curated catalog of open-weight large language models hosted in Europe.
 
 Controlling Home Assistant is done by providing the AI access to the **Device control** set of tools. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you with information about your devices and control them.
+
+When you talk to an OVHcloud AI Endpoints conversation agent through an {% term assistant %}, Home Assistant first checks your [sentence triggers](/triggers/conversation/). If one of them matches, the sentence trigger answers, and the conversation agent doesn't get the sentence. Sentence triggers don't run when you call the conversation agent directly, for example with the `conversation.process` action. They also don't run when you answer a follow-up question from the conversation agent.
 
 This integration is useful if you want to keep your conversation data within a European cloud provider, or if you want to use a specific open-weight model from the OVHcloud AI Endpoints catalog.
 
@@ -72,7 +74,6 @@ You can set up your OVHcloud AI Endpoints conversation agent in an [Assist pipel
 
 - Only models that support the OpenAI-compatible chat completions API of OVHcloud AI Endpoints can be used.
 - Tool calling is required for the **AI tools** setting to work. If the selected model does not support tool calling, the agent will still answer questions but won't be able to control your devices.
-- This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Removing the integration
 

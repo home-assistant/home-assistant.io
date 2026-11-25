@@ -5,12 +5,12 @@ featured: true
 ha_domain: zha
 related:
   - docs: /connectivity/zigbee/
-    title: Zigbee in Home Assistant
+    title: About Zigbee
 ---
 
 The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called _Zigbee coordinators_.
 
-This page documents the **Zigbee Home Automation** integration. To learn more about Zigbee in Home Assistant, refer to [Zigbee](/connectivity/zigbee/).
+This page documents the **Zigbee Home Automation** integration. To learn more about Zigbee, refer to [Zigbee](/connectivity/zigbee/).
 
 This {% term integration %} currently supports the following device types within Home Assistant:
 

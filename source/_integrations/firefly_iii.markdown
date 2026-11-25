@@ -28,6 +28,10 @@ There is currently support for the following device types within Home Assistant:
 
 - Sensors - for monitoring the accounts, categories and their balances.
 
+## Data updates
+
+The integration {% term polling polls %} the Firefly III server every 5 minutes.
+
 ## Removing the integration
 
 This integration follows standard integration removal.

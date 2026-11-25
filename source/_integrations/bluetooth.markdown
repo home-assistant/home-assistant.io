@@ -4,7 +4,7 @@ ha_release: 2022.8
 ha_domain: bluetooth
 related:
   - docs: /connectivity/bluetooth/
-    title: Bluetooth connections in Home Assistant
+    title: About Bluetooth
   - docs: /docs/configuration/
     title: Configuration file
   - docs: /integrations/default_config/
@@ -13,7 +13,7 @@ related:
 
 The **Bluetooth** {% term integration %} supports Bluetooth Low Energy devices. Bluetooth Classic devices are not supported. Compatible devices discovered nearby appear on {% my integrations title="**Settings** > **Devices & services**" %}.
 
-This page documents the **Bluetooth** integration. To learn more about Bluetooth in Home Assistant, refer to [Bluetooth](/connectivity/bluetooth/).
+This page documents the **Bluetooth** integration. To learn more about Bluetooth, refer to [Bluetooth](/connectivity/bluetooth/).
 
 {% include integrations/config_flow.md %}
 

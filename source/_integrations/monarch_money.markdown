@@ -42,6 +42,10 @@ Budget data updates every four hours. New categories appear after the next updat
 
 If Monarch Money returns a category without current-month data, its device and sensors still appear, but the sensors are **Unavailable** until data is available. If current-month data is available but an individual amount is missing, that sensor shows as **Unknown**.
 
+## Data updates
+
+The integration {% term polling polls %} your Monarch Money account every 4 hours.
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}

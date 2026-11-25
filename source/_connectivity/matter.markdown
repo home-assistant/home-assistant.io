@@ -2,12 +2,12 @@
 title: "Matter"
 connectivity: matter
 icon: "material-symbols:matter"
-description: "Connect Matter devices to Home Assistant over Wi-Fi, Ethernet, or Thread, and use them with other platforms at the same time."
+description: "Matter is a smart home standard that lets devices work with multiple platforms. It supports local control over Wi-Fi, Ethernet, or Thread."
 related:
   - docs: /integrations/matter/
     title: Matter integration
   - docs: /connectivity/thread/
-    title: Thread in Home Assistant
+    title: About Thread
 ---
 
 Matter is a new smart home connectivity standard for home automation products and IoT (Internet of Things) devices, see its [Wikipedia article](https://en.wikipedia.org/wiki/Matter_(standard)).

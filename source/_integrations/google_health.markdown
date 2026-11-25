@@ -15,6 +15,10 @@ The **Google Health** {% term integration %} allows you to expose health and fit
 
 ## Prerequisites
 
+{% important %}
+If your Google Account is enrolled in the [Advanced Protection Program](https://support.google.com/accounts/answer/7539956), you cannot use the setup described below. Advanced Protection blocks unverified apps from accessing sensitive account data, including your Google Health data. Publishing your OAuth app does not verify it.
+{% endimportant %}
+
 You need to configure developer credentials to allow Home Assistant to access your Google Account. These credentials are the same as the ones for [Google Photos](/integrations/google_photos), [Nest](/integrations/nest), [Google Tasks](/integrations/google_tasks), and [Google Mail](/integrations/google_mail).
 
 {% include integrations/google_client_secret.md %}
@@ -206,6 +210,25 @@ After you authorize access, Home Assistant uses your Google Account profile to v
 
 - Verify that you granted the required **Profile** permission. Home Assistant requires the profile scope to verify your account identity and set up the integration.
 - Verify that you selected the correct Google Account and that this account is set up in Google Health. If the account is not linked to Google Health, the Home Assistant logs show the message `The account is not linked to Google Health`.
+
+{% enddetails %}
+
+{% details "Re-authentication required often" %}
+
+### Symptom: Integration asks to reauthenticate every few days
+
+You may be asked to reauthenticate more often than you expect, such as every 7 days.
+
+#### Description
+
+This means the OAuth Consent Screen is misconfigured, or your authentication token was revoked by Google for some other reason. You may also see the error message `invalid_grant: Token has been expired or revoked` in the logs.
+
+#### Resolution
+
+- The most likely reason is that the **OAuth Consent Screen** is set to **Testing** by default, which expires the token after 7 days.
+- Visit the Google Cloud OAuth [Audience](https://console.cloud.google.com/auth/audience) page, set **Publishing status** to **In production**, and reauthorize the integration in Home Assistant one more time to get a new token.
+- Leave **App logo** empty on the OAuth **Branding** page, because uploading a logo triggers Google's verification process.
+- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for other reasons why your token may have expired.
 
 {% enddetails %}
 

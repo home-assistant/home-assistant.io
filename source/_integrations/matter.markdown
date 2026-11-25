@@ -5,9 +5,9 @@ ha_release: '2022.12'
 ha_domain: matter
 related:
   - docs: /connectivity/matter/
-    title: Matter in Home Assistant
+    title: About Matter
   - docs: /connectivity/thread/
-    title: Thread in Home Assistant
+    title: About Thread
   - docs: /integrations/homekit_controller/
     title: HomeKit
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
@@ -18,7 +18,7 @@ related:
 
 The **Matter** {% term integration %} allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
 
-This page documents the **Matter** integration. To learn more about Matter in Home Assistant, refer to [Matter](/connectivity/matter/).
+This page documents the **Matter** integration. To learn more about Matter, refer to [Matter](/connectivity/matter/).
 
 For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as an app (formerly known as add-on). This Matter Server app runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
 
