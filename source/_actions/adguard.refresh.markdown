@@ -8,9 +8,10 @@ related_actions:
   - adguard.remove_url
   - adguard.enable_url
   - adguard.disable_url
+  - adguard.pause_protection
 ---
 
-The **Refresh** action tells AdGuard Home to re-download all of its filter subscriptions and pull in the latest blocking rules. This keeps your blocklists current and applies any changes right away.
+The **AdGuard Home: Refresh** action tells AdGuard Home to re-download all of its filter subscriptions and pull in the latest blocking rules. This keeps your blocklists current and applies any changes right away.
 
 It pairs well with the other actions. After you add or enable a list, a refresh makes the new rules take effect immediately instead of waiting for AdGuard Home's next scheduled update.
 

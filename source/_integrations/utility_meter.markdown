@@ -1,21 +1,7 @@
 ---
-title: Utility Meter
 description: Instructions on how to integrate the Utility Meter into Home Assistant.
-ha_category:
-  - Helper
-  - Sensor
 ha_release: 0.87
-ha_iot_class: Local Push
-ha_quality_scale: internal
-ha_config_flow: true
-ha_codeowners:
-  - '@dgomes'
 ha_domain: utility_meter
-ha_platforms:
-  - diagnostics
-  - select
-  - sensor
-ha_integration_type: helper
 ---
 
 The **Utility Meter** {% term integration %} provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
@@ -57,8 +43,7 @@ Delta values:
     Enable this if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value.
 Periodically resetting:
   description: >
-    Enable this if the source sensor state is expected to reset to 0, for example, a smart plug that resets on boot.
-    When this option is disabled (for example, if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and the last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
+    Enable this if the source sensor can reset, for example, a smart plug that resets on boot. The reset does not have to be to `0`; when **Net consumption** is disabled, decreases in the source value are ignored. When **Net consumption** is enabled, negative differences are treated as valid consumption. When this option is disabled, the _difference_ between the new value and the last valid value is added to the utility meter.
 Sensor always available:
   description: >
     If activated, the sensor will always be available with the last totalized value, even if the source entity is unavailable or unknown.
@@ -126,7 +111,7 @@ tariffs:
   default: []
   type: list
 periodically_resetting:
-  description: Enable this if the source sensor state is expected to reset to 0, for example, a smart plug that resets on boot. When this option is disabled (for example, if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and the last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
+  description: Enable this if the source sensor can reset, for example, a smart plug that resets on boot. The reset does not have to be to `0`; when `net_consumption` is disabled, decreases in the source value are ignored. When `net_consumption` is enabled, negative differences are treated as valid consumption. When this option is disabled, the _difference_ between the new value and the last valid value is added to the utility meter.
   required: false
   default: true
   type: boolean

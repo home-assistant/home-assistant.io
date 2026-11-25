@@ -1,30 +1,21 @@
 ---
-title: LiteLLM
-description: Instructions on how to integrate a LiteLLM proxy as a conversation agent in Home Assistant
-ha_category:
-  - AI
+description: Instructions on how to integrate a LiteLLM proxy as a conversation agent, speech-to-text, and text-to-speech service in Home Assistant
 ha_release: 2026.8
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@luismalves'
 ha_domain: litellm
-ha_integration_type: service
-ha_platforms:
-  - conversation
-ha_quality_scale: bronze
 ---
 
-The [LiteLLM](https://www.litellm.ai/) {% term integration %} allows you to use a LiteLLM proxy as a conversation agent in Home Assistant.
+The [LiteLLM](https://www.litellm.ai/) {% term integration %} allows you to use a LiteLLM proxy as a conversation agent, [speech-to-text](/integrations/stt/) service, or [text-to-speech](/integrations/tts/) service in Home Assistant.
 
 LiteLLM exposes a single OpenAI-compatible API in front of a wide range of model providers, so you can use almost any model through one endpoint. This is similar to a service like OpenRouter, with the added benefit that you can run LiteLLM yourself if you prefer to keep everything under your own control. This integration lets you point Home Assistant at any LiteLLM proxy, whether it is a hosted instance or one you self-host.
+
+Home Assistant lists all models returned by LiteLLM filtered by the mode of each model when defined. Choose a model that supports chat completions for a conversation agent, audio transcription for a speech-to-text service, or speech generation for a text-to-speech service. The proxy's settings may not match what a model's backend can do, so LiteLLM or the model's backend may reject an incompatible request.
 
 ## Prerequisites
 
 Before you add this integration, you need the following:
 
 - **A LiteLLM proxy that Home Assistant can reach.** This is the endpoint the integration connects to. You can use a hosted LiteLLM proxy or [run one yourself](https://docs.litellm.ai/docs/simple_proxy).
-- **At least one model configured on the proxy.** The integration discovers the available models from the proxy during setup and creates a conversation agent for each one.
+- **At least one model configured on the proxy.** The integration discovers the available models when you add a conversation agent, speech-to-text service, or text-to-speech service.
 - **An API key, if your proxy requires authentication.** This is used to authorize Home Assistant's requests to the proxy. You can leave it empty if your proxy does not require one.
 
 {% include integrations/config_flow.md %}
@@ -49,17 +40,77 @@ Model:
    description: "The model to use for the conversation agent. The list is discovered from your LiteLLM proxy."
 Instructions:
    description: "Instruct how the LLM should respond. This field supports [templates](/docs/configuration/templating/)."
-Control Home Assistant:
-   description: "Select which tools the agent can use to interact with your devices and entities. Leave empty if you do not want the agent to control Home Assistant."
+AI tools:
+   description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices. Leave it empty if you do not want the agent to control Home Assistant."
 {% endconfiguration_basic %}
 
 To change the model, instructions, or tools later, select the conversation agent and choose **Reconfigure conversation agent**.
 
+### Adding a speech-to-text service
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your LiteLLM entry.
+2. Select **Add speech-to-text service**.
+3. Fill in the fields. If you turn on **Custom prompt/keywords**, select **Submit** to show the **Prompt** and **Keywords** fields.
+
+{% configuration_basic %}
+Model:
+  description: "The model used to transcribe speech. The list is discovered from your LiteLLM proxy."
+Custom prompt/keywords:
+  description: "Turn on to send optional prompt and keyword hints. Not every backend supports them. If the backend doesn't support a parameter, it rejects the request and Assist can't transcribe your speech. To fix this, clear the field or turn this off. Turning this off also removes any saved prompt and keywords."
+Prompt:
+  description: "Optional context or instructions for the transcription, in the same language as the audio. Supports [templates](/docs/templating/)."
+Keywords:
+  description: "Comma-separated words or phrases, such as names, to help the model recognize them. Supports [templates](/docs/templating/)."
+{% endconfiguration_basic %}
+
+The service appears as a speech-to-text entity named after the model. Select it in an [Assist pipeline](/integrations/assist_pipeline/). Home Assistant sends the pipeline language without its region. For example, `en-US` is sent as `en`.
+
+To change these settings later, select the speech-to-text service and choose **Reconfigure speech-to-text service**.
+
+### Adding a text-to-speech service
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your LiteLLM entry.
+2. Select **Add text-to-speech service**.
+3. Fill in the fields:
+
+{% configuration_basic %}
+Model:
+  description: "The model used to generate speech. The list is discovered from your LiteLLM proxy."
+Voice:
+  description: "The voice to speak with. The list shows the OpenAI voices. For another backend, enter the voice name of that backend, for example `af_bella` for Kokoro."
+{% endconfiguration_basic %}
+
+The service appears as a text-to-speech entity named after the model. Select it in an [Assist pipeline](/integrations/assist_pipeline/), or use it with the `tts.speak` action. To use a different voice for one message, set `voice` in the `options` of the action.
+
+To change these settings later, select the text-to-speech service and choose **Reconfigure text-to-speech service**.
+
+## Model lists
+
+When you add or reconfigure a service, Home Assistant reads the mode of each model from LiteLLM and lists only the models with a matching mode:
+
+- **Conversation agent**: `chat` or `responses`
+- **Speech-to-text service**: `audio_transcription`
+- **Text-to-speech service**: `audio_speech`
+
+LiteLLM knows the mode of most hosted models. A custom model, such as a speech model on your own server, often has no mode. A model without a mode appears in every list. To show it only in the correct list, set `mode` under `model_info` in your LiteLLM proxy configuration:
+
+```yaml
+model_list:
+  - model_name: local-whisper
+    litellm_params:
+      model: openai/Systran/faster-whisper-small
+      api_base: http://192.168.1.10:8000/v1
+    model_info:
+      mode: audio_transcription
+```
+
+If Home Assistant cannot read the modes from the proxy, every list shows all models. This can happen when your API key does not have access to the `/model/info` endpoint.
+
 ## Supported functionality
 
-This integration provides a conversation agent for each model you add. You can use it in [Assist](/voice_control/) like any other conversation agent.
+For each conversation agent you add, you can use it in [Assist](/voice_control/) like any other conversation agent. Speech-to-text and text-to-speech entities can be selected in an [Assist pipeline](/integrations/assist_pipeline/).
 
-When you grant the agent control of Home Assistant, it can call the configured tools to interact with your devices and entities. To choose which devices and entities the agent can access, see [exposing entities to Assist](/voice_control/voice_remote_expose_devices/).
+When you select tools in **AI tools**, the agent can call them to interact with your devices and entities. To choose which devices and entities **Device control** can access, see [exposing entities to Assist](/voice_control/voice_remote_expose_devices/).
 
 ## Removing the integration
 

@@ -8,7 +8,7 @@ related_actions:
   - insteon.print_im_all_link_database
 ---
 
-The **Load All-Link database** action loads the All-Link database (ALDB) for a device into memory, so Home Assistant can read the links stored on that device.
+The **Insteon: Load All-Link database** action loads the All-Link database (ALDB) for a device into memory, so Home Assistant can read the links stored on that device.
 
 This is useful when you want to inspect or work with the links on a device, for example before printing the database or troubleshooting how devices are linked together.
 

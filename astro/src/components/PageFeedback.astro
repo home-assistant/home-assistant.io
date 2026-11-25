@@ -1,0 +1,230 @@
+---
+// Feedback card at the end of a page: a "Was this page helpful?" vote
+// and links to edit the page, give feedback on it, and see the feedback
+// it has had.
+//
+// Ports `source/_includes/feedback.html` (placed by
+// `source/_layouts/page.html`) with its `.material-card.feedback` and
+// `.page-rating` rules in `sass/homeassistant/_overrides.scss`. Styling
+// copies the structure and cleans the surface, as agreed: card, chips
+// and type snap to the theme tokens.
+//
+// Deliberate differences from the Jekyll markup, all agreed:
+//   - Icons are `<Icon>` (MDI paths in src/lib/icons.ts) instead of
+//     `<iconify-icon>`; Iconify's `mdi:feedback` and `mdi:edit` are
+//     aliases of the `comment-quote` and `pencil` icons used here.
+//   - The heading is an `h2` (Jekyll's `h4` skips levels after a
+//     page's sections) carrying the `#feedback_section` target itself,
+//     instead of an empty link; its `<b>` is dropped (the heading is
+//     bold already). The sentence before the links is a paragraph
+//     instead of loose text in the card.
+//   - Only the variant for regular pages is ported. Integration pages
+//     (`ha_domain`) link to labelled issues instead; that variant comes
+//     along with the first integration page served from Astro.
+//
+// The vote is remembered in the browser (local storage) so one visitor
+// votes once, and reported to Plausible as the "Page helpful" or "Page
+// not helpful" event, as on the live site.
+import Icon from "./Icon.astro";
+import { netlify } from "../lib/site.mjs";
+
+// `source` is the page's file in the repository; `version` the
+// current release, for the feedback form.
+const { source, version } = Astro.props;
+
+const pageUrl = encodeURIComponent(netlify.url + Astro.url.pathname);
+const links = [
+  {
+    label: "Edit",
+    title: "Edit this page",
+    icon: "pencil",
+    href: `${netlify.repositoryUrl}/tree/${netlify.head}/${source}`,
+  },
+  {
+    label: "Provide feedback",
+    title: "Provide feedback on this page",
+    icon: "comment-edit-outline",
+    href: `${netlify.repositoryUrl}/issues/new?template=feedback.yml&url=${pageUrl}&version=${version}&labels=${netlify.branch}`,
+  },
+  {
+    label: "View given feedback",
+    title: "View given feedback for this page",
+    icon: "comment-text-multiple-outline",
+    href: `${netlify.repositoryUrl}/issues?utf8=%E2%9C%93&q=%22${encodeURIComponent(Astro.url.pathname)}%22&in=body`,
+  },
+];
+---
+
+<div class="feedback">
+  <h2 id="feedback_section">
+    <Icon name="comment-quote" />
+    Help us improve our documentation
+  </h2>
+
+  <div class="page-rating">
+    <div class="page-rating-ask">
+      <span id="page-rating-question">Was this page helpful?</span>
+      <button
+        type="button"
+        class="chip"
+        data-rating="helpful"
+        aria-describedby="page-rating-question"
+      >
+        <Icon name="thumb-up-outline" /> Yes
+      </button>
+      <button
+        type="button"
+        class="chip"
+        data-rating="not_helpful"
+        aria-describedby="page-rating-question"
+      >
+        <Icon name="thumb-down-outline" /> No
+      </button>
+    </div>
+    <p class="page-rating-thanks" role="status"></p>
+  </div>
+
+  <p>Suggest an edit to this page, or provide/view feedback for this page.</p>
+  <ul class="links" aria-label="Page feedback options">
+    {
+      links.map(({ label, title, icon, href }) => (
+        <li>
+          <a class="chip" href={href} target="_blank" title={title} rel="external nofollow">
+            <Icon name={icon} /> {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  const messages = {
+    helpful: "Thanks for letting us know! 🫶",
+    not_helpful:
+      "Thanks for letting us know. Tell us what's missing or wrong using Provide feedback below, so we can improve this page.",
+  };
+  const events = { helpful: "Page helpful", not_helpful: "Page not helpful" };
+
+  for (const rating of document.querySelectorAll<HTMLElement>(".page-rating")) {
+    const ask = rating.querySelector<HTMLElement>(".page-rating-ask")!;
+    const thanks = rating.querySelector<HTMLElement>(".page-rating-thanks")!;
+    const storageKey = `page-rating:${location.pathname}`;
+
+    const showThanks = (value: keyof typeof messages) => {
+      ask.hidden = true;
+      thanks.textContent = messages[value];
+    };
+
+    // Remember the vote in this browser only, so one visitor can't vote
+    // twice. Storage can be blocked, for example in private browsing.
+    let previous = null;
+    try {
+      previous = localStorage.getItem(storageKey);
+    } catch {}
+    if (previous && previous in messages) {
+      showThanks(previous as keyof typeof messages);
+      continue;
+    }
+
+    ask.addEventListener("click", (event) => {
+      const button = (event.target as Element).closest<HTMLElement>("[data-rating]");
+      if (!button) return;
+      const value = button.dataset.rating as keyof typeof messages;
+      (window as any).plausible?.(events[value]);
+      try {
+        localStorage.setItem(storageKey, value);
+      } catch {}
+      showThanks(value);
+    });
+  }
+</script>
+
+<style lang="scss">
+  .feedback {
+    background: var(--color-surface);
+    border: 1px solid var(--color-surface-subtle);
+    border-radius: var(--radius-small);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-large);
+    line-height: 1.5;
+    margin-top: var(--space-xxlarge);
+    padding: var(--space-xlarge);
+
+    /* <Icon> renders in its own scope, hence :global. */
+    :global(.icon) {
+      height: 1em;
+      width: 1em;
+    }
+  }
+
+  h2 {
+    align-items: center;
+    color: var(--color-text-muted);
+    display: flex;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xlarge);
+    font-weight: 700;
+    gap: var(--space-small);
+    letter-spacing: 0.05em;
+    line-height: 1.25;
+    margin: 0 0 var(--space-large);
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0 0 var(--space-large);
+  }
+
+  .page-rating-ask {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-small);
+    margin-bottom: var(--space-large);
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .page-rating-thanks:empty {
+    display: none;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-small);
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .chip {
+    align-items: center;
+    background: var(--color-surface-subtle);
+    border: 0;
+    border-radius: var(--radius-pill);
+    color: var(--color-link);
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    gap: var(--space-xsmall);
+    padding: var(--space-xsmall) var(--space-large);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-highlight-shade);
+    }
+  }
+
+  .links .chip {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-medium);
+    padding: var(--space-small) var(--space-large);
+  }
+</style>

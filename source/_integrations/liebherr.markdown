@@ -1,15 +1,7 @@
 ---
-title: Liebherr
 description: Instructions on how to integrate Liebherr SmartDevice appliances into Home Assistant.
 ha_release: 2026.3
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@mettolen'
 ha_domain: liebherr
-ha_integration_type: hub
-ha_zeroconf: true
-ha_config_flow: true
-ha_quality_scale: platinum
 related:
   - url: https://home.liebherr.com/
     title: Liebherr
@@ -17,21 +9,6 @@ related:
     title: Liebherr SmartDevice appliances
   - url: https://developer.liebherr.com/apis/smartdevice-homeapi/
     title: Liebherr SmartDevice HomeAPI
-ha_category:
-  - Cover
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-ha_platforms:
-  - cover
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - switch
 ---
 
 The **Liebherr** {% term integration %} allows you to control and monitor [Liebherr](https://home.liebherr.com/) SmartDevice refrigerators and freezers via the cloud-based [SmartDevice HomeAPI](https://developer.liebherr.com/apis/smartdevice-homeapi/). With this integration, you can monitor temperatures, adjust cooling settings, and create automations to alert you when temperatures exceed safe food storage thresholds.

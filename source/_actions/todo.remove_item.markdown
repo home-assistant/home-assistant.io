@@ -69,7 +69,9 @@ item:
 
 When your guests leave, remove a temporary task from the household list.
 
-- **Trigger**: Guest mode turned off
+- **Trigger**: State changed
+  - **Entity**: Guest mode helper
+  - **To**: Off
 - **Action**: Remove to-do list item
   - **Target**: Household list
   - **Item name or UID**: Prepare guest room

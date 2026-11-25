@@ -7,6 +7,7 @@ related_actions:
   - sofar.set_feed_in_limit
   - sofar.set_passive_mode_timeout
   - sofar.set_passive_mode_power
+  - sofar.set_battery_cutoffs
 ---
 
 Use this action to cap the inverter's own generation, as a percentage of its rated power. Unlike [Set feed-in limit](/actions/sofar.set_feed_in_limit/), which only throttles what reaches the grid, this caps generation directly, without depending on the inverter's own sense of grid flow.
@@ -36,7 +37,7 @@ Inverter:
   description: The Sofar inverter to send this to.
   required: true
 Enabled:
-  description: Whether the inverter applies the limit. Turning this off leaves the last limit in place, unused.
+  description: Whether the inverter applies the limit. Limit is required either way, because turning this off still writes it, but the inverter ignores it until it's enabled again.
   required: true
 Limit:
   description: The output ceiling, as a percentage of rated power.
@@ -68,8 +69,9 @@ config_entry_id:
   type: string
 enabled:
   description: >
-    Whether the inverter applies the limit. Turning this off leaves the
-    last limit in place, unused.
+    Whether the inverter applies the limit. Limit is required either way,
+    because turning this off still writes it, but the inverter ignores it
+    until it's enabled again.
   required: true
   type: boolean
 limit:
@@ -91,7 +93,9 @@ limit:
 
 Some grid operators or tariffs ask for generation to be curtailed at short notice. This automation reacts to an `input_boolean` helper you toggle (by hand, or from another automation) by capping the inverter to 20% of rated power, and lifts the cap again when the helper turns off.
 
-- **Trigger**: State, `input_boolean.curtail_solar`, turns on
+- **Trigger**: State changed
+  - **Entity**: Curtail solar helper
+  - **To**: On
 - **Action**: Sofar: Set active power limit
 
 {% details "YAML example for reacting to a curtailment helper" %}

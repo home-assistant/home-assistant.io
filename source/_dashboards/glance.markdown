@@ -57,11 +57,6 @@ show_state:
   description: Show entity state text.
   type: boolean
   default: "true"
-time_format:
-  required: false
-  description: >
-    Controls how timestamp states are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`).
-  type: [string, map]
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
@@ -88,7 +83,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
 icon:
   required: false
@@ -103,6 +98,11 @@ show_last_changed:
   description: Overwrites the state display with the relative time since last changed.
   type: boolean
   default: false
+time_format:
+  required: false
+  description: >
+    Controls how timestamp states are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`).
+  type: [string, map]  
 show_state:
   required: false
   description: Show entity state text.

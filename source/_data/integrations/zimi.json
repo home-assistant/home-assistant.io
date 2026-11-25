@@ -1,0 +1,25 @@
+{
+  "domain": "zimi",
+  "name": "zimi",
+  "integration_type": "hub",
+  "codeowners": [
+    "@markhannon"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "plugs_switches",
+    "hubs_protocols.smart_home_hubs"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "cover",
+    "fan",
+    "light",
+    "sensor",
+    "switch"
+  ]
+}

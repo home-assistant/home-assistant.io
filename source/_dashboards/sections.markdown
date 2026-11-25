@@ -32,10 +32,11 @@ You can group cards without using horizontal or vertical stack cards.
 1. If you have multiple dashboards, in the left sidebar, select the dashboard to which you want to add the sections view.
 2. Follow the steps on [adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard).
    - Under **View type**, select **Sections**.
-3. Under **Max number of sections wide**, select the maximum number of columns you want to see in the new sections view.
+3. Under **Max sections side by side**, select how many sections can be placed next to each other.
+   - Smaller screens fit fewer sections side by side, and phones stack them one under the other.
 4. Under **Dense section placement**, select if you want to allow the cards to be arranged automatically in order to fill gaps between cards.
    - This will remove some gaps, but it also means you have less control over the order of the cards.
-   - Note that this only applies to horizontal gaps if you used sections more than one column wide.
+   - Note that this only applies to horizontal gaps if you made some sections wider.
 5. When you are done, select **Save**.
    - You are now presented with a new, empty view.
    - If you chose a background image, the page is filled with that image.
@@ -66,8 +67,11 @@ The view comes with one section to which you can directly add a card.
 
    ![Add Section button](/images/dashboards/sections_view_add-card-or-section.png)
 
-2. To add a new section, select the **Create section** button.
-3. A [heading card](/dashboards/heading) will be automatically added to the top of the section.
+2. To add a new section, select **Create section**, and then choose the kind of section:
+   - **Manual section**: An empty section that you fill card by card.
+   - **Automatic section**: A section that picks its own cards. For details, refer to [Adding an automatic section](#adding-an-automatic-section).
+   - **Paste section**: The section you copied, if you [copied a section](#copying-cutting-and-pasting-a-section).
+3. If you chose **Manual section**, a [heading card](/dashboards/heading) is automatically added to the top of the section.
    - To edit it, select the card.
    - If you don't want a heading title at the top of the section, delete this card.
    - The title can be added again later, like any other card.
@@ -76,6 +80,28 @@ The view comes with one section to which you can directly add a card.
    - Select the type of condition, and enter the parameters.
    - If you define multiple conditions, the section is only shown when all conditions are met.
    - If you did not define any conditions, the section is always shown, to all users.
+
+## Adding an automatic section
+
+An automatic section picks its cards itself, and stays up to date when you add or remove devices and entities. For example, add a light to the ground floor, and it shows up in your ground floor lights section on its own.
+
+1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
+2. Select **Create section** > **Automatic section**.
+   - Result: The list of automatic sections opens, each with a live preview.
+3. Select the section you want, and set its options:
+   - **Common controls**: The entities you use the most, like on the **Overview** dashboard.
+   - **Device**: The entities of one device, as tiles or in a single entities card, grouped by category. The heading shows the device name, its area, and its battery level.
+   - **Entities**: Every entity of the types you select, such as all lights or all batteries, in the areas, floors, devices, or labels you select. You can exclude entities you don't want.
+   - **Community sections**: Sections you installed from the [Marketplace](/integrations/marketplace/).
+4. Select **Save**.
+
+## Converting an automatic section to a manual section
+
+To edit, reorder, or remove the cards of an automatic section one by one, convert it to a manual section. The section keeps its cards, but it no longer updates on its own.
+
+1. In the top right corner of your dashboard, select the edit {% icon "mdi:edit" %} button.
+2. In the top right corner of the section, select **Menu** {% icon "mdi:dots-vertical" %} > **Convert to manual section**.
+3. Select **Convert**.
 
 ## Adding a section background
 
@@ -99,11 +125,28 @@ If the cards in a section appear to take on the background color, your theme mos
 You can customize the default background color and the section corner rounding in a [custom theme](/integrations/frontend/#defining-themes) using the `ha-section-background-color` and `ha-section-border-radius` variables.
 {% endnote %}
 
+## Changing the width of a section
+
+To make a section wider, select the edit {% icon "mdi:edit" %} button on the section, and on the **Appearance** tab, select a **Width**. Cards keep their size, so a wider section fits more of them on each row. Cards with **Full width card** enabled stretch to the new width of the section.
+
 ## Deleting a section
 
 1. To delete a section, go to the dashboard and in the top right corner, select the edit {% icon "mdi:edit" %} button.
 2. Open the view with the section you want to delete.
 3. Select the delete {% icon "mdi:trash" %} button.
+
+## Copying, cutting, and pasting a section
+
+You can copy or move a section to another place in the same view, to another view, or to another dashboard.
+
+1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
+2. In the top right corner of the section, select **Menu** {% icon "mdi:dots-vertical" %} and then select **Copy**, or select **Cut** to move it.
+3. Go to the view where you want the section. If it is on another dashboard, select that dashboard's edit {% icon "mdi:edit" %} button before continuing.
+4. In the section after which you want to add the new one, select **Menu** {% icon "mdi:dots-vertical" %} > **Paste**.
+   - Result: The section is added after that section.
+5. Select **Done**.
+
+When you create a section, you can also select the section you copied. For details, refer to [Adding sections and cards to a sections view](#adding-sections-and-cards-to-a-sections-view).
 
 ## Rearranging sections and cards
 
@@ -207,9 +250,9 @@ views:
 
 ## Show or hide section conditionally
 
-You can choose to show or hide certain sections based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as that for the conditional card.
+You can choose to show or hide certain sections based on different conditions. The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
 
-To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab.
+To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab. Adding, reordering, and checking conditions work the same way as for cards. For the steps, refer to [Showing or hiding a card or badge conditionally](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally).
 
 ## Editing the footer
 
@@ -236,6 +279,11 @@ type:
   required: false
   description: "`sections`"
   type: string
+max_columns:
+  required: false
+  description: "Maximum number of sections placed side by side. Smaller screens fit fewer sections side by side."
+  type: integer
+  default: 4
 {% endconfiguration %}
 
 ## Header YAML configuration
@@ -260,6 +308,11 @@ card:
 ## Section YAML configuration
 
 {% configuration %}
+column_span:
+  required: false
+  description: "Width of the section, as a number of sections. For example, `2` makes the section twice as wide as a single section. It is limited by the `max_columns` setting of the view and by the screen size."
+  type: integer
+  default: 1
 background:
   required: false
   description: "Adds a colored background behind the section. Use `true` for the default color and opacity, or provide a map with `color` and `opacity` options."

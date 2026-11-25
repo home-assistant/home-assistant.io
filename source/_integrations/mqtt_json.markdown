@@ -1,18 +1,10 @@
 ---
-title: MQTT JSON
 description: Instructions on how to use MQTT JSON to track devices in Home Assistant.
-ha_category:
-  - Presence detection
-ha_iot_class: Local Push
 ha_release: 0.44
 ha_domain: mqtt_json
-ha_platforms:
-  - device_tracker
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **MQTT JSON** {% term integration %} allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.

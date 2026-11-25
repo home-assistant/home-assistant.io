@@ -1,140 +1,323 @@
 ---
-title: Viessmann ViCare
-description: Instructions how to integrate Viessmann heating devices with Home Assistant
-ha_category:
-  - Climate
-  - Fan
-  - Select
-  - Water heater
+description: Instructions on how to integrate Viessmann heating, ventilation, and energy devices with Home Assistant.
 ha_release: 0.99
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: vicare
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - number
-  - select
-  - sensor
-  - water_heater
-ha_dhcp: true
-ha_integration_type: hub
-ha_codeowners:
-  - '@CFenner'
-  - '@lackas'
 ---
 
-The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann-climatesolutions.com) devices via the Viessmann ViCare (REST) API.
-Most recent network-connected Viessmann heating devices (e.g., gas boilers) should be supported.
+The **Viessmann ViCare** {% term integration %} connects Home Assistant to the [Viessmann](https://www.viessmann-climatesolutions.com) cloud, the same cloud the ViCare app uses. It shows the values your devices report and lets you control heating, domestic hot water (<abbr title="domestic hot water">DHW</abbr>), and ventilation from Home Assistant.
+
+## Supported devices
+
+Devices that you can see in the ViCare app can be added to Home Assistant. The integration recognizes these device families:
+
+- **Gas boilers**: Vitodens, Vitocrossal, and Vitopend
+- **Oil boilers**: Vitoladens, Vitorondens, and Vitoradial
+- **Pellet boilers**: Vitoligno
+- **Heat pumps**: Vitocal, including hybrid systems such as the Vitocaldens
+- **Fuel cell heating**: Vitovalor and Vitoblo
+- **Electricity storage**: Vitocharge VX3
+- **Ventilation**: Vitoair and Vitovent units, and the Vitopure air purifier
+- **Water softeners**: Vitoset Aqua
+- **ViCare Smart Climate**: radiator thermostats, room sensors, floor heating distributors, and repeaters
+
+Newer devices with built-in Wi-Fi connect to the cloud directly. Older devices need a Vitoconnect gateway.
 
 ## Prerequisites
 
-You will need to sign in to the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com) with **your existing ViCare app user credentials**.
+Home Assistant needs its own API client from the Viessmann developer portal:
 
-Create a new API client by selecting **Add** in the **Clients** section on the developer dashboard with the following settings:
-   - Name: `HomeAssistant`
-   - Google reCAPTCHA: `disabled`
-   - Redirect URIs: `https://my.home-assistant.io/redirect/oauth`
-
-Copy the **Client ID** in the **Clients** section on the developer dashboard for the setup in Home Assistant.
-
-{% note %}
-It may take up to an hour for your new client to become active and usable. Otherwise, you will not receive any devices in Home Assistant.
-{% endnote %}
-
-When Home Assistant prompts for application credentials during setup, enter the **Client ID** from the Viessmann developer portal. The **Client Secret** field is not used by the integration (ViCare uses PKCE), so you can enter any value.
-
-### API limits
-
-The Viessmann API is rate-limited. In the "Basic" (free) tier of their API plans, if you exceed one of the limits below, you will be blocked for 24 hours:
-
-- 120 calls for a time window of 10 minutes
-- 1450 calls for a time window of 24 hours
-
-For the paid API plans this limit increases to 3000 calls in 24 hours. The {% term integration %} polls the API every 60 seconds and will work within these limits. However, any additional requests to the API, for example, by setting the temperature via the integration and interacting with the ViCare app, count into those limits.
-
-{% important %}
-For any Viessmann API plan except the most expensive "Advanced" tier, Viessmann imposes certain limits on which APIs are accessible for end-user consumption. Unfortunately, this also affects APIs useful for smart home integrations, like controlling thermostats (TRVs) and climate sensors, which are only available in the "Advanced" plan API tier. In case you set up the integration with a lower-tier plan, TRVs and other smart home entities will not become accessible in your Home Assistant installation.
-
-Please consider providing feedback to Viessmann as described in [their FAQ](https://developer.viessmann-climatesolutions.com/start/faq.html) "Where can I give feedback on the API?" if you consider this a limitation for your use case.
-{% endimportant %}
+1. Sign in to the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com) with your ViCare app account.
+2. In the **Clients** section of the dashboard, select **Add** and create a client with these settings:
+   - **Name**: `HomeAssistant`
+   - **Redirect URIs**: `https://my.home-assistant.io/redirect/oauth`
+   - If the form offers **Google reCAPTCHA**, disable it.
+3. Copy the **Client ID** of the new client.
 
 {% note %}
-If you have multiple Viessmann devices in Home Assistant, the limit is shared between them, meaning the poll interval is increased, and the values are less frequently updated!
+A new client can take up to an hour to become active. Until then, Home Assistant does not find any devices.
 {% endnote %}
+
+When Home Assistant asks for application credentials during setup, enter the **Client ID**. The **Client Secret** field is not used, so you can enter any value.
+
+The API access is free. Viessmann currently offers no paid plans.
 
 {% include integrations/config_flow.md %}
 
-## Entities
+## Supported functionality
 
-ViCare represents devices as a set of [data points](https://api.viessmann-climatesolutions.com/documentation/data-points) and the ViCare {% term integration %} maps those to {% term entity entities %} of different {% term platform platforms %} in Home Assistant. A single device may be represented by one or more platforms.
+The integration creates entities for the data points your device reports, so the entities differ from device to device. A single physical device usually has entities of several types.
 
-### Climate
+### Heating
 
-Represents the heating controls of your device.
+Each heating circuit has a **Heating** climate entity. It shows the room temperature if the device measures one, and the supply temperature otherwise.
 
-{% note %}
-Viessmann devices with room temperature sensing will show the current room temperature via `current_temperature`. All other devices will show the current supply temperature of the heating circuit.
-{% endnote %}
+The HVAC modes of the climate entity map to the Viessmann operation modes:
 
-### Fan
+- `off`: `standby`, which switches off heating and domestic hot water. Devices without standby use `dhw` (hot water only) or `forcedReduced` instead.
+- `heat`: `forcedNormal`, which permanently heats to the normal temperature.
+- `auto`: the first of `dhwAndHeatingCooling`, `dhwAndHeating`, `heatingCooling`, and `heating` that the device supports. These follow the schedule programmed in your device, switching between the reduced and normal temperature.
+- `cool`: `cooling`, on heat pumps that can cool.
 
-Ventilation units are displayed as fans and enable the change of speed and use of presets.
+Each heating circuit also has an **Operating mode** select that offers all operation modes the device reports, such as **DHW only**, **DHW and heating**, or **Standby**. The climate entity maps several of these modes to the same HVAC mode, but the select sets each one directly.
 
-### Water heater
+The `climate.set_temperature` action changes the temperature of the active program: the reduced or normal temperature, following your schedule, or the temperature of the preset if one is active. The presets *eco* and *comfort* are the Viessmann programs of the same name and end after 8 hours. Eco lowers the target temperature by 3 °C, and comfort heats to a temperature you configure. Number entities set the temperatures for the reduced, normal, and comfort programs, as well as the slope and shift of the heating curve.
 
-Represents the domestic hot water controls of your device.
+The holiday programs appear as **Holiday** and **Holiday at home** binary sensors, with sensors for their start and end dates.
 
-{% note %}
-It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating integration. Therefore, the operation mode of that integration is just available as an attribute and cannot be modified.
-{% endnote %}
+### Hot water
 
-### Sensor
+The **Domestic hot water** water heater entity shows the hot water temperature and sets its target. It cannot switch hot water on or off. Use the **DHW operating mode** select if your device has one, or the **Operating mode** select of the heating circuit.
 
-Additional data for a device is available as separate sensors. The sensors are automatically discovered based on the available API data points.
+The **Activate one-time charge** button heats the hot water once, also outside of the schedule. Depending on the device, it heats to the normal temperature or to the **DHW secondary temperature**. The **Deactivate one-time charge** button stops it.
 
-### Button
+If your device has a domestic hot water circulation pump, you can read its weekly schedule with the [Get circulation schedule](/actions/vicare.get_circulation_schedule/) action and change it with the [Set circulation schedule](/actions/vicare.set_circulation_schedule/) action.
 
-Button entities are available to trigger actions like a one-time charge of the water heater.
+### Ventilation
 
-### Number
+Ventilation units appear as fans with their speeds and presets. Their quickmodes, such as **Intensive**, **Eco**, **Boost**, and **Silent**, are switches. Only one quickmode can be active at a time, so turn the active one off before you turn on another.
 
-Number entities are available to adjust values like the predefined temperature for different heating programs or the heating curve shift and slope.
+### Sensors
 
-### Select
+Sensors and binary sensors cover temperatures, pressures, energy and gas consumption, compressor and burner states, and more, depending on what your device reports.
 
-Select entities allow configuring the domestic hot water (<abbr title="domestic hot water">DHW</abbr>) operating mode of your Viessmann device. Available options depend on the specific device model and may include `balanced`, `economical`, or `off` modes.
+The rooms of a ViCare room control appear as separate devices named **Room 0**, **Room 1**, and so on, each with a temperature and a humidity sensor and a **Window** and a **Condensation risk** binary sensor. The Viessmann API does not provide the room names, so rename the devices and assign them to areas as needed.
 
-### Switch
+Vitoset Aqua water softeners have the following sensors:
 
-Ventilation devices expose their quickmodes as switches, such as **Intensive**, **Eco**, **Boost**, and **Silent**. Only the quickmodes reported by the device are created.
+- **Salt supply**: the number of days the salt lasts
+- **Water consumption**: the total water consumption, in liters
+- **Water consumption today**: the water consumed today, in liters
+- **Water flow**: the current water flow, in liters per minute
 
-Quickmodes are mutually exclusive. Turn the active one off before turning another on, otherwise activation fails with "Only one quickmode can be active at a time".
+Heat pumps that report the heat they produce have the following sensors:
+
+- **Heat production**: the current heat output
+- **Heating heat production today**: the heat produced for heating today
+- **DHW heat production today**: the heat produced for domestic hot water today
+
+Devices that report their internal pump have an **Internal pump** binary sensor that shows whether the pump is running.
+
+Devices that report the modulation of their internal pump have the following sensors:
+
+- **Internal pump modulation**: the current modulation of the internal pump, in percent
+- **Internal pump target modulation**: the modulation the device requests from the internal pump, in percent
+
+Not every device reports both. Some gas boilers only report the target.
 
 {% include integrations/actions.md %}
 
-## Climate and water heater control
+## Viessmann ViCare automation examples
 
-The ViCare integration also provides the standard [climate](/integrations/climate/) and [water_heater](/integrations/water_heater/) actions. The ViCare integration provides `set_temperature`, `set_hvac_mode`, and `set_preset_mode` for climate entities, and `set_temperature` for the water heater. A few of these behave in ViCare-specific ways.
+With your heating in Home Assistant, you can combine it with your other devices, for example a solar system or a weather station. Here are a few ideas to get you started.
 
-### Setting the temperature
+{% include docs/paste_yaml_tip.md %}
 
-The `climate.set_temperature` action always affects the current normal temperature or, if a preset is set, the temperature of the preset (that is, a Viessmann program such as eco or comfort).
+### Automation: Heat the hot water with surplus solar power
 
-### Setting the HVAC mode
+Raise the hot water target to 60 °C when you feed more than 2 kW of solar power into the grid for 10 minutes. The device heats the hot water only within the times of its hot water schedule, so make sure the schedule covers the sunny hours. In this example, the grid power sensor reports export as a negative value. Lower the target again with a second automation, for example in the evening.
 
-The ViCare integration maps the Home Assistant HVAC modes to Viessmann operation modes as follows:
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Your grid power sensor
+  - **Below**: `-2000`
+  - **For**: 10 minutes
+- **Action**: Set water heater target temperature
+  - **Target**: The **Domestic hot water** entity of your device
+  - **Temperature**: `60`
 
-- `off`: maps to `ForcedReduced`, which permanently sets heating to the reduced temperature. This also deactivates domestic hot water.
-- `heat`: maps to `ForcedNormal`, which permanently sets heating to the normal temperature.
-- `auto`: maps to `DHWandHeating`, which switches between the reduced and normal temperature based on the heating schedule programmed in your device.
+{% details "YAML example for heating the hot water with surplus solar power" %}
 
-### Setting the preset mode
+{% example %}
+automation: |
+  alias: "Hot water boost with solar surplus"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.grid_power
+      below: -2000
+      for: "00:10:00"
+  actions:
+    - action: water_heater.set_temperature
+      target:
+        entity_id: water_heater.vitocal_domestic_hot_water
+      data:
+        temperature: 60
+{% endexample %}
 
-The `climate.set_preset_mode` action supports the *eco* and *comfort* preset modes. These are identical to the respective Viessmann programs and are only active temporarily for 8 hours. Eco mode reduces the target temperature by 3°C, whereas Comfort mode sets the target temperature to a configurable value. Consult your heating device manual for more information.
+{% enddetails %}
+
+### Automation: Hot water only in summer
+
+Stop heating once it stays warm outside for a day, and keep the hot water running.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: The **Outside temperature** sensor of your device
+  - **Above**: `18`
+  - **For**: 24 hours
+- **Action**: Select option
+  - **Target**: The **Operating mode** select of your heating circuit
+  - **Option**: **DHW only**
+
+{% details "YAML example for hot water only in summer" %}
+
+{% example %}
+automation: |
+  alias: "Summer mode for the heating"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.vitocal_outside_temperature
+      above: 18
+      for: "24:00:00"
+  actions:
+    - action: select.select_option
+      target:
+        entity_id: select.vitocal_operating_mode
+      data:
+        option: dhw
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Notify when the heating goes offline
+
+Get a notification when your heating has been unavailable in Home Assistant for an hour, for example because the gateway lost its connection.
+
+- **Trigger**: State
+  - **Entity**: The **Heating** climate entity of your device
+  - **To**: Unavailable
+  - **For**: 1 hour
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a notification when the heating goes offline" %}
+
+{% example %}
+automation: |
+  alias: "Heating offline"
+  triggers:
+    - trigger: state
+      entity_id: climate.vitocal_heating
+      to: unavailable
+      for: "01:00:00"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        message: "The heating has been offline in Home Assistant for an hour."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Pause circulation while nobody is home
+
+This automation saves the circulation schedule when everyone leaves, turns the pump off, and restores the saved schedule once someone comes back.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Home
+  - **Below**: `1`
+- **Action**: Viessmann ViCare: Get circulation schedule
+  - **Target**: Main water heater
+  - **Response variable**: `saved`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Monday** to **Sunday**: selected, with no slots
+- **Action**: Wait for a trigger
+  - **Trigger**: Numeric state crossed threshold
+    - **Entity**: Home
+    - **Above**: `0`
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Data** (in YAML mode): the saved schedule of the water heater, as shown in the example YAML
+
+{% details "YAML example for pausing circulation while nobody is home" %}
+
+{% example %}
+automation: |
+  alias: "Pause circulation while nobody is home"
+  triggers:
+    - trigger: numeric_state
+      entity_id: zone.home
+      below: 1
+  actions:
+    - action: vicare.get_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      response_variable: saved
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data:
+        monday: []
+        tuesday: []
+        wednesday: []
+        thursday: []
+        friday: []
+        saturday: []
+        sunday: []
+    - wait_for_trigger:
+        - trigger: numeric_state
+          entity_id: zone.home
+          above: 0
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data: "{{ saved['water_heater.main_water_heater'] }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turn off circulation on weekends
+
+This automation turns off the circulation pump on Saturday and Sunday every Friday evening. The weekday schedule stays as it is.
+
+- **Trigger**: Time
+  - **At time**: `20:00:00`
+  - **Weekdays**: Friday
+- **Action**: Viessmann ViCare: Set circulation schedule
+  - **Target**: Main water heater
+  - **Saturday** and **Sunday**: selected, with no slots
+
+{% details "YAML example for turning off circulation on weekends" %}
+
+{% example %}
+automation: |
+  alias: "Turn off circulation on weekends"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+      weekday: fri
+  actions:
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data:
+        saturday: []
+        sunday: []
+{% endexample %}
+
+{% enddetails %}
+
+## Data updates
+
+The integration {% term polling polls %} the Viessmann cloud every 60 seconds. Devices behind the same gateway share one request. With more than one gateway, the interval grows with the number of gateways, so that the total stays within the API limit: every 120 seconds with two gateways, every 180 seconds with three.
+
+Viessmann allows 1,450 API calls in 24 hours for each API client. Polling uses most of them, and every command you send from Home Assistant counts as well. When the limit is reached, Viessmann blocks further requests until the 24-hour window ends, and the entities become unavailable in the meantime. The ViCare app uses its own client and does not count toward the limit of Home Assistant.
+
+{% important %}
+Use your API client only for one Home Assistant installation. Two installations or other tools that share a client ID also share its limit and run into it.
+{% endimportant %}
+
+## Known limitations
+
+- Values are as fresh as the last poll. A change made in the ViCare app or at the device shows up in Home Assistant with the next poll.
+- The water heater entity sets the target temperature only. Switching hot water on or off goes through the operating mode selects.
+- The Viessmann API does not provide the names of the rooms of a ViCare room control.
+
+## Reporting a new device or a missing value
+
+The integration only creates entities for the data points that the Viessmann API reports for your device. If your device has only a few entities, or a value you see in the ViCare app is missing in Home Assistant, it most likely needs support in [PyViCare](https://github.com/openviess/PyViCare), the library that reads the data for Home Assistant:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, open the **Viessmann ViCare** integration, and select **Download diagnostics**. The file contains the data points of all your devices, with gateway IDs and credentials replaced by placeholders.
+2. Open a [new issue](https://github.com/openviess/PyViCare/issues/new) in the PyViCare repository, name your device model, describe the value you are missing, and attach the diagnostics file.
 
 ## Troubleshooting
 
@@ -165,25 +348,9 @@ The Client ID sent to Viessmann does not match a client in the developer portal.
 3. Select the **Viessmann ViCare** credential, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
 4. Add the integration again. Setup now prompts for the application credentials again; enter the **Client ID** from your current client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com).
 
-### GATEWAY_OFFLINE
+### Devices are unavailable for a while
 
-The ViCare API tends to lose contact with the gateway from time to time. This will be logged in Home Assistant with:
-
-```log
-Invalid data from Vicare server: {
-  'viErrorId': '...',
-  'statusCode': 400,
-  'errorType': 'DEVICE_COMMUNICATION_ERROR',
-  'message': '',
-  'extendedPayload': {
-    'httpStatusCode': 'NotFound',
-    'code': '404',
-    'reason': 'GATEWAY_OFFLINE'
-  }
-}
-```
-
-Usually, this resolves itself after a while, but if this state persists, try to power cycle your gateway.
+The Viessmann cloud loses contact with the gateway from time to time, and the Home Assistant log shows `GATEWAY_OFFLINE`. This usually resolves itself after a while. If it persists, power cycle the gateway.
 
 ## Removing the integration
 

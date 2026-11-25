@@ -1,22 +1,7 @@
 ---
-title: UptimeRobot
 description: Instructions on how to set up UptimeRobot within Home Assistant.
-ha_category:
-  - System monitor
 ha_release: 0.72
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@ludeeus'
-  - '@chemelli74'
 ha_domain: uptimerobot
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-  - switch
-ha_config_flow: true
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **UptimeRobot** {% term integration %} provides entities to get the status for all of your monitors from your account on [UptimeRobot]( https://uptimerobot.com).

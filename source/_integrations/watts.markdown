@@ -1,23 +1,7 @@
 ---
-title: Watts Vision +
 description: Instructions on how to set up Watts Vision + smart heating system in Home Assistant.
-ha_category:
-  - Climate
-  - Switch
 ha_release: '2026.1'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@theobld-ww'
-  - '@devender-verma-ww'
-  - '@ssi-spyro'
 ha_domain: watts
-ha_config_flow: true
-ha_platforms:
-  - climate
-  - diagnostics
-  - switch
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Watts Vision +** {% term integration %} enables seamless control of your heating zones directly from Home Assistant.

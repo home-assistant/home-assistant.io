@@ -1,20 +1,10 @@
 ---
-title: Taps Aff
 description: Instructions on how to use the Taps Aff binary sensor in Home Assistant.
-ha_category:
-  - Weather
 ha_release: 0.47
-ha_iot_class: Local Polling
 ha_domain: tapsaff
-ha_codeowners:
-  - '@bazwilliams'
-ha_platforms:
-  - binary_sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Taps Aff** {% term integration %} provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](https://www.taps-aff.co.uk/).

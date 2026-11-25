@@ -1,21 +1,10 @@
 ---
-title: Feedreader
 description: Instructions on how to integrate RSS feeds into Home Assistant.
-ha_category:
-  - Event
-  - Other
 ha_release: 0.18
-ha_iot_class: Cloud Polling
 ha_domain: feedreader
-ha_config_flow: true
-ha_platforms:
-  - event
-ha_integration_type: service
 related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
-ha_codeowners:
-  - '@mib1185'
 ---
 
 Add an RSS/Atom feed reader that polls feeds every hour and sends new entries into the event bus.

@@ -9,7 +9,7 @@ related_actions:
   - tado.add_meter_reading
 ---
 
-The **Set climate timer** action switches a Tado climate device, such as a radiator valve, to a target temperature for a set time. This is the equivalent of a manual boost: the device heats to the temperature you choose and then returns to its schedule.
+The **Tado: Set climate timer** action switches a Tado climate device, such as a radiator valve, to a target temperature for a set time. This is the equivalent of a manual boost: the device heats to the temperature you choose and then returns to its schedule.
 
 You can either set a fixed time period or choose an overlay that decides when the change ends, such as keeping it until the next scheduled block.
 
@@ -93,12 +93,12 @@ requested_overlay:
 Boost the radiator and the hot water at the same time with a single script. Handy as a dashboard button on a cold morning.
 
 - **Action**: Tado: Set climate timer
-- **Target**: Heating
-- **Temperature**: 25
-- **Time period**: 01:30:00
+  - **Target**: Heating
+  - **Temperature**: `25`°
+  - **Time period**: `01:30:00`
 - **Action**: Tado: Set water heater timer
-- **Target**: Hot water
-- **Time period**: 01:30:00
+  - **Target**: Hot water
+  - **Time period**: `01:30:00`
 
 {% details "YAML example for boosting heating and hot water" %}
 

@@ -1,0 +1,1 @@
+This integration requires an infrared remote adapter (proxy) that is already set up in Home Assistant and provides an [infrared](/integrations/infrared/) {% term entity %}. For the remote adapters that you can use, refer to [Infrared remote adapters](/connectivity/infrared/#infrared-remote-adapters).

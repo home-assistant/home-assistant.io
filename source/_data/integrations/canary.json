@@ -1,0 +1,19 @@
+{
+  "domain": "canary",
+  "name": "Canary",
+  "integration_type": "hub",
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "security_safety.cameras",
+    "security_safety.alarm_systems"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "camera",
+    "sensor"
+  ]
+}

@@ -19,7 +19,7 @@ To turn on an input boolean from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the input boolean you want to turn on.
-6. From the actions shown for that target, select **Turn on input boolean**.
+6. From the actions shown for that target, under **Input boolean**, select **Turn on input boolean**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -53,8 +53,10 @@ This turns on the `input_boolean.guest_mode` helper.
 
 Turn on a guest mode helper that other automations check.
 
-- **Trigger**: A guest's phone connects to the Wi-Fi
-- **Action**: Turn on input boolean
+- **Trigger**: State changed
+  - **Entity**: Guest phone device tracker
+  - **To**: Home
+- **Action**: Input boolean: Turn on input boolean
   - **Target**: Guest mode
 
 {% details "Show example YAML" %}

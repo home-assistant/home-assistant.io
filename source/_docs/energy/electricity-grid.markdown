@@ -71,11 +71,32 @@ In countries like Germany, SML (Smart Message Language) is used typically. ESPHo
 
 ### Data provided by your energy provider
 
-Some energy providers will provide you real-time information about your usage and have this data integrated into Home Assistant.
+Some energy providers offer integrations that provide real-time or historical energy usage data to Home Assistant.
+
+Historical usage data can arrive with a delay of a few days, depending on your provider. If the Energy dashboard has no data for today, select an earlier date for which your provider has released data.
 
 ### Manual integration
 
 If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [Template](/integrations/template) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
+
+## Add the data to the Energy dashboard
+
+Once your energy data is available in Home Assistant, add it to the Energy dashboard:
+
+1. Go to **Settings** > **Dashboards** > **Energy**.
+2. Under **Electricity grid**, select **Add grid connection**.
+3. Select the statistic that represents the energy consumed from the grid.
+4. If applicable, also select the statistic for energy returned to the grid.
+5. Optional: to show real-time power on the dashboard, set **Type of power measurement** and select your power sensor or sensors. If you select **Two sensors**, select one sensor for **Power imported from grid** and one for **Power exported to grid**.
+6. Save the grid connection.
+
+Only compatible statistics are available for selection. These can come from sensor entities or be provided directly by an integration. Statistics provided directly by an integration do not appear as sensor entities on its integration page, but you can select them in the Energy dashboard configuration.
+
+For integrations that provide historical usage statistics, select the consumption statistic described in the integration's documentation. Billing summaries and usage forecasts shown on the integration page serve a different purpose.
+
+The power sensor adds real-time and historical power views to the dashboard. The energy totals work without it.
+
+If your energy provider uses multiple tariffs, add one grid connection per tariff, each with its own energy consumed statistic and, if applicable, energy returned statistic. Because a power sensor measures your whole meter, you only need to add it to one of the connections. The same power sensor can't be used on more than one grid connection.
 
 ### Troubleshooting
 

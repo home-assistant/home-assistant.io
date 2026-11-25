@@ -11,7 +11,7 @@ related:
     title: Built-in sentence definitions
   - url: https://github.com/home-assistant/intents/tree/main/responses
     title: Built-in response definitions
-  - url: https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/
+  - url: https://contributors.home-assistant.io/translate/voice/template-syntax/
     title: Template sentence syntax documentation
   - url: https://github.com/home-assistant/intents/tree/main/sentences
     title: Sentence test cases
@@ -19,7 +19,7 @@ related:
     title: Best practices with Assist
 ---
 
-Home Assistant comes with [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) contributed by the community for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
+Home Assistant comes with [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) contributed by the community for [dozens of languages](https://contributors.home-assistant.io/translate/voice/languages/).
 
 ## Prerequisites
 
@@ -48,6 +48,18 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 - *set lights to red*
   - Uses area of voice satellite
 - *turn on the lights in the living room*
+
+### Fans
+
+- *set kitchen fan speed to 50%*
+- *kitchen fans 50%*
+
+### Climate
+
+- *what is the temperature in the living room?*
+- *set bedroom temp to 21 degrees*
+- *set the fan mode to auto*
+- *set the bedroom fan mode to low*
 
 ### Covers
 
@@ -85,26 +97,67 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 - *turn TV volume down to 90 percent*
 - *Mute my TV*
 - *Unmute the television*
+- *volume up*
+- *turn up the volume in the living room*
+
+To play media by name, use a media player that can search for the type of media you want to play. [Music Assistant](/integrations/music_assistant/), [Sonos](/integrations/sonos/), and [Jellyfin](/integrations/jellyfin/) support media search for different types of media.
+
+- *play the track Bohemian Rhapsody*
+- *play the song Bohemian Rhapsody in the kitchen*
 
 ### Vacuum
 
 - *return rover to base*
 - *start rover*
 
+To send a vacuum to clean an area, the vacuum must support cleaning areas, and its areas must be mapped to Home Assistant areas. For the steps, refer to [Mapping your vacuum areas to Home Assistant areas](/integrations/vacuum/#mapping-your-vacuum-areas-to-home-assistant-areas).
+
+- *clean the living room*
+- *vacuum in here*
+  - Uses area of voice satellite
+- *clean living room with rover*
+
+### Lawn mower
+
+- *start mowing*
+- *start clippy*
+  - Starts the lawn mower named "Clippy"
+- *dock the mower*
+- *stop mowing*
+  - Sends the lawn mower back to its dock
+
 ### Lists
 
 - *Add bread to my shopping list*
+- *check off bread from my shopping list*
 - *Add decorating christmas tree to my december chores list*
   - needs a todo list name "december chores"
 - *add clean out garage to weekend list*
   - needs a todo list named "Weekend"
+- *complete clean out garage on my weekend list*
+- *delete clean out garage in my weekend list*
+
+## Weather
+
+- *what's the weather?*
+- *what's the weather like in London?*
+  - Needs a weather entity named "London"
 
 ## Date and time
 
 - *what time is it?*
 - *what's the date?*
 
+## Broadcasting
+
+- *broadcast that dinner is ready*
+  - Plays the message on all other voice satellites that can play announcements. For example, [Home Assistant Voice Preview Edition](/voice-pe/) can. Analog phones that you connect through [Voice over IP](/integrations/voip/) don't get the message.
+
 ## Timers
+
+Timers created with Assist are voice timers. They are separate from [Timer helper entities](/integrations/timer/) and do not create `timer.*` entities that you can use in dashboards, scripts, or automations.
+
+A voice timer belongs to the {% term "voice satellite" %} where you start it. The voice satellite must support timers. For example, [Home Assistant Voice Preview Edition](/voice-pe/) supports them. The Assist dialog in Home Assistant doesn't. If you start a timer where timers aren't supported, Assist responds that the device doesn't support timers.
 
 ### Starting
 
@@ -112,16 +165,24 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 - *5 minute timer*
 - *set a 20 minute timer for pizza*
 - *set a timer for 1 hour and 3 minutes*
-  - Break it up into hours, minutes, and seconds instead of using a technical term like *set a timer for 63 minutes*. 
+  - Break it up into hours, minutes, and seconds instead of using a technical term like *set a timer for 63 minutes*.
 
 ### Cancelling
 
 - *cancel timer*
-  - can't cancel multiple timers yet
+  - If several timers are running, Assist first looks for a timer of the voice satellite that you talk to. Then it looks in the area of the voice satellite, and then on its floor. If it still finds more than one timer, name the timer, or cancel all timers.
 - *cancel 5 minute timer*
 - *cancel pizza timer*
 - *cancel kitchen timer*
   - Must have been set by a voice satellite in the kitchen
+- *cancel all timers*
+  - Cancels the voice timers of all voice satellites
+- *cancel all kitchen timers*
+
+### Pausing and resuming
+
+- *pause timer*
+- *resume timer*
 
 ### Adding/Removing Time
 
@@ -143,7 +204,7 @@ To learn how to set this up, refer to the [ESP32-S3-Box-3B tutorial](/voice_cont
 
 ### Combining timers and device control to add a delay
 
-Unlike regular voice timers, delayed commands cannot be canceled or modified.
+Unlike regular voice timers, delayed commands can't be canceled, paused, or changed. They also work where voice timers aren't supported. For example, they work in the Assist dialog in Home Assistant.
 
 - *Turn off the lights in the living room in 5 minutes*
 - *Pause TV in 10 minutes*
@@ -155,35 +216,84 @@ Unlike regular voice timers, delayed commands cannot be canceled or modified.
 
 ## Troubleshooting
 
-The list of supported sentences is constantly being updated for each language. There are so many possible sentences that they cannot be all listed here. To find out what works in your language, follow these steps.
+{% details "Assist answers “Sorry, I couldn't understand that”" %}
 
-1. If the voice assistant doesn't understand you, you may need to rephrase your sentence a bit. Or check if the {% term entity %} or {% term area %} name is correct for your environment.
-2. Take a look at the test sentences:
-    - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/tests) folder, open the subfolder for your language.
-    - Look through the test files to see the example sentences that have been tested.
-    - The second part of the file name shows the {% term intent %}, the first part shows the {% term domain %}. For some {% term domains %}, such as covers, fans, and light, there are specific sentences.
-        The other {% term domains %} are covered by the generic *homeassistant_*.
+<h3 class="no_toc">Symptom</h3>
 
-        ![Example of a folder of assistant sentence test files](/images/assist/intents-test-files.png)
-        
-    - The screenshot below shows sentences used to test the command to turn on the lights. Note that *Living room* here is just a place holder.
-        It could be any {% term area %} that you have in your home.
+Assist answers "Sorry, I couldn't understand that".
 
-        ![Example of a set of test sentences](/images/assist/assist-test-file-light-turn-on.png)
+#### Description
 
-3. View the sentence definition for the tests:
-    - On GitHub, in the [sentences](https://github.com/home-assistant/intents/tree/main/sentences) folder, open the subfolder for your language.
-    - Open the file of interest.
+The **Home Assistant** {% term "conversation agent" %} only understands sentences that match one of its built-in sentences for your language, or one of your own sentences. A small change in the wording can stop a sentence from matching. The community adds new sentences all the time, and there are too many to list them all on this page.
 
-        ![Sentences definition for turning on the light](/images/assist/assist-sentence-definition-01.png)
+#### Resolution
 
-        - () mean alternative elements.
-        - [] mean optional elements.
-        - &lt;&gt; mean an expansion rule. To view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
-        - The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/).
-4. View the [sentence definition](https://github.com/home-assistant/intents/tree/main/sentences) for your language.
-5. View the [response definition](https://github.com/home-assistant/intents/tree/main/responses)
-6. If there are issues when asking for the weather forecast, check the [troubleshooting section](/voice_control/troubleshooting/) to see common errors.
+To find a sentence that works in your language, follow these steps.
+
+1. Test the sentence:
+   - Go to {% my tools_assist title="**Settings** > **Tools** > **Assist**" %}.
+   - Select your language, enter the sentence, and select **Parse sentences**.
+   - If the result shows **No intent matched**, Assist doesn't understand this sentence. For more on the sentence parser, refer to [Testing a sentence without running it](/voice_control/troubleshooting/#testing-a-sentence-without-running-it).
+2. Look at the tested sentences for your language.
+   - On GitHub, open the [tests](https://github.com/OHF-Voice/intents/tree/main/tests) folder, and then the folder of your language. For example, `en` for English.
+   - Each folder in it is named after an {% term intent %}. For example, `HassTurnOn` turns things on, and `HassLightSet` changes the brightness or color of lights.
+   - Open a file in the folder of the intent. Each file tests one kind of sentence. For example, `area_domain.yaml` tests sentences with an area and a kind of entity, like *turn on the lights in the kitchen*.
+   - The area and entity names in the test files are only examples. Use the names from your home instead.
+3. To see all the sentences that Assist understands for an intent, open the same intent folder in the [sentences](https://github.com/OHF-Voice/intents/tree/main/sentences) folder of your language.
+   - For example, `HassTurnOn/area_domain.yaml` contains these sentences, among others:
+
+     ```yaml
+     - "<turn> on [<all>] [<the>] {area} <light>"
+     - "(light up|illuminate) [<the>] {area}"
+     ```
+
+   - () mean alternative elements.
+   - [] mean optional elements.
+   - {} mean a list, like the names of your areas.
+   - &lt;&gt; mean an expansion rule. For these English examples, refer to the [English expansion rules](https://github.com/OHF-Voice/intents/tree/main/rules/en).
+   - The syntax is explained in detail in the [template sentence syntax documentation](https://contributors.home-assistant.io/translate/voice/template-syntax/).
+4. Rephrase your sentence to match one of these sentences, and test it again, as in step 1.
+   - Result: The sentence parser shows the intent and the entities that your sentence targets.
+5. If none of the built-in sentences fits, add your own sentence. For the steps, refer to [Create your own sentences](/voice_control/custom_sentences/).
+
+{% enddetails %}
+
+{% details "Assist answers “Sorry, I am not aware of any device called …”" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+Assist answers "Sorry, I am not aware of any device called …", with the name that you used. For an area, it answers "Sorry, I am not aware of any area called …".
+
+#### Description
+
+Assist understood the sentence, but no {% term entity %} or {% term area %} in Home Assistant has the name that you used.
+
+#### Resolution
+
+1. Use the name of the entity or area exactly as it's defined in Home Assistant.
+2. If you call it by another name, add that name as an alias. For the steps, refer to [Create aliases](/voice_control/aliases/).
+3. Say the sentence again.
+   - Result: Assist does what you asked.
+
+{% enddetails %}
+
+{% details "Assist answers “Sorry, … is not exposed”" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+Assist answers "Sorry, … is not exposed", with the name of the entity.
+
+#### Description
+
+Assist found the {% term entity %}, but the entity isn't exposed to Assist. Assist can only control entities that you expose to it.
+
+#### Resolution
+
+1. Expose the entity to Assist. For the steps, refer to [Exposing entities to voice assistants](/voice_control/voice_remote_expose_devices/).
+2. Say the sentence again.
+   - Result: Assist does what you asked.
+
+{% enddetails %}
 
 ## More sentences
 

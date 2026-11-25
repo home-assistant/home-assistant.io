@@ -1,25 +1,7 @@
 ---
-title: SolarEdge Modbus
 description: Instructions on how to integrate a SolarEdge solar inverter with Home Assistant over Modbus TCP.
-ha_category:
-  - Energy
-  - Sensor
-ha_release: 2026.10
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
+ha_release: "2026.10"
 ha_domain: solaredge_modbus
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: bronze
 ---
 
 The **SolarEdge Modbus** {% term integration %} connects Home Assistant to your SolarEdge solar inverter over your own network, using the Modbus TCP interface built into the inverter. There is no account, no API key, and no cloud service involved, so your solar production keeps arriving in Home Assistant even when your internet connection is down.
@@ -42,6 +24,7 @@ Reading the inverter directly, rather than through SolarEdge's cloud, is worth i
 
 This integration has been tested with, or reported to work on, the following inverters:
 
+- SE3800
 - SE4K
 - SE5000H
 - SE8000H
@@ -49,6 +32,8 @@ This integration has been tested with, or reported to work on, the following inv
 - SE10000H
 - SE15K
 - SE17K
+- SE4000-ER-01-NED
+- SE3000H-RW000NNN2
 
 Both single-phase and three-phase inverters are covered by that list. Any SolarEdge inverter that offers Modbus TCP should work, whether or not it is listed.
 
@@ -81,7 +66,27 @@ The same setting is under **Site Communication** in the SetApp mobile app, if yo
 
 {% enddetails %}
 
-{% details "Inverters with a display" %}
+{% details "Older inverters with a display" %}
+
+The following older models have been reported to use a different menu procedure and Modbus TCP port.
+
+**SE4000-ER-01-NED** (firmware `0003.2537`):
+
+1. Press and hold the inverter's button only until the menu opens, then release it immediately. Release it before four seconds; holding it for four seconds starts pairing mode instead.
+2. Press the button briefly to scroll, and hold it for 1–2 seconds to select.
+3. Go to **Communication** > **LAN Conf** > **Modbus TCP**, and select port `502`. The display shows the selected port when Modbus TCP is enabled. No menu password was required in the two reports for this model.
+
+**SE3000H-RW000NNN2** (firmware `0003.2537`):
+
+1. Press and hold **OK**, the button on the far right, for about five seconds until the password prompt appears.
+2. Enter the password `12312312`.
+3. Go to **Communication** > **LAN Conf** > **Modbus TCP**, and select port `502`. The selected port is sufficient to enable Modbus TCP.
+
+{% enddetails %}
+
+{% details "Other inverters with a display" %}
+
+For other display-based models, use the following procedure:
 
 1. Press and hold **OK**, the button on the right, to open the menu.
 2. Enter the password `12312312` by pressing **Up**, **Down**, **OK**, **Up**, **Down**, **OK**, **Up**, **Down**.
@@ -89,7 +94,7 @@ The same setting is under **Site Communication** in the SetApp mobile app, if yo
 
 {% enddetails %}
 
-Enabling Modbus TCP sets the port to `1502`. The device ID of the inverter is `1`, unless you gave it another one yourself.
+For most SolarEdge inverters, enabling Modbus TCP sets the port to `1502`. The older SE4000-ER-01-NED and SE3000H-RW000NNN2 models above use port `502`. The device ID of the inverter is `1`, unless you gave it another one yourself.
 
 For a network connection, you also need the hostname or IP address of the inverter. Giving it a fixed address in your router keeps Home Assistant pointed at the right device.
 
@@ -101,7 +106,7 @@ For an RS485 connection, set the protocol of the inverter's RS485 port to **SunS
 
 {% include integrations/config_flow.md %}
 
-Setting up starts by picking how the inverter is reached, **Network (Modbus TCP)** or **Serial (RS485)**. A discovered inverter skips that question: it announced itself over the network.
+Setting up starts by picking how the inverter is reached, **Modbus TCP** or **Serial port (Modbus RTU)**. A discovered inverter skips that question: it announced itself over the network.
 
 For a network connection:
 
@@ -109,7 +114,7 @@ For a network connection:
 Host:
   description: "The hostname or IP address of your SolarEdge inverter, or of the Modbus TCP bridge it is connected through. For example, `192.168.1.100`."
 Port:
-  description: "The port the inverter listens on for Modbus requests. The SolarEdge default is `1502`."
+  description: "The port the inverter listens on for Modbus requests. The default for most SolarEdge inverters is `1502`. The older SE4000-ER-01-NED and SE3000H-RW000NNN2 models reported here use `502`."
 Device ID:
   description: "The Modbus device ID of the inverter, as configured on the inverter itself. The SolarEdge default is `1`. You only need to change this if your inverter was given another ID, for example because several inverters share one connection."
 {% endconfiguration_basic %}
@@ -133,8 +138,8 @@ Your inverter is added as a device, with any energy meter or battery wired to it
 
 ### Inverter sensors
 
-- **Power**: The AC power the inverter is feeding into your home right now. The [Energy dashboard](#energy-dashboard) uses this one for live power flow.
-- **Energy**: The total energy the inverter has produced since it was installed. This is the sensor to use for solar production on the [Energy dashboard](#energy-dashboard).
+- **Power**: The AC power the inverter is feeding into your home right now. With a DC-coupled battery, this can include power discharged from the battery. See [Energy dashboard](#energy-dashboard) before using it for solar production.
+- **Energy**: The total AC energy delivered by the inverter since it was installed. With a DC-coupled battery, this can include energy discharged from the battery. See [Energy dashboard](#energy-dashboard) before using it for solar production.
 - **Current**: The AC current the inverter is delivering.
 - **Current phase A**, **Current phase B**, **Current phase C**: The current per phase. Only added for inverters that report per phase.
 - **DC power**: The power coming in from your solar panels.
@@ -153,25 +158,48 @@ The following sensors are added, but disabled. They are useful for troubleshooti
 
 An energy meter measures what passes through it, which is what the inverter cannot see: what your home takes from the grid, and what it sends back. Every meter attached to the inverter gets a device named after its place on it, **Meter 1** through **Meter 3**, with its own sensors.
 
-- **Power**, **Apparent power**, **Reactive power**, and **Power factor**: What the meter measures right now, and how that relates to the grid.
+- **Power**: What the meter measures right now.
 - **Energy imported** and **Energy exported**: The totals since the meter was installed. These are the sensors for the grid on the [Energy dashboard](#energy-dashboard).
-- **Current** and **Frequency**: The current through the meter, and the frequency of the grid it sits on.
-- **Per phase**: Power, current, imported and exported energy for each phase the meter measures. A split-phase meter has two phases rather than three.
+- **Current**: The current through the meter.
+- **Per phase**: Power and current for each phase the meter measures. A split-phase meter has two phases rather than three.
 
-The voltages a meter reports are added but disabled, the same way the inverter's are. Which of them exist depends on the meter: a delta meter has no neutral, so it measures nothing against one.
+The following sensors are added, but disabled, the same way the inverter's are. To use one, enable it in the entity's settings.
+
+- **Voltage**, and per phase **Voltage phase A-N**, **Voltage phase B-N**, **Voltage phase C-N**, **Voltage phase A-B**, **Voltage phase B-C**, and **Voltage phase C-A**: The AC voltage. Which of these exist depends on the meter: a delta meter has no neutral, so it measures nothing against one.
+- **Frequency**: The frequency of the grid the meter sits on.
+- **Apparent power**, **Reactive power**, and **Power factor**: How what the meter measures relates to the grid.
+- **Energy imported** and **Energy exported** per phase: The totals for each phase the meter measures.
 
 ### Battery sensors
 
 A battery attached to the inverter gets a device named after its place on it, **Battery 1** through **Battery 3**, with what it holds and what it is doing with it.
 
 - **State of energy**: How full the battery is, as a percentage.
-- **Available energy**, **Usable capacity**, and **Rated energy**: What is in the battery right now, what it can hold as configured, and what it was rated for when it was built.
+- **Available energy**: What is in the battery right now.
 - **Energy imported** and **Energy exported**: The totals charged into and discharged from the battery. These are the sensors for the battery on the [Energy dashboard](#energy-dashboard).
 - **Status**: What the battery is doing: **Off**, **Standby**, **Initializing**, **Charging**, **Discharging**, **Fault**, **Preserving charge**, **Idle**, or **Power saving**.
 - **State of health**: What is left of the battery's original capacity, as a percentage.
-- **DC power**, **DC voltage**, and **DC current**: What flows between the battery and the inverter. Negative while it is charging.
+- **DC power** and **DC current**: What flows between the battery and the inverter. Negative while it is charging.
+- **Temperature**: How warm the pack is on average.
+
+The following sensors are added, but disabled. To use one, enable it in the entity's settings.
+
+- **Usable capacity** and **Rated energy**: What the battery can hold as configured, and what it was rated for when it was built.
+- **DC voltage**: The voltage between the battery and the inverter.
 - **Maximum charge power** and **Maximum discharge power**, and their peak counterparts: What the battery allows, continuously and in bursts.
-- **Temperature** and **Maximum temperature**: How warm the pack is on average, and the warmest cell in it.
+- **Maximum temperature**: The warmest cell in the pack.
+
+### Storage state of charge
+
+Not every inverter lets Home Assistant read its battery over Modbus. A number of Home Hub inverters keep those registers to themselves, so no battery device appears for them. Some of those do report their storage a second way, and then a single sensor is added to the inverter itself:
+
+- **Storage state of charge**: How full the attached storage is, as a percentage.
+
+This is all that is available that way. There is no capacity, health, or power to go with it, because the inverter does not report those here.
+
+It only appears when your installer has set the inverter to a grid profile that supports IEEE 1547-2018, and when no battery device was found. Where there is a battery device, that one is used instead: it reports far more, and it is tied to the battery's own serial number.
+
+An inverter with no battery attached reports 0% here, so the sensor is left out when that is what the inverter says at startup.
 
 ### Binary sensors
 
@@ -200,7 +228,7 @@ The inverter holds settings of its own, which this integration can change as wel
 
 ### Switches
 
-These switches are flags on the export control. An installer sets them to describe the site, and they are disabled by default.
+These switches are flags on the export control. An installer sets them to describe the site, and they are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **External production**: Tells the inverter there is production at the site that it cannot see itself, so it can keep the whole site within its export limit.
 - **Negative site limit**: Lets the site limit go below zero, which turns it into a minimum import rather than a maximum export. It needs a meter at the connection point to mean anything.
@@ -213,7 +241,15 @@ They can also affect what your installation is allowed to do. Export limits in p
 
 ## Energy dashboard
 
-Your inverter's production fits straight into the [Energy dashboard](/docs/energy/solar-panels/), next to what your home consumes.
+You can use this integration's sensors in the [Energy dashboard](/docs/energy/solar-panels/).
+
+{% important %}
+If you have a DC-coupled battery, connected to the inverter on the same side as the solar panels, the inverter's **Energy** and **Power** sensors do not measure solar production separately. Battery discharge can be included in the inverter's output, while solar energy used to charge the battery directly does not pass through its AC output. Selecting these sensors as solar production can therefore count battery discharge as solar production and miss solar energy stored in the battery.
+
+The integration does not calculate separate solar production sensors for this setup. Subtracting battery discharge alone does not account for solar energy charging the battery directly.
+{% endimportant %}
+
+If your inverter has no DC-coupled battery, add its solar production as follows:
 
 1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
 2. Under **Solar panels**, select **Add solar production**.
@@ -250,7 +286,9 @@ Your inverter knows more about your solar production than a monthly report ever 
 
 A solar installation on the roof is easy to forget about, and an inverter that has stopped producing costs you money every sunny hour. This automation sends a notification the moment the inverter reports a fault, so you find out on the same day instead of on your next bill.
 
-- **Trigger**: **Problem** turned on
+- **Trigger**: State changed
+  - **Entity**: Solaredge se10000h problem sensor
+  - **To**: On
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -278,8 +316,12 @@ automation: |
 
 Appliances that do not care when they run are the cheapest way to use your own production instead of selling it. This automation starts the dishwasher once your panels have been producing more than 2 kW for ten minutes, which is long enough to know it is not a passing gap in the clouds.
 
-- **Trigger**: **Power** above 2000 for 10 minutes
-- **Action**: Turn on the dishwasher
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Solaredge se10000h power
+  - **Above**: `2000`
+  - **For at least**: `00:10:00`
+- **Action**: Turn on switch
+  - **Target**: Dishwasher switch
 
 {% details "YAML example for running the dishwasher on solar power" %}
 
@@ -317,34 +359,83 @@ If part of the installation does not answer a poll, only its {% term entity enti
 - SolarEdge does not document the control registers, and not every firmware exposes them the same way. What a setting does is the inverter's business, and it will refuse a value it does not accept.
 - A meter or battery wired in or out while Home Assistant runs takes up to 15 minutes to appear or disappear, since that is how often the inverter is asked what is attached. Picking it up reloads the integration, so its entities are briefly unavailable. Reloading it yourself is quicker if you cannot wait.
 - Modbus gives you what the inverter itself measures. Data per optimizer or per panel is only available through SolarEdge's cloud service, which the [SolarEdge](/integrations/solaredge/) integration uses.
+- The **Storage state of charge** sensor is decided on at startup. A battery that reads exactly 0% right then is indistinguishable from an inverter with no battery at all, so the sensor is left out. Reload the integration once the battery has charged to add it.
 - An inverter accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the inverter, Home Assistant may not be able to connect.
 
 ## Troubleshooting
 
-### The inverter cannot be reached
+{% details "The inverter cannot be reached" %}
 
-If setup or a later poll cannot reach the inverter, work through the following steps:
+### Symptom: setup fails, or the entities stop updating
+
+Setting up the integration times out, or an entry that worked turns unavailable and stays that way.
+
+#### Description
+
+Nothing is answering on the address the integration polls. The inverter may be off the network, Modbus may have been turned off on it, or another system may be holding the connection it would need.
+
+#### Resolution
 
 1. Make sure the inverter is powered on and reachable on your network, for example by looking it up in your router.
 2. Check that Modbus TCP is still enabled on the inverter. An inverter firmware update or a visit from your installer can turn it off again.
-3. Check the port. SolarEdge uses `1502`, where Modbus devices in general often use `502`.
+3. Check the port. Most SolarEdge inverters use `1502`; the older SE4000-ER-01-NED and SE3000H-RW000NNN2 models reported here use `502`. Modbus devices in general often use `502`.
 4. Check whether another system is already polling the inverter, and stop it while you test.
 
 On an RS485 connection, check the baud rate and the device ID against what the inverter is set to, and that its RS485 port speaks SunSpec rather than talking to a SolarEdge logger.
 
-### Setup says the device does not answer as a SolarEdge inverter
+{% enddetails %}
 
-Something answers on that address and device ID, but it is not a SolarEdge inverter:
+{% details "Setup says the device does not answer as a SolarEdge inverter" %}
+
+### Symptom: the form reports that the device is not a SolarEdge inverter
+
+Setup reaches something on that address, and then reports that it is not a SolarEdge inverter.
+
+#### Description
+
+Something answers on that address and device ID, but it does not identify itself as one. Another Modbus device on your network can answer just as readily.
+
+#### Resolution
 
 1. Check the device ID, which is `1` on SolarEdge inverters. Another Modbus device on the same address can answer on a different ID.
 2. Check that the host belongs to the inverter, and not to another device that took over its address.
 
-### Setup says this is a different inverter
+{% enddetails %}
 
-Home Assistant recognizes your inverter by its serial number. This message means the inverter that answers is not the one this entry was set up for, usually because addresses were handed out again on your network:
+{% details "Setup says this is a different inverter" %}
+
+### Symptom: reconfiguring reports that this is a different inverter
+
+Reconfiguring an entry, or setting one up again, reports that the inverter that answers is not the one the entry belongs to.
+
+#### Description
+
+Home Assistant recognizes your inverter by its serial number rather than by its address. This message means the address now belongs to another inverter, usually because addresses were handed out again on your network.
+
+#### Resolution
 
 1. Look up the inverter's current address, and give it a fixed address while you are there.
 2. Select **Reconfigure** on the integration entry and enter the new address.
+
+{% enddetails %}
+
+{% details "The inverter has a battery, but there is no battery device" %}
+
+### Symptom: a battery is attached, and no battery device appears
+
+The inverter has a battery wired to it, and Home Assistant shows no battery device for it.
+
+#### Description
+
+Not every inverter serves its battery registers over Modbus. A number of Home Hub inverters keep them to themselves, whatever is wired to them, and there is nothing to configure around that.
+
+#### Resolution
+
+1. Check whether the inverter has a **Storage state of charge** sensor instead. That is the fallback described under [storage state of charge](#storage-state-of-charge), and a state of charge is all of the battery that such an inverter reports.
+2. If that sensor is missing too, check whether the battery was at 0% when the integration started. Reload the integration once the battery has charged.
+3. Otherwise, ask your installer whether the inverter can run a grid profile that supports IEEE 1547-2018, which makes those registers available.
+
+{% enddetails %}
 
 ### Getting to what the inverter reports
 

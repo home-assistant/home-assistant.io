@@ -1,45 +1,7 @@
 ---
-title: TP-Link Smart Home
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Climate
-  - Fan
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Vacuum
 ha_release: 0.89
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@rytilahti'
-  - '@bdraco'
-  - '@sdb9696'
 ha_domain: tplink
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - diagnostics
-  - fan
-  - light
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - vacuum
-ha_dhcp: true
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **TP-Link Smart Home** {% term integration %} allows you to control your [TP-Link Kasa Smart Home Devices](https://www.kasasmart.com/) and [TP-Link Tapo Devices](https://www.tapo.com/) such as cameras, doorbells, chimes, lights, plugs, wall switches, robot vacuums, hubs, and hub-attached devices.
@@ -91,35 +53,30 @@ The hub attached Tapo buttons S200B and S200D, which do not currently support al
 {% endnote %}
 
 {% note %}
-Some firmware versions (e.g., for Tapo Cameras or KH100 hub) require explicit activation of third-party integrations before they will allow access from Home Assistant.
-If you encounter authentication issues, ensure that Third-Party Compatibility is enabled within the device settings of the official vendor app.
-The option can be found under **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app or **Settings** > **Third-Party Compatibility** in the Kasa app,
-depending on the device you are integrating.
-
-Alternatively, you can factory reset and then prevent the device from accessing the internet.
+Some firmware versions require explicit activation of third-party integrations before they allow access from Home Assistant. See [Third-party compatibility](#third-party-compatibility).
 {% endnote %}
 
 ### Supported Kasa devices
 
-- **Plugs**: EP10, EP25[^1], HS100[^2], HS103, HS105, HS110, KP100, KP105, KP115, KP125, KP125M[^1], KP401
+- **Plugs**: EP10, EP25[^2], HS100[^2], HS103, HS105, HS110, KP100, KP105, KP115, KP125, KP125M[^1], KP401
 - **Power Strips**: EP40, EP40M[^1], HS107, HS300, KP200, KP303, KP400
 - **Wall Switches**: ES20M, HS200[^2], HS210, HS220[^2], KP405, KS200, KS200M, KS205[^1], KS220, KS220M, KS225[^1], KS230, KS240[^1]
-- **Bulbs**: KL110, KL120, KL125, KL130, KL135, KL50, KL60, LB110
-- **Light Strips**: KL400L5, KL420L5, KL430
+- **Bulbs**: KL110, KL110B, KL120, KL125, KL130, KL135, KL50, KL60, LB100, LB110, LB130
+- **Light Strips**: KL400L10, KL400L5, KL420L5, KL430
 - **Hubs**: KH100[^1]
-- **Hub-Connected Devices[^3]**: KE100[^1]
+- **Hub-Connected Devices[^3]**: KE100[^1], KE110[^1]
 
 ### Supported Tapo devices
 
 Tapo devices require authentication.
 
-- **Plugs**: P100, P105, P110, P110M, P115, P125M, P135, TP15
-- **Power Strips**: P210M, P300, P304M, P306, TP25
-- **Wall Switches**: S210, S220, S500D, S505, S505D
-- **Bulbs**: L510B, L510E, L530E, L630
+- **Plugs**: P100, P105, P110, P110M, P115, P116M, P125M, P135, TP10, TP15
+- **Power Strips**: P210M, P300, P304M, P306, P316M, TP25
+- **Wall Switches**: S210, S220, S500, S500D, S505, S505D, S515D, TS15
+- **Bulbs**: L430C, L430P, L510B, L510E, L530B, L530E, L530EA, L535E, L630
 - **Light Strips**: L900-10, L900-5, L920-5, L930-5
-- **Cameras**: C100, C120, C210, C220, C225, C325WB, C520WS, C720, TC65, TC70
-- **Doorbells and chimes**: D100C, D130, D230
+- **Cameras**: C100, C101, C110, C120, C200, C210, C220, C225, C325WB, C460, C520WS, C720, TC40, TC65, TC70
+- **Doorbells and chimes**: D100C, D130, D230, TD21
 - **Vacuums**: RV20 Max Plus, RV30 Max
 - **Hubs**: H100, H200
 - **Hub-Connected Devices[^3]**: S200B, S200D, T100, T110, T300, T310, T315
@@ -173,9 +130,12 @@ The integration connects locally to the devices without going via the TP-Link cl
 
 ## Known limitations
 
-### Camera connections
+### Third-party compatibility
 
-Some firmware versions of Tapo Cameras will not authenticate unless you enable **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app.
+Some firmware versions require explicit activation of third-party integrations before they allow access from Home Assistant. This can affect devices across the Tapo and Kasa product lines, including some cameras, hubs, and plugs.
+
+If you encounter authentication or communication issues, ensure that **Third-Party Compatibility** is enabled in the official vendor app. The option can be found under **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app or **Settings** > **Third-Party Compatibility** in the Kasa app, depending on the device you are integrating.
+
 Alternatively, you can factory reset and then prevent the device from accessing the internet.
 
 ### Subnets and discovery
@@ -207,7 +167,7 @@ If required, you can manually trigger an update via **Settings** > **Tools** > *
 
 - Take note of the known limitation for subnets above.
 - Ensure that your username is your TP-Link cloud username, which is your *case-sensitive* email address.
-- Ensure you have enabled **Tapo Lab** > **Third-Party Compatibility** in the Tapo app. You may need to factory reset and re-add to the Tapo app after this step. This appears to break connections for some power strip and outlet models and the integration gives a communication error instead of notifying you that you need to change this setting in the app.
+- If you encounter authentication or communication errors, check the [Third-party compatibility](#third-party-compatibility) limitation above.
 - Disable or remove any custom integrations that interact with TPLink devices supported by this integration.
 - Ensure stable network connectivity between Home Assistant and the device.
 - Unplug existing TP-Link/Tapo devices on your network before onboarding a new device. The TP-Link Simple Setup (TSS) protocol, which shares credentials from existing devices, can break authentication. If issues persist, factory reset the new device and re-add it without other TP-Link devices active.

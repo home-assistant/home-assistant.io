@@ -1,0 +1,19 @@
+{
+  "domain": "iss",
+  "name": "International Space Station (ISS)",
+  "integration_type": "service",
+  "codeowners": [
+    "@DurgNomis-drol"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "vehicles_transport.flights"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

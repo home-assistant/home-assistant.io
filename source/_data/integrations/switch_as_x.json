@@ -1,0 +1,22 @@
+{
+  "domain": "switch_as_x",
+  "name": "Change device type of a switch",
+  "integration_type": "helper",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers"
+  ],
+  "platforms": [
+    "cover",
+    "fan",
+    "light",
+    "lock",
+    "siren",
+    "valve"
+  ]
+}

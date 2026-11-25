@@ -1,22 +1,7 @@
 ---
-title: Mastodon
 description: Instructions on how to add Mastodon posts and account statistics to Home Assistant.
-ha_category:
-  - Notifications
-  - Sensor
 ha_release: 0.67
-ha_codeowners:
-  - '@fabaff'
-  - '@andrew-codechimp'
 ha_domain: mastodon
-ha_iot_class: Cloud Polling
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_config_flow: true
-ha_quality_scale: gold
 ---
 
 The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates, get account statistics, and mute accounts.

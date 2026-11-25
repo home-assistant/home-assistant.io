@@ -42,7 +42,7 @@ Start here if you are new to templating in Home Assistant. The pages below walk 
   <div class="grid__item six-twelfths lap-one-whole palm-one-whole"><div class="card"><a href="/docs/templating/python-methods/"><h3 class="no_toc">{% icon "mdi:language-python" %} Python methods</h3><p>Cheat sheet of Python methods available in templates.</p></a></div></div>
   <div class="grid__item six-twelfths lap-one-whole palm-one-whole"><div class="card"><a href="/docs/templating/patterns/"><h3 class="no_toc">{% icon "mdi:book-open-page-variant" %} Common patterns</h3><p>Recipes for the things you actually want to do.</p></a></div></div>
   <div class="grid__item six-twelfths lap-one-whole palm-one-whole"><div class="card"><a href="/docs/templating/debugging/"><h3 class="no_toc">{% icon "mdi:bug-outline" %} Debugging templates</h3><p>Fixing mistakes with the template editor.</p></a></div></div>
-  <div class="grid__item six-twelfths lap-one-whole palm-one-whole"><div class="card"><a href="/docs/templating/errors/"><h3 class="no_toc">{% icon "mdi:alert-circle-outline" %} Error messages</h3><p>What each error means and how to fix it.</p></a></div></div>
+  <div class="grid__item six-twelfths lap-one-whole palm-one-whole"><div class="card"><a href="/docs/templating/errors/"><h3 class="no_toc">{% icon "mdi:alert-circle-outline" %} Troubleshooting template errors</h3><p>What each error means and how to fix it.</p></a></div></div>
   <div class="grid__item six-twelfths lap-one-whole palm-one-whole"><div class="card"><a href="/docs/templating/custom-templates/"><h3 class="no_toc">{% icon "mdi:puzzle-outline" %} Custom templates and macros</h3><p>Share templates across your configuration.</p></a></div></div>
 </div>
 

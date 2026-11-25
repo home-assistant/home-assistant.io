@@ -1,13 +1,7 @@
 ---
-title: Emulated Roku
 description: Instructions on how to set up Emulated Roku within Home Assistant.
-ha_category:
-  - Hub
 ha_release: 0.86
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: emulated_roku
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file

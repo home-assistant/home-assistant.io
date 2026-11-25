@@ -1,19 +1,7 @@
 ---
-title: Meater
 description: Instructions on how to integrate the Meater Temperature Probe within Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 2022.5
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Sotolotl'
-  - '@emontnemery'
 ha_domain: meater
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: hub
 ---
 
 The **Meater** {% term integration %} allows for communicating with the [Meater Temperature Probe](https://meater.com/) from Apption Labs.

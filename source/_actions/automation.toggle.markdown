@@ -54,7 +54,7 @@ Let a single wall button switch a motion lighting automation on and off.
 - **Trigger**: Event received
   - **Target**: Living room button
   - **Event type**: Single press
-- **Action**: Toggle automation
+- **Action**: Automation: Toggle automation
   - **Target**: Motion lights
 
 {% details "Show example YAML" %}

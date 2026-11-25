@@ -1,21 +1,10 @@
 ---
-title: Samsung TV via ExLink
 description: Instructions on how to integrate Samsung TVs via their ExLink (RS-232) serial port into Home Assistant.
-ha_category:
-  - Media player
-ha_iot_class: Local Polling
 ha_release: 2026.9
-ha_codeowners:
-  - '@balloob'
-ha_config_flow: true
 ha_domain: samsung_exlink
-ha_platforms:
-  - media_player
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
-The **Samsung TV via ExLink** {% term integration %} lets you control Samsung consumer TVs by connecting to their RS-232 serial port, which Samsung markets as **ExLink** (also written EX-Link or EXT Link). By connecting the TV to your Home Assistant server using a serial cable, an ESPHome-based serial proxy, or a USB-to-serial adapter, you get local control of the TV.
+The **Samsung TV via ExLink** {% term integration %} lets you control Samsung consumer TVs by connecting to their RS-232 serial port, which Samsung markets as **ExLink** (also written EX-Link or EXT Link). Because Home Assistant talks straight to the TV, control is local and fast, and it also works on TVs that lack smart features or a network connection.
 
 Controlling a TV over ExLink is more reliable and responsive than using the TV's network or IR interfaces. It also allows you to control TVs that do not have smart features or network connectivity.
 
@@ -25,13 +14,14 @@ This integration speaks the serial control protocol only; it does not use the TV
 
 The following devices have been tested with the integration:
 
-- Samsung The Frame (LS03B, 2022)
+- Samsung The Frame (LS03B, 2022), using a 3.5&nbsp;mm cable
+- Samsung QN55S84FAFXZC, using a 3.5&nbsp;mm cable
 
 In general, Samsung consumer TVs (The Frame, Q-series, 8000-series, and similar) that expose an ExLink control port are supported.
 
 Samsung TVs expose ExLink in one of two ways:
 
-- A native 3.5&nbsp;mm ExLink jack, found on higher-end sets (Q70 and above). Plug in and go.
+- A native 3.5&nbsp;mm ExLink jack, found on higher-end sets (Q70 and above).
 - A USB port together with the proprietary Samsung USB-to-ExLink dongle, used on the 8000 and Q60 series.
 
 ## Unsupported devices
@@ -41,14 +31,16 @@ Samsung TVs expose ExLink in one of two ways:
 
 ## Prerequisites
 
-- A physical serial connection between your TV and the system running Home Assistant. This can be a direct serial cable into the ExLink jack, the Samsung USB-to-ExLink dongle, or an [ESPHome]({% link _integrations/esphome.markdown %})-based serial proxy. Serial settings are 9600&nbsp;baud, 8 data bits, no parity, and 1 stop bit (8N1).
+{% include integrations/serial_connected.md %}
+
+- On Samsung TVs, connect a serial cable into the ExLink jack, or use the Samsung USB-to-ExLink dongle. Serial settings are 9600&nbsp;baud, 8 data bits, no parity, and 1 stop bit (8N1).
 - On TVs that use the USB-to-ExLink dongle, **EXT Link Support** and **USB Serial** must be enabled in the TV's hidden service menu. To open it, with the TV off, press **Mute → 1 → 8 → 2 → Power** on the IR remote. The exact location of these settings varies by model, so consult your TV's documentation.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Serial port:
-    description: "The serial port the TV is connected to. This can be a local device path or a remote serial proxy URL. For example, `/dev/ttyUSB0` (USB adapter) or `esphome://esphome-device.local/?port_name=uart` (ESPHome serial proxy)."
+Port:
+    description: "The serial port the TV is connected to. Select it from the list of ports that Home Assistant found, which includes the ports shared by your serial proxies. For a port on another system, select **Enter manually** and enter its URL, such as `socket://192.168.1.10:4001`."
 TV generation:
     description: "Optional. Select your TV's generation so Home Assistant can translate the active input back into a named source (for example, `HDMI 1`). Samsung encodes this read-back value differently per generation. Leave it empty if your model is not listed; you can still switch sources, but the currently active input is then tracked only from the commands Home Assistant sends."
 {% endconfiguration_basic %}
@@ -65,6 +57,30 @@ For supported TVs, you can use Home Assistant to:
 - Change the volume and step it up or down.
 - Mute and unmute the TV.
 - Select the input source.
+
+### Remote
+
+The integration also creates a remote entity for the TV. You can use it to turn the TV on or off, or to send one or more remote key commands with the [**Send remote command**](/actions/remote.send_command/) action. Use Samsung ExLink key names, such as `KEY_HOME` or `KEY_VOLUP`. For the full list, see the [key names in the samsung-exlink library](https://github.com/home-assistant-libs/samsung-exlink/blob/main/src/samsung_exlink/const.py). Whether a key has an effect depends on your TV model.
+
+The remote entity state follows the TV's reported power state. It becomes unavailable when the serial connection is lost.
+
+ To send a key command from the UI:
+ 
+ 1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
+ 2. Select **Send remote command** (`remote.send_command`).
+ 3. Select **Add target** and choose your TV's remote entity.
+ 4. In **Command**, enter `KEY_HOME`.
+ 5. Select **Perform action**.
+ 
+ If you prefer YAML, use the following action with your TV's remote entity ID:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.samsung_tv
+data:
+  command: KEY_HOME
+```
 
 ## Data updates
 
@@ -139,8 +155,9 @@ Home Assistant could not communicate with the TV over the serial port.
 To resolve this issue, try the following steps:
 
 1. On TVs that use the USB-to-ExLink dongle, make sure **EXT Link Support** and **USB Serial** are enabled in the TV's service menu (to open it, with the TV off, press **Mute → 1 → 8 → 2 → Power**).
-2. Verify the cable is connected to the TV's 3.5&nbsp;mm ExLink jack (or the Samsung USB-to-ExLink dongle) and is fully seated.
-3. Confirm the correct serial port was selected, and that no other software is using it.
+2. If you use the 3.5&nbsp;mm ExLink jack, try turning off **USB Serial** in the TV settings. On some models, enabling this setting disables the 3.5&nbsp;mm connection.
+3. Verify the cable is connected to the TV's 3.5&nbsp;mm ExLink jack (or the Samsung USB-to-ExLink dongle) and is fully seated.
+4. Confirm the correct serial port was selected, and that no other software is using it.
 
 ### The TV becomes unavailable
 

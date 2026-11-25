@@ -1,33 +1,15 @@
 ---
-title: Command line
 description: Instructions on how to integrate the command line utility within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Notifications
-  - Sensor
-  - Utility
 ha_release: 0.12
-ha_iot_class: Local Polling
 ha_domain: command_line
-ha_platforms:
-  - binary_sensor
-  - cover
-  - notify
-  - sensor
-  - switch
-ha_integration_type: integration
-ha_codeowners:
-  - '@gjohansson-ST'
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.
 
-This is a YAML-only integration, so you set it up in your {% term "`configuration.yaml`" %} file. After you add or change its configuration, restart Home Assistant to apply the changes. Once the integration is loaded, you can use the [`command_line.reload`](#action-reload) action to pick up later changes to your entities without restarting.
+This is a YAML-only integration, so you set it up in your {% term "`configuration.yaml`" %} file. After you add or change its configuration, restart Home Assistant to apply the changes. Once the integration is loaded, you can use the [`command_line.reload`](/actions/command_line.reload/) action to pick up later changes to your entities without restarting.
 
 {% tip %}
 It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
@@ -54,7 +36,15 @@ command_line:
           type: integer
           default: 15
         device_class:
-          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: string
+        json_attributes:
+          description: Defines a list of keys to extract values from a JSON dictionary result and then set as binary sensor attributes.
+          required: false
+          type: [string, list]
+        json_attributes_path:
+          description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
           required: false
           type: string
         name:
@@ -93,7 +83,7 @@ command_line:
           description: Define time in seconds between each update.
           required: false
           type: integer
-          default: 60
+          default: 30
     cover:
       description: Cover platform.
       required: false
@@ -101,12 +91,12 @@ command_line:
       keys:
         command_close:
           description: The action to close the cover.
-          required: true
+          required: false
           default: true
           type: string
         command_open:
           description: The command to open the cover.
-          required: true
+          required: false
           default: true
           type: string
         command_state:
@@ -115,7 +105,7 @@ command_line:
           type: string
         command_stop:
           description: The action to stop the cover.
-          required: true
+          required: false
           default: true
           type: string
         command_timeout:
@@ -124,7 +114,7 @@ command_line:
           type: integer
           default: 15
         device_class:
-          description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+          description: Sets the [class of the device](/integrations/cover/#device-class), changing the device state and icon that is displayed on the frontend.
           required: false
           type: string
         name:
@@ -208,7 +198,7 @@ command_line:
           required: false
           type: string
         unit_of_measurement:
-          description: Defines the unit of measurement of the sensor, if any.
+          description: Defines the unit of measurement of the sensor, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes).
           required: false
           type: string
         value_template:
@@ -221,12 +211,12 @@ command_line:
           type: template
           default: true
         device_class:
-          description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+          description: Sets the [class of the device](/integrations/sensor/#device-class), changing the device state and icon that is displayed on the UI. It does not set the `unit_of_measurement`.
           required: false
           type: device_class
           default: None
         state_class:
-          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor."
+          description: "The [state_class](/integrations/sensor/#state-class) of the sensor."
           required: false
           type: string
           default: None
@@ -234,27 +224,21 @@ command_line:
           description: Define time in seconds between each update.
           required: false
           type: integer
-          default: 60
-        device_class:
-          description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
-          required: false
-          type: device_class
-        state_class:
-          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will display the value based on the **Number Format** defined in the user profile."
-          required: false
-          type: string
+          default: 30
     switch:
       description: Switch platform.
       required: false
       type: map
       keys:
         command_on:
-          description: The action to take for on.
-          required: true
+          description: The shell command to run when you turn the switch on. If you leave it out, turning the switch on does nothing.
+          required: false
+          default: true
           type: string
         command_off:
-          description: The action to take for off.
-          required: true
+          description: The shell command to run when you turn the switch off. If you leave it out, turning the switch off does nothing.
+          required: false
+          default: true
           type: string
         command_state:
           description: "If given, this command will be run. Returning a result code `0` will indicate that the switch is on."
@@ -313,7 +297,7 @@ logger:
 
 {% note %}
 
-While `command` is accepting a template for `sensor` and `binary_sensor`, it's only the arguments that can be a template. This means the command name itself cannot be generated by a template, but it must be literally provided.
+While `command` accepts a template, only the arguments can be generated by a template. When using templates, the command runs in a more secure environment that doesn't allow any shell helpers, such as automatically expanding the home directory character (`~`), using pipe symbols (`|`) to run multiple commands, or operators redirecting output (such as `>` and `>>`). Only content after the first space can be generated by a template. This means the command name itself cannot be generated by a template, but it must be literally provided.
 
 {% endnote %}
 
@@ -490,6 +474,22 @@ command_line:
       payload_off: "inactive"
 ```
 
+### Usage of JSON attributes in a binary sensor
+
+If the command returns JSON, a binary sensor can take its state from one key and keep other keys as attributes. Here `open` sets the state, and `battery` and `rssi` become attributes:
+
+```yaml
+command_line:
+  - binary_sensor:
+      name: Door
+      command: "cat /tmp/door.json"
+      value_template: "{{ 'on' if value_json.open else 'off' }}"
+      payload_on: "on"
+      payload_off: "off"
+      json_attributes:
+        - battery
+        - rssi
+```
 
 ## Example cover platform
 
@@ -683,7 +683,7 @@ command_line:
 Given this example, in the UI one would see the `friendly_name` of
 "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the
 `entity_id` `switch.arest_pin_four`, which is what one would use in
-[`automation`](/integrations/automation/) or in [API calls](/developers/).
+[`automation`](/docs/automation/) or in [API calls](/developers/).
 
 ### Shutdown your local host
 

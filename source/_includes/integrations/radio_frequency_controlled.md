@@ -1,0 +1,1 @@
+This integration requires a radio frequency remote adapter (proxy) that is already set up in Home Assistant and provides a [radio frequency](/integrations/radio_frequency/) {% term entity %}. For the remote adapters that you can use, refer to [Radio frequency remote adapters](/connectivity/radio-frequency/#radio-frequency-remote-adapters).

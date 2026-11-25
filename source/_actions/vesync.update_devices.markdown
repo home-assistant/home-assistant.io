@@ -5,7 +5,7 @@ domain: vesync
 description: "Polls the VeSync server to find and add any new devices."
 ---
 
-The **Update devices** action polls the VeSync server for your account and adds any new devices to Home Assistant. Use it after you set up a new VeSync device in the VeSync app, so it shows up in Home Assistant without waiting or restarting.
+The **VeSync: Update devices** action polls the VeSync server for your account and adds any new devices to Home Assistant. Use it after you set up a new VeSync device in the VeSync app, so it shows up in Home Assistant without waiting or restarting.
 
 {% include actions/ui_header.md %}
 

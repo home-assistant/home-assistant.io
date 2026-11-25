@@ -5,7 +5,7 @@ domain: motion_blinds
 description: "Moves a Motionblinds cover to an exact position."
 ---
 
-The **Set absolute position** action moves a Motionblinds cover to an exact position, and on tilt-capable blinds it can also set the tilt at the same time.
+The **Motionblinds: Set absolute position** action moves a Motionblinds cover to an exact position, and on tilt-capable blinds it can also set the tilt at the same time.
 
 This is useful when you want an automation to move a blind to a precise position, in particular for Top Down Bottom Up (TDBU) blinds, where the position is set relative to the window itself.
 
@@ -99,8 +99,7 @@ This automation moves a Top Down Bottom Up blind to a privacy position every eve
 automation: |
   alias: "Evening privacy position"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: motion_blinds.set_absolute_position
       target:

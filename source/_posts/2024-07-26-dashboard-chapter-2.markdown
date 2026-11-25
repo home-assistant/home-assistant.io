@@ -4,6 +4,8 @@ title: "Dashboard chapter 2: Let’s redesign the cards together!"
 description: "We have been steadily shipping updates to our new dashboard design every month, and we would like our community of contributors to get involved!"
 date: 2024-07-26 00:00:00
 date_formatted: "July 26, 2024"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Madelena Mak
 comments: true
 categories: Dashboard
@@ -13,6 +15,10 @@ og_image: /images/blog/2024-07-dashboard-chapter-2/dashboard-banner.png
 <p class='img'>
     <lite-youtube videoid="9zmXLxQPr1o" videotitle="A Home-Approved Dashboard - Chapter 2: Let's redesign the cards together!"></lite-youtube>
 </p>
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 We have been steadily shipping updates to our new dashboard design every month since we announced [Project Grace](/blog/2024/03/04/dashboard-chapter-1/#what-is-project-grace), and our new grid system is finally maturing to a point where we would like our community of contributors to get involved!
 

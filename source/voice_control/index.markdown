@@ -11,12 +11,12 @@ related:
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
   - url: https://www.nabucasa.com/config/assist/
-    title: Home Assistant Cloud
+    title: Home Assistant Link
   - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition
 ---
 
-Assist is the voice assistant built into Home Assistant. It lets you control your smart home with natural language, and it can run fully on your own hardware, so your voice commands stay private. Assist works in the Home Assistant companion app, on dedicated voice hardware like the [Home Assistant Voice Preview Edition](/voice-pe/), and on devices you build yourself with [ESPHome](https://www.esphome.io/components/voice_assistant/).
+Assist is the voice assistant built into Home Assistant. It lets you control your smart home with natural language, and it can run fully on your own hardware, so your voice commands stay private. Assist works in the Home Assistant Companion app, on dedicated voice hardware like the [Home Assistant Voice Preview Edition](/voice-pe/), and on devices you build yourself with [ESPHome](https://www.esphome.io/components/voice_assistant/).
 
 Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> at the top right of your dashboard to try it out right away.
 
@@ -30,10 +30,32 @@ When you configure voice assistant hardware made for Home Assistant, it will use
 
 Our recommended voice assistant hardware is the [Home Assistant Voice Preview Edition](/voice-pe/).
 
-In case your hardware does not support our wizard, do not worry. Here are two detailed guides based on how you plan to process your voice (Locally, or using Home Assistant Cloud voice services)
+In case your hardware does not support our wizard, do not worry. Here are two detailed guides based on how you plan to process your voice (Locally, or using Home Assistant Link voice services)
 
 - [I plan to process my voice locally](/voice_control/voice_remote_local_assistant/)
-- [I plan to use Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) (recommended as it is the simplest)
+- [I plan to use Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) (recommended as it is the simplest)
+
+## How Assist works
+
+When you talk or type to Assist, an [assistant](#assistants) handles your request. The assistant uses a [conversation agent](#conversation-agents) to understand the request and decide what to do.
+
+### Assistants
+
+An assistant is a setup of Assist with its own name, language, and [conversation agent](#conversation-agents). An assistant can also use {% term "speech-to-text" %} to understand spoken requests, and {% term "text-to-speech" %} to reply out loud. For example, [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) provides both. You can also [run both locally](/voice_control/voice_remote_local_assistant/), on your own hardware. You can set up several assistants under {% my voice_assistants title="**Settings** > **Voice assistants**" %}. For example, you can have one assistant in English and one in German.
+
+### Conversation agents
+
+A conversation agent understands your request and decides what to do. The [built-in conversation agent](/integrations/conversation/) is called **Home Assistant**. It runs locally and understands the [built-in sentences](/voice_control/builtin_sentences/) and your own [custom sentences](/voice_control/custom_sentences/). For example, it understands "Turn on the kitchen lights".
+
+[AI integrations](/integrations/category/ai_voice/ai_models/) add conversation agents that use AI. For example, [OpenAI](/integrations/openai_conversation/) and [Ollama](/integrations/ollama/) add them. These conversation agents understand more freely worded requests, and they can use {% term "AI tools" %}. For example, with AI tools, a conversation agent can tell you the temperature in the living room. For the AI tools that Home Assistant provides, refer to the [LLM integration](/integrations/llm/).
+
+If you turn on **Prefer handling commands locally** in the assistant, the built-in conversation agent tries each command first. Only commands that it doesn't understand go to the AI conversation agent.
+
+### Voice satellites
+
+A voice satellite is a device with a microphone that you use to talk to Assist. For example, [Home Assistant Voice Preview Edition](/voice-pe/) is a voice satellite. Other examples are analog phones and devices that you build yourself with ESPHome. For more options, refer to [Expand and experiment](#expand-and-experiment). Many voice satellites start listening when you say a [wake word](/voice_control/about_wake_word/), such as "Okay Nabu".
+
+Unlike a browser or the {% term "Home Assistant Companion app" %}, a voice satellite isn't signed in to a user account. So its [assistant](#assistants) can't use {% term "AI tools" %} that [only work for administrators](/integrations/llm/#sets-of-ai-tools). For example, it can turn on a light, but it can't read your logs. If the conversation agent of that assistant also has the **Home Assistant** set of AI tools selected, every request from the voice satellite fails. In that case, the voice satellite can't turn on a light either.
 
 ## Expand and experiment
 
@@ -159,7 +181,7 @@ Assist aims to support more languages than other voice assistants, but this is s
 		</div>
 		<div class="supported-card cloud check" data-state="-1">
 			<div class="heading">
-				<span>Home Assistant Cloud</span>
+				<span>Home Assistant Link</span>
 			</div>
 			<div class="state-bar">
 				<span></span><span></span><span></span>
@@ -516,7 +538,7 @@ function updateLanguageSupports(locale = null) {
 </script>
 
 
-Assist already supports a wide range of [languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages). Use the [built-in sentences](/voice_control/builtin_sentences) to control entities and areas, or [create your own sentences](/voice_control/custom_sentences/).
+Assist already supports a wide range of [languages](https://contributors.home-assistant.io/translate/voice/languages/). Use the [built-in sentences](/voice_control/builtin_sentences) to control entities and areas, or [create your own sentences](/voice_control/custom_sentences/).
 
 
 Did Assist not understand your sentence? [Contribute them](/voice_control/contribute-voice).

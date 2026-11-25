@@ -1,18 +1,7 @@
 ---
-title: DLNA Digital Media Renderer
 description: Instructions on how to integrate a DLNA DMR device into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 0.76
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@chishm'
 ha_domain: dlna_dmr
-ha_platforms:
-  - media_player
-ha_ssdp: true
-ha_integration_type: device
 ---
 
 The **DLNA Digital Media Renderer** {% term integration %} allows you to control a [DLNA Digital Media Renderer](https://www.dlna.org/), such as DLNA enabled TVs or radios.

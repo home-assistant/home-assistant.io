@@ -7,7 +7,7 @@ related_actions:
   - rainmachine.push_flow_meter_data
 ---
 
-The **Push weather data** action sends weather measurements from Home Assistant to a RainMachine controller. RainMachine uses this data to decide how much to water, so feeding it accurate local weather can improve its watering decisions.
+The **RainMachine: Push weather data** action sends weather measurements from Home Assistant to a RainMachine controller. RainMachine uses this data to decide how much to water, so feeding it accurate local weather can improve its watering decisions.
 
 This is useful when you have a personal weather station in Home Assistant and want RainMachine to use its readings instead of, or in addition to, online forecasts.
 

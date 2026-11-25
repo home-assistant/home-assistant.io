@@ -1,0 +1,22 @@
+{
+  "domain": "meteoalarm",
+  "name": "MeteoAlarm",
+  "integration_type": "service",
+  "codeowners": [
+    "@rolfberkenbosch",
+    "@mastermc0",
+    "@jjprz"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "weather_alerts.public_warnings"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

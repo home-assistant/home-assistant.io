@@ -5,7 +5,7 @@ domain: vizio
 description: "Types text into the on-screen field that currently has focus on a VIZIO SmartCast device."
 ---
 
-The **Send text** action types text into whatever on-screen field currently has focus on your VIZIO SmartCast device — for example, an app's search box or a sign-in form. Characters are sent with the same keyboard encoding the official SmartCast app uses, so they arrive in order as regular keystrokes.
+The **VIZIO SmartCast: Send text** action types text into whatever on-screen field currently has focus on your VIZIO SmartCast device — for example, an app's search box or a sign-in form. Characters are sent with the same keyboard encoding the official SmartCast app uses, so they arrive in order as regular keystrokes.
 
 Only ASCII characters are supported. This is also the most reliable way to enter digits (for example, PINs or channel numbers), because the remote's numeric key codes are not digit keys on SmartCast devices.
 

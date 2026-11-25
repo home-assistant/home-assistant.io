@@ -1,19 +1,7 @@
 ---
-title: Sensoterra
 description: Instructions on how to integrate your Sensoterra probes with Home Assistant.
 ha_release: '2024.10'
-ha_category:
-  - Sensor
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: sensoterra
-ha_platforms:
-  - sensor
-ha_codeowners:
-  - '@SanderBakkumCuriousInc'
-  - '@curious-florian'
-  - '@markruys'
-ha_integration_type: hub
 ---
 
 This {% term integration %} communicates with your [Sensoterra](https://sensoterra.com) soil moisture probes using the public [Sensoterra Customer API](https://monitor.sensoterra.com/api/v3/) via HTTPS.

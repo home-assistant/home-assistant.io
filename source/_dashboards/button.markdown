@@ -6,7 +6,7 @@ description: "The Button card allows you to add buttons to perform tasks."
 related:
   - docs: /dashboards/actions/
     title: Card actions
-  - docs: /docs/scripts/
+  - docs: /docs/script/
     title: Scripts
   - docs: /integrations/frontend/
     title: Themes
@@ -39,7 +39,7 @@ Icon:
 Icon Height:
   description: The height of the icon, in pixels.
 Color:
-  description: The color of the icon.
+  description: The color of the icon when the entity is active. When the entity is inactive, the icon uses the inactive state color instead.
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 Show Name:
@@ -69,7 +69,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/). It defaults to the entity name only if the card interacts with an entity. Otherwise, if not configured, no name is displayed.
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/). If not configured, the default name of the entity is displayed only if the card interacts with an entity. Otherwise, no name is displayed.
   type: [string, map, list]
   default: Entity name
 icon:
@@ -99,7 +99,7 @@ icon_height:
   default: auto
 color:
   required: false
-  description: Set the color for the icon. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/button/#available-colors) or hex color code.
+  description: Set the color for the icon when the entity is active. When the entity is inactive, the icon uses its inactive state color instead. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/button/#available-colors) or hex color code.
   type: string
   default: state
 tap_action:
@@ -134,7 +134,7 @@ type: button
 entity: light.living_room
 ```
 
-Button card with a button name and a [script](/docs/scripts/) that runs when card is tapped:
+Button card with a button name and a [script](/docs/script/) that runs when card is tapped:
 
 <p class='img'>
 <img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script action'>
@@ -159,7 +159,7 @@ Example of 4 buttons on a vertical stack card:
 Screenshot of a vertical stack card with 4 buttons and an entity selector.
 </p>
 
-The image shows a vertical stack card with 4 buttons arranged in a horizontal stack card and an entity selector. The buttons use the toggle action to run a script, for example, the Netflix script, which starts up the TV and opens Netflix. To learn how to create scripts, refer to [scripts](/docs/scripts/).
+The image shows a vertical stack card with 4 buttons arranged in a horizontal stack card and an entity selector. The buttons use the toggle action to run a script, for example, the Netflix script, which starts up the TV and opens Netflix. To learn how to create scripts, refer to [scripts](/docs/script/).
 
 ```yaml
 type: vertical-stack

@@ -19,7 +19,7 @@ The **System information** dialog provides system details, including:
 - Home Assistant Core: Version, installation type, and Python version, architecture, operating system (kernel) version, and timezone
 - Home Assistant Supervisor: Version and disk usage (if applicable)
 - Home Assistant Operating System: Version and board type (if applicable)
-- Home Assistant Cloud: Connection status and certificate information (if configured)
+- Home Assistant Link: Connection status and certificate information (if configured)
 - Recorder: Database engine and estimated database size
 - Network: Network configuration details
 - Resources: Number of [Dashboards](/dashboards/dashboards/) and [Views](/dashboards/views/)
@@ -27,7 +27,7 @@ The **System information** dialog provides system details, including:
 This information is useful for:
 
 - Troubleshooting issues with your installation
-- Checking system resources before [creating backups](/common-tasks/general/#backups)
+- Checking system resources before [creating backups](/common-tasks/general/backups/)
 - Verifying your installation meets [requirements for specific integrations](/integrations/)
 - Sharing technical details when [reporting issues on GitHub](#reporting-issues-on-github)
 

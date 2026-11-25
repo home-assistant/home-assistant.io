@@ -1,29 +1,10 @@
 ---
-title: Sunricher DALI
 description: Instructions on how to integrate Sunricher DALI with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Light
-  - Sensor
 ha_release: 2025.11
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@niracler'
 ha_domain: sunricher_dali
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - scene
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: silver
 related:
   - url: https://www.sunricher.com/din-rail-ethernet-dali-gateway-sr-gw-eda.html
     title: SR-GW-EDA DALI Gateway
-ha_dhcp: true
 ---
 
 The **Sunricher DALI** {% term integration %} allows you to control and monitor DALI lighting devices connected to [Sunricher](https://www.sunricher.com/) gateways. The integration receives real-time push updates to keep entity states synchronized.

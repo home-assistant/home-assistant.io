@@ -113,7 +113,7 @@ hold_secs:
 
 When the front door opens, send a pause command to the TV.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Front door (`binary_sensor.front_door`)
   - **To**: On
 - **Action**: Send remote command

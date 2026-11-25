@@ -1,0 +1,26 @@
+{
+  "domain": "bthome",
+  "name": "BTHome",
+  "codeowners": [
+    "@Ernst79",
+    "@thecode"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "sensors",
+    "diy_makers"
+  ],
+  "connectivity": [
+    "bluetooth"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "event",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

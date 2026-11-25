@@ -16,7 +16,7 @@ To update the image from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select your collection_image entity.
-6. From the actions shown for that target, select **Select last**.
+6. From the actions shown for that target, under **Collection image**, select **Select last**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -34,7 +34,7 @@ action: |
     entity_id: image.my_photos
 {% endexample %}
 
-{% include actions/targets.md domain="image" %}
+{% include actions/targets.md entity_type="Collection image entity" example="image.my_photos" %}
 
 {% include actions/try_it.md %}
 

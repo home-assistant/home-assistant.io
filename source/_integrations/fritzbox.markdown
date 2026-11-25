@@ -1,31 +1,7 @@
 ---
-title: FRITZ!SmartHome
 description: Instructions on how to integrate FRITZ! Smart Home (former AVM FRITZ!DECT) components into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Light
-  - Sensor
-  - Switch
 ha_release: 0.68
-ha_iot_class: Local Polling
 ha_domain: fritzbox
-ha_config_flow: true
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - light
-  - sensor
-  - switch
-ha_codeowners:
-  - '@mib1185'
-  - '@flabbamann'
-ha_integration_type: hub
 ---
 
 The **FRITZ!SmartHome** {% term integration %} for Home Assistant allows you to integrate [FRITZ! Smart Home](https://fritz.com/en/collections/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
@@ -98,7 +74,7 @@ The FRITZ!DECT 500 light bulb supports only 36 colors. When a color is picked in
 
 Plugs like the [FRITZ!Smart Energy 200][fritzdect_200] or [FRITZ!Smart Energy 210][fritzdect_210] will be integrated as {% term switch %} entities.
 
-Further there are additional {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device, based on its capabilities:
+Further there are additional {% term sensor %} and {% term "binary sensor" %} entities created for each device, based on its capabilities:
 
 - Button lock via UI
 - Button lock on device
@@ -124,7 +100,7 @@ Self defined [templates](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590
 
 Thermostats like the FRITZ!Smart Thermo series or Eurotronic Comet DECT will be integrated as {% term climate %} entities.
 
-Further there are additional {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device which can be useful for {% term automations %} and {% term templates %}, based on its capabilities:
+Further there are additional {% term sensor %} and {% term "binary sensor" %} entities created for each device which can be useful for {% term automations %} and {% term templates %}, based on its capabilities:
 
 - Battery
 - Battery low
@@ -145,7 +121,7 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 
 Event based devices like motion detection sensors or window/door contacts or buttons (_for example, [FRITZ!Smart Control 350][fritzdect_350] or the [FRITZ!Smart Control 440][fritzdect_440]_) cannot be controlled or used via this integration, but their sensors can still be integrated.
 
-The availability of these {% term sensor %} and {% term binary_sensor "binary sensor" %} entities depends on the features and capabilities of the connected device and can be one or multiple of:
+The availability of these {% term sensor %} and {% term "binary sensor" %} entities depends on the features and capabilities of the connected device and can be one or multiple of:
 
 - Battery
 - Battery low

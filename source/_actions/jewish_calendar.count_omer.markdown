@@ -2,10 +2,11 @@
 title: "Count the Omer"
 action: jewish_calendar.count_omer
 domain: jewish_calendar
+response: required
 description: "Returns the phrase for counting the Omer on a given date."
 ---
 
-The **Count the Omer** action returns the phrase for counting the Omer on a given date.
+The **Jewish Calendar: Count the Omer** action returns the phrase for counting the Omer on a given date.
 
 This is useful when you want an automation or script to announce or display the daily Omer count, for example as part of an evening routine during the Omer period.
 
@@ -88,6 +89,8 @@ language:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the following data:
 
