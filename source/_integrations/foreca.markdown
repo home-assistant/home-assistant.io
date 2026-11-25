@@ -39,7 +39,7 @@ Location:
     description: "The location to retrieve weather data for. Defaults to the home location set in your Home Assistant configuration."
 {% endconfiguration_basic %}
 
-To add another location later, select **Add location** on the Foreca entry under **Settings** > **Devices & services**. One API key covers as many locations as its request limit allows.
+To add another location later, select **Add location** on the Foreca Weather entry under **Settings** > **Devices & services**. One API key covers as many locations as its request limit allows.
 
 ## Supported functionality
 
