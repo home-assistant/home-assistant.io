@@ -70,7 +70,7 @@ adstype:
   type: string
 value:
   description: >
-    The value to write to the variable. A whole number for the integer
+    The value to write to the variable. Use a whole number for the integer
     types, a number with decimals for `real` and `lreal`, and `true` or
     `false` for `bool`.
   required: true
