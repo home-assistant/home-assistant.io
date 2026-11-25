@@ -92,6 +92,7 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 
 - A Motion Detector or Motion Detector II gets an event entity that fires whenever the device detects motion.
 - A Smoke Detector gets an event entity that fires whenever its alarm state changes.
+- A Universal Switch or Universal Switch II gets an event entity for each key that fires short, long, and long-released presses.
 
 ### Light
 
