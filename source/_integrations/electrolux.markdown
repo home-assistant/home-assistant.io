@@ -84,6 +84,7 @@ API key:
 Access token:
     description: "The access token provided by Electrolux Group for Developers to access your devices."
 Refresh token:
+    description: "The refresh token used to renew your access token."
 {% endconfiguration_basic %}
 
 ## Reconfiguring the integration
