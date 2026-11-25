@@ -126,7 +126,7 @@ If Home Assistant cannot read the modes from the proxy, every list shows all mod
 
 ## Supported functionality
 
-For each conversation agent you add, you can use it in [Assist](/voice_control/) like any other conversation agent. Speech-to-text and text-to-speech entities can be selected in an [Assist pipeline](/integrations/assist_pipeline/). AI task evaluation entities answer the questions of the [Evaluate](/actions/ai_task.evaluate/) action.
+For each conversation agent you add, you can use it in [Assist](/voice_control/) like any other conversation agent. You can select speech-to-text and text-to-speech entities in an [Assist pipeline](/integrations/assist_pipeline/). AI task evaluation entities can only be used by the [Evaluate](/actions/ai_task.evaluate/) action. They can't be used to generate data or images.
 
 When you select tools in **AI tools**, the agent can call them to interact with your devices and entities. To choose which devices and entities **Device control** can access, see [exposing entities to Assist](/voice_control/voice_remote_expose_devices/).
 
