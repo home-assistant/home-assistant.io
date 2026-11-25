@@ -151,28 +151,28 @@ homekit:
               required: false
               type: string
             adaptive_lighting:
-              description: Only for `light` entities. Exposes Apple's Adaptive Lighting on the light. Only applies to lights that support both brightness and colour temperature. The Home app then sends a colour temperature schedule that Home Assistant follows until you change the colour manually.
+              description: Only for `light` entities. Exposes Apple's Adaptive Lighting on the light. Only applies to lights that support both brightness and color temperature. The Home app then sends a color temperature schedule that Home Assistant follows until you change the color manually.
               required: false
               type: boolean
               default: '`false`'
             min_color_temp_kelvin:
-              description: Only for `light` entities. Overrides the minimum colour temperature advertised to HomeKit, in kelvin. This is the warm end of the range. Useful for bulbs that misbehave at the warm end of their advertised range.
+              description: Only for `light` entities. Overrides the minimum color temperature advertised to HomeKit, in kelvin. This is the warm end of the range. Useful for bulbs that misbehave at the warm end of their advertised range.
               required: false
               type: integer
             max_color_temp_kelvin:
-              description: Only for `light` entities. Overrides the maximum colour temperature advertised to HomeKit, in kelvin. This is the cool end of the range. Useful for bulbs that misbehave at the cool end of their advertised range.
+              description: Only for `light` entities. Overrides the maximum color temperature advertised to HomeKit, in kelvin. This is the cool end of the range. Useful for bulbs that misbehave at the cool end of their advertised range.
               required: false
               type: integer
             rgb_below_kelvin:
-              description: Only for `light` entities. Below this colour temperature, Home Assistant sends an `rgb_color` value blended towards `warm_rgb_color` instead of a colour temperature. Applies to manual and adaptive colour temperature changes. Useful for bulbs whose colour LEDs can produce a warmer tone than their white channel.
+              description: Only for `light` entities. Below this color temperature, Home Assistant sends an `rgb_color` value blended towards `warm_rgb_color` instead of a color temperature. Applies to manual and adaptive color temperature changes. Useful for bulbs whose color LEDs can produce a warmer tone than their white channel.
               required: false
               type: integer
             warm_rgb_color:
-              description: Only for `light` entities. The `[red, green, blue]` colour that the warm blend reaches at the lowest advertised colour temperature. Only valid together with `rgb_below_kelvin`.
+              description: Only for `light` entities. The `[red, green, blue]` color that the warm blend reaches at the lowest advertised color temperature. Only valid together with `rgb_below_kelvin`.
               required: false
               type: list
             floor_rgb_color:
-              description: Only for `light` entities. The `[red, green, blue]` colour that the warm blend starts from at `rgb_below_kelvin`. By default the colour is derived from `rgb_below_kelvin`. Only valid together with `rgb_below_kelvin`.
+              description: Only for `light` entities. The `[red, green, blue]` color that the warm blend starts from at `rgb_below_kelvin`. By default the color is derived from `rgb_below_kelvin`. Only valid together with `rgb_below_kelvin`.
               required: false
               type: list
             linked_battery_sensor:
@@ -450,16 +450,16 @@ homekit:
         adaptive_lighting: true
 ```
 
-The Home app then sends a colour temperature schedule to the accessory, and Home Assistant follows it until you change the colour manually in HomeKit.
-Changing the colour manually stops Adaptive Lighting.
+The Home app then sends a color temperature schedule to the accessory, and Home Assistant follows it until you change the color manually in HomeKit.
+Changing the color manually stops Adaptive Lighting.
 Turning the light off pauses the schedule instead of stopping it: Home Assistant skips updates while the light is off and resumes the saved schedule when the light turns back on.
 A schedule that is saved when Home Assistant restarts is restored automatically.
 
-Some bulbs accept colour temperature commands below the range where they actually produce light.
+Some bulbs accept color temperature commands below the range where they actually produce light.
 For those, you can narrow the range that Home Assistant advertises to HomeKit with `min_color_temp_kelvin` and `max_color_temp_kelvin`, in kelvin.
 
-Bulbs whose colour LEDs can produce a warmer tone than their white channel can also blend to an RGB colour below a configured temperature.
-Set `rgb_below_kelvin` together with `warm_rgb_color` to enable the blend, and optionally `floor_rgb_color` to choose the colour the blend starts from.
+Bulbs whose color LEDs can produce a warmer tone than their white channel can also blend to an RGB color below a configured temperature.
+Set `rgb_below_kelvin` together with `warm_rgb_color` to enable the blend, and optionally `floor_rgb_color` to choose the color the blend starts from.
 
 ## Configure Filter
 
