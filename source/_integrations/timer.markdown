@@ -89,6 +89,17 @@ Use a timer when you want a countdown that can be started, paused, changed, canc
 
 {% include integrations/actions.md %}
 
+## Showing when a timer finishes on a dashboard
+
+By default, a [tile card](/dashboards/tile/) or [badge](/dashboards/badges/) for a timer shows the remaining time.
+To also show the time when the timer finishes:
+
+1. Start the timer.
+   - **Finishes at** is only in the **State content** list while the timer is active.
+2. Edit your dashboard and open the tile card or badge for the timer.
+3. Under **State content**, add **Finishes at**.
+4. Select **Save**.
+
 ## Timer automation examples
 
 {% include docs/paste_yaml_tip.md %}

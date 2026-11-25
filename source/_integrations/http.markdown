@@ -41,7 +41,10 @@ SSL key path:
   description: The absolute path to the TLS private key, for example `/ssl/privkey.pem`.
   required: false
 SSL peer certificate path:
-  description: The absolute path to a client certificate Home Assistant should require for secure connections.
+  description: The absolute path to the certificate authority file that signs your client certificates. If set, local secure connections require a client certificate signed by it.
+  required: false
+Require client certificates for remote access:
+  description: By default, SSL peer certificates apply only to local connections to Home Assistant. Enabling this also requires a client certificate on remote access through [Home Assistant Link](/integrations/link/). Requires an **SSL peer certificate path**.
   required: false
 SSL profile:
   description: |

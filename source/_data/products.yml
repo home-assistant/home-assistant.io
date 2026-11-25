@@ -195,6 +195,11 @@ green:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/nabu-casa-home-assistant-green/
       logo: /images/distributors/nurkantakaa.webp
+    - name: Verkkokauppa.com
+      ship_from: Finland
+      ship_to: Europe
+      url: https://www.verkkokauppa.com/fi/product/1055515
+      logo: /images/distributors/verkkokauppa.webp
     - name: Reichelt
       ship_from: Germany
       ship_to: Europe
@@ -541,6 +546,11 @@ voice-pe:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/nabu-casa-home-assistant-voice-preview-edition/
       logo: /images/distributors/nurkantakaa.webp
+    - name: Verkkokauppa.com
+      ship_from: Finland
+      ship_to: Europe
+      url: https://www.verkkokauppa.com/fi/product/1055506
+      logo: /images/distributors/verkkokauppa.webp
     - name: Reichelt
       ship_from: Germany
       ship_to: Europe
@@ -719,6 +729,11 @@ zwa-2:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/zwa-2/
       logo: /images/distributors/nurkantakaa.webp
+    - name: Verkkokauppa.com
+      ship_from: Finland
+      ship_to: Europe
+      url: https://www.verkkokauppa.com/fi/product/1055509
+      logo: /images/distributors/verkkokauppa.webp
     - name: ROBBshop
       ship_from: Netherlands
       ship_to: Europe
@@ -941,6 +956,11 @@ zbt-2:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/nc-zbt-9741/
       logo: /images/distributors/nurkan-takaa.webp
+    - name: Verkkokauppa.com
+      ship_from: Finland
+      ship_to: Europe
+      url: https://www.verkkokauppa.com/fi/product/1055512
+      logo: /images/distributors/verkkokauppa.webp
     - name: Reichelt
       ship_from: Germany
       ship_to: Europe
