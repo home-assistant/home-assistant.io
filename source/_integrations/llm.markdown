@@ -209,7 +209,7 @@ To find a device or an entity, the conversation agent first uses **Search Home A
 - **Get repair issues** (`repairs__get_issues`): Lists the issues that Home Assistant found, with their severity. For example, an issue can be a broken automation or a device with a problem. It also includes issues that you ignored, and shows which issues Home Assistant can fix. Only reads.
   - To do this yourself: Go to {% my repairs title="**Settings** > **System** > **Repairs**" %}.
 - **Start repair fix flow** (`repairs__start_fix_flow`): Starts to fix a repair issue. It only works for issues that Home Assistant can fix. **Get repair issues** shows which ones these are. Changes things.
-  - Some fixes need your browser. For example, you sign in to an account. The AI tool can't start these fixes. Fix them yourself under {% my repairs title="**Settings** > **System** > **Repairs**" %}.
+  - Some fixes have a step that needs your browser. For example, you sign in to an account. When a fix reaches such a step, the AI tool cancels the fix. Fix these issues yourself under {% my repairs title="**Settings** > **System** > **Repairs**" %}.
 - **Configure repair fix flow step** (`repairs__configure_fix_flow`): Goes through the steps of a fix that **Start repair fix flow** started. It fills in the fields of each step and selects options in menus. It can also cancel the fix. Changes things.
   - To do this yourself: Fill in the dialog that opens when you select the issue.
 - **Get installed apps** (`hassio__get_apps`): Lists your installed apps, with their version, whether an update is available, and whether they are running. It's only available on {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} installations. Only reads.
