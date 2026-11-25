@@ -90,8 +90,8 @@ Each location also gets the latest measurements from the nearest weather station
 - **Observation time**: when the station took the measurements. This is a diagnostic entity and is disabled by default.
 - **Observed temperature** and **Observed humidity**.
 - **Observed condition**: the weather the station reports, such as sunny, rainy, or snowy. Disabled by default.
-- **Observed hourly precipitation**: the precipitation the station measured in its latest full hour. Its **Last reset** attribute shows when that hour started. It shows as unknown when that hour ended more than two hours before the station's latest measurements, for example when the station skips reports.
-- **Observed precipitation type**: the type of that hour's precipitation: rain, sleet, snow, hail, or icing. It shows as unknown when that hour had no precipitation, when the station cannot tell the type, or when the hourly precipitation is unknown. Disabled by default.
+- **Observed hourly precipitation**: the precipitation the station measured in its latest full hour, in mm. Its **Last reset** attribute shows when that hour started. It shows as unknown when that hour ended more than two hours before the station's latest measurements, for example, when the station skips reports.
+- **Observed precipitation type**: the type of precipitation in the station's latest full hour: rain, sleet, snow, hail, or icing. It shows as unknown when there was no precipitation in that hour, when the station cannot determine the type, or when the hourly precipitation sensor is unknown. Disabled by default.
 - **Observed apparent temperature**, **Observed pressure**, **Observed wind speed**, **Observed wind gust speed**, **Observed wind direction**, **Observed visibility**, and **Observed snow depth**. These are disabled by default.
 
 Where no station reports nearby, the observation sensors show as unknown.
