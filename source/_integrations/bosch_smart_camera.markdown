@@ -12,9 +12,8 @@ ha_codeowners:
 ha_platforms:
   - camera
   - light
-  - sensor
-
   - number
+  - sensor
   - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
