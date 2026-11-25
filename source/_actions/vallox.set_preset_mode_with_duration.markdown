@@ -8,7 +8,7 @@ related_actions:
   - fan.set_preset_mode
 ---
 
-The **Vallox: Set preset mode with duration** action activates the **Boost**, **Fireplace / Custom**, or **Extra** preset of your Vallox ventilation unit for the duration stored on the unit, for a set time, or without a time limit. When the time is up, the unit goes back to the preset it was in before.
+The **Vallox: Set preset mode with duration** action activates the **Boost**, **Fireplace / Custom**, or **Extra** preset of your Vallox ventilation unit for the duration stored on the unit, for a set time, or without a time limit. When the time is up, the unit goes back to the **Home**, **Away**, or **Auto** preset it was in before.
 
 Use it when you need more ventilation for a limited time, for example after a shower or while cooking.
 
