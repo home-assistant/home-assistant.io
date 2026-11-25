@@ -265,7 +265,7 @@ When an integration doesn't work as expected, check its health first. The health
 3. Check the lines below this summary:
    - The state of the entry. For example, **Loaded** or **Failed setup, will retry**. If the setup failed, the line also shows the error.
    - If the entry needs to be reauthenticated or reconfigured. To do this, select **Go to the integrations**.
-   - How many of its entities are available. The unavailable entities are listed. To see all entities of the entry, select **View entities**.
+   - How many of its entities are available. The dialog lists up to 5 unavailable entities. To see all entities of the entry, select **View entities**.
    - The number of open repairs. To see them, select **View repairs**.
    - The number of errors and warnings in the recent log. To see them, select **View logs**. The logs open with a filter for the integration.
    - How long the integration took to start.
