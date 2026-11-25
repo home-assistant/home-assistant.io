@@ -13,6 +13,7 @@ ha_category:
   - Button
   - Climate
   - Fan
+  - Hub
   - Humidifier
   - Light
   - Number
@@ -38,7 +39,7 @@ related:
     title: Electrolux Group for Developers documentation
 ---
 
-The **Electrolux** {% term integrations %} lets you connect and control your home appliances via the [official third-party API](https://developer.electrolux.one).
+The **Electrolux** {% term integration %} lets you connect and control your home appliances via the [official third-party API](https://developer.electrolux.one).
 
 [Electrolux Group](https://www.electroluxgroup.com/) is a global appliance manufacturer that designs and produces solutions for taste, care, and wellbeing experiences. The company develops and sells products under several consumer brands, including **Electrolux**, **AEG**, and **Frigidaire**.
 
@@ -170,9 +171,9 @@ This entity is used to control the appliance with the following actions:
 
 ### Numbers
 
-- **Target Temperature**
+- **Target temperature**
   - **Description**: Set or report the target temperature.
-  - **Available for appliance types**: Oven, Fridge.
+  - **Available for appliance types**: Oven, Refrigerator (including freezer).
 
 ### Select
 
@@ -222,7 +223,7 @@ This entity is used to control the appliance with the following actions:
   - **Description**: Reports the current wash/dry cycle phase.
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
 - **End at**
-  - **Descriptions**: Reports when the appliance will stop running.
+  - **Description**: Reports when the appliance will stop running.
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
   - **Remarks**: Disabled by default.
 - **Food probe temperature**
@@ -280,7 +281,7 @@ This entity allows controlling Electrolux group robot vacuum cleaners by startin
 
 ## Known limitations
 
-- The Electrolux Group third-party API does not provide full parity with the mobile app. Some options, or settings available in the app may be unavailable or limited when from Home Assistant.
+- The Electrolux Group third-party API does not provide full parity with the mobile app. Some options or settings available in the app may be unavailable or limited in Home Assistant.
 
 ## Removing the integration
 
