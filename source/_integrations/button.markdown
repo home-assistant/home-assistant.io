@@ -28,9 +28,9 @@ You can use button entities in automations to react when a button is pressed, or
 
 The [Button held](/triggers/button.held/) and [Button hold ended](/triggers/button.hold_ended/) triggers only work with [event entities](/integrations/event/) that have the button device class, not with button entities.
 
-{% include integrations/triggers.md %}
+The [Button is being held](/conditions/button.is_being_held/) condition also only works with event entities that have the button device class.
 
-{% include integrations/actions.md %}
+{% include integrations/triggers_conditions_actions.md %}
 
 ## Device class
 

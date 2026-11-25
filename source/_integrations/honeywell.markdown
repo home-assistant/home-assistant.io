@@ -6,6 +6,8 @@ ha_domain: honeywell
 
 The **Honeywell Total Connect Comfort** {% term integration %} integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.
 
+This integration communicates with Honeywell's cloud service and requires an internet connection. It does not provide local control of the thermostat.
+
 If your system is compatible with this integration, then you will be able access it via [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/) (note the `/portal/`).
 
 - [Supported hardware](#supported-hardware)
@@ -13,6 +15,7 @@ If your system is compatible with this integration, then you will be able access
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Humidifier](#humidifier)
+- [List of actions](#list-of-actions)
 
 {% include integrations/config_flow.md %}
 
@@ -34,7 +37,14 @@ Other devices like Security systems are not currently supported by this integrat
 
 The climate platform integrates Honeywell US-based thermostats into Home Assistant, allowing control of the thermostat through the user interface. The current inside temperature, operating mode, and fan state are also displayed on the thermostat card.
 
-All [climate actions](/integrations/climate) are supported except `set_swing_mode`.
+Depending on your thermostat's capabilities, you can use [climate actions](/integrations/climate/) to:
+
+- Set the target temperature, including separate heating and cooling targets in heat/cool mode
+- Change the operating mode, such as heat, cool, heat/cool, or off
+- Change the fan mode
+- Select the `hold` preset to maintain the current temperature settings, the `away` preset to use the configured away temperatures, or `none` to cancel the hold
+
+The integration does not support editing the thermostat's stored schedule or managing your Honeywell account. Manage those settings outside Home Assistant. You can use Home Assistant automations to change the thermostat settings at specific times.
 
 Due to the instability of the Honeywell total connect system, actions within automations should repeat until success similar to the following example:
 
@@ -120,3 +130,5 @@ automation:
         data:
           humidity: 35 # Set target humidity to 35% (recommended for comfort)
 ```
+
+{% include integrations/actions.md %}

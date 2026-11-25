@@ -13,6 +13,7 @@ related_functions:
   - states
   - is_hidden_entity
   - area_name
+  - device_name
 ---
 
 The `entity_name` template function returns the name of an {% term entity %} given its entity ID, without the name of its {% term device %}. For example, for a temperature sensor of the device _Living room sensor_, it returns _Temperature_. It looks up the name in the {% term entity %} registry first, and falls back to the friendly name of the state object if the entity is not registered. If the entity does not exist at all, it returns `None`.
@@ -37,6 +38,8 @@ output: "Temperature"
 ```signature
 entity_name(
     entity_id: str,
+    *,
+    fallback: bool = False,
 ) -> str | None
 ```
 
@@ -50,13 +53,20 @@ entity_id:
     The entity ID to look up. Returns the name as a string, or `None` if the entity does not exist.
   required: true
   type: string
+fallback:
+  description: >
+    If `true`, returns the name of the device when the entity has no name of its own, such as the main entity of a device. For example, `entity_name("switch.coffee_machine", fallback=true)` returns `Coffee machine` instead of an empty string.
+  required: false
+  default: "false"
+  type: boolean
 {% endfunction_parameters %}
 
 ## Good to know
 
 - Returns `None` when the entity does not exist. Chain with [`| default(value)`](/template-functions/default/) for a fallback.
 - Uses the name from the entity registry first, without the device name, then falls back to the friendly name of the state object.
-- An entity without a name of its own returns an empty string.
+- An entity without a name of its own, such as the main entity of a device, returns an empty string. To get the device name instead, use `fallback=true`.
+- When you use `entity_name` as a filter, add the parameter in parentheses: `| entity_name(fallback=true)`. With [`map`](/template-functions/map/), use `map("entity_name", fallback=true)`.
 - Pass an entity ID, not a state object.
 
 {% include template_functions/try_it.md %}
@@ -65,7 +75,9 @@ entity_id:
 
 ### Use entity names in a notification
 
-Send a {% term notification %} with the friendly name of a {% term sensor %} instead of its entity ID.
+Send a {% term notification %} with a readable name of a {% term sensor %} instead of its entity ID. Combine `entity_name` with [`device_name`](/template-functions/device_name/) and [`area_name`](/template-functions/area_name/) to build the name from its parts. Parts without a value, such as the entity name of the main entity of a device, are left out. 
+
+For example, this action sends `Hallway Front door sensor is on`:
 
 {% example %}
 action: |
@@ -73,18 +85,20 @@ action: |
     - action: notify.mobile
       data:
         message: >
-          {{ entity_name("binary_sensor.front_door") }} is
-          {{ states("binary_sensor.front_door") }}
+          {% set door = "binary_sensor.front_door" %}
+          {{ [area_name(door), device_name(door), entity_name(door)]
+             | select | join(" ") }} is {{ states(door) }}
 {% endexample %}
 
 ### List names of all lights that are on
 
-Loop through all light entities and display the friendly name of each one that is currently on.
+Loop through all light entities and display the name of each one that is currently on.
+Lights are often the main entity of their device, so `fallback=true` uses the device name for them.
 
 {% example %}
 template: |
   {% for light in states.light | selectattr("state", "eq", "on") %}
-    {{ entity_name(light.entity_id) }}
+    {{ entity_name(light.entity_id, fallback=true) }}
   {% endfor %}
 {% endexample %}
 

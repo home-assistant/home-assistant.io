@@ -14,9 +14,9 @@ export async function getStaticPaths() {
   const ownPages = Object.keys(import.meta.glob("./**/index.astro")).map(
     (file) => file.slice("./".length, -"index.astro".length),
   );
-  // A route without its Markdown file would otherwise just be missing
-  // from the build, and the deploy would fail copying it; failing here
-  // keeps Jekyll's page published on production instead.
+  // A served route with neither its Markdown file nor a page of its own
+  // would otherwise just be missing from the build. There is no Jekyll
+  // fallback for served routes, so fail the build with a clear message.
   const missing = servedRoutes.filter(
     (route) =>
       !ownPages.includes(route) &&

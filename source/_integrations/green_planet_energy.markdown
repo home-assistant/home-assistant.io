@@ -112,6 +112,10 @@ This creates three sensors:
 - `sensor.cheapest_3_5_hour_time_until_start`: Shows how many hours until that moment.
 - `sensor.cheapest_3_5_hour_average_price`: Shows the average price during that window.
 
+## Data updates
+
+The integration {% term polling polls %} Green Planet Energy for prices every hour.
+
 ## Known limitations
 
 Prices are published for today and tomorrow only. If you ask for more hours than that, the slots without data are left out of the **Get energy prices** response instead of returned as zero.

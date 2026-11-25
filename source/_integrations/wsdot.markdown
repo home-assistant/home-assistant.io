@@ -51,7 +51,7 @@ Here's an example of the sensor in use:
 
 ## Data updates
 
-**WSDOT** retrieves travel time updates every 2 minutes. This is not currently configurable.
+**WSDOT** retrieves travel time updates every 3 minutes. This is not currently configurable.
 
 ## Advanced configuration
 
@@ -108,7 +108,7 @@ One or more **WSDOT** element content displays `unknown`.
 
 ##### Resolution
 
-The **WSDOT** travel sensors poll for new travel times every 2 minutes.
+The **WSDOT** travel sensors poll for new travel times every 3 minutes.
 You may have to wait up to 4 minutes for initial durations to populate.
 
 ## Removing the integration

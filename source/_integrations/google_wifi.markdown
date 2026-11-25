@@ -1,5 +1,5 @@
 ---
-description: Instructions on how to integrate Google Wifi/OnHub routers into Home Assistant.
+description: Monitor the network status and firmware of a Google Wifi or OnHub router.
 ha_release: '0.50'
 ha_domain: google_wifi
 related:
@@ -7,12 +7,16 @@ related:
     title: Configuration file
 ---
 
-The **Google Wifi** {% term integration %} is displaying the exposed status of a Google Wifi (or OnHub) router.
+The **Google Wifi** {% term integration %} lets you monitor the status of a [Google Wifi or OnHub router](https://support.google.com/googlenest/). It creates sensors for the router's connection status, IP address, firmware versions, and restart information.
 
-The {% term integration %} can report network status, up-time, current IP address and firmware versions.
+## Supported devices
 
-To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+- Google Wifi routers.
+- Google OnHub routers.
+
+## Configuration
+
+To enable this {% term integration %}, add the following lines to your {% term "configuration.yaml" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -20,30 +24,52 @@ sensor:
   - platform: google_wifi
 ```
 
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 {% configuration %}
 host:
-  description: The address to retrieve status from the router.
+  description: The IP address of the Google Wifi or OnHub router.
   required: false
   default: 192.168.86.1
   type: string
 name:
-  description: Name to give the Google Wifi sensor.
+  description: Prefix used for the names of the Google Wifi sensors.
   required: false
   default: google_wifi
   type: string
 monitored_conditions:
-  description: Defines the data to monitor as sensors. Defaults to all of the listed options below.
+  description: Sensors to create. By default, all available sensors are created.
   required: false
   type: list
   keys:
     current_version:
-      description: Current firmware version of the router.
+      description: The firmware version currently installed on the router.
     new_version:
-      description: Latest available firmware version. If router is up-to-date, this value shows to `Latest`.
-    uptime:
-      description: Date of last restart. Format is `YYYY-MM-DD HH:mm:SS`.
+      description: The latest available firmware version. Reports `Latest` when the router is up to date.
+    last_restart:
+      description: The date and time when the router last restarted.
     local_ip:
-      description: Local public IP address.
+      description: The IP address reported for the router's WAN connection.
     status:
-      description: Reports whether the router is or is not connected to the internet.
+      description: Whether the router is online or offline.
 {% endconfiguration %}
+
+## Supported functionality
+
+### Sensors
+
+The sensor names start with the value of `name` (default `google_wifi`), followed by the condition:
+
+- **google_wifi_current_version**: The firmware version installed on the router.
+- **google_wifi_new_version**: The latest firmware version available. Reports **Latest** when the router is up to date.
+- **google_wifi_last_restart**: The date and time when the router last restarted.
+- **google_wifi_local_ip**: The IP address of the router's WAN connection.
+- **google_wifi_status**: Whether the router is **Online** or **Offline**.
+
+## Data updates
+
+The integration polls the router every 30 seconds.
+
+## Known limitations
+
+The integration provides status sensors only. It does not provide controls for changing router settings.

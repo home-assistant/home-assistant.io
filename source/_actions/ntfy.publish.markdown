@@ -253,7 +253,7 @@ icon:
     URL of an icon that will appear next to the text of the notification.
   required: false
   type: string
-action:
+actions:
   description: >
     Up to three actions (**[`view`](#action-view)**, **[`broadcast`](#action-broadcast)**, **[`http`](#action-http)**, or **[`copy`](#action-copy)**) can be added as buttons below the notification. Actions are executed when the corresponding button is tapped or clicked.
   required: false
