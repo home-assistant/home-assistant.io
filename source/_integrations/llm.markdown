@@ -163,16 +163,16 @@ To find an area, a floor, or a label, the conversation agent first uses **Search
   - To do this yourself: Refer to [Editing an area](/docs/organizing/areas/#editing-an-area).
 - **Delete area** (`config__delete_area`): Deletes an area. Its devices and entities stay, without an area. Changes things.
   - To do this yourself: Refer to [Deleting an area](/docs/organizing/areas/#deleting-an-area).
-- **Get floor settings** (`config__get_floor_settings`): Returns the settings of a [floor](/docs/organizing/floors/). These are the name, the aliases, the icon, and the level. The level sorts the floors. For example, `0` is the ground floor, and `-1` is the floor below it. Only reads.
-  - To do this yourself: Go to {% my areas title="**Settings** > **Areas, labels & zones**" %}.
+- **Get floor settings** (`config__get_floor_settings`): Returns the settings of a [floor](/docs/organizing/floors/). These are the name, the aliases, the icon, and the level. The level is the number of the floor. For example, `0` is the ground floor, and `-1` is the floor below it. If the floor has no icon, the level sets its default icon. Only reads.
+  - To do this yourself: Go to {% my areas title="**Settings** > **Areas, labels & zones**" %}. Next to the floor, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit floor**.
 - **Create floor** (`config__create_floor`): Creates a floor, with the same settings that **Get floor settings** returns. Changes things.
   - To do this yourself: Refer to [Creating a floor](/docs/organizing/floors/#creating-a-floor).
 - **Update floor settings** (`config__update_floor_settings`): Changes the settings of a floor. It only changes the settings it's asked to change. Changes things.
-  - To do this yourself: Go to {% my areas title="**Settings** > **Areas, labels & zones**" %}.
+  - To do this yourself: Go to {% my areas title="**Settings** > **Areas, labels & zones**" %}. Next to the floor, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit floor**.
 - **Delete floor** (`config__delete_floor`): Deletes a floor. Its areas stay, without a floor. Changes things.
   - To do this yourself: Refer to [Deleting a floor](/docs/organizing/floors/#deleting-a-floor).
 - **Get label settings** (`config__get_label_settings`): Returns the settings of a [label](/docs/organizing/labels/). These are the name, the color, the icon, and the description. Only reads.
-  - To do this yourself: Go to {% my labels title="**Settings** > **Areas, labels & zones** > **Labels**" %}.
+  - To do this yourself: Go to {% my labels title="**Settings** > **Areas, labels & zones** > **Labels**" %}. The list shows your labels. For each label, it shows its color, icon, and description.
 - **Create label** (`config__create_label`): Creates a label, with the same settings that **Get label settings** returns. Changes things.
   - To do this yourself: Refer to [Creating a label](/docs/organizing/labels/#creating-a-label).
 - **Update label settings** (`config__update_label_settings`): Changes the settings of a label. It only changes the settings it's asked to change. Changes things.
@@ -184,7 +184,7 @@ To find an area, a floor, or a label, the conversation agent first uses **Search
 
 To find a device or an entity, the conversation agent first uses **Search Home Assistant**.
 
-- **Get device settings** (`config__get_device_settings`): Returns the settings of a {% term device %}. These are the name from the integration, the name that you gave it, the area, the labels, and whether the device is disabled. For a device, it also returns the manufacturer and the model. For a child device, it returns the parent device. Only reads.
+- **Get device settings** (`config__get_device_settings`): Returns the settings of a {% term device %}. These are the name from the integration, the name that you gave it, the area, the labels, and whether the device is disabled. It also returns the manufacturer and the model. For a [child device](/docs/configuration/customizing-entities/#parent-and-child-devices), it returns the ID of its parent device instead. Only reads.
   - To do this yourself: Go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}, and select the device.
 - **Update device settings** (`config__update_device_settings`): Changes the name, the area, and the labels of a device. It can also disable or enable the device. A disabled device also disables its entities. It only changes the settings it's asked to change. Changes things.
   - To do this yourself: Refer to [Renaming a device](/docs/configuration/customizing-entities/#renaming-a-device) and [Assigning a device or entity to an area](/docs/organizing/areas/#assigning-a-device-or-entity-to-an-area).
