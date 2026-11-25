@@ -18,6 +18,8 @@ related:
     title: Intesis
   - docs: /integrations/serial/#setting-up-a-serial-connection-in-home-assistant
     title: Setting up a serial connection in Home Assistant
+  - docs: /integrations/binary_sensor/
+    title: Binary sensor
   - docs: /integrations/climate/
     title: Climate
 ---
@@ -67,6 +69,13 @@ Unit has a swing vane:
 ## Supported functionality
 
 The **Intesis Modbus** integration provides the following entities.
+
+### Binary sensors
+
+- **Alarm**
+  - **Description**: Whether the air conditioner reports an alarm condition.
+- **Window**
+  - **Description**: Whether the gateway considers a window open. The gateway uses this for its open window function, which turns the air conditioner off when a window stays open for longer than a timeout set on the gateway.
 
 ### Climate
 
