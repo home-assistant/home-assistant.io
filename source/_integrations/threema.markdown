@@ -62,7 +62,9 @@ Each recipient subentry creates its own **device**, named after the recipient, f
 
 If you configured a private key for end-to-end encryption, the integration also creates one **Gateway** device for the gateway itself. This device hosts the QR code image entity described below, and is not created in basic mode.
 
-## Entities
+## Supported functionality
+
+The **Threema** integration provides the following entities.
 
 ### Notify
 
