@@ -70,6 +70,7 @@ A Smoke Detection System gets a **Smoke** binary sensor. It turns on while the s
 - An Outdoor Siren gets a **Test alarm** button that fires a short alarm at the configured sound level.
 - A Smart Plug or Smart Plug Compact gets a **Reset consumption value** button that resets the accumulated energy consumption.
 - A Micromodule Dimmer with a dimmer configuration gets **Preview max brightness** and **Preview min brightness** configuration buttons that flash the connected load at that brightness, to help with calibration. They are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+- The water alarm system gets a **Mute alarm** button that mutes a triggered water alarm.
 
 ### Climate
 
