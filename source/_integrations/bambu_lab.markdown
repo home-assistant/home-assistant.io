@@ -80,7 +80,7 @@ The **Bambu Lab** integration adds your printer as a device, with the following 
 - **Camera**
   - **Description**: The camera inside the printer.
   - **Available for printers**: Printers with a camera.
-  - **Remarks**: Printers like the A1 and P1 series send a new image every second or two, so the camera shows images, not video. Other printers serve a video stream, which you turn on on the printer, as described in the [prerequisites](#prerequisites). The camera is unavailable while that stream is turned off.
+  - **Remarks**: Printers like the A1 and P1 series send a new image every second or two, so the camera shows images, not video. Other printers serve a video stream, which you turn on in the settings of the printer, as described in the [prerequisites](#prerequisites). The camera is unavailable while that stream is turned off.
 
 ### Sensors
 
@@ -262,11 +262,11 @@ The sensors of the printer show values, but the **Camera** is unavailable or doe
 
 #### Description
 
-A printer with a video stream only serves it on your network when that is turned on on the printer. Other printers send images over a separate connection.
+A printer with a video stream only serves it on your network when it is turned on in the settings of the printer. Other printers send images over a separate connection.
 
 #### Resolution
 
-1. If your printer has a video stream, turn it on on the printer, as described in the [prerequisites](#prerequisites).
+1. If your printer has a video stream, turn it on in the settings of the printer, as described in the [prerequisites](#prerequisites).
    - Result: The camera becomes available right away.
 2. Make sure Home Assistant can reach the printer on TCP port 322 for a video stream, or on TCP port 6000 for images. If the printer is in a different network than Home Assistant, allow this port in your firewall.
 
