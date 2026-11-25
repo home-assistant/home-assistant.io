@@ -535,7 +535,8 @@ An agent can also put a configuration together from the group addresses of your 
 This is not a KNX device from your ETS project.
 
 `list_entities`, `get_entity_config`, `update_entity`, `delete_entity`, and `delete_device` manage the entities you have.
-`list_entities` lists your entities with the group addresses they use.
+`list_entities` lists the entities configured in the KNX panel with the group addresses they use.
+It doesn't list entities configured in YAML.
 `get_entity_config` returns the configuration of one entity.
 `update_entity` replaces the configuration of an entity.
 It can't change the type of the entity, for example from a switch to a light.
