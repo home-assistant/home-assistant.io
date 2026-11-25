@@ -10,7 +10,7 @@ The **INDI Allsky** {% term integration %} connects Home Assistant with your [IN
 
 - Display the latest allsky camera image, keogram, and star trail images on a Home Assistant dashboard.
 - Trigger automations or notifications when nighttime capture begins, when sky quality or star counts indicate clear skies, or when dew point and temperature conditions require attention.
-- Browse and play historical timelapse videos, keograms, star trails, and captured images directly from the Home Assistant media browser.
+- Browse and play historical timelapse videos, and view keograms, star trails, and captured images directly from the Home Assistant media browser.
 
 ## Supported devices
 
@@ -120,7 +120,8 @@ To create this automation in the UI:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and create a new automation.
 2. Add a **State** trigger for **INDI Allsky Night** (`binary_sensor.indi_allsky_night`) changing **To** `on`.
 3. Add a **Numeric state** condition for **INDI Allsky Stars** (`sensor.indi_allsky_stars`) being **Above** `100`.
-4. Add a **Send a notification message** action to notify your device.
+4. Add a **Send a notification message** action.
+   - In **Target**, select the notification entity for your device, for example **My Phone** (`notify.my_phone`).
 
 {% details "Example YAML configuration" %}
 
@@ -140,7 +141,9 @@ automation: |
       target:
         entity_id: notify.my_phone
       data:
-        message: "Clear night skies detected ({{ states('sensor.indi_allsky_stars') }} stars)."
+        message: >
+          Clear night skies detected
+          ({{ states('sensor.indi_allsky_stars') }} stars).
 {% endexample %}
 
 {% enddetails %}
@@ -153,7 +156,13 @@ Sensor readings, exposure metadata, and new keogram or star trail notifications 
 
 {% details "Entities become unavailable" %}
 
-If INDI Allsky entities become unavailable:
+### Symptom: One or more INDI Allsky entities show as unavailable
+
+#### Description
+
+Home Assistant cannot receive updates from the INDI Allsky server.
+
+#### Resolution
 
 1. Verify that the INDI Allsky service is running and reachable from your Home Assistant host.
 2. Check **Settings** > **Devices & services** for any reauthentication prompt if login settings or credentials changed on the INDI Allsky server.
