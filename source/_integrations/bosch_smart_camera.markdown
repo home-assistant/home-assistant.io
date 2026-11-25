@@ -14,6 +14,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - update
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -50,6 +51,10 @@ The **Privacy mode** switch turns the privacy mode of a camera on or off. While 
 ### Wi-Fi signal strength
 
 The **Wi-Fi signal strength** sensor shows how well a camera is connected to your Wi-Fi network, in percent. It is a diagnostic sensor and is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
+
+### Firmware
+
+The **Firmware** entity shows the installed firmware version of a camera and whether a newer version is available. Bosch installs firmware updates on its own, so you cannot start an update from Home Assistant. While an update is installed, the entity shows its progress.
 
 ### Camera light
 
