@@ -1,6 +1,6 @@
 ---
 title: "Google Home via Home Assistant Link"
-description: "Enable the Google Home via Home Assistant Link integration."
+description: "Enable the Google Home integration via Home Assistant Link."
 sidebar: false
 ---
 
