@@ -63,7 +63,7 @@ The **Tile BLE** integration provides the following entities for each Tile.
 
 - **Signal strength**
   - **Description**: The strength of the Tile's Bluetooth signal in dBm, as received by the Bluetooth adapter or proxy Home Assistant currently uses for the Tile. A value closer to 0 means a stronger signal. This helps you find out how well a Tile is received, for example when you decide where to place a Bluetooth proxy.
-  - **Remarks**: This entity is disabled by default.
+  - **Remarks**: Diagnostic entity, [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Tile BLE automation examples
 
