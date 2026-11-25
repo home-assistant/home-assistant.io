@@ -135,6 +135,7 @@ The integration watches the serial link. When the link drops, the blinds become 
 - The R2D7 has a 256-byte command buffer and discards all commands when it overflows. Do not move more than about 20 blinds in one action.
 - After a restart of Home Assistant, the position of each blind is unknown until you send a command.
 - A blind that travels for longer than 2 minutes can still show open or closed after a Stop that caught it halfway.
+- Channel 60 can act as a group address ("cut strap ALL") on some motor controls. If a command on channel 60 moves several blinds, do not use that channel for a single blind.
 
 ## Removing the integration
 
