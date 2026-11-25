@@ -94,7 +94,7 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 - The fault and warning bits are not available as binary sensors yet.
 - The AC output cannot be switched from Home Assistant yet.
-- Grid charging and grid feed-in are not available. The BLUETTI app sets them through the working mode (AI mode, Self-consumption, Backup, or Custom), which is not available over Modbus, and the device can undo a change made outside it.
+- Grid charging and grid feed-in are not available yet. The power station's working mode can undo a change made outside the BLUETTI app.
 
 ### Battery packs
 
