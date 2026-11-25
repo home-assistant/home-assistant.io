@@ -4,7 +4,7 @@ description: Integration to control Fujitsu General air conditioners using an in
 ha_category:
   - Climate
   - Infrared
-ha_release: '2026.10'
+ha_release: '2026.12'
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@Dr-Blank'
