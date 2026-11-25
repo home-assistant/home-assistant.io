@@ -1,6 +1,6 @@
 {
   "domain": "xmpp",
-  "name": "Jabber (XMPP)",
+  "name": "XMPP",
   "codeowners": [
     "@fabaff",
     "@flowolf"
