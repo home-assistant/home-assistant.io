@@ -154,7 +154,7 @@ Smart Plug Compact devices also provide a communication quality sensor. Thermost
 
 Room Thermostat II devices provide a humidity sensor if the device supports it and a **Floor temperature** sensor if a floor sensor is connected.
 
-Battery-powered devices also provide a diagnostic **Battery level** sensor (**OK**, **Low**, **Critical**, **Critically low**, or **Not available**). It is disabled by default because the **Battery** binary sensor already reports whether the battery is fine.
+Battery-powered devices also provide a diagnostic **Battery level** sensor (**OK**, **Low**, **Critical**, **Critically low**, or **Not available**). It is disabled by default because the **Battery** binary sensor already reports when the battery is low; [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) if you need the finer levels.
 
 In addition, a single **Open doors and windows** sensor is added for the whole home, not tied to a specific device. Its state is the total number of currently open doors, windows, and other openings, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` state attributes.
 
