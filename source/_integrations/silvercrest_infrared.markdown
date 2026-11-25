@@ -15,15 +15,10 @@ ha_platforms:
 ha_quality_scale: bronze
 ---
 
-The **SilverCrest Infrared** {% term integration %} lets you control SilverCrest infrared devices with any infrared emitter that has been previously configured in Home Assistant.
+The **SilverCrest Infrared** {% term integration %} lets you control SilverCrest infrared devices with any infrared emitter that has been previously configured in Home Assistant. [SilverCrest](https://my-silvercrest.com) is a Lidl brand for household appliances and consumer electronics. The product range includes kitchen appliances, electronics, and smart home devices.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device, but there is no feedback channel to confirm its current state. The integration therefore uses assumed states.
 
-## About SilverCrest
-
-[SilverCrest](https://my-silvercrest.com) is a Lidl brand for household appliances and consumer electronics.
-
-The product range includes kitchen appliances, electronics, and smart home devices.
 
 ## How you can use the integration
 
