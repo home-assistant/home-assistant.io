@@ -73,9 +73,11 @@ Each item in the `warnings` attribute has these fields:
 - `starts_at` and `ends_at`: When the warning is in effect.
 - `is_active`: Whether the warning is in effect now.
 
+{% include integrations/actions.md %}
+
 ## IRM KMI automation examples
 
-The pollen sensors and the warning entities let you react to pollen levels and official weather warnings in your automations. Here are a few ideas to get you started.
+The pollen sensors, the warning entities, and the [radar forecast action](/actions/irm_kmi.get_forecasts_radar/) let you react to pollen levels, official weather warnings, and rain in your automations. Here are a few ideas to get you started.
 
 {% include docs/paste_yaml_tip.md %}
 
@@ -178,6 +180,46 @@ automation: |
     - action: cover.close_cover
       target:
         entity_id: cover.awning
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Skip the sprinklers when rain is on the way
+
+Before the evening watering run, check the radar and only turn on the sprinklers when no rain shows up in any of the frames.
+
+- **Trigger**: Time, 20:00:00
+- **Action**: Get radar forecasts
+  - **Target**: Brussels (`weather.brussels`)
+  - **Response variable**: `radar`
+- **Condition**: Template, no frame has rain
+- **Action**: Turn on switch
+  - **Target**: Sprinklers (`switch.sprinklers`)
+
+{% details "YAML example for skipping the sprinklers when rain is coming" %}
+
+{% example %}
+automation: |
+  alias: "Water the garden unless rain is coming"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+  actions:
+    - action: irm_kmi.get_forecasts_radar
+      target:
+        entity_id: weather.brussels
+      response_variable: radar
+    - condition: template
+      value_template: >
+        {{ radar['weather.brussels'].forecast
+           | map(attribute='precipitation')
+           | reject('none')
+           | select('gt', 0)
+           | list
+           | count == 0 }}
+    - action: switch.turn_on
+      target:
+        entity_id: switch.sprinklers
 {% endexample %}
 
 {% enddetails %}
