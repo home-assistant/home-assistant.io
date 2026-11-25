@@ -135,7 +135,7 @@ instead of a fixed set of entities.
 
 Each rule has five fields, separated by `|`, and rules are separated by `;`:
 
-```
+```text
 07:00-09:00|charge|1500|12345|1;17:00-21:00|discharge|2000|12345|1
 ```
 
