@@ -85,6 +85,7 @@ no_time_limit:
 ## Good to know
 
 - **Home**, **Away**, and **Auto** have no time limit on the unit. To switch to one of them, use the [Set fan preset mode](/actions/fan.set_preset_mode/) action.
+- A set **Duration** also switches on the **Timer** switch of the respective preset in the unit's settings, and it stays on afterwards.
 - While a preset is active without a time limit, the **Profile duration** sensor shows **Unknown**.
 - The action doesn't turn the unit on. If the unit is off, turn it on as well, for example with the **Turn on fan** action.
 
