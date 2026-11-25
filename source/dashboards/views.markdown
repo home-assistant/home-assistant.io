@@ -27,10 +27,7 @@ A view is a tab inside a dashboard. For example, the screenshot below shows one 
 
 Views control the layout.
 
-<p class='img'>
-    <img src='/images/dashboards/layout-types.png' alt='The four view types: Sections, Panel, Sidebar, and Masonry'>
-    The four view types: Sections (the default), Panel, Sidebar, and Masonry.
-</p>
+{% include dashboard/demo.html demo="view_types" caption="The four view types: Sections (the default), Masonry, Panel, and Sidebar. Select a tab to see each one." %}
 
 There are four different view types:
 
