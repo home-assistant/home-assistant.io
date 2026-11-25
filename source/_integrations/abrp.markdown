@@ -70,23 +70,47 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
 
 ### Sensors
 
-- **SoC**: Battery charge percentage.
-- **SoE**: Estimated battery energy.
+- **SoC**: Battery charge percentage. For details, refer to [State of charge and state of energy](#state-of-charge-and-state-of-energy).
+- **SoE**: Estimated battery energy, shown in kilowatt-hours (kWh) by default. For details, refer to [State of charge and state of energy](#state-of-charge-and-state-of-energy).
 - **Range**: Estimated remaining driving range.
 - **Power**: Current charging or discharging power.
-- **Charging state**: Whether the vehicle is charging and how. Possible states are:
+- **Charging state**: Whether the vehicle is charging and how. For details, refer to [AC and DC charging](#ac-and-dc-charging). Possible states are:
 
-    - **Charging (AC)**
-    - **Charging (DC)**
+    - **Charging (AC)**: The vehicle is charging from an AC charger.
+    - **Charging (DC)**: The vehicle is charging from a DC fast charger.
     - **Charging**: The vehicle is charging, but the charging type is unknown.
-    - **Plugged in**
-    - **Not charging**
+    - **Plugged in**: The vehicle is connected to a charger but not charging.
+    - **Not charging**: The vehicle is not connected to a charger or is not charging.
 - **Voltage**: Battery pack voltage.
 - **Battery temperature**: Battery pack temperature.
 - **Odometer**: Total distance driven.
 - **Calibrated ref cons**: ABRP's calibrated [reference consumption](https://abrp.featurebase.app/articles/3305478-reference-consumption) for the vehicle, in energy per distance. A steady-state baseline tuned from live data, not real-time consumption.
 - **State of health**: Estimated battery health percentage.
 - **Battery capacity**: Estimated usable battery capacity.
+
+#### State of charge and state of energy
+
+The **SoC** and **SoE** sensors both describe how full your battery is, but they measure it in different ways.
+
+- **SoC** (state of charge) is the battery level as a percentage, like the battery gauge on your vehicle's dashboard. A value of `80` means the battery is 80% full.
+- **SoE** (state of energy) is the amount of energy left in the battery, in kilowatt-hours (kWh). A value of `45` means about 45 kWh is available.
+
+Use **SoC** for simple battery-level automations, like a notification when the battery is low. Use **SoE** when you want to know how much energy is available, for example to compare it with how much energy a trip needs.
+
+Because the battery capacity differs between vehicles, the same percentage means a different amount of energy. For example, 50% is about 40 kWh in a vehicle with an 80 kWh battery, and about 30 kWh in a vehicle with a 60 kWh battery. Battery capacity also changes slowly as the battery ages. The **Battery capacity** sensor shows the capacity ABRP uses for your vehicle.
+
+Not every vehicle reports both values. If ABRP does not receive one of them, that sensor does not appear until the first value arrives.
+
+#### AC and DC charging
+
+The **Charging state** sensor reports which type of charging your vehicle is using.
+
+- **Charging (AC)**: Alternating current (AC) charging, for example from a home wall box or a public AC charge point. The vehicle's onboard charger converts AC to the DC power the battery needs. AC charging is usually slower, and it is common for overnight charging at home.
+- **Charging (DC)**: Direct current (DC) charging, from a DC fast charger. The charger supplies DC power directly to the battery, which is much faster. It is common at public fast-charging stations on longer trips.
+
+You can use the charging state in automations, for example to be notified when your vehicle starts DC fast charging or to react differently to AC charging at home. The **Power** sensor shows the current charging power, which is typically much higher during DC charging than during AC charging.
+
+Some vehicles report that they are charging without saying which type. In that case, the state is **Charging**.
 
 ### Device tracker
 
