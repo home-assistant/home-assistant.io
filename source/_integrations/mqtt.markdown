@@ -282,8 +282,8 @@ To open the map, go to {% my config_mqtt title="**Settings** > **Devices & servi
 The broker is at the root of the map. Below the broker are the sources that set up MQTT items:
 
 - **YAML**: items from your YAML configuration.
-- **Subentries**: devices added as an MQTT subentry in the UI.
-- **Discovery (no origin)**: discovered items without [origin](#discovery-messages) information.
+- **Added in the UI**: devices added as an MQTT subentry in the UI.
+- **Other discovered**: discovered items without [origin](#discovery-messages) information.
 - One node for each discovery origin, for example, a bridge that sends the discovery messages for its devices.
 
 Each source links to its devices. Child devices and devices that set `via_device` are shown below their parent device. A device links to its entities, device triggers, and tags, and these link to the topics they subscribe or publish to. Entities and tag scanners without a device are grouped under **No linked device**.
@@ -292,9 +292,9 @@ Each source links to its devices. Child devices and devices that set `via_device
 
 - Select a node to focus on it. Everything that is not linked to it fades.
 - Entities, device triggers, and tags are hidden in the legend by default. When you focus on a device, its entities, device triggers, and tags are shown. When you focus on an entity, device trigger, or tag, only that item is shown with its topics.
-- Use the bar under the focused node to show its configuration, or to open its device page or more-info dialog.
+- Use the bar under the focused node to show its configuration with **Show configuration**, the more-info dialog of an entity with **Show more info**, or the page of a device with **Go to device**.
 - Use the search field to find nodes, **Filter sources** to show only some sources, and the legend to show or hide types of nodes.
-- Use **Toggle tree view** to switch between the graph and a tree from left to right.
+- Use **Tree view** to switch between the graph and a tree from left to right.
 
 ### Configuration of an item
 
