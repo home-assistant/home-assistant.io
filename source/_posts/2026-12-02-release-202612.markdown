@@ -597,10 +597,10 @@ This release, we celebrate several {% term integrations %} that have improved th
 
 - **22 integrations reached silver** 🥈
   - [A Better Routeplanner], thanks to [@mtandersson]
-  - [Alpha Bidet Infrared], thanks to [@JamesFromIT]
+  - [Alpha Bidet Infrared], thanks to [@eseverson]
   - [BLUETTI Modbus], thanks to [@chpego]
   - [EARN-E P1 Meter], thanks to [@Miggets7]
-  - [Edifier Infrared], thanks to [@JamesFromIT]
+  - [Edifier Infrared], thanks to [@abmantis]
   - [Foreca], thanks to [@EetuPelkonen]
   - [GeoSphere Austria Warnings], thanks to [@tklecka]
   - [Holiday], thanks to [@gjohansson-ST]
@@ -608,14 +608,14 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [iZone], thanks to [@Swamp-Ig]
   - [MeteoAlarm], thanks to [@mastermc0]
   - [Monarch Money], thanks to [@bradleyseanf]
-  - [Open-Meteo], thanks to [@JamesFromIT]
+  - [Open-Meteo], thanks to [@frenck]
   - [Palazzetti], thanks to [@dotvav]
-  - [Persang Infrared], thanks to [@JamesFromIT]
-  - [Philips Infrared], thanks to [@JamesFromIT]
+  - [Persang Infrared], thanks to [@Dr-Blank]
+  - [Philips Infrared], thanks to [@javitonino]
   - [Pterodactyl], thanks to [@elmurato]
-  - [Samsung Infrared], thanks to [@JamesFromIT]
+  - [Samsung Infrared], thanks to [@lmaertin]
   - [Seafile], thanks to [@erwindouna]
-  - [SilverCrest Infrared], thanks to [@JamesFromIT]
+  - [SilverCrest Infrared], thanks to [@tr4nt0r]
   - [SmartyPlants], thanks to [@bigbimbs]
   - [Trafikverket Weather Station], thanks to [@Vortitron]
 
@@ -630,6 +630,7 @@ This is a huge achievement for these integrations and their maintainers. The eff
 A big thank you to all the contributors involved! 👏
 
 [integration quality scale]: /docs/quality_scale/
+[@abmantis]: https://github.com/abmantis
 [@andijakl]: https://github.com/andijakl
 [@bigbimbs]: https://github.com/bigbimbs
 [@bradleyseanf]: https://github.com/bradleyseanf
@@ -638,15 +639,21 @@ A big thank you to all the contributors involved! 👏
 [@CoMPaTech]: https://github.com/CoMPaTech
 [@DaanVervacke]: https://github.com/DaanVervacke
 [@dknowles2]: https://github.com/dknowles2
+[@Dr-Blank]: https://github.com/Dr-Blank
 [@elmurato]: https://github.com/elmurato
+[@eseverson]: https://github.com/eseverson
+[@frenck]: https://github.com/frenck
 [@Imou-OpenPlatform]: https://github.com/Imou-OpenPlatform
 [@JamesFromIT]: https://github.com/JamesFromIT
+[@javitonino]: https://github.com/javitonino
+[@lmaertin]: https://github.com/lmaertin
 [@mastermc0]: https://github.com/mastermc0
 [@mnordseth]: https://github.com/mnordseth
 [@mtandersson]: https://github.com/mtandersson
 [@Swamp-Ig]: https://github.com/Swamp-Ig
 [@tklecka]: https://github.com/tklecka
 [@TN-1]: https://github.com/TN-1
+[@tr4nt0r]: https://github.com/tr4nt0r
 [@Vortitron]: https://github.com/Vortitron
 [A Better Routeplanner]: /integrations/abrp
 [AccuWeather]: /integrations/accuweather
