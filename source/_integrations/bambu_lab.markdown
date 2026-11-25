@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: bambu_lab
 ha_integration_type: device
 ha_platforms:
+  - light
   - sensor
 ha_quality_scale: bronze
 related:
@@ -21,7 +22,7 @@ related:
     title: Bambu Lab
 ---
 
-The **Bambu Lab** {% term integration %} lets you follow your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. You can see what the printer is doing, how far along the print is, when it will finish, and the temperatures of the bed and the chamber.
+The **Bambu Lab** {% term integration %} lets you follow your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. You can see what the printer is doing, how far along the print is, when it will finish, and the temperatures of the bed and the chamber. You can also turn the light inside the printer on and off.
 
 The integration talks directly to the printer over your local network. It does not use the Bambu Lab cloud, and the printer sends its updates to Home Assistant as soon as something changes. For example, you can get a notification on your phone the moment a print finishes, or when the printer pauses a print and needs your attention.
 
@@ -71,6 +72,12 @@ Before Home Assistant sends the access code, it checks that the device at the ad
 ## Supported functionality
 
 The **Bambu Lab** integration adds your printer as a device, with the following entities.
+
+### Lights
+
+- **Chamber light**
+  - **Description**: The light inside the printer. You can turn it on and off.
+  - **Available for printers**: Printers that report a chamber light.
 
 ### Sensors
 
@@ -168,7 +175,7 @@ When the connection to the printer is lost, for example because the printer is t
 
 ## Known limitations
 
-- The integration follows what the printer is doing. It cannot control the printer yet, like pausing a print or switching the light.
+- Apart from the chamber light, the integration cannot control the printer yet. For example, you cannot pause a print.
 - The integration does not show the camera of the printer yet.
 - Home Assistant does not find printers on your network by itself yet. You enter the IP address and serial number yourself.
 - If the access code of the printer changes, the integration can no longer connect. Remove the printer from Home Assistant, and add it again with the new access code.
