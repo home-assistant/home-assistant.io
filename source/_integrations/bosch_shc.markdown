@@ -57,6 +57,8 @@ A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguar
 
 An Outdoor Siren gets **Acoustic alarm** and **Visual alarm** binary sensors that turn on while the siren sounds or flashes, and a **Tamper** diagnostic binary sensor.
 
+Outdoor Sirens that report their power supply also get diagnostic **AC/DC error**, **Battery defect**, **Battery temperature abnormal**, and **Primary power supply outage** binary sensors that turn on while the fault is present.
+
 A Motion Detector II gets an **Occupancy** binary sensor and a **Tamper** diagnostic binary sensor that turns on when the device was tampered with.
 
 A Smoke Detection System gets a **Smoke** binary sensor. It turns on while the system reports a smoke alarm, including a pre-alarm or a muted alarm, and turns off when the alarm ends.
@@ -67,6 +69,7 @@ A Smoke Detection System gets a **Smoke** binary sensor. It turns on while the s
 - A Motion Detector II that supports it gets a **Reset tamper** button that confirms the device is back in place and clears an active tamper alarm.
 - An Outdoor Siren gets a **Test alarm** button that fires a short alarm at the configured sound level.
 - A Smart Plug or Smart Plug Compact gets a **Reset consumption value** button that resets the accumulated energy consumption.
+- A Micromodule Dimmer with a dimmer configuration gets **Preview max brightness** and **Preview min brightness** configuration buttons that flash the connected load at that brightness, to help with calibration. They are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ### Climate
 
@@ -141,6 +144,7 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Smart Plug
 - Smart Plug Compact
 - Light Switch
+- Micromodule Light Control
 - Micromodule Shutter Control
 - Micromodule Blinds
 

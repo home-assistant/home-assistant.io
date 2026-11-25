@@ -12,6 +12,7 @@ ha_codeowners:
 ha_platforms:
   - camera
   - light
+  - sensor
   - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -45,6 +46,10 @@ Each camera is also added as a device, together with its model and firmware vers
 ### Privacy mode
 
 The **Privacy mode** switch turns the privacy mode of a camera on or off. While privacy mode is on, the camera does not record or stream. The switch is shown with the configuration entities of the device.
+
+### Wi-Fi signal strength
+
+The **Wi-Fi signal strength** sensor shows how well a camera is connected to your Wi-Fi network, in percent. It is a diagnostic sensor and is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
 
 ### Notifications
 
