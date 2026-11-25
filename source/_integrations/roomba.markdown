@@ -33,7 +33,7 @@ With **Continuous connection** turned off:
 
 - Every 5 minutes, Home Assistant connects to the robot, collects its state and disconnects again, so the robot can go to sleep on the dock.
 - Robots answer at very different speeds depending on the model and firmware: some send their full state within a second, while older robots (for example the 900 series on 2.x firmware) can take more than 10 seconds to accept the connection and then send their state in many small messages. Home Assistant therefore does not use a fixed delay: it disconnects once the robot has gone quiet for 2 seconds, and after 30 seconds at the latest. Connecting may take up to 30 seconds.
-- While the robot is on a mission (cleaning, returning to the dock, emptying its bin), the connection stays open and the state is updated live. Home Assistant disconnects at the first check after the robot is back on the dock.
+- While the robot is on a mission (cleaning, returning to the dock, emptying its bin, or recharging in the middle of a cleaning run), the connection stays open and the state is updated live. Home Assistant disconnects within a minute after the robot is back on the dock.
 - Any command sent from Home Assistant (start, return to dock, locate, change settings) opens a connection first and keeps it open for 2 minutes.
 - The robot accepts only one local connection at a time. If another client holds it (for example the iRobot app on your home network), the check fails and Home Assistant keeps showing the last known state until the next successful check.
 - The robot cannot notify Home Assistant while disconnected. A mission started from the robot's button, a schedule or the iRobot app is noticed at the next check, at most 5 minutes later.
@@ -58,7 +58,7 @@ actions:
       entity_id: vacuum.YOUR_ROBOT
 ```
 
-Each call opens a short connection, just like the built-in check. The action waits until the robot has accepted the connection, so with slower robots (for example the 900 series on 2.x firmware) it can take up to 30 seconds, and Home Assistant may log that the update is taking over 10 seconds; this is expected. If the robot turns out to be cleaning, the connection stays open until it is back on the dock. Commands still connect on demand even with polling turned off.
+Each call opens a short connection, just like the built-in check, and the action returns once the robot has sent its state. It waits until the robot has accepted the connection, so with slower robots (for example the 900 series on 2.x firmware) it can take up to 30 seconds, and Home Assistant may log that the update is taking over 10 seconds; this is expected. If the robot turns out to be cleaning, the connection stays open until it is back on the dock. Commands still connect on demand even with polling turned off.
 
 This only applies with **Continuous connection** turned off; with a permanent connection, the state is always live and no polling is involved.
 
