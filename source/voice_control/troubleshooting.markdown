@@ -10,10 +10,10 @@ The debug information shows each recent run of an {% term assistant %}. For each
 
 1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
 2. Next to your assistant, select the three dots {% icon "mdi:dots-vertical" %}, then select **Debug**.
-   ![Screenshot of the assistant menu with the Debug option](/images/assist/assistant-debug-03.png)
 3. At the top of the page, select the run you're interested in.
    - The list shows the date and time of each run. To step through the runs, select **Older run** {% icon "mdi:ray-end-arrow" %} or **Newer run** {% icon "mdi:ray-start-arrow" %}.
    - Result: The page shows each stage of the run, such as speech-to-text, natural language processing, and text-to-speech.
+
    ![Screenshot of a debug run with the speech-to-text stage](/images/assist/assistant-debug-02.png)
 
 If the page says **No runs found**, the assistant didn't receive anything. Check that your device or the Assist dialog uses this assistant.
@@ -32,6 +32,7 @@ The sentence parser only tests the built-in **Home Assistant** conversation agen
    - Result: For each sentence, you see the intent that fits it best, the entities it targets, and which of them matched.
    - If the result shows **No intent matched**, Assist doesn't understand this sentence.
    - If the result shows `match: false`, Assist recognized the type of command, but not the entire sentence. `unmatched_slots` shows the part it didn't recognize. For example, an area name that doesn't exist.
+
    ![Screenshot of the sentence parser with a result](/images/assist/assistant-debug-06.png)
 
 ## Testing a sentence with an assistant
@@ -40,15 +41,19 @@ To test a sentence with a specific assistant and its conversation agent, run it 
 
 1. [Open the debug information](#viewing-debug-information) of your assistant.
 2. In the upper-right corner, select **Start debug run** {% icon "mdi:microphone-message" %}.
+
    ![Screenshot of the debug page with the Start debug run button](/images/assist/assistant-debug-04.png)
+
 3. Select the assistant you want to test.
 4. Select **Run text pipeline**.
+
    ![Screenshot of the Run text pipeline button](/images/assist/assistant-debug-pipeline-01.png)
+
 5. Under **Input text**, enter the sentence you want to test, and select **Run**.
-   ![Screenshot of the dialog to enter the sentence](/images/assist/assistant-debug-pipeline-02.png)
 6. Check the result.
    - Result: You see each stage of the run, including the response of the assistant.
    - To continue the conversation, enter your reply under **Response**, and select **Send**.
+
    ![Screenshot of the result of a text pipeline run](/images/assist/assistant-debug-pipeline-03.png)
 
 If the sentence doesn't work, try the following:
@@ -114,7 +119,9 @@ Assist can only answer about weather entities that are exposed to it. It recogni
    - By default, Home Assistant sets up the [Met.no](/integrations/met/) integration.
 2. Make sure you have a weather entity for the location you're interested in.
    - For example, if you're interested in the weather in Berlin, add an entity for Berlin.
+
    ![Screenshot of the Met.no setup with a location](/images/assist/metno_weather_entity.png)
+
 3. Make sure the weather entity is exposed to Assist.
    - For the steps, refer to [Exposing entities to voice assistants](/voice_control/voice_remote_expose_devices/).
 4. Use the exact name of the entity when you talk to Assist.
@@ -162,6 +169,7 @@ A {% term "text-to-speech" %} integration creates the voice response in Home Ass
 1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
 2. Under **Home Assistant URL**, check the **Local network** URL. It must point to Home Assistant, and the device must be able to reach it in your network.
    - In most cases, **Automatic** works.
+
    ![Screenshot of the Local network URL setting](/images/assist/local_url.png)
 
 {% enddetails %}
