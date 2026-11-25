@@ -4,6 +4,8 @@ title: "2024.10: Heading in the right direction"
 description: "A brand new heading card, improved YAML syntax for automations, long-term stats repairs, faster upgrades, and more!"
 date: 2024-10-02 00:00:00
 date_formatted: "October 2, 2024"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
@@ -14,6 +16,10 @@ og_image: /images/blog/2024-10/social.jpg
 ---
 
 <lite-youtube videoid="_X2-encNyrA" videotitle="Home Assistant 2024.10 Release Party"></lite-youtube>
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 Boo! 👻
 

@@ -90,19 +90,26 @@ Each location also gets the latest measurements from the nearest weather station
 - **Observation time**: when the station took the measurements. This is a diagnostic entity and is disabled by default.
 - **Observed temperature** and **Observed humidity**.
 - **Observed condition**: the weather the station reports, such as sunny, rainy, or snowy. Disabled by default.
+- **Observed hourly precipitation**: the precipitation the station measured in its latest full hour, in mm. Its **Last reset** attribute shows when that hour started. It shows as unknown when that hour ended more than two hours before the station's latest measurements, for example, when the station skips reports.
+- **Observed precipitation type**: the type of precipitation in the station's latest full hour: rain, sleet, snow, hail, or icing. It shows as unknown when there was no precipitation in that hour, when the station cannot determine the type, or when the hourly precipitation sensor is unknown. Disabled by default.
 - **Observed apparent temperature**, **Observed pressure**, **Observed wind speed**, **Observed wind gust speed**, **Observed wind direction**, **Observed visibility**, and **Observed snow depth**. These are disabled by default.
 
 Where no station reports nearby, the observation sensors show as unknown.
+
+Each location also gets the US EPA air quality index for the current hour:
+
+- **Air quality index** and **Dominant pollutant**.
+- An index for each pollutant: **Carbon monoxide index**, **Nitrogen dioxide index**, **Ozone index**, **Sulphur dioxide index**, **PM10 index**, and **PM2.5 index**. These are disabled by default.
 
 {% include integrations/actions.md %}
 
 ## Data updates
 
-The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses four requests per location: three for the forecast and current conditions, and one for the weather station sensors. That's around 192 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Each location you add polls separately, so that limit allows around 10 locations. If you disable all observation sensors of a location, it uses three requests per update instead. Because the integration polls continuously, a Freemium key used this way does not go idle.
+The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses five requests per location: three for the forecast and current conditions, one for the weather station sensors, and one for the air quality sensors. That's around 240 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Each location you add polls separately, so that limit allows around 8 locations. Disabling all observation sensors of a location saves one request per update, and so does disabling all its air quality sensors. Because the integration polls continuously, a Freemium key used this way does not go idle.
 
 The `weather.get_forecasts` and `foreca.get_forecasts_extra` actions read the forecast the integration has already retrieved, so using them in templates and automations costs no extra requests.
 
-The `foreca.get_3_hour_forecast`, `foreca.get_minute_forecast`, and `foreca.get_air_quality_forecast` actions request fresh data, so each call uses one request for every Foreca weather entity it targets.
+The `foreca.get_3_hour_forecast`, `foreca.get_minute_forecast`, `foreca.get_15_minute_forecast`, and `foreca.get_air_quality_forecast` actions request fresh data, so each call uses one request for every Foreca weather entity it targets.
 
 ## Known limitations
 
@@ -132,7 +139,7 @@ The `foreca.get_3_hour_forecast`, `foreca.get_minute_forecast`, and `foreca.get_
 
 #### Description
 
-The integration marks entities as unavailable when the API cannot be reached or the daily request limit is exceeded. If only the weather station request fails, only the observation sensors are unavailable, and the rest keep updating.
+The integration marks entities as unavailable when the API cannot be reached or the daily request limit is exceeded. If only the weather station or air quality request fails, only the sensors that use it are unavailable, and the rest keep updating.
 
 #### Resolution
 

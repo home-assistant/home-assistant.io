@@ -12,6 +12,7 @@ ha_domain: tile_ble
 ha_integration_type: device
 ha_platforms:
   - device_tracker
+  - sensor
 ha_quality_scale: bronze
 related:
   - docs: /integrations/tile/
@@ -58,6 +59,12 @@ The **Tile BLE** integration provides the following entities for each Tile.
 - **Tile** (the entity has the name of your Tile)
   - **Description**: Shows **Home** while Home Assistant receives the Tile's Bluetooth advertisements, and **Away** once it stops receiving them.
 
+### Sensors
+
+- **Signal strength**
+  - **Description**: The strength of the Tile's Bluetooth signal in dBm, as received by the Bluetooth adapter or proxy Home Assistant currently uses for the Tile. A value closer to 0 means a stronger signal. This helps you find out how well a Tile is received, for example when you decide where to place a Bluetooth proxy.
+  - **Remarks**: Diagnostic entity, [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+
 ## Tile BLE automation examples
 
 {% include docs/paste_yaml_tip.md %}
@@ -101,7 +108,7 @@ automation: |
 
 ## Data updates
 
-The **Tile BLE** integration listens to the Bluetooth advertisements a Tile sends out. It doesn't connect to the Tile for this, so it doesn't drain the battery of the Tile. Home Assistant only connects to the Tile during setup.
+The **Tile BLE** integration listens to the Bluetooth advertisements a Tile sends out. It doesn't connect to the Tile for this, so it doesn't drain the battery of the Tile. The **Signal strength** sensor updates whenever the signal strength of a new advertisement changes. Home Assistant only connects to the Tile during setup.
 
 ## Known limitations
 

@@ -52,7 +52,7 @@ Host:
 Ping count:
   description: The number of echo requests to send to the target. The default is 5.
 Consider home:
-  description: The number of seconds that must elapse before considering a disconnected device "not at home". The default is 180 seconds (3 minutes).
+  description: The number of seconds the device tracker continues to report the device as home after the last successful ping. The default is 180 seconds (3 minutes). The binary sensor reflects the latest ping check.
 {% endconfiguration_basic %}
 
 ## Binary sensor
