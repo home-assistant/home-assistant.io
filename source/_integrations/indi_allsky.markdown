@@ -147,7 +147,7 @@ automation: |
 
 ## Data updates
 
-Sensor readings, exposure metadata, and new keogram or star trail notifications are {% term push pushed %} in real time over a persistent local WebSocket connection. When a new keogram or star trail event arrives, Home Assistant fetches the updated image from the server. The camera entity fetches the latest capture image on demand whenever requested by Home Assistant, and a periodic 10-minute fallback refresh verifies connectivity and sensor state.
+Sensor readings, exposure metadata, and new keogram or star trail notifications are pushed in real time over a persistent local WebSocket connection. When a new keogram or star trail event arrives, Home Assistant fetches the updated image from the server. The camera entity fetches the latest capture image on demand whenever requested by Home Assistant, and a periodic 10-minute fallback refresh verifies connectivity and sensor state.
 
 ## Troubleshooting
 
