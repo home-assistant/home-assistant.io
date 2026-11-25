@@ -68,6 +68,26 @@ Each sensor also provides the following attributes:
 
 The integration {% term polling polls %} Last.fm every 30 seconds for updated listening data.
 
+## Troubleshooting
+
+{% details "Home Assistant asks you to reauthorize Last.fm" %}
+
+### Symptom: "Your Last.fm account needs to be authorized again"
+
+The Last.fm integration is listed under **Attention required**.
+
+#### Description
+
+Last.fm rejected the saved authorization, for example, because access was revoked.
+
+#### Resolution
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Attention required**, select **Reconfigure** on the **Last.fm** card.
+3. Select **Submit**, and authorize Home Assistant on Last.fm. Use the account you entered as **Last.fm username**.
+
+{% enddetails %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
