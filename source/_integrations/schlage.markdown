@@ -49,8 +49,6 @@ Password:
   description: "The password of your Schlage account."
 {% endconfiguration_basic %}
 
-If the email address or password of your Schlage account changes later, you don't need to remove the integration. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Schlage**, and select **Reconfigure** from the three-dot {% icon "mdi:dots-vertical" %} menu of your account.
-
 ## Supported functionality
 
 The **Schlage** integration provides the following entities for each lock.
