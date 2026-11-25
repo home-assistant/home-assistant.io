@@ -30,6 +30,7 @@ Sensors:
 - **Bin full** (if Roomba has the capacity to do): If the bin is full
 - **Canceled missions**: Total number of missions that have been canceled
 - **Charging**: Whether the robot is currently charging
+- **Status**: What the robot is currently doing, such as cleaning, charging, recharging in the middle of a mission, refilling its tank, emptying its bin, or stuck. This is more detailed than the vacuum's own state.
 - **Failed missions**: Total number of missions that have failed
 - **Successful missions**: Total number of successful missions
 - **Average mission time**: The amount of time a mission took on average
