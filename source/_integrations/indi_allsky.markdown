@@ -8,7 +8,7 @@ The **INDI Allsky** {% term integration %} connects Home Assistant with your [IN
 
 ## Use cases
 
-- Display your live allsky camera feed, latest keogram, and star trail images on a Home Assistant dashboard.
+- Display the latest allsky camera image, keogram, and star trail images on a Home Assistant dashboard.
 - Trigger automations or notifications when nighttime capture begins, when sky quality or star counts indicate clear skies, or when dew point and temperature conditions require attention.
 - Browse and play historical timelapse videos, keograms, star trails, and captured images directly from the Home Assistant media browser.
 
@@ -105,13 +105,13 @@ The media is organized into three folders:
 - **Timelapses & generated media**: Day and night timelapse videos, with their keograms and star trails, organized by year and month.
 - **Captured images history**: The individual images your camera captured, organized by year, month, day, and hour.
 
-## Examples
+## INDI Allsky automation examples
 
 Here are a few automation ideas to get you started.
 
 {% include docs/paste_yaml_tip.md %}
 
-### Notify when clear night skies are detected
+### Automation: Notify when clear night skies are detected
 
 Send a notification when your camera switches to nighttime capture and detects enough stars to indicate clear skies.
 
@@ -151,13 +151,15 @@ Sensor readings, exposure metadata, and new keogram or star trail notifications 
 
 ## Troubleshooting
 
-### Entities become unavailable
+{% details "Entities become unavailable" %}
 
 If INDI Allsky entities become unavailable:
 
 1. Verify that the INDI Allsky service is running and reachable from your Home Assistant host.
 2. Check **Settings** > **Devices & services** for any reauthentication prompt if login settings or credentials changed on the INDI Allsky server.
 3. Home Assistant automatically reconnects the WebSocket stream and restores entity availability once the server responds again.
+
+{% enddetails %}
 
 ### Cannot connect during setup
 
