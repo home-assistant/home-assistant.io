@@ -523,8 +523,6 @@ All of these tools require a project file uploaded in the KNX panel.
 #### Entities and devices
 
 These tools set up and manage KNX entities the same way the KNX panel does.
-They only work with entities configured in the KNX panel.
-Entities configured in YAML are not included.
 
 `list_entity_suggestions`, `get_entity_schema`, `validate_entity`, `create_entity`, and `create_device` create entities.
 An agent can create an entity from a suggestion.
@@ -535,13 +533,15 @@ An agent can also put a configuration together from the group addresses of your 
 This is not a KNX device from your ETS project.
 
 `list_entities`, `get_entity_config`, `update_entity`, `delete_entity`, and `delete_device` manage the entities you have.
-`list_entities` lists the entities configured in the KNX panel with the group addresses they use.
-It doesn't list entities configured in YAML.
+All of them only work with entities configured in the KNX panel.
+They can't list, read, change, or delete entities configured in YAML.
+`list_entities` lists your entities with the group addresses they use.
 `get_entity_config` returns the configuration of one entity.
 `update_entity` replaces the configuration of an entity.
 It can't change the type of the entity, for example from a switch to a light.
 `delete_entity` removes an entity and its configuration.
 `delete_device` removes a Home Assistant device together with its entities, like removing the device in the UI does.
+It can't remove a device that still has entities configured in YAML.
 
 Entities and devices created by an agent show up in the KNX panel.
 You can edit or delete them there like any other.
