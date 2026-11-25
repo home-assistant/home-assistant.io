@@ -90,7 +90,7 @@ An AI task evaluation answers questions with a decision model, for example with 
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your LiteLLM entry.
 2. Select **Add AI task evaluation**.
-3. Fill in the fields:
+3. Select the model:
 
 {% configuration_basic %}
 Model:
