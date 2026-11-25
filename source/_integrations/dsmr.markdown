@@ -12,7 +12,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 - For official information about the Swedish variant refer to: [Swedish specification](https://www.energiforetagen.se/globalassets/energiforetagen/det-erbjuder-vi/kurser-och-konferenser/elnat/branschrekommendation-lokalt-granssnitt-v2_0-201912.pdf).
 - For official information about the E.ON Hungary variant refer to: [E.ON Hungary P1 port specification](https://www.eon.hu/content/dam/eon/eon-hungary/documents/Lakossagi/aram/muszaki-ugyek/P1_port_felhasznaloi_interfesz_felhasznaloi_tajekoztato_%2020240702.pdf)
-- Supports [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602) integrated in a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103).
+- For RFXCOM hardware, see [chapter 19 of the RFXtrx User Guide](https://rfxcom.com/download/RFXtrx_User_Guide.pdf) for supported P1 smart meter connection options.
 
 <p class='img'>
 <img src='/images/screenshots/dsmr.png' />
@@ -65,10 +65,34 @@ A smart meter can have multiple subdevices, also known as [M-Bus](https://m-bus.
 For the <abbr title="Dutch smart meter requirement">DSMR</abbr> version 5B, support was added for water and gas M-Bus devices. This means you can have up to 4 subdevices on your <abbr title="Dutch smart meter requirement">DSMR</abbr> meter.
 While previously only 1 gas meter was supported, there is now support for multiple gas and water meters.
 
+### Belgian DSMR 5B diagnostics
+
+Belgian DSMR 5B meters can provide additional diagnostic information, including the P1 version, electricity meter identifier, electricity switch position, and meter text message. Gas M-Bus devices can also expose their device type, meter identifier, and valve position when these fields are present in the meter telegram.
+
+The additional static diagnostic entities are disabled by default. To use one, go to **Settings** > **Devices & services** > **DSMR Smart Meter**, select the device, and enable the entity in its settings. Available entities depend on the fields included in the first successfully received telegram.
+
+#### Historical monthly maximum demand
+
+If a Belgian DSMR 5B meter provides the historical maximum-demand buffer, the **Historical monthly maximum demand** sensor shows the peak power of the most recent completed month in kW. Its `monthly_peaks` attribute contains available monthly records with the month, the peak power in kW, and the time the peak occurred.
+
+For example:
+
+```yaml
+monthly_peaks:
+  - month: "2025-09"
+    peak: 3.175
+    occurred: "2025-09-28T16:15:00+00:00"
+  - month: "2025-10"
+    peak: 3.277
+    occurred: "2025-10-29T16:30:00+00:00"
+```
+
+The `occurred` timestamp includes its time zone offset. This is one sensor containing a list of monthly peaks in its attributes, not a separate sensor for every month. The number of available months depends on the meter's data; invalid placeholder records are excluded. The integration does not reconstruct missing peaks from Home Assistant's own statistics.
+
 ### Connecting to the meter
 
 Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy.
-It is also possible to connect to a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103) with an integrated [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602).
+For details about connecting an RFXtrx433XL or RFX433 to a P1 smart meter, see [chapter 19 of the RFXtrx User Guide](https://rfxcom.com/download/RFXtrx_User_Guide.pdf).
 
 #### USB serial converters:
 

@@ -24,6 +24,8 @@ The local RTSP server on your camera needs to be enabled. To do that:
 
 {% include integrations/config_flow.md %}
 
+If two-step verification is enabled on your EZVIZ account, EZVIZ sends you a verification code during setup. Enter this code in the **Verification code** field to finish the setup.
+
 Your cameras will now show under integration options as "discovered devices". Please complete the setup for each camera to see the video stream within Home Assistant.
 
 You can also change the camera options should you need to access a high or low res stream. Generally, though it will just work without any modification to options.
@@ -99,4 +101,5 @@ The image entity represents the last detected event from a camera and visually r
 
 ## Troubleshooting
 
-- `authentication failed`: The authentication requires an EZVIZ account with two-step verification disabled. Google, Facebook, TikTok, or other Oauth-based accounts will not work.
+- `authentication failed`: Google, Facebook, TikTok, or other OAuth-based accounts will not work. Use an EZVIZ account that signs in with a username and password.
+- `The verification code is invalid or has expired`: Enter the latest code that EZVIZ sent you. If the code still does not work, start the setup again to receive a new code.

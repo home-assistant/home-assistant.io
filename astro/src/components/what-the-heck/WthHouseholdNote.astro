@@ -1,0 +1,25 @@
+---
+// This year's challenge in one panel, placed inside the tips section
+// (above its button): one bold line, one line under it, and a link to the
+// blog post where the questions to ask live.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import { blogUrl } from "../../lib/wth.mjs";
+---
+<aside class="note" aria-label="This year’s challenge">
+  <span class="mark" aria-hidden="true">?!</span>
+  <div class="text">
+    <p class="head">Don’t forget the people you live with!</p>
+    <p class="sub">Ask them what they think of Home Assistant too, and help them share their WTHs.</p>
+  </div>
+  <a href={blogUrl}>Start the conversation</a>
+</aside>
+<style lang="scss">
+  .note { align-items: center; background: var(--wth-surface); border: 2px solid var(--wth-mint); border-radius: var(--radius-large); display: flex; flex-wrap: wrap; gap: var(--space-medium) var(--space-xlarge); margin-top: var(--space-xxlarge); padding: var(--space-xlarge); }
+  .mark { align-items: center; background: var(--wth-mint); border-radius: 50%; display: inline-flex; flex: none; font-weight: 900; height: 3rem; justify-content: center; width: 3rem; }
+  .text { display: flex; flex: 1 1 20rem; flex-direction: column; gap: var(--space-xsmall); }
+  p { margin: 0; }
+  .head { font-family: var(--font-heading); font-size: var(--font-size-xlarge); font-weight: 700; }
+  .sub { color: var(--wth-ink-soft); font-family: var(--font-sans); font-size: var(--font-size-large); line-height: 1.5; }
+  a { color: var(--wth-link); font-weight: 600; padding: 0.4rem 0; }
+</style>

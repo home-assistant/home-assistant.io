@@ -6,6 +6,12 @@ ha_domain: airzone_cloud
 
 This {% term integration %} interacts with the Cloud API of [Airzone devices](https://www.airzone.es/en/).
 
+{% important %}
+Airzone charges a subscription to control some devices from outside your home. Local control stays free. When Home Assistant is on the same network as your Airzone device, this integration works without a subscription. Which devices need a subscription depends on your device. For details, refer to [Airzone support](https://support.airzonecontrol.com/aa/en/faqs/wird-sich-die-integration-mit-drittanbietersystemen-alexa-google-home-knx-bacnet-modbus-usw-mit-dem-neuen-modell-andern/).
+
+If your device supports the local API, you can also use the [Airzone](/integrations/airzone/) integration, which doesn't use the cloud.
+{% endimportant %}
+
 There are two main types of Airzone devices:
 - [Aidoo](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/wi-fi/) / [Aidoo Pro](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/pro/)
 - [Easyzone (US)](https://www.airzonecontrol.com/aa/en/control-solutions/easyzone/) / [Flexa (EU)](https://www.airzonecontrol.com/ib/es/soluciones-de-control/flexa/)
@@ -96,6 +102,27 @@ For each Airzone zone (thermostat), a switch entity is created to turn the therm
 ## Water heater
 
 For each Airzone device, a *water heater entity* is created if supported.
+
+## Troubleshooting
+
+{% details "Setup fails with a 402 Payment Required error" %}
+
+### Symptom: "402 Payment Required"
+
+The integration can't connect to the Airzone Cloud API and reports an HTTP `402 Payment Required` error.
+
+### Description
+
+Without a subscription, Airzone only allows this integration when Home Assistant and the Airzone device are on the same network. If your network uses IPv6, the Airzone Cloud API might not recognize that they're on the same network, and it returns this error.
+
+### Resolution
+
+- Make sure Home Assistant and the Airzone device are on the same network.
+- If your network uses IPv6, make Home Assistant connect to `m.airzonecloud.com` over IPv4, for example with a DNS rule in your router that doesn't return IPv6 addresses for that host. Don't turn off IPv6 on the Home Assistant host, because other integrations, such as Matter, need it.
+- If your device supports the local API, use the [Airzone](/integrations/airzone/) integration instead.
+- If the error continues, contact Airzone support to check your subscription.
+
+{% enddetails %}
 
 ## Removing the integration
 

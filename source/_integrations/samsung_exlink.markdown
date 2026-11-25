@@ -14,13 +14,14 @@ This integration speaks the serial control protocol only; it does not use the TV
 
 The following devices have been tested with the integration:
 
-- Samsung The Frame (LS03B, 2022)
+- Samsung The Frame (LS03B, 2022), using a 3.5&nbsp;mm cable
+- Samsung QN55S84FAFXZC, using a 3.5&nbsp;mm cable
 
 In general, Samsung consumer TVs (The Frame, Q-series, 8000-series, and similar) that expose an ExLink control port are supported.
 
 Samsung TVs expose ExLink in one of two ways:
 
-- A native 3.5&nbsp;mm ExLink jack, found on higher-end sets (Q70 and above). Plug in and go.
+- A native 3.5&nbsp;mm ExLink jack, found on higher-end sets (Q70 and above).
 - A USB port together with the proprietary Samsung USB-to-ExLink dongle, used on the 8000 and Q60 series.
 
 ## Unsupported devices
@@ -56,6 +57,30 @@ For supported TVs, you can use Home Assistant to:
 - Change the volume and step it up or down.
 - Mute and unmute the TV.
 - Select the input source.
+
+### Remote
+
+The integration also creates a remote entity for the TV. You can use it to turn the TV on or off, or to send one or more remote key commands with the [**Send remote command**](/actions/remote.send_command/) action. Use Samsung ExLink key names, such as `KEY_HOME` or `KEY_VOLUP`. For the full list, see the [key names in the samsung-exlink library](https://github.com/home-assistant-libs/samsung-exlink/blob/main/src/samsung_exlink/const.py). Whether a key has an effect depends on your TV model.
+
+The remote entity state follows the TV's reported power state. It becomes unavailable when the serial connection is lost.
+
+ To send a key command from the UI:
+ 
+ 1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
+ 2. Select **Send remote command** (`remote.send_command`).
+ 3. Select **Add target** and choose your TV's remote entity.
+ 4. In **Command**, enter `KEY_HOME`.
+ 5. Select **Perform action**.
+ 
+ If you prefer YAML, use the following action with your TV's remote entity ID:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.samsung_tv
+data:
+  command: KEY_HOME
+```
 
 ## Data updates
 
@@ -130,8 +155,9 @@ Home Assistant could not communicate with the TV over the serial port.
 To resolve this issue, try the following steps:
 
 1. On TVs that use the USB-to-ExLink dongle, make sure **EXT Link Support** and **USB Serial** are enabled in the TV's service menu (to open it, with the TV off, press **Mute → 1 → 8 → 2 → Power**).
-2. Verify the cable is connected to the TV's 3.5&nbsp;mm ExLink jack (or the Samsung USB-to-ExLink dongle) and is fully seated.
-3. Confirm the correct serial port was selected, and that no other software is using it.
+2. If you use the 3.5&nbsp;mm ExLink jack, try turning off **USB Serial** in the TV settings. On some models, enabling this setting disables the 3.5&nbsp;mm connection.
+3. Verify the cable is connected to the TV's 3.5&nbsp;mm ExLink jack (or the Samsung USB-to-ExLink dongle) and is fully seated.
+4. Confirm the correct serial port was selected, and that no other software is using it.
 
 ### The TV becomes unavailable
 

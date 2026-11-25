@@ -14,6 +14,7 @@ The **Starlink** {% term integration %} allows you to integrate your [Starlink](
 
 - Ping - The ping that Starlink has measured, in ms
 - Ping drop rate - The percentage of failed ping requests (aka "dropped"). This is the inverse of "Uptime" in the Starlink app.
+- Signal quality - The signal quality reported by Dishy, as a percentage
 - Azimuth - The direction Dishy is facing in degrees
 - Elevation - Dishy's current elevation in degrees
 - Last restart - The time Starlink was last turned on

@@ -342,7 +342,7 @@ ignore_non_numeric:
   required: false
   default: false
 unit_of_measurement:
-  description: Only available for `sensor` group. Set the unit of measurement for the sensor.
+  description: Only available for `sensor` group. Set the unit of measurement for the sensor. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes).
   type: string
   required: false
 device_class:
@@ -350,7 +350,7 @@ device_class:
   type: string
   required: false
 state_class:
-  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
+  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](/integrations/sensor/#state-class).
   type: string
   required: false
 {% endconfiguration %}

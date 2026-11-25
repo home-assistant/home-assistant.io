@@ -13,5 +13,8 @@
   ],
   "connectivity": [
     "cloud"
+  ],
+  "platforms": [
+    "diagnostics"
   ]
 }
