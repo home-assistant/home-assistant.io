@@ -65,6 +65,10 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 ### Air Fryers
 
 - Cosori 3.7 and 5.8 Quart Air Fryer
+- Cosori TurboBlaze 6 Quart Air Fryer
+- Cosori Dual Blaze 6.8 Quart Air Fryer
+- Cosori Twinfry Dual Air Fryer
+- Cosori Turbo Tower Pro Smart Air Fryer
 
 ## Prerequisite
 
@@ -73,6 +77,10 @@ VeSync App. Once registration is complete, continue with the steps described in
 the configuration section below.
 
 {% include integrations/config_flow.md %}
+
+## Data updates
+
+The integration {% term polling polls %} the VeSync cloud every 60 seconds. The weekly, monthly, and yearly energy use of outlets is fetched every 6 hours.
 
 ## Removing the integration
 
@@ -104,11 +112,15 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s/EverestAir)   | 142       |
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
 | `pm2_5`                 | The current air quality reading. (Core300s/400s/600s/EverestAir)                       | 8         |
+| `pm1`                   | The current PM1 reading in µg/m³ (purifiers that measure it).                          | 5         |
+| `pm10`                  | The current PM10 reading in µg/m³ (purifiers that measure it).                         | 12        |
 
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
+| `mute`                  | Mutes the sounds the device makes. Only available on fans that support muting.     | On        |
 | `light_detection`       | Light detection On or Off. When on, the purifier responds to the light level in the room. (Vital 200S, EverestAir) | On        |
+| `child_lock`            | Child lock On or Off                                                               | Off       |
 
 | Button                  | Description                                                                        |
 | ----------------------- | ---------------------------------------------------------------------------------- |
@@ -121,11 +133,9 @@ VeSync air purifiers will expose the following details depending on the features
 | Attribute               | Description                                                                       | Example         |
 | ----------------------- | --------------------------------------------------------------------------------- | --------------- |
 | `mode`                  | The current mode the device is in. (LV-PUR131S, Core200S/300s/400s)               | manual          |
-| `speed`                 | The current speed setting of the device. (LV-PUR131S, Core200S/300s/400s)         | high            |
-| `speed_list`            | The available list of speeds supported by the device. (LV-PUR131S)                | high            |
 | `oscillating`           | If the fan is currently oscillating                                               | True            |
 | `active_time`           | The number of seconds since the device has been in a non-off mode. (LV-PUR131S)   | 1598            |
-| `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
+| `display_status`        | The current status of the display.                                                | on              |
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
 | `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
 
@@ -144,6 +154,7 @@ The OasisMist 4.5L has a minimum light brightness of 40%, so its night light can
 | Sensor                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `humidity`              | Current humidity (in %)                                                            | 35        |
+| `temperature`           | Current temperature (Superior6000S)                                                | 68        |
 
 | Number                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
@@ -156,7 +167,8 @@ The OasisMist 4.5L has a minimum light brightness of 40%, so its night light can
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
-| 'auto_off_config'       | Auto turn off when humidity target exceeded,  resume when below target             | On        |
+| `auto_off_config`       | Auto turn off when humidity target exceeded, resume when below target              | On        |
+| `drying_mode_power_off` | Enable drying mode while power is off (Superior6000S)                              | On        |
 
 
 ## Binary Sensors
@@ -179,6 +191,10 @@ Sensors and settings exposed by VeSync Air Fryers.
 | `cook_set_time`         | The number of minutes for cooking                                                      | 15        |
 | `cook_end_time`         | When the running cook finishes, preheating included. Unknown when paused or stopped    | 12:19     |
 | `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
+
+The `preheat_set_time` sensor is only available on air fryers that support preheating. For example, the Dual Blaze doesn't have it.
+
+On dual-basket air fryers, you get a separate set of these sensors for each basket. The sensor names include the basket number, such as **Basket 1 cooking status** and **Basket 2 cooking status**. This way, you can follow each basket on its own. On single-basket air fryers, the sensor names do not include a basket number.
 
 | Button                  | Description                                                                            |
 | ----------------------- | -------------------------------------------------------------------------------------- |

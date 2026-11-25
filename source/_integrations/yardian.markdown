@@ -45,3 +45,9 @@ If Home Assistant reports an authentication error, go to {% my integrations titl
 Home Assistant validates the token for the same controller and keeps your existing devices, entities, and settings.
 
 If you changed the access token and no prompt appears, reload the Yardian integration to check the token again. Temporary connection failures are retried automatically and do not require reauthentication.
+
+## Removing the integration
+
+To remove Yardian from Home Assistant, delete its integration entry. You can continue to use your controller in the Yardian app.
+
+{% include integrations/remove_device_service.md %}

@@ -15,6 +15,7 @@
     "zigbee"
   ],
   "platforms": [
+    "binary_sensor",
     "diagnostics",
     "sensor"
   ],

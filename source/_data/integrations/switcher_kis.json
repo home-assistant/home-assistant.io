@@ -8,7 +8,7 @@
   ],
   "config_flow": true,
   "iot_class": "local_push",
-  "quality_scale": "silver",
+  "quality_scale": "platinum",
   "categories": [
     "plugs_switches",
     "climate.water_heaters",

@@ -235,8 +235,6 @@ You can change the on-device wake word (microWakeWord) that is used on your S3-B
     - On the ESP32-S3-BOX-3 entry, select **Device** to open the device page.
     - Under **Wake word engine location**, select **On device**.
 
-      ![ESP32-S3-BOX-3 on device wake word processing](/images/assist/wake_word_engine_location.png)
-
 7. Now, speak a command to test the new setting. For example, *Hey Jarvis, turn on the light*.
 
 [microWakeWord]: https://github.com/kahrendt/microWakeWord

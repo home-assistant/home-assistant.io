@@ -1,0 +1,313 @@
+---
+// The pull requests that fix a WTH, as a sea of cards drifting along the same
+// pipes as the WTHs in "What is a WTH", with the counts above it and a link to
+// the whole list on GitHub.
+//
+// Replaces source/what-the-heck/components/_pull-requests.html and the
+// `.wth-prs` rules in sass/homeassistant/pages/wth/_sections.scss. Both play
+// from the same script, /javascripts/wth/wth-prs.js, which the page loads.
+// The drifting is CSS; the script adds the pause button, stops it off screen
+// and brings a card focus lands on into view.
+//
+// Four lanes on the four pipes in WthSeaBackground.astro, as in WthChat.astro.
+// Each lane holds its run twice, so it loops without a seam. The first run of
+// each lane is the list that keyboards and screen readers get, one link per
+// pull request; everything else is aria-hidden and out of the tab order. It
+// stands still while the pointer or focus is inside it, as the sea of WTHs
+// does. With reduced motion it is a plain grid of the newest pull requests.
+//
+// Fidelity: revamp. Same copy and cards, with the type and spacing from the
+// theme. Renders nothing without a pull request to show, so a build that
+// could not fetch them leaves no empty card behind.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import WthIcon from "./WthIcon.astro";
+import WthPullRequestCard from "./WthPullRequestCard.astro";
+import WthSeaBackground from "./WthSeaBackground.astro";
+import { parseWthStats, seaLanes } from "../../lib/wth-stats.mjs";
+
+interface Props {
+  /** The pull requests and counts, as `loadWthStats` returns them. */
+  stats?: ReturnType<typeof parseWthStats>;
+}
+
+const { stats } = Astro.props;
+const lanes = stats ? seaLanes(stats.prs) : [];
+---
+
+{
+  stats && (
+    <div class="prs" data-wth-prs>
+      <div class="head">
+        <div>
+          <h3 class="title">Fixes people are shipping right now</h3>
+          <p class="counts">
+            {`${stats.open} being worked on, ${stats.merged} shipped${stats.sinceLabel ? ` since ${stats.sinceLabel}` : ""}. `}
+            <a href={stats.url} target="_blank" rel="noopener">
+              See them all on GitHub
+            </a>
+          </p>
+        </div>
+        <button type="button" class="toggle" data-wth-prs-toggle aria-label="Pause" hidden>
+          <span class="pause" aria-hidden="true">
+            <WthIcon name="mdi:pause" />
+          </span>
+          <span class="play" aria-hidden="true">
+            <WthIcon name="mdi:play" />
+          </span>
+        </button>
+      </div>
+
+      <div class="sea">
+        <WthSeaBackground idPrefix="wth-prs-sea" />
+
+        <div class="lanes">
+          {lanes.map(({ real, filler, count }) => (
+            <div class="lane" style={`--count: ${count}`}>
+              <div class="track">
+                {[false, true].map((decoy) => (
+                  <div class="run" aria-hidden={decoy ? "true" : undefined}>
+                    {real.length > 0 && (
+                      <ul class="cards">
+                        {real.map(({ pr, order }) => (
+                          <WthPullRequestCard pr={pr} order={order} decoy={decoy} />
+                        ))}
+                      </ul>
+                    )}
+                    {filler.length > 0 && (
+                      <ul class="cards" aria-hidden={decoy ? undefined : "true"}>
+                        {filler.map(({ pr, order }) => (
+                          <WthPullRequestCard pr={pr} order={order} decoy />
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+<style lang="scss">
+  .prs {
+    margin-top: var(--space-xxlarge);
+  }
+
+  .head {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--space-large);
+    justify-content: space-between;
+    margin-bottom: var(--space-large);
+  }
+
+  .title {
+    color: var(--wth-ink);
+    font-size: var(--font-size-xlarge);
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .counts {
+    color: var(--wth-ink-soft);
+    font-size: var(--font-size-large);
+    line-height: 1.55;
+    margin: var(--space-xsmall) 0 0;
+
+    a {
+      color: var(--wth-link);
+      text-decoration: underline;
+
+      &:hover {
+        color: var(--wth-ink);
+      }
+    }
+  }
+
+  .toggle {
+    align-items: center;
+    background-color: var(--wth-surface);
+    border: 1px solid var(--wth-border);
+    border-radius: 50%;
+    color: var(--wth-ink);
+    cursor: pointer;
+    display: inline-flex;
+    flex: none;
+    font-size: var(--font-size-xlarge);
+    height: 2.5rem;
+    justify-content: center;
+    padding: 0;
+    transition: border-color 0.1s ease;
+    width: 2.5rem;
+
+    &:hover {
+      border-color: var(--wth-ink);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--wth-focus);
+      outline-offset: 2px;
+    }
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .play,
+  .is-paused .pause {
+    display: none;
+  }
+
+  .is-paused .play {
+    display: inline;
+  }
+
+  /* A card like the sea of WTHs, with the same faint wash. */
+  .sea {
+    background:
+      linear-gradient(
+        110deg,
+        rgb(255 255 255 / 10%) 10%,
+        rgb(24 188 242 / 10%) 55%,
+        rgb(22 243 190 / 10%) 97%
+      ),
+      var(--wth-surface);
+    border-radius: 0.75rem;
+    height: 30rem;
+    isolation: isolate;
+    overflow: hidden;
+    /* Nothing scrolls it, not even focus on a card out of sight. */
+    overflow: clip;
+    position: relative;
+  }
+
+  /* The lanes sit on the four long pipes in WthSeaBackground.astro, at 67,
+     173, 307 and 413 of its 480, as in WthChat.astro. */
+  .lane {
+    --pace: 7.5s;
+
+    inset-inline: 0;
+    position: absolute;
+    transform: translateY(-50%);
+
+    &:nth-child(1) {
+      top: 67px;
+    }
+
+    &:nth-child(2) {
+      top: 173px;
+    }
+
+    &:nth-child(3) {
+      top: 307px;
+    }
+
+    &:nth-child(4) {
+      top: 413px;
+    }
+
+    /* Each lane drifts at its own pace, and every other one the other way.
+       A lane takes a few seconds per card, so the pace does not depend on
+       how many pull requests there are. */
+    &:nth-child(2) {
+      --pace: 10s;
+
+      .track {
+        animation-direction: reverse;
+      }
+    }
+
+    &:nth-child(3) {
+      --pace: 8.5s;
+    }
+
+    &:nth-child(4) {
+      --pace: 11s;
+
+      .track {
+        animation-direction: reverse;
+      }
+    }
+  }
+
+  /* Each track holds its lane's run twice, so moving it by half its width
+     loops without a seam. */
+  .track {
+    animation: drift calc(var(--count) * var(--pace)) linear infinite;
+    display: flex;
+    /* In from the edge, so the first card is whole when the lane starts, and
+       every card can be brought into view by focus. */
+    margin-left: 3rem;
+    width: max-content;
+  }
+
+  .run {
+    display: flex;
+    gap: 3rem;
+    padding-right: 3rem;
+  }
+
+  .cards {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Still while the pointer is over it, so a card can be read and chosen,
+     and while focus is on one. Also while it is paused or off screen, as the
+     sea of WTHs is. */
+  .sea:hover .track,
+  .sea:focus-within .track,
+  .is-paused .track,
+  .is-offscreen .track {
+    animation-play-state: paused;
+  }
+
+  @keyframes drift {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* With reduced motion nothing drifts. The newest pull requests are a plain
+     grid instead, and the pipes and the copies that fill the lanes are left
+     out. */
+  @media (prefers-reduced-motion: reduce) {
+    .toggle,
+    .run[aria-hidden],
+    .cards[aria-hidden] {
+      display: none;
+    }
+
+    .sea {
+      display: grid;
+      gap: var(--space-large);
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+      height: auto;
+      padding: var(--space-large);
+    }
+
+    .lanes,
+    .lane,
+    .track,
+    .run,
+    .cards {
+      display: contents;
+    }
+
+    .lane {
+      transform: none;
+    }
+
+    .track {
+      animation: none;
+    }
+  }
+</style>

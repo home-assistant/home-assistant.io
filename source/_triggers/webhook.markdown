@@ -100,7 +100,6 @@ allowed_methods:
   default: "[POST, PUT]"
 local_only:
   description: Set to `true` to only accept requests from your local network. Set to `false` to also accept requests from the internet, including through Home Assistant Link.
-  description: Set to `true` to only accept requests from your local network. Set to `false` to also accept requests from the internet, including through Home Assistant Link.
   required: false
   type: boolean
   default: true
@@ -178,7 +177,7 @@ When the backup software on your NAS finishes a job, it can send a JSON request 
   - **Webhook ID**: The ID that Home Assistant generated
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-  - **Message**: The message from the request ({% raw %}`{{ trigger.json.message }}`{% endraw %})
+  - **Message**: The message from the request (`{{ trigger.json.message }}`)
 
 {% details "YAML example for forwarding a message from the request" %}
 

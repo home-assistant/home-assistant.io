@@ -15,6 +15,10 @@ The **Google Health** {% term integration %} allows you to expose health and fit
 
 ## Prerequisites
 
+{% important %}
+If your Google Account is enrolled in the [Advanced Protection Program](https://support.google.com/accounts/answer/7539956), you cannot use the setup described below. Advanced Protection blocks unverified apps from accessing sensitive account data, including your Google Health data. Publishing your OAuth app does not verify it.
+{% endimportant %}
+
 You need to configure developer credentials to allow Home Assistant to access your Google Account. These credentials are the same as the ones for [Google Photos](/integrations/google_photos), [Nest](/integrations/nest), [Google Tasks](/integrations/google_tasks), and [Google Mail](/integrations/google_mail).
 
 {% include integrations/google_client_secret.md %}
@@ -29,7 +33,7 @@ The integration setup will next give you instructions to enter the [Application 
 2. You will be asked to grant access to specific data in your Google Health account. The integration will dynamically adjust based on the permissions you grant:
     - **Profile** (required): Allows Home Assistant to verify your account identity.
     - **Activity and fitness** (optional): Granting this scope creates sensors for steps, distance, active calories, total calories, and floors.
-    - **Health metrics and measurements** (optional): Granting this scope creates sensors for weight, resting heart rate, and body fat.
+    - **Health metrics and measurements** (optional): Granting this scope creates sensors for weight, height, body mass index, body fat, resting heart rate, heart rate variability, oxygen saturation, respiratory rate, and <abbr title="maximal oxygen consumption">VO2 max</abbr>.
     - **Sleep data** (optional): Granting this scope creates sensors for time asleep, time awake, time in bed, time to fall asleep, and time after wake-up.
     - **Nutrition and hydration** (optional): Granting this scope creates sensors for hydration, calories consumed, macronutrients (total fat, total carbohydrates, and protein), dietary fiber, sugar, sodium, and calories from fat.
     - **Paired devices** (optional): Granting this scope creates diagnostic sensors for battery level and last sync time for your paired wearables or devices.
@@ -61,7 +65,13 @@ The **Google Health** integration provides the following entities:
 *Available for accounts that grant the Health metrics and measurements scope.*
 
 - **Body fat**: Body fat percentage.
+- **Body mass index** ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)): Body mass index calculated from weight and height.
+- **Heart rate variability**: Daily average heart rate variability.
+- **Height** (disabled by default): Body height.
+- **Oxygen saturation**: Daily average blood oxygen saturation percentage.
+- **Respiratory rate**: Daily respiratory rate in breaths per minute.
 - **Resting heart rate**: Daily resting heart rate.
+- **VO2 max** (disabled by default): Daily <abbr title="maximal oxygen consumption">VO2 max</abbr>.
 - **Weight**: Body weight.
 
 **Sleep sensors**
@@ -170,7 +180,7 @@ The integration updates sensors on different intervals based on the data type:
 - Activity sensors (Steps, Distance, Active calories, Total calories, Floors) are updated every 15 minutes.
 - Sleep sensors (Time asleep, Time awake, Time in bed, Time to fall asleep, Time after wake-up) are updated every 15 minutes.
 - Nutrition sensors (Calories consumed, Calories from fat, Dietary fiber, Hydration, Protein, Sodium, Sugar, Total carbohydrates, Total fat) are updated every 15 minutes.
-- Body sensors (Weight, Resting heart rate, Body fat) are updated every hour.
+- Body sensors (Body fat, Body mass index, Heart rate variability, Height, Oxygen saturation, Respiratory rate, Resting heart rate, VO2 max, Weight) are updated every hour.
 - Paired device sensors (Battery level, Last sync time) are updated every hour.
 
 ## Known limitations

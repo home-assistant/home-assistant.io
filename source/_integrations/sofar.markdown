@@ -46,7 +46,7 @@ Depending on how you connect the inverter, you need one of the following:
 
 Modbus also needs to be enabled on the inverter, if it has a setting for this.
 
-For help with each way to connect, such as setting up an ESPHome serial proxy, a Modbus gateway, or a serial device server, refer to [Setting up a device integration that uses Modbus](/integrations/modbus/#setting-up-a-device-integration-that-uses-modbus).
+For help with each way to connect, such as setting up an ESPHome serial proxy, a Modbus gateway, or a serial device server, refer to [Setting up a device integration that uses Modbus](/connectivity/modbus/#setting-up-a-device-integration-that-uses-modbus).
 
 {% include integrations/config_flow.md %}
 
@@ -130,7 +130,7 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 - **Grid and output measurements**: Frequency, and active, reactive, and apparent power, both at the inverter's output and at the point of common coupling (PCC). Total household load and external solar production, as reported by the inverter, are also included. Per-phase voltage, current, power, and power factor are available for inverters with multiple phases.
 - **Off-grid (EPS/backup) measurements**: The same kind of readings for the EPS/backup output. Only shown for inverters wired for EPS/backup power.
 - **PV strings**: Power for each solar panel string, plus voltage and current if you need more detail. Each string the inverter supports gets its own device, connected via the inverter. Only shown for PV-capable inverters.
-- **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery connected to the inverter's battery inputs, as the inverter measures them, plus combined power, state of charge, and state of health totals. Each battery gets its own device, such as **Battery 1**, connected via the inverter, and only batteries that respond are added. A battery added later appears on its own, without reloading the integration. Only shown for inverters with battery storage.
+- **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery connected to the inverter's battery inputs, as the inverter measures them, plus combined power, state of charge, and state of health totals. Each battery gets its own device, such as **Battery 1**, connected via the inverter, and is added once it reports a voltage. If Home Assistant starts while a battery is asleep at its discharge cut-off, it reads 0 V, and its sensors appear on their own when it wakes, without reloading the integration. The combined totals are always shown. Only shown for inverters with battery storage.
 - **Battery packs**: Remaining capacity, full charge capacity, charge cycles, highest and lowest cell voltage, and MOSFET and internal temperatures for each pack in a BTS battery tower, such as the BTS 5K, as the tower reports them. The tower as a whole is a battery on one of the inverter's battery inputs, and each module stacked in it is a battery pack. Each pack gets its own device, connected via the inverter and named after its group and place in the tower, such as **Battery pack 2.1**. The device shows the pack's model, <abbr title="battery management system">BMS</abbr> version, and serial number. A pack's sensors are added once it first answers, and are unavailable while it doesn't answer. Only shown for hybrid inverters with a BTS battery tower.
   - Each cell's voltage and the pack's four cell temperatures are also available. Only the cells the pack has get a sensor.
 - **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. This includes the state of charge at which the battery stops charging, the levels at which it stops discharging on-grid and off-grid, and the level at which off-grid discharging resumes. Only shown for inverters with battery storage.
@@ -315,7 +315,9 @@ If the integration set up successfully but entities you expect aren't there, suc
 
 #### Resolution
 
-Download the {% term diagnostics %} data and include it in the issue report. It lists which register blocks the inverter reports it supports, which shows whether the model genuinely lacks that hardware or the integration is reading it wrongly.
+If battery sensors are missing after Home Assistant restarted at night, or show as no longer provided, the battery was probably asleep at its discharge cut-off when Home Assistant started. They come back on their own once the battery charges again, so check that first.
+
+If entities are still missing, download the {% term diagnostics %} data and include it in the issue report. It lists which register blocks the inverter reports it supports, which shows whether the model genuinely lacks that hardware or the integration is reading it wrongly.
 
 To download it, go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Download diagnostics**.
 

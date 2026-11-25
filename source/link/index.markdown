@@ -4,16 +4,24 @@ description: "Home Assistant Link is an optional subscription from Nabu Casa tha
 sidebar: false
 ha_release: "0.60"
 ha_iot_class: Cloud Push
-ha_domain: cloud
+ha_domain: link
 ---
 
 {% note %}
 This service is planned to be renamed to Home Assistant Link on December 2nd, 2026. [Learn more here](https://www.home-assistant.io/blog/2026/10/02/big-tech-ruined-the-cloud-so-were-renaming-ours/).
 {% endnote %}
 
-Home Assistant Link is an optional subscription service provided by our partner [Nabu Casa](https://www.nabucasa.com). It adds secure remote access to your Home Assistant from anywhere, integrations with Google Assistant and Amazon Alexa, and the text-to-speech and speech-to-text engines used by [Assist](/voice_control/). Subscriptions also help fund the development of Home Assistant itself.
+Home Assistant Link is an optional subscription service provided by our partner [Nabu Casa](https://www.nabucasa.com). It adds secure remote access to your Home Assistant from anywhere, integrations with Google Home and Amazon Alexa, and the text-to-speech and speech-to-text engines used by [Assist](/voice_control/). Subscriptions also help fund the development of Home Assistant itself.
 
 Home Assistant works fully without it. Home Assistant Link is there for the things that genuinely benefit from a cloud connection, such as remote access and the voice assistant integrations, while everything else continues to run locally on your own hardware.
+
+## Remote access for your household
+
+Home Assistant Link connects to the Home Assistant installation running in your home. Everyone in your household can use the same subscription and remote address to access that installation, through the [Home Assistant Companion app](https://companion.home-assistant.io/docs/getting_started/) or a web browser.
+
+Each person signs in with their own [Home Assistant user account](/docs/configuration/user-configuration/), separate from the Nabu Casa account used to manage the subscription. They do not need their own subscription or your Nabu Casa login details. Accounts with **Local access only** enabled cannot connect remotely.
+
+Your phone does not need to be online for other household members to connect. Your Home Assistant installation must be running and connected to the internet, with remote access enabled in Home Assistant Link. The app can connect both at home and away; see [how the Companion apps use Home Assistant Link](https://support.nabucasa.com/hc/en-us/articles/40244529243037-How-the-companion-apps-use-Home-Assistant-Cloud) and the [remote access documentation](/docs/configuration/remote/).
 
 For full details on features, pricing, and setup instructions, see the [Nabu Casa website](https://www.nabucasa.com/link/).
 
