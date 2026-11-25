@@ -395,7 +395,7 @@ The following Velbus modules are currently not supported by the integration:
 1. Keep long term statistics of the Velbus sensor data using Home Assistant's built-in recorder and history features.
 2. Create automations to control your Velbus devices based on time, state changes, or other sensor data.
 3. Integrate Velbus devices with other smart home devices and services supported by Home Assistant.
-4. Use voice assistants like Google Assistant or Amazon Alexa to control your Velbus devices via Home Assistant.
+4. Use voice assistants like Google Home or Amazon Alexa to control your Velbus devices via Home Assistant.
 5. Create custom dashboards in Home Assistant to monitor and control your Velbus devices.
 6. Use Home Assistant's energy management features to monitor and optimize energy consumption using Velbus energy sensors.
 7. Link Velbus buttons to other Home Assistant entities for seamless control.

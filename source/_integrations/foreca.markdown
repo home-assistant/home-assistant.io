@@ -90,19 +90,37 @@ Each location also gets the latest measurements from the nearest weather station
 - **Observation time**: when the station took the measurements. This is a diagnostic entity and is disabled by default.
 - **Observed temperature** and **Observed humidity**.
 - **Observed condition**: the weather the station reports, such as sunny, rainy, or snowy. Disabled by default.
+- **Observed hourly precipitation**: the precipitation the station measured in its latest full hour, in mm. Its **Last reset** attribute shows when that hour started. It shows as unknown when that hour ended more than two hours before the station's latest measurements, for example, when the station skips reports.
+- **Observed precipitation type**: the type of precipitation in the station's latest full hour: rain, sleet, snow, hail, or icing. It shows as unknown when there was no precipitation in that hour, when the station cannot determine the type, or when the hourly precipitation sensor is unknown. Disabled by default.
+- **Observed 24-hour precipitation**: the station's own precipitation total, in mm, for its latest 24-hour period. This period usually ends at 06:00 UTC. This sensor is enabled by default.
+- **Observed 3-hour precipitation**, **Observed 6-hour precipitation**, and **Observed 12-hour precipitation**: the station's own precipitation totals, in mm, for its latest 3-, 6-, and 12-hour periods. Disabled by default.
 - **Observed apparent temperature**, **Observed pressure**, **Observed wind speed**, **Observed wind gust speed**, **Observed wind direction**, **Observed visibility**, and **Observed snow depth**. These are disabled by default.
 
-Where no station reports nearby, the observation sensors show as unknown.
+The precipitation total sensors have a **Last reset** attribute that shows when each period started. The periods a station reports vary. A total shows as unknown when the station does not report that period, or when the period ended more than its length plus one hour before the station's latest measurements.
+
+Where no station reports nearby, the observation sensors show as **Unknown**.
+
+Each location also gets the US EPA air quality index for the current hour:
+
+- **Air quality index** and **Dominant pollutant**.
+- An index for each pollutant: **Carbon monoxide index**, **Nitrogen dioxide index**, **Ozone index**, **Sulphur dioxide index**, **PM10 index**, and **PM2.5 index**. These are disabled by default.
 
 {% include integrations/actions.md %}
 
 ## Data updates
 
-The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses four requests per location: three for the forecast and current conditions, and one for the weather station sensors. That's around 192 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Each location you add polls separately, so that limit allows around 10 locations. If you disable all observation sensors of a location, it uses three requests per update instead. Because the integration polls continuously, a Freemium key used this way does not go idle.
+The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses six requests per location: three for the forecast and current conditions, two for the weather station sensors, and one for the air quality sensors. That's around 290 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Each location you add polls separately, so that limit allows around 6 locations.
+Because the integration polls continuously, a Freemium key used this way does not go idle.
+
+You can save requests by disabling sensors:
+
+- Disable all of a location's observed precipitation total sensors to save one request per update. This includes the 24-hour sensor, which is enabled by default.
+- Disable all of its other observation sensors to save one request per update.
+- Disable all of its air quality sensors to save one request per update.
 
 The `weather.get_forecasts` and `foreca.get_forecasts_extra` actions read the forecast the integration has already retrieved, so using them in templates and automations costs no extra requests.
 
-The `foreca.get_3_hour_forecast` and `foreca.get_minute_forecast` actions request fresh data, so each call uses one request for every Foreca weather entity it targets.
+The `foreca.get_3_hour_forecast`, `foreca.get_minute_forecast`, `foreca.get_15_minute_forecast`, and `foreca.get_air_quality_forecast` actions request fresh data, so each call uses one request for every Foreca weather entity it targets.
 
 ## Known limitations
 
@@ -132,7 +150,7 @@ The `foreca.get_3_hour_forecast` and `foreca.get_minute_forecast` actions reques
 
 #### Description
 
-The integration marks entities as unavailable when the API cannot be reached or the daily request limit is exceeded. If only the weather station request fails, only the observation sensors are unavailable, and the rest keep updating.
+The integration marks entities as unavailable when the API cannot be reached or the daily request limit is exceeded. If only a weather station request or the air quality request fails, only the sensors that use it are unavailable, and the rest keep updating.
 
 #### Resolution
 

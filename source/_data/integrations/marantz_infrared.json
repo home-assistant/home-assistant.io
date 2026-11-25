@@ -16,6 +16,7 @@
   ],
   "platforms": [
     "button",
-    "media_player"
+    "media_player",
+    "switch"
   ]
 }

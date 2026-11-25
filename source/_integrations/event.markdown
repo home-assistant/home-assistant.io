@@ -42,7 +42,7 @@ For buttons and doorbells, Home Assistant has standard event types. If the integ
 
 ## Device class
 
-The device class tells Home Assistant what kind of signal an event entity reports, such as a doorbell press. Home Assistant uses the device class to choose the icon, the default name, and readable names for the [event types](#event-types), such as **Ring**. Google Assistant, Alexa, and Apple Home use the device class to recognize doorbells.
+The device class tells Home Assistant what kind of signal an event entity reports, such as a doorbell press. Home Assistant uses the device class to choose the icon, the default name, and readable names for the [event types](#event-types), such as **Ring**. Google Home, Alexa, and Apple Home use the device class to recognize doorbells.
 
 The integration that provides the event entity sets the device class. When you create an event entity yourself with a [template helper](/integrations/template/), you choose the device class.
 
