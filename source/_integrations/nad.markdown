@@ -84,7 +84,7 @@ max_volume:
   default: -20
   type: integer
 sources:
-  description: "Maps receiver source identifiers to names displayed in Home Assistant. Identifiers can be integers from `1` to `12`, or nonempty strings supported by your receiver, such as `OPT 1`, `OPT 2`, and `COAX 1`. Applies to `RS232` and `Telnet` connections."
+  description: "Maps receiver source identifiers to the names shown in Home Assistant. An identifier is either an integer from `1` to `12` or text that your receiver reports, such as `OPT 1`, `OPT 2`, or `COAX 1`. Text identifiers can't be only digits and can't start or end with a space. Applies to `RS232` and `Telnet` connections."
   required: false
   type: map
 volume_step:
@@ -133,7 +133,7 @@ media_player:
       "COAX 1": "Nintendo"
 ```
 
-Numeric source identifiers must be unquoted YAML integers, such as `2`, rather than strings such as `"2"`.
+Numeric source identifiers must be unquoted YAML integers, such as `2`, rather than strings such as `"2"`. Home Assistant refuses a quoted number with the error "use an integer YAML key for numeric sources".
 
 ### Finding your source identifiers
 
