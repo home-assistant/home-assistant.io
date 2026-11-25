@@ -183,6 +183,7 @@ Some devices also get an additional, device-specific switch. These are configura
 - Smart Plug or Smart Plug Compact that supports energy-saving mode: **Energy-saving mode**
 - Twinguard that supports this feature: **Heartbeat**, which enables or disables its nightly self-test notification
 - Micromodule Relay that supports switch configuration: **Swap inputs** and **Swap outputs**
+- Smoke Detector or Twinguard that supports smoke sensitivity: **Pre-alarm**, which enables or disables the pre-alarm
 
 ### Update
 
