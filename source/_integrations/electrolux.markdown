@@ -289,13 +289,13 @@ You can change the operating mode, set the target humidity, read the current hum
 - **Water filter state**
   - **Description**: Reports water filter status.
   - **Available for appliance types**: Refrigerator.
-- **Windows notification**
+- **Window notification**
   - **Description**: Reports if a window needs to be opened.
   - **Available for appliance types**: Hob.
 
 ### Switch
 
-- **Child Lock**
+- **Child lock**
   - **Description**: Enables the child lock function. This switch cannot be turned off remotely.
   - **Available for appliance types**: Hob.
 
@@ -303,7 +303,13 @@ You can change the operating mode, set the target humidity, read the current hum
 
 This entity lets you control Electrolux Group robot vacuum cleaners. You can start, stop, and pause cleaning, send the vacuum back to its charging dock, change the fan speed, and see the vacuum's current state.
 
-On PUREi9, Gordias, and Cybele models, you can also clean specific areas.
+On Pure i9 (PUREi9), 700 (Gordias), and 800 (Cybele) robot vacuums, you can also clean specific areas.
+
+## Data updates
+
+The integration receives updates from the Electrolux cloud as soon as they happen.
+Each time Home Assistant connects to the Electrolux cloud, for example after a restart, it adds new appliances from your account.
+It also removes devices for appliances that are no longer in your account.
 
 ## Known limitations
 
