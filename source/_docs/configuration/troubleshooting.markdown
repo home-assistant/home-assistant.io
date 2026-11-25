@@ -256,7 +256,7 @@ To ask an AI app:
 
 ## Checking the health of an integration
 
-When an integration doesn't work as expected, check its health first. The health check shows in one place if the integration is set up, which of its entities are unavailable, and if there are open repairs or errors in the log. It also links to the page where you can fix each problem.
+When an integration doesn't work as expected, check its health first. The health check shows in one place if the integration is set up, which of its entities are unavailable, and if there are open repairs or errors in the log. For most problems, it also links to the page where you can fix them.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
 2. On the entry that has the problem, select **Menu** {% icon "mdi:dots-vertical" %} > **Health** {% icon "mdi:heart-pulse" %}.
@@ -269,7 +269,7 @@ When an integration doesn't work as expected, check its health first. The health
    - The number of open repairs. To see them, select **View repairs**.
    - The number of errors and warnings in the recent log. To see them, select **View logs**. The logs open with a filter for the integration.
    - How long the integration took to start.
-   - Repairs and log messages are counted for the entire integration, not for one entry. If you set up the integration more than once, they can come from another entry.
+   - The repairs, the log messages, and the startup time are for the entire integration, not for one entry. If you set up the integration more than once, they can come from another entry.
 4. If the health check doesn't show the cause, [turn on debug logging](#enabling-debug-logging), or [download diagnostics](#downloading-diagnostics).
 
 ## Debug logs and diagnostics
