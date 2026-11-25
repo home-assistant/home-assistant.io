@@ -43,8 +43,9 @@ The Home Assistant {% term "AI tools" %} can read the state of every entity, the
 Many of the Home Assistant AI tools only read. The AI tools that change things can do the following:
 
 - Perform any {% term action %} in Home Assistant, on any entity, device, or area. This includes entities that you didn't expose. For example, they can turn off a light, run a script, or restart Home Assistant.
-- Add and reload integrations and helpers. They can also change the options and the connection settings of an integration that is set up.
+- Add and reload integrations and helpers. They can also change the options and the connection settings of an integration that is set up. In addition, they can add a service to an integration. For example, they can add a conversation agent to OpenAI.
 - Change the information about your home. For example, they can change the name, the location, the time zone, the unit system, and the Home Assistant URLs.
+- Fix repair issues, when Home Assistant offers a fix for them.
 - Create, change, and delete {% term areas %}, floors, and labels.
 - Change the settings of {% term devices %} and {% term entities %}. For example, they can rename, disable, or move a device or an entity to another area. They can also change the entity ID.
 - Remove entities that their integration no longer provides.
@@ -138,7 +139,7 @@ The **Home Assistant** set of {% term "AI tools" %} contains the AI tools in the
 
 #### Integration AI tools
 
-- **Get config entries** (`config__get_config_entries`): Lists the {% term integrations %} and helpers that are set up, with their status, such as loaded or failed to set up, and the reason for an error. It can filter by integration and by status. Only reads.
+- **Get config entries** (`config__get_config_entries`): Lists the {% term integrations %} and helpers that are set up, with their status, such as loaded or failed to set up, and the reason for an error. It can filter by integration and by status. Some integrations add more than one service. Each service has its own button on the integration page. For example, [OpenAI](/integrations/openai_conversation/) has **Add conversation agent**. For these integrations, it also lists the services that you added. Only reads.
   - To do this yourself: Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 - **Reload config entry** (`config__reload_config_entry`): Reloads an integration that is set up. For example, it helps after a temporary connection error. Changes things.
   - To do this yourself: On the integration page, under {% my integrations title="**Settings** > **Devices & services**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Reload** on the integration entry.
@@ -146,7 +147,7 @@ The **Home Assistant** set of {% term "AI tools" %} contains the AI tools in the
   - To do this yourself: Select **Add integration**, under {% my integrations title="**Settings** > **Devices & services**" %}.
 - **Get config flows in progress** (`config__get_flows_in_progress`): Lists the flows that Home Assistant started by itself and that are waiting for you. For example, it lists devices that Home Assistant discovered, and integrations that ask you to sign in again. Only reads.
   - To do this yourself: Go to {% my integrations title="**Settings** > **Devices & services**" %}. Discovered devices and integrations that need your attention are shown at the top.
-- **Start configuration flow** (`config__start_flow`): Starts to add an integration or a helper. It can also start to change the options of an integration that is set up, or its connection settings. For example, connection settings are a host name or a password. Changes things.
+- **Start configuration flow** (`config__start_flow`): Starts to add an integration or a helper. It can also start to change the options of an integration that is set up, or its connection settings. For example, connection settings are a host name or a password. It can also add a service to an integration. For example, it can add a conversation agent to OpenAI. It can also change the settings of a service that you added. Changes things.
   - To do this yourself: Under {% my integrations title="**Settings** > **Devices & services**" %}, select **Add integration**. To change an integration that is set up, open the integration page. To change the options, select **Configure** on the integration entry. To change the connection settings, select **Menu** {% icon "mdi:dots-vertical" %} > **Reconfigure**.
 - **Configure flow step** (`config__configure_flow`): Goes through the steps of a flow that **Start configuration flow** started, or of a flow that **Get config flows in progress** found. It fills in the fields of each step and selects options in menus. It can also cancel the flow. Changes things.
   - To do this yourself: Fill in the dialog that opens when you add or change an integration.
@@ -205,8 +206,12 @@ To find a device or an entity, the conversation agent first uses **Search Home A
   - To do this yourself: Go to {% my general title="**Settings** > **System** > **Home information**" %}. For the URLs, go to {% my network title="**Settings** > **System** > **Network**" %}.
 - **Update core config** (`config__update_core_config`): Changes the information about your home and the Home Assistant URLs. It only changes the settings it's asked to change. If it changes the unit system, the units of your sensors change too. Units that you set yourself stay the same. Changes things.
   - To do this yourself: Go to {% my general title="**Settings** > **System** > **Home information**" %}. For the URLs, go to {% my network title="**Settings** > **System** > **Network**" %}.
-- **Get repair issues** (`repairs__get_issues`): Lists the issues that Home Assistant found, with their severity. For example, an issue can be a broken automation or a device with a problem. It also includes issues that you ignored. Only reads.
+- **Get repair issues** (`repairs__get_issues`): Lists the issues that Home Assistant found, with their severity. For example, an issue can be a broken automation or a device with a problem. It also includes issues that you ignored, and shows which issues Home Assistant can fix. Only reads.
   - To do this yourself: Go to {% my repairs title="**Settings** > **System** > **Repairs**" %}.
+- **Start repair fix flow** (`repairs__start_fix_flow`): Starts to fix a repair issue. It only works for issues that Home Assistant can fix. **Get repair issues** shows which ones these are. Changes things.
+  - Some fixes have a step that needs your browser. For example, you sign in to an account. When a fix reaches such a step, the AI tool cancels the fix. Fix these issues yourself under {% my repairs title="**Settings** > **System** > **Repairs**" %}.
+- **Configure repair fix flow step** (`repairs__configure_fix_flow`): Goes through the steps of a fix that **Start repair fix flow** started. It fills in the fields of each step and selects options in menus. It can also cancel the fix. Changes things.
+  - To do this yourself: Fill in the dialog that opens when you select the issue.
 - **Get installed apps** (`hassio__get_apps`): Lists your installed apps, with their version, whether an update is available, and whether they are running. It's only available on {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} installations. Only reads.
   - To do this yourself: Go to {% my supervisor title="**Settings** > **Apps**" %}.
 
