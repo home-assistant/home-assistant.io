@@ -26,8 +26,8 @@ ha_platforms:
   - button
   - climate
   - fan
-  - light
   - humidifier
+  - light
   - number
   - select
   - sensor
@@ -39,44 +39,41 @@ related:
     title: Electrolux Group for Developers documentation
 ---
 
-The **Electrolux** {% term integration %} lets you connect and control your home appliances via the [official third-party API](https://developer.electrolux.one).
+The **Electrolux** {% term integration %} lets you connect and control your home appliances through the [official third-party API](https://developer.electrolux.one).
 
 [Electrolux Group](https://www.electroluxgroup.com/) is a global appliance manufacturer that designs and produces solutions for taste, care, and wellbeing experiences. The company develops and sells products under several consumer brands, including **Electrolux**, **AEG**, and **Frigidaire**.
 
 ## Use cases
 
-- Monitor multiple sensors of Electrolux Group appliances and trigger automations based on sensor data.
-- Track the status of the appliances.
-
-{% note %}
-Note that feature availability may vary depending on the appliance model.
-{% endnote %}
+- Get a notification when the dishwasher or washing machine finishes.
+- Start the robot vacuum when everyone leaves the house.
+- Turn on the air purifier when the PM2.5 level rises.
 
 ## Supported devices
 
 The integration supports the following appliance types:
 
-- **Dishwasher**
-- **Washer Dryer**
-- **Washing Machine**
-- **Dryer**
-- **Refrigerator**
-- **Hob**
-- **Hood**
-- **Oven**
-- **Air Purifier**
-- **Air Conditioners**
-- **Dehumidifier**
-- **Robot Vacuum Cleaner**
+- Dishwasher
+- Washer dryer
+- Washing machine
+- Dryer
+- Refrigerator
+- Hob
+- Hood
+- Oven
+- Air purifier
+- Air conditioner
+- Dehumidifier
+- Robot vacuum cleaner
 
 ## Prerequisites
 
 1. Log in to the [Electrolux Group for Developers](https://developer.electrolux.one/login) site using the same account you use in the Electrolux Group mobile apps.
-2. Navigate to the **Dashboard**.
+2. Go to the **Dashboard**.
 3. Create a new **API key**.
 4. Generate the **Access Token** and **Refresh Token**.
 
-Once these credentials are obtained, you can use them to configure the Electrolux integration in Home Assistant.
+After you have these credentials, you can use them to set up the Electrolux integration in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -84,11 +81,22 @@ Enter the following:
 {% configuration_basic %}
 API key:
     description: "Your developer API key from Electrolux Group for Developers."
-Access Token:
+Access token:
     description: "The access token provided by Electrolux Group for Developers to access your devices."
-Refresh Token:
-    description: "The refresh token used to renew your access token."
+Refresh token:
 {% endconfiguration_basic %}
+
+## Reconfiguring the integration
+
+If you need to replace your API key or tokens, you can reconfigure the integration without removing it.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Electrolux**.
+2. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. On the [Electrolux Group for Developers](https://developer.electrolux.one/generateToken) site, generate a new access token and refresh token.
+4. Enter your **API key**, **Access token**, and **Refresh token**, then select **Submit**.
+
+If your tokens stop working, Home Assistant asks you to reauthenticate.
+You enter the new credentials the same way.
 
 ## Supported functionality
 
@@ -98,7 +106,7 @@ The **Electrolux** integration provides the following entities.
 Entity availability depends on the appliance type and model. Some entities may not be supported by certain appliances and could appear as unavailable or not appear at all.
 {% endnote %}
 
-### Binary sensors
+### Binary sensor
 
 - **Connection state**
   - **Description**: Reports if the appliance is connected to the network.
@@ -112,77 +120,87 @@ Entity availability depends on the appliance type and model. Some entities may n
 - **Charcoal filter**
   - **Description**: Reports if charcoal filter is active.
   - **Available for appliance types**: Hood.
-- **Pot detected**
-  - **Description**: Detects pot presence on zone.
+- **Zone 1 pot detected**, **Zone 2 pot detected**, and so on
+  - **Description**: Detects if there is a pot on the zone. There is one sensor for each zone.
   - **Available for appliance types**: Hob.
 - **Door state**
   - **Description**: Reports whether the door is open or closed.
-  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher, Refrigerator.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
+  - **Remarks**: On double ovens, there is a sensor for each cavity: **Upper door state** and **Lower door state**.
+- **Fridge door**, **Freezer door**, and **Extra cavity door**
+  - **Description**: Reports whether the door of each compartment is open or closed.
+  - **Available for appliance types**: Refrigerator.
 - **UI lock mode**
   - **Description**: Reports if the user interface is locked.
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher, Refrigerator, Hob.
 - **Food probe state**
   - **Description**: Reports whether the food probe is inserted or not.
   - **Available for appliance types**: Oven.
+  - **Remarks**: On double ovens, there is a sensor for each cavity: **Upper food probe state** and **Lower food probe state**.
 
 ### Button
 
 This entity is used to control the appliance with the following actions:
 
-- **Start**
+- **Appliance start**
   - **Description**: Begin operation.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
-- **Pause**
+  - **Remarks**: On double ovens, there are buttons for each cavity: **Upper oven start** and **Lower oven start**.
+- **Appliance pause**
   - **Description**: Temporarily pause operation.
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
-- **Resume**
+- **Appliance resume**
   - **Description**: Continue a paused operation.
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
-- **Stop**
+- **Appliance stop**
   - **Description**: Stop the appliance.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
+  - **Remarks**: On double ovens, there are buttons for each cavity: **Upper oven stop** and **Lower oven stop**.
 
 ### Climate
 
-- **Air Conditioner climate**
-  - **Description**: Allows controlling and reporting the appliance’s climate-related functions, such as changing the mode, setting the target temperature, turning the appliance on or off, adjusting the fan speed, and reading the current temperature.
-  - **Available for appliance types**: Air Conditioner.
+Air conditioners are added as a climate entity.
+You can change the mode, set the target temperature, turn the air conditioner on or off, adjust the fan speed, and read the current temperature.
 
 ### Fan
 
-- **Air Purifier fan**
+- **Fan**
   - **Description**: Allows turning on and off the air purifier, setting the fan speed, and setting the work mode of the air purifier.
-  - **Available for appliance types**: Air Purifier.
+  - **Available for appliance types**: Air purifier.
 
 ### Humidifier
 
-- **Dehumidifier humidifier entity**
-  - **Description**: Allows controlling operating modes, setting the target humidity, reading the current humidity, and turning the appliance on or off.
-  - **Available for appliance types**: Dehumidifier.
+Dehumidifiers are added as a humidifier entity.
+You can change the operating mode, set the target humidity, read the current humidity, and turn the dehumidifier on or off.
 
 ### Light
 
 - **Cavity light**
   - **Description**: Turn the cavity light on or off.
   - **Available for appliance types**: Oven.
-- **Hood light**
-  - **Description**: Turn the overhead light on or off, and change the light's color and intensity.
+  - **Remarks**: On double ovens, there is a light for each cavity: **Upper cavity light** and **Lower cavity light**.
+- **Light**
+  - **Description**: Turn the hood light on or off, and change its color temperature and brightness.
   - **Available for appliance types**: Hood.
 
-### Numbers
+### Number
 
 - **Target temperature**
   - **Description**: Set or report the target temperature.
-  - **Available for appliance types**: Oven, Refrigerator (including freezer).
+  - **Available for appliance types**: Oven.
+  - **Remarks**: On double ovens, there is a number for each cavity: **Upper cavity target temperature** and **Lower cavity target temperature**.
+- **Fridge target temperature** and **Freezer target temperature**
+  - **Description**: Set or report the target temperature of the fridge or freezer compartment.
+  - **Available for appliance types**: Refrigerator.
 
 ### Select
 
 - **Temperature**
-  - **Description**: Used to select or report the analog temperature setting. 
-  - **Available for appliance types**: Washing machine, Washer Dryer.
+  - **Description**: Used to select or report the analog temperature setting.
+  - **Available for appliance types**: Washing machine, Washer dryer.
 - **Spin speed**
   - **Description**: Used to select or report the spin speed.
-  - **Available for appliance types**: Washing machine, Washer Dryer.
+  - **Available for appliance types**: Washing machine, Washer dryer.
 - **Program**
   - **Description**: Used to select or report the program.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
@@ -205,20 +223,25 @@ This entity is used to control the appliance with the following actions:
   - **Description**: Used to select the fan speed; cannot be used to turn off the fan.
   - **Available for appliance types**: Dehumidifier.
 
-### Sensors
+### Sensor
 
 - **Air filter state**
-  - **Description**: Reports air filter status. 
+  - **Description**: Reports air filter status.
   - **Available for appliance types**: Refrigerator.
 - **Appliance state**
   - **Description**: Reports the current appliance state.
-  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher, Refrigerator, Hood, Hob.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher, Hood, Hob.
+  - **Remarks**: On double ovens, there is a sensor for each cavity: **Upper cavity appliance state** and **Lower cavity appliance state**.
+- **Fridge appliance state**, **Freezer appliance state**, **Ice maker appliance state**, and **Extra cavity appliance state**
+  - **Description**: Reports the current state of each compartment.
+  - **Available for appliance types**: Refrigerator.
 - **Battery**
   - **Description**: Reports the battery level.
   - **Available for appliance types**: Robot vacuum cleaner.
 - **Current temperature**
   - **Description**: Reports the current cavity temperature.
   - **Available for appliance types**: Oven.
+  - **Remarks**: On double ovens, there is a sensor for each cavity: **Upper cavity current temperature** and **Lower cavity current temperature**.
 - **Cycle phase**
   - **Description**: Reports the current wash/dry cycle phase.
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
@@ -227,36 +250,37 @@ This entity is used to control the appliance with the following actions:
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
   - **Remarks**: Disabled by default.
 - **Food probe temperature**
-  - **Description**:  Reports food probe temperature.
+  - **Description**: Reports food probe temperature.
   - **Available for appliance types**: Oven.
+  - **Remarks**: On double ovens, there is a sensor for each cavity: **Upper food probe temperature** and **Lower food probe temperature**.
 - **PM1**
-  - **Description**: Reports concentration of fine particles <1µm.
+  - **Description**: Reports concentration of fine particles 1 µm or smaller.
   - **Available for appliance types**: Air purifier.
 - **PM2.5**
-  - **Description**: Reports concentration of fine particles <2.5µm.
+  - **Description**: Reports concentration of fine particles 2.5 µm or smaller.
   - **Available for appliance types**: Air purifier.
-- **PM10**:
-  - **Description**: Reports concentration of particles up to 10µm.
+- **PM10**
+  - **Description**: Reports concentration of particles 10 µm or smaller.
   - **Available for appliance types**: Air purifier.
 - **Remote control**
   - **Description**: Reports the remote control status.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher, Hood, Hob.
-- **Residual heat state**:
-  - **Description**: Reports residual heat in a zone.
+- **Zone 1 residual heat state**, **Zone 2 residual heat state**, and so on
+  - **Description**: Reports residual heat in the zone. There is one sensor for each zone.
   - **Available for appliance types**: Hob.
 - **Running time**
-  - **Descriptions**: Reports the amount of time the appliance has been running for.
+  - **Description**: Reports the amount of time the appliance has been running for.
   - **Available for appliance types**: Oven.
   - **Remarks**: Disabled by default. Shown in hours by default. On double ovens, there is a sensor for each cavity: **Upper cavity running time** and **Lower cavity running time**.
 - **Start at**
-  - **Descriptions**: Reports when the appliance will start running.
+  - **Description**: Reports when the appliance will start running.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
   - **Remarks**: Disabled by default. On double ovens, there is a sensor for each cavity: **Upper cavity start at** and **Lower cavity start at**.
-- **Target temperature**
-  - **Description**: Reports flexible drawer target temperature.
+- **Extra cavity target temperature**
+  - **Description**: Reports the target temperature of the extra cavity (flexible drawer).
   - **Available for appliance types**: Refrigerator.
 - **Time left**
-  - **Descriptions**: Reports the amount of time left until the appliance stops running.
+  - **Description**: Reports the amount of time left until the appliance stops running.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
   - **Remarks**: Disabled by default. Shown in hours by default. On double ovens, there is a sensor for each cavity: **Upper cavity time left** and **Lower cavity time left**.
 - **TVOC**
