@@ -80,7 +80,7 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
     - **Charging (DC)**: The vehicle is charging from a DC fast charger.
     - **Charging**: The vehicle is charging, but the charging type is unknown.
     - **Plugged in**: The vehicle is connected to a charger but not charging.
-    - **Not charging**: The vehicle is not connected to a charger or is not charging.
+    - **Not charging**: The vehicle is not charging and is not reported as plugged in.
 - **Voltage**: Battery pack voltage.
 - **Battery temperature**: Battery pack temperature.
 - **Odometer**: Total distance driven.
@@ -92,23 +92,24 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
 
 The **SoC** and **SoE** sensors both describe how full your battery is, but they measure it in different ways.
 
-- **SoC** (state of charge) is the battery level as a percentage, like the battery gauge on your vehicle's dashboard. A value of `80` means the battery is 80% full.
+- **SoC** (state of charge) is the battery level as a percentage of the total usable battery. A value of `80` means the usable battery is 80% full.
 - **SoE** (state of energy) is the amount of energy left in the battery, in kilowatt-hours (kWh). A value of `45` means about 45 kWh is available.
 
-Use **SoC** for simple battery-level automations, like a notification when the battery is low. Use **SoE** when you want to know how much energy is available, for example to compare it with how much energy a trip needs.
+Use **SoC** for simple battery-level automations, like a notification when the battery is low. Use **SoE** when you want the amount of energy instead of a percentage.
 
-Not every vehicle reports both values. If ABRP does not receive one of them, that sensor does not appear until the first value arrives.
+ABRP reports these values from your vehicle's data source, so a vehicle might report one and not the other. A sensor appears after ABRP receives its first value.
 
 #### AC and DC charging
 
-The **Charging state** sensor reports which type of charging your vehicle is using.
+The **Charging state** sensor reports whether your vehicle is charging. When ABRP knows the charging type, the sensor also reports it.
 
-- **Charging (AC)**: Alternating current (AC) charging, for example from a home wall box or a public AC charge point. The vehicle's onboard charger converts AC to the DC power the battery needs. AC charging is usually slower, and it is common for overnight charging at home.
-- **Charging (DC)**: Direct current (DC) charging, from a DC fast charger. The charger supplies DC power directly to the battery, which is much faster. It is common at public fast-charging stations on longer trips.
+- **Charging (AC)**: The vehicle is charging with alternating current (AC), for example from a wall box or a public AC charge point. The vehicle's onboard charger converts AC to the DC power the battery needs.
+- **Charging (DC)**: The vehicle is charging with direct current (DC), from a DC fast charger. The charger supplies DC power directly to the battery.
+- **Charging**: The vehicle is charging, but ABRP does not know the charging type.
 
-You can use the charging state in automations, for example to be notified when your vehicle starts DC fast charging or to react differently to AC charging at home.
+The other states, **Plugged in** and **Not charging**, do not describe a charging type. ABRP reports the state from your vehicle's data source, so the available states depend on what your vehicle shares.
 
-Some vehicles report that they are charging without saying which type. In that case, the state is **Charging**.
+You can use the charging state in automations, for example to be notified when your vehicle starts DC fast charging.
 
 ### Device tracker
 
