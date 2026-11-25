@@ -43,7 +43,7 @@ The integration provides a switch entity for every output of the device, allowin
 
 For outputs with metering, the integration additionally provides sensor entities for the instantaneous load, current, and power factor, as well as the resettable and non-resettable energy counters in both directions. Which measurements are available depends on the device model; outputs without metering do not get sensor entities.
 
-The energy sensors can be used as individual device consumption in the [Home Assistant energy dashboard](/docs/energy/).
+The **energy** and **total energy** sensors measure the energy consumed by the connected device and can be used as individual device consumption in the [Home Assistant energy dashboard](/docs/energy/). The reverse energy sensors measure energy flowing in the opposite direction and are disabled by default; do not use them as device consumption.
 
 ## Data updates
 
