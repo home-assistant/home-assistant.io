@@ -5,7 +5,7 @@ domain: foreca
 description: "Retrieves the Foreca air quality index forecast, hourly for up to 85 hours or daily for four days."
 ---
 
-The **Get air quality forecast** action returns the forecasted US EPA air quality index for a location, either hourly for up to 85 hours or daily for four days. Use it, for example, to air out the house while the air is clean, or to warn someone sensitive before ozone or particulate levels rise.
+The **Get air quality forecast** action returns the forecasted US EPA air quality index for a location, either hourly for up to 85 hours or daily for four days. On this index, a higher value means worse air, and values up to 50 are considered good. For the full scale, see [AQI basics](https://www.airnow.gov/aqi/aqi-basics/) on AirNow. Use it, for example, to air out the house while the air is clean, or to warn someone sensitive before ozone or particulate levels rise.
 
 Home Assistant keeps forecasts out of entities, so the coming hours and days are available here as [response data](/docs/automation/action/#action-response-data).
 
@@ -29,7 +29,7 @@ To get the air quality forecast from an automation or a script:
 
 {% options_ui %}
 Forecast type:
-  description: The forecast to return. Either daily or hourly.
+  description: The forecast to return. Either **Daily** or **Hourly**.
   required: true
 {% endoptions_ui %}
 
