@@ -10,7 +10,7 @@ Because the integration communicates over infrared, it operates in a one-way fas
 
 If your Daikin air conditioner is connected to your network, you can also use the [Daikin AC](/integrations/daikin/) integration, which can read the state of the unit.
 
-## How you can use the integration
+## Use cases
 
 After setup, you can control your Daikin air conditioner from Home Assistant the same way you would with its remote, and make it part of your automations. For example, you can:
 
