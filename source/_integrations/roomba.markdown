@@ -36,7 +36,7 @@ Sensors:
 - **Total missions**: The total number of all missions
 - **Scrubs**: Total number of times the robot has executed a "scrub"
 - **Total cleaning time**: How many hours the robot has spent cleaning in total
-- **Total cleaned area**: The total area in m² the robot has cleaned
+- **Total cleaned area**: The total area the robot has cleaned, shown in m² or ft² depending on your unit system
 - **Signal strength**: The Wi-Fi signal strength the robot reports, in dBm. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ### Retrieving your credentials
