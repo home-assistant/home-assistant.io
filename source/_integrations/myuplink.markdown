@@ -58,15 +58,15 @@ Each device in your myUplink account, such as a heat pump or a control module, b
 
 ### Entities from data points
 
-Every data point that myUplink reports for a device becomes an entity. The type is chosen from what the data point says about itself:
+Most data points that myUplink reports for a device become entities. The type is chosen from what the data point says about itself:
 
 - **Switch**: A data point that can only be off or on, and can be changed.
 - **Binary sensor**: A data point that can only be off or on, but is read-only.
 - **Select**: A data point with a list of options that can be changed.
 - **Number**: A data point with a minimum and a maximum value that can be changed.
-- **Sensor**: Everything else that has a numeric value, such as temperatures, energy, and operating times.
+- **Sensor**: Everything else that has a numeric value, such as temperatures, energy, and operating times. This includes values that can be changed in myUplink but don't have a minimum and a maximum, so you can't change those from Home Assistant.
 
-Entity names come from myUplink, for example "Room temperature (BT50)". Some common data points, such as status, priority, compressor status, and fan mode, show a translated state. For those, a disabled "raw" sensor holds the original value. Energy log sensors are disabled by default. Data points used for scheduling are left out.
+Entity names come from myUplink, for example, "Room temperature (BT50)". On some models, a few common data points, such as status, priority, compressor status, and additional heating, show their state as text from myUplink. For those, an extra sensor called "<name> raw" is disabled by default and holds the original number. Energy log sensors are also disabled by default.
 
 ## Use cases
 
