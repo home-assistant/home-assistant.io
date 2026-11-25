@@ -29,7 +29,7 @@ To use this action from an automation or a script:
 Queue item ID:
   description: The ID of the queue item. You can get it from the `queue_items` returned by the [Get queue details](/actions/music_assistant.get_queue/) action when you set its **Limit**.
 Username:
-  description: Run the action as this Music Assistant user. When omitted, the action runs as the Home Assistant user who started it, if that user is linked to a Music Assistant user.
+  description: Run the action as this Music Assistant user. When omitted, the action runs as the Home Assistant user who started it, if that user is linked to a Music Assistant user. If there is no linked user, the action runs as the default account.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -55,7 +55,7 @@ queue_item_id:
   required: true
   type: string
 username:
-  description: Run the action as this Music Assistant user. When omitted, the action runs as the Home Assistant user who started it, if that user is linked to a Music Assistant user.
+  description: Run the action as this Music Assistant user. When omitted, the action runs as the Home Assistant user who started it, if that user is linked to a Music Assistant user. If there is no linked user, the action runs as the default account.
   required: false
   type: string
 {% endoptions_yaml %}
