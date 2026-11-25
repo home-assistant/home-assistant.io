@@ -29,6 +29,24 @@ figure.dashboard-demo {
     }
   }
 
+  // A view or dashboard takes the full width.
+  &[data-kind="view"].pending .dashboard-demo-stage::before,
+  &[data-kind="dashboard"].pending .dashboard-demo-stage::before {
+    max-width: none;
+  }
+
+  // A view lays out its sections or columns by the width it has, so it is
+  // only as high as the narrowest page needs while it loads, then takes the
+  // height of its cards.
+  &[data-kind="view"]:not(.pending) .dashboard-demo-stage {
+    min-height: 0;
+  }
+
+  // A section is as wide as in a sections view.
+  &[data-kind="section"] .dashboard-demo-content {
+    max-width: 500px;
+  }
+
   figcaption {
     margin-top: 8px;
     text-align: center;
@@ -56,6 +74,12 @@ figure.dashboard-demo {
   > ha-embed-card[hidden] {
     display: none;
   }
+}
+
+// A section, view or dashboard from the embed, which lays out its own cards.
+.dashboard-demo-content {
+  display: block;
+  margin: 0 auto;
 }
 
 @keyframes dashboard-demo-pulse {

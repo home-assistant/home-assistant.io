@@ -1,4 +1,5 @@
-// Starts the live card demos of source/_includes/dashboard/demo.html.
+// Starts the live demos of source/_includes/dashboard/demo.html: cards, or a
+// section, view or dashboard.
 //
 // The script of the Home Assistant demo loads with the page, see
 // source/_includes/javascripts/scripts.html. Each demo keeps its height with a
@@ -35,7 +36,8 @@
   };
 
   // Adds the cards of the demo to the page, and follows their size. A card
-  // sets its size each time it has rendered.
+  // sets its size each time it has rendered. A section, view or dashboard
+  // lays out its own cards.
   const activate = (figure) => {
     const template = figure.querySelector("template.dashboard-demo-template");
 
@@ -43,6 +45,11 @@
     figure.classList.remove("pending");
 
     const section = figure.querySelector(".dashboard-demo-section");
+
+    if (!section) {
+      return;
+    }
+
     const cards = section.querySelectorAll(":scope > ha-embed-card");
     const cardObserver = new MutationObserver(() =>
       fitSection(section, cards)
