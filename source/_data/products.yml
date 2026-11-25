@@ -20,7 +20,7 @@ green:
     - name: CloudFree
       ship_from: US
       ship_to: North America
-      url: https://cloudfree.shop/product/home-assistant-green/
+      url: https://cloudfree.shop/products/home-assistant-green
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US
@@ -100,6 +100,11 @@ green:
       ship_to: Europe
       url: https://www.kjell.com/no/produkter/smarte-hjem/kontroller/nabu-casa-home-assistant-green-p88430
       logo: /images/distributors/kjell-company.webp
+    - name: Kjell
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.kjell.com/se/produkter/smarta-hem/controllers/nabu-casa-home-assistant-green-smarta-hem-hubb-p88430
+      logo: /images/distributors/kjell-company.webp
     - name: Mauser
       ship_from: Portugal
       ship_to: Europe
@@ -118,7 +123,7 @@ green:
     - name: OkosOtthon Bolt
       ship_from: Hungary
       ship_to: Europe
-      url: https://okosotthon.bolt.hu/webaruhaz/termek/home-assistant-green-hub/
+      url: https://www.okosotthon.bolt.hu/home-assistant-green-hub-okosotthon-kozpont-green-9703
       logo: /images/distributors/okosotthon.png
     - name: Pi-Shop.ch
       ship_from: Switzerland
@@ -190,6 +195,11 @@ green:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/nabu-casa-home-assistant-green/
       logo: /images/distributors/nurkantakaa.webp
+    - name: Verkkokauppa.com
+      ship_from: Finland
+      ship_to: Europe
+      url: https://www.verkkokauppa.com/fi/product/1055515
+      logo: /images/distributors/verkkokauppa.webp
     - name: Reichelt
       ship_from: Germany
       ship_to: Europe
@@ -396,7 +406,7 @@ voice-pe:
     - name: CloudFree
       ship_from: US
       ship_to: North America
-      url: https://cloudfree.shop/product/home-assistant-voice-preview-edition/
+      url: https://cloudfree.shop/products/home-assistant-voice-preview-edition
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US
@@ -536,6 +546,11 @@ voice-pe:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/nabu-casa-home-assistant-voice-preview-edition/
       logo: /images/distributors/nurkantakaa.webp
+    - name: Verkkokauppa.com
+      ship_from: Finland
+      ship_to: Europe
+      url: https://www.verkkokauppa.com/fi/product/1055506
+      logo: /images/distributors/verkkokauppa.webp
     - name: Reichelt
       ship_from: Germany
       ship_to: Europe
@@ -546,6 +561,16 @@ voice-pe:
       ship_to: Europe
       url: https://www.kubii.com/en/embedded-boards/5288-home-assistant-voice-preview-edition-0860011789727.html
       logo: /images/distributors/kubii.webp
+    - name: Kjell
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.kjell.com/se/produkter/smarta-hem/smarta-hogtalare/nabu-casa-home-assistant-voice-preview-edition-p88436
+      logo: /images/distributors/kjell-company.webp
+    - name: OkosOtthon Bolt
+      ship_from: Hungary
+      ship_to: Europe
+      url: https://www.okosotthon.bolt.hu/home-assistant-hangvezerlo-szatelit-modul-nc-vk-9727
+      logo: /images/distributors/okosotthon.png
       # Africa
     - name: Smarthomes
       ship_from: South Africa
@@ -569,7 +594,7 @@ zwa-2:
     - name: CloudFree
       ship_from: US
       ship_to: North America
-      url: https://cloudfree.shop/product/home-assistant-connect-zwa-2/
+      url: https://cloudfree.shop/products/home-assistant-connect-zwa-2
       logo: /images/distributors/cloudfree.webp
     - name: ameriDroid
       ship_from: US
@@ -662,7 +687,7 @@ zwa-2:
     - name: MarketCom
       ship_from: Hungary
       ship_to: Europe
-      url: https://okosotthon.bolt.hu/webaruhaz/termek/home-assistant-connect-zwa-2-z-wave-antenna-es-adapter/
+      url: https://www.okosotthon.bolt.hu/home-assistant-connect-zwa-2-antenna-es-adapter-nc-zwa-9734
       logo: /images/distributors/okosotthon.png
     - name: mediarath
       ship_from: Germany
@@ -704,6 +729,11 @@ zwa-2:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/zwa-2/
       logo: /images/distributors/nurkantakaa.webp
+    - name: Verkkokauppa.com
+      ship_from: Finland
+      ship_to: Europe
+      url: https://www.verkkokauppa.com/fi/product/1055509
+      logo: /images/distributors/verkkokauppa.webp
     - name: ROBBshop
       ship_from: Netherlands
       ship_to: Europe
@@ -751,7 +781,7 @@ zbt-2:
     - name: CloudFree
       ship_from: US
       ship_to: North America
-      url: https://cloudfree.shop/product/home-assistant-connect-zbt-2/
+      url: https://cloudfree.shop/products/home-assistant-connect-zbt-2
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US 
@@ -829,7 +859,7 @@ zbt-2:
     - name: Okosotthon
       ship_from: Hungary
       ship_to: Europe
-      url: https://okosotthon.bolt.hu/webaruhaz/termek/home-assistant-connect-zbt-2-adapter
+      url: https://www.okosotthon.bolt.hu/home-assistant-connect-zbt-2-antenna-es-adapter-nc-zbt-9741
       logo: /images/distributors/okosotthon.png
     - name: Dinamotech
       ship_from: Italy
@@ -849,7 +879,12 @@ zbt-2:
     - name: Kjell
       ship_from: Norway
       ship_to: Europe
-      url: https://www.kjell.com/se/88438
+      url: https://www.kjell.com/no/88438
+      logo: /images/distributors/kjell-company.webp
+    - name: Kjell
+      ship_from: Sweden
+      ship_to: Europe
+      url: https://www.kjell.com/se/produkter/smarta-hem/controllers/nabu-casa-home-assistant-connect-zbt-2-usb-adapter-for-zigbee-och-thread-p88438
       logo: /images/distributors/kjell-company.webp
     - name: Botland
       ship_from: Poland
@@ -921,6 +956,11 @@ zbt-2:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/nc-zbt-9741/
       logo: /images/distributors/nurkan-takaa.webp
+    - name: Verkkokauppa.com
+      ship_from: Finland
+      ship_to: Europe
+      url: https://www.verkkokauppa.com/fi/product/1055512
+      logo: /images/distributors/verkkokauppa.webp
     - name: Reichelt
       ship_from: Germany
       ship_to: Europe
@@ -1032,7 +1072,7 @@ aux-2:
     - name: reichelt
       ship_from: Germany
       ship_to: Europe
-      url: https://www.reichelt.de/shop/produkt/home_assistant_connect_aux-2-445656
+      url: https://www.reichelt.com/shop/product/home_assistant_connect_aux-2-445656
       logo: /images/distributors/reichelt.webp
     - name: SmartDomo
       ship_from: Germany
@@ -1052,7 +1092,7 @@ aux-2:
     - name: Okosotthon
       ship_from: Hungary
       ship_to: Europe
-      url: https://okosotthon.bolt.hu/Nabu-Casa-Home-Assistant-Connect-AUX-2
+      url: https://www.okosotthon.bolt.hu/home-assistant-connect-aux-2-okosotthon-kiegeszito
       logo: /images/distributors/okosotthon.png
     - name: Dinamotech
       ship_from: Italy

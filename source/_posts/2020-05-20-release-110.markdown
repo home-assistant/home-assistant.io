@@ -4,6 +4,8 @@ title: "0.110: Speed! OpenZWave beta, HomeKit Cameras, ONVIF, Calendars"
 description: "0.110: Ready for one of the biggest releases in our history? Lots of UI and speed improvements, a calendar panel, OpenZWave beta, HomeKit, ONVIF sensors, ignore everything, NOT conditions, ..."
 date: 2020-05-20 00:00:00
 date_formatted: "May 20, 2020"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
@@ -14,6 +16,10 @@ og_image: /images/blog/2020-05-0.110/social.png
 ---
 
 <a href='/integrations/#version/0.110'><img src='/images/blog/2020-05-0.110/components.png' style='border: 0;box-shadow: none;'></a>
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 Do you know how excited I am for bringing you Home Assistant Core 0.110?
 
