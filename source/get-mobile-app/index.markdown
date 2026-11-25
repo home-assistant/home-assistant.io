@@ -11,13 +11,24 @@ sidebar: false
     align-items: center;
     gap: 16px;
   }
+  /* The badges bring their own shape, so drop the frame the site puts on
+     images, and show both at the same height. */
+  article.page .get-mobile-app-badges img {
+    width: auto;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+  }
 </style>
 
 Use Home Assistant on your phone or tablet with the Home Assistant app.
 
 <p class="get-mobile-app-badges">
-  <a href="https://apps.apple.com/app/home-assistant/id1099568401"><img src="/images/get-mobile-app/badge-apple-app-store.svg" width="175" alt="Download on the App Store"></a>
-  <a href="https://play.google.com/store/apps/details?id=io.homeassistant.companion.android"><img src="/images/get-mobile-app/badge-google-play.png" width="200" alt="Get it on Google Play"></a>
+  <a href="https://apps.apple.com/app/home-assistant/id1099568401"><img src="/images/get-mobile-app/badge-apple-app-store.svg" width="144" height="48" alt="Download on the App Store"></a>
+  <a href="https://play.google.com/store/apps/details?id=io.homeassistant.companion.android"><img src="/images/get-mobile-app/badge-google-play.png" width="161" height="48" alt="Get it on Google Play"></a>
 </p>
 
 No Google Play on your Android device? See the [other ways to get the Android app](https://companion.home-assistant.io/download/).
