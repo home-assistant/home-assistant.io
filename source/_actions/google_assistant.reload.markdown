@@ -59,7 +59,7 @@ This action has no additional options in YAML.
 If you edit your Google Home configuration often, add a button to your dashboard that applies the changes. This example uses a **Button** {% term helper %} that you create separately.
 
 - **Trigger**: State
-  - **Entity**: Reload Google Home (`input_button.reload_google_assistant`)
+  - **Entity**: Reload Google Home (`input_button.reload_google_home`)
 - **Action**: Reload
 
 {% details "YAML example for reloading from a dashboard button" %}
@@ -69,7 +69,7 @@ automation: |
   alias: "Reload Google Home from a button"
   triggers:
     - trigger: state
-      entity_id: input_button.reload_google_assistant
+      entity_id: input_button.reload_google_home
   actions:
     - action: google_assistant.reload
 {% endexample %}
