@@ -55,6 +55,18 @@ Steps to enable:
 3. Scroll down to the security settings.
 4. Enable the switch **Allow local communication**.
 
+### Signing key
+
+Some newer WiZ firmware only accepts signed commands. Home Assistant can still read the device state, but turning the light on or off fails. To control these devices, enter the signing key when adding the device, or later from **Reconfigure** on the device's entry.
+
+To get the signing key:
+
+1. Open the WiZ app on your phone.
+2. Go to **Home settings** > **Integrations** > **Local integrations** and export your home.
+3. Open the exported file and copy the value of `udp_signing_key`.
+
+The key is the same for every device in a WiZ home.
+
 ### Occupancy sensors
 
 The occupancy sensors will only be added once a motion event is detected. Home Assistant can detect the sensors if they turn on at least one device when the room is occupied, and turn off at least one device when the room is not occupied. Sensors that are not linked to a device cannot be detected.
