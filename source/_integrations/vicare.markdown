@@ -95,7 +95,7 @@ Heat pumps that report the heat they produce have the following sensors:
 - **Heating heat production today**: the heat produced for heating today
 - **DHW heat production today**: the heat produced for domestic hot water today
 
-Devices that report their internal pump have an **Internal pump** binary sensor, which is on while the pump runs.
+Devices that report their internal pump have an **Internal pump** binary sensor that shows whether the pump is running.
 
 Devices that report the modulation of their internal pump have the following sensors:
 
