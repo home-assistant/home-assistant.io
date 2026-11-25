@@ -63,8 +63,8 @@ The **Schlage** integration provides the following entities for each lock.
 
 ### Selects
 
-- **Auto-lock time**: How long the lock waits before it locks itself. Each lock model accepts only some of the following options. Refer to [Known limitations](#known-limitations).
-  - **Options**: Disabled, 5 seconds, 15 seconds, 30 seconds, 1 minute, 2 minutes, 4 minutes, 5 minutes, 6 minutes, 10 minutes, 15 minutes, 30 minutes
+- **Auto-lock time**: How long the lock waits before it locks itself.
+  - **Options**: Disabled, or a delay. The available delays depend on the lock model, and match the ones in the Schlage Home app.
 
 ### Sensors
 
@@ -148,7 +148,6 @@ The **Schlage** integration {% term polling polls %} Schlage's cloud API for the
 
 - The integration only works through Schlage's cloud. When your internet connection or Schlage's service is down, you can't control your locks from Home Assistant.
 - A lock that has been switched from WiFi to Bluetooth in the Schlage Home app is no longer connected to the cloud, so Home Assistant can't control it and may show an outdated state.
-- The **Auto-lock time** list contains the options of all lock models. Selecting an option that your lock doesn't support results in an error.
 - The integration can create permanent PIN codes and temporary PIN codes, but not PIN codes with a recurring weekly schedule.
 - Adding new locks to your account, managing key fobs, scheduled locking, and firmware updates are not supported. Use the Schlage Home app instead.
 
