@@ -38,7 +38,7 @@ To avoid this:
 
 ## What the Home Assistant AI tools can reach
 
-The Home Assistant {% term "AI tools" %} can read the state of every entity, the status of your {% term integrations %}, your logs, and the history of your sensors. For the full list, refer to [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools).
+The Home Assistant {% term "AI tools" %} can read the state of every entity, the status of your {% term integrations %}, your logs, and the history of your sensors. They can also read the configuration and the traces of your automations and scripts. For the full list, refer to [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools).
 
 Many of the Home Assistant AI tools only read. The AI tools that change things can do the following:
 
@@ -197,6 +197,31 @@ To find a device or an entity, the conversation agent first uses **Search Home A
   - To do this yourself: Refer to [Changing the attributes of an entity](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity).
 - **Remove entity** (`config__remove_entity`): Removes an entity that its integration no longer provides. For example, the entity of a device that you removed. It can't remove an entity that the integration still provides. Changes things.
   - To do this yourself: Under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, select the entity, and then select **Settings** {% icon "mdi:cog-outline" %} > **Delete**.
+
+#### Automation, script, and scene AI tools
+
+These AI tools only read. They can't change, run, or turn on or off your automations, scripts, and scenes.
+
+- **List automations** (`automation__list_automations`): Lists your {% term automations %}, sorted by name. For each automation, it returns whether it's on or off, when it last triggered, and its description, area, category, and labels. Only reads.
+  - To do this yourself: Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+- **Get automation configuration** (`automation__get_config`): Returns the triggers, conditions, and actions of an automation. If the automation uses a [blueprint](/docs/automation/using_blueprints/), it returns the blueprint and the inputs that you entered instead. Only reads.
+  - To do this yourself: Refer to [Editing an automation in YAML](/docs/automation/editor/#editing-an-automation-in-yaml).
+- **List scripts** (`script__list_scripts`): Lists your {% term scripts %}, sorted by name. For each script, it returns whether it's running, when it last ran, and its description, area, category, and labels. Only reads.
+  - To do this yourself: Go to {% my scripts title="**Settings** > **Automations & scenes** > **Scripts**" %}.
+- **Get script configuration** (`script__get_config`): Returns the fields and the actions of a script. If the script uses a blueprint, it returns the blueprint and the inputs that you entered instead. Only reads.
+  - To do this yourself: Go to {% my scripts title="**Settings** > **Automations & scenes** > **Scripts**" %}, and open the script. Then, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML**.
+- **List scenes** (`scene__list_scenes`): Lists your {% term scenes %}, sorted by name. For each scene, it returns when it was last turned on, and its area, category, and labels. Only reads.
+  - To do this yourself: Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}.
+- **Get scene configuration** (`scene__get_config`): Returns the state and the attributes that a scene sets on each entity. It only works for scenes that you created in Home Assistant, not for scenes that come from an integration. Only reads.
+  - To do this yourself: Refer to [Editing a scene in the YAML editor](/docs/scene/#editing-a-scene-in-the-yaml-editor).
+- **List blueprints** (`blueprint__list_blueprints`): Lists your blueprints, sorted by type and name. For each blueprint, it returns its description, its author, and the address that you imported it from. For a blueprint that failed to load, it returns the error. Only reads.
+  - To do this yourself: Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
+- **Get blueprint** (`blueprint__get_blueprint`): Returns the YAML of a blueprint. This includes its inputs, and the triggers, conditions, and actions that use them. Only reads.
+- **List traces** (`trace__list_traces`): Lists the stored runs of an automation or a script, newest first. For each run, it returns when it started and finished, how it ended, what triggered it, and any error. By default, Home Assistant keeps the last 5 runs. Only reads.
+  - An automation that you created in YAML needs an `id` for its traces to be stored. For details, refer to [Traces of automations created in YAML](/docs/automation/testing/#traces-of-automations-created-in-yaml).
+  - To do this yourself: Refer to [Viewing the traces of an automation](/docs/automation/testing/#viewing-the-traces-of-an-automation).
+- **Get trace** (`trace__get_trace`): Returns each step of one run of an automation or a script, in the order they ran. For each step, it returns the result, any error, and the variables that changed. This helps to find out why an automation didn't do what you expected. Only reads.
+  - To do this yourself: Refer to [Viewing the traces of an automation](/docs/automation/testing/#viewing-the-traces-of-an-automation).
 
 #### System AI tools
 
