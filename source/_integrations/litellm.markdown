@@ -8,7 +8,7 @@ The [LiteLLM](https://www.litellm.ai/) {% term integration %} allows you to use 
 
 LiteLLM exposes a single OpenAI-compatible API in front of a wide range of model providers, so you can use almost any model through one endpoint. This is similar to a service like OpenRouter, with the added benefit that you can run LiteLLM yourself if you prefer to keep everything under your own control. This integration lets you point Home Assistant at any LiteLLM proxy, whether it is a hosted instance or one you self-host.
 
-Home Assistant lists all models returned by LiteLLM filtered by the mode of each model when defined. Choose a model that supports chat completions for a conversation agent, audio transcription for a speech-to-text service, speech generation for a text-to-speech service, or decisions for an AI task evaluation. The proxy's settings may not match what a model's backend can do, so LiteLLM or the model's backend may reject an incompatible request.
+Home Assistant lists all models returned by LiteLLM filtered by the mode of each model when defined. Choose a model that supports chat completions for a conversation agent, audio transcription for a speech-to-text service, speech generation for a text-to-speech service, or the `decisions` or `evaluation` mode for an AI task evaluation. The proxy's settings may not match what a model's backend can do, so LiteLLM or the model's backend may reject an incompatible request.
 
 ## Prerequisites
 
@@ -97,7 +97,7 @@ Model:
   description: "The decision model that answers the questions. The list is discovered from your LiteLLM proxy."
 {% endconfiguration_basic %}
 
-The service appears as an AI task entity named after the model. To use it when an action does not set an entity, select it under **Decisions** in the [AI task](/integrations/ai_task/) settings. You can attach JPEG, PNG, WebP, and GIF images to the questions. Other attachment types are rejected.
+The service appears as an AI task entity named after the model. To use it when an action does not set an entity, select it under **Decisions** in the [AI task](/integrations/ai_task/) settings. You can attach JPEG, PNG, WebP, and GIF images to the evaluation task. Other attachment types are rejected.
 
 To change the model later, select the AI task evaluation and choose **Reconfigure AI task evaluation**.
 
