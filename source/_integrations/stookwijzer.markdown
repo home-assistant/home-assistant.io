@@ -19,7 +19,7 @@ Additionally, various sensor entities are provided:
 
 The integration also provides an image entity:
 
-- **Map**: A map showing the current Stookwijzer advice areas around the selected location, with a legend of the advice codes. This entity is disabled by default. The map is refreshed with each data update.
+- **Map**: A map showing the current Stookwijzer advice areas around the selected location, with a legend of the advice codes. This entity is disabled by default.
 
 {% include integrations/config_flow.md %}
 
