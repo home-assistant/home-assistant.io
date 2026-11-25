@@ -277,7 +277,9 @@ This entity is used to control the appliance with the following actions:
 
 ### Vacuum
 
-This entity allows controlling Electrolux group robot vacuum cleaners by starting, stopping, pausing, returning to the charging dock, adjusting the fan speed, starting cleaning in specific areas and reporting the current state of the vacuum.
+This entity lets you control Electrolux Group robot vacuum cleaners. You can start, stop, and pause cleaning, send the vacuum back to its charging dock, change the fan speed, and see the vacuum's current state.
+
+On PUREi9, Gordias, and Cybele models, you can also clean specific areas.
 
 ## Known limitations
 
