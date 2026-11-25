@@ -187,21 +187,24 @@ With a secure broker connection, it is possible to use a client certificate for 
 Instead of uploading the client certificate and private key, you can load them from files. Enter the paths in **Client certificate file path** and **Private key file path**, for example `/ssl/mqtt_client.crt` and `/ssl/mqtt_client.key`. Loading certificates from files makes it easier to renew them, as you only need to replace the files. Keep the following in mind:
 
 - The files must be PEM-encoded, and the private key file must not be encrypted with a password.
+- The file paths must be absolute, for example `/ssl/mqtt_client.crt`.
 - For each certificate or key, either upload a file or enter a file path, not both.
 - The client certificate and private key must both be uploaded, or both be loaded from files.
 - The client certificate and private key files are only used when **Use a client certificate** is turned on. The CA certificate file is only used when **Broker certificate validation** is set to **Custom**.
-- The files are loaded when MQTT is set up. A renewed certificate is used after MQTT is reloaded or Home Assistant is restarted.
+- The files are loaded when MQTT is set up. A renewed certificate is used after MQTT is reloaded or Home Assistant is restarted. If the files cannot be loaded when MQTT is set up, for example while they are being renewed, Home Assistant retries setting up MQTT.
 
 To learn how to create client certificates and set up the Mosquitto broker to require them, see [Setting up client certificate authentication](#setting-up-client-certificate-authentication).
 
 #### Client certificate expiry
 
-Home Assistant checks when the loaded client certificate expires, when MQTT is set up and once a day after that. If the client certificate expires within 30 days, a [repair issue](/integrations/repairs/) is created:
+Home Assistant checks when the loaded client certificate expires, when MQTT is set up and once a day after that. If the client certificate expires within 30 days, or within the last third of its validity for certificates that are valid for a shorter time, a [repair issue](/integrations/repairs/) is created:
 
 - If the client certificate was uploaded, upload a renewed client certificate and private key by reconfiguring the MQTT broker settings.
 - If the client certificate is loaded from a file, and a renewed certificate is installed in that file, the repair offers to reload MQTT, so the renewed certificate is used.
 - If the client certificate is loaded from a file, but no renewed certificate is installed yet, replace the client certificate and private key files with renewed ones.
-- If the installed client certificate, private key, or CA certificate file cannot be loaded, or the client certificate and private key do not match, the repair tells you which file has a problem. MQTT keeps using the certificate that was loaded, but might not start correctly after a restart until the files are fixed.
+- If the installed client certificate, private key, or CA certificate file cannot be loaded, or the client certificate and private key do not match, the repair tells you which file has a problem. MQTT keeps using the certificate that was loaded, but might not start correctly after a restart until the files are fixed. The files are checked once a day. To check them right away after fixing them, reload the MQTT integration.
+
+Because the check runs once a day, certificates that are valid for less than 3 days can expire before a repair issue is created. If you use such short-lived certificates, reload the MQTT integration after each renewal, for example with an automation.
 
 #### Using WebSockets as transport
 
