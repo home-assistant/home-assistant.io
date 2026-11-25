@@ -12,7 +12,7 @@ Here are some of the things you can do once your locks are in Home Assistant:
 
 - Lock all doors at bedtime or when the last person leaves home.
 - Get notified when a lock jams, its battery runs low, or its keypad is disabled after too many wrong codes.
-- Give a cleaner, pet sitter, or guest a PIN code that only works during a set time window.
+- Give a guest or pet sitter a temporary PIN code that stops working when their stay is over.
 
 [Schlage]: https://www.schlage.com/
 
