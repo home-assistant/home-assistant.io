@@ -72,23 +72,46 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
 
 ### Sensors
 
-- **SoC**: Battery charge percentage.
-- **SoE**: Estimated battery energy.
+- **SoC**: Battery charge percentage. For details, refer to [State of charge and state of energy](#state-of-charge-and-state-of-energy).
+- **SoE**: Estimated battery energy, shown in kilowatt-hours (kWh) by default. For details, refer to [State of charge and state of energy](#state-of-charge-and-state-of-energy).
 - **Range**: Estimated remaining driving range.
 - **Power**: Current charging or discharging power.
-- **Charging state**: Whether the vehicle is charging and how. Possible states are:
+- **Charging state**: Whether the vehicle is charging and how. For details, refer to [AC and DC charging](#ac-and-dc-charging). Possible states are:
 
-    - **Charging (AC)**
-    - **Charging (DC)**
+    - **Charging (AC)**: The vehicle is charging from an AC charger.
+    - **Charging (DC)**: The vehicle is charging from a DC fast charger.
     - **Charging**: The vehicle is charging, but the charging type is unknown.
-    - **Plugged in**
-    - **Not charging**
+    - **Plugged in**: The vehicle is connected to a charger but not charging.
+    - **Not charging**: The vehicle is not charging and is not reported as plugged in.
 - **Voltage**: Battery pack voltage.
 - **Battery temperature**: Battery pack temperature.
 - **Odometer**: Total distance driven.
 - **Calibrated ref cons**: ABRP's calibrated [reference consumption](https://abrp.featurebase.app/articles/3305478-reference-consumption) for the vehicle, in energy per distance. A steady-state baseline tuned from live data, not real-time consumption.
 - **State of health**: Estimated battery health percentage.
 - **Battery capacity**: Estimated usable battery capacity.
+
+#### State of charge and state of energy
+
+The **SoC** and **SoE** sensors both describe how full your battery is, but they measure it in different ways.
+
+- **SoC** (state of charge) is the battery level as a percentage of the total usable battery. A value of `80` means the usable battery is 80% full.
+- **SoE** (state of energy) is the amount of energy left in the battery, in kilowatt-hours (kWh). A value of `45` means about 45 kWh is available.
+
+Use **SoC** for simple battery-level automations, like a notification when the battery is low. Use **SoE** when you want the amount of energy instead of a percentage.
+
+ABRP reports these values from your vehicle's data source, so a vehicle might report one and not the other. A sensor appears after ABRP receives its first value.
+
+#### AC and DC charging
+
+The **Charging state** sensor reports whether your vehicle is charging. When ABRP knows the charging type, the sensor also reports it.
+
+- **Charging (AC)**: The vehicle is charging with alternating current (AC), for example from a wall box or a public AC charge point. The vehicle's onboard charger converts AC to the DC power the battery needs.
+- **Charging (DC)**: The vehicle is charging with direct current (DC), from a DC fast charger. The charger supplies DC power directly to the battery.
+- **Charging**: The vehicle is charging, but ABRP does not know the charging type.
+
+The other states, **Plugged in** and **Not charging**, do not describe a charging type. ABRP reports the state from your vehicle's data source, so the available states depend on what your vehicle shares.
+
+You can use the charging state in automations, for example to be notified when your vehicle starts DC fast charging.
 
 ### Device tracker
 
