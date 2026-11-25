@@ -65,7 +65,7 @@ template:
 
 ## Data updates
 
-The integration {% term polling polls %} the Stookwijzer API once an hour. After each update, a new map is rendered the next time the **Map** image is requested. The **Get forecast** action fetches the forecast from the API each time it runs.
+The integration {% term polling polls %} the Stookwijzer API once an hour. The **Get forecast** action fetches the forecast from the API each time it runs.
 
 ## Removing the integration
 
