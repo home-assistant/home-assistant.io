@@ -59,7 +59,7 @@ include_past_forecasts:
   default: false
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="weather" %}
+{% include actions/targets.md domain="weather" entity_type="IRM KMI weather entity" example="weather.brussels" %}
 
 ## Response data
 
