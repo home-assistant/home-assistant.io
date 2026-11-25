@@ -50,14 +50,14 @@ In YAML, refer to this action as `portainer.recreate_container`:
 action: |
   action: portainer.recreate_container
   data:
-    device_id: a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
+    container_device_id: a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
     pull_image: true
 {% endexample %}
 
 ### Options in YAML
 
 {% options_yaml %}
-device_id:
+container_device_id:
   description: The ID of the container device to recreate.
   required: true
   type: string
@@ -95,7 +95,7 @@ automation: |
   actions:
     - action: portainer.recreate_container
       data:
-        device_id: a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
+        container_device_id: a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
         pull_image: true
 {% endexample %}
 

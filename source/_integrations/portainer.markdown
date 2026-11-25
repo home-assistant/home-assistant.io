@@ -39,6 +39,7 @@ There is currently support for the following device types within Home Assistant:
 - **Pause container**: Pauses the container.
 - **Resume container**: Resumes the container.
 - **Recreate container**: Recreates the container by pulling the latest tagged image.
+- **Pull image**: Downloads the container's configured image without recreating or restarting the container, so a later recreation can use the downloaded image. The container keeps running the old image until it is recreated, so its image update stays available until then. Disabled by default. Images from a private registry can't be pulled this way; recreate the container instead.
 - **Prune unused images**: Removes unused Docker images from the endpoint.
 - **Prune unused volumes**: Removes unused Docker volumes from the endpoint.
 - **Prune build cache**: Removes the unused Docker build cache from the endpoint.
@@ -61,6 +62,7 @@ There is currently support for the following device types within Home Assistant:
 - **Memory limit**: Memory limit configured for the container.
 - **Started**: When the container was last started.
 - **Restart count**: How often Docker restarted the container, for example, because of its restart policy.
+- **Last exit code**: The exit code of the container's last run, for example, `137` when it was killed. Only reported while the container is not running, because Docker resets it to `0` when the container starts. Disabled by default.
 
 #### Endpoint sensors
 
@@ -92,6 +94,7 @@ These sensors are disabled by default, because calculating them can take a long 
 - **Status**: Whether the stack is `active` or `inactive`.
 - **Type**: The stack type: `Compose`, `Swarm`, or `Kubernetes`.
 - **Container count**: Number of containers belonging to the stack.
+- **Last deployed**: When the stack was last deployed or updated, including redeploys and Git auto-updates. For a stack that was never updated, this is when it was created.
 
 ### Switches
 
@@ -151,7 +154,7 @@ Each Docker container is a child device under its endpoint or stack. Container d
 
 ### Stacks
 
-Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, a switch to start or stop the entire stack, and a button to update it.
+Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, a last deployed sensor, a switch to start or stop the entire stack, and a button to update it.
 
 Docker API Engine needs to be equal to or above version 1.44. Older versions are [deprecated](https://docs.docker.com/reference/api/engine/#deprecated-api-versions). 
 

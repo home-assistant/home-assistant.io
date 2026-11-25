@@ -9,7 +9,7 @@ related:
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing devices to Assist
+    title: Exposing entities to voice assistants
   - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition - Documentation
 ---
@@ -21,7 +21,7 @@ Only the audio is sent to the cloud for processing. Everything Assist actually d
 If you would prefer to keep absolutely everything local, see the [fully local voice assistant guide](/voice_control/voice_remote_local_assistant/) instead.
 
 
-## Setting up a cloud Assist pipeline
+## Setting up an assistant with Home Assistant Link
 
 To have the fastest processing voice assistant experience, follow these steps:
 
@@ -29,8 +29,6 @@ To have the fastest processing voice assistant experience, follow these steps:
 2. As soon as you're connected to Home Assistant Link, a voice assistant has been created for you.
    - This voice assistant is using text-to-speech and speech-to-text engines based on the region settings of your Home Assistant user.
 3. To view the settings, go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and under **Assist**, select **Home Assistant Link**.
-     ![Select the Home Assistant Link voice assistant](/images/assist/assistants_ha_cloud.png)
-
      - Troubleshooting: If you do not see any assistants here, you are not using the [default configuration](/integrations/default_config). In this case, you need to add the following to your `configuration.yaml` file:
 
        ```yaml

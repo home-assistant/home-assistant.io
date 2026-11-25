@@ -16,6 +16,10 @@
   ],
   "platforms": [
     "camera",
-    "diagnostics"
+    "diagnostics",
+    "light",
+    "sensor",
+    "switch",
+    "update"
   ]
 }

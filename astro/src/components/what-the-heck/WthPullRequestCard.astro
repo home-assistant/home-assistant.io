@@ -1,0 +1,173 @@
+---
+// One pull request as a card in the sea of pull requests: the title, then who
+// and where, as on GitHub. It is a link to the pull request on GitHub.
+//
+// Replaces source/what-the-heck/components/_pr-card.html and the `.wth-prs-card`
+// rules in sass/homeassistant/pages/wth/_sections.scss.
+//
+// A decoy is a copy that only fills a lane and loops it. It is not a second
+// link for keyboards or screen readers: it is taken out of the tab order here,
+// and WthPullRequests.astro hides its list from screen readers.
+//
+// The title is text, never markup: Astro escapes it. The link and the picture
+// were checked by `parsePullRequest` (src/lib/wth-stats.mjs).
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import { GRID_SHOWN } from "../../lib/wth-stats.mjs";
+
+interface Props {
+  pr: {
+    title: string;
+    repo: string;
+    url: string;
+    author: string;
+    avatar: string;
+    status: "open" | "merged";
+  };
+  /** Its place in the list, newest first, for the grid reduced motion shows. */
+  order: number;
+  decoy?: boolean;
+}
+
+const { pr, order, decoy = false } = Astro.props;
+const status = pr.status === "merged" ? "Merged" : "Open";
+---
+
+<li class:list={["item", order >= GRID_SHOWN && "is-extra"]} style={`--n: ${order}`}>
+  <a
+    class="card"
+    href={pr.url}
+    target="_blank"
+    rel="noopener"
+    tabindex={decoy ? -1 : undefined}
+    aria-label={`${pr.title}, ${pr.repo}, ${status}`}
+  >
+    <span class="title">{pr.title}</span>
+    <span class="meta">
+      <img class="avatar" src={pr.avatar} alt="" width="20" height="20" loading="lazy" decoding="async" />
+      <span class="author">{pr.author}</span>
+      <span class="repo">{pr.repo}</span>
+      <span class:list={["status", pr.status]}>{status}</span>
+    </span>
+  </a>
+</li>
+
+<style lang="scss">
+  .item {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* A pull request: the title, then who and where, as on GitHub. */
+  .card {
+    background-color: var(--wth-surface);
+    border: 1px solid var(--wth-border);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgb(30 33 38 / 6%);
+    color: var(--wth-ink);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.625rem 0.875rem;
+    text-decoration: none;
+    transition: border-color 0.1s ease;
+    width: 18rem;
+
+    &:hover {
+      border-color: var(--wth-ink);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--wth-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  /* Two lines at most, then cut off. */
+  .title {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    font-size: var(--font-size-medium);
+    font-weight: 600;
+    line-height: 1.3;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+  }
+
+  .meta {
+    align-items: center;
+    display: flex;
+    gap: 0.375rem;
+    margin-top: auto;
+    min-width: 0;
+  }
+
+  .avatar {
+    background-color: var(--wth-page);
+    border-radius: 50%;
+    flex: none;
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+
+  .author {
+    color: var(--wth-ink-soft);
+    flex: 1 1 0;
+    font-size: 0.75rem;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .repo {
+    background-color: var(--wth-page);
+    border: 1px solid var(--wth-border);
+    border-radius: 0.375rem;
+    color: var(--wth-ink-soft);
+    flex: 0 1 auto;
+    font-size: 0.6875rem;
+    line-height: 1.3;
+    max-width: 5.5rem;
+    min-width: 0;
+    overflow: hidden;
+    padding: 1px 0.375rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .status {
+    background-color: var(--wth-wash);
+    border: 1px solid var(--wth-sky);
+    border-radius: 999px;
+    color: var(--wth-ink);
+    flex: none;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1.3;
+    padding: 1px 0.5rem;
+
+    &.merged {
+      background-color: var(--wth-mint);
+      border-color: var(--wth-mint);
+    }
+  }
+
+  /* With reduced motion the sea is a grid of the newest pull requests. */
+  @media (prefers-reduced-motion: reduce) {
+    .item {
+      order: var(--n);
+    }
+
+    .item.is-extra {
+      display: none;
+    }
+
+    .card {
+      transition: none;
+      width: 100%;
+    }
+  }
+</style>

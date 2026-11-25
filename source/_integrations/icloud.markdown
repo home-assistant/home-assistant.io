@@ -27,6 +27,8 @@ For the notification, press "Allow", then "OK".
 
 To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
 
+If you remove a device from your Apple Account, or Apple otherwise stops listing it, Home Assistant removes the device and all of its entities automatically the next time the account updates. If the device is listed again later, it returns with the area, name, labels and entity settings it had before.
+
 ## Two-factor authentication
 
 Use your regular Apple Account password when setting up the integration. If Apple requires two-factor authentication, Home Assistant asks you to enter the six-digit verification code displayed on one of your trusted Apple devices or sent to your trusted phone number.

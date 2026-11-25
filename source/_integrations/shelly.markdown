@@ -96,7 +96,7 @@ Shelly Gen 2 and newer devices (excluding battery-powered models) can act as Blu
 Shelly devices do **not** support proxying active (GATT) connections.
 {% endtip %}
 
-For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
+For more details, see [Remote Adapters](/connectivity/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
 
 ## Range Extender Support
 
@@ -253,6 +253,14 @@ data:
 target:
   entity_id: media_player.shelly_wall_display
 ```
+
+## Wall Display brightness
+
+Wall Display devices with firmware 2.6.2 or newer provide entities to control the screen brightness:
+
+- **Auto display brightness** switch: When on, the device adjusts the brightness to the ambient light.
+- **Display brightness** (0–100%): The screen brightness when auto brightness is off. This entity is unavailable while auto brightness is on, because the device then sets the brightness itself.
+- **Minimum auto display brightness** (1–50%): The lowest brightness that auto brightness uses. This entity is only available when the device reports support for it.
 
 ## Event entities
 
@@ -432,7 +440,23 @@ Trigger reboot of device.
 
 The integration creates one camera entity for each available stream. Stream 1 is disabled by default.
 
-The integration uses <abbr title="real-time streaming protocol">RTSP</abbr> streams. To use them, enable **RTSP Streaming** in the in the device’s web panel under **Camera** > **Settings**.
+The integration uses <abbr title="real-time streaming protocol">RTSP</abbr> streams. To use them, enable **RTSP Streaming** in the device’s web panel under **Camera** > **Settings**.
+
+### Browsing recordings and snapshots
+
+You can browse the recordings and snapshots saved on the camera's storage in the Home Assistant media browser, and play or view them from there.
+
+1. In the sidebar, go to {% my media_browser title="**Media**" %}.
+2. Select **Shelly**, and then select your camera.
+3. Select a video or an image to play or view it. To view it in your browser, select **Web browser** as the player. For more details, refer to [Browsing your media](/integrations/media_source/#browsing-your-media).
+
+Each camera appears as a folder named after the device. A camera is only listed while the device reports its storage (for example, a microSD card) as mounted and ready.
+
+The folder lists videos (recordings) and images (snapshots), with the newest first. It shows up to the 500 most recent items, with a thumbnail when the device provides one.
+
+Each item title shows the date and time in the Home Assistant time zone, the trigger event reported by the device, and the duration in seconds when the device reports one. For example, `2025-06-15 15:13:40 - motion_detected - 5s`. Items without a trigger show `manual`.
+
+If Home Assistant cannot read the storage, the media browser shows the error "Storage unavailable for" followed by the device name.
 
 ## Shelly Circuit Breaker
 

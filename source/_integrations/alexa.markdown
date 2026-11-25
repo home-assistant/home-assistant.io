@@ -1,5 +1,7 @@
 ---
 description: Instructions on how to connect Alexa/Amazon Echo to Home Assistant.
+ha_categories:
+  - other_ecosystems
 featured: true
 ha_release: '0.10'
 ha_domain: alexa

@@ -1,0 +1,28 @@
+@use '../variables' as *;
+
+// The list of connectivity pages, with the icon of each type of
+// connectivity as its bullet.
+.connectivity-list {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  a {
+    display: block;
+    font-weight: bold;
+  }
+
+  iconify-icon {
+    flex: none;
+    margin-top: 2px;
+    font-size: 24px;
+    color: $blueDark;
+  }
+}

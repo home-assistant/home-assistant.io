@@ -173,8 +173,6 @@ Before you can use this device with Home Assistant, you need to install a bit of
       - Local processing is faster.
       - The wake word is now *Okay Nabu*.
 
-      ![ESP32-S3-BOX-3 on device wake word processing](/images/assist/wake_word_engine_location.png)
-
 4. If you chose on-device wake word, but you do not want to use *Okay Nabu*, you can change the on-device wake word.
    - Currently, *Hey Jarvis* or *Alexa* are the supported alternatives.
    - To change your wake word, follow the steps in [Customizing the S3-BOX-3 with on-device wake words](/voice_control/s3-box-customize/#customizing-on-device-wake-words-microwakeword).
