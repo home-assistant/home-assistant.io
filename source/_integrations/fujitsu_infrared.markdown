@@ -1,19 +1,7 @@
 ---
-title: Fujitsu Infrared
 description: Integration to control Fujitsu General air conditioners using an infrared emitter and to receive commands from a Fujitsu General remote using an infrared receiver.
-ha_category:
-  - Climate
-  - Infrared
-ha_release: '2026.10'
-ha_iot_class: Assumed State
-ha_codeowners:
-  - '@Dr-Blank'
+ha_release: '2026.12'
 ha_domain: fujitsu_infrared
-ha_config_flow: true
-ha_platforms:
-  - climate
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **Fujitsu Infrared** {% term integration %} lets you control a compatible Fujitsu General air conditioner using any infrared emitter previously configured in Home Assistant. It can also keep the climate entity in sync when you have an infrared receiver set up, so the entity follows along when you use the physical Fujitsu General remote.
@@ -26,9 +14,9 @@ The integration supports compatible Fujitsu General air conditioners that can be
 
 ## Prerequisites
 
-Before setting up the Fujitsu Infrared integration, you need a working infrared emitter already set up in Home Assistant. It must expose an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your air conditioner to send commands.
+{% include integrations/infrared_controlled.md %}
 
-Optionally, you can also set up an infrared receiver, such as an IR receiver module, to capture commands from your Fujitsu General remote and keep the climate entity in sync.
+To send commands, you need an infrared emitter positioned to reach your air conditioner. For example, you can use an ESPHome device with an IR LED. Optionally, you can also set up an infrared receiver to capture commands from your Fujitsu General remote and keep the climate entity in sync.
 
 {% include integrations/config_flow.md %}
 
@@ -97,15 +85,39 @@ If you also have an infrared receiver entity (from an IR blaster that can also l
 
 ## Troubleshooting
 
-### The air conditioner does not turn on
+{% details "The air conditioner does not turn on" %}
+
+### Symptom: The entity is set to a mode, but the air conditioner stays off
+
+You select a mode in Home Assistant, but the air conditioner does not start.
+
+#### Description
 
 The Fujitsu General protocol only starts a unit that is off when the command carries a dedicated turn-on flag, which the integration sends when it switches the entity out of **Off**. If the air conditioner was turned on or off with the physical remote while Home Assistant was not tracking it, the entity and the unit disagree about whether the unit is running, and the next command may not include that flag.
 
-Set the entity to **Off** and then back to the mode you want. That sends a power-off command followed by a command carrying the turn-on flag, which puts both back in sync. Setting up an infrared receiver avoids the problem, since the entity then follows the physical remote.
+#### Resolution
 
-### Commands are ignored or only work sometimes
+1. Set the entity to **Off**.
+2. Set the entity back to the mode you want. This sends a command carrying the turn-on flag, which puts the entity and the unit back in sync.
+3. To avoid the problem, set up an infrared receiver, so the entity follows the physical remote.
 
-Make sure the IR emitter has line of sight to the receiver window of the indoor unit. Fujitsu General units send back an audible beep when a command is accepted, which is a quick way to confirm the emitter is aimed well enough.
+{% enddetails %}
+
+{% details "Commands are ignored or only work sometimes" %}
+
+### Symptom: The air conditioner does not react to some or all commands from Home Assistant
+
+#### Description
+
+The infrared signal does not reliably reach the indoor unit. Infrared needs a clear line of sight between the emitter and the receiver window of the indoor unit.
+
+#### Resolution
+
+1. Make sure the infrared emitter points at the receiver window of the indoor unit and nothing blocks the path.
+2. Send a command and listen for the beep. Fujitsu General units beep when they accept a command, which confirms the emitter is aimed well enough.
+3. For more steps, refer to [The device does not respond to commands](/connectivity/infrared/#the-device-does-not-respond-to-commands).
+
+{% enddetails %}
 
 ## Removing the integration
 
