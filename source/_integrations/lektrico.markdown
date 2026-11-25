@@ -137,6 +137,7 @@ Switches available in the library:
 | :------------------ | :-------------------------------------- |
 | authentication      | Allows you to select if the charger will automatically start to charge or if it needs authentication. |
 | lock                | Allows you to select if the charger is locked or not. When the charger is locked, no charging is possible.|
+| compatibility_mode  | Enable this if the charging current fluctuates during charging sessions. |
 
 ### Three-phase charger
 

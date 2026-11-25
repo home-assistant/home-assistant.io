@@ -8,13 +8,20 @@ The **Acaia** {% term integration %} allows you to control [Acaia](https://acaia
 
 If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically. If you are configuring the device manually, your scale needs to be turned on during setup.
 
-Once the integration is set up, Home Assistant will try to connect to your scale every 15 seconds. This means there is sometimes a small delay between you turning the scale on and Home Assistant connecting to it.
+Once the integration is set up, Home Assistant will try to connect to your scale every 15 seconds. This means there is sometimes a small delay between you turning the scale on and Home Assistant connecting to it. Because the scale only runs its own auto-off timer while nothing is connected to it, a permanent connection keeps it from turning off by itself. Use the **Idle disconnect timeout** option to change this.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Device:
   description: "The Bluetooth device that is your scale."
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Idle disconnect timeout:
+  description: "Minutes without a weight change after which Home Assistant disconnects from the scale, so the scale can turn itself off. Set to `0` (the default) to stay connected."
 {% endconfiguration_basic %}
 
 ## Available platforms & entities
@@ -84,6 +91,14 @@ actions:
 ```
 
 {% enddetails %}
+
+## Letting the scale turn off automatically
+
+Acaia scales only run their auto-off timer while no device is connected to them over Bluetooth. By default, Home Assistant stays connected at all times, so the scale never turns itself off and its battery drains even when it is not in use.
+
+To change this, set the **Idle disconnect timeout** option to a number of minutes. Once the weight hasn't changed for that long, Home Assistant disconnects and leaves the scale alone until it turns itself off. It reconnects within about 15 seconds of the scale being turned on again.
+
+If you want to use the scale again before it has turned itself off, turn it off for more than 30 seconds and then back on. Reloading the integration also reconnects it.
 
 ## Known limitations
 

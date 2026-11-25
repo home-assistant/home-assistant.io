@@ -57,13 +57,19 @@ A Twinguard also gets a **Smoke** binary sensor. It turns on while that Twinguar
 
 An Outdoor Siren gets **Acoustic alarm** and **Visual alarm** binary sensors that turn on while the siren sounds or flashes, and a **Tamper** diagnostic binary sensor.
 
+Outdoor Sirens that report their power supply also get diagnostic **AC/DC error**, **Battery defect**, **Battery temperature abnormal**, and **Primary power supply outage** binary sensors that turn on while the fault is present.
+
 A Motion Detector II gets an **Occupancy** binary sensor and a **Tamper** diagnostic binary sensor that turns on when the device was tampered with.
+
+A Smoke Detection System gets a **Smoke** binary sensor. It turns on while the system reports a smoke alarm, including a pre-alarm or a muted alarm, and turns off when the alarm ends.
 
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
 - A Motion Detector II that supports it gets a **Reset tamper** button that confirms the device is back in place and clears an active tamper alarm.
 - An Outdoor Siren gets a **Test alarm** button that fires a short alarm at the configured sound level.
+- A Smart Plug or Smart Plug Compact gets a **Reset consumption value** button that resets the accumulated energy consumption.
+- A Micromodule Dimmer with a dimmer configuration gets **Preview max brightness** and **Preview min brightness** configuration buttons that flash the connected load at that brightness, to help with calibration. They are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ### Climate
 
@@ -86,7 +92,7 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 
 - A Motion Detector or Motion Detector II gets an event entity that fires whenever the device detects motion.
 - A Smoke Detector gets an event entity that fires whenever its alarm state changes.
-- A Smoke Detection System gets an event entity that fires whenever its alarm state changes: **Idle** (`alarm_off`), **Alarm** (`alarm_on`), or **Alarm muted** (`alarm_muted`).
+- A Universal Switch or Universal Switch II gets an event entity for each key that fires short, long, and long-released presses.
 
 ### Light
 
@@ -106,6 +112,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Micromodule Dimmer that supports calibration gets a **Dimming speed** value (1 to 10), controlling how quickly the dimmer changes brightness.
 - A Thermostat II or Room Thermostat II that supports display configuration gets a **Display brightness** value (0 to 100 %) and a **Display on-time** value (0 to 3600 seconds), controlling how bright the display is and how long it stays on after a button press.
 - A Micromodule Dimmer that supports calibration gets a **Minimum brightness** and a **Maximum brightness** value (0 to 100 %), setting the lowest and highest brightness the dimmer outputs.
+- A Heating circuit gets an **Eco temperature** and a **Comfort temperature** value, setting the temperatures used by the eco and comfort levels within the range the controller allows.
 
 ### Select
 
@@ -134,9 +141,11 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Wall Thermostat
 - Room Thermostat II
 - Twinguard
+- Motion Detector II
 - Smart Plug
 - Smart Plug Compact
 - Light Switch
+- Micromodule Light Control
 - Micromodule Shutter Control
 - Micromodule Blinds
 
@@ -145,6 +154,8 @@ Outdoor Sirens that support it also provide diagnostic **Siren battery**, **Sire
 Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because the valve entity provides the position directly.
 
 Room Thermostat II devices provide a humidity sensor if the device supports it and a **Floor temperature** sensor if a floor sensor is connected.
+
+Battery-powered devices also provide a diagnostic **Battery level** sensor (**OK**, **Low**, or **Critically low**; unknown if the device reports nothing). It is disabled by default because the **Battery** binary sensor already reports when the battery is low; [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) if you need the finer levels.
 
 In addition, a single **Open doors and windows** sensor is added for the whole home, not tied to a specific device. Its state is the total number of currently open doors, windows, and other openings, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` state attributes.
 
@@ -175,6 +186,10 @@ Some devices also get an additional, device-specific switch. These are configura
 - Smart Plug or Smart Plug Compact that supports energy-saving mode: **Energy-saving mode**
 - Twinguard that supports this feature: **Heartbeat**, which enables or disables its nightly self-test notification
 - Micromodule Relay that supports switch configuration: **Swap inputs** and **Swap outputs**
+
+### Update
+
+The Bosch Smart Home Controller gets a **Software update** entity. It shows the installed and the available firmware version and lets you start the installation when an update is offered.
 
 ### Valve
 

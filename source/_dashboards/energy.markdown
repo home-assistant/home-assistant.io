@@ -1121,9 +1121,12 @@ type: water-total
 
 By default, all energy cards on the current dashboard are linked together. Any `energy-date-selection` cards on this dashboard control what data is shown. If there are none, a default date of today is used. When you add multiple date selection cards, they always show the same date. Any `energy-date-selection` card on a different dashboard does not affect energy cards on the current dashboard.
 
-To enable multiple different date selections on the same dashboard, they must be linked to different collections. This is done using the `collection_key` parameter, either in the visual editor or in the card YAML, with a value of any custom string that begins with `energy_` (strings that do not start with `energy_` will generate an error).
+To show different dates on the same dashboard, link the cards to different collections with the `collection_key` option.
+All energy cards support `collection_key`.
+Each key starts with `energy_`, followed by any text you choose, like `energy_2`.
 
-All energy cards support use of `collection_key` option.
+- In the visual editor, the **Energy card collection key** field already shows `energy_`, so enter only the part after it, like `2`.
+- In YAML, enter the full key, like `energy_2`. A key that doesn't start with `energy_` causes an error.
 
 ### Examples
 

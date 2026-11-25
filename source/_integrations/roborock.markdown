@@ -363,6 +363,8 @@ We are working on adding a lot of features to the core integration. We have reve
 Roborock vacuums do not support cleaning in a specific room order.
 {% endnote %}
 
+To clean rooms more than once, see [Automation: clean rooms more than once](#automation-clean-rooms-more-than-once).
+
 ## Known limitations
 
 ### The vacuum supports polling only
@@ -372,6 +374,10 @@ The Roborock integration polls your robot vacuum every 30 seconds with no push-b
 ### The vacuum requires cloud access
 
 Despite this integration's IoT class being local polling, cloud access is required for it to work just like any other cloud based integration.
+
+### Area cleaning has no option for the number of passes
+
+The [Clean area with vacuum cleaner](/actions/vacuum.clean_area/) action and **Cleaning by area** do not let you choose how many times the vacuum cleans each room. To clean rooms more than once, send the `app_segment_clean` command with its `repeat` option instead. See [Automation: clean rooms more than once](#automation-clean-rooms-more-than-once).
 
 ### Rate limiting on the cloud API
 
@@ -499,5 +505,42 @@ action:
     data:
       cleaning_area_id: kitchen
 ```
+
+{% enddetails %}
+
+### Automation: clean rooms more than once
+
+Send the vacuum to clean some rooms three times every day at 10:00. To find the ID numbers of your rooms, use the [Get maps](/actions/roborock.get_maps/) action.
+
+- **Trigger**: Time
+  - **At time**: `10:00:00`
+- **Action**: Send command to vacuum cleaner
+  - **Target**: Your Roborock vacuum
+  - **Command**: `app_segment_clean`
+  - **Parameters**: A list with one item. Enter it in YAML mode, as shown in the example. The item has two keys:
+    - `segments`: The ID numbers of the rooms to clean.
+    - `repeat`: The number of passes, from 1 to 3.
+
+{% details "YAML example for cleaning two rooms three times" %}
+
+{% example %}
+automation: |
+  alias: "Vacuum: Clean rooms three times"
+  triggers:
+    - trigger: time
+      at: "10:00:00"
+  actions:
+    - action: vacuum.send_command
+      target:
+        entity_id: vacuum.roborock_s8
+      data:
+        command: app_segment_clean
+        params:
+        # Replace these IDs with the room IDs from the Get maps action
+          - segments:
+              - 16
+              - 17
+            repeat: 3
+{% endexample %}
 
 {% enddetails %}

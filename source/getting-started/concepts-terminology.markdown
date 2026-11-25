@@ -14,7 +14,7 @@ Some integration cards show an icon:
 
 - The globe icon <img height="28px" src="/images/getting-started/globe-icon.png" alt="Globe icon"/> indicates that this integration requires the internet.
 - The file icon <img height="28px" src="/images/getting-started/config-file_icon.png" alt="Configuration file icon"/> indicates that this integration was not set up via the UI. You have either set it up in your {% term "`configuration.yaml`" %} file, or it is a dependency set up by another integration. If you want to configure it, you will need to do so in your {% term "`configuration.yaml`" %} file.
-- The custom icon <img height="28px" src="/images/getting-started/custom-icon.png" alt="Custom icon"/> indicates that this is not an official Home Assistant integration but that it was custom made. It could be imported from another source, for example downloaded from HACS.
+- The custom icon <img height="28px" src="/images/getting-started/custom-icon.png" alt="Custom icon"/> indicates that this is not an official Home Assistant integration but that it was custom made. It could be installed from another source, for example from the [Marketplace](/integrations/marketplace/) (formerly known as HACS).
 
 For a full list of compatible {% term integrations %}, refer to the [integrations](/integrations) documentation.
 

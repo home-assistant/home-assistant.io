@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: bambu_lab
 ha_integration_type: device
 ha_platforms:
+  - diagnostics
   - light
   - sensor
 ha_quality_scale: bronze

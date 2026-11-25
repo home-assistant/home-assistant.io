@@ -72,10 +72,10 @@ When a better-placed room sensor and the Tado reading drift apart, recalculate t
 - **Trigger**: State changed
   - **Entity**: Temp sensor room sensor, Tado temperature sensor
 - **Condition**: Template
-  - **Value template**: `{% raw %}{% set tado_temp = states('sensor.tado_temperature') | float(20) %} {% set room_temp = states('sensor.temp_sensor_room') | float(20) %} {{ (tado_temp - room_temp) | abs > 0.5 }}{% endraw %}`
+  - **Value template**: `{% set tado_temp = states('sensor.tado_temperature') | float(20) %} {% set room_temp = states('sensor.temp_sensor_room') | float(20) %} {{ (tado_temp - room_temp) | abs > 0.5 }}`
 - **Action**: Tado: Set climate temperature offset
   - **Target**: Tado
-  - **Offset**: `{% raw %}{% set tado_temp = states('sensor.tado_temperature') | float(20) %} {% set room_temp = states('sensor.temp_sensor_room') | float(20) %} {% set current_offset = state_attr('climate.tado', 'offset_celsius') %} {{ (-(tado_temp - room_temp) + current_offset) | round(1) }}{% endraw %}`
+  - **Offset**: `{% set tado_temp = states('sensor.tado_temperature') | float(20) %} {% set room_temp = states('sensor.temp_sensor_room') | float(20) %} {% set current_offset = state_attr('climate.tado', 'offset_celsius') %} {{ (-(tado_temp - room_temp) + current_offset) | round(1) }}`
 
 {% details "YAML example for syncing the offset" %}
 

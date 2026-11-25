@@ -21,6 +21,7 @@
     "diagnostics",
     "image",
     "light",
+    "select",
     "sensor",
     "switch",
     "update"

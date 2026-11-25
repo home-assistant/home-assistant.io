@@ -338,11 +338,12 @@ join: ',' | split: ',' -%}
       });
     });
 
-    // The state of the page lives in the URL, and only there: the category
-    // and subcategory in the path, the filters and the search in the query
-    // string. The URL can be shared, and Back and Forward just work. Every
-    // action builds the next state and adds one entry to the history;
-    // render() then makes the page, the controls, and the list match it.
+    // The state of the page lives in the URL: the category and subcategory
+    // in the path, the filters and the search in the query string. The URL
+    // can be shared, and Back and Forward just work. Every action builds the
+    // next state and adds one entry to the history; render() then makes the
+    // page, the controls, and the list match it. The one exception is a
+    // search you are still refining: see unsavedSearch.
     const FILTERS = ['connection', 'version', 'iot_class', 'quality_scale'];
     const QUICK_FILTERS = ['featured', 'partners'];
     const QUERY_KEYS = [...QUICK_FILTERS, ...FILTERS, 'search'];
@@ -362,10 +363,13 @@ join: ',' | split: ',' -%}
     const resultsCountEl = document.querySelector('.results-count');
     let integrations = [];
     let noResultsEl;
-    let orderedBy = null;
     let shownPlace = null;
-    // Typed in the search field, but not in the URL yet.
+    // Typed in the search field, but not searched for yet.
     let searchPending = false;
+    // Refining a search shows the results at once, but only writes the URL
+    // once you stop typing. Until then, the search shown lives here.
+    let unsavedSearch = null;
+    let saveSearchTimeout;
 
     function findCategory(slug) {
       return CATEGORIES.find(category => category.slug === slug);
@@ -395,6 +399,22 @@ join: ',' | split: ',' -%}
       if (!['true', 'false'].includes(state.featured) || state.partners) delete state.featured;
       if (state.featured === 'false' && state.category) delete state.featured;
       return state;
+    }
+
+    // The state as shown: the URL, plus a search that is not saved to it yet.
+    function currentState() {
+      const state = readState();
+      if (unsavedSearch !== null) state.search = unsavedSearch;
+      return state;
+    }
+
+    // Writes a refined search to the URL. It replaces the entry the search
+    // started, so Back does not walk through every word you typed.
+    function saveSearch() {
+      clearTimeout(saveSearchTimeout);
+      if (unsavedSearch === null) return;
+      history.replaceState(null, '', urlFor(currentState()));
+      unsavedSearch = null;
     }
 
     // The main page as you land on it: nothing picked yet.
@@ -427,9 +447,10 @@ join: ',' | split: ',' -%}
     // Undoing everything on the main page shows all integrations, not the
     // Featured ones you started with. Only a link to the main page lands
     // there again.
-    function go(state, { replace = false, landing = false } = {}) {
+    function go(state, { landing = false } = {}) {
       if (!landing && isLanding(state)) state.featured = 'false';
-      history[replace ? 'replaceState' : 'pushState'](null, '', urlFor(state));
+      saveSearch();
+      history.pushState(null, '', urlFor(state));
       render();
     }
 
@@ -476,7 +497,7 @@ join: ',' | split: ',' -%}
     }
 
     function render() {
-      const state = readState();
+      const state = currentState();
       const place = `${state.category || ''}/${state.subcategory || ''}`;
       if (place !== shownPlace) {
         showPlace(state);
@@ -514,26 +535,13 @@ join: ',' | split: ',' -%}
       const counts = countPerCategory(state, scores, false);
       showCategoryCounts(state, counts);
 
-      // While searching, the best matches come first. The cards move in the
-      // page itself, so the keyboard and screen readers follow the same order.
-      // Every match is sorted, also the ones a filter hides right now, so the
-      // order holds when that filter goes.
-      const order = scores ? state.search : '';
-      if (order !== orderedBy) {
-        const ranked = scores
-          ? [
-              ...integrations.filter(i => scores.has(i)).sort((a, b) => scores.get(b) - scores.get(a)),
-              ...integrations.filter(i => !scores.has(i)),
-            ]
-          : integrations;
-        ranked.forEach(integration => componentContainerEl.appendChild(integration.card));
-        componentContainerEl.appendChild(noResultsEl);
-        orderedBy = order;
-      }
+      // While searching, the best matches come first; otherwise, A to Z.
       const shownSet = new Set(shown);
       integrations.forEach(integration => {
-        integration.card.style.display = shownSet.has(integration) ? '' : 'none';
+        if (!shownSet.has(integration)) showCard(integration, false);
       });
+      orderCards(scores ? shown.sort((a, b) => scores.get(b) - scores.get(a)) : shown);
+      shown.forEach(integration => showCard(integration, true));
 
       noResultsEl.style.display = shown.length ? 'none' : '';
       if (!shown.length) {
@@ -714,7 +722,7 @@ join: ',' | split: ',' -%}
     subcategoryLinks.forEach(followInPage);
 
     filterSelects.forEach(select => select.addEventListener('change', () => {
-      const state = readState();
+      const state = currentState();
       if (select.value === '#') {
         delete state[select.dataset.id];
       } else {
@@ -726,7 +734,7 @@ join: ',' | split: ',' -%}
     // Featured and Works with Home Assistant: one of them, or neither.
     quickFilterButtons.forEach(button => button.addEventListener('click', () => {
       const key = button.dataset.quickFilter;
-      const state = readState();
+      const state = currentState();
       const wasOn = key === 'featured' ? showsFeatured(state) : Boolean(state.partners);
       QUICK_FILTERS.forEach(quickFilter => delete state[quickFilter]);
       if (!wasOn) state[key] = 'true';
@@ -749,27 +757,36 @@ join: ',' | split: ',' -%}
     }
 
     function clearSearch() {
-      const state = readState();
+      const state = currentState();
       delete state.search;
       searchInputEl.value = '';
       go(state);
       searchInputEl.focus();
     }
 
-    // Starting a search adds a history entry; refining it replaces that entry,
+    // Starting or clearing a search adds a history entry. Refining it shows
+    // the results right away, and replaces that entry once you stop typing,
     // so Back does not walk through every word you typed.
     function search() {
+      clearTimeout(searchTimeout);
       searchPending = false;
       const value = searchInputEl.value.trim();
-      const current = readState();
-      if (value === (current.search || '')) return;
-      const state = readState();
+      if (value === (currentState().search || '')) return;
+      const saved = readState().search;
+      if (saved && value) {
+        unsavedSearch = value === saved ? null : value;
+        clearTimeout(saveSearchTimeout);
+        if (unsavedSearch !== null) saveSearchTimeout = setTimeout(saveSearch, 750);
+        render();
+        return;
+      }
+      const state = currentState();
       if (value) {
         state.search = value;
       } else {
         delete state.search;
       }
-      go(state, { replace: Boolean(current.search && value) });
+      go(state);
     }
 
     let searchTimeout;
@@ -782,8 +799,14 @@ join: ',' | split: ',' -%}
     searchInputEl.addEventListener('keydown', event => {
       if (event.key === 'Escape' && searchInputEl.value) {
         clearSearch();
+      } else if (event.key === 'Enter') {
+        search();
+        saveSearch();
       }
     });
+    searchInputEl.addEventListener('blur', saveSearch);
+    // Reloading, or coming back to the page later, shows the same search.
+    window.addEventListener('pagehide', saveSearch);
     searchClearEl.addEventListener('click', clearSearch);
 
     // Lowercase, without accents, and words separated by single spaces.
@@ -974,6 +997,7 @@ join: ',' | split: ',' -%}
             <a class="empty-state-action" data-empty-action="everywhere" href="/integrations/">Search all categories</a>
             <button type="button" class="empty-state-action" data-empty-action="filters">Clear filters</button>
           </div>
+          <p class="empty-state-marketplace">The community may have made an integration that isn't listed here. You can install it from the <a href="/integrations/marketplace/">Marketplace</a> in Home Assistant.</p>
         </div>`;
       const cards = componentContainerEl.querySelectorAll('.option-card');
       integrations.forEach((integration, index) => {
@@ -983,10 +1007,58 @@ join: ',' | split: ',' -%}
       noResultsEl.querySelector('[data-empty-action="search"]').addEventListener('click', clearSearch);
       followInPage(noResultsEl.querySelector('[data-empty-action="everywhere"]'));
       noResultsEl.querySelector('[data-empty-action="filters"]').addEventListener('click', () => {
-        const state = readState();
+        const state = currentState();
         go({ category: state.category, subcategory: state.subcategory, search: state.search });
         searchInputEl.focus();
       });
+    }
+
+    function showCard(integration, show) {
+      if (integration.shown === show) return;
+      integration.card.style.display = show ? '' : 'none';
+      integration.shown = show;
+    }
+
+    // Puts the shown cards in this order. The cards move in the page itself,
+    // so the keyboard and screen readers follow the same order. Hidden cards
+    // can stay where they are. Moving cards is costly, so only the cards
+    // that are out of place move: when you refine a search, often none at all.
+    function orderCards(ordered) {
+      const position = new Map();
+      [...componentContainerEl.children].forEach((card, index) => position.set(card, index));
+      const positions = ordered.map(integration => position.get(integration.card));
+      const inPlace = longestIncreasing(positions);
+      let next = noResultsEl;
+      for (let i = ordered.length - 1; i >= 0; i--) {
+        const card = ordered[i].card;
+        if (!inPlace.has(i)) componentContainerEl.insertBefore(card, next);
+        next = card;
+      }
+    }
+
+    // The indexes of the longest run of numbers, not necessarily next to each
+    // other, that only go up. Those cards are already in order.
+    function longestIncreasing(numbers) {
+      if (numbers.every((number, i) => i === 0 || numbers[i - 1] < number)) {
+        return new Set(numbers.keys());
+      }
+      // tails[length - 1] is the index that ends the best run of that length.
+      const tails = [];
+      const previous = [];
+      numbers.forEach((number, i) => {
+        let low = 0;
+        let high = tails.length;
+        while (low < high) {
+          const middle = (low + high) >> 1;
+          if (numbers[tails[middle]] < number) low = middle + 1;
+          else high = middle;
+        }
+        previous[i] = low > 0 ? tails[low - 1] : -1;
+        tails[low] = i;
+      });
+      const run = new Set();
+      for (let i = tails[tails.length - 1]; i >= 0; i = previous[i]) run.add(i);
+      return run;
     }
 
     function buildImageEl(component) {
@@ -997,13 +1069,19 @@ join: ',' | split: ',' -%}
         'icon'
       ].join('/');
 
-      return `<img src="${urlBase}.png" srcset="${urlBase}@2x.png 2x" loading="lazy">`;
+      return `<img src="${urlBase}.png" srcset="${urlBase}@2x.png 2x" loading="lazy" decoding="async" alt="">`;
     }
 
     // The URL, the headings, the sidebar, and Back and Forward work right
     // away. The list follows once the integrations are in.
     upgradeOldURL();
-    window.addEventListener('popstate', render);
+    // Back and Forward show the page as it was, so a search that was not
+    // saved yet is left behind.
+    window.addEventListener('popstate', () => {
+      clearTimeout(saveSearchTimeout);
+      unsavedSearch = null;
+      render();
+    });
     render();
     if (document.activeElement === document.body) {
       searchInputEl.focus({ preventScroll: true });
