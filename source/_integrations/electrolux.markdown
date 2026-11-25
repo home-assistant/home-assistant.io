@@ -99,8 +99,6 @@ Entity availability depends on the appliance type and model. Some entities may n
 
 ### Binary sensors
 
-{% details "List of binary sensors" %}
-
 - **Connection state**
   - **Description**: Reports if the appliance is connected to the network.
   - **Available for appliance types**: All appliances.
@@ -126,11 +124,7 @@ Entity availability depends on the appliance type and model. Some entities may n
   - **Description**: Reports whether the food probe is inserted or not.
   - **Available for appliance types**: Oven.
 
-{% enddetails %}
-
 ### Button
-
-{% details "List of button entities" %}
 
 This entity is used to control the appliance with the following actions:
 
@@ -147,41 +141,25 @@ This entity is used to control the appliance with the following actions:
   - **Description**: Stop the appliance.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
 
-{% enddetails %}
-
 ### Climate
-
-{% details "List of climate entities" %}
 
 - **Air Conditioner climate**
   - **Description**: Allows controlling and reporting the appliance’s climate-related functions, such as changing the mode, setting the target temperature, turning the appliance on or off, adjusting the fan speed, and reading the current temperature.
   - **Available for appliance types**: Air Conditioner.
 
-{% enddetails %}
-
 ### Fan
-
-{% details "List of fan entities" %}
 
 - **Air Purifier fan**
   - **Description**: Allows turning on and off the air purifier, setting the fan speed, and setting the work mode of the air purifier.
   - **Available for appliance types**: Air Purifier.
 
-{% enddetails %}
-
 ### Humidifier
-
-{% details "List of humidifier entities" %}
 
 - **Dehumidifier humidifier entity**
   - **Description**: Allows controlling operating modes, setting the target humidity, reading the current humidity, and turning the appliance on or off.
   - **Available for appliance types**: Dehumidifier.
 
-{% enddetails %}
-
 ### Light
-
-{% details "List of light entities" %}
 
 - **Cavity light**
   - **Description**: Turn the cavity light on or off.
@@ -190,21 +168,13 @@ This entity is used to control the appliance with the following actions:
   - **Description**: Turn the overhead light on or off, and change the light's color and intensity.
   - **Available for appliance types**: Hood.
 
-{% enddetails %}
-
 ### Numbers
-
-{% details "List of number entities" %}
 
 - **Target Temperature**
   - **Description**: Set or report the target temperature.
   - **Available for appliance types**: Oven, Fridge.
 
-{% enddetails %}
-
 ### Select
-
-{% details "List of select entities" %}
 
 - **Temperature**
   - **Description**: Used to select or report the analog temperature setting. 
@@ -234,11 +204,7 @@ This entity is used to control the appliance with the following actions:
   - **Description**: Used to select the fan speed; cannot be used to turn off the fan.
   - **Available for appliance types**: Dehumidifier.
 
-{% enddetails %}
-
 ### Sensors
-
-{% details "List of sensors" %}
 
 - **Air filter state**
   - **Description**: Reports air filter status. 
@@ -302,17 +268,11 @@ This entity is used to control the appliance with the following actions:
   - **Description**: Reports if a window needs to be opened.
   - **Available for appliance types**: Hob.
 
-{% enddetails %}
-
 ### Switch
-
-{% details "List of switch entities" %}
 
 - **Child Lock**
   - **Description**: Enables the child lock function. This switch cannot be turned off remotely.
   - **Available for appliance types**: Hob.
-
-{% enddetails %}
 
 ### Vacuum
 
