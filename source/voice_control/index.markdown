@@ -41,7 +41,7 @@ When you talk or type to Assist, an [assistant](#assistants) handles your reques
 
 ### Assistants
 
-An assistant is a setup of Assist with its own name, language, and [conversation agent](#conversation-agents). An assistant can also use {% term "speech-to-text" %} to understand spoken requests, and {% term "text-to-speech" %} to reply out loud. For example, [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) provides both. You can also [run both locally](/voice_control/voice_remote_local_assistant/), on your own hardware. You can set up several assistants under {% my voice_assistants title="**Settings** > **Voice assistants**" %}. For example, you can have one assistant in English and one in German.
+An assistant is a setup of Assist with its own name, language, and [conversation agent](#conversation-agents). An assistant can also use {% term "speech-to-text" %} to understand spoken requests, and {% term "text-to-speech" %} to reply out loud. For example, [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) provides both. You can also [run both locally](/voice_control/voice_remote_local_assistant/), on your own hardware. You can set up several assistants under {% my voice_assistants title="**Settings** > **Voice assistants**" %}. For example, you can have one assistant in English and one in German.
 
 ### Conversation agents
 

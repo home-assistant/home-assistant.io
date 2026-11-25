@@ -18,6 +18,7 @@
   ],
   "platforms": [
     "binary_sensor",
+    "climate",
     "device_tracker",
     "number",
     "sensor",

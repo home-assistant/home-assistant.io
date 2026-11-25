@@ -16,7 +16,9 @@
     "network"
   ],
   "platforms": [
+    "ai_task",
     "conversation",
-    "stt"
+    "stt",
+    "tts"
   ]
 }

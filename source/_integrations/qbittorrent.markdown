@@ -27,6 +27,7 @@ The qBittorrent integration will add the following sensors:
 - `sensor.qbittorrent_alltime_download`: The total amount of downloaded data.
 - `sensor.qbittorrent_global_ratio`: The global share ratio (disabled by default).
 - `sensor.qbittorrent_all_torrents`: The current total torrents in qBittorrent.
+- `sensor.qbittorrent_completed_torrents`: The number of torrents that have finished downloading, including torrents that are seeding, stopped, queued for upload, or being checked.
 - `sensor.qbittorrent_active_torrents`: The current active torrents in qBittorrent.
 - `sensor.qbittorrent_inactive_torrents`: The current inactive torrents in qBittorrent.
 - `sensor.qbittorrent_paused_torrents`: The current paused torrents in qBittorrent.
