@@ -11,7 +11,7 @@ The **Schlage** {% term integration %} controls those locks through Schlage's cl
 Here are some of the things you can do once your locks are in Home Assistant:
 
 - Lock all doors at bedtime or when the last person leaves home.
-- Get notified when a lock jams or its battery runs low.
+- Get notified when a lock jams, its battery runs low, or its keypad is disabled after too many wrong codes.
 - Give a cleaner, pet sitter, or guest a PIN code that only works during a set time window.
 
 [Schlage]: https://www.schlage.com/
@@ -56,7 +56,7 @@ The **Schlage** integration provides the following entities for each lock.
 ### Binary sensors
 
 - **Keypad disabled**
-  - **Description**: Indicates that the lock has reported its keypad as disabled.
+  - **Description**: Indicates that the keypad has been disabled because too many incorrect codes were entered.
   - **Remarks**: Turns off again when the lock records a newer event in its activity log.
 
 ### Locks
@@ -160,7 +160,7 @@ automation: |
 
 ### Automation: Notify you when the keypad is disabled
 
-Send a notification to your phone when the lock reports that its keypad is disabled.
+When someone enters too many incorrect codes, the lock disables its keypad. Find out right away, because it could mean that someone is trying to get in.
 
 - **Trigger**: State: Keypad disabled changes to on
 - **Action**: Send a notification message
@@ -181,7 +181,7 @@ automation: |
         entity_id: notify.my_device
       data:
         title: "Front door keypad disabled"
-        message: "The lock reported that its keypad is disabled."
+        message: "Too many incorrect codes were entered."
 {% endexample %}
 
 {% enddetails %}
