@@ -249,6 +249,9 @@ You can change the operating mode, set the target humidity, read the current hum
   - **Description**: Reports when the appliance will stop running.
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
   - **Remarks**: Disabled by default.
+- **Extra cavity target temperature**
+  - **Description**: Reports the target temperature of the extra cavity (flexible drawer).
+  - **Available for appliance types**: Refrigerator.
 - **Food probe temperature**
   - **Description**: Reports food probe temperature.
   - **Available for appliance types**: Oven.
@@ -276,9 +279,6 @@ You can change the operating mode, set the target humidity, read the current hum
   - **Description**: Reports when the appliance will start running.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
   - **Remarks**: Disabled by default. On double ovens, there is a sensor for each cavity: **Upper cavity start at** and **Lower cavity start at**.
-- **Extra cavity target temperature**
-  - **Description**: Reports the target temperature of the extra cavity (flexible drawer).
-  - **Available for appliance types**: Refrigerator.
 - **Time left**
   - **Description**: Reports the amount of time left until the appliance stops running.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
