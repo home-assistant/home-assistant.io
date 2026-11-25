@@ -112,7 +112,7 @@ The integration polls the counters from Ablago **every minute**. If the counters
 
 {% details "Message: 'Invalid authentication'" %}
 
-The key was mistyped, revoked or has expired. Create a new key with the level **Counters only**. If Ablago rejects the key while the integration is running, Home Assistant asks for a new key without removing the integration.
+The key was mistyped, revoked or has expired. Create a new key with the level **Counters only**. If Ablago rejects the key while the integration is running, its entities become unavailable and the integration stops asking Ablago. To use the new key, remove the entry and add it again with the new key. The same applies if the address of Ablago changes.
 
 {% enddetails %}
 
