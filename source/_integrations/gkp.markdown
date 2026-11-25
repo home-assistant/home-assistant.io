@@ -138,6 +138,22 @@ To resolve this issue, try the following steps:
 3. If the radiator doesn't respond in the app either, check your Wi-Fi network, and move your router or add an access point if the radiator is far from it.
 4. Wait a few minutes: the radiator shows as available again as soon as it answers the next request.
 
+### "Authentication failed"
+
+#### Symptom: The integration fails to set up, or all radiators stay unavailable
+
+The **GKP Home** integration shows **Failed to set up** with the message "Authentication failed", or all your radiators become unavailable and the logs show an authentication error.
+
+##### Description
+
+Home Assistant can no longer access your GKP account. The integration doesn't support signing in again, so you need to remove it and add it again.
+
+##### Resolution
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **GKP Home**.
+2. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Delete**.
+3. Add the **GKP Home** integration again, and sign in with the email address and password of your GKP Home app.
+
 ### Newly added or removed radiators don't show up
 
 #### Symptom: A radiator you added or removed in the app doesn't appear or disappear in Home Assistant
