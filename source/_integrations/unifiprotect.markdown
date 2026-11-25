@@ -223,7 +223,7 @@ UniFi Protect reports each sensor's capabilities, and entities are only created 
 
 The UP Air Quality is listed as a device, but UniFi Protect does not report any sensor capabilities for it, so it only gets its battery and general device entities.
 
-The USL GlassBreak detects motion as well as glass break acoustically, but only its motion detection is supported. The public API carries a setting for glass break, without a capability or a state to read, so there is nothing to build an entity from. To act on glass break, configure it in the UniFi Protect Alarm Manager. Adopting a sensor switches the Alarm Manager to _Global_ mode; set it back to _Local_ for the alarm entities to appear. See [NVR](#nvr).
+The USL GlassBreak detects motion as well as glass break acoustically, but only its motion detection is supported. The public API carries a setting for glass break, without a capability or a state to read, so there is nothing to build an entity from. To act on glass break, configure it in the UniFi Protect Alarm Manager. Adopting a sensor switches the Alarm Manager to _Global_ mode. See [NVR](#nvr) for which alarm entities you get in each mode.
 
 - **Sensors** - A sensor is provided for each major function of the smart sensor device. Some depend on the mount type, which you set in the UniFi Protect app:
   - **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
@@ -298,7 +298,7 @@ Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device a
 
 - **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. It arms using the currently selected alarm profile and always reports the generic _armed away_ state. The name of the active profile is shown by the **Alarm profile** entity instead.
 - **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. You can only change the profile while the alarm is disarmed. To switch profiles while armed, disarm first, select the new profile, and arm again.
-- **Arm profiles**: An alarm control panel entity for each arm profile of the global Alarm Manager, named after the profile. You can arm and disarm each profile on its own. The entity shows _arming_ during the exit delay, _pending_ during the entry delay, and _triggered_ when the alarm is breached. Arm profiles you add or delete in UniFi OS are added or removed in Home Assistant automatically.
+- **Arm profiles**: An alarm control panel entity for each arm profile of the global Alarm Manager, named after the profile. You can arm and disarm each profile on its own. The entity shows _arming_ during the exit delay, _pending_ during the entry delay, and _triggered_ when the alarm is breached. Arm profiles you add in UniFi OS are added in Home Assistant automatically. The entities are unavailable while Home Assistant has no up-to-date list of arm profiles from UniFi Protect. A deleted profile is removed once the list is up to date again.
 - **Disk Health**: Each disk installed in your <abbr title="Network Video Recorder">NVR</abbr> will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
 - **Storage Sensors**: Sensors for storage utilization, recording capacity, and the distribution of the video on disk.
 
