@@ -12,12 +12,16 @@
     "computers_network.routers_network",
     "presence_location.network_presence"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "button",
     "device_tracker",
     "diagnostics",
     "image",
     "light",
+    "select",
     "sensor",
     "switch",
     "update"

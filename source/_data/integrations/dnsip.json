@@ -11,7 +11,12 @@
   "categories": [
     "computers_network.routers_network"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
+    "diagnostics",
     "sensor"
   ]
 }

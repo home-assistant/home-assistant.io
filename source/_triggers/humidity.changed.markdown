@@ -123,7 +123,7 @@ This fires whenever any humidity sensor in the basement area changes to a value 
 
 - Use a climate entity, humidifier entity, weather entity, or sensor with the humidity device class.
 - Climate, humidifier, and weather entities must expose a current humidity attribute.
-- The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
+- The threshold type checks only the new value, not the direction of the change. With **Above**, the trigger reacts to every change where the new value is above the threshold, whether the value went up or down. For example, with **Above** 60%, a change from 75% to 65% makes the trigger react. **Below**, **In range**, and **Outside range** work the same way.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when humidity first crosses a specific level, use [Relative humidity crossed threshold](/triggers/humidity.crossed_threshold/) instead.
 - Pair this trigger with [Relative humidity](/conditions/humidity.is_value/) in follow-up conditions to verify the reading meets a threshold before continuing the automation.

@@ -12,6 +12,9 @@
     "blinds_curtains",
     "security_safety.locks_access"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "button",
     "cover"

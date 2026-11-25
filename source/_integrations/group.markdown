@@ -137,6 +137,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
       - if at least one member has a numeric state: calculated according to the `type`
       - otherwise: set to `unknown`
 - The variable `ignore_non_numeric` can be combined with the type `first_available` to always take the first available numeric state from a group.
+- The type `stdev` calculates the sample standard deviation, which needs at least two numeric states. With fewer, a group that is not `unavailable` has the state `unknown`, whatever `ignore_non_numeric` is set to.
 
 ## Managing groups
 
@@ -209,6 +210,7 @@ Example YAML configuration of a cover group:
 cover:
   - platform: group
     name: "Window Covers"
+    device_class: window
     entities:
       - cover.hall_window
       - cover.living_room_window
@@ -341,15 +343,15 @@ ignore_non_numeric:
   required: false
   default: false
 unit_of_measurement:
-  description: Only available for `sensor` group. Set the unit of measurement for the sensor.
+  description: Only available for `sensor` group. Set the unit of measurement for the sensor. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes).
   type: string
   required: false
 device_class:
-  description: Only available for `binary-sensor` or `sensor` group. Set the device class according to available options for [binary sensors](/integrations/binary_sensor/#device-class) or [sensors](/integrations/sensor/#device-class) respectively.
+  description: Only available for `binary_sensor`, `cover`, and `sensor` groups. Set the device class according to the available options for [binary sensors](/integrations/binary_sensor/#device-class), [covers](/integrations/cover/#list-of-available-device-classes), or [sensors](/integrations/sensor/#device-class). A cover group doesn't take its device class from its members. If you don't set one, the cover group has no device class. For a cover group created in the UI, you can [change the device class](/integrations/cover/#changing-the-device-class-of-a-cover) in the entity settings.
   type: string
   required: false
 state_class:
-  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
+  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](/integrations/sensor/#state-class).
   type: string
   required: false
 {% endconfiguration %}

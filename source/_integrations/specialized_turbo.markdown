@@ -243,17 +243,19 @@ If the connection stops, the entities become unavailable. The integration reconn
 - **Encrypted setup**: Account key retrieval requires internet access during setup or reauthentication.
 - **Bluetooth proxies**: Some ESPHome proxies cannot complete operating-system pairing requests.
 
-## Move from the HACS integration
+## Move from the custom integration
 
-The Core integration uses the same domain and entity unique IDs as the HACS integration.
+The built-in integration uses the same domain and entity unique IDs as the custom integration from the Marketplace (formerly known as HACS).
 
-1. Update the HACS integration to version 0.6.0 or later.
+1. Update the custom integration to version 0.6.0 or later.
 2. Restart Home Assistant.
-3. Remove the Specialized Turbo custom integration files from HACS.
+3. Delete the `specialized_turbo` folder from the `custom_components` folder in your configuration folder. Do not uninstall the integration from the Marketplace, because the Marketplace only uninstalls it together with its configuration entry.
 4. Do not delete the Specialized Turbo configuration entry.
 5. Restart Home Assistant with a version that includes the Core integration.
 
 Home Assistant keeps the configuration entry, the encrypted bike key, and the entity registry entries.
+
+The Marketplace can still list the custom integration as installed. Do not install updates for it from the Marketplace, because that installs the custom integration again and replaces the built-in integration.
 
 ## Privacy
 

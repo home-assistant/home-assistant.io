@@ -7,7 +7,7 @@ description: "Asks Google to sync your devices from Home Assistant."
 
 Use this action to ask Google to sync your devices from Home Assistant again. After a sync, the Google Home app shows the devices you currently expose, including any you added or removed. It's the same as saying "Hey Google, sync my devices".
 
-This action is for the manual [Google Assistant](/integrations/google_assistant/) setup. If you use Home Assistant Cloud, you don't need it: Home Assistant Cloud syncs your devices with Google for you when you change which entities are exposed.
+This action is for the manual [Google Home](/integrations/google_assistant/) setup. If you use Home Assistant Link, you don't need it: Home Assistant Link syncs your devices with Google for you when you change which entities are exposed.
 
 {% include actions/ui_header.md %}
 
@@ -17,7 +17,7 @@ To request a sync from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Google Assistant: Request sync**.
+5. From the search box, search for and select **Google Home: Request sync**.
 6. In an automation, enter the **Agent user ID**. See the options below.
 7. Select **Save**.
 
@@ -55,9 +55,9 @@ agent_user_id:
 
 ## Good to know
 
-- This action needs a `service_account` in your Google Assistant YAML configuration. Without it, the sync fails and Home Assistant logs an error. See [Utilize device sync](/integrations/google_assistant/#utilize-device-sync).
+- This action needs a `service_account` in your Google Home YAML configuration. Without it, the sync fails and Home Assistant logs an error. See [Utilize device sync](/integrations/google_assistant/#utilize-device-sync).
 - If no agent user ID is given and the action doesn't run as a user, nothing is synced and Home Assistant logs a warning.
-- If the sync fails with an error, see [Troubleshooting](/integrations/google_assistant/#troubleshooting) on the Google Assistant page.
+- If the sync fails with an error, see [Troubleshooting](/integrations/google_assistant/#troubleshooting) on the Google Home page.
 
 {% include actions/try_it.md %}
 
@@ -69,7 +69,7 @@ When you add or remove devices in your YAML configuration, use the [`google_assi
 
 - **Trigger**: Home Assistant
   - **Event**: Start
-- **Action**: Google Assistant: Request sync
+- **Action**: Google Home: Request sync
   - **Agent user ID**: Your Home Assistant user ID
 
 {% details "YAML example for syncing with Google after a restart" %}
@@ -95,7 +95,7 @@ When a new entity is added to Home Assistant, ask Google to sync, so a new devic
 - **Trigger**: Manual event received
   - **Event type**: `entity_registry_updated`
   - **Event data**: `action: create`
-- **Action**: Google Assistant: Request sync
+- **Action**: Google Home: Request sync
   - **Agent user ID**: Your Home Assistant user ID
 
 {% details "YAML example for syncing with Google when an entity is added" %}

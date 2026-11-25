@@ -6,7 +6,11 @@
   "categories": [
     "presence_location.network_presence"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
-    "device_tracker"
+    "device_tracker",
+    "diagnostics"
   ]
 }

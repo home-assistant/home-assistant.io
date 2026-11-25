@@ -10,7 +10,11 @@
   "categories": [
     "vehicles_transport"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
+    "diagnostics",
     "sensor"
   ]
 }

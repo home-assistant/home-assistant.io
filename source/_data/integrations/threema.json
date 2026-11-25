@@ -11,7 +11,11 @@
   "categories": [
     "messaging_notifications.chat_apps"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
+    "image",
     "notify"
   ]
 }

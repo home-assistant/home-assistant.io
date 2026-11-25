@@ -6,6 +6,9 @@
   "categories": [
     "presence_location.phones_companion_apps"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "device_tracker"
   ]

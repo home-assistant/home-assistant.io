@@ -4,7 +4,8 @@
   "integration_type": "device",
   "codeowners": [
     "@AjinkyaGokhale",
-    "@NiccoFink"
+    "@NiccoFink",
+    "@rohit0407org"
   ],
   "config_flow": true,
   "iot_class": "local_polling",
@@ -12,6 +13,9 @@
   "categories": [
     "energy.meters_monitoring",
     "water.meters_leak_detection"
+  ],
+  "connectivity": [
+    "network"
   ],
   "platforms": [
     "diagnostics",

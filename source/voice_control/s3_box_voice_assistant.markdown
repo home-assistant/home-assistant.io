@@ -26,7 +26,7 @@ This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3(B), or an E
 ## Prerequisites
 
 - Home Assistant 2023.12 or later, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
-- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
+- [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome or Edge browser on a desktop (not Android/iOS)
 - One of the Espressif ESP32-S3-BOX variants:
@@ -172,8 +172,6 @@ Before you can use this device with Home Assistant, you need to install a bit of
     - Under **Wake word engine location**, select **On device**, if you want your wake word to be processed on the device itself, and not in Home Assistant.
       - Local processing is faster.
       - The wake word is now *Okay Nabu*.
-
-      ![ESP32-S3-BOX-3 on device wake word processing](/images/assist/wake_word_engine_location.png)
 
 4. If you chose on-device wake word, but you do not want to use *Okay Nabu*, you can change the on-device wake word.
    - Currently, *Hey Jarvis* or *Alexa* are the supported alternatives.

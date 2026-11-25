@@ -30,7 +30,7 @@ In addition, the entity can have the following states:
 
 ## Device class
 
-The device class tells Home Assistant whether a switch controls a power outlet. Home Assistant uses the device class to choose the icon. Google Assistant, Alexa, and Apple Home use the device class to show an outlet as an outlet or a smart plug.
+The device class tells Home Assistant whether a switch controls a power outlet. Home Assistant uses the device class to choose the icon. Google Home, Alexa, and Apple Home use the device class to show an outlet as an outlet or a smart plug.
 
 The integration that provides the switch sets the device class.
 

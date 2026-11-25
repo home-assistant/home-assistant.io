@@ -69,7 +69,7 @@ image:
 
 Show a festive picture on your dashboard on December 31. This example uses the **Date** sensor from the [Time & Date](/integrations/time_date/) integration, and a picture stored in a **holidays** folder in your [local media](/integrations/media_source/#local-media).
 
-- **Trigger**: Template, {% raw %}`{{ states('sensor.date').endswith('-12-31') }}`{% endraw %}
+- **Trigger**: Template, `{{ states('sensor.date').endswith('-12-31') }}`
 - **Action**: Collection image: Select image
   - **Target**: My photos (`image.my_photos`)
   - **Image**: Select `happy_new_year.jpg` from the `holidays` folder in the media browser

@@ -76,11 +76,11 @@ Numbers are limited in the same way: the camera microphone level, the floodlight
 
 Selects are limited in the same way: the camera HDR mode, the floodlight light mode, and the alarm profile.
 
-Sensors are limited in the same way: the smart sensor battery, signal strength, signal quality, light, humidity and temperature readings with their trip timestamps, the floodlight last motion, the key fob sensors, and the Alarm Hub battery voltage and last event.
+Sensors are limited in the same way: the smart sensor battery, signal strength, signal quality, light, humidity and temperature readings with their trip timestamps, the floodlight last motion, and the key fob sensors.
 
-With an API key only, binary sensors are limited to the states the public API reports: camera motion, sound detections, and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; smart sensor contact, motion, leak, tamper, and low battery; key fob low battery; Alarm Hub tamper, backup battery, and zone inputs; and the relay inputs. The read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
+With an API key only, binary sensors are limited to the states the public API reports: camera motion, sound detections, and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; smart sensor contact, motion, leak, tamper, and low battery; key fob low battery; and the relay inputs. The read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
 
-Events are limited in the same way: the camera motion, smart detection, sound detection and package events, the smoke detector alarm and maintenance events, and the key fob buttons. The doorbell ring, NFC, fingerprint and vehicle events need a local user.
+Events are limited in the same way: the camera motion, smart detection, sound detection and package events, the smoke detector alarm and maintenance events, the key fob buttons, and the Alarm Hub events. The doorbell ring, NFC, fingerprint and vehicle events need a local user.
 
 {% note %}
 The public Integration API is actively growing, so more features become available with an API key only over time.
@@ -223,7 +223,7 @@ UniFi Protect reports each sensor's capabilities, and entities are only created 
 
 The UP Air Quality is listed as a device, but UniFi Protect does not report any sensor capabilities for it, so it only gets its battery and general device entities.
 
-The USL GlassBreak detects motion as well as glass break acoustically, but only its motion detection is supported. The public API carries a setting for glass break, without a capability or a state to read, so there is nothing to build an entity from. To act on glass break, configure it in the UniFi Protect Alarm Manager. Adopting a sensor switches the Alarm Manager to _Global_ mode; set it back to _Local_ for the alarm entities to appear. See [NVR](#nvr).
+The USL GlassBreak detects motion as well as glass break acoustically, but only its motion detection is supported. The public API carries a setting for glass break, without a capability or a state to read, so there is nothing to build an entity from. To act on glass break, configure it in the UniFi Protect Alarm Manager. Adopting a sensor switches the Alarm Manager to _Global_ mode. See [NVR](#nvr) for which alarm entities you get in each mode.
 
 - **Sensors** - A sensor is provided for each major function of the smart sensor device. Some depend on the mount type, which you set in the UniFi Protect app:
   - **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
@@ -285,11 +285,12 @@ Each UniFi Protect key fob (USL-FOB) is added as a separate device in Home Assis
 
 Each UniFi Protect Alarm Hub is added as a separate device in Home Assistant, linked to the NVR. See [Public API features](#public-api-features).
 
-- **Tamper**: A binary sensor that turns on when the Alarm Hub cover is open.
-- **Zones**: A binary sensor for each enabled zone input. Its name uses the zone name configured in UniFi Protect, and its type follows the input type, such as motion, entry, smoke, glass break, or emergency button. It turns on while the zone is in alarm.
-- **Battery**: A diagnostic binary sensor that turns on when the backup battery is low or critical.
-- **Battery voltage**: A diagnostic sensor with the backup battery voltage. It shows as unknown while no backup battery is connected.
-- **Last event**: A diagnostic sensor with the time of the last event reported by the Alarm Hub.
+UniFi Protect reports what happens at an Alarm Hub as events. The Alarm Hub therefore has event entities, which report that something happened, instead of entities with a state.
+
+- **Inputs**: An event entity for each enabled input. Its name uses the input name configured in UniFi Protect, or _Input_ followed by the number of its terminal. The emergency input has no entity of its own. Its events arrive on the Alarm Hub entity. See [Alarm Hub Input Event](#alarm-hub-input-event).
+- **Alarm Hub**: An event entity named after the Alarm Hub, for events of the hub itself, such as an opened cover, a low backup battery, or a switched relay. See [Alarm Hub Event](#alarm-hub-event).
+
+Inputs enabled, disabled, or renamed in UniFi Protect are picked up when the integration is reloaded. Until then, the events of a newly enabled input arrive on the Alarm Hub entity.
 
 ### NVR
 
@@ -297,13 +298,19 @@ Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device a
 
 - **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. It arms using the currently selected alarm profile and always reports the generic _armed away_ state. The name of the active profile is shown by the **Alarm profile** entity instead.
 - **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. You can only change the profile while the alarm is disarmed. To switch profiles while armed, disarm first, select the new profile, and arm again.
+- **Arm profiles**: An alarm control panel entity for each arm profile of the global Alarm Manager, named after the profile. You can arm and disarm each profile on its own. The entity shows _arming_ during the exit delay, _pending_ during the entry delay, and _triggered_ when the alarm is breached. Arm profiles you add in UniFi OS are added in Home Assistant automatically. The entities are unavailable while Home Assistant has no up-to-date list of arm profiles from UniFi Protect. A deleted profile is removed once the list is up to date again.
 - **Disk Health**: Each disk installed in your <abbr title="Network Video Recorder">NVR</abbr> will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
 - **Storage Sensors**: Sensors for storage utilization, recording capacity, and the distribution of the video on disk.
 
 {% important %}
-The **Alarm Manager** and **Alarm profile** entities are only available when the UniFi Protect Alarm Manager is set to _Local_ mode. While it is in _Global_ mode, these entities do not appear, because arm profiles are currently not exposed by the public API in that mode.
+Which alarm entities you get depends on the mode of the UniFi Protect Alarm Manager:
 
-UniFi Protect automatically switches the Alarm Manager to _Global_ mode when you adopt sensors, relays, fobs, or an Alarm Hub, so the alarm entities are currently unavailable if you use any of those devices.
+- In _Local_ mode, you get the **Alarm Manager** and **Alarm profile** entities.
+- In _Global_ mode, you get an alarm control panel entity for each arm profile. This requires UniFi Protect 7.4 or later. On earlier versions, the alarm cannot be controlled from Home Assistant in _Global_ mode.
+
+UniFi Protect automatically switches the Alarm Manager to _Global_ mode when you adopt sensors, relays, fobs, or an Alarm Hub.
+When the mode changes, Home Assistant replaces the alarm entities.
+Update the automations and dashboards that use them.
 {% endimportant %}
 
 ## Media source
@@ -436,7 +443,7 @@ The UniFi Protect integration provides support for various event types triggered
 - **Event Attributes**:
   - **event_type**: `ring`
   - **event_id**: A unique ID that identifies the doorbell event.
-- **Description**: This event is triggered when someone rings the doorbell. It provides an `event_id`, which can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_doorbell` to get the thumbnail image when a ring occurs.
+- **Description**: This event is triggered when someone rings the doorbell. To start an automation on a ring, use the [Event received](/triggers/event.received/) trigger with the `ring` event type. It only reacts to actual rings, not to the entity becoming available again after a restart. The `event_id` attribute can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_poe_doorbell` to get the thumbnail image when a ring occurs.
 
 #### Example G4 Doorbell Ring Triggered Automation
 
@@ -444,20 +451,12 @@ The UniFi Protect integration provides support for various event types triggered
 alias: G4 Doorbell Ring Triggered Automation
 description: Automation that triggers when the G4 Doorbell Pro rings
 triggers:
-  - event_type: state_changed
-    event_data:
+  - trigger: event.received
+    target:
       entity_id: event.g4_doorbell_pro_poe_doorbell # Replace with your doorbell entity
-    trigger: event
-conditions:
-  - condition: template
-    value_template: >
-      {% raw %}{{
-        trigger.event.data.old_state is not none and
-        not trigger.event.data.old_state.state == 'unavailable' and
-        trigger.event.data.new_state is not none and
-        not trigger.event.data.new_state.state == 'unavailable' and
-        trigger.event.data.new_state.attributes.event_type == 'ring'
-      }}{% endraw %}
+    options:
+      event_type:
+        - ring
 actions:
   - data:
       message: Someone is at the door!
@@ -465,7 +464,7 @@ actions:
     action: notify.mobile_app_your_device # Replace with your notification target
 ```
 
-The condition ensures the notification is only sent for actual doorbell rings and not during startup or power-cycle state restoration, when the entity may temporarily transition through the `unavailable` state (such as during a UniFi Protect restart).
+The Event received trigger only reacts to actual `ring` events. It does not fire during startup or power-cycle state restoration, when the entity may temporarily transition through the `unavailable` state (such as during a UniFi Protect restart).
 
 ### NFC Card Scanned Event
 
@@ -767,6 +766,106 @@ mode: single
 ```
 
 The `not_from` option keeps the automation from running during startup or power-cycle state restoration, when the entity temporarily transitions out of the `unavailable` state.
+
+### Alarm Hub Input Event
+
+- **Event Name**: The input name configured in UniFi Protect, or _Input_ followed by the number of its terminal.
+- **Event Attributes**:
+  - **event_type**: One of `motion`, `entry_opened`, `entry_closed`, `smoke`, `glass_break`, `button_press`, or `tamper`.
+  - **event_id**: A unique ID that identifies the event.
+  - **status**: The status UniFi Protect reports with the event, such as `alarm`, `normal` for a closed entry input, or `short` and `cut` for a tampered wire.
+- **Description**: This event is triggered when an input of a UniFi Protect Alarm Hub reports something. The event type follows the input type set in UniFi Protect. An input without a type reports `motion`.
+
+Each event is a one-time notification, not a state. An entry input reports both opening and closing. For the other input types, the event fires when the input triggers. There is no event when it returns to normal.
+
+{% note %}
+The type of an input can change in UniFi Protect, so every input exposes the full list of event types above. Reload the integration after you enable, disable, or rename an input in UniFi Protect.
+{% endnote %}
+
+To react to an Alarm Hub event in an automation, use the [**Event received**](/triggers/event.received/) trigger and select the event types you want.
+
+#### Example Alarm Hub Entry Automation
+
+```yaml
+alias: "Alarm Hub front door opened"
+description: "Send a notification when the front door contact opens"
+triggers:
+  - trigger: event.received
+    target:
+      # Replace with your Alarm Hub input entity
+      entity_id: event.alarm_hub_front_door
+    options:
+      event_type: entry_opened
+actions:
+  # Replace with your notification target
+  - action: notify.mobile_app_your_device
+    data:
+      message: "The front door was opened."
+```
+
+#### Example Alarm Hub Motion Light Automation
+
+A motion input reports motion, but not when the motion ends. With `mode: restart`, each motion event starts the delay again, so the light turns off 2 minutes after the last motion event.
+
+```yaml
+alias: "Alarm Hub hallway light"
+description: "Turn on the hallway light when the motion detector triggers"
+triggers:
+  - trigger: event.received
+    target:
+      # Replace with your Alarm Hub input entity
+      entity_id: event.alarm_hub_hallway
+    options:
+      event_type: motion
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.hallway
+  - delay:
+      minutes: 2
+  - action: light.turn_off
+    target:
+      entity_id: light.hallway
+mode: restart
+```
+
+#### Example Alarm Hub Door State
+
+To see whether a door is open or closed, you can create a binary sensor from the entry events. Add this to your {% term "`configuration.yaml`" %} file. The binary sensor keeps its state when Home Assistant restarts and updates with the next entry event.
+
+{% raw %}
+
+```yaml
+template:
+  - triggers:
+      - trigger: event.received
+        target:
+          # Replace with your Alarm Hub input entity
+          entity_id: event.alarm_hub_front_door
+        options:
+          event_type:
+            - entry_opened
+            - entry_closed
+    binary_sensor:
+      - name: "Front door"
+        device_class: door
+        state: >
+          {{ trigger.to_state.attributes.event_type == 'entry_opened' }}
+```
+
+{% endraw %}
+
+### Alarm Hub Event
+
+- **Event Name**: The name of the Alarm Hub.
+- **Event Attributes**:
+  - **event_type**: One of `device_tamper` (the cover was opened), `battery_low`, `battery_connected` (the backup battery was connected or disconnected), or `relay_switched`. Events of an input without an entity of its own, such as the emergency input, use the input event types listed above.
+  - **event_id**: A unique ID that identifies the event.
+  - **status**: The status UniFi Protect reports with the event, if any.
+  - **input**: The terminal number of the input the event belongs to, if any.
+- **Description**: This event is triggered when the Alarm Hub itself reports something, or when an input without an entity of its own triggers.
+
+There is no event when the cover is closed again. UniFi Protect keeps the tamper alert until it is cleared in UniFi Protect.
 
 ### Smoke Detector Alarm Event
 

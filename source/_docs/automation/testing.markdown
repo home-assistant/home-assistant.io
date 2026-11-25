@@ -142,7 +142,7 @@ Do this when an automation did not run as expected, to see which path it took an
    - In the automation editor, select **Traces** in the top bar. On narrow screens, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Traces**.
      - Result: The trace of the latest run opens.
    - In **Activity**, select an entry that the automation caused. In the dialog that opens, select **View trace** next to the automation.
-     - Result: The trace of the run that caused this entry opens.
+     - Result: The trace of the run that caused this entry opens. If the automation called scripts, each script run has its own **View trace** that opens the trace of that run.
 2. To see another run, select it under **Select trace**, or select **Older trace** {% icon "mdi:ray-end-arrow" %} or **Newer trace** {% icon "mdi:ray-start-arrow" %}.
    - The list shows when each run started and how it ended, for example, **Stopped because a condition failed**.
 

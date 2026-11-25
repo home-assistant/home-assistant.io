@@ -10,6 +10,7 @@ ha_codeowners:
   - '@mtandersson'
 ha_domain: abrp
 ha_platforms:
+  - device_tracker
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -32,6 +33,8 @@ The **A Better Routeplanner (ABRP)** {% term integration %} connects your ABRP a
 
 Use this integration to track battery level and range, then use that data in dashboards and automations.
 
+You can also send data from Home Assistant to ABRP with an action, for example the state of charge from your vehicle's own integration, so ABRP plans routes from the right starting point.
+
 ## Supported devices
 
 This integration works with electric vehicles supported by the [A Better Routeplanner](https://abetterrouteplanner.com/) cloud service and added to your ABRP garage.
@@ -49,11 +52,11 @@ The integration does not connect to your vehicle directly. It uses the telemetry
 
 - An [A Better Routeplanner](https://abetterrouteplanner.com/) account.
 - At least one vehicle in your ABRP garage.
-- The [Home Assistant Cloud](/integrations/cloud/) integration loaded. It is included in `default_config:`, which is enabled by default. If you removed `default_config:` from your {% term "configuration.yaml" %}, add `cloud:` instead.
+- The [Home Assistant Link](/integrations/link/) integration loaded. It is included in `default_config:`, which is enabled by default. If you removed `default_config:` from your {% term "configuration.yaml" %}, add `cloud:` instead.
 
 {% include integrations/config_flow.md %}
 
-During setup, you sign in to ABRP and every vehicle in your ABRP garage is added to Home Assistant. Sign-in uses account linking provided by Home Assistant Cloud. This service is free and does not require a Home Assistant Cloud subscription, so you do not need API credentials or a developer app.
+During setup, you sign in to ABRP and every vehicle in your ABRP garage is added to Home Assistant. Sign-in uses account linking provided by Home Assistant Link. This service is free and does not require a Home Assistant Link subscription, so you do not need API credentials or a developer app.
 
 To monitor vehicles from more than one ABRP account, add the integration once for each account.
 
@@ -87,9 +90,15 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
 - **State of health**: Estimated battery health percentage.
 - **Battery capacity**: Estimated usable battery capacity.
 
+### Device tracker
+
+- **Location**: The last known GPS location of the vehicle. It is added when the vehicle first reports a position and is listed under **Diagnostic** on the device page.
+
 ### Controls
 
-This is a read-only integration. It does not provide vehicle control actions like start charging, stop charging, climate control, or lock and unlock.
+The integration does not control your vehicle. It does not provide vehicle control actions like start charging, stop charging, climate control, or lock and unlock.
+
+{% include integrations/actions.md %}
 
 ## A Better Routeplanner automation examples
 
@@ -153,23 +162,71 @@ automation: |
 
 {% enddetails %}
 
+### Automation: Send the state of charge from another integration to ABRP
+
+If your vehicle's own integration reports the battery level, forward it to ABRP every time it changes, so route planning always starts from the current value.
+
+- **Trigger**: State
+  - **Entity**: The battery level sensor from your vehicle's integration
+  - **To**: Any state (ignoring attribute changes)
+- **Condition**: Template
+  - **Value template**: {% raw %}`{{ is_number(trigger.to_state.state) }}`{% endraw %}
+- **Action**: Send telemetry
+  - **Vehicle**: Your vehicle in ABRP
+  - **State of charge**: {% raw %}`{{ trigger.to_state.state | float }}`{% endraw %}. The number field doesn't accept a template, so select **Edit in YAML** on the action to enter it.
+
+{% details "YAML example for sending the state of charge to ABRP" %}
+
+{% example %}
+automation: |
+  alias: "Send battery level to ABRP"
+  triggers:
+    - trigger: state
+      entity_id: sensor.my_ev_battery_level
+      to:
+  conditions:
+    - condition: template
+      value_template: "{{ is_number(trigger.to_state.state) }}"
+  actions:
+    - action: abrp.send_telemetry
+      data:
+        vehicle: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        soc: "{{ trigger.to_state.state | float }}"
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 Telemetry is pushed from ABRP in near real time when ABRP receives vehicle updates. If the live stream connection drops, the integration reconnects automatically.
 
 Each sensor shows the newest value ABRP has for your vehicle. Some telemetry, like power and voltage, only changes while your vehicle is actively reporting, usually while driving or charging.
 
-Your ABRP garage list is read when the integration loads. Reload the integration after adding or renaming vehicles in ABRP. Removing a vehicle from ABRP does not automatically remove its device from Home Assistant.
+The device tracker updates when ABRP receives a new position for your vehicle.
+
+The integration also checks your ABRP garage every hour. New vehicles, including vehicles shared with you, are added automatically, and their sensors appear when the vehicle first reports data. If you rename a vehicle in ABRP, its device name updates too, unless you renamed the device in Home Assistant.
 
 ## Known limitations
 
 ### Vehicle controls
 
-The integration is read-only and does not control your vehicle. To send commands to your vehicle, use the manufacturer integration for your vehicle, such as [Tesla Fleet](/integrations/tesla_fleet/), [Volvo](/integrations/volvo/), [Renault](/integrations/renault/), [Nissan Leaf](/integrations/nissan_leaf/), or [Subaru](/integrations/subaru/). The available commands, like charging, climate control, or locking, depend on the manufacturer integration and your vehicle.
+The integration does not control your vehicle. It can send telemetry to ABRP, but not commands to the vehicle. To send commands to your vehicle, use the manufacturer integration for your vehicle, such as [Tesla Fleet](/integrations/tesla_fleet/), [Volvo](/integrations/volvo/), [Renault](/integrations/renault/), [Nissan Leaf](/integrations/nissan_leaf/), or [Subaru](/integrations/subaru/). The available commands, like charging, climate control, or locking, depend on the manufacturer integration and your vehicle.
 
 ### Telemetry availability
 
 Data freshness depends on ABRP and your vehicle manufacturer data source. Some entities appear only after the first value is received.
+
+### Vehicle location
+
+The location is shown as ABRP reports it. For vehicles without a direct connection to ABRP, the position can come from the ABRP phone app, so the device tracker shows your phone's location instead.
+
+### Removed vehicles
+
+Vehicles you remove from your ABRP garage, or that are no longer shared with you, are not removed automatically. They stay in Home Assistant until you reload the integration.
+
+### Vehicle make and model
+
+If ABRP cannot provide the make and model for a vehicle, its device shows ABRP's raw vehicle type code instead. The hourly garage check updates the device when the make and model become available.
 
 ### Route planning
 
@@ -189,16 +246,20 @@ To resolve this issue:
 
 ### Authentication errors
 
-If your ABRP session expires, the integration can no longer connect and its entities become unavailable.
+If ABRP no longer accepts your sign-in, the entities become unavailable and Home Assistant asks you to sign in again.
 
 To resolve this issue:
 
 1. Confirm you can log in to your account at the [A Better Routeplanner](https://abetterrouteplanner.com/) website.
-2. Remove the integration and add it again.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. Under **Attention required**, select **Reconfigure** on the **A Better Routeplanner** card, then confirm.
+4. Sign in with the same ABRP account. If you sign in with a different account, re-authentication stops. To try again, select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, select **Reload**, then select **Reconfigure** again.
+
+After you sign in, the integration reloads and your entities update again.
 
 ### Setup stops with a message about default_config
 
-If setup stops and asks you to run Home Assistant with `default_config` enabled, the [Home Assistant Cloud](/integrations/cloud/) integration is not loaded. Add `default_config:` or `cloud:` to your {% term "configuration.yaml" %}, restart Home Assistant, and add the integration again.
+If setup stops and asks you to run Home Assistant with `default_config` enabled, the [Home Assistant Link](/integrations/link/) integration is not loaded. Add `default_config:` or `cloud:` to your {% term "configuration.yaml" %}, restart Home Assistant, and add the integration again.
 
 ### Sensor states appear stale
 
@@ -206,9 +267,9 @@ This is expected when a vehicle is parked and not reporting data. Each sensor ke
 
 Home Assistant shows the same data as the A Better Routeplanner app and website, so you can compare them. If the value looks just as old in ABRP, your vehicle has not sent fresh telemetry yet and there is nothing to fix in Home Assistant.
 
-### Sensors show as unavailable
+### Entities show as unavailable
 
-Sensors become unavailable when the integration can no longer authenticate with ABRP. To fix this, follow the steps in [Authentication errors](#authentication-errors). If ABRP cannot be reached when Home Assistant starts, sensors stay unavailable until the integration connects. It retries automatically. During an ordinary connection interruption, sensors keep their latest values while the integration reconnects.
+Entities become unavailable when the integration can no longer authenticate with ABRP. To fix this, follow the steps in [Authentication errors](#authentication-errors). If ABRP cannot be reached when Home Assistant starts, entities stay unavailable until the integration connects. It retries automatically. During an ordinary connection interruption, entities keep their latest values while the integration reconnects.
 
 If the issue continues, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the issue, and include the logs in your issue report.
 
