@@ -25,14 +25,12 @@ Known supported devices:
 
 ## Playing media
 
-You can play media on your speakers, for example a radio station from the [Radio Browser](/integrations/radio_browser/) integration, from the media browser or with the `media_player.play_media` action.
+You can play music on your speakers from Home Assistant, for example a radio station from the [Radio Browser](/integrations/radio_browser/) integration. Open the media player and select **Browse media**, or use the `media_player.play_media` action.
 
-Home Assistant plays media through the UPnP renderer of the speaker. After Home Assistant starts or the speaker comes online, it can take up to 2 minutes before Home Assistant has found the renderer and the media player offers media playback.
-
-- Home Assistant and the speakers must be on the same network, so Home Assistant can discover the renderer.
-- In a stereo setup, only the system leader of the pair can play media. If the media player does not offer media playback, set up the other speaker of the pair instead.
-- The speakers cannot open HTTPS streams. Home Assistant then tries the same stream over HTTP. Stations that only offer HTTPS cannot be played.
-- To play media from Home Assistant itself, such as local media, the speaker must be able to reach Home Assistant over HTTP.
+- After Home Assistant starts or a speaker is turned on, it can take up to 2 minutes before you can play media.
+- Home Assistant and the speakers must be on the same network.
+- If you have a stereo pair and cannot play media, add the other speaker of the pair to Home Assistant instead.
+- Some radio stations cannot be played, because the speakers do not support their secure (HTTPS) stream.
 
 ## Turning off the device
 
