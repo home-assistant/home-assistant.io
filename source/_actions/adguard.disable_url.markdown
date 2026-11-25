@@ -8,6 +8,7 @@ related_actions:
   - adguard.add_url
   - adguard.remove_url
   - adguard.refresh
+  - adguard.pause_protection
 ---
 
 The **AdGuard Home: Disable URL** action switches off a filter subscription without removing it. AdGuard Home keeps the list, but stops blocking the domains on it until you switch it back on.
