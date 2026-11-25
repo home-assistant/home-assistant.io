@@ -49,17 +49,6 @@ Infrared emitter:
   description: The infrared emitter entity to use for sending commands to your ceiling fan. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
 {% endconfiguration_basic %}
 
-## Reconfiguring the integration
-
-If you replace your infrared emitter, or want the fan controlled by a different one, you can update the integration without removing and re-adding it.
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Find the **Ceiling Fan Infrared** integration and select it.
-3. Next to the **Ceiling fan via …** entry you want to change, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
-4. Select the new infrared emitter and select **Submit**.
-
-The fan entity and its entity ID stay the same, so your dashboards and automations keep working.
-
 ## Supported functionality
 
 The **Ceiling Fan Infrared** integration provides the following entity.
@@ -153,7 +142,7 @@ The integration remembers the infrared emitter by its entity registry entry. If 
 
 #### Resolution
 
-[Reconfigure the integration](#reconfiguring-the-integration) and select the current infrared emitter. If the old emitter no longer exists, set up the new emitter first.
+Remove and re-add the integration, selecting the current infrared emitter. Set up the new emitter first if the old one no longer exists. The fan entity gets a new entity ID, so update dashboards and automations.
 
 {% enddetails %}
 
