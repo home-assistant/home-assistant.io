@@ -926,9 +926,7 @@ The `none` preset is replaced by `comfort`. In auto, presets now temporarily ove
 [#187891]: https://github.com/home-assistant/core/pull/187891
 [BSB-LAN documentation]: /integrations/bsblan/
 
-{% enddetails %}
-
-{% details "BSB-LAN" %}
+---
 
 The water heater target temperature now shows the setpoint the controller applies, instead of always the nominal setpoint. In performance and eco, changing it changes the nominal or reduced setpoint in effect, and in off it does nothing. To change the other setpoint, use the new nominal and reduced temperature entities.
 
@@ -1029,9 +1027,7 @@ When Fuelprices.dk includes a station in its response but omits a product's pric
 [#193780]: https://github.com/home-assistant/core/pull/193780
 [Fuelprices.dk documentation]: /integrations/fuelprices_dk/
 
-{% enddetails %}
-
-{% details "Fuelprices.dk" %}
+---
 
 Fuelprices.dk now logs temporary polling failures at `info` level. These failures no longer fire `system_log_event`. If you use that event in an automation to detect Fuelprices.dk outages, change the trigger to watch for a Fuelprices.dk price sensor becoming `unavailable`.
 
@@ -1073,9 +1069,7 @@ The `supervisor/api` websocket command now requires an administrator user. Non-a
 [#188782]: https://github.com/home-assistant/core/pull/188782
 [Home Assistant Supervisor documentation]: /integrations/hassio/
 
-{% enddetails %}
-
-{% details "Home Assistant Supervisor" %}
+---
 
 If you use the community app Home Assistant Matter Hub, update it to [version 2.1.0](https://github.com/RiDDiX/home-assistant-matter-hub/releases/tag/v2.1.0) or newer. Older versions can no longer be opened from the sidebar. The archived [t0bst4r/home-assistant-matter-hub](https://github.com/t0bst4r/home-assistant-matter-hub) won't get a fix, so if you still use that one, [migrate](https://github.com/RiDDiX/home-assistant-matter-hub#migration-from-t0bst4r) to the RiDDiX version.
 
@@ -1124,9 +1118,7 @@ The `exclude` option in the iZone YAML configuration no longer has any effect. C
 [#192023]: https://github.com/home-assistant/core/pull/192023
 [iZone documentation]: /integrations/izone/
 
-{% enddetails %}
-
-{% details "iZone" %}
+---
 
 In unusual iZone setups with unusual upgrade histories, config entries from before 2026.8 that list more than one controller are now removed, with a repair listing the controller IDs. Add your controller again to restore it.
 
@@ -1153,9 +1145,7 @@ Only On/Off Plug-in Unit endpoints (outlets and relays) that appear on more than
 [#186033]: https://github.com/home-assistant/core/pull/186033
 [Matter documentation]: /integrations/matter/
 
-{% enddetails %}
-
-{% details "Matter" %}
+---
 
 Matter covers of type shutter, projector screen or unknown used the `awning` device class. Shutters now use `shutter`, and the other types no longer have a device class. If you use the device class in automations, templates or dashboards, update them.
 
@@ -1356,9 +1346,7 @@ Some Fibaro FGR-223 and Shelly Wave Shutter variants no longer create a separate
 [#191825]: https://github.com/home-assistant/core/pull/191825
 [Z-Wave documentation]: /integrations/zwave_js/
 
-{% enddetails %}
-
-{% details "Z-Wave" %}
+---
 
 Z-Wave covers using the Window Covering command class (like iBlinds v3) now use `blind`, `curtain` or `shade` instead of `window`. The window triggers and conditions no longer match them, so use the cover ones for the new device class instead. To keep the old behavior, set "Type" back to Window in the entity settings.
 
@@ -1366,9 +1354,7 @@ Z-Wave covers using the Window Covering command class (like iBlinds v3) now use 
 
 [#191897]: https://github.com/home-assistant/core/pull/191897
 
-{% enddetails %}
-
-{% details "Z-Wave" %}
+---
 
 With this release, you will need to update your zwave-js-server instance. You must use zwave-js-server 3.12.0 or greater (schema 52).
 
@@ -1380,9 +1366,7 @@ With this release, you will need to update your zwave-js-server instance. You mu
 
 [#192310]: https://github.com/home-assistant/core/pull/192310
 
-{% enddetails %}
-
-{% details "Z-Wave" %}
+---
 
 Toggling the tilt of Z-Wave window covering slats that are closed at 100 now opens them. Before, it moved them to the other closed end, 0. To close them at 0, use the close tilt action instead.
 
