@@ -11,6 +11,9 @@
     "energy.energy_prices",
     "energy.meters_monitoring"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
     "diagnostics",

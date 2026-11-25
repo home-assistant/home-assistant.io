@@ -4,6 +4,8 @@ title: "Home Assistant is 11 years old!"
 description: "This year, we celebrate the community and the people who make Home Assistant what it is."
 date: 2024-09-18 00:00:01
 date_formatted: "September 18, 2024"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Paulus Schoutsen
 comments: true
 categories: Announcements
@@ -11,6 +13,10 @@ og_image: /images/blog/2024-09-11th-anniversary/art.png
 ---
 
 <img src='/images/blog/2024-09-11th-anniversary/art.png' alt='Art by Clelia' style='border: 0;box-shadow: none;'>
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 I've said it before, but Home Assistant would be nothing without its community. That's why we decided this year to focus our anniversary celebration on acknowledging and thanking our amazing community. It's fitting as 2024 was the year we added a dedicated community manager, [Missy Quarry](https://community.home-assistant.io/t/an-introduction-your-new-community-social-media-manager/693623), who hosted this celebration of *you* in our [11th Anniversary live stream](https://www.youtube.com/watch?v=iE8yFUvQ2e4).
 

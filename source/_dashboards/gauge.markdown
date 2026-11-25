@@ -47,7 +47,7 @@ attribute:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
   default: Entity name
 unit:
@@ -108,6 +108,10 @@ segments:
       required: false
       description: Label of the segment. This will be shown instead of the value.
       type: string
+color:
+  required: false
+  description: Color of the gauge. Ignored when severity or segments is provided. May be any CSS color declaration like "red", "#0000FF" or "rgb(255, 120, 0)".
+  type: string
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).

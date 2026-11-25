@@ -2,6 +2,7 @@
 title: "Update a daily"
 action: habitica.update_daily
 domain: habitica
+response: optional
 description: "Updates an existing daily for your Habitica character."
 ---
 
@@ -215,6 +216,10 @@ alias:
   required: false
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

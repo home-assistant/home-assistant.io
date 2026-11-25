@@ -76,6 +76,10 @@ The Fully Kiosk Browser app does not provide feedback on the device volume or me
 
 {% include integrations/actions.md %}
 
+## Data updates
+
+The integration {% term polling polls %} each Fully Kiosk Browser device every 30 seconds.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

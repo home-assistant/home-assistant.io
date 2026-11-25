@@ -18,12 +18,12 @@ To use this notification platform in your installation, add the following to you
 notify:
   - name: NOTIFIER_NAME
     platform: twilio_call
-    from_number: E164_PHONE_NUMBER
+    from_number: "E164_PHONE_NUMBER"
 ```
 
 {% configuration %}
 from_number:
-  description: "An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like +14151234567. See [Twilio's guide to formatting phone numbers](https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally) for more information."
+  description: "An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like `+14151234567`. Always put the number in quotes, because YAML reads an unquoted number that starts with `+` as an integer and drops the `+`. See [Twilio's guide to formatting phone numbers](https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally) for more information."
   required: true
   type: string
 name:
@@ -49,5 +49,6 @@ automation:
           message: "The sun has set"
           target:
             - +14151234567
-            - +15105555555
+           - "+14151234567"
+           - "+15105555555"
 ```

@@ -6,6 +6,9 @@
   "categories": [
     "sensors.temperature_humidity"
   ],
+  "connectivity": [
+    "serial"
+  ],
   "platforms": [
     "sensor"
   ]

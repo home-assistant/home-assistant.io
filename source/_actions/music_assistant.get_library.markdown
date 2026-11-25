@@ -2,6 +2,7 @@
 title: "Get library items"
 action: music_assistant.get_library
 domain: music_assistant
+response: required
 description: "Retrieves items from a Music Assistant library."
 related_actions:
   - music_assistant.search
@@ -10,7 +11,7 @@ related_actions:
 
 Use this action to retrieve items from your Music Assistant library. It gives you programmatic access to concise information about your library items, which you can use to build a queue of tracks for playback.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script. It does not change anything on a player.
+This action does not change anything on a player.
 
 {% include actions/ui_header.md %}
 
@@ -115,6 +116,8 @@ username:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns an `items` list with the matching library items, along with the `limit`, `offset`, `order_by`, and `media_type` you requested. Each item includes details such as its name and URI, which you can pass to the [Play media](/actions/music_assistant.play_media/) action.
 

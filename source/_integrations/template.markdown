@@ -98,6 +98,12 @@ Whenever a trigger reacts, all related entities re-render and have access to [th
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [State changed trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
+A **State changed** trigger without `from`, `to`, `not_from`, or `not_to` also fires when only an attribute of the entity changes. To fire only when the state itself changes, add `to: null`. For details, see the [State changed trigger](/triggers/state/#good-to-know).
+
+{% important %}
+Be careful with a trigger for this template entity itself, or for an entity whose state or attributes are calculated from it. Unless the template stops changing after an update, each update fires the trigger again and the loop can make Home Assistant unresponsive.
+{% endimportant %}
+
 The state, including attributes, of trigger-based template entities is restored when Home Assistant is restarted. This doesn't apply to buttons, images, and update entities.
 
 {% note %}
@@ -2742,7 +2748,7 @@ number:
       type: template
       default: optimistic
     unit_of_measurement:
-      description: Defines the units of measurement of the number, if any.
+      description: Defines the units of measurement of the number, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/number/#list-of-available-device-classes).
       required: false
       type: string
       default: None
@@ -2984,12 +2990,12 @@ sensor:
       required: true
       type: template
     state_class:
-      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
+      description: "The [state_class](/integrations/sensor/#state-class) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
       required: false
       type: string
       default: None
     unit_of_measurement:
-      description: "Defines the units of measurement of the sensor, if any. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value."
+      description: "Defines the units of measurement of the sensor, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes). This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
       default: None
@@ -3899,7 +3905,7 @@ weather:
       required: false
       type: template
     condition:
-      description: The current weather condition.
+      description: The current weather condition. It must resolve to one of Home Assistant's [recognized weather conditions](/integrations/weather/#condition-mapping).
       required: true
       type: template
     dew_point:

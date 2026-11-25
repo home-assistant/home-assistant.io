@@ -6,6 +6,9 @@
   "categories": [
     "messaging_notifications.chat_apps"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "notify"
   ]

@@ -7,14 +7,18 @@
   ],
   "config_flow": true,
   "iot_class": "assumed_state",
-  "quality_scale": "bronze",
+  "quality_scale": "silver",
   "categories": [
     "media_entertainment.tv_streaming",
     "climate.heat_pumps_air_conditioning"
   ],
+  "connectivity": [
+    "infrared"
+  ],
   "platforms": [
     "button",
     "climate",
+    "diagnostics",
     "media_player"
   ]
 }

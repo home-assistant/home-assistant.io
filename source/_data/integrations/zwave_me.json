@@ -12,6 +12,9 @@
   "categories": [
     "hubs_protocols.smart_home_hubs"
   ],
+  "connectivity": [
+    "zwave"
+  ],
   "platforms": [
     "binary_sensor",
     "button",

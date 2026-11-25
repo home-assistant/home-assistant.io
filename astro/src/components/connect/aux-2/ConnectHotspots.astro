@@ -1,0 +1,885 @@
+---
+// A product's ports on two photos of it, one of each side, on a pale
+// blue panel, with a "+" point under each port. Every port's card is
+// listed on the right, collapsed to its icon and title; selecting a
+// point or a title opens its card (turning to its side first), and a
+// Connect-blue line joins the open point to its card. Selecting it
+// again, or Escape, closes it. One card can start open (`open`). The
+// button at the bottom left fades to the other photo, as on the Voice
+// PE page's features, and then opens one of that side's cards at
+// random. Only the points on the side shown show. The default slot is
+// the section's intro (label, heading, text), at the top left over the
+// photo.
+//
+// Built from the Figma file "Connect AUX-2" (group "Group 162", node
+// 2935:8711: the panel, a product photo with points, the cards as
+// "Card 1/end", node 2935:8716), not ported from Jekyll. From the desk
+// width a closed card opens wherever it is selected, not only on its
+// title. Below it the photo sits under the intro, closer in on the
+// product, and only the open card shows, under it: selecting that card
+// does nothing, so it never closes and leaves no card at all.
+//
+// Without the script the cards are a plain list and the photos, points
+// and button are not shown. With reduced motion the photos swap at once
+// and nothing slides or draws in. Screen readers get the photos as an
+// image described by `label`, and each point as a button that expands
+// its card.
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import RotateIcon from "../../../assets/connect/icons/rotate.svg";
+
+interface Port {
+  // The port's name, for its point's button, such as "Audio port".
+  label: string;
+  // Which photo shows it: 0 the starting side, 1 the other.
+  side: 0 | 1;
+  // Where its point sits on its side's photo, as fractions of the
+  // photo's width and height from its top left.
+  spot: [number, number];
+  title: string;
+  text: string;
+  // A line icon from src/assets/connect/icons/, drawn in Connect blue
+  // in a Connect-blue ring before the card's title (it animates once as
+  // the card opens).
+  icon: ImageMetadata;
+}
+
+interface Props {
+  // Photos of the product: its starting side, then the other, framed
+  // alike (the same size, the product in the same place).
+  photos: [ImageMetadata, ImageMetadata];
+  // What the photos show, for screen readers.
+  label: string;
+  ports: Port[];
+  // The index of the port whose card is open at first.
+  open?: number;
+  class?: string;
+}
+
+// Other attributes (and the parent's style scope) go on the panel.
+const { photos, label, ports, open, class: className, ...attributes } = Astro.props;
+const uid = crypto.randomUUID().slice(0, 8);
+// An imported SVG is also a component that inlines it, so its own
+// animation plays.
+const icons = ports.map(
+  ({ icon }) => icon as unknown as (props: Record<string, unknown>) => unknown,
+);
+const data = JSON.stringify({
+  open,
+  aspect: photos[0].width / photos[0].height,
+  ports: ports.map(({ side, spot }) => ({ side, spot })),
+});
+---
+
+<div class:list={["connect-hotspots", className]} data-connect-hotspots={data} {...attributes}>
+  <div class="intro"><slot /></div>
+  <div class="stage">
+    <div class="model" role="img" aria-label={label}>
+      {
+        photos.map((photo, i) => (
+          <Image
+            class:list={["photo", { "is-shown": i === 0 }]}
+            src={photo}
+            alt=""
+            widths={[800, 1400, 2000, photo.width]}
+            sizes="(min-width: 62rem) 80rem, 150vw"
+            quality={100}
+          />
+        ))
+      }
+    </div>
+    {
+      ports.map(({ label }, i) => (
+        <button
+          class="point"
+          type="button"
+          aria-label={label}
+          aria-expanded="false"
+          aria-controls={`${uid}-${i}`}
+          hidden
+        />
+      ))
+    }
+  </div>
+  <svg class="leader" aria-hidden="true">
+    <path pathLength="1" />
+  </svg>
+  <svg class="leader end" aria-hidden="true">
+    <circle r="4" />
+  </svg>
+  <button class="rotate" type="button" hidden>
+    <RotateIcon aria-hidden="true" />
+    Click to rotate
+  </button>
+  <div class="cards">
+    {
+      ports.map(({ title, text }, i) => (
+        <article class="card" id={`${uid}-${i}`}>
+          <h3>
+            <button type="button" aria-expanded="false" aria-controls={`${uid}-${i}-text`}>
+              <span class="icon">
+                {(() => {
+                  const Icon = icons[i];
+                  return <Icon aria-hidden="true" />;
+                })()}
+              </span>
+              <span class="title">{title}</span>
+            </button>
+          </h3>
+          <div class="text" id={`${uid}-${i}-text`}>
+            <div>
+              <p>{text}</p>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  import { connectDesk } from "../../../lib/breakpoints";
+  import { reducedMotion } from "../../../lib/motion";
+
+  // How long (ms) the photos take to fade from one to the other.
+  const FADE = 500;
+
+  for (const panel of document.querySelectorAll<HTMLElement>("[data-connect-hotspots]")) {
+    const { aspect, ports, open: first } = JSON.parse(panel.dataset.connectHotspots!) as {
+      aspect: number;
+      open?: number;
+      ports: { side: number; spot: [number, number] }[];
+    };
+    const stage = panel.querySelector<HTMLElement>(".stage")!;
+    const wrapper = panel.querySelector<HTMLElement>(".model")!;
+    const photos = [...wrapper.querySelectorAll<HTMLImageElement>(".photo")];
+    const points = [...panel.querySelectorAll<HTMLButtonElement>(".point")];
+    const cards = [...panel.querySelectorAll<HTMLElement>(".card")];
+    const rotate = panel.querySelector<HTMLButtonElement>(".rotate")!;
+    // The line, and the dot at its end (on its own, over the cards).
+    const leader = panel.querySelector<SVGSVGElement>(".leader")!;
+    const leaders = panel.querySelectorAll<SVGSVGElement>(".leader");
+    const titles = cards.map((card) => card.querySelector<HTMLButtonElement>("h3 button")!);
+    // Icons animated with SMIL (<animate>), which CSS cannot hold still,
+    // and how long each takes to play once.
+    const smil = cards.map((card) => {
+      const svg = card.querySelector<SVGSVGElement>(".icon svg");
+      const parts = svg ? [...svg.querySelectorAll("animate, animateTransform, set")] : [];
+      if (!svg || !parts.length) return undefined;
+      svg.pauseAnimations();
+      svg.setCurrentTime(0);
+      const once = Math.max(...parts.map((part) => parseFloat(part.getAttribute("dur") ?? "0")));
+      return { svg, once, timer: 0 };
+    });
+
+    let side = 0;
+    let open = -1;
+
+    panel.classList.add("is-armed");
+
+    // A card waiting for the photos to finish fading.
+    let waiting = 0;
+
+    const show = (step: number) => {
+      clearTimeout(waiting);
+      open = step;
+      points.forEach((point, i) => {
+        point.classList.toggle("is-active", i === step);
+        point.setAttribute("aria-expanded", String(i === step));
+      });
+      cards.forEach((card, i) => {
+        card.classList.toggle("is-open", i === step);
+        titles[i].setAttribute("aria-expanded", String(i === step));
+        card.querySelector(".text")!.toggleAttribute("inert", i !== step);
+        // A SMIL icon, as the CSS ones: still, and played once as its
+        // card opens.
+        const icon = smil[i];
+        if (!icon) return;
+        clearTimeout(icon.timer);
+        icon.svg.pauseAnimations();
+        icon.svg.setCurrentTime(0);
+        if (i !== step || reducedMotion.matches) return;
+        icon.svg.unpauseAnimations();
+        icon.timer = window.setTimeout(() => {
+          icon.svg.pauseAnimations();
+          icon.svg.setCurrentTime(0);
+        }, icon.once * 1000);
+      });
+      // Draw the line in afresh, then the dot at its end.
+      const drawn = panel.querySelectorAll(".leader path, .leader circle");
+      drawn.forEach((part) => part.classList.remove("is-drawn"));
+      leader.getBoundingClientRect();
+      drawn.forEach((part) => part.classList.add("is-drawn"));
+      join();
+      follow();
+    };
+
+    // While the cards open and close, keep the line on its card's title
+    // as it moves.
+    let following = 0;
+    const follow = () => {
+      const until = performance.now() + 450;
+      cancelAnimationFrame(following);
+      const frame = () => {
+        join();
+        if (performance.now() < until) following = requestAnimationFrame(frame);
+      };
+      following = requestAnimationFrame(frame);
+    };
+
+    const turn = (to: number) => {
+      side = to;
+      photos.forEach((photo, i) => photo.classList.toggle("is-shown", i === side));
+      place();
+    };
+
+    // The line from the open point to its card: across, and round a
+    // corner up or down into the card's left edge at its title. Shown
+    // only when the card is to the right of the point (it is below the
+    // photo on smaller screens) and the point is on the side shown.
+    const join = () => {
+      const point = points[open];
+      // Only once the point is placed (until then it is hidden, and
+      // measures as the window's top left).
+      const shown = point && !point.hidden && !point.classList.contains("is-away");
+      const box = panel.getBoundingClientRect();
+      const card = cards[open]?.getBoundingClientRect();
+      const dot = point?.getBoundingClientRect();
+      if (!shown || !card || !dot || card.left <= dot.right) {
+        leaders.forEach((svg) => svg.classList.remove("is-shown"));
+        return;
+      }
+      const title = cards[open].querySelector("h3")!.getBoundingClientRect();
+      const x = dot.left + dot.width / 2 - box.left;
+      const y = dot.top + dot.height / 2 - box.top;
+      const ex = card.left - box.left;
+      const ey = title.top + title.height / 2 - box.top;
+      const bend = ex - Math.min(48, (ex - x) / 2);
+      const r = Math.min(16, Math.abs(ey - y) / 2, bend - x);
+      const s = Math.sign(ey - y);
+      // Nearly level, two tight corners would kink it: an S instead.
+      const d =
+        Math.abs(ey - y) < 32
+          ? `M ${x} ${y} H ${bend - 16} C ${bend} ${y} ${bend} ${ey} ${bend + 16} ${ey} H ${ex}`
+          : `M ${x} ${y} H ${bend - r} Q ${bend} ${y} ${bend} ${y + s * r} ` +
+            `V ${ey - s * r} Q ${bend} ${ey} ${bend + r} ${ey} H ${ex}`;
+      leader.querySelector("path")!.setAttribute("d", d);
+      const end = panel.querySelector(".leader circle")!;
+      end.setAttribute("cx", String(ex));
+      end.setAttribute("cy", String(ey));
+      leaders.forEach((svg) => svg.classList.add("is-shown"));
+    };
+
+    // Where a spot on a photo is in the stage: the photo covers its box
+    // (object-fit), placed by its object-position, and may be scaled.
+    const onPhoto = ([x, y]: [number, number], box: DOMRect) => {
+      const photo = photos[side];
+      const frame = photo.getBoundingClientRect();
+      const [px, py] = getComputedStyle(photo)
+        .objectPosition.split(" ")
+        .map((value) => parseFloat(value) / 100);
+      const width = Math.max(frame.width, frame.height * aspect);
+      const height = width / aspect;
+      return {
+        x: frame.left - box.left + (frame.width - width) * px + x * width,
+        y: frame.top - box.top + (frame.height - height) * py + y * height,
+      };
+    };
+
+    // Place the points on their ports.
+    const place = () => {
+      const box = stage.getBoundingClientRect();
+      ports.forEach(({ side: on, spot }, i) => {
+        const p = onPhoto(spot, box);
+        const point = points[i];
+        point.hidden = false;
+        point.style.translate = `${p.x}px ${p.y}px`;
+        point.classList.toggle("is-away", on !== side);
+        point.tabIndex = on === side ? 0 : -1;
+      });
+      join();
+    };
+
+    show(first ?? -1);
+    points.forEach((point, i) =>
+      point.addEventListener("click", () => show(open === i ? -1 : i)),
+    );
+    // From the desk width, a card opens wherever it is selected (turning
+    // to its port's side), and its title closes it again. Below it, the
+    // one card shown stays open.
+    const desk = matchMedia(connectDesk);
+    cards.forEach((card, i) =>
+      card.addEventListener("click", (event) => {
+        if (!desk.matches) return;
+        const onTitle = titles[i].contains(event.target as Node);
+        if (open === i && !onTitle) return;
+        if (open !== i && ports[i].side !== side) turn(ports[i].side);
+        show(open === i ? -1 : i);
+      }),
+    );
+    panel.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || open < 0) return;
+      titles[open].focus();
+      show(-1);
+    });
+    // Turn, and once the other photo shows, open one of that side's
+    // cards (any one).
+    rotate.addEventListener("click", () => {
+      show(-1);
+      turn(1 - side);
+      const choices = ports.flatMap((port, i) => (port.side === side ? [i] : []));
+      const pick = choices[Math.floor(Math.random() * choices.length)];
+      if (pick === undefined) return;
+      waiting = window.setTimeout(() => show(pick), reducedMotion.matches ? 0 : FADE);
+    });
+
+    rotate.hidden = false;
+    new ResizeObserver(place).observe(wrapper);
+
+    // The card's slide in follows the visitor's motion setting.
+    panel.classList.toggle("is-still", reducedMotion.matches);
+  }
+</script>
+
+<style lang="scss">
+  @use "../../../styles/breakpoints";
+  @use "../../../styles/fade-border" as *;
+
+  /* The photos' backdrop blue: the panel, its text, the button, and the
+     open point's halo. */
+  .connect-hotspots {
+    --radius: 1.75rem;
+    --panel: #a8c8e3;
+    --text: var(--color-ink);
+    --text-muted: var(--color-ink-muted);
+    --button: rgb(255 255 255 / 20%);
+    --button-hover: rgb(255 255 255 / 50%);
+    --button-edge: #fff;
+    /* Tinted Connect blue: Figma's white halo disappears on the
+       product's white. */
+    --halo: rgb(0 95 190 / 12%);
+    --halo-ring: rgb(0 95 190 / 30%);
+    --pulse: rgb(0 95 190 / 30%);
+    --pulse-half: rgb(0 95 190 / 15%);
+
+    background: var(--panel);
+    border-radius: var(--radius);
+    color: var(--text);
+    display: grid;
+    gap: var(--space-xlarge);
+    padding: var(--space-xxlarge) var(--space-xlarge);
+  }
+
+  .intro {
+    max-width: 29rem;
+    position: relative;
+    z-index: 1;
+
+    :global(h2) {
+      color: var(--text);
+    }
+
+    :global(p:not(.connect-label)) {
+      color: var(--text-muted);
+    }
+  }
+
+  /* Without the script: the cards as a list. */
+  .stage,
+  .rotate {
+    display: none;
+  }
+
+  .cards {
+    display: grid;
+    gap: var(--space-small);
+  }
+
+  /* Glass, after Figma's "Card 1/end": a white wash fading from half to
+     a quarter, and a white edge fading out down the card as the page's
+     other cards' blue ones do; tighter than Figma's 20px. */
+  .card {
+    background: transparent linear-gradient(rgb(255 255 255 / 50%) 21.5%, rgb(255 255 255 / 25%));
+    border-radius: var(--radius-medium);
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-medium) var(--space-large);
+    @include fade-border(180deg, 60%, #fff);
+
+    h3 {
+      color: var(--color-ink);
+      font-size: var(--font-size-xlarge);
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1;
+      margin: 0;
+    }
+
+    p {
+      color: var(--color-ink-muted);
+      font-size: var(--font-size-large);
+      line-height: 1.2;
+      margin: 0;
+      padding-block: var(--space-xsmall);
+    }
+  }
+
+  /* With the script: the photo under the intro, the button and the open
+     card below it. */
+  .connect-hotspots:global(.is-armed) {
+    /* Out to the panel's edges, and into the room around it. */
+    .stage {
+      aspect-ratio: 1;
+      display: block;
+      margin: calc(-1 * var(--space-xxlarge)) calc(-1 * var(--space-xlarge));
+      position: relative;
+    }
+
+    .model {
+      height: 100%;
+      position: relative;
+    }
+
+    .rotate:not([hidden]) {
+      display: flex;
+    }
+
+    /* Each card a short row with its icon and title; the open one grows
+       to show its text, its title in full ink. A closed one washes
+       whiter under the pointer. */
+    .card {
+      background-color: transparent;
+      transition: background-color 0.3s ease-out;
+
+      &:not(:global(.is-open)) {
+        cursor: pointer;
+      }
+
+      &:not(:global(.is-open)):hover {
+        background-color: rgb(255 255 255 / 25%);
+      }
+    }
+
+    /* On phones and tablets, only the open card, under the photo, so
+       both fit on the screen; the points open the others. */
+    @media only screen and (max-width: calc(breakpoints.$connect-desk - 1px)) {
+      .stage {
+        margin-block: -25% -20%;
+      }
+
+      .card:not(:global(.is-open)) {
+        display: none;
+      }
+
+      h3 button {
+        cursor: default;
+      }
+
+      .card:global(.is-open) {
+        animation: card-in 0.3s ease-out;
+      }
+
+      &:global(.is-still) .card {
+        animation: none;
+      }
+    }
+
+    /* The row is the icon's height, as in Figma. */
+    h3 button {
+      align-items: center;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      font: inherit;
+      gap: var(--space-medium);
+      letter-spacing: inherit;
+      padding: 0;
+      text-align: start;
+      transition: color 0.3s ease-out;
+      width: 100%;
+
+      &:hover {
+        color: var(--text);
+      }
+
+      &:focus-visible {
+        border-radius: var(--radius-small);
+        outline: 2px solid var(--color-connect-line);
+        outline-offset: 2px;
+      }
+    }
+
+    /* The port's icon, after Figma's: Connect blue (the files draw in
+       white) in a thin Connect-blue ring. It holds still until its card
+       opens, then plays once from the start (the animations are the
+       SVG's own; they loop on the page's other cards). */
+    .icon {
+      align-items: center;
+      border: 1px solid var(--color-connect-line);
+      border-radius: 50%;
+      box-sizing: border-box;
+      display: flex;
+      flex: none;
+      height: 2.5rem;
+      justify-content: center;
+      width: 2.5rem;
+
+      :global(svg) {
+        display: block;
+      }
+
+      :global([stroke="white"]) {
+        stroke: var(--color-connect-line);
+      }
+
+      :global([fill="white"]) {
+        fill: var(--color-connect-line);
+      }
+    }
+
+    .icon :global(*) {
+      animation-iteration-count: 1 !important;
+    }
+
+    .card:not(:global(.is-open)) .icon :global(*) {
+      animation: none !important;
+    }
+
+    /* The text lines up with the title, after the icon. */
+    .text {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      padding-inline-start: calc(2.5rem + var(--space-medium));
+      transition:
+        grid-template-rows 0.3s ease-out,
+        opacity 0.3s ease-out;
+
+      > div {
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      p {
+        padding-block: 0 var(--space-small);
+      }
+    }
+
+    .card:global(.is-open) {
+      h3 button {
+        color: var(--text);
+      }
+
+      .text {
+        grid-template-rows: 1fr;
+        opacity: 1;
+      }
+    }
+  }
+
+  /* Each photo covers the model's box, the product a little left of
+     centre, and fades in when its side is turned to. */
+  .model :global(.photo) {
+    display: block;
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    object-position: 0% 62%;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.5s ease-in-out;
+    width: 100%;
+
+    &:global(.is-shown) {
+      opacity: 1;
+    }
+  }
+
+  /* On phones and tablets, closer in on the product, its box faded
+     into the panel above and below. */
+  @media only screen and (max-width: calc(breakpoints.$connect-desk - 1px)) {
+    .model {
+      mask-image: linear-gradient(transparent, #000 20%, #000 80%, transparent);
+      overflow: clip;
+
+      :global(.photo) {
+        /* The product (38% across the photo) in the middle. */
+        object-position: 13% 62%;
+        scale: 1.5;
+        transform-origin: 50% 62%;
+      }
+    }
+  }
+
+  @keyframes card-in {
+    from {
+      opacity: 0;
+      translate: 0 0.5rem;
+    }
+  }
+
+  /* After Figma's "Click to rotate": glass with a white edge. */
+  .rotate {
+    align-items: center;
+    align-self: start;
+    background: var(--button);
+    border: 1px solid var(--button-edge);
+    border-radius: var(--radius-pill);
+    color: var(--text-muted);
+    cursor: pointer;
+    font: inherit;
+    font-size: var(--font-size-small);
+    gap: var(--space-small);
+    height: 2.5rem;
+    justify-content: center;
+    justify-self: start;
+    /* Over the photos. */
+    position: relative;
+    transition: background-color 0.3s ease;
+    width: 10rem;
+    z-index: 1;
+
+    &:hover {
+      background: var(--button-hover);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-connect-line);
+      outline-offset: 2px;
+    }
+  }
+
+  /* A Connect-blue dot with a plus in a pale ring; the open one is
+     white with a minus, in a wide halo (Figma's is white glass; here it
+     is tinted Connect blue, with a thin ring round the dot, to show on
+     the product's white). With motion, the halo is two rings instead,
+     each growing out from the dot and fading, half a beat apart. */
+  .point {
+    --nudge: 0.25rem;
+
+    background: var(--color-connect-line);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgb(255 255 255 / 50%);
+    cursor: pointer;
+    height: 1.5rem;
+    /* Centred on its spot, nudged a little right. */
+    left: calc(-0.75rem + var(--nudge));
+    padding: 0;
+    position: absolute;
+    top: -0.75rem;
+    transition:
+      opacity 0.3s ease-out,
+      background-color 0.3s ease-out,
+      box-shadow 0.3s ease-out;
+    width: 1.5rem;
+    z-index: 1;
+
+    /* The plus: two bars, the upright one hidden for the minus. */
+    &::before,
+    &::after {
+      background: #fff;
+      content: "";
+      height: 2px;
+      inset: 0;
+      margin: auto;
+      position: absolute;
+      transition:
+        background-color 0.3s ease-out,
+        opacity 0.3s ease-out;
+      width: 0.5rem;
+    }
+
+    &::after {
+      rotate: 90deg;
+    }
+
+    &:global(.is-active) {
+      animation: point-pulse 2.4s linear infinite;
+      background: #fff;
+      box-shadow:
+        0 0 0 2px var(--halo-ring),
+        0 0 0 1.25rem var(--halo);
+
+      &::before {
+        background: var(--color-connect-line);
+      }
+
+      &::after {
+        opacity: 0;
+      }
+    }
+
+    &:global(.is-away) {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-connect-line);
+      outline-offset: 3px;
+    }
+
+    /* Smaller on phones and tablets, where the ports are close. */
+    @media only screen and (max-width: calc(breakpoints.$connect-desk - 1px)) {
+      height: 1.25rem;
+      left: calc(-0.625rem + var(--nudge));
+      top: -0.625rem;
+      width: 1.25rem;
+    }
+  }
+
+  /* Two rings (box shadows after the thin one): each grows from the dot
+     to 2rem out and fades, in 2.4s; the second is half way through
+     when the first starts. */
+  @keyframes point-pulse {
+    0% {
+      box-shadow:
+        0 0 0 2px var(--halo-ring),
+        0 0 0 0 var(--pulse),
+        0 0 0 1rem var(--pulse-half);
+    }
+
+    49.99% {
+      box-shadow:
+        0 0 0 2px var(--halo-ring),
+        0 0 0 1rem var(--pulse-half),
+        0 0 0 2rem transparent;
+    }
+
+    50% {
+      box-shadow:
+        0 0 0 2px var(--halo-ring),
+        0 0 0 1rem var(--pulse-half),
+        0 0 0 0 var(--pulse);
+    }
+
+    100% {
+      box-shadow:
+        0 0 0 2px var(--halo-ring),
+        0 0 0 2rem transparent,
+        0 0 0 1rem var(--pulse-half);
+    }
+  }
+
+  /* The line from the open point to its card. */
+  .leader {
+    display: none;
+  }
+
+  /* From the desk width, as in Figma: the photo fills the panel, the
+     intro at the top left, the button at the bottom left and the cards
+     on the right. */
+  @media only screen and (min-width: breakpoints.$connect-desk) {
+    .connect-hotspots:global(.is-armed) {
+      aspect-ratio: 1376 / 781;
+      gap: 0;
+      grid-template-columns: minmax(0, 1fr) 18.375rem;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      padding: var(--space-xxxlarge);
+      position: relative;
+
+      .intro {
+        grid-area: 1 / 1;
+      }
+
+      .stage {
+        aspect-ratio: auto;
+        inset: 0;
+        margin: 0;
+        position: absolute;
+      }
+
+      .model {
+        border-radius: var(--radius);
+        overflow: clip;
+      }
+
+      .rotate {
+        grid-area: 3 / 1;
+      }
+
+      .leader {
+        color: var(--color-connect-line);
+        display: block;
+        height: 100%;
+        inset: 0;
+        opacity: 0;
+        overflow: visible;
+        pointer-events: none;
+        position: absolute;
+        transition: opacity 0.3s ease-out;
+        width: 100%;
+        /* Over the photo, under the points; the dot over the cards, so
+           a see-through card does not show it beneath. */
+        z-index: 0;
+
+        &.end {
+          z-index: 2;
+        }
+
+        &:global(.is-shown) {
+          opacity: 1;
+        }
+
+        path {
+          fill: none;
+          stroke: currentcolor;
+          stroke-dasharray: 1;
+          stroke-dashoffset: 1;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 3;
+
+          &:global(.is-drawn) {
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 0.6s ease-out;
+          }
+        }
+
+        /* The dot at the card pops in (a "back" ease, overshooting a
+           little) once the line has reached it. */
+        circle {
+          fill: currentcolor;
+          scale: 0;
+          transform-box: fill-box;
+          transform-origin: center;
+
+          &:global(.is-drawn) {
+            scale: 1;
+            transition: scale 0.5s cubic-bezier(0.34, 2.4, 0.64, 1) 0.5s;
+          }
+        }
+      }
+
+      .cards {
+        align-self: center;
+        grid-area: 1 / 2 / 4 / 3;
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .model :global(.photo),
+    .point,
+    .point::before,
+    .point::after {
+      transition: none !important;
+    }
+
+    .point:global(.is-active) {
+      animation: none;
+    }
+
+    .leader :global(.is-drawn),
+    .text,
+    .card,
+    h3 button {
+      transition: none;
+    }
+  }
+</style>
