@@ -304,7 +304,7 @@ You can change the operating mode, set the target humidity, read the current hum
 
 This entity lets you control Electrolux Group robot vacuum cleaners. You can start, stop, and pause cleaning, send the vacuum back to its charging dock, change the fan speed, and see the vacuum's current state.
 
-On Pure i9 (PUREi9), 700 (Gordias), and 800 (Cybele) robot vacuums, you can also clean specific areas.
+On Pure i series (PUREi9), 700 (Gordias), and 800 (Cybele) robot vacuums, you can also clean specific areas.
 
 ## Data updates
 
