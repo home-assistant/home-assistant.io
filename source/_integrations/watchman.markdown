@@ -13,7 +13,7 @@ ha_integration_type: device
 ha_codeowners:
   - '@masaccio'
 ha_config_flow: true
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ---
 
 The **Kingspan Watchman SENSiT** {% term integration %} allows you to monitor heating oil levels and consumption rates from Kingspan Watchman SENSiT ultrasonic tank monitors via Kingspan's cloud service.
@@ -26,7 +26,7 @@ This integration supports ultrasonic oil tank level monitors connected to the **
 
 ## Prerequisites
 
-- An active KNECT Pro with at least one registered tank sensor.
+- An active KNECT Pro account with at least one registered tank sensor.
 - The email address and password used to sign in to the KNECT Pro mobile app.
 
 {% include integrations/config_flow.md %}
@@ -141,7 +141,7 @@ Because **Current Energy Usage** reports average power in `kW` rather than cumul
 
 ### Authentication failed repair issue
 
-If your Kingspan password changes or your account credentials become invalid, Home Assistant creates a repair issue and pauses updates. Select **Reconfigure** on the integration entry to enter your updated credentials.
+If your Kingspan password changes or your account credentials become invalid, Home Assistant creates a repair issue and pauses updates. Remove the integration entry and add it again with your updated credentials to restore updates.
 
 ### Sensors show unavailable or zero usage after setup
 
