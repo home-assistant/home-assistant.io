@@ -6,6 +6,16 @@ ha_domain: indi_allsky
 
 The **INDI Allsky** {% term integration %} connects Home Assistant with your [INDI Allsky](https://github.com/aaronwmorris/indi-allsky) camera server. INDI Allsky is an allsky camera system designed for astrophotography, night sky capture, cloud cover monitoring, and atmospheric monitoring.
 
+## Use cases
+
+- Display your live allsky camera feed, latest keogram, and star trail images on a Home Assistant dashboard.
+- Trigger automations or notifications when nighttime capture begins, when sky quality or star counts indicate clear skies, or when dew point and temperature conditions require attention.
+- Browse and play historical timelapse videos, keograms, star trails, and captured images directly from the Home Assistant media browser.
+
+## Supported devices
+
+This integration supports local **INDI Allsky** server instances that expose the web interface and WebSocket API. Any camera hardware supported by INDI Allsky (via INDI drivers, `libcamera`/`rpicam`, or supported USB/network cameras) as well as connected environmental, Sky Quality Meter (SQM), and host system sensors exposed by INDI Allsky are supported.
+
 ## Prerequisites
 
 Your INDI Allsky server must be running and connected to your local network. In most cases, Home Assistant automatically discovers your server using Zeroconf/mDNS.
@@ -95,11 +105,59 @@ The media is organized into three folders:
 - **Timelapses & generated media**: Day and night timelapse videos, with their keograms and star trails, organized by year and month.
 - **Captured images history**: The individual images your camera captured, organized by year, month, day, and hour.
 
+## Examples
+
+Here are a few automation ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Notify when clear night skies are detected
+
+Send a notification when your camera switches to nighttime capture and detects enough stars to indicate clear skies.
+
+To create this automation in the UI:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and create a new automation.
+2. Add a **State** trigger for **INDI Allsky Night** (`binary_sensor.indi_allsky_night`) changing **To** `on`.
+3. Add a **Numeric state** condition for **INDI Allsky Stars** (`sensor.indi_allsky_stars`) being **Above** `100`.
+4. Add a **Send a notification message** action to notify your device.
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Notify when clear night skies are detected"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.indi_allsky_night
+      to: "on"
+  conditions:
+    - condition: numeric_state
+      entity_id: sensor.indi_allsky_stars
+      above: 100
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        message: "Clear night skies detected ({{ states('sensor.indi_allsky_stars') }} stars)."
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
-The camera entity fetches the latest image on-demand from the INDI Allsky server whenever requested by Home Assistant. Sensor data is pushed in real time via a persistent local WebSocket connection.
+Sensor readings, exposure metadata, and new keogram or star trail notifications are {% term push pushed %} in real time over a persistent local WebSocket connection. When a new keogram or star trail event arrives, Home Assistant fetches the updated image from the server. The camera entity fetches the latest capture image on demand whenever requested by Home Assistant, and a periodic 10-minute fallback refresh verifies connectivity and sensor state.
 
 ## Troubleshooting
+
+### Entities become unavailable
+
+If INDI Allsky entities become unavailable:
+
+1. Verify that the INDI Allsky service is running and reachable from your Home Assistant host.
+2. Check **Settings** > **Devices & services** for any reauthentication prompt if login settings or credentials changed on the INDI Allsky server.
+3. Home Assistant automatically reconnects the WebSocket stream and restores entity availability once the server responds again.
 
 ### Cannot connect during setup
 
