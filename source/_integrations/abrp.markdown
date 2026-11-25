@@ -97,8 +97,6 @@ The **SoC** and **SoE** sensors both describe how full your battery is, but they
 
 Use **SoC** for simple battery-level automations, like a notification when the battery is low. Use **SoE** when you want to know how much energy is available, for example to compare it with how much energy a trip needs.
 
-Because the battery capacity differs between vehicles, the same percentage means a different amount of energy. For example, 50% is about 40 kWh in a vehicle with an 80 kWh battery, and about 30 kWh in a vehicle with a 60 kWh battery. Battery capacity also changes slowly as the battery ages. The **Battery capacity** sensor shows the capacity ABRP uses for your vehicle.
-
 Not every vehicle reports both values. If ABRP does not receive one of them, that sensor does not appear until the first value arrives.
 
 #### AC and DC charging
@@ -108,7 +106,7 @@ The **Charging state** sensor reports which type of charging your vehicle is usi
 - **Charging (AC)**: Alternating current (AC) charging, for example from a home wall box or a public AC charge point. The vehicle's onboard charger converts AC to the DC power the battery needs. AC charging is usually slower, and it is common for overnight charging at home.
 - **Charging (DC)**: Direct current (DC) charging, from a DC fast charger. The charger supplies DC power directly to the battery, which is much faster. It is common at public fast-charging stations on longer trips.
 
-You can use the charging state in automations, for example to be notified when your vehicle starts DC fast charging or to react differently to AC charging at home. The **Power** sensor shows the current charging power, which is typically much higher during DC charging than during AC charging.
+You can use the charging state in automations, for example to be notified when your vehicle starts DC fast charging or to react differently to AC charging at home.
 
 Some vehicles report that they are charging without saying which type. In that case, the state is **Charging**.
 
