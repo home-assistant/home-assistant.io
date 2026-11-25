@@ -73,4 +73,80 @@ rgb_color:
 
 {% include actions/try_it.md %}
 
+{% include actions/more_examples.md %}
+
+### Automation: mark the front door on a pathway light
+
+When the front door opens after sunset, color the first two segments of the pathway lights red, leaving the rest of the light as it is.
+
+- **Trigger**: State changed
+  - **Entity**: Front door
+  - **To**: Open
+- **Condition**: Sun is below the horizon
+- **Action**: Govee lights local: Set segment color
+  - **Segments**: 1, 2
+  - **Color**: Red
+
+{% details "YAML example for marking the front door on a pathway light" %}
+
+{% example %}
+automation: |
+  alias: "Front door opened: pathway segments red"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+  conditions:
+    - condition: state
+      entity_id: sun.sun
+      state: "below_horizon"
+  actions:
+    - action: govee_light_local.set_segment_color
+      target:
+        entity_id: light.pathway_lights
+      data:
+        segments: [1, 2]
+        rgb_color: [255, 0, 0]
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: team colors on a light strip
+
+At the start of a game, color the left half of a light strip in one team color and the right half in the other, one action for each color.
+
+- **Trigger**: Calendar event starts
+  - **Entity**: Game day calendar
+- **Actions**:
+  - Govee lights local: Set segment color, **Segments**: 1 to 6, **Color**: Blue
+  - Govee lights local: Set segment color, **Segments**: 7 to 12, **Color**: Gold
+
+{% details "YAML example for team colors on a light strip" %}
+
+{% example %}
+automation: |
+  alias: "Game day: team colors on the TV strip"
+  triggers:
+    - trigger: calendar
+      event: start
+      entity_id: calendar.game_day
+  actions:
+    - action: govee_light_local.set_segment_color
+      target:
+        entity_id: light.tv_light_strip
+      data:
+        segments: [1, 2, 3, 4, 5, 6]
+        rgb_color: [0, 51, 160]
+    - action: govee_light_local.set_segment_color
+      target:
+        entity_id: light.tv_light_strip
+      data:
+        segments: [7, 8, 9, 10, 11, 12]
+        rgb_color: [255, 184, 28]
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
+
+{% include actions/related.md %}

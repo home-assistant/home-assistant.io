@@ -10,6 +10,8 @@ To enable local control on your Govee device, refer to the instructions availabl
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/actions.md %}
+
 ## Supported devices
 
 H1232,
