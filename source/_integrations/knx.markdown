@@ -474,16 +474,16 @@ Every telegram that matches an address pattern with its destination field will b
 
 ## KNX tools for AI conversation agents
 
-The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation and to interact with the bus.
+The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation, to interact with the bus, and to create KNX entities.
 
-With these tools, an agent can answer questions such as "Which device sent the last telegram to 1/2/3?", "What is connected to line 1.1?", or "What is the current temperature on 4/0/1?". None of this requires a Home Assistant {% term entity %} for the group address in question.
+With these tools, an agent can answer questions such as "Which device sent the last telegram to 1/2/3?", "What is connected to line 1.1?", or "What is the current temperature on 4/0/1?". None of this requires a Home Assistant {% term entity %} for the group address in question. An agent can also set up entities for you, for example "Create lights for all dimming channels in the living room".
 
 ### Enabling the KNX tools
 
 {% important %}
-Only administrators can change the tools of a conversation agent. Once **KNX** is selected, everyone who can talk to that agent can use every KNX tool, including the ones that write to the bus. This also covers voice satellites, where the request is not associated with a user.
+Only administrators can change the tools of a conversation agent. Once **KNX** is selected, everyone who can talk to that agent can use every KNX tool, including the ones that write to the bus and the ones that create entities and devices. This also covers voice satellites, where the request is not associated with a user.
 
-Only enable the KNX API on agents you are willing to give write access to your installation.
+Only enable the KNX API on agents you are willing to give write access to your installation and to your KNX entity configuration.
 {% endimportant %}
 
 The KNX API is not used by default. Select it on the {% term integration %} that provides your conversation agent, such as [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation/), [OpenAI](/integrations/openai_conversation/), or [Ollama](/integrations/ollama/):
@@ -496,7 +496,7 @@ To use the tools from an external MCP client instead, use the [Model Context Pro
 
 ### Available tools
 
-The API provides 21 tools in four groups. If a tool cannot run, it reports the reason back to the agent, for example that no ETS project is loaded or that the telegram store is unavailable.
+The tools are organized in groups. If a tool cannot run, it reports the reason back to the agent, for example that no ETS project is loaded or that the telegram store is unavailable.
 
 #### Telegram history
 
@@ -513,6 +513,14 @@ The API provides 21 tools in four groups. If a tool cannot run, it reports the r
 #### Live bus access
 
 `get_connection_status`, `read_group_value`, `send_group_value_read`, and `send_group_value_write` report the connection state and read from or write to group addresses on the bus. `send_group_value_write` sends a telegram to your installation, just like the group monitor does.
+
+#### Creating entities
+
+`list_entity_suggestions`, `get_entity_schema`, `validate_entity`, `create_entity`, and `create_device` set up KNX entities the same way the KNX panel does. An agent can create an entity from a suggestion derived from your project file, from a configuration it puts together from the group addresses of your installation, or from a suggestion it adjusts. `validate_entity` checks a configuration without creating anything, and `create_device` adds a device to group entities in.
+
+Entities and devices created by an agent show up in the KNX panel, where you can edit or delete them like any other. The tools only add to your configuration. They can't change or remove existing entities, and they don't send anything to the bus.
+
+When **Read-only** is turned on in the [Model Context Protocol](/integrations/mcp_server/) integration, its main URL leaves out `create_entity` and `create_device`.
 
 ## Exposing entity states, entity attributes or time to KNX bus
 
