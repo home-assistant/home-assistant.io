@@ -514,9 +514,9 @@ The tools are organized in groups. If a tool cannot run, it reports the reason b
 
 `get_connection_status`, `read_group_value`, `send_group_value_read`, and `send_group_value_write` report the connection state and read from or write to group addresses on the bus. `send_group_value_write` sends a telegram to your installation, just like the group monitor does.
 
-#### Creating entities
+#### Entities and devices
 
-`list_entity_suggestions`, `get_entity_schema`, `validate_entity`, `create_entity`, and `create_device` set up KNX entities the same way the KNX panel does. An agent can create an entity from a suggestion derived from your project file, from a configuration it puts together from the group addresses of your installation, or from a suggestion it adjusts. `validate_entity` checks a configuration without creating anything, and `create_device` adds a device to group entities in.
+`list_entity_suggestions`, `get_entity_schema`, `validate_entity`, `create_entity`, and `create_device` set up KNX entities the same way the KNX panel does. An agent can create an entity from a suggestion derived from your project file, from a configuration it puts together from the group addresses of your installation, or from a suggestion it adjusts. `validate_entity` checks a configuration without creating anything. `create_device` adds a new device that the agent can assign entities to, so entities that belong together are grouped.
 
 Entities and devices created by an agent show up in the KNX panel, where you can edit or delete them like any other. The tools only add to your configuration. They can't change or remove existing entities, and they don't send anything to the bus.
 
