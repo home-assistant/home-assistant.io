@@ -136,7 +136,7 @@ There is nothing for you to do. Your subscription, remote access, voice, and bac
 
 Thanks to the Nabu Casa team, and to everyone who shared their thoughts on the new name after the announcement! ❤️
 
-<img src='/images/blog/2026-12/temp-link-settings.png' alt='Screenshot of the Home Assistant Link page in the settings. It thanks you for funding the Open Home Foundation and lists the Home Assistant Link features: remote access, off-site backups, voice, companion app, Alexa and Google, and cameras and streaming.' class='no-shadow' />
+<img src='/images/blog/2026-12/link-settings.png' alt='Screenshot of the Home Assistant Link page in the settings. It thanks you for funding the Open Home Foundation and lists the Home Assistant Link features: remote access, which is on, off-site backups, with the last backup 5 hours ago, voice, and the companion app.' class='no-shadow' />
 
 ## A cover dialog you can grab
 
@@ -144,7 +144,7 @@ Blinds, shutters, curtains, garage doors, gates: in Home Assistant, they are all
 
 So, we redesigned the cover dialog from scratch. It now shows a drawing of your cover, based on what kind of cover it is: a shutter looks like a shutter, a garage door like a garage door. And the drawing is the control. Tap it to send the cover to that position, or drag it to move it from where it is now. Covers that can only open and close do so with a swipe past halfway. Doors, windows, and dampers get a clean, simple panel instead, because Home Assistant also uses those types for things like pet doors and car windows.
 
-<img src='/images/blog/2026-12/temp-cover-more-info.png' alt='Screenshot of the new cover dialog of a shutter, open at 30 percent. A drawing of the shutter shows its position, with a switch between position and tilt, Open, Stop, and Close buttons, and favorite positions of 0, 50, and 100 percent.' class='no-shadow' />
+<img src='/images/blog/2026-12/cover-more-info.png' alt='Screenshot of the new cover dialog of the office shutter, open at 25 percent. A drawing of the shutter shows its position, with blue sky in the open part at the bottom. Below it are Open, Stop, and Close buttons, and favorite positions of 0, 25, 75, and 100 percent.' class='no-shadow' />
 
 Below the drawing are labeled **Open**, **Stop**, and **Close** buttons. Covers with tilt get a switch between position and tilt, just like the light dialog switches between brightness and color. And you can add your favorite positions, so "half open" is always one tap away.
 
@@ -185,7 +185,7 @@ ESPHome voice satellites, like the [Home Assistant Voice Preview Edition](/voice
 
 And you don't need an automation to see them. The new timer list card shows all timers of a satellite with a live countdown. Start a new one, add time, pause, or cancel, right from your dashboard. Select the entity, and its dialog gives you the same controls. So you can check how long the pasta still needs, without asking.
 
-<img src='/images/blog/2026-12/temp-timer-list-card.png' alt='Screenshot of the timer list card with a Start timer button and four timers: a finished egg timer, a pasta timer with 6:59 left, a 5-minute timer, and a paused bread timer. Each running timer has buttons to add time, pause, and cancel.' class='no-shadow' />
+<img src='/images/blog/2026-12/timer-list-dialog.png' alt='Screenshot of the timers dialog of a Home Assistant Voice Preview Edition, with two running timers: bread with 4:04 left and pasta with 6:12 left. Each timer has a progress bar and buttons to add a minute, pause, and cancel. Below them is an Add timer button.' class='no-shadow' />
 
 Thanks, [@synesthesiam] and [@balloob]!
 
@@ -213,8 +213,6 @@ A few things to know:
 - **Existing automations keep working.** Nothing changes until you use the new options.
 
 Thanks, [@abmantis] and [@nielsrowinbik]!
-
-<!-- TODO: Screenshot of the Button pressed trigger with the press count option. -->
 
 ## A camera player that works the same everywhere
 
@@ -251,7 +249,7 @@ Who hasn't added a new smart plug and forgotten to add it to the Energy dashboar
 
 {% my config_energy title="**Settings** > **Energy**" %} now tells you. It lists the energy, gas, and water meters that keep track of your usage, but aren't in your Energy dashboard yet, on the tab they belong to. Pick where each one belongs, like grid consumption, solar production, or an individual device, and select **Add**. Not interested? Select **Dismiss**, and it won't bother you again.
 
-<img src='/images/blog/2026-12/temp-energy-suggestions.png' alt='Screenshot of the energy settings, suggesting 4 meters that are not in the energy dashboard yet: a smart meter energy import and export, a solar yield of an inverter, and the energy of a washing machine plug. The Add as menu is open, with the options Grid consumption, Return to grid, Solar production, and Individual device.' class='no-shadow' />
+<img src='/images/blog/2026-12/energy-suggestions.png' alt='Screenshot of the Electricity tab of the energy settings, saying that 32 meters are not in the energy dashboard yet. Each meter, like the energy of the shutters in the laundry room, kitchen, and living room, has an Add as menu, an Add button, and a Dismiss button. One Add as menu is open, with the options Grid consumption, Return to grid, Solar production, Battery charging, Battery discharging, Home consumption, and Individual device.' class='no-shadow' />
 
 Thanks, [@erwindouna]!
 
@@ -742,7 +740,7 @@ You just got a new device. Is it an integration? A brand? A Zigbee device? Until
 
 Adding something new now starts in one place: the **Add device or integration** dialog. What Home Assistant already discovered comes first. Below that, you can add a Zigbee, Z-Wave, or Matter device, for the protocols you use. Or browse by category, like **Climate** or **Blinds & curtains**, or by brand, with the integrations of each brand grouped together. Search finds brands, categories, integrations, and helpers, and you can filter to local or cloud integrations.
 
-<img src='/images/blog/2026-12/temp-add-device-or-integration.png' alt='Screenshot of the Add device or integration dialog. On the left, Discovered and buttons to add a Zigbee, Z-Wave, or Matter device, followed by a tree of categories, with AI and voice opened to Speech. On the right, the speech integrations, like ElevenLabs, Google Cloud, OpenAI, and Piper.' class='no-shadow' />
+<img src='/images/blog/2026-12/add-device-or-integration.png' alt='Screenshot of the Add device or integration dialog, with a search field and filters to browse by category and connection. On the left, Discovered with 5 devices, buttons to add a Z-Wave or Matter device, and a list of categories, with Blinds and curtains selected. On the right, the blinds and curtains integrations, like 3 Day Blinds, Acomax, Aladdin Connect, and BleBox devices.' class='no-shadow' />
 
 Thanks, [@frenck]!
 
@@ -758,7 +756,7 @@ Restarting Home Assistant used to be a bit of a waiting game. A message told you
 
 Now, while Home Assistant starts, select the info button on the startup message to see what is going on, live. How many integrations are set up, which ones are setting up right now and for how long, and which ones failed. Once Home Assistant is up and running, it tells you if any integration needs your attention. The details show how long the startup took and which integrations were the slowest. So the next time a restart takes forever, you know who to blame. 😉
 
-<img src='/images/blog/2026-12/temp-startup-details.png' alt='Screenshot of the startup details dialog while Home Assistant starts. It shows 124 of 125 integrations set up, the integration that is setting up right now and for how long, and one integration that failed to set up.' class='no-shadow' />
+<img src='/images/blog/2026-12/startup-details.png' alt='Screenshot of the startup details dialog while Home Assistant starts. It shows 122 of 160 integrations set up after 29 seconds, with a progress bar, and a list of the integrations that are setting up right now, like Sonos, Z-Wave, and Synology DSM, each with how long it has been setting up.' class='no-shadow' />
 
 #### Is this integration healthy?
 
@@ -766,7 +764,7 @@ An integration that shows as loaded isn't always fine. A sensor might be unavail
 
 Each integration entry now has a **Health** item in its three-dots menu, which brings it all together. It tells you whether the entry is running and, if not, why. It shows how many of its {% term entities %} are available, the open repairs, the recent errors and warnings in the log, and how long it took to set up. Each problem links straight to the place where you can fix it.
 
-<img src='/images/blog/2026-12/temp-integration-health.png' alt='Screenshot of the health dialog of an integration entry. It shows the entry is running, 2 of 3 entities are available, there is 1 open repair, and there are 4 errors and 1 warning in the recent log, each with a link to view them.' class='no-shadow' />
+<img src='/images/blog/2026-12/integration-health.png' alt='Screenshot of the health dialog of a printer, saying that some things need a look. The setup failed because Home Assistant could not connect to the printer, and will be retried. None of its 5 entities, like the ink levels, are available, with a link to view them. There are no open repairs, and no errors or warnings in the recent log, and the integration took 3.1 seconds to start.' class='no-shadow' />
 
 #### Why is my database so big?
 
@@ -776,7 +774,7 @@ The **Storage** page in {% my storage title="**Settings** > **System** > **Stora
 
 The **Storage** page used to be available only on {% term "Home Assistant Operating System" %} and supervised installations. It now shows up on every installation type, so {% term "Home Assistant Container" %} users get the **Database** card too.
 
-<img src='/images/blog/2026-12/temp-database-usage.png' alt='Screenshot of the Database card on the Storage page. It shows a database of 4.19 GB, a bar with the size of each table including unused space, and a table of entities sorted by size, with their number of states and statistics. The biggest entity, a power sensor, uses almost 200 MB.' class='no-shadow' />
+<img src='/images/blog/2026-12/database-usage.png' alt='Screenshot of the Database card on the Storage page. It shows a database of 337.66 MB, a bar with the size of each table including unused space, and a table of entities sorted by size, with their number of states, statistics, and short-term statistics. The biggest entities are the power and voltage sensors of an electric meter, each using about 19 MB.' class='no-shadow' />
 
 Thanks, [@erwindouna], for all three of these!
 
