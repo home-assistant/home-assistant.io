@@ -59,6 +59,11 @@ Every site, gateway, microinverter, and panel has the following sensors:
 - **Lifetime energy**
   - **Description**: The total solar energy produced so far, in kilowatt-hours (kWh).
 
+Every gateway and microinverter also has the following sensor:
+
+- **Last reported**
+  - **Description**: When the device last sent data to NEPViewer. The sensor stays available when the device stops reporting.
+
 You can use the **Energy today** and **Lifetime energy** sensors as solar production in the [Energy dashboard](/docs/energy/solar-panels/).
 A site, its gateways and microinverters, and its panels all report production of the same system.
 To avoid counting the same energy more than once, add only one of these levels, and only one of the two sensors for each device.
@@ -67,6 +72,10 @@ To avoid counting the same energy more than once, add only one of these levels, 
 
 The **NEPViewer** integration {% term polling polls %} data from the NEPViewer cloud every 5 minutes.
 
+NEPViewer keeps returning the last values of a device that stopped reporting, for example during a power outage.
+The integration marks a gateway or microinverter and its panels as unavailable when the device hasn't reported for 90 minutes, or for 24 hours if its last reported power was 0 W, as is normal at night.
+A site becomes unavailable when all its gateways and microinverters are unavailable.
+
 The lists of sites, gateways, and microinverters are only retrieved when the integration is set up, and panels are only added at that time.
 To add new hardware to Home Assistant, reload the integration.
 
@@ -74,6 +83,9 @@ To add new hardware to Home Assistant, reload the integration.
 
 - The integration requires an internet connection, because it retrieves all data from the NEPViewer cloud.
 - NEPViewer allows only one active session per account. If you sign in with the same account in another place, such as the NEPViewer website or mobile app, the session of Home Assistant is no longer valid. At the next update, the sensors become unavailable, the integration stops updating, and Home Assistant asks you to reauthenticate. When Home Assistant signs in again, your session in the other place ends.
+- If the last power that a device reported in the evening isn't 0 W, the device becomes unavailable 90 minutes later, until NEPViewer resets the power at midnight.
+- If a device stops reporting and the day ends, NEPViewer resets its power to 0 W. The device then shows 0 W until it hasn't reported for 24 hours.
+- If only some of the devices of a site stop reporting, the values of the site still include their last values.
 - The integration only provides solar production data. Other data in NEPViewer, such as grid and battery power, is not available.
 - The integration can't control your devices or change settings in NEPViewer.
 - The integration retrieves up to 100 sites and up to 100 gateways and microinverters per account.
@@ -139,6 +151,22 @@ Home Assistant can't reach the NEPViewer cloud.
 1. Check the internet connection of Home Assistant.
 2. Check that the [NEPViewer](https://nepviewer.com) website is available.
 3. If you are setting up or reauthenticating the integration, submit the form again. Otherwise, wait for the integration to recover. It tries again automatically.
+
+{% enddetails %}
+
+{% details "A microinverter is unavailable" %}
+
+### Symptom: A gateway or microinverter is unavailable, but **Last reported** is available
+
+#### Description
+
+The device stopped sending data to NEPViewer, for example because of a power outage or a problem with its internet connection.
+The NEPViewer website can still show the device as online.
+
+#### Resolution
+
+1. Check the power and the internet connection of the device.
+2. Wait for the device to report again. The sensors become available at the next update.
 
 {% enddetails %}
 
