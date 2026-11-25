@@ -112,43 +112,6 @@ automation: |
 
 {% enddetails %}
 
-### Automation: Give your cleaner a PIN code every Friday
-
-Let your cleaner in on Fridays between 9:00 and 17:00, with a PIN code that doesn't work at any other time. The automation first deletes the PIN code from the week before, because each PIN name can exist only once on a lock.
-
-- **Trigger**: Time: 8:00 on Fridays
-- **Action**: Delete PIN code
-  - **Target**: Front door lock
-- **Action**: Add PIN code
-  - **Target**: Front door lock
-
-{% details "YAML example for a weekly PIN code" %}
-
-{% example %}
-automation: |
-  alias: "Add a PIN code for the cleaner on Fridays"
-  triggers:
-    - trigger: time
-      at: "08:00:00"
-      weekday: fri
-  actions:
-    - action: schlage.delete_code
-      target:
-        entity_id: lock.front_door
-      data:
-        name: "Cleaner"
-    - action: schlage.add_code
-      target:
-        entity_id: lock.front_door
-      data:
-        name: "Cleaner"
-        code: "REPLACE_WITH_PIN"
-        start_datetime: "{{ today_at('09:00') }}"
-        end_datetime: "{{ today_at('17:00') }}"
-{% endexample %}
-
-{% enddetails %}
-
 ### Automation: Notify you when the keypad is disabled
 
 When someone enters too many incorrect codes, the lock disables its keypad. Find out right away, because it could mean that someone is trying to get in.
