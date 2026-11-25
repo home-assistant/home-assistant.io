@@ -4,7 +4,11 @@ ha_release: 2023.9
 ha_domain: schlage
 ---
 
-The **Schlage** {% term integration %} provides connectivity with Schlage WiFi smart locks through Schlage's cloud API.
+[Schlage] is a lock manufacturer whose Encode range of smart deadbolts and levers connects directly to your WiFi network, without needing a separate hub or bridge.
+
+The **Schlage** {% term integration %} controls those locks through Schlage's cloud API. It reports lock state, battery level, and keypad status, and exposes the lock's settings so they can be changed from Home Assistant.
+
+[Schlage]: https://www.schlage.com/
 
 ## Known working devices
 
@@ -18,10 +22,25 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary sensor
 - Lock
+- Select
 - Sensor
 - Switch
 
+## Prerequisites
+
+1. Install the **Schlage Home** app on your phone and create a Schlage account.
+2. Add your locks to your account in the app.
+
+The integration signs in with the email address and password of your Schlage account. Only accounts that sign in with an email address and password are supported.
+
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Username:
+  description: "The email address of your Schlage account."
+Password:
+  description: "The password of your Schlage account."
+{% endconfiguration_basic %}
 
 ## Data updates
 
@@ -49,8 +68,8 @@ Once you have enabled the Schlage integration, you should see the following sens
 
 Once you have enabled the Schlage integration, you should see the following switches:
 
-- **1-Touch Locking** - When enabled, locks the lock with a press of the Schlage button.
-- **Keypress Beep** - Controls whether the lock will emit beeping tones on use.
+- **1-touch locking** - When enabled, locks the lock with a press of the Schlage button.
+- **Keypress beep** - Controls whether the lock will emit beeping tones on use.
 
 {% include integrations/actions.md %}
 

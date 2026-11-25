@@ -9,7 +9,7 @@ related:
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing devices to Assist
+    title: Exposing entities to voice assistants
   - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition - Documentation
 ---
@@ -21,7 +21,7 @@ Only the audio is sent to the cloud for processing. Everything Assist actually d
 If you would prefer to keep absolutely everything local, see the [fully local voice assistant guide](/voice_control/voice_remote_local_assistant/) instead.
 
 
-## Setting up a cloud Assist pipeline
+## Setting up an assistant with Home Assistant Link
 
 To have the fastest processing voice assistant experience, follow these steps:
 

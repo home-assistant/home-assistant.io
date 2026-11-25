@@ -91,9 +91,9 @@ The integration adds your INDI Allsky camera to the [media browser](/integration
 
 The media is organized into three folders:
 
-- **Latest Media**: The latest snapshot, keogram, star trail, and timelapse video.
-- **Timelapses & Generated Media**: Day and night timelapse videos, with their keograms and star trails, organized by year and month.
-- **Captured Images History**: The individual images your camera captured, organized by year, month, day, and hour.
+- **Latest media**: The latest snapshot, keogram, star trail, and timelapse video.
+- **Timelapses & generated media**: Day and night timelapse videos, with their keograms and star trails, organized by year and month.
+- **Captured images history**: The individual images your camera captured, organized by year, month, day, and hour.
 
 ## Data updates
 

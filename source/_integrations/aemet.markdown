@@ -24,11 +24,16 @@ To add AEMET OpenData integration go to {% my integrations title="**Settings** >
 {% configuration_basic %}
 API Key:
   description: "API Key from the website"
-Name:
-  description: "Name of the integration"
 Location:
   description: "Latitude and longitude for weather forecast and sensor"
 {% endconfiguration_basic %}
+
+To replace your API key before it expires, without removing the integration:
+
+1. Request a new API key on the [AEMET OpenData registration page](https://opendata.aemet.es/centrodedescargas/altaUsuario).
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **AEMET OpenData**.
+3. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+4. Enter the new API key and select **Submit**.
 
 The integration creates one weather entity per forecast mode and also sensors for all available conditions. There are two forecast modes, `daily` for daily forecast up to 6 days or `hourly` for an hourly forecast up to 3 days.
 

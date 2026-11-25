@@ -16,6 +16,8 @@
     "modbus"
   ],
   "platforms": [
+    "binary_sensor",
+    "number",
     "sensor"
   ]
 }

@@ -4,7 +4,7 @@ ha_release: 2026.7
 ha_domain: klik_aan_klik_uit
 ---
 
-The **KlikAanKlikUit** {% term integration %} lets you control self-learning KlikAanKlikUit 433.92 MHz RF devices from Home Assistant.
+The **KlikAanKlikUit** {% term integration %} lets you control self-learning KlikAanKlikUit 433.92 MHz RF devices from Home Assistant. Home Assistant sends commands directly to your devices through a [radio frequency remote adapter](/connectivity/radio-frequency/#radio-frequency-remote-adapters), such as an ESPHome device with a 433.92 MHz transmitter. The integration does not connect to KlikAanKlikUit hubs, like the ICS-2000, or to the KlikAanKlikUit app.
 
 ## Use cases
 

@@ -1,0 +1,21 @@
+{
+  "domain": "voice_support",
+  "name": "Voice support",
+  "integration_type": "service",
+  "codeowners": [
+    "@synesthesiam",
+    "@arturpragacz"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "internal",
+  "categories": [
+    "ai_voice.voice_assistants"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

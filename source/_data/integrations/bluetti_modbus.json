@@ -17,5 +17,8 @@
   "platforms": [
     "diagnostics",
     "sensor"
+  ],
+  "discovery": [
+    "zeroconf"
   ]
 }

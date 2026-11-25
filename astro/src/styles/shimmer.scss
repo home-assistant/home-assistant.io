@@ -1,0 +1,89 @@
+/* Shimmer border: a comet of light that sweeps once around an element's
+   border. Works on any element with a border-radius. Pair with
+   src/lib/shimmer.ts, or add the .is-shimmering class yourself to play
+   it. Ported from the Open Home Foundation web experiment "Card shimmer"
+   (https://web-experiments.openhomefoundation.org/experiments/card-shimmer/).
+
+   One change from the experiment: the comet is drawn on ::after, so an
+   element can keep ::before for its own border (as the Connect feature
+   cards do). */
+
+@use "ring" as *;
+
+@property --shimmer-angle {
+	syntax: "<angle>";
+	inherits: false;
+	initial-value: 0deg;
+}
+
+/* Scales the tail: short as the comet sets off, full length mid-sweep,
+   short again at the end. */
+@property --shimmer-stretch {
+	syntax: "<number>";
+	inherits: false;
+	initial-value: 1;
+}
+
+.shimmer {
+	--shimmer-color: rgb(255 255 255 / 95%);
+	--shimmer-width: 1px;
+	--shimmer-length: 90deg;
+	--shimmer-start: -60deg;
+	--shimmer-duration: 1.8s;
+	/* A gentle ease-out: the comet moves off at once and keeps a fairly
+	   even pace, slowing only at the end. (An ease-in-out felt sluggish:
+	   slow to start, with the stretched tail lingering mid-sweep.) */
+	--shimmer-ease: cubic-bezier(0.25, 0.4, 0.45, 1);
+
+	isolation: isolate;
+	position: relative;
+}
+
+.shimmer::after {
+	@include ring(var(--shimmer-width));
+	background: conic-gradient(
+		from calc(var(--shimmer-start) + var(--shimmer-angle)),
+		transparent 0deg,
+		transparent calc(360deg - var(--shimmer-length) * var(--shimmer-stretch)),
+		var(--shimmer-color) 360deg
+	);
+	opacity: 0;
+	z-index: 1;
+}
+
+.shimmer.is-shimmering::after {
+	animation: shimmer-sweep var(--shimmer-duration) var(--shimmer-ease)
+		var(--shimmer-delay, 0ms) both;
+}
+
+@keyframes shimmer-sweep {
+	0% {
+		--shimmer-angle: 0deg;
+		--shimmer-stretch: 0.2;
+		opacity: 0;
+	}
+
+	12% {
+		opacity: 1;
+	}
+
+	50% {
+		--shimmer-stretch: 1;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	100% {
+		--shimmer-angle: 360deg;
+		--shimmer-stretch: 0.2;
+		opacity: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.shimmer.is-shimmering::after {
+		animation: none;
+	}
+}

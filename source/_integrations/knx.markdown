@@ -273,6 +273,39 @@ This integration uses the KNX/IP protocol to receive telegrams live as they appe
 
 States of diagnostic entities of the "KNX Interface" device are {% term polling polled %} every 10 seconds.
 
+## Project data
+
+Project data has the group addresses of your installation with their names and data point types, its devices, and its building structure. With it, the KNX integration decodes telegrams, names group addresses in the group monitor and in trigger data, and suggests entities. You can upload a project file in the KNX panel.
+
+### Providing project data from another program
+
+Other integrations and tools can replace the project data with data that is already parsed into the format of [xknxproject](https://github.com/XKNX/xknxproject), the library the KNX integration uses to read project files. An example is a project editor that keeps Home Assistant up to date while you edit the project.
+
+- An integration calls `homeassistant.components.knx.async_set_project(hass, project)`.
+- An external tool sends the WebSocket command `knx/set_knx_project` with the data in `project`. It requires an administrator account.
+
+```json
+{
+  "id": 1,
+  "type": "knx/set_knx_project",
+  "project": {
+    "info": {
+      "xknxproject_version": "3.11.1",
+      "group_address_style": "ThreeLevel",
+      "...": "..."
+    },
+    "group_addresses": { "...": "..." },
+    "...": "..."
+  }
+}
+```
+
+The data must be in the format of the xknxproject version installed with Home Assistant, down to its minor version. It is validated before anything is stored. Invalid or incompatible data is refused with an error, and the current project is kept. Valid data is stored and used like an uploaded project file.
+
+Each call stores the whole project. A tool that updates it while the project is edited should send it after a short pause in the changes rather than after every single change.
+
+The WebSocket command sends the whole project in one message, which is limited to 4&nbsp;MiB. A larger message closes the connection. Larger project data can be provided from Python with `async_set_project`.
+
 ## Triggers
 
 The KNX integration provides its own trigger platform which can be used in automations.
@@ -746,7 +779,7 @@ sync_state:
   type: [boolean, string, integer]
   default: true
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 reset_after:
@@ -1254,7 +1287,7 @@ invert_angle:
   default: false
   type: boolean
 device_class:
-  description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/cover/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 sync_state:
@@ -1814,7 +1847,7 @@ device_class:
   required: false
   type: string
 unit_of_measurement:
-  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
+  description: Overrides the DPT's default native unit of measurement. The unit must be one of the [units listed for the selected device class](/integrations/number/#list-of-available-device-classes).
   required: false
   type: string
 sync_state:
@@ -2015,7 +2048,7 @@ always_callback:
   type: boolean
   default: false
 state_class:
-  description: Overrides the DPT's default [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
+  description: Overrides the DPT's default [state_class](/integrations/sensor/#state-class).
   required: false
   type: string
 device_class:
@@ -2023,7 +2056,7 @@ device_class:
   required: false
   type: string
 unit_of_measurement:
-  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
+  description: Overrides the DPT's default native unit of measurement. The unit must be one of the [units listed for the selected device class](/integrations/sensor/#list-of-available-device-classes).
   required: false
   type: string
 {% endconfiguration %}
@@ -2086,7 +2119,7 @@ respond_to_read:
   type: boolean
   default: false
 device_class:
-  description: Sets the [class of the device](/integrations/switch/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/switch/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 sync_state:

@@ -79,7 +79,7 @@ When the trigger reacts, the `trigger` variable contains the following data:
 - `trigger.offset`: Timedelta object of the offset. If the trigger has no offset, the offset is zero.
 - `trigger.calendar_event`: The calendar event, with its `summary`, `start`, `end`, `all_day`, `description`, and `location`.
 
-For example, use {% raw %}`{{ trigger.calendar_event.summary }}`{% endraw %} in an action to include the title of the event in a notification.
+For example, use `{{ trigger.calendar_event.summary }}` in an action to include the title of the event in a notification.
 
 For all properties of the calendar event, refer to [Calendar triggers](/docs/automation/trigger-data/#calendar-triggers).
 

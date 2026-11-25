@@ -33,6 +33,8 @@ The two are linked only when the same individual needs both. You attach a user t
 
 To create a user that is not linked to a person, add it from the **Users** tab instead of from **People**. You can still [link it to a person](/integrations/person/#linking-an-existing-user-account-to-a-person) later.
 
+A user with **Local access only** turned on can sign in and connect only from your local network. This applies to every such user, whether or not the user is linked to a person. From outside your network, the user cannot sign in or use Home Assistant, neither through Home Assistant Cloud nor through direct remote access. This includes the Home Assistant app on a phone.
+
 ## About user accounts
 
 When you start Home Assistant for the first time, the _owner_ user account is created. The owner has the highest level of access and can manage every part of the system, including creating and managing other user accounts.

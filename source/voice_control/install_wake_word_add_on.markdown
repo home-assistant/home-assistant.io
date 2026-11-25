@@ -58,7 +58,7 @@ Enabling a wake word consists of 2 steps:
 
 - [Create your own wake words](/voice_control/create_wake_word/)
 - [About wake words](/voice_control/about_wake_word/)
-- [Create a cloud assistant](/voice_control/voice_remote_cloud_assistant/)
+- [Create an assistant with Home Assistant Link](/voice_control/voice_remote_cloud_assistant/)
 - [Create a local assistant](/voice_control/voice_remote_local_assistant)
 
 ### Extra hardware to use wake word

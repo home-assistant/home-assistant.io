@@ -16,7 +16,8 @@
   ],
   "platforms": [
     "binary_sensor",
-    "device_tracker"
+    "device_tracker",
+    "diagnostics"
   ],
   "discovery": [
     "ssdp"
