@@ -11,7 +11,7 @@ There is currently support for the following platforms within Home Assistant:
 - Presence detection - device tracker for connected devices
 - Notifications - via SMS
 - Sensors - device, network, signal, SMS count, traffic, and battery information
-- Switch - mobile data on/off, Wi-Fi guest network on/off
+- Switch - mobile data on/off, Wi-Fi guest network on/off, DHCP server on/off
 - Binary sensor - mobile and Wi-Fi connection status, SMS storage full/not
 - Button - clear traffic statistics, restart
 - Select - preferred network mode
@@ -39,7 +39,7 @@ enabled by default:
 
 - WAN IP address sensor
 - LTE signal sensors RSRQ, RSRP, RSSI, and SINR
-- mobile data and Wi-Fi guest network switches
+- mobile data, Wi-Fi guest network and DHCP server switches
 - mobile connection binary sensor
 - device tracker entries
 
