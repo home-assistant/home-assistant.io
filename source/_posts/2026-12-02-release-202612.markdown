@@ -68,17 +68,23 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 Home Assistant 2026.12! 🎉
 
-<!-- TODO: Draft intro, rewrite in your own words. -->
+Two months ago, I told you Home Assistant Cloud was on its way to becoming Home Assistant Link, and that the change was planned for December. Well, it's December. 😄 As of this release, [it's official](#home-assistant-cloud-is-now-home-assistant-link). Same service, and nothing for you to do. And because I still regularly meet people who think Nabu Casa owns Home Assistant (it doesn't), that section also explains who is who.
 
-The last release of 2026 is here! And if you have blinds, shutters, curtains, or a garage door, this one is for you: the [cover dialog](#a-cover-dialog-you-can-grab) is completely redesigned. It now shows a drawing of your actual cover, and you control it by grabbing that drawing. It took a whole group of people, several rounds of design, and a lot of feedback from the community to get here, and I think it shows. 🪟
+You might have guessed my favorite from the title: [the new cover dialog](#a-cover-dialog-you-can-grab). 🪟 Our old one worked, but that upside-down slider never made much sense for a garage door. The new one draws your actual cover, and you control it by grabbing that drawing. A while back, I asked on the roadmap if we could try to get this shipped in 2026.12. A whole group of people made it happen: designers, product people, developers, and many of you who tried the prototype and gave feedback. Thank you!
 
-Home Assistant Cloud has a new name: it's now [Home Assistant Link](#home-assistant-cloud-is-now-home-assistant-link). Same service, and nothing for you to do. The section below explains why the name changed, and who Nabu Casa is, because that question still comes up a lot.
+You know by now I'm an automation person, so my second favorite won't surprise you: [buttons that do more](#buttons-that-do-more). Double press, triple press, press and hold, all with the same triggers, whatever brand your remote is. It's the groundwork, and not every integration supports it yet, but I can't wait to see where this goes. 🔘
 
-Got a voice assistant? Head over to Labs and [try the next generation of voice](#try-the-next-generation-of-voice). No more lights turning on because the TV said something that sounded like the wake word. 🗣️
+Has your TV ever turned on the lights by saying something that sounded a bit like "Okay Nabu"? Then head over to Labs and [try the next generation of voice](#try-the-next-generation-of-voice). 🗣️
 
-There's more: [buttons you can hold](#buttons-that-do-more), [a camera player that works the same everywhere](#a-camera-player-that-works-the-same-everywhere), [home batteries that are measured instead of guessed](#batteries-measured-instead-of-guessed), [an AI assistant that helps you set up your home](#your-ai-assistant-can-do-more), and 14 new integrations! 🚀
+There's more: [a camera player that works the same everywhere](#a-camera-player-that-works-the-same-everywhere), [home batteries that are measured instead of guessed](#batteries-measured-instead-of-guessed), [an AI assistant that helps you set up your home](#your-ai-assistant-can-do-more), and 14 new integrations! 🚀
 
-And thank you to everyone who joined the Month of "What the Heck?!" in November. Several of your WTHs are already fixed in this release, and more are on their way. ❤️
+And thank you to everyone who took part in the Month of "What the Heck?!" in November. Several of your WTHs are already fixed in this release, and more are on their way. ❤️
+
+This is also the last release of 2026, and what a year it has been. Purpose-specific triggers and conditions graduated from Labs, we got a whole new map, HACS became the Marketplace in by far our biggest release ever. And this year, we have seen almost 50,000 pull requests to Home Assistant. Fifty. Thousand. That is an insane amount. 🤯 I honestly don't know how to thank you all for that, but here it goes: thank you! For every pull request, every translation, every answer on the forum, every bug report, and every WTH. ❤️
+
+Whatever you celebrate, I wish you and everyone in your home happy holidays and a great start of the new year. Take a break, enjoy the time with the people around you, and maybe don't rebuild your entire setup on New Year's Eve. 😉 🎄
+
+See you in January!
 
 Enjoy the (beta) release!
 
