@@ -189,7 +189,7 @@ Get a notification with the full warning text whenever a warning is issued or up
   - **Not to**: Unavailable, Unknown
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-  - **Message**: `{{ trigger.to_state.attributes.text }} {{ trigger.to_state.attributes.recommendations }}`
+  - **Message**: `{{ trigger.to_state.attributes.text }} {{ trigger.to_state.attributes.impacts }} {{ trigger.to_state.attributes.recommendations }}`
   - **Title**: `Weather warning`
 
 {% details "YAML example for forwarding the warning text" %}
