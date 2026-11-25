@@ -512,10 +512,14 @@ action:
 
 Send the vacuum to clean some rooms three times every day at 10:00. To find the ID numbers of your rooms, use the [Get maps](/actions/roborock.get_maps/) action.
 
-- **Trigger**: Time: 10:00.
-- **Actions**: Send command to vacuum cleaner with the Roborock-specific `app_segment_clean` command. Its `params` value is a list with one item, which has two keys:
-  - `segments`: The ID numbers of the rooms to clean.
-  - `repeat`: The number of passes, from 1 to 3.
+- **Trigger**: Time
+  - **At time**: `10:00:00`
+- **Action**: Send command to vacuum cleaner
+  - **Target**: Your Roborock vacuum
+  - **Command**: `app_segment_clean`
+  - **Parameters**: A list with one item. Enter it in YAML mode, as shown in the example. The item has two keys:
+    - `segments`: The ID numbers of the rooms to clean.
+    - `repeat`: The number of passes, from 1 to 3.
 
 {% details "YAML example for cleaning two rooms three times" %}
 
@@ -532,6 +536,7 @@ automation: |
       data:
         command: app_segment_clean
         params:
+        # Replace these IDs with the room IDs from the Get maps action
           - segments:
               - 16
               - 17
