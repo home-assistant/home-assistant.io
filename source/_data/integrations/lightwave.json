@@ -8,6 +8,9 @@
     "plugs_switches",
     "climate.thermostats_heating"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "climate",
     "light",

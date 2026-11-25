@@ -10,7 +10,11 @@
   "categories": [
     "weather_alerts"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
+    "diagnostics",
     "sensor"
   ]
 }

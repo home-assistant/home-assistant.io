@@ -7,14 +7,18 @@
   ],
   "config_flow": true,
   "iot_class": "local_push",
-  "quality_scale": "bronze",
+  "quality_scale": "silver",
   "categories": [
     "diy_makers",
     "weather_alerts"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
     "binary_sensor",
     "camera",
+    "diagnostics",
     "image",
     "sensor"
   ],

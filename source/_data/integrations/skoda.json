@@ -13,7 +13,15 @@
   "categories": [
     "vehicles_transport.cars_evs"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
-    "sensor"
+    "binary_sensor",
+    "climate",
+    "device_tracker",
+    "number",
+    "sensor",
+    "switch"
   ]
 }

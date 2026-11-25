@@ -11,8 +11,12 @@
   "categories": [
     "energy.ev_charging"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "binary_sensor",
+    "number",
     "sensor",
     "switch"
   ]

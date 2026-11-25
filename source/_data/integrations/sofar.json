@@ -11,10 +11,14 @@
   "categories": [
     "energy.solar_batteries"
   ],
+  "connectivity": [
+    "modbus"
+  ],
   "platforms": [
     "binary_sensor",
     "button",
     "diagnostics",
+    "event",
     "select",
     "sensor",
     "switch"

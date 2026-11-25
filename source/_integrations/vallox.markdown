@@ -8,6 +8,11 @@ The **Vallox** {% term integration %} lets you control any Vallox ventilation un
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Vallox unit."
+{% endconfiguration_basic %}
+
 ## Platforms
 
 ### Fan
@@ -28,24 +33,37 @@ The switch platform allows you to lock the heat recovery bypass.
 
 ### Number
 
-The number platform gives you control over the supply air temperatures.
+The number platform lets you change settings that the unit stores for the **Home**, **Away**, and **Boost** presets.
+
+- **Fan speed (Home)**, **Fan speed (Away)**, and **Fan speed (Boost)**: The fan speed of the preset, from 1 to 100%.
+- **Supply air temperature (Home)**, **Supply air temperature (Away)**, and **Supply air temperature (Boost)**: The target temperature of the supply air, from 5 to 25 °C.
 
 ### Date
 
 The date platform allows you to set the filter change date.
 
 
-## Profile switching
+## Fan presets
 
-For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan {% term entity %} to get a drop-down menu to select from. Alternatively, the action `fan/set_preset_mode` can be used.
+The presets of the **Vallox** fan {% term entity %} are the ventilation modes of your unit. To switch them in the UI, select the fan and choose a preset. In automations and scripts, use the `fan.set_preset_mode` action with one of these values:
 
-The following Vallox profiles are supported. Availability depends on the connected unit and the presets it exposes, so some profiles may not appear on all devices:
+- **Home**: `home`
+- **Away**: `away`
+- **Boost**: `boost`
+- **Fireplace / Custom**: `fireplace`. This mode was renamed to **Custom** in firmware 2.0.20.
+- **Extra**: `extra`
+- **Auto**: `auto`. Requires firmware 3.1.4 or newer.
 
-- `Home`
-- `Away`
-- `Boost`
-- `Fireplace`
-- `Extra` (available on devices/firmware that expose this preset)
-- `Auto` (available on devices/firmware that expose this preset; requires firmware v3.1.4 or newer)
+The unit doesn't report which modes it supports, so the fan always lists all six presets.
 
 {% include integrations/actions.md %}
+
+## Data updates
+
+The integration {% term polling polls %} the Vallox unit every 60 seconds.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -9,6 +9,9 @@
   "categories": [
     "local_services"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

@@ -5,6 +5,9 @@
   "categories": [
     "diy_makers"
   ],
+  "connectivity": [
+    "modbus"
+  ],
   "platforms": [
     "binary_sensor",
     "climate",

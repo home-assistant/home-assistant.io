@@ -30,6 +30,25 @@ You can also configure power sensors alongside energy sensors in the Energy dash
 
 <img src='/images/docs/energy/energy-overview.png' alt='Visual representation of how all different energy forms relate.' style='border: 0;box-shadow: none;'>
 
+### Adding suggested meters
+
+Home Assistant suggests the energy, gas, and water meters you have that are not on the Energy dashboard yet.
+You can add a suggested meter in a few steps, without searching for its sensor.
+Only meters that already have long-term statistics are suggested.
+If a meter you expect is missing, see [The sensor doesn't appear in the selection list](/docs/energy/faq/#symptom-the-sensor-doesnt-appear-in-the-selection-list).
+
+1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
+2. Open the **Electricity**, **Gas**, or **Water** tab.
+   - If there are meters to suggest, they are listed at the top of the tab.
+3. If a meter has an **Add as** list, choose what the meter measures, such as **Grid consumption**, **Solar production**, or **Individual device**.
+4. Select **Add**.
+   - The settings for that source or device open, with the meter already selected.
+5. Check the settings and select **Save**.
+   - Result: The meter is added to your Energy dashboard.
+
+If you don't want to add a meter, select **Dismiss**.
+The meter is no longer suggested to you, but you can still add it manually.
+
 ## Customizing the Energy dashboard
 
 The Energy dashboard is generated from the energy sources and devices you configure. You can show or hide individual cards without changing your energy sources. This lets you keep the dashboard focused on the graphs and summaries you use most.
@@ -57,3 +76,16 @@ To make an unavailable card available, add the matching source or device on the 
 If you hide every card in an Energy dashboard tab, Home Assistant hides that tab. Home Assistant keeps at least one tab available, so the dashboard does not become empty.
 
 To show a hidden card or tab again, return to **Customize cards**, turn the card back on, and save your changes.
+
+## Combining sources of the same type
+
+If you have more than one source of the same type, like two grid tariffs, several solar panel arrays, or two water meters, the Energy dashboard can show them as one entry per type. For example, all your solar panels then show as one **Solar** series in the graphs. This only changes how the data is shown. Your energy configuration stays the same.
+
+To combine sources of the same type:
+
+1. Open the {% my energy title="Energy dashboard" %} and go to the **Electricity**, **Gas**, or **Water** tab.
+2. In the date picker at the bottom of the page, select **Menu** {% icon "mdi:dots-vertical" %} > **Combine sources**.
+
+To show each source on its own again, select **Combine sources** again.
+
+The **Combine sources** option is only shown on a tab where at least one source type has two or more sources. A type with a single source always looks the same. Home Assistant remembers your choice in your browser and applies it to the **Electricity**, **Gas**, and **Water** tabs. The **Summary** tab always combines sources, so the option is not shown there.

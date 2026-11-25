@@ -11,6 +11,9 @@
   "categories": [
     "sensors.air_quality"
   ],
+  "connectivity": [
+    "bluetooth"
+  ],
   "platforms": [
     "sensor"
   ],

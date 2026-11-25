@@ -14,6 +14,9 @@
   "categories": [
     "diy_makers.boards_hardware"
   ],
+  "connectivity": [
+    "esphome"
+  ],
   "platforms": [
     "alarm_control_panel",
     "assist_satellite",
@@ -38,6 +41,7 @@
     "switch",
     "text",
     "time",
+    "timer_list",
     "update",
     "valve",
     "water_heater"

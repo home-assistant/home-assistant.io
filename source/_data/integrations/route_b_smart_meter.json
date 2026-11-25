@@ -11,6 +11,10 @@
   "categories": [
     "energy.meters_monitoring"
   ],
+  "connectivity": [
+    "rf",
+    "serial"
+  ],
   "platforms": [
     "sensor"
   ]

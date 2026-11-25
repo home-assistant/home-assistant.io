@@ -11,6 +11,9 @@
     "security_safety.alarm_systems",
     "security_safety.locks_access"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "alarm_control_panel",
     "binary_sensor",

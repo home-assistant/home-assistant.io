@@ -11,6 +11,9 @@
   "categories": [
     "lighting"
   ],
+  "connectivity": [
+    "infrared"
+  ],
   "platforms": [
     "button",
     "diagnostics",

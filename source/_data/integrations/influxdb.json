@@ -10,7 +10,11 @@
   "categories": [
     "diy_makers.web_data_connectors"
   ],
+  "connectivity": [
+    "network"
+  ],
   "platforms": [
+    "diagnostics",
     "sensor"
   ]
 }

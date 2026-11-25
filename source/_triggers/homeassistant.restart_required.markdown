@@ -30,7 +30,7 @@ trigger: |
   trigger: homeassistant.restart_required
 {% endexample %}
 
-In templates, `trigger.sources` holds the integrations that asked for the restart when the trigger fired, such as `["hacs"]`.
+In templates, `trigger.sources` holds the integrations that asked for the restart when the trigger fired.
 
 ## Trigger variables
 

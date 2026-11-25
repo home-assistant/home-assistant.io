@@ -15,6 +15,11 @@
     "buttons_remotes",
     "blinds_curtains"
   ],
+  "connectivity": [
+    "infrared",
+    "network",
+    "rf"
+  ],
   "platforms": [
     "button",
     "cover",
