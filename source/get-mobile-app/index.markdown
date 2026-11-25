@@ -27,7 +27,7 @@ sidebar: false
 Use Home Assistant on your phone or tablet with the Home Assistant app.
 
 <p class="get-mobile-app-badges">
-  <a href="https://apps.apple.com/app/home-assistant/id1099568401"><img src="/images/get-mobile-app/badge-apple-app-store.svg" width="144" height="48" alt="Download on the App Store"></a>
+  <a href="https://apps.apple.com/app/home-assistant/id1099568401"><img src="/images/get-mobile-app/app-store-badge.svg" width="144" height="48" alt="Download on the App Store"></a>
   <a href="https://play.google.com/store/apps/details?id=io.homeassistant.companion.android"><img src="/images/get-mobile-app/google-play-badge.png" width="161" height="48" alt="Get it on Google Play"></a>
 </p>
 
