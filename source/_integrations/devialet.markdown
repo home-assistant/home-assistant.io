@@ -29,8 +29,6 @@ You can play music on your speakers from Home Assistant, for example a radio sta
 
 - After Home Assistant starts or a speaker is turned on, it can take up to 2 minutes before you can play media.
 - Home Assistant and the speakers must be on the same network.
-- If you have a stereo pair and cannot play media, add the other speaker of the pair to Home Assistant instead.
-- Some radio stations cannot be played, because the speakers do not support their secure (HTTPS) stream.
 
 ## Turning off the device
 
