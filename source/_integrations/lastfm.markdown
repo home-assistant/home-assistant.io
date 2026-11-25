@@ -49,6 +49,17 @@ Last.fm usernames:
   description: "The Last.fm users to track. You can select from your friends list or enter usernames manually."
 {% endconfiguration_basic %}
 
+## Reconfiguration
+
+To enable authentication for an existing Last.fm integration, or to change the API key or secret:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Last.fm**.
+2. Select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, then select **Reconfigure**.
+3. Enter the **API key**, turn on **Enable authenticated access**, and enter the **API secret**. Leave the secret empty to keep the existing one. If you change the API key, you must enter the matching secret.
+4. Authorize Home Assistant on Last.fm when asked.
+
+Turning off **Enable authenticated access** removes the saved credentials, and hidden listening information is no longer readable.
+
 ## Supported functionality
 
 ### Sensors
