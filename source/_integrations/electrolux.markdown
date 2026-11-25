@@ -1,7 +1,7 @@
 ---
 title: Electrolux
 description: Instructions on how to set up the Electrolux official integration within Home Assistant.
-ha_release: 2026.6
+ha_release: 2026.12
 ha_iot_class: Cloud Push
 ha_codeowners:
   - '@electrolux-oss'
