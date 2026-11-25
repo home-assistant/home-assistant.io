@@ -4,11 +4,17 @@ title: "Music Assistant 2.0: Your Music, Your Players"
 description: "Connecting multiple music libraries to almost any smart speaker."
 date: 2024-05-09 00:00:01
 date_formatted: "May 9, 2024"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Marcel van der Veldt
 comments: true
 og_image: /images/blog/2024-05-music-assistant/art.jpg
 ---
 <p><img src='/images/blog/2024-05-music-assistant/art.jpg' class='no-shadow' /></p>
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 Today, exactly five years ago, I, Marcel, started working on [Music Assistant](https://music-assistant.io/). What began as a quick script, to sync my playlists so I could switch between streaming providers, grew into a beast on its own.
 

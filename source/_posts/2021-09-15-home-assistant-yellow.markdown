@@ -9,6 +9,7 @@ author_twitter: balloob
 comments: true
 categories:
 - Announcements
+- Hardware
 og_image: /images/blog/2021-09-home-assistant-yellow/social.png
 ---
 

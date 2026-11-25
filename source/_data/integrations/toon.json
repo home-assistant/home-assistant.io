@@ -1,0 +1,23 @@
+{
+  "domain": "toon",
+  "name": "Toon",
+  "integration_type": "device",
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "climate.thermostats_heating",
+    "energy.meters_monitoring"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

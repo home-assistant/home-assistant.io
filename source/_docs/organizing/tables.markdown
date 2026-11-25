@@ -12,7 +12,7 @@ related:
     title: Categories
   - docs: /docs/organizing/
     title: Grouping your assets
-  - docs: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  - docs: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
     title: Disabling or enabling an entity
 ---
 
@@ -32,7 +32,7 @@ Selecting multiple items lets you change them all at the same time, instead of o
 
    ![Selecting multiple elements in a list](/images/organizing/multiselect_01.png)
 
-3. Apply your change to all selected items, such as [adding labels](/docs/organizing/labels/) or [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+3. Apply your change to all selected items, such as [adding labels](/docs/organizing/labels/) or [enabling or disabling entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Filtering items in a table
 
@@ -44,6 +44,7 @@ Filters narrow the table down, so you only see the items that match.
 
 2. In the filters panel, choose what you want to see.
    - Which filters are available depends on the table. For example, you can filter by [floors](/docs/organizing/floors/), [areas](/docs/organizing/areas/), [labels](/docs/organizing/labels/), and [categories](/docs/organizing/categories/) once you have created them.
+   - To find items that don't have an area yet, select **No area** in the area filter.
    - To remove a filter, select **Clear filter**.
 
    ![Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for](/images/organizing/filter-panel.png)

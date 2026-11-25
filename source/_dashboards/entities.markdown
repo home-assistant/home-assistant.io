@@ -78,7 +78,7 @@ type:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
 icon:
   required: false
@@ -153,7 +153,7 @@ suffix:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
 icon:
   required: false
@@ -182,7 +182,7 @@ name:
   required: false
   description: "Row label. Either `entity` or `name` (or both) needs to be provided."
   type: string
-  default: "Friendly name of `entity` if specified."
+  default: "Default name of `entity` if specified."
 icon:
   required: false
   description: An icon to display to the left of the main label.
@@ -234,7 +234,7 @@ entities:
       type: string
     name:
       required: false
-      description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+      description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
       type: [string, map, list]
       default: Entity name
     show_name:

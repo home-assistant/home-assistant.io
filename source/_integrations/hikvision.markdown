@@ -1,20 +1,7 @@
 ---
-title: Hikvision
 description: Instructions on how to set up Hikvision cameras and NVRs within Home Assistant.
-ha_categories:
-  - security_safety.cameras
 ha_release: 0.35
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@mezz64'
-  - '@ptarjan'
 ha_domain: hikvision
-ha_platforms:
-  - binary_sensor
-  - camera
-  - event
-ha_integration_type: device
-ha_config_flow: true
 ---
 
 The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or <abbr title="Network Video Recorder">NVR</abbr>](https://www.hikvision.com/) to Home Assistant, providing:
@@ -78,6 +65,23 @@ This platform has also been confirmed to work with the following Hikvision-based
 - Luma NVRs
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Hikvision device. For example, `192.168.1.100`."
+Port:
+  description: "The port number of the web interface of your device. The default is `80`."
+Username:
+  description: "The username of a user on your device. This user needs the permissions described earlier on this page."
+Password:
+  description: "The password of that user."
+Use SSL:
+  description: "Turn on if your device uses HTTPS. This is off by default."
+Verify SSL certificate:
+  description: "Turn off if your device uses a self-signed certificate, which is what Hikvision devices come with. This only applies when **Use SSL** is on. This is on by default."
+{% endconfiguration_basic %}
+
+You cannot change these settings after you add the device. To use different settings, remove the integration and add it again.
 
 ## Camera
 

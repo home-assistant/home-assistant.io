@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 import servedRoutes from "../served-routes.json" with { type: "json" };
 
 // Collections read the existing Jekyll content in `source/` in place.
@@ -43,4 +43,38 @@ const pages = defineCollection({
     .passthrough(),
 });
 
-export const collections = { help, pages };
+// Products sold through distributors, keyed by product ("zbt-2",
+// "aux-2"): the data behind the buy dialog (BuyDialog.astro), read
+// from the same file as Jekyll's `custom/buy-dialog.html`. `name` may
+// hold inline HTML (<strong>Home Assistant</strong> ...). `new` adds
+// the "New product!" notice. Each distributor appears under its
+// `ship_to` region.
+const products = defineCollection({
+  loader: file("../source/_data/products.yml"),
+  schema: z.object({
+    name: z.string(),
+    new: z.boolean().optional(),
+    distributors: z
+      .array(
+        z.object({
+          name: z.string(),
+          ship_from: z.string(),
+          ship_to: z.string(),
+          url: z.string(),
+          logo: z.string().optional(),
+        })
+      )
+      .default([]),
+  }),
+});
+
+// The link-in-bio page (src/pages/bio/index.astro) is described by one
+// data file, source/_data/bio.yml. Its rules are checked by
+// src/lib/bio.mjs, which names the key at fault, so the schema here
+// accepts any map.
+const bio = defineCollection({
+  loader: glob({ base: "../source/_data", pattern: "bio.yml" }),
+  schema: z.object({}).passthrough(),
+});
+
+export const collections = { help, pages, products, bio };

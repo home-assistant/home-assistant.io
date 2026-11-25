@@ -1,38 +1,8 @@
 ---
-title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 featured: true
-ha_categories:
-  - hubs_protocols.building_automation
 ha_release: 0.24
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Julius2342'
-  - '@farmio'
-  - '@marvin-w'
 ha_domain: knx
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - date
-  - datetime
-  - diagnostics
-  - fan
-  - light
-  - notify
-  - number
-  - scene
-  - select
-  - sensor
-  - switch
-  - text
-  - time
-  - weather
-ha_config_flow: true
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The [KNX](https://www.knx.org) {% term integration %} connects Home Assistant to your KNX installation, allowing you to control KNX devices, act on telegrams and forward state changes from other integrations entities to your KNX bus.
@@ -303,6 +273,39 @@ This integration uses the KNX/IP protocol to receive telegrams live as they appe
 
 States of diagnostic entities of the "KNX Interface" device are {% term polling polled %} every 10 seconds.
 
+## Project data
+
+Project data has the group addresses of your installation with their names and data point types, its devices, and its building structure. With it, the KNX integration decodes telegrams, names group addresses in the group monitor and in trigger data, and suggests entities. You can upload a project file in the KNX panel.
+
+### Providing project data from another program
+
+Other integrations and tools can replace the project data with data that is already parsed into the format of [xknxproject](https://github.com/XKNX/xknxproject), the library the KNX integration uses to read project files. An example is a project editor that keeps Home Assistant up to date while you edit the project.
+
+- An integration calls `homeassistant.components.knx.async_set_project(hass, project)`.
+- An external tool sends the WebSocket command `knx/set_knx_project` with the data in `project`. It requires an administrator account.
+
+```json
+{
+  "id": 1,
+  "type": "knx/set_knx_project",
+  "project": {
+    "info": {
+      "xknxproject_version": "3.11.1",
+      "group_address_style": "ThreeLevel",
+      "...": "..."
+    },
+    "group_addresses": { "...": "..." },
+    "...": "..."
+  }
+}
+```
+
+The data must be in the format of the xknxproject version installed with Home Assistant, down to its minor version. It is validated before anything is stored. Invalid or incompatible data is refused with an error, and the current project is kept. Valid data is stored and used like an uploaded project file.
+
+Each call stores the whole project. A tool that updates it while the project is edited should send it after a short pause in the changes rather than after every single change.
+
+The WebSocket command sends the whole project in one message, which is limited to 4&nbsp;MiB. A larger message closes the connection. Larger project data can be provided from Python with `async_set_project`.
+
 ## Triggers
 
 The KNX integration provides its own trigger platform which can be used in automations.
@@ -478,7 +481,7 @@ With these tools, an agent can answer questions such as "Which device sent the l
 ### Enabling the KNX tools
 
 {% important %}
-Only administrators can select an LLM API on a conversation agent. Once the KNX API is selected, everyone who can talk to that agent can use every KNX tool, including the ones that write to the bus. This also covers voice satellites, where the request is not associated with a user.
+Only administrators can change the tools of a conversation agent. Once **KNX** is selected, everyone who can talk to that agent can use every KNX tool, including the ones that write to the bus. This also covers voice satellites, where the request is not associated with a user.
 
 Only enable the KNX API on agents you are willing to give write access to your installation.
 {% endimportant %}
@@ -487,9 +490,9 @@ The KNX API is not used by default. Select it on the {% term integration %} that
 
 1. Go to {% my integrations icon title="**Settings** > **Devices & services**" %}.
 2. Select the conversation agent integration, then select **Configure**.
-3. Add **KNX** to **Control Home Assistant**.
+3. Add **KNX** to **AI tools**.
 
-To use the tools from an external MCP client instead, select **KNX** when you set up the [Model Context Protocol](/integrations/mcp_server/) integration, or point the client at `/api/mcp/knx`. Connecting to `/api/mcp/knx` requires an administrator token. The base `/api/mcp` endpoint serves the API you selected during setup and is also available to non-administrators.
+To use the tools from an external MCP client instead, use the [Model Context Protocol](/integrations/mcp_server/) integration. Its main URL exposes **KNX** when **Expose all AI tools** is on or when **KNX** is selected in **AI tools**. You can also point the client at `/api/mcp/knx`, which requires an administrator account.
 
 ### Available tools
 
@@ -776,7 +779,7 @@ sync_state:
   type: [boolean, string, integer]
   default: true
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 reset_after:
@@ -1284,7 +1287,7 @@ invert_angle:
   default: false
   type: boolean
 device_class:
-  description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/cover/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 sync_state:
@@ -1844,7 +1847,7 @@ device_class:
   required: false
   type: string
 unit_of_measurement:
-  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
+  description: Overrides the DPT's default native unit of measurement. The unit must be one of the [units listed for the selected device class](/integrations/number/#list-of-available-device-classes).
   required: false
   type: string
 sync_state:
@@ -2045,7 +2048,7 @@ always_callback:
   type: boolean
   default: false
 state_class:
-  description: Overrides the DPT's default [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
+  description: Overrides the DPT's default [state_class](/integrations/sensor/#state-class).
   required: false
   type: string
 device_class:
@@ -2053,7 +2056,7 @@ device_class:
   required: false
   type: string
 unit_of_measurement:
-  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
+  description: Overrides the DPT's default native unit of measurement. The unit must be one of the [units listed for the selected device class](/integrations/sensor/#list-of-available-device-classes).
   required: false
   type: string
 {% endconfiguration %}
@@ -2116,7 +2119,7 @@ respond_to_read:
   type: boolean
   default: false
 device_class:
-  description: Sets the [class of the device](/integrations/switch/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/switch/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 sync_state:
@@ -2541,7 +2544,7 @@ The following table lists the supported numeric Data Point Types (DPT). You can 
 
 - The [KNX tools for AI conversation agents](#knx-tools-for-ai-conversation-agents) return at most 1000 entries per call. An agent can page through the rest, but a question that would need the entire project or the full telegram history in a single answer may not be answered completely.
 
-- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep the built-in **Device control** API selected alongside the KNX API.
+- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep **Device control** selected alongside **KNX**.
 
 - USB bus interfaces are not directly supported by the underlying [`xknx` library](https://github.com/XKNX/xknx). However, you could try to run a software KNX router such as `Calimero` or `knxd` alongside Home Assistant to serve as a USB to IP bridge. For best reliability, using a certified KNX IP interface or router is recommended.
 

@@ -1,24 +1,7 @@
 ---
-title: Qube heat pump
 description: Instructions on how to integrate your Qube heat pump with Home Assistant.
 ha_release: 2026.4
-ha_categories:
-  - climate.heat_pumps_air_conditioning
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@MattieGit'
 ha_domain: hr_energy_qube
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: hub
-ha_quality_scale: silver
-ha_zeroconf: true
 ---
 
 The **Qube heat pump** {% term integration %} allows you to monitor and control [Qube](https://www.hr-energy.com/nl/pvt-systemen/onderdelen/qube-warmtepomp/) heat pumps via the Modbus TCP protocol.
@@ -127,7 +110,7 @@ Home Assistant checks that the new address belongs to a Qube heat pump and, when
 - **Compressor alarm**
   - **Description**: Indicates a compressor-related alarm condition.
 - **Room sensor enabled**
-  - **Description**: Indicates whether the room temperature sensor is enabled. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - **Description**: Indicates whether the room temperature sensor is enabled. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Plant sensor enabled**
   - **Description**: Indicates whether the plant temperature sensor is enabled. Disabled by default.
 - **Buffer sensor enabled**
@@ -156,7 +139,7 @@ Home Assistant checks that the new address belongs to a Qube heat pump and, when
 - **Source temperature out**
   - **Description**: Temperature of the source fluid leaving the heat pump.
 - **Room temperature**
-  - **Description**: Current room temperature as measured by the heat pump.
+  - **Description**: Current room temperature measured by a room sensor connected to the heat pump. Only created when the heat pump reports a room sensor.
 - **DHW temperature**
   - **Description**: Current domestic hot water temperature.
 - **Outside temperature**
@@ -185,6 +168,10 @@ Home Assistant checks that the new address belongs to a Qube heat pump and, when
   - **Description**: Target room temperature for cooling during nighttime.
 - **Heat pump status**
   - **Description**: Current operational status of the heat pump.
+- **Working hours DHW**, **Working hours heating**, **Working hours cooling**
+  - **Description**: Total hours the heat pump has run for domestic hot water, heating, and cooling. These are diagnostic sensors.
+- **Working hours heater 1**, **Working hours heater 2**, **Working hours heater 3**
+  - **Description**: Total hours each electric backup heater has run. These diagnostic sensors are disabled by default; enable the ones for the heaters that are installed.
 
 ### Switches
 
@@ -293,7 +280,7 @@ The host address is redacted. Attach the downloaded file when reporting an issue
 - The integration communicates with the heat pump over Modbus TCP on your local network only. Settings that are not listed under [Supported functionality](#supported-functionality), such as the heating curve parameters, are configured on the heat pump's panel.
 - Changes made on the heat pump's panel appear in Home Assistant after the next poll, within 15 seconds.
 - Automatic discovery uses mDNS, which does not cross network or VLAN boundaries unless your router forwards it. Without it, add the heat pump manually.
-- On some firmware versions the heat pump does not report its software version over Modbus. The device page then does not show a meaningful software version.
+- The device page shows the software version from the heat pump's mDNS announcement, as on its panel. It appears after Home Assistant has discovered the heat pump. Without mDNS, the version comes from Modbus, which some firmware versions do not report.
 - When the heat pump's energy counters briefly report a lower value, the energy sensors keep the previous value until the counter passes it again, so the energy dashboard does not count the difference twice. A drop of more than 1 kWh that persists for three polls is treated as a counter reset.
 - The heat pump cannot be restarted from Home Assistant. To restart it, power cycle the heat pump.
 

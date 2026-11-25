@@ -1,0 +1,25 @@
+{
+  "domain": "thermopro",
+  "name": "ThermoPro",
+  "integration_type": "device",
+  "codeowners": [
+    "@bdraco",
+    "@h3ss"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "sensors.temperature_humidity",
+    "appliances_cleaning.cooking"
+  ],
+  "connectivity": [
+    "bluetooth"
+  ],
+  "platforms": [
+    "button",
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

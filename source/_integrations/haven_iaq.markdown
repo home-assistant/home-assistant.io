@@ -1,19 +1,7 @@
 ---
-title: HAVEN IAQ
 description: Instructions on how to set up HAVEN IAQ devices in Home Assistant.
-ha_categories:
-  - sensors.air_quality
-ha_config_flow: true
 ha_release: 2026.11
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@krhtzoa'
 ha_domain: haven_iaq
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: silver
 ---
 
 The **HAVEN IAQ** {% term integration %} connects supported [HAVEN IAQ](https://haveniaq.com/) air quality monitors to Home Assistant over your local network. Depending on the device, the integration provides indoor air quality and airflow measurements.

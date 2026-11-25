@@ -1,18 +1,7 @@
 ---
-title: Xiaomi Weather
 description: Get current weather and forecasts for mainland China cities with Xiaomi Weather in Home Assistant.
-ha_categories:
-  - weather_alerts.forecasts
 ha_release: 2026.11
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@shirok1'
 ha_domain: xiaomi_weather
-ha_platforms:
-  - weather
-ha_integration_type: service
-ha_quality_scale: bronze
 related:
   - docs: /integrations/weather/
     title: Weather entity

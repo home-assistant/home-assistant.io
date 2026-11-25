@@ -1,18 +1,7 @@
 ---
-title: Volkszaehler
 description: Instructions on how to integrate Volkszaehler sensors into Home Assistant.
-ha_categories:
-  - energy.meters_monitoring
-ha_iot_class: Local Polling
 ha_release: 0.78
 ha_domain: volkszaehler
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_quality_scale: legacy
-ha_config_flow: true
-ha_codeowners:
-  - '@StefanSchoof'
 ---
 
 The **Volkszaehler** {% term integration %} is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.
@@ -28,6 +17,8 @@ Port:
   description: The port number of the Volkszaehler server. The default is `80`.
 UUID:
   description: The UUID of the channel to monitor. In the Volkszaehler Web UI, select the information icon next to the channel to find it.
+Use middleware.php:
+  description: Enabled by default. Turn this off if your Volkszaehler endpoint does not include `middleware.php` in the URL, such as some Docker installations or custom endpoints.
 {% endconfiguration_basic %}
 
 Each channel adds sensors for average power, consumption, maximum power, and minimum power. To monitor another channel, select **Add channel** to add it as a subentry of the Volkszaehler integration.

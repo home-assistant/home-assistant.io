@@ -1,43 +1,24 @@
 ---
-title: Velbus
 description: Access and control your Velbus devices.
-ha_categories:
-  - hubs_protocols.building_automation
-ha_iot_class: Local Push
 ha_release: '0.50'
-ha_config_flow: true
-ha_codeowners:
-  - '@Cereal2nd'
-  - '@brefra'
 ha_domain: velbus
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - light
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
-The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
+The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It connects through a Velbus USB interface, a Velbus TCP/IP gateway, or [Velbus Manager](https://github.com/velbus/velbus-manager).
 
-To use the Velbus integration, you need to have Velbus modules connected to a Velbus USB or TCP/IP interface.
+To use the Velbus integration, you need Velbus modules on the bus and one of these interfaces. Velbus Manager connects to the bus itself, over USB or TCP/IP, and Home Assistant connects to Velbus Manager. On Home Assistant OS, you can run it with the [Velbus Manager app](https://github.com/cereal2nd/hassio-velbus-manager).
 
 {% include integrations/config_flow.md %}
 
 ## Configuration parameters
 
-During the setup you will be shown 2 choices on ways to connect to the Velbus bus:
+During setup you choose how Home Assistant connects to the bus:
 
 - USB
-- TCP/IP
+- Via network connection (Velbus TCP/IP gateway)
+- Via Velbus Manager
 
-A connection test will be performed to ensure the connection is working. If successful, the integration will be added to Home Assistant.
+A connection test runs for USB and network setups. Velbus Manager is added after a successful API connection. If setup succeeds, the integration is added to Home Assistant.
 
 ### USB
 
@@ -49,17 +30,17 @@ There will be a connection test to make sure the connection is working, and if i
 
 ### TCP/IP
 
-The TCP/IP connection is a way to connect to the Velbus bus. You will need a Velbus TCP/IP interface available in your network.
+Use this when Home Assistant connects directly to a Velbus TCP/IP gateway on your network (for example VelServ, velbus-tcp, or a Signum with the Velbus TCP service).
 
 {% configuration_basic %}
 tls:
-    description: "Enable TLS connection towards the Velbus TCP/IP interface. This is usually needed when connecting to a signum. This is optional and can be disabled when connecting to a velser or Home Assistant add-on."
+    description: Enable TLS when the Velbus TCP/IP gateway requires a secure connection (typical for a Signum).
 host:
-    description: "The IP address of the Velbus TCP/IP interface."
+    description: IP address or hostname of the Velbus TCP/IP gateway.
 port:
-    description: "The port number of the Velbus TCP/IP interface."
+    description: TCP port of the Velbus gateway (often 27015 or 6000, depending on the product).
 password:
-    description: "The password to authenticate to the Velbus TCP/IP interface. This is optional and only needed if the devie has authentication enabled."
+    description: Gateway password, if the device uses Velbus TCP authentication.
 {% endconfiguration_basic %}
 
 #### Example: signum
@@ -76,12 +57,54 @@ password:
 - port: 6000
 - password: leave empty
 
-#### Example: Home Assistant add-on
+#### Example: TCP gateway on another host
 
-- tls: depending on your configuration
-- host: your Home Assistant IP address
+- tls: depending on your gateway
+- host: IP address of the machine running the TCP gateway
 - port: 27015 if you kept the default
-- password: leave empty
+- password: leave empty unless configured on the gateway
+
+### Velbus Manager
+
+Velbus Manager exposes the installation over HTTP (REST API v2 and WebSocket). Home Assistant uses this path instead of the Velbus TCP wire protocol. Configure bus gateways (USB or TCP) in the Manager UI first, then add the Velbus integration.
+
+{% configuration_basic %}
+host:
+    description: Hostname or IP address where Velbus Manager is reachable. On Home Assistant OS, the default suggested host is `manager`, which resolves on the Supervisor internal network. For a native Home Assistant Core install on the same machine as Manager, use `127.0.0.1` or the host LAN address. For Home Assistant Container or Docker, use the host gateway IP, the Manager container hostname, or another address reachable from the Home Assistant container; `127.0.0.1` points at the container itself, not the host. For a remote Manager instance, use its hostname or IP.
+port:
+    description: Velbus Manager HTTP port (default `4201`).
+access_token:
+    description: Bearer token when Velbus Manager authentication is enabled. Leave empty only if authentication is disabled and the API is not reachable by untrusted clients; otherwise configure authentication in Manager and provide the token here.
+{% endconfiguration_basic %}
+
+#### Example: Velbus Manager app on Home Assistant OS
+
+1. Install and start the Velbus Manager app and configure **Bus connections** in the Manager UI.
+2. Add the Velbus integration and choose **Via Velbus Manager**.
+3. Enter these values:
+   - host: `manager`
+   - port: `4201`
+   - access_token: the token from Velbus Manager, if authentication is enabled
+
+You can open the Manager web UI from the app sidebar (ingress) under `/velbus-ui/`.
+
+#### Example: Velbus Manager on the same machine (Home Assistant Core)
+
+- host: `127.0.0.1` or the host LAN address
+- port: `4201`
+- access_token: leave empty only if authentication is disabled and Manager is not reachable from untrusted clients
+
+#### Example: Velbus Manager with Home Assistant Container
+
+- host: host gateway IP, Manager container name, or LAN address (not `127.0.0.1`)
+- port: `4201`
+- access_token: use a token if Manager authentication is enabled or the API may be reached from other networks
+
+If the access token is rejected, Home Assistant prompts you to **Reauthenticate** and enter a new token.
+
+{% note %}
+Velbus Manager already stores module configuration (including VLP data). The optional VLP upload step is not used for Manager connections.
+{% endnote %}
 
 
 ## Supported functionality
@@ -98,13 +121,21 @@ Every dimmer module will be represented as a light entity in Home Assistant. You
 For each input module, a light entity will be created to control the LED of the push buttons. You can turn the LED on and off and set the flash mode.
 
 {% note %}
-The pushbutton LEDs of input modules are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
+The pushbutton LEDs of input modules are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
 {% endnote %}
 
 ### Binary sensor
 
 Every input module will be represented as a binary sensor entity in Home Assistant. The binary sensor will be on when the input is active and off when the input is inactive.
 
+### Event
+
+Each physical Velbus button also has an event entity, with the same name as the button's binary sensor. The event entity records how the button was pressed, so you can react to a short or long press in an automation:
+
+- `short_press`: The button was pressed and released without a long press. This is recorded when you release the button.
+- `long_press`: The Velbus module reported a long press. This is recorded right away, while you're still holding the button. Releasing the button afterward doesn't record another press.
+
+The Velbus module decides whether a press counts as long. You can't change this in Home Assistant.
 ### Select
 
 Every module that supports programs will have a select entity in Home Assistant. You can select the program that you want to activate.
@@ -142,8 +173,7 @@ The VMBMETEO module will have multiple sensor entities to read temperature, humi
 This step is optional.
 {% endnote %}
 
-In the next step of the configuration, you have the option to import a Velbus VLP configuration file. This is the configuration file that you can export from the VelbusLink software.
-This will eliminate the need for a scan of the bus and will create all devices and entities based on the configuration file.
+After USB or TCP/IP setup, you can import a Velbus VLP configuration file exported from VelbusLink. That can reduce scan time and improve module detection. This step is skipped when you connect **Via Velbus Manager**.
 
 {% configuration_basic %}
 vlp:

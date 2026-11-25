@@ -13,7 +13,7 @@ related_functions:
   - states
 ---
 
-The `distance` template function calculates the straight-line distance between two locations. If you only provide one location, it calculates the distance from your home to that point. Locations can be specified as {% term entity %} IDs (for entities with GPS coordinates), {% term zone %} names, or latitude/longitude pairs.
+The `distance` template function calculates the straight-line distance between two locations. If you only provide one location, it calculates the distance from your home to that point. Locations can be specified as {% term entity %} IDs (for entities with GPS coordinates, such as a zone or a person), state objects, or latitude/longitude pairs.
 
 This is useful for proximity-based {% term automations %}. You could send a {% term notification %} when someone is within a certain distance of home, check how far apart family members are, or determine how far away an entity is from a specific zone. The result is a number, in kilometers or miles depending on your unit system, that you can use in {% term conditions %} and comparisons.
 
@@ -40,7 +40,7 @@ The following parameters can be provided to this function.
 {% function_parameters %}
 args:
   description: >
-    One or two locations. A location is either a text identifier (an entity ID with GPS data, a zone name, or a state object) or two numbers in a row for latitude and longitude. Examples of valid calls: `distance("device_tracker.phone")` (distance from home to the entity), `distance(52.5, 13.4)` (distance from home to a lat/lon point), `distance("device_tracker.a", "device_tracker.b")` (distance between two entities), `distance("device_tracker.phone", 52.5, 13.4)` (distance between an entity and a lat/lon point).
+    One or two locations. A location is either an entity ID with GPS data (such as `zone.work`), a state object, or two numbers in a row for latitude and longitude. A zone name such as `"Work"` doesn't work, because text that isn't an entity ID is read as a latitude. Examples of valid calls: `distance("device_tracker.phone")` (distance from home to the entity), `distance(52.5, 13.4)` (distance from home to a lat/lon point), `distance("device_tracker.a", "device_tracker.b")` (distance between two entities), `distance("device_tracker.phone", 52.5, 13.4)` (distance between an entity and a lat/lon point).
   required: true
   type: any
 {% endfunction_parameters %}

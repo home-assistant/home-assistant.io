@@ -1,24 +1,7 @@
 ---
-title: SimpliSafe
 description: Instructions on how to integrate SimpliSafe into Home Assistant.
 ha_release: 0.81
-ha_iot_class: Cloud Polling
-ha_categories:
-  - security_safety.alarm_systems
-ha_config_flow: true
-ha_codeowners:
-  - '@bachya'
 ha_domain: simplisafe
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - lock
-  - sensor
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 The **SimpliSafe** {% term integration %} integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
@@ -133,3 +116,10 @@ Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fi
 again for any notifications still active in the SimpliSafe web and mobile apps. To
 prevent this, either (a) clear them in the web/mobile app or (b) use the
 `clear_notifications` button provided by the alarm control panel.
+
+## Removing the integration
+
+The SimpliSafe integration follows the standard integration removal process - no additional steps are required.
+
+{% include integrations/remove_device_service.md %}
+

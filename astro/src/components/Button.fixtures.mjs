@@ -22,17 +22,27 @@ const row = (props) =>
 
 const grid = (props) => [row(props), row({ ...props, disabled: true })];
 
+// A named icon from src/lib/icons.ts in place of the arrow.
+const named = (props) =>
+  [false, true].flatMap((outline) => [
+    { props: { ...props, outline, icon: "github" }, slot: "GitHub" },
+    { props: { ...props, outline, icon: "github", label: "GitHub" } },
+  ]);
+
 export default {
   title: "Button",
   description:
     "Call-to-action pill in five color schemes, fill or outline, with an " +
-    "optional arrow. Mobile size below 480px.",
-  variants: schemes.flatMap((scheme) => [
-    { name: scheme, rows: grid({ scheme }) },
-    {
-      name: `${scheme} on dark`,
-      dark: true,
-      rows: grid({ scheme, onDark: true }),
-    },
-  ]),
+    "optional arrow or named icon. Mobile size below 480px.",
+  variants: [
+    ...schemes.flatMap((scheme) => [
+      { name: scheme, rows: grid({ scheme }) },
+      {
+        name: `${scheme} on dark`,
+        dark: true,
+        rows: grid({ scheme, onDark: true }),
+      },
+    ]),
+    { name: "named icon", rows: [named({}), named({ scheme: "tertiary" })] },
+  ],
 };

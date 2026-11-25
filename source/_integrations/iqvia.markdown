@@ -1,19 +1,7 @@
 ---
-title: IQVIA
 description: Instructions on how to use IQVIA data within Home Assistant
-ha_categories:
-  - weather_alerts.air_quality_pollen
-  - health_wellbeing
 ha_release: 0.63
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bachya'
 ha_domain: iqvia
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **IQVIA** {% term integration %} collects and displays allergy, asthma and disease

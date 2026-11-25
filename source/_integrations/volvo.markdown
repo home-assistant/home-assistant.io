@@ -1,23 +1,7 @@
 ---
-title: Volvo
 description: Instructions on setting up Volvo within Home Assistant.
 ha_release: 2025.8
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@thomasddn'
 ha_domain: volvo
-ha_integration_type: device
-ha_config_flow: true
-ha_categories:
-  - vehicles_transport.cars_evs
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - lock
-  - sensor
-ha_quality_scale: platinum
 related:
   - url: https://developer.volvocars.com/
     title: Volvo developer portal
@@ -62,7 +46,7 @@ To avoid hitting request limits, **create one API application per vehicle** you 
 {% note %}
 Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo. This service is **provided for free**, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
 
-Read the "**Using custom application credentials**"-section if you have the [cloud integration](/integrations/cloud) disabled.
+Read the "**Using custom application credentials**"-section if you have the [link integration](/integrations/link) disabled.
 {% endnote %}
 
 {% details "Using custom application credentials" icon="mdi:account-key" %}

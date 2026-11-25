@@ -146,7 +146,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="battery level sensor" example="sensor.phone_battery" %}
 
 {% include conditions/behavior.md %}
 

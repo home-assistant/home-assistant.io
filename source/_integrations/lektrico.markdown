@@ -1,24 +1,7 @@
 ---
-title: Lektrico Charging Station
 description: Instructions on how to integrate a Lektrico Chargering Station with Home Assistant.
-ha_categories:
-  - energy.ev_charging
-  - energy.meters_monitoring
 ha_release: '2024.10'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@lektrico'
 ha_domain: lektrico
-ha_zeroconf: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **Lektrico Charging Station** {% term integration %} integrates your [Lektrico Charging Station](https://lektri.co) into your Home Assistant and allows you to monitor it.
@@ -154,6 +137,7 @@ Switches available in the library:
 | :------------------ | :-------------------------------------- |
 | authentication      | Allows you to select if the charger will automatically start to charge or if it needs authentication. |
 | lock                | Allows you to select if the charger is locked or not. When the charger is locked, no charging is possible.|
+| compatibility_mode  | Enable this if the charging current fluctuates during charging sessions. |
 
 ### Three-phase charger
 

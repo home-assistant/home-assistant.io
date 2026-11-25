@@ -1,25 +1,7 @@
 ---
-title: RainMachine
 description: Instructions on how to integrate RainMachine units within Home Assistant.
-ha_categories:
-  - garden_plants
 ha_release: 0.69
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bachya'
 ha_domain: rainmachine
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - select
-  - sensor
-  - switch
-  - update
-ha_zeroconf: true
-ha_homekit: true
-ha_integration_type: device
 ---
 
 The **RainMachine** {% term integration %} is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
@@ -31,7 +13,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-Note that some entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). If you are missing a sensor or binary sensor, check the configured integration!
+Note that some entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). If you are missing a sensor or binary sensor, check the configured integration!
 
 {% include integrations/config_flow.md %}
 

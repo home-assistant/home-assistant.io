@@ -1,0 +1,15 @@
+{
+  "domain": "generic_thermostat",
+  "name": "Generic Thermostat",
+  "integration_type": "helper",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers",
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate"
+  ]
+}

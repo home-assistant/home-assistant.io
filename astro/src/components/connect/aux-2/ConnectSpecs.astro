@@ -1,0 +1,427 @@
+---
+// Specifications of a Connect product: groups of spec items beside an
+// exploded drawing of the product. Its id is `specs`, the target of the
+// product bar's Specs link.
+//
+// Built from "Specs and illustration" in the Figma file "Connect AUX-2"
+// (node 2002:31254). It replaces the per-page `#specs` section of the
+// Jekyll Connect pages (`source/connect/*/components/_specs.html`),
+// whose separate desktop and mobile markup becomes one responsive grid.
+//
+// Each group is a heading with items. An item has a heading and either
+// `value` lines or `details`, labelled values set in two columns (the
+// Audio, Serial, Connectivity and Software items); `wide` items take
+// the group's full width. Lines are HTML, so they can hold links; an
+// empty line in `value` starts a new paragraph after a gap.
+//
+// The drawing is three layers in a box of the drawing's proportions:
+// the base, the circuit board inside it and the lid above, each placed
+// in percent of the box (Figma node 2142:53785: "base", its "Clip path
+// group" and "top"). The lid starts lowered onto the base and lifts to
+// its exploded position when the drawing scrolls into view. The lid's
+// black fill hides the board meanwhile, so it reads as a closed case
+// without the halves having to fit exactly. Without the script, or with
+// reduced motion, the drawing is simply exploded.
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import { connectDesk } from "../../../lib/breakpoints";
+
+interface Detail {
+  term: string;
+  value: string[];
+}
+
+interface Item {
+  label: string;
+  value?: string[];
+  details?: Detail[];
+  wide?: boolean;
+}
+
+interface Group {
+  title: string;
+  items: Item[];
+}
+
+interface Layer {
+  image: ImageMetadata;
+  // Position and width in percent of the drawing's box.
+  x: number;
+  y: number;
+  w: number;
+}
+
+interface Drawing {
+  // The drawing's width / height.
+  ratio: number;
+  base: Layer;
+  board: Layer;
+  lid: Layer;
+  // How far the lid starts lowered, in percent of its own height.
+  closed: number;
+  // A rendered image of the exploded device in the drawing's
+  // proportions; replaces the layers when given.
+  render?: ImageMetadata;
+  // The render's opening animation, assembled to exploded, ending on the
+  // render. `open` is an ordinary H.264 MP4 for playing it; `scrub` the
+  // same with every frame a keyframe, so scroll position can seek it.
+  // `poster` is its first frame. Import the videos for their URLs.
+  video?: { open: string; scrub: string; poster: ImageMetadata };
+}
+
+interface Props {
+  groups: Group[];
+  drawing: Drawing;
+  drawingAlt: string;
+  // The section's id and heading; change them when a page shows the
+  // section more than once.
+  id?: string;
+  title?: string;
+  // How a drawing with a video opens: "view" plays it when the drawing
+  // comes into view and rewinds it once it has left; "scroll" ties its
+  // progress to how far the section has scrolled up.
+  mode?: "view" | "scroll";
+  // Mirror the drawing, so the device faces the spec text. Only for a
+  // drawing without lettering, which would read backwards.
+  flip?: boolean;
+}
+
+const {
+  groups,
+  drawing,
+  drawingAlt,
+  id = "specs",
+  title = "Specifications",
+  mode = "view",
+  flip = false,
+} = Astro.props;
+// Splits value lines into paragraphs at each empty line.
+const paragraphs = (lines: string[]) =>
+  lines.reduce<string[][]>(
+    (all, line) => (line ? (all.at(-1)!.push(line), all) : [...all, []]),
+    [[]],
+  );
+const place = ({ x, y, w }: Layer) => `--x: ${x}%; --y: ${y}%; --w: ${w}%`;
+// The lid and base are SVGs, served as they are.
+const svgLayer = (layer: Layer) => ({
+  src: layer.image.src,
+  width: layer.image.width,
+  height: layer.image.height,
+  alt: "",
+  loading: "lazy",
+  decoding: "async",
+  style: place(layer),
+});
+---
+
+<section class="connect-specs" id={id}>
+  <div class="list">
+    <h2>{title}</h2>
+    {
+      groups.map(({ title, items }: Group) => (
+        <div class="group">
+          <h3>{title}</h3>
+          <div class="items">
+            {items.map(({ label, value, details, wide }: Item) => (
+              <div class:list={["item", { wide: wide || details }]}>
+                <h4>{label}</h4>
+                {value &&
+                  paragraphs(value).map((lines) => (
+                    <p>
+                      {lines.map((line, i) => (
+                        <Fragment>
+                          {i > 0 && <br />}
+                          <Fragment set:html={line} />
+                        </Fragment>
+                      ))}
+                    </p>
+                  ))}
+                {details && (
+                  <dl>
+                    {details.map(({ term, value }: Detail) => (
+                      <div>
+                        <dt>{term}</dt>
+                        {value.map((line) => (
+                          <dd set:html={line} />
+                        ))}
+                      </div>
+                    ))}
+                  </dl>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <div
+    class:list={["drawing", { flip }]}
+    role="img"
+    aria-label={drawingAlt}
+    data-specs-drawing
+    style={`--ratio: ${drawing.render ? drawing.render.width / drawing.render.height : drawing.ratio}; --closed: ${drawing.closed}%`}
+  >
+    {
+      drawing.render ? (
+        <Fragment>
+          <Image
+            class="render"
+            src={drawing.render}
+            alt=""
+            widths={[Math.round(drawing.render.width / 2), drawing.render.width]}
+            sizes={`${connectDesk} 31.25rem, 90vw`}
+            quality={90}
+          />
+          {drawing.video && (
+            <video
+              class="render opening"
+              poster={drawing.video.poster.src}
+              data-open={drawing.video.open}
+              data-scrub={drawing.video.scrub}
+              data-mode={mode}
+              muted
+              playsinline
+              preload="none"
+              disablepictureinpicture
+              hidden
+            />
+          )}
+        </Fragment>
+      ) : (
+        <Fragment>
+          <img class="layer" {...svgLayer(drawing.base)} />
+          <Image
+            class="layer"
+            src={drawing.board.image}
+            alt=""
+            widths={[Math.round(drawing.board.image.width / 2), drawing.board.image.width]}
+            sizes={`${connectDesk} 28rem, 90vw`}
+            quality={90}
+            style={place(drawing.board)}
+          />
+          <img class="layer lid" {...svgLayer(drawing.lid)} />
+        </Fragment>
+      )
+    }
+  </div>
+</section>
+
+<script>
+  import { reducedMotion, reveal } from "../../../lib/motion";
+
+  // Lift the lid when the drawing scrolls into view (styles: .is-armed
+  // lowers it, .is-revealed lifts it).
+  for (const drawing of document.querySelectorAll("[data-specs-drawing]")) {
+    reveal(drawing, { threshold: 0.25 });
+  }
+
+  // The rendered drawing's opening animation, in the section's mode (see
+  // the `mode` prop). Without the script or with reduced motion the
+  // exploded still shows.
+  for (const video of document.querySelectorAll<HTMLVideoElement>("video.opening")) {
+    if (reducedMotion.matches) continue;
+    const mode = video.dataset.mode === "scroll" ? "scroll" : "view";
+    const drawing = video.closest<HTMLElement>("[data-specs-drawing]")!;
+    const section = drawing.closest<HTMLElement>("section")!;
+    video.src = (mode === "scroll" ? video.dataset.scrub : video.dataset.open)!;
+    video.preload = "auto";
+    video.hidden = false;
+
+    if (mode === "view") {
+      new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+            video.currentTime = 0;
+          }
+        },
+        { threshold: 0.35 },
+      ).observe(drawing);
+      continue;
+    }
+
+    // Scroll mode: closed until the section's top has risen above 60% of
+    // the viewport, open once it reaches the top, where the drawing is
+    // pinned and the section fills the screen.
+    const progress = () => {
+      const top = section.getBoundingClientRect().top;
+      const vh = innerHeight;
+      return Math.min(1, Math.max(0, (vh * 0.6 - top) / (vh * 0.6)));
+    };
+    let pending = false;
+    const seek = () => {
+      pending = false;
+      if (!video.duration) return;
+      // Stop a frame short of the end so the last frame stays shown.
+      const t = progress() * (video.duration - 1 / 60);
+      if (!video.seeking && Math.abs(video.currentTime - t) > 1 / 120) video.currentTime = t;
+    };
+    const queue = () => {
+      if (!pending) {
+        pending = true;
+        requestAnimationFrame(seek);
+      }
+    };
+    addEventListener("scroll", queue, { passive: true });
+    addEventListener("resize", queue);
+    video.addEventListener("seeked", queue);
+    video.addEventListener("loadedmetadata", queue);
+  }
+</script>
+
+<style lang="scss">
+  @use "../../../styles/breakpoints";
+  @use "../../../styles/layout";
+
+  .connect-specs {
+    @include layout.container;
+    color: var(--color-text-inverse);
+    display: grid;
+    font-family: var(--font-heading);
+    gap: var(--space-xxlarge);
+    padding-block: var(--space-xxlarge);
+  }
+
+  h2,
+  h3,
+  h4,
+  p,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: var(--font-size-title);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-top: var(--space-xlarge);
+    padding-block: var(--space-xlarge);
+  }
+
+  .group {
+    margin-top: var(--space-xlarge);
+  }
+
+  h3 {
+    font-size: var(--font-size-xlarge);
+    font-weight: 600;
+    line-height: 1.2;
+    padding-block: var(--space-small);
+  }
+
+  .items {
+    display: grid;
+    gap: var(--space-xlarge);
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  }
+
+  .wide {
+    grid-column: 1 / -1;
+  }
+
+  h4 {
+    font-size: var(--font-size-large);
+    font-weight: 600;
+    line-height: 1.5;
+    padding-block: var(--space-small);
+  }
+
+  p,
+  dl {
+    color: var(--color-text-inverse-muted);
+    font-size: var(--font-size-small);
+    line-height: 1.5;
+  }
+
+  p + p {
+    margin-top: var(--space-medium);
+  }
+
+  p,
+  dd {
+    :global(a) {
+      color: inherit;
+    }
+  }
+
+  dl {
+    display: grid;
+    gap: var(--space-medium) var(--space-xlarge);
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  }
+
+  dt {
+    color: var(--color-text-inverse);
+    font-weight: 600;
+  }
+
+  .drawing {
+    aspect-ratio: var(--ratio);
+    justify-self: center;
+    max-width: 31.25rem;
+    position: relative;
+    width: 100%;
+
+    &.flip {
+      transform: scaleX(-1);
+    }
+  }
+
+  .layer {
+    height: auto;
+    left: var(--x);
+    position: absolute;
+    top: var(--y);
+    width: var(--w);
+  }
+
+  .render {
+    display: block;
+    height: 100%;
+    inset: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  /* The opening video sits over the still and shows its own poster
+     (the assembled device) until it plays. */
+  video.render {
+    object-fit: cover;
+  }
+
+  video.render[hidden] {
+    display: none;
+  }
+
+  .lid {
+    transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .drawing:global(.is-armed) .lid {
+    transform: translateY(var(--closed));
+  }
+
+  .drawing:global(.is-revealed) .lid {
+    transform: none;
+  }
+
+  /* The list beside the drawing, in Figma's 660 : 500 proportion; the
+     drawing stays in view while the list scrolls past. */
+  @media only screen and (min-width: breakpoints.$connect-desk) {
+    .connect-specs {
+      align-items: start;
+      grid-template-columns: minmax(0, 660fr) minmax(0, 500fr);
+      padding-block: var(--space-xxxlarge);
+    }
+
+    .drawing {
+      position: sticky;
+      top: calc(var(--header-height) + var(--space-xxlarge));
+    }
+  }
+</style>

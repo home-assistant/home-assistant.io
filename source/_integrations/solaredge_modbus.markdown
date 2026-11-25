@@ -1,24 +1,7 @@
 ---
-title: SolarEdge Modbus
 description: Instructions on how to integrate a SolarEdge solar inverter with Home Assistant over Modbus TCP.
-ha_categories:
-  - energy.solar_batteries
 ha_release: "2026.10"
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: solaredge_modbus
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
-ha_zeroconf: true
-ha_quality_scale: platinum
 ---
 
 The **SolarEdge Modbus** {% term integration %} connects Home Assistant to your SolarEdge solar inverter over your own network, using the Modbus TCP interface built into the inverter. There is no account, no API key, and no cloud service involved, so your solar production keeps arriving in Home Assistant even when your internet connection is down.
@@ -41,6 +24,7 @@ Reading the inverter directly, rather than through SolarEdge's cloud, is worth i
 
 This integration has been tested with, or reported to work on, the following inverters:
 
+- SE3800
 - SE4K
 - SE5000H
 - SE8000H
@@ -48,6 +32,8 @@ This integration has been tested with, or reported to work on, the following inv
 - SE10000H
 - SE15K
 - SE17K
+- SE4000-ER-01-NED
+- SE3000H-RW000NNN2
 
 Both single-phase and three-phase inverters are covered by that list. Any SolarEdge inverter that offers Modbus TCP should work, whether or not it is listed.
 
@@ -80,7 +66,27 @@ The same setting is under **Site Communication** in the SetApp mobile app, if yo
 
 {% enddetails %}
 
-{% details "Inverters with a display" %}
+{% details "Older inverters with a display" %}
+
+The following older models have been reported to use a different menu procedure and Modbus TCP port.
+
+**SE4000-ER-01-NED** (firmware `0003.2537`):
+
+1. Press and hold the inverter's button only until the menu opens, then release it immediately. Release it before four seconds; holding it for four seconds starts pairing mode instead.
+2. Press the button briefly to scroll, and hold it for 1–2 seconds to select.
+3. Go to **Communication** > **LAN Conf** > **Modbus TCP**, and select port `502`. The display shows the selected port when Modbus TCP is enabled. No menu password was required in the two reports for this model.
+
+**SE3000H-RW000NNN2** (firmware `0003.2537`):
+
+1. Press and hold **OK**, the button on the far right, for about five seconds until the password prompt appears.
+2. Enter the password `12312312`.
+3. Go to **Communication** > **LAN Conf** > **Modbus TCP**, and select port `502`. The selected port is sufficient to enable Modbus TCP.
+
+{% enddetails %}
+
+{% details "Other inverters with a display" %}
+
+For other display-based models, use the following procedure:
 
 1. Press and hold **OK**, the button on the right, to open the menu.
 2. Enter the password `12312312` by pressing **Up**, **Down**, **OK**, **Up**, **Down**, **OK**, **Up**, **Down**.
@@ -88,7 +94,7 @@ The same setting is under **Site Communication** in the SetApp mobile app, if yo
 
 {% enddetails %}
 
-Enabling Modbus TCP sets the port to `1502`. The device ID of the inverter is `1`, unless you gave it another one yourself.
+For most SolarEdge inverters, enabling Modbus TCP sets the port to `1502`. The older SE4000-ER-01-NED and SE3000H-RW000NNN2 models above use port `502`. The device ID of the inverter is `1`, unless you gave it another one yourself.
 
 For a network connection, you also need the hostname or IP address of the inverter. Giving it a fixed address in your router keeps Home Assistant pointed at the right device.
 
@@ -100,7 +106,7 @@ For an RS485 connection, set the protocol of the inverter's RS485 port to **SunS
 
 {% include integrations/config_flow.md %}
 
-Setting up starts by picking how the inverter is reached, **Network (Modbus TCP)** or **Serial (RS485)**. A discovered inverter skips that question: it announced itself over the network.
+Setting up starts by picking how the inverter is reached, **Modbus TCP** or **Serial port (Modbus RTU)**. A discovered inverter skips that question: it announced itself over the network.
 
 For a network connection:
 
@@ -108,7 +114,7 @@ For a network connection:
 Host:
   description: "The hostname or IP address of your SolarEdge inverter, or of the Modbus TCP bridge it is connected through. For example, `192.168.1.100`."
 Port:
-  description: "The port the inverter listens on for Modbus requests. The SolarEdge default is `1502`."
+  description: "The port the inverter listens on for Modbus requests. The default for most SolarEdge inverters is `1502`. The older SE4000-ER-01-NED and SE3000H-RW000NNN2 models reported here use `502`."
 Device ID:
   description: "The Modbus device ID of the inverter, as configured on the inverter itself. The SolarEdge default is `1`. You only need to change this if your inverter was given another ID, for example because several inverters share one connection."
 {% endconfiguration_basic %}
@@ -132,8 +138,8 @@ Your inverter is added as a device, with any energy meter or battery wired to it
 
 ### Inverter sensors
 
-- **Power**: The AC power the inverter is feeding into your home right now. The [Energy dashboard](#energy-dashboard) uses this one for live power flow.
-- **Energy**: The total energy the inverter has produced since it was installed. This is the sensor to use for solar production on the [Energy dashboard](#energy-dashboard).
+- **Power**: The AC power the inverter is feeding into your home right now. With a DC-coupled battery, this can include power discharged from the battery. See [Energy dashboard](#energy-dashboard) before using it for solar production.
+- **Energy**: The total AC energy delivered by the inverter since it was installed. With a DC-coupled battery, this can include energy discharged from the battery. See [Energy dashboard](#energy-dashboard) before using it for solar production.
 - **Current**: The AC current the inverter is delivering.
 - **Current phase A**, **Current phase B**, **Current phase C**: The current per phase. Only added for inverters that report per phase.
 - **DC power**: The power coming in from your solar panels.
@@ -222,7 +228,7 @@ The inverter holds settings of its own, which this integration can change as wel
 
 ### Switches
 
-These switches are flags on the export control. An installer sets them to describe the site, and they are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+These switches are flags on the export control. An installer sets them to describe the site, and they are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **External production**: Tells the inverter there is production at the site that it cannot see itself, so it can keep the whole site within its export limit.
 - **Negative site limit**: Lets the site limit go below zero, which turns it into a minimum import rather than a maximum export. It needs a meter at the connection point to mean anything.
@@ -235,7 +241,15 @@ They can also affect what your installation is allowed to do. Export limits in p
 
 ## Energy dashboard
 
-Your inverter's production fits straight into the [Energy dashboard](/docs/energy/solar-panels/), next to what your home consumes.
+You can use this integration's sensors in the [Energy dashboard](/docs/energy/solar-panels/).
+
+{% important %}
+If you have a DC-coupled battery, connected to the inverter on the same side as the solar panels, the inverter's **Energy** and **Power** sensors do not measure solar production separately. Battery discharge can be included in the inverter's output, while solar energy used to charge the battery directly does not pass through its AC output. Selecting these sensors as solar production can therefore count battery discharge as solar production and miss solar energy stored in the battery.
+
+The integration does not calculate separate solar production sensors for this setup. Subtracting battery discharge alone does not account for solar energy charging the battery directly.
+{% endimportant %}
+
+If your inverter has no DC-coupled battery, add its solar production as follows:
 
 1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
 2. Under **Solar panels**, select **Add solar production**.
@@ -272,7 +286,9 @@ Your inverter knows more about your solar production than a monthly report ever 
 
 A solar installation on the roof is easy to forget about, and an inverter that has stopped producing costs you money every sunny hour. This automation sends a notification the moment the inverter reports a fault, so you find out on the same day instead of on your next bill.
 
-- **Trigger**: **Problem** turned on
+- **Trigger**: State changed
+  - **Entity**: Solaredge se10000h problem sensor
+  - **To**: On
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -300,8 +316,12 @@ automation: |
 
 Appliances that do not care when they run are the cheapest way to use your own production instead of selling it. This automation starts the dishwasher once your panels have been producing more than 2 kW for ten minutes, which is long enough to know it is not a passing gap in the clouds.
 
-- **Trigger**: **Power** above 2000 for 10 minutes
-- **Action**: Turn on the dishwasher
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Solaredge se10000h power
+  - **Above**: `2000`
+  - **For at least**: `00:10:00`
+- **Action**: Turn on switch
+  - **Target**: Dishwasher switch
 
 {% details "YAML example for running the dishwasher on solar power" %}
 
@@ -358,7 +378,7 @@ Nothing is answering on the address the integration polls. The inverter may be o
 
 1. Make sure the inverter is powered on and reachable on your network, for example by looking it up in your router.
 2. Check that Modbus TCP is still enabled on the inverter. An inverter firmware update or a visit from your installer can turn it off again.
-3. Check the port. SolarEdge uses `1502`, where Modbus devices in general often use `502`.
+3. Check the port. Most SolarEdge inverters use `1502`; the older SE4000-ER-01-NED and SE3000H-RW000NNN2 models reported here use `502`. Modbus devices in general often use `502`.
 4. Check whether another system is already polling the inverter, and stop it while you test.
 
 On an RS485 connection, check the baud rate and the device ID against what the inverter is set to, and that its RS485 port speaks SunSpec rather than talking to a SolarEdge logger.

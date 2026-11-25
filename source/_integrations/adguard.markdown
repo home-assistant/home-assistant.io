@@ -1,19 +1,7 @@
 ---
-title: AdGuard Home
 description: Instructions on how to integrate AdGuard Home with Home Assistant.
-ha_categories:
-  - computers_network.routers_network
 ha_release: 0.95
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: adguard
-ha_platforms:
-  - sensor
-  - switch
-  - update
-ha_integration_type: service
 ---
 
 The **AdGuard Home** {% term integration %} lets you monitor and control your [AdGuard Home](https://adguard.com/adguard-home/overview.html) instance from Home Assistant.
@@ -74,6 +62,8 @@ The integration provides switches to control AdGuard Home features:
 These switches enable powerful automations. For example, you could automatically enable parental controls during school hours or disable ad blocking for specific time periods.
 
 The **Protection** switch acts as a master control. When turned off, it bypasses all AdGuard Home protection, regardless of the individual switch states.
+
+To turn off protection only for a while, use the [Pause protection](/actions/adguard.pause_protection/) action. AdGuard Home turns protection back on by itself when the duration you set ends.
 
 {% important %}
 Turning off **Query log** stops all sensor updates. AdGuard Home requires query logging to provide statistics.

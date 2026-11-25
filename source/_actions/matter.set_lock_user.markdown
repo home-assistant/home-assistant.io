@@ -100,7 +100,7 @@ credential_rule:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Good to know
 

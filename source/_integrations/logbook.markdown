@@ -1,18 +1,15 @@
 ---
-title: Activity
 description: Instructions on how to enable the activity integration for Home Assistant.
 ha_release: 0.7
 ha_domain: logbook
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: system
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
 
 The **Activity** {% term integration %} provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order. It depends on the [Recorder](/integrations/recorder/) integration for storing the data. This means that if the Recorder integration is set up to use a database such as MySQL or PostgreSQL, the Activity integration uses that database instead of the default SQLite database.
+
+The **Activity** integration also provides the [**Action history**](/docs/tools/dev-tools/#action-history-tab) tab under {% my tools_action_history title="**Settings** > **Tools** > **Action history**" %}, which lists the actions that were performed and what performed them.
 
 ## Viewing activity in the Activity panel
 
@@ -25,11 +22,11 @@ The **Activity** panel shows recorded changes and events in your home, with the 
 3. Optional: To narrow down the activity further, use the filters below the targets. The filters also work without a target.
    - **Type**: shows only activity of entities of the selected types. For example, select the **Motion** type under **Binary sensor** to see only motion activity.
    - **Integrations**: shows only activity of entities that are provided by the selected integrations.
+   - **Triggered by**: shows only activity with the selected cause, such as a person, **Automations**, **Scripts**, or **Integrations**, like HomeKit or Google Assistant. If a change was made through a user account that is not linked to a person, it is listed under **Integrations**. Activity without a known cause is listed under **Other**.
    - Home Assistant remembers your targets and filters the next time you open the panel. To remove all of them, select **Clear filter** {% icon "mdi:filter-variant-remove" %} at the top of the pane.
 4. To change the time period, select the date range in the toolbar.
    - To move to the previous or next period, select the arrows next to the date range.
 5. Optional: In the top right corner, select **Menu** {% icon "mdi:dots-vertical" %} for more options:
-   - **Refresh**: loads the latest activity.
    - **Download data**: exports the activity that is currently shown in CSV format.
    - **Reset**: removes your targets and filters and goes back to the default time period.
 

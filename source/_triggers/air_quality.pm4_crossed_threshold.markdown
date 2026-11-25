@@ -48,7 +48,7 @@ This fires when the nursery PM4 sensor reading rises above 30 μg/m³.
    unit_phrase_yaml="literal value in μg/m³"
    example_value="30" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="PM4 sensor" example="sensor.living_room_pm4" %}
 
 {% include triggers/behavior.md %}
 
