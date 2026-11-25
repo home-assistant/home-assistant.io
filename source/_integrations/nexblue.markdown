@@ -39,7 +39,7 @@ For multiple chargers, use a reserved IP address for each charger instead of rel
 
 ## Supported functionality
 
-The NexBlue integration provides sensor entities, binary sensor entities, and a charging switch for each charger in your account.
+The NexBlue integration provides sensors, binary sensors, a charging switch, and a current limit control for each charger in your account.
 
 ### Sensors
 
@@ -50,7 +50,7 @@ The integration provides the following charger information:
 - **Session energy**: The energy used during the current charging session in kilowatt-hours (kWh).
 - **Lifetime energy**: The total energy delivered by the charger in kilowatt-hours (kWh). This sensor can be used in the [Home Assistant energy dashboard](/home-energy-management/).
 - **Current and voltage**: Measurements for L1, L2, and L3 when reported by the charger.
-- **Current limit**: The configured charging current limit.
+- **Max charging current**: The configured maximum charging current.
 - **Cable rating** and **circuit fuse**: Electrical limits reported by the charger.
 - **Charger diagnostics**: Cable lock mode, access level, charging phase, network status, and LED brightness.
 
@@ -69,6 +69,12 @@ The integration provides a charging switch for each charger:
 - Turn the switch off to stop charging.
 
 If the charger is offline or rejects a command, Home Assistant reports the command failure.
+
+### Number
+
+The **Current limit** control adjusts the dynamic charging current limit between 6 and 32 A on supported chargers. It can only be changed during an active charging session and does not change the configured maximum charging current.
+
+The dynamic limit remains after the charging session ends and is cleared when the charger restarts. The control is unavailable if the charger does not report a dynamic current limit.
 
 ## NexBlue and automations
 

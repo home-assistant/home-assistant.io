@@ -8,6 +8,7 @@ related_actions:
   - adguard.enable_url
   - adguard.disable_url
   - adguard.refresh
+  - adguard.pause_protection
 ---
 
 The **AdGuard Home: Remove URL** action deletes a filter subscription from AdGuard Home. AdGuard Home stops using the rules from that list and removes the subscription completely.

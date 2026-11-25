@@ -21,6 +21,7 @@ There is support for the following device families within Home Assistant:
 - **Amazon Fire TV Stick**
 - **Amazon Fire Tablet**
 - **Amazon Air Quality Monitor**
+- **Amazon Smart Thermostat**
 - **Third-party devices** with built-in Alexa capabilities.
 
 {% warning %}
@@ -92,6 +93,7 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 In addition to sensors, you can use the following entities:
 
 - **Button** - Execute Alexa routines, restart the device
+- **Climate** - Amazon Smart Thermostat HVAC mode (heat, cool, heat/cool, and off), target temperature, target temperature range in heat/cool mode, and fan mode (on, auto, and circulate)
 - **Light** - Echo Glow on/off, brightness, color, and light modes such as **Campfire** or **Disco** as effects
 - **Media Player** - Play audio/video from several sources
 - **Notify** - Speak and Announce notifications
@@ -160,14 +162,14 @@ template:
     - name: Alexa Devices Last Called
       unique_id: alexa_devices_last_called
       state: >
-        {{
+        {% set timestamps =
           integration_entities('alexa_devices')
             | select('match', '^event\.')
             | select('has_value')
             | map('states')
-            | sort
-            | last
-        }}
+            | list
+        %}
+        {{ (timestamps | sort | last) if timestamps else none }}
       attributes:
         event_entity: >
           {{
@@ -180,19 +182,35 @@ template:
           }}
       
         voice_command: >
-          {{ state_attr(this.attributes.event_entity, 'voice_command') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'voice_command')
+            if event_entity else none
+          }}
       
         voice_reply: >
-          {{ state_attr(this.attributes.event_entity, 'voice_reply') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'voice_reply')
+            if event_entity else none
+          }}
       
         person_first_name: >
-          {{ state_attr(this.attributes.event_entity, 'person_first_name') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'person_first_name')
+            if event_entity else none
+          }}
       
         person_type: >
-          {{ state_attr(this.attributes.event_entity, 'person_type') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'person_type')
+            if event_entity else none
+          }}
       
         notify_announce: >
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {{
             device_entities(dev)
@@ -203,7 +221,7 @@ template:
           }}
       
         notify_speak: >
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {{
             device_entities(dev)
@@ -214,7 +232,7 @@ template:
           }}
       
         media_player: >
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {{
             device_entities(dev)
@@ -225,7 +243,7 @@ template:
           }}
       
         serial_number: >-
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {% set identifiers = device_attr(dev, 'identifiers') if dev else none %}
           {{
@@ -234,7 +252,8 @@ template:
           }}
       
         device_id: >
-          {{ device_id(this.attributes.event_entity) if this.attributes.event_entity else none }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{ device_id(event_entity) if event_entity else none }}
 ```
 {% enddetails %}
 
@@ -275,11 +294,14 @@ The following items are updated through push events, so changes appear in Home A
 - Media state
 - Do not disturb status
 - Light state
+- Thermostat mode, target temperatures, current temperature, and fan mode
 
 ## Known limitations
 
 - This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 - Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
+- The thermostat cannot change its HVAC mode and target temperature in the same action. To change both, use two actions: first set the HVAC mode, then set the temperature.
+- The thermostat does not report whether it is currently heating or cooling.
 - You might see `Failed to refresh communications settings` warnings in the logs. These are caused by Amazon rate limiting connections, and the cause is under investigation. When this happens, the communication, drop-in, and announcement settings might be out of date. These settings rarely change, so you can safely ignore these warnings.
 
 ## Troubleshooting

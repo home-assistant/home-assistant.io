@@ -25,12 +25,204 @@ Location:
 
 {% configuration_basic %}
 Language:
-    description: "Override the Home Assistant language for forecast texts. Defaults to **Follow Home Assistant server language**. If that language is not English, French, Dutch, or German, English is used."
+    description: "Override the Home Assistant language for forecast texts and warnings. Defaults to **Follow Home Assistant server language**. If that language is not English, French, Dutch, or German, English is used."
 {% endconfiguration_basic %}
 
 ## Supported features
 
 The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
+
+## Supported functionality
+
+The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
+
+### Sensors
+
+The integration also provides the following sensors for the current weather at your location. Some sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). You can enable them after you set up the integration.
+
+- **Temperature**: The current outdoor temperature.
+- **Atmospheric pressure**: The current air pressure.
+- **Wind speed**: The current wind speed.
+- **Wind gust speed**: The speed of the strongest wind gusts. Disabled by default.
+- **Wind direction**: The direction the wind is coming from, in degrees.
+- **UV index**: The current ultraviolet index.
+- **Precipitation intensity**: The current rain rate from the radar, in mm/h.
+- **Next warning**: The start time of the next upcoming weather warning. Unknown if no warning is scheduled to start.
+
+There is also a pollen sensor for each type the provider reports, such as **Grass pollen** and **Birch pollen**. The colors follow the provider's [pollen scale](https://www.meteo.be/en/weather/forecasts/pollen-allergy-and-hay-fever):
+
+- `green`: The lowest level.
+- `yellow`: Low.
+- `orange`: Moderate.
+- `red`: High.
+- `purple`: Very high.
+- `active`: The type is in season, but the provider gives no level.
+- `none`: The type is not in season.
+
+### Binary sensors
+
+- **Warning**: On while at least one official weather warning is in effect. All published warnings, including upcoming ones, are listed in the `warnings` attribute.
+
+Each item in the `warnings` attribute has these fields:
+
+- `slug`: The warning type, independent of the language, such as `wind`, `ice_or_snow`, or `thunder`. It is `unknown` if the warning type is not recognized.
+- `id`: The provider ID of the warning type.
+- `level`: The severity, from 1 to 3. Empty if the provider did not send one.
+- `friendly_name`: The name of the warning type in the configured language.
+- `text`: The description of the warning in the configured language.
+- `starts_at` and `ends_at`: When the warning is in effect.
+- `is_active`: Whether the warning is in effect now.
+
+{% include integrations/actions.md %}
+
+## IRM KMI automation examples
+
+The pollen sensors, the warning entities, and the [radar forecast action](/actions/irm_kmi.get_forecasts_radar/) let you react to pollen levels, official weather warnings, and rain in your automations. Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Notify on high grass pollen
+
+Get a notification when the grass pollen level at your location turns red or purple, the two highest levels on the provider's scale.
+
+- **Trigger**: State changed
+  - **Entity**: Your own grass pollen sensor, for example Brussels Grass pollen (`sensor.brussels_grass_pollen`)
+  - **To**: Red
+  - **To**: Purple
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: {% raw %}`Grass pollen level is {{ states('sensor.brussels_grass_pollen') }}.`{% endraw %}
+
+{% details "YAML example for notifying on high grass pollen" %}
+
+{% example %}
+automation: |
+  alias: "Notify on high grass pollen"
+  triggers:
+    - trigger: state
+      entity_id: sensor.brussels_grass_pollen
+      to:
+        - "red"
+        - "purple"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "Grass pollen level is {{ states('sensor.brussels_grass_pollen') }}."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Notify when a weather warning is in effect
+
+Get a notification for each warning that is in effect when the **Warning** binary sensor turns on. The editor shows this state as **Unsafe**. The notification shows the warning type as the title and the provider's description as the message, both in the configured language.
+
+- **Trigger**: State changed
+  - **Entity**: Your own warning binary sensor, for example Brussels Warning (`binary_sensor.brussels_warning`)
+  - **To**: Unsafe
+- **Action**: Repeat
+  - **Type**: For each
+  - **Items**: The warnings in effect, see the YAML example
+  - **Action**: Send a notification message
+    - **Target**: My Device (`notify.my_device`)
+    - **Title**: {% raw %}`Weather warning: {{ repeat.item.friendly_name }}`{% endraw %}
+    - **Message**: {% raw %}`{{ repeat.item.text }}`{% endraw %}
+
+{% details "YAML example for notifying on a weather warning" %}
+
+{% example %}
+automation: |
+  alias: "Notify on weather warning"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.brussels_warning
+      to: "on"
+  actions:
+    - repeat:
+        for_each: >-
+          {{ state_attr('binary_sensor.brussels_warning', 'warnings')
+             | selectattr('is_active') | list }}
+        sequence:
+          - action: notify.send_message
+            target:
+              entity_id: notify.my_device
+            data:
+              title: "Weather warning: {{ repeat.item.friendly_name }}"
+              message: "{{ repeat.item.text }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Close the awning on a wind warning
+
+Close the awning as soon as a wind warning comes into effect. The trigger filters the `warnings` attribute on `slug`, which does not depend on the language. It also fires when a wind warning starts while another warning is already in effect, which a trigger on the binary sensor would miss. Add other types to the list, such as `thunder_wind_rain`, if you want to react to those too.
+
+- **Trigger**: Template
+  - **Value template**: The template from the YAML example
+- **Action**: Close cover
+  - **Target**: Awning (`cover.awning`)
+
+{% details "YAML example for closing the awning on a wind warning" %}
+
+{% example %}
+automation: |
+  alias: "Close the awning on a wind warning"
+  triggers:
+    - trigger: template
+      value_template: >-
+        {{ state_attr('binary_sensor.brussels_warning', 'warnings')
+           | default([], true)
+           | selectattr('is_active')
+           | selectattr('slug', 'in', ['wind', 'thunderstorm_strong_gusts'])
+           | list | count > 0 }}
+  actions:
+    - action: cover.close_cover
+      target:
+        entity_id: cover.awning
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Skip the sprinklers when rain is on the way
+
+Before the evening watering run, check the radar and only turn on the sprinklers when no rain shows up in any of the frames.
+
+- **Trigger**: Time, 20:00:00
+- **Action**: Get radar forecasts
+  - **Target**: Brussels (`weather.brussels`)
+  - **Response variable**: `radar`
+- **Condition**: Template, no frame has rain
+- **Action**: Turn on switch
+  - **Target**: Sprinklers (`switch.sprinklers`)
+
+{% details "YAML example for skipping the sprinklers when rain is coming" %}
+
+{% example %}
+automation: |
+  alias: "Water the garden unless rain is coming"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+  actions:
+    - action: irm_kmi.get_forecasts_radar
+      target:
+        entity_id: weather.brussels
+      response_variable: radar
+    - condition: template
+      value_template: >
+        {{ radar['weather.brussels'].forecast
+           | map(attribute='precipitation')
+           | reject('none')
+           | select('gt', 0)
+           | list
+           | count == 0 }}
+    - action: switch.turn_on
+      target:
+        entity_id: switch.sprinklers
+{% endexample %}
+
+{% enddetails %}
 
 ## Limitations
 
@@ -40,11 +232,15 @@ The integration provides a weather entity along with [weather forecast services]
 
 3. The provider only has data for Belgium, Luxembourg and The Netherlands. 
 
+4. Not every location gets a pollen forecast. For locations in The Netherlands, all pollen sensors report `none`.
+
 ## Data updates
 
 The integration {% term polling polls %} weather data every 7 minutes by default.
 
 When a poll cannot reach the API, the weather entity keeps showing the data from the last poll that succeeded. Once that poll is more than 17.5 minutes old, the next failed poll makes the entity unavailable, until a poll succeeds again.
+
+The pollen levels are downloaded separately. If only that download fails, the other entities keep updating and the pollen sensors keep their last level for the same 17.5 minutes, then become unavailable until a download succeeds again. Right after Home Assistant starts, there is no earlier level to keep, and they are unavailable at once. The log shows "Could not get pollen data from the API" when the problem starts and "Pollen data is available again" when it is over.
 
 ## Removing the integration
 

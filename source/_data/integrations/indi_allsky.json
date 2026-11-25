@@ -18,6 +18,7 @@
   "platforms": [
     "binary_sensor",
     "camera",
+    "diagnostics",
     "image",
     "sensor"
   ],
