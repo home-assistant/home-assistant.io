@@ -92,10 +92,13 @@ Each location also gets the latest measurements from the nearest weather station
 - **Observed condition**: the weather the station reports, such as sunny, rainy, or snowy. Disabled by default.
 - **Observed hourly precipitation**: the precipitation the station measured in its latest full hour, in mm. Its **Last reset** attribute shows when that hour started. It shows as unknown when that hour ended more than two hours before the station's latest measurements, for example, when the station skips reports.
 - **Observed precipitation type**: the type of precipitation in the station's latest full hour: rain, sleet, snow, hail, or icing. It shows as unknown when there was no precipitation in that hour, when the station cannot determine the type, or when the hourly precipitation sensor is unknown. Disabled by default.
-- **Observed 24-hour precipitation**: the station's own total, in mm, for its latest 24-hour period, which usually ends at 06:00 UTC. **Observed 3-hour precipitation**, **Observed 6-hour precipitation**, and **Observed 12-hour precipitation** give the totals for 3, 6, and 12 hours and are disabled by default. Their **Last reset** attribute shows when each period started. Which periods a station reports varies, and a total shows as unknown when the station does not report that period, or when the period ended more than its own length plus one hour before the station's latest measurements.
+- **Observed 24-hour precipitation**: the station's own precipitation total, in mm, for its latest 24-hour period. This period usually ends at 06:00 UTC. This sensor is enabled by default.
+- **Observed 3-hour precipitation**, **Observed 6-hour precipitation**, and **Observed 12-hour precipitation**: the station's own precipitation totals, in mm, for its latest 3-, 6-, and 12-hour periods. Disabled by default.
 - **Observed apparent temperature**, **Observed pressure**, **Observed wind speed**, **Observed wind gust speed**, **Observed wind direction**, **Observed visibility**, and **Observed snow depth**. These are disabled by default.
 
-Where no station reports nearby, the observation sensors show as unknown.
+The precipitation total sensors have a **Last reset** attribute that shows when each period started. The periods a station reports vary. A total shows as unknown when the station does not report that period, or when the period ended more than its length plus one hour before the station's latest measurements.
+
+Where no station reports nearby, the observation sensors show as **Unknown**.
 
 Each location also gets the US EPA air quality index for the current hour:
 
@@ -106,7 +109,14 @@ Each location also gets the US EPA air quality index for the current hour:
 
 ## Data updates
 
-The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses six requests per location: three for the forecast and current conditions, two for the weather station sensors, and one for the air quality sensors. That's around 290 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Each location you add polls separately, so that limit allows around 6 locations. You can save one request per update by disabling all of a location's observed precipitation total sensors, another by disabling all its other observation sensors, and another by disabling all its air quality sensors. Because the integration polls continuously, a Freemium key used this way does not go idle.
+The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses six requests per location: three for the forecast and current conditions, two for the weather station sensors, and one for the air quality sensors. That's around 290 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Each location you add polls separately, so that limit allows around 6 locations.
+Because the integration polls continuously, a Freemium key used this way does not go idle.
+
+You can save requests by disabling sensors:
+
+- Disable all of a location's observed precipitation total sensors to save one request per update. This includes the 24-hour sensor, which is enabled by default.
+- Disable all of its other observation sensors to save one request per update.
+- Disable all of its air quality sensors to save one request per update.
 
 The `weather.get_forecasts` and `foreca.get_forecasts_extra` actions read the forecast the integration has already retrieved, so using them in templates and automations costs no extra requests.
 
