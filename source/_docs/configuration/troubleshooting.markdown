@@ -139,10 +139,11 @@ This can have many causes, such as a problem with the device or service, the net
 
 ##### Resolution
 
-1. Check [the logs](/integrations/logger/#viewing-logs) for errors related to the integration.
+1. [Check the health of the integration](#checking-the-health-of-an-integration).
+2. Check [the logs](/integrations/logger/#viewing-logs) for errors related to the integration.
    - To get more details, [turn on debug logging](#enabling-debug-logging) for the integration.
-2. Check the troubleshooting section on the documentation page of the integration.
-3. If you can't find the cause, [report the issue](/help/reporting_issues/) and include the logs.
+3. Check the troubleshooting section on the documentation page of the integration.
+4. If you can't find the cause, [report the issue](/help/reporting_issues/) and include the logs.
 
 {% enddetails %}
 
@@ -253,9 +254,27 @@ To ask an AI app:
 4. Check the answer before you act on it.
    - The AI app can be wrong. Compare its answer with the [logs](/common-tasks/general/logs/).
 
+## Checking the health of an integration
+
+When an integration doesn't work as expected, check its health first. The health check shows in one place if the integration is set up, which of its entities are unavailable, and if there are open repairs or errors in the log. It also links to the page where you can fix each problem.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the integration.
+2. On the entry that has the problem, select **Menu** {% icon "mdi:dots-vertical" %} > **Health** {% icon "mdi:heart-pulse" %}.
+   - If you set up the integration more than once, the integration page lists an entry for each.
+   - Result: The **Health of …** dialog opens. At the top, it says if everything looks fine, if some things need a look, or if the integration has a problem.
+3. Check the lines below this summary:
+   - The state of the entry. For example, **Loaded** or **Failed setup, will retry**. If the setup failed, the line also shows the error.
+   - If the entry needs to be reauthenticated or reconfigured. To do this, select **Go to the integrations**.
+   - How many of its entities are available. The unavailable entities are listed. To see all entities of the entry, select **View entities**.
+   - The number of open repairs. To see them, select **View repairs**.
+   - The number of errors and warnings in the recent log. To see them, select **View logs**. The logs open with a filter for the integration.
+   - How long the integration took to start.
+   - Repairs and log messages are counted for the entire integration, not for one entry. If you set up the integration more than once, they can come from another entry.
+4. If the health check doesn't show the cause, [turn on debug logging](#enabling-debug-logging), or [download diagnostics](#downloading-diagnostics).
+
 ## Debug logs and diagnostics
 
-When an integration doesn't work as expected, debug logs and diagnostics help find the cause. Debug logs show in detail what the integration does. Diagnostics describe how the integration is set up.
+When an integration doesn't work as expected, debug logs and diagnostics help find the cause. Debug logs show in detail what the integration does. Diagnostics describe how the integration is set up. Before you collect them, [check the health of the integration](#checking-the-health-of-an-integration).
 
 ### Enabling debug logging
 
