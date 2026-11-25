@@ -70,10 +70,6 @@ Lights added in the app appear in Home Assistant automatically, and each light i
 
 The home's Wi-Fi gateway is offline. Check that it is powered and connected to Wi-Fi in the Plexilent app.
 
-### Home Assistant asks me to sign in again
-
-Your password was changed, or the account was signed out. Enter your current Plexilent app password when Home Assistant asks.
-
 ## Removing the integration
 
 This integration follows standard integration removal. Removing it only deletes the local configuration and sign-in token from Home Assistant; your Plexilent account is not signed out.
