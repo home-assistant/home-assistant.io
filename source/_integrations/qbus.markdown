@@ -32,6 +32,7 @@ There is currently support for the following **Qbus** products within Home Assis
 - **Binary sensor**: display values from weather stations and controller information.
 - **Climate**: manage thermostats by setting temperature and choosing presets.
 - **Cover**: operate covers with support for actions like open, close, stop, position adjustment, and tilt — depending on your setup.
+  - The slats are closed at tilt position `0` and `100`, and open at `50`. [Toggle cover tilt](/actions/cover.toggle_cover_tilt/) opens the slats from both closed positions. [Close cover tilt](/actions/cover.close_cover_tilt/) moves them to `0`.
 - **Light**: control dimmer lights and multi-color lights, allowing both on/off functionality and brightness adjustment. Multi-color lights also support changing the color and applying effects.
 - **Scene**: activate predefined scenes.
 - **Select**: select stepper values.
