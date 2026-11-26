@@ -99,7 +99,7 @@ The image entity represents the last detected event from a camera and visually r
 
 ### Motion event entity
 
-Each camera has a motion event entity. It fires every time the camera reports a new alarm, so you can use it to trigger automations on a detection.
+Each camera has a motion event entity. It fires every time the camera reports a new alarm, so you can use it to trigger automations on a detection. Doorbell rings and unlocks, which EZVIZ doorbells and intercoms also report as alarms, do not fire it.
 
 The event carries the alarm in its attributes:
 
