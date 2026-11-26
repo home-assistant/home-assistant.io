@@ -27,7 +27,10 @@ A view is a tab inside a dashboard. For example, the screenshot below shows one 
 
 Views control the layout.
 
-{% include dashboard/demo.html demo="view_types" caption="The four view types: Sections (the default), Masonry, Panel, and Sidebar. Select a tab to see each one." %}
+<p class='img'>
+    <img src='/images/dashboards/layout-types.png' alt='The four view types: Sections, Panel, Sidebar, and Masonry'>
+    The four view types: Sections (the default), Panel, Sidebar, and Masonry.
+</p>
 
 There are four different view types:
 
@@ -35,6 +38,10 @@ There are four different view types:
 - **Masonry**: Arranges cards in columns based on their card size.
 - **Panel**: Displays one card in full width. For example a map or an image.
 - **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
+
+To see each view type with real cards, select a tab in the dashboard below.
+
+{% include dashboard/demo.html demo="view_types" caption="A dashboard with a view of each type." %}
 
 ## Adding a view to a dashboard
 
