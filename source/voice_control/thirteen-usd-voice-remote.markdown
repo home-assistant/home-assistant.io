@@ -9,7 +9,7 @@ related:
   - docs: /voice_control/create_wake_word/
     title: Create your own wake words
   - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Creating a Cloud assistant
+    title: Creating an assistant with Home Assistant Link
   - docs: /voice_control/troubleshooting/
     title: General troubleshooting section for Assist
   - docs: /voice_control/voice_remote_local_assistant
@@ -93,8 +93,6 @@ Before you can use this device with Home Assistant, you need to install a bit of
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**. Under **Configuration**, change the **Finished speaking detection**.
    - This setting defines how much silence is needed for Assist to find you're done speaking and it can start processing your command.
-
-     ![Open My link](/images/assist/esp32-atom_silence_detection_01.png)
 
 ## Troubleshooting
 

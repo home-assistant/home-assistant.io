@@ -8,6 +8,11 @@ The **Vallox** {% term integration %} lets you control any Vallox ventilation un
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Vallox unit."
+{% endconfiguration_basic %}
+
 ## Platforms
 
 ### Fan
@@ -28,7 +33,10 @@ The switch platform allows you to lock the heat recovery bypass.
 
 ### Number
 
-The number platform gives you control over the supply air temperatures.
+The number platform lets you change settings that the unit stores for the **Home**, **Away**, and **Boost** presets.
+
+- **Fan speed (Home)**, **Fan speed (Away)**, and **Fan speed (Boost)**: The fan speed of the preset, from 1 to 100%.
+- **Supply air temperature (Home)**, **Supply air temperature (Away)**, and **Supply air temperature (Boost)**: The target temperature of the supply air, from 5 to 25 °C.
 
 ### Date
 
@@ -49,3 +57,13 @@ The presets of the **Vallox** fan {% term entity %} are the ventilation modes of
 The unit doesn't report which modes it supports, so the fan always lists all six presets.
 
 {% include integrations/actions.md %}
+
+## Data updates
+
+The integration {% term polling polls %} the Vallox unit every 60 seconds.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

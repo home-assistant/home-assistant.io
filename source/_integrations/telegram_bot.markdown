@@ -389,11 +389,11 @@ actions:
   - action: notify.persistent_notification
     data:
       message: >-
-      Message received.
-      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
-      First name: {{ trigger.to_state.attributes.from_first }}
-      Last name : {{ trigger.to_state.attributes.from_last }}
-      Message   : {{ trigger.to_state.attributes.text }}
+        Message received.
+        Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+        First name: {{ trigger.to_state.attributes.from_first }}
+        Last name : {{ trigger.to_state.attributes.from_last }}
+        Message   : {{ trigger.to_state.attributes.text }}
 ```
 
 ### Event: Message sent
@@ -413,13 +413,13 @@ bot:
   id: "<id of the bot>"
   last_name: "<last name of the bot>"
   username: "<username of the bot>"
-chat_id: "<origin chat id>"
-from_first: "<first name of the sender>"
-from_last: "<last name of the sender>"
-id: "<message id>"
+chat_id: "<id of the chat the message was sent to>"
+message_id: "<message id>"
+message_tag: "<message tag>"
 message_thread_id: "<message thread id>"
-user_id: "<id of the sender>"
 ```
+
+`message_tag` and `message_thread_id` are only included when the action that sent the message set them.
 
 Example automation:
 
@@ -437,9 +437,9 @@ actions:
   - action: notify.persistent_notification
     data:
       message: >-
-      Bot sent a message.
-      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
-      Message ID: {{ trigger.to_state.attributes.message_id }}
+        Bot sent a message.
+        Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+        Message ID: {{ trigger.to_state.attributes.message_id }}
         
 ```
 

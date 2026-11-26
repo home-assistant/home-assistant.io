@@ -19,11 +19,13 @@
   "platforms": [
     "binary_sensor",
     "button",
+    "climate",
     "diagnostics",
     "event",
     "light",
     "media_player",
     "notify",
+    "number",
     "select",
     "sensor",
     "switch",

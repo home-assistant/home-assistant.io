@@ -18,7 +18,7 @@ Groups you set up in the Homematic IP app appear as well: heating groups as clim
 
 ### Binary sensors
 
-- Access point cloud connection and arming blocked (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Access point cloud connection and arming blocked (`HmIP-HAP`, `HmIP-HAP-B1`, `HmIP-HAP2`)
 - Window and door contacts, including the rotary handle sensor (`HmIP-SWDO`, `HmIP-SWDO-PL`, `HmIP-SWDO-I`, `HmIP-SWDM`, `HmIP-SWDM-B2`, `HmIP-SRH`)
 - Contact interfaces (`HmIP-FCI1`, `HmIP-FCI6`, `HmIP-SCI`)
 - Smoke detectors (`HmIP-SWSD`, `HmIP-SWSD-2`)
@@ -72,7 +72,7 @@ Floor heating actuators are operated through the climate group (`HMIP-FAL230-C6`
 
 - Dimming actuators (`HmIP-BDT`, `HmIP-FDT`, `HmIP-PDT`, `HmIP-DRDI3`)
 - Universal dimmer with push-button (`HmIP-UDI-PB2`)
-- Light strip and RGBW controllers (`HmIP-LSC`, `HmIP-RGBW`)
+- Light strip and RGBW controllers (`HmIP-LSC`, `HmIP-RGBW`); the `HmIP-LSC` also supports color temperature
 - Switch actuators with signal lamp or meter (`HmIP-BSL`, `HmIP-BSM`)
 - Status lights of wall-mounted remote controls (`HmIP-WRC6-230`, `HmIPW-WRC6`)
 - Light of the combination signalling device (`HmIP-MP3P`)
@@ -86,8 +86,8 @@ The Full Flush Lock Controller (`HmIP-FLC`) has no lock entity. Its lock state i
 
 ### Sensors
 
-- Access point duty cycle (`HmIP-HAP`, `HmIP-HAP-B1`)
-- Access point client role, the role of Home Assistant in the Homematic IP user management, shown after setup or a reauthentication (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Access point duty cycle (`HmIP-HAP`, `HmIP-HAP-B1`, `HmIP-HAP2`)
+- Access point client role, the role of Home Assistant in the Homematic IP user management, shown after setup or a reauthentication (`HmIP-HAP`, `HmIP-HAP-B1`, `HmIP-HAP2`)
 - Wall thermostats (`HmIP-WTH`, `HmIP-WTH-1`, `HmIP-WTH-2`, `HmIP-WTH-B`, `HmIPW-WTH`, `HmIP-BWTH`, `HmIP-WGT`, `HmIP-WGT-A`, `HmIP-WGTC`, `ALPHA-IP-RBG`, `ALPHA-IP-RBGa`)
 - Radiator thermostats (`HmIP-eTRV`, `HmIP-eTRV-2`, `HmIP-eTRV-3`, `HmIP-eTRV-C`, `HmIP-eTRV-CL`, `HmIP-eTRV-E`, `HmIP-eTRV-F`)
 - Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`, `HmIP-STHO`, `HmIP-STHO-A`, `ELV-SH-CTH`)
@@ -100,7 +100,8 @@ The Full Flush Lock Controller (`HmIP-FLC`) has no lock entity. Its lock state i
 - Tilt angle and tilt state of the tilt and vibration sensors (`HmIP-STV`, `ELV-SH-CTV`, `ELV-SH-TACO`)
 - Power and energy of switch actuators with a meter (`HmIP-PSM`, `HmIP-PSM-CH`, `HmIP-PSM-IT`, `HmIP-PSM-UK`, `HmIP-PSM-PE`, `HmIP-PSMCO`, `HmIP-BSM`, `HmIP-BSM-I`, `HmIP-FSM`, `HmIP-FSM16`, `HmIP-USBSM`)
 - Energy and gas meter interface (`HmIP-ESI`)
-- Floor heating actuators, valve positions (`HMIP-FAL230-C6`, `HMIP-FAL230-C10`, `HMIP-FAL24-C6`, `HMIP-FAL24-C10`, `HMIP-FALMOT-C8`, `HMIP-FALMOT-C12`, `HmIPW-FALMOT-C12`)
+- Floor heating actuators, valve positions and valve adaptation state (`HmIP-FAL230-C6`, `HmIP-FAL230-C10`, `HmIP-FAL24-C6`, `HmIP-FAL24-C10`, `HmIP-FALMOT-C8`, `HmIP-FALMOT-C12`, `HmIPW-FALMOT-C12`)
+- Valve state of motorized floor heating actuators (`HmIP-FALMOT-C8`, `HmIP-FALMOT-C12`, `HmIPW-FALMOT-C12`)
 - Smoke detector dirt level (`HmIP-SWSD-2`)
 - Fine dust sensor (`HmIP-SFD`)
 - Soil moisture sensor (`ELV-SH-SMSI`)

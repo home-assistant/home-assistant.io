@@ -139,7 +139,7 @@ entity_id:
 name:
   description: Name of the new statistics sensor.
   required: false
-  default: Stats
+  default: Statistical characteristic
   type: string
 state_characteristic:
   description: The characteristic that should be used as the state of the statistics sensor (see tables above).

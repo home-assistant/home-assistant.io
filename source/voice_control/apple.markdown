@@ -2,7 +2,7 @@
 title: "Assist on Apple devices"
 related:
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing devices to Assist
+    title: Exposing entities to voice assistants
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
   - url: https://companion.home-assistant.io/docs/getting_started/
@@ -22,7 +22,7 @@ Demo showing Assist being triggered from the iPhone 15 Pro action button and fro
 ### Prerequisites
 
 - [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/) installed
-- Have an Assistant set up: either [cloud](/voice_control/voice_remote_cloud_assistant/) (recommended, more performant) or [local](/voice_control/voice_remote_local_assistant/).
+- Have an assistant set up. For example, set one up with [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) or [run it locally](/voice_control/voice_remote_local_assistant/).
 - The devices you want to control with Assist are [exposed to Assist](/voice_control/voice_remote_expose_devices/) and you have checked most of the [best practices](/voice_control/best_practices/)
 
 ### Starting Assist in Home Assistant

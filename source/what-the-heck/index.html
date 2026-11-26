@@ -1,0 +1,78 @@
+---
+layout: landingpage
+title: "Month of 'What the Heck?!' 2026"
+description: "Home Assistant's Month of 'What the Heck?!' is back for November 2026. Tell us what makes Home Assistant hard, whether you set it up or just live with it."
+og_image: /images/blog/2026-10-what-the-heck/art.webp
+frontpage: false
+sidebar: false
+# Single place to update the forum links used across this page.
+forum_url: https://community.home-assistant.io/c/month-of-what-the-heck/64
+# The blog post that tells the whole story, and the GitHub search for the fixes
+# of past editions.
+blog_url: /blog/2026/10/29/what-the-heck-2026-everyone-at-home-gets-a-say/
+fixes_url: https://github.com/search?o=desc&q=org%3Ahome-assistant+label%3AWTH+is%3Apr&s=created&type=Issues
+# The chat in "What is a WTH": real WTHs from the forum, and the replies they
+# take turns with. Statement n gets reply n modulo the number of replies.
+# Keep in step with astro/src/lib/wth.mjs.
+wth_statements:
+  - "There’s no dashboard for real-time power usage. What the heck?!"
+  - "Bluetooth speakers can’t be paired easily. What the heck?!"
+  - "Sending a notification is far too complicated. What the heck?!"
+  - "Restoring a full backup takes forever. What the heck?!"
+  - "I can’t create a helper from a copy of another. What the heck?!"
+  - "I lose all energy history when I change an energy entity. What the heck?!"
+  - "There’s no easy way to turn a device on for X amount of time. What the heck?!"
+  - "Entity graphs don’t update live. What the heck?!"
+  - "Card visibility can’t be conditioned on time and date. What the heck?!"
+  - "I can’t see which automations are currently running. What the heck?!"
+  - "I can’t use a light as a switch. What the heck?!"
+  - "Scenes can’t restore the state of entities that were off. What the heck?!"
+  - "There are no battery alerts or replacement tracking. What the heck?!"
+  - "I can’t set the default dashboard per device instead of per user. What the heck?!"
+  - "Restoring a backup shows no progress indication. What the heck?!"
+  - "Designing dashboards on a PC for other devices is hard. What the heck?!"
+  - "Sidebar tooltips don’t disappear on their own. What the heck?!"
+  - "I can’t invert the direction of a cover. What the heck?!"
+wth_replies:
+  - "Oh, right. Obviously!"
+  - "Duh, why didn’t we think of that?"
+  - "Fair point. Noted!"
+  - "Okay, that one’s on us."
+  - "Good catch!"
+  - "Huh. You’re right."
+  - "Yep, that should be easier."
+  - "Adding it to the list!"
+---
+
+<!-- Archivo Black is the lettering for the CSS fallback of the "What the Heck?!" wordmark only. -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" />
+<link rel="stylesheet" href="/stylesheets/homeassistant/pages/wth/index.css" />
+<script type="importmap">
+  {
+    "imports": {
+      "three": "/javascripts/wth/three.min.js"
+    }
+  }
+</script>
+<script src="/javascripts/wth/logo.js" type="module" onerror="document.documentElement.classList.remove('wth-3d')"></script>
+<script src="/javascripts/wth/flow-lines.js" type="module"></script>
+<script src="/javascripts/wth/wth-chat.js" type="module"></script>
+<script src="/javascripts/wth/wth-prs.js" type="module"></script>
+
+{% include wth/3d-check.html %}
+
+<main id="page-wth">
+  <div class="container-full">
+    <div class="wth-top">
+      {% include_relative components/_hero.html %}
+    </div>
+    {% include_relative components/_what.html %}
+    {% include_relative components/_how.html %}
+    <div class="wth-band">
+      {% include_relative components/_everyone.html %}
+    </div>
+    {% include_relative components/_fix.html %}
+    {% include_relative components/_cta.html %}
+  </div>
+</main>

@@ -15,6 +15,9 @@
     "cloud"
   ],
   "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor",
     "weather"
   ]
 }

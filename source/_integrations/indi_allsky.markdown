@@ -91,9 +91,9 @@ The integration adds your INDI Allsky camera to the [media browser](/integration
 
 The media is organized into three folders:
 
-- **Latest Media**: The latest snapshot, keogram, star trail, and timelapse video.
-- **Timelapses & Generated Media**: Day and night timelapse videos, with their keograms and star trails, organized by year and month.
-- **Captured Images History**: The individual images your camera captured, organized by year, month, day, and hour.
+- **Latest media**: The latest snapshot, keogram, star trail, and timelapse video.
+- **Timelapses & generated media**: Day and night timelapse videos, with their keograms and star trails, organized by year and month.
+- **Captured images history**: The individual images your camera captured, organized by year, month, day, and hour.
 
 ## Data updates
 
@@ -110,6 +110,12 @@ If you see a "Cannot connect" error during setup, verify that:
 3. If connecting using HTTPS with a self-signed SSL certificate, disable **Verify SSL** in the configuration options.
 
 Most INDI Allsky servers are discovered automatically via Zeroconf. If your server is not discovered, verify that Zeroconf/mDNS (Avahi) is enabled on your INDI Allsky server and that multicast traffic is not blocked across network subnets or VLANs.
+
+### Downloading diagnostics
+
+If you need to report an issue, you can download [diagnostics](/integrations/diagnostics/) from the **INDI Allsky** integration.
+
+The downloaded JSON file contains your connection state and latest coordinator data. Sensitive fields such as your host, username, and password are automatically redacted. Review the file before sharing it to verify that it does not contain any other sensitive information.
 
 ## Known limitations
 

@@ -74,9 +74,13 @@ On the power station:
 
 The following are added as diagnostic entities on the power station: **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
 
-The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
-
 The device page links to the power station's own web interface. The serial number appears on the device's info page too, alongside the ARM, DSP, and IoT module firmware versions, and the built-in battery's BMS firmware version when the device reports one ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
+
+### Controls
+
+- **Charge limit**, **Discharge limit**: The battery levels the power station stops charging at, and stops discharging at. Both accept 5 to 100 %.
+
+Both limits are configuration entities. They are read every 60 seconds, so a change made in the BLUETTI app shows up within a minute. They are unavailable while the power station cannot be read.
 
 ## Data updates
 
@@ -88,7 +92,9 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 ### Controls and sensors
 
-- Only sensors are provided by this integration today. The writable settings (AC output, grid charging, grid feed-in), the charge limit values, and the fault/warning bits as proper binary sensors are not available yet.
+- The fault and warning bits are not available as binary sensors yet.
+- The AC output cannot be switched from Home Assistant yet.
+- Grid charging and grid feed-in are not available yet. The power station's working mode can undo a change made outside the BLUETTI app.
 
 ### Battery packs
 

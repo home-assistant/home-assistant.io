@@ -15,6 +15,7 @@
     "cloud"
   ],
   "platforms": [
+    "diagnostics",
     "image",
     "sensor"
   ]

@@ -2,7 +2,7 @@
 title: "Assist on Android"
 related:
   - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing devices to Assist
+    title: Exposing entities to voice assistants
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
   - docs: /voice_control/about_wake_word/
@@ -20,7 +20,7 @@ Assist can be used on Android phones and tablets using the [Home Assistant Compa
 ### Prerequisites
 
 - [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/) installed
-- Have an Assistant set up: either [cloud](/voice_control/voice_remote_cloud_assistant/) (recommended, more performant) or [local](/voice_control/voice_remote_local_assistant/).
+- Have an assistant set up. For example, set one up with [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) or [run it locally](/voice_control/voice_remote_local_assistant/).
 - The devices you want to control with Assist are [exposed to Assist](/voice_control/voice_remote_expose_devices/) and you have checked most of the [best practices](/voice_control/best_practices/)
 
 ### Starting Assist in Home Assistant
@@ -115,9 +115,6 @@ Once Assist has been defined as the default digital assistant on your phone, you
    - Long press the power button.
    - Hold the home button (square button at the bottom).
 4. Open the assistant drop-down menu.
-
-   ![Using Assist with multiple servers](/images/assist/android_multi-server_01.png)
-
 5. Select the assistant from the instance you want to speak to.
    - Speak your command.
 

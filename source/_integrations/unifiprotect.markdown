@@ -223,7 +223,7 @@ UniFi Protect reports each sensor's capabilities, and entities are only created 
 
 The UP Air Quality is listed as a device, but UniFi Protect does not report any sensor capabilities for it, so it only gets its battery and general device entities.
 
-The USL GlassBreak detects motion as well as glass break acoustically, but only its motion detection is supported. The public API carries a setting for glass break, without a capability or a state to read, so there is nothing to build an entity from. To act on glass break, configure it in the UniFi Protect Alarm Manager. Adopting a sensor switches the Alarm Manager to _Global_ mode; set it back to _Local_ for the alarm entities to appear. See [NVR](#nvr).
+The USL GlassBreak detects motion as well as glass break acoustically, but only its motion detection is supported. The public API carries a setting for glass break, without a capability or a state to read, so there is nothing to build an entity from. To act on glass break, configure it in the UniFi Protect Alarm Manager. Adopting a sensor switches the Alarm Manager to _Global_ mode. See [NVR](#nvr) for which alarm entities you get in each mode.
 
 - **Sensors** - A sensor is provided for each major function of the smart sensor device. Some depend on the mount type, which you set in the UniFi Protect app:
   - **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
@@ -298,13 +298,19 @@ Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device a
 
 - **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. It arms using the currently selected alarm profile and always reports the generic _armed away_ state. The name of the active profile is shown by the **Alarm profile** entity instead.
 - **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. You can only change the profile while the alarm is disarmed. To switch profiles while armed, disarm first, select the new profile, and arm again.
+- **Arm profiles**: An alarm control panel entity for each arm profile of the global Alarm Manager, named after the profile. You can arm and disarm each profile on its own. The entity shows _arming_ during the exit delay, _pending_ during the entry delay, and _triggered_ when the alarm is breached. Arm profiles you add in UniFi OS are added in Home Assistant automatically. The entities are unavailable while Home Assistant has no up-to-date list of arm profiles from UniFi Protect. A deleted profile is removed once the list is up to date again.
 - **Disk Health**: Each disk installed in your <abbr title="Network Video Recorder">NVR</abbr> will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
 - **Storage Sensors**: Sensors for storage utilization, recording capacity, and the distribution of the video on disk.
 
 {% important %}
-The **Alarm Manager** and **Alarm profile** entities are only available when the UniFi Protect Alarm Manager is set to _Local_ mode. While it is in _Global_ mode, these entities do not appear, because arm profiles are currently not exposed by the public API in that mode.
+Which alarm entities you get depends on the mode of the UniFi Protect Alarm Manager:
 
-UniFi Protect automatically switches the Alarm Manager to _Global_ mode when you adopt sensors, relays, fobs, or an Alarm Hub, so the alarm entities are currently unavailable if you use any of those devices.
+- In _Local_ mode, you get the **Alarm Manager** and **Alarm profile** entities.
+- In _Global_ mode, you get an alarm control panel entity for each arm profile. This requires UniFi Protect 7.4 or later. On earlier versions, the alarm cannot be controlled from Home Assistant in _Global_ mode.
+
+UniFi Protect automatically switches the Alarm Manager to _Global_ mode when you adopt sensors, relays, fobs, or an Alarm Hub.
+When the mode changes, Home Assistant replaces the alarm entities.
+Update the automations and dashboards that use them.
 {% endimportant %}
 
 ## Media source
@@ -437,7 +443,7 @@ The UniFi Protect integration provides support for various event types triggered
 - **Event Attributes**:
   - **event_type**: `ring`
   - **event_id**: A unique ID that identifies the doorbell event.
-- **Description**: This event is triggered when someone rings the doorbell. It provides an `event_id`, which can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_doorbell` to get the thumbnail image when a ring occurs.
+- **Description**: This event is triggered when someone rings the doorbell. To start an automation on a ring, use the [Event received](/triggers/event.received/) trigger with the `ring` event type. It only reacts to actual rings, not to the entity becoming available again after a restart. The `event_id` attribute can be used to fetch related media, such as a thumbnail of the event. For instance, you can use `event.g4_doorbell_pro_poe_doorbell` to get the thumbnail image when a ring occurs.
 
 #### Example G4 Doorbell Ring Triggered Automation
 
@@ -445,20 +451,12 @@ The UniFi Protect integration provides support for various event types triggered
 alias: G4 Doorbell Ring Triggered Automation
 description: Automation that triggers when the G4 Doorbell Pro rings
 triggers:
-  - event_type: state_changed
-    event_data:
+  - trigger: event.received
+    target:
       entity_id: event.g4_doorbell_pro_poe_doorbell # Replace with your doorbell entity
-    trigger: event
-conditions:
-  - condition: template
-    value_template: >
-      {% raw %}{{
-        trigger.event.data.old_state is not none and
-        not trigger.event.data.old_state.state == 'unavailable' and
-        trigger.event.data.new_state is not none and
-        not trigger.event.data.new_state.state == 'unavailable' and
-        trigger.event.data.new_state.attributes.event_type == 'ring'
-      }}{% endraw %}
+    options:
+      event_type:
+        - ring
 actions:
   - data:
       message: Someone is at the door!
@@ -466,7 +464,7 @@ actions:
     action: notify.mobile_app_your_device # Replace with your notification target
 ```
 
-The condition ensures the notification is only sent for actual doorbell rings and not during startup or power-cycle state restoration, when the entity may temporarily transition through the `unavailable` state (such as during a UniFi Protect restart).
+The Event received trigger only reacts to actual `ring` events. It does not fire during startup or power-cycle state restoration, when the entity may temporarily transition through the `unavailable` state (such as during a UniFi Protect restart).
 
 ### NFC Card Scanned Event
 

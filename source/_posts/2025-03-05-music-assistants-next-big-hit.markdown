@@ -4,12 +4,18 @@ title: "Music Assistant's next big hit"
 description: "Spotify Connect, Assist streaming, podcasts, audiobooks, Apple Music, a full EQ, and more!"
 date: 2025-03-05 00:00:01
 date_formatted: "March 5, 2025"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Marcel van der Veldt
 comments: true
 og_image: /images/blog/2025-03-music-assistant/art.jpg
 ---
 
 <p><img src='/images/blog/2025-03-music-assistant/art.jpg' alt="Music Assistants next big hit" class='no-shadow' /></p>
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 Over the past several months, [Music Assistant](https://www.music-assistant.io/) has been hitting all the right notes with new features, greater stability, and a crescendo of contributors who keep pushing the project forward. If you're [unfamiliar with Music Assistant](/blog/2024/05/09/music-assistant-2/#what-is-music-assistant), it allows you to merge your libraries from leading audio streaming providers and local files, letting you play them on the most popular smart speakers. Since our [last update](/blog/2024/05/09/music-assistant-2/), Music Assistant has had a couple of big releases, but our most recent might just be our platinum record 💿, with a lot of new functionality coming in version 2.4. In case you've missed the last few updates, here are the biggest additions.
 

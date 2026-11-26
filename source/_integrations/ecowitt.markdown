@@ -47,7 +47,8 @@ The integration will display a Server IP / Host Name, Path, and Port. You can in
 1. In the top-left corner, select the menu icon ({% icon "mdi:menu" %}) and select **Devices**.
    - Under **My Devices**, select your Ecowitt station.
 2. In the top-right corner, select the ellipsis icon ({% icon "mdi:dots-horizontal" %}).
-   - From the list, select **Others**.
+   - From the list, select **Device Setting**.
+   - At the bottom of the screen select **Others**.
    - Select the **DIY Upload Servers** button, and from the **Supported Servers List**, select **Customized**.
    - From the **Protocol Type Same As** list, select **Ecowitt**.
    - Enter the Server IP / Host Name, Path, and Port from the integration.
