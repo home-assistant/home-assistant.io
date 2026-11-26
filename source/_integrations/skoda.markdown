@@ -99,7 +99,7 @@ The air conditioning is allowed to run on the vehicle's battery when the vehicle
 
 ### Device tracker
 
-- **Parking position**: Where the vehicle is parked. The device tracker is named after the vehicle. While the vehicle is driving, the location is unknown.
+- **Parking position**: Where the vehicle is parked. The device tracker is named after the vehicle and uses the render image of the vehicle as its picture. While the vehicle is driving, the location is unknown.
 
 ### Numbers
 
@@ -142,35 +142,15 @@ The vehicle applies a command with a short delay. After you switch it, the switc
 
 ## Examples
 
-### Show the vehicle render on a dashboard
+### Showing the vehicle render on a dashboard
 
-The device tracker uses the render image of the vehicle as its picture, for example on the map. To show the full render image in a picture card, create a trigger-based template image that retrieves the image URL with the [Get image URL](/actions/skoda.get_image_url/) action. Replace `YOUR_CONFIG_ENTRY_ID` with the config entry ID of your vehicle.
+The device tracker uses the render image of the vehicle as its picture, for example on the map. To show the full render image on a dashboard:
 
-{% raw %}
+1. Add a [picture entity card](/dashboards/picture-entity/) to your dashboard.
+2. For **Entity**, select the device tracker of your vehicle.
+3. Turn on **Show entity picture**.
 
-```yaml
-template:
-  - triggers:
-      - trigger: homeassistant
-        event: start
-      - trigger: time
-        at: "03:00:00"
-    actions:
-      - action: skoda.get_image_url
-        data:
-          config_entry_id: YOUR_CONFIG_ENTRY_ID
-        response_variable: vehicle_image
-    image:
-      - name: Škoda render
-        unique_id: skoda_render
-        url: "{{ vehicle_image.url }}"
-```
-
-{% endraw %}
-
-Then add a [picture entity card](/dashboards/picture-entity/) that uses the `image.skoda_render` entity.
-
-### Notify when charging is interrupted
+### Getting notified when charging is interrupted
 
 Send a notification if charging unexpectedly stops before the vehicle is fully charged.
 

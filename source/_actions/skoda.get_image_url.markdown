@@ -2,10 +2,11 @@
 title: "Get image URL"
 action: skoda.get_image_url
 domain: skoda
+response: required
 description: "Retrieves the URL of the vehicle render image."
 ---
 
-The **Škoda: Get image URL** action retrieves the URL of the render image of your vehicle, as shown in the MyŠkoda app. The image shows the vehicle from the side, in its configured color and trim.
+The **Škoda: Get image URL** action retrieves the URL of the render image of your vehicle.
 
 This action returns [response data](#response-data) and does not change anything on your vehicle.
 
@@ -59,13 +60,15 @@ config_entry_id:
 
 ## Response data
 
+{% include actions/response.md %}
+
 The action returns a response containing the `url` where the render image can be retrieved.
 
 ```yaml
 url: "https://www.example.com/vehicle/render.png"
 ```
 
-If the Škoda API does not provide a render image for the vehicle at the moment, the action fails with an error.
+If the latest vehicle data from the Škoda API does not include a render image, the action fails with an error. The action also fails if the vehicle's integration entry is not loaded.
 
 {% include actions/try_it.md %}
 
