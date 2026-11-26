@@ -2,7 +2,7 @@
 title: "Template"
 trigger: template
 domain: homeassistant
-description: "Triggers when a template changes from false to true."
+description: "Triggers when a template changes from false to true, or whenever its value changes."
 related_triggers:
   - state
   - numeric_state
@@ -10,6 +10,7 @@ related_triggers:
 ---
 
 The **Template** trigger is useful when no single entity tells you what you want to react to. You write a {% term template %} that combines several entities or calculates a value, and the trigger reacts when the template changes from false to true. For example, it can react when your solar panels produce more power than your home uses, or when the power use of a washing machine drops to almost zero.
+You can also set the trigger to react whenever the result of the template changes, whatever the new result is.
 
 {% include triggers/ui_header.md %}
 
@@ -64,6 +65,11 @@ for:
   required: false
   type: [string, integer, map, template]
   default: "00:00:00"
+triggered_when:
+  description: "When the trigger reacts. Use `turned_true` to react when the template changes from false to true. Use `changed` to react whenever the template renders a different result, whatever that result is. With `changed` and `for`, the template must keep the same result for the entire time."
+  required: false
+  type: string
+  default: turned_true
 {% endoptions_yaml %}
 
 This example uses a template for `for`. The trigger reacts when Paulus has been home for as many minutes as `input_number.minutes` is set to:
@@ -76,16 +82,36 @@ trigger: |
     minutes: "{{ states('input_number.minutes') | int(0) }}"
 {% endexample %}
 
+This example uses `triggered_when: changed`. The automation runs every time the mode changes, and the notification includes the old and the new mode:
+
+{% example %}
+automation: |
+  triggers:
+    - trigger: template
+      value_template: "{{ states('sensor.mode') }}"
+      triggered_when: changed
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          Mode changed from {{ trigger.previous_value }}
+          to {{ trigger.value }}.
+{% endexample %}
+
 ## Good to know
 
-- The trigger only reacts when the template changes from false to true. If the template is already true when Home Assistant sets up the trigger, the trigger only reacts after the template has been false first.
+- By default, the trigger only reacts when the template changes from false to true. If the template is already true when Home Assistant sets up the trigger, the trigger only reacts after the template has been false first.
+- With `triggered_when: changed`, the trigger doesn't react when Home Assistant sets it up. It reacts on the first change after that. If the template can't be rendered for a while and then renders the same result as before, the trigger doesn't react.
+- With `triggered_when: changed` and **For at least** (`for`), every new result restarts the timer. The trigger only reacts when the template keeps the same result for the entire time.
 - These results count as true: `true`, a number other than `0`, and the strings `yes`, `on`, and `enable`. Any other result counts as false.
 - Home Assistant renders the template again when one of the entities in the template changes. You can also check an attribute, for example, with `{{ is_state_attr('climate.living_room', 'preset_mode', 'away') }}`.
 - A template that uses the current time, with `now()`, `utcnow()`, `today_at`, `relative_time`, `time_since`, or `time_until`, is rendered again at the start of every minute. For details, refer to [Getting the current time](/docs/templating/dates-and-times/#getting-the-current-time). A template without entities that doesn't use any of these is only rendered once, when Home Assistant sets up the trigger.
 - If you use **For at least** (`for`), the template must stay true for the entire time. If it becomes false before the time is up, the trigger doesn't react. Use a template that renders `true` or `false`: if the result changes while it stays true, for example from `5` to `6`, the timer stops, and the trigger only reacts after the template has been false first.
 - If you use **For at least** (`for`), the timer resets when Home Assistant restarts or automations reload. If that's a problem for your automation, you can have the automation set a [date and time helper](/integrations/input_datetime/) instead, and use that helper in a [Time trigger](/triggers/time/).
 - If the template can't be rendered, for example, because of an error in the template, the trigger doesn't react, and Home Assistant logs a warning.
-- For the data that this trigger passes to your conditions and actions, such as `trigger.entity_id`, refer to [Template triggers](/docs/automation/trigger-data/#template-triggers).
+- For the data that this trigger passes to your conditions and actions, such as `trigger.value` and `trigger.previous_value`, refer to [Template triggers](/docs/automation/trigger-data/#template-triggers).
 
 {% include triggers/try_it.md %}
 
