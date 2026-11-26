@@ -261,7 +261,7 @@ These AI tools only read data. They can't change, run, or turn on or off your au
 
 - **Get energy preferences** (`energy__get_preferences`): Returns the settings of the [Energy dashboard](/docs/energy/). These are your grid connections, solar panels, home batteries, and gas and water meters. They also include the meter of your [home consumption](/docs/energy/home-consumption/), if you added one. It also returns the devices whose electricity, gas, or water use you track. Only reads.
   - To do this yourself: Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
-- **Update energy preferences** (`energy__update_preferences`): Changes the settings of the Energy dashboard. It replaces each list that it changes, such as the list of solar panels, with a new list. If the conversation agent leaves out an entry in that list, the entry is removed. Lists that it doesn't change stay the same. Afterwards, it returns the new settings, and any issues that Home Assistant found with them. Changes things.
+- **Update energy preferences** (`energy__update_preferences`): Changes the settings of the **Energy** dashboard. It replaces each list that it changes, such as the list of solar panels, with a new list. If the conversation agent leaves out an entry in that list, the entry is removed. Lists that it doesn't change stay the same. Afterwards, it returns the new settings, and any issues that Home Assistant found with them. Changes things.
   - To do this yourself: Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
 
 ### List of Device control AI tools
