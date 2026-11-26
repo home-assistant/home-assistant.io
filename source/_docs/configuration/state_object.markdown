@@ -23,7 +23,7 @@ You see states on your dashboards, and you can use them to start automations or 
 
 The state holds the main piece of information about an entity. For example, `on` or `off` for a light, `21.5` for a temperature sensor, or `home` for a person. Each entity has exactly one state, and the state holds only one value at a time.
 
-Two states have a special meaning:
+Two state values show that the entity has no actual value right now:
 
 - `unavailable`: The entity cannot provide its state right now. For example, Home Assistant cannot reach the device or service, or the integration of the entity has not been set up.
 - `unknown`: The entity has no value for its state.

@@ -10,7 +10,7 @@ The **Roth Touchline** {% term integration %} lets you control [ROTH Touchline](
 
 {% configuration_basic %}
 host:
-  description: The IP address of your controller. For example, `http://192.168.1.1`.
+  description: The URL of your Roth Touchline controller, for example `http://192.168.1.1`.
 {% endconfiguration_basic %}
 
 ## Entities
