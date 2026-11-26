@@ -4,9 +4,15 @@ ha_release: pre 0.7
 ha_domain: swiss_public_transport
 ---
 
-The **Swiss public transport** {% term integration %} will give you the next three departure times from a given location to another one in Switzerland.
+The **Swiss public transport** {% term integration %} gives you public transport timetable data for Switzerland.
+You can add two kinds of entries:
 
-The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 requests per 24 hours. The default polling rate is set to `90s`, which is just enough for one connection polling continuously. If more entries are needed, consider [defining a custom polling interval](#defining-a-custom-polling-interval) to reduce the amount of requests.
+- **Connection between two stations**: The next three departure times from a given location to another one.
+- **Departures from a station**: The next three departures from one or more stations, like the departure board at the station.
+
+The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 requests per 24 hours. The default polling rate is set to `90s`, which is just enough for one connection polling continuously. Every connection and every stationboard you add counts toward this limit. If more entries are needed, consider [defining a custom polling interval](#defining-a-custom-polling-interval) to reduce the amount of requests.
+
+When you add the integration, you first select what you want to set up. The options below belong to **Connection between two stations**. For the options of **Departures from a station**, refer to [Set up departures from a station](#set-up-departures-from-a-station).
 
 {% configuration_basic %}
 Start station:
@@ -82,6 +88,64 @@ When configured for arrival time, the sensor will display the arrival time at th
 #### Use case: Inform family of train arriving late
 
 A popular use case would be to know if your family member is running late and sending out a push notification or displaying their arrival time at home.
+
+## Set up departures from a station
+
+A stationboard shows the next departures from a station, like the departure board at the station itself.
+Use it when you want to know what leaves from your stop next, no matter where it goes, or when several lines take you in the right direction.
+
+To set up a stationboard, add the integration and select **Departures from a station**.
+
+![Setup dialog for departures from a station, with Bern as the station and Bern Wankdorf under Stops at](/images/integrations/swiss_public_transport/config_flow_stationboard.png)
+
+{% configuration_basic %}
+Stations:
+  description: "List of up to 3 stations whose departures are combined into one stationboard (for example, `Bern`)."
+Stops at:
+  description: "Only show departures that later stop at one of these stations (for example, `Bern Wankdorf`). Leave empty to show all departures."
+{% endconfiguration_basic %}
+
+The stations can't be changed later.
+To use different stations, add the stationboard again.
+
+### Connection or stationboard
+
+Both kinds of entries can answer "when does the next train leave?", but they work differently:
+
+- A connection plans a route from a start station to an end station. The result can include transfers, and it can start with a walk to a nearby stop.
+- A stationboard lists what departs from the stations you entered. It never includes walks or transfers, and it doesn't need an end station.
+
+To get the departures from your station in a certain direction, use a stationboard with a **Stops at** station.
+
+### Combining several stations
+
+If you enter more than one station, their departures are merged into one list.
+This is useful for stations that are next to each other, for example a train station and the bus stop in front of it.
+
+The sensors don't show which of the stations a departure leaves from.
+In most cases, the line makes that clear.
+
+### Filtering by direction with Stops at
+
+Without a **Stops at** station, the stationboard shows all departures, in every direction.
+With one or more **Stops at** stations, it only shows departures that stop at one of them later on their route.
+
+- A departure is shown if it stops at any of the stations you entered. It doesn't need to stop at all of them. This is different from the via stations of a connection, where the route goes through every station.
+- If your destination has more than one stop, for example `Luzern` and `Luzern, Bahnhof`, enter all of them to see every way to get there.
+- Home Assistant looks up each station you enter and saves it under its official name. For example, `luzern` becomes `Luzern`. The name of the stationboard shows the result, such as "Bern stops at Bern Wankdorf".
+- With a **Stops at** station, Home Assistant searches the next 40 departures of each station. At a very busy stop, fewer than three of them might match. The sensors without a matching departure then show as unknown.
+
+### Stationboard sensors
+
+A stationboard provides the following sensors:
+
+- **Departure**: The time of the next departure.
+- **Departure +1**: The time of the second departure.
+- **Departure +2**: The time of the third departure.
+- **Destination**: The final stop of the next departure.
+- **Platform**: The platform or stop the next departure leaves from.
+- **Delay**: The delay of the next departure, in minutes.
+- **Line**: The line of the next departure, for example `S3` or `IC1`.
 
 {% include integrations/actions.md %}
 
