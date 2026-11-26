@@ -1,10 +1,10 @@
 ---
-description: Integration to control Marantz amplifiers using an infrared transmitter.
+description: Integration to control Marantz amplifiers using an infrared emitter.
 ha_release: 2026.6
 ha_domain: marantz_infrared
 ---
 
-The **Marantz Infrared** {% term integration %} lets you control a Marantz amplifier using any infrared transmitter previously configured in Home Assistant.
+The **Marantz Infrared** {% term integration %} lets you control a Marantz amplifier using any infrared emitter previously configured in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the amplifier but there is no feedback channel to confirm the current state. The integration therefore uses assumed states.
 
@@ -19,8 +19,8 @@ For example, you can use an ESPHome device with an IR LED pointed at your Marant
 {% configuration_basic %}
 Model:
   description: The Marantz model to control. Currently, only **PM6006** is supported.
-Infrared transmitter:
-  description: The infrared transmitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR transmitter.
+Infrared emitter:
+  description: The infrared emitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
 {% endconfiguration_basic %}
 
 ## Supported devices
