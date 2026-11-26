@@ -73,6 +73,10 @@ This integration supports the following actions (see [Climate](/integrations/cli
 
 For the stoves that support it, this integration provides a Silent button to trigger the silent mode.
 
+## Light
+
+For stoves that support it, this integration provides a Light entity to turn the stove's light on and off.
+
 ## Numbers
 
 When the appliance supports it, the Palazzetti integration offers control over the following elements:
@@ -176,7 +180,7 @@ The Palazzetti integration {% term polling polls %} the device for new data ever
 
 This integration does **not** yet support the following features and sensors:
 
-- Light and Door entities on stove models equipped with them.
+- Door entity on stove models equipped with it.
 
 ## Troubleshooting
 
