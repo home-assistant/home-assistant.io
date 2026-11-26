@@ -60,7 +60,7 @@ After setting up the gateway, add recipients as **subentries**. Go to **Settings
 
 Each recipient subentry creates its own **device**, named after the recipient, for example, "Dad (AB1CD2EF)", or only the Threema ID if no name was given. The device hosts a single notify entity used to send messages to that recipient.
 
-If you configured a private key for end-to-end encryption, the integration also creates one **Gateway** device for the gateway itself. This device hosts the QR code image entity described below, and is not created in basic mode.
+The integration also creates one **Gateway** device for the gateway itself. This device hosts the remaining credits sensor and, in end-to-end encryption mode, the QR code image entity described below.
 
 ## Supported functionality
 
@@ -73,6 +73,14 @@ Each recipient device has one notify entity, named after the recipient. To find 
 ### Image
 
 In end-to-end encryption mode, the Gateway device has a **Gateway QR code** entity, a diagnostic entity containing a `3mid:` QR code built from your Gateway ID and public key, the same format Threema's apps use to verify a contact's identity. Scan it with the Threema app to confirm, out-of-band, that the gateway you configured really is yours before trusting messages sent through it.
+
+### Sensor
+
+The Gateway device has a **Remaining credits** sensor, a diagnostic entity that shows how many message credits are left on your Threema Gateway account. Each message you send uses credits, so you can use this sensor in an automation to warn you before your balance runs out.
+
+## Data updates
+
+The **Threema** integration {% term polling polls %} the remaining credits of your Threema Gateway account every 15 minutes. Sending messages doesn't depend on this polling.
 
 ## Actions
 
@@ -135,7 +143,7 @@ Your API secret was changed or revoked on the Threema Gateway side. Home Assista
 
 ### Messages not arriving
 
-- Make sure you have sufficient credits on your Threema Gateway account.
+- Make sure you have sufficient credits on your Threema Gateway account. Check the **Remaining credits** sensor on the Gateway device.
 - Verify the recipient's Threema ID is correct (8 alphanumeric characters).
 - Check **Settings** > **System** > **Logs** for error details from the `threema` integration.
 
@@ -148,7 +156,6 @@ This means the integration could not reach the Threema Gateway when Home Assista
 - Text messages only: images, files, and other media are not supported.
 - No group messaging: only 1-to-1 messages are supported.
 - Send only: receiving messages is not supported.
-- No credit balance sensor: check your remaining Gateway credits on the [Threema Gateway dashboard](https://gateway.threema.ch).
 
 ## Removing the integration
 
