@@ -7,7 +7,7 @@ related:
     title: Configuration file
 ---
 
-The **Netio** {% term integration %} allows you to control and monitor [NETIO](https://www.netio-products.com/en/) smart power sockets, power strips, and power distribution units (PDUs). The device outputs are exposed as {% term switch %} entities in Home Assistant.
+The **Netio** {% term integration %} allows you to control and monitor [NETIO](https://www.netio-products.com/en/) smart power sockets, power strips, and power distribution units (PDUs). The device outputs are exposed as {% term switch %} entities in Home Assistant. Outputs with metering also provide {% term sensor %} entities.
 
 The integration communicates with the device locally using the JSON version of the NETIO machine-to-machine (M2M) API, which is available on all current NETIO devices (such as PowerCable, PowerBox, PowerPDU, and PowerDIN) as well as on the older Netio4 family.
 
@@ -43,7 +43,9 @@ The integration provides a switch entity for every output of the device, allowin
 
 For outputs with metering, the integration additionally provides sensor entities for the instantaneous load, current, and power factor, as well as the resettable and non-resettable energy counters in both directions. Which measurements are available depends on the device model; outputs without metering do not get sensor entities.
 
-The **energy** and **total energy** sensors measure the energy consumed by the connected device and can be used as individual device consumption in the [Home Assistant energy dashboard](/docs/energy/). The reverse energy sensors measure energy flowing in the opposite direction and are disabled by default; do not use them as device consumption.
+The **energy** sensor is the resettable counter, and the **total energy** sensor is the non-resettable counter. Both measure the energy consumed by the connected device. You can use either of them as individual device consumption in the [energy dashboard](/docs/energy/individual-devices/).
+
+The **reverse energy** and **total reverse energy** sensors measure energy flowing in the opposite direction. They are disabled by default. Don't use them as individual device consumption.
 
 ## Data updates
 
