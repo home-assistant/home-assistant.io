@@ -8,6 +8,7 @@ related_actions:
   - adguard.enable_url
   - adguard.disable_url
   - adguard.refresh
+  - adguard.pause_protection
 ---
 
 The **AdGuard Home: Add URL** action subscribes AdGuard Home to a new filter list. AdGuard Home downloads the rules from the URL you provide and starts blocking the domains on that list.

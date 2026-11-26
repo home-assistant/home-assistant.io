@@ -15,7 +15,8 @@
     "cloud"
   ],
   "platforms": [
-    "climate"
+    "climate",
+    "sensor"
   ],
   "discovery": [
     "dhcp"

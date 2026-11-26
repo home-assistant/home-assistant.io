@@ -273,6 +273,39 @@ This integration uses the KNX/IP protocol to receive telegrams live as they appe
 
 States of diagnostic entities of the "KNX Interface" device are {% term polling polled %} every 10 seconds.
 
+## Project data
+
+Project data has the group addresses of your installation with their names and data point types, its devices, and its building structure. With it, the KNX integration decodes telegrams, names group addresses in the group monitor and in trigger data, and suggests entities. You can upload a project file in the KNX panel.
+
+### Providing project data from another program
+
+Other integrations and tools can replace the project data with data that is already parsed into the format of [xknxproject](https://github.com/XKNX/xknxproject), the library the KNX integration uses to read project files. An example is a project editor that keeps Home Assistant up to date while you edit the project.
+
+- An integration calls `homeassistant.components.knx.async_set_project(hass, project)`.
+- An external tool sends the WebSocket command `knx/set_knx_project` with the data in `project`. It requires an administrator account.
+
+```json
+{
+  "id": 1,
+  "type": "knx/set_knx_project",
+  "project": {
+    "info": {
+      "xknxproject_version": "3.11.1",
+      "group_address_style": "ThreeLevel",
+      "...": "..."
+    },
+    "group_addresses": { "...": "..." },
+    "...": "..."
+  }
+}
+```
+
+The data must be in the format of the xknxproject version installed with Home Assistant, down to its minor version. It is validated before anything is stored. Invalid or incompatible data is refused with an error, and the current project is kept. Valid data is stored and used like an uploaded project file.
+
+Each call stores the whole project. A tool that updates it while the project is edited should send it after a short pause in the changes rather than after every single change.
+
+The WebSocket command sends the whole project in one message, which is limited to 4&nbsp;MiB. A larger message closes the connection. Larger project data can be provided from Python with `async_set_project`.
+
 ## Triggers
 
 The KNX integration provides its own trigger platform which can be used in automations.

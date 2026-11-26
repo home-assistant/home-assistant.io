@@ -130,6 +130,7 @@ source/_integrations/battery.markdown @home-assistant/core
 source/_integrations/bauknecht.markdown @abmantis @mkmer
 source/_integrations/bayesian.markdown @HarvsG
 source/_integrations/bayrol_neopool.markdown @svasek
+source/_integrations/benq_projector_infrared.markdown @rrooggiieerr
 source/_integrations/besen.markdown @moryoav
 source/_integrations/beverly.markdown @chemelli74 @rokam
 source/_integrations/bge.markdown @tronikos
@@ -231,6 +232,7 @@ source/_integrations/cync.markdown @Kinachi249
 source/_integrations/dacia.markdown @epenet
 source/_integrations/dagen_neopool.markdown @svasek
 source/_integrations/daikin.markdown @fredrike
+source/_integrations/daikin_infrared.markdown @javitonino
 source/_integrations/data_grand_lyon.markdown @Crocmagnon
 source/_integrations/datadog.markdown @bm1549
 source/_integrations/date.markdown @home-assistant/core
@@ -322,7 +324,7 @@ source/_integrations/emulated_hue.markdown @bdraco @Tho85
 source/_integrations/emulated_kasa.markdown @kbickar
 source/_integrations/energenie_power_sockets.markdown @gnumpi
 source/_integrations/energie_vanons.markdown @klaasnicolaas
-source/_integrations/energieleser.markdown @AjinkyaGokhale @NiccoFink
+source/_integrations/energieleser.markdown @AjinkyaGokhale @NiccoFink @rohit0407org
 source/_integrations/energy.markdown @home-assistant/core
 source/_integrations/energyid.markdown @JrtPec @Molier
 source/_integrations/energyzero.markdown @klaasnicolaas
@@ -395,6 +397,7 @@ source/_integrations/frontier_silicon.markdown @wlcrs
 source/_integrations/fuelprices_dk.markdown @MTrab
 source/_integrations/fujitsu_anywair.markdown @Bre77
 source/_integrations/fujitsu_fglair.markdown @crevetor
+source/_integrations/fujitsu_infrared.markdown @Dr-Blank
 source/_integrations/fully_kiosk.markdown @cgarwood
 source/_integrations/fumis.markdown @frenck
 source/_integrations/fyta.markdown @dontinelli
@@ -725,6 +728,7 @@ source/_integrations/meteoalarm.markdown @rolfberkenbosch @mastermc0 @jjprz
 source/_integrations/meteoclimatic.markdown @adrianmo
 source/_integrations/metoffice.markdown @MrHarcombe @avee87
 source/_integrations/microbees.markdown @microBeesTech
+source/_integrations/microsoft.markdown @mib1185
 source/_integrations/midea.markdown @chemelli74 @rokam
 source/_integrations/miele.markdown @astrandb
 source/_integrations/mijn_farmad_apotheek.markdown @DaanVervacke
@@ -1191,6 +1195,7 @@ source/_integrations/thread.markdown @home-assistant/core
 source/_integrations/threema.markdown @LukasQ
 source/_integrations/tibber.markdown @danielhiversen
 source/_integrations/tile.markdown @bachya
+source/_integrations/tile_ble.markdown @joostlek
 source/_integrations/tilt_ble.markdown @apt-itude
 source/_integrations/tilt_pi.markdown @michaelheyman
 source/_integrations/time.markdown @home-assistant/core
@@ -1373,6 +1378,7 @@ source/_actions/abrp.send_telemetry.markdown @mtandersson
 source/_actions/adguard.add_url.markdown @frenck
 source/_actions/adguard.disable_url.markdown @frenck
 source/_actions/adguard.enable_url.markdown @frenck
+source/_actions/adguard.pause_protection.markdown @frenck
 source/_actions/adguard.refresh.markdown @frenck
 source/_actions/adguard.remove_url.markdown @frenck
 source/_actions/ads.write_data_by_name.markdown @mrpasztoradam
@@ -1558,8 +1564,11 @@ source/_actions/flo.set_sleep_mode.markdown @dmulcahey
 source/_actions/flux_led.set_custom_effect.markdown @icemanch
 source/_actions/flux_led.set_music_mode.markdown @icemanch
 source/_actions/flux_led.set_zones.markdown @icemanch
+source/_actions/foreca.get_15_minute_forecast.markdown @EetuPelkonen @hyvatti-foreca
 source/_actions/foreca.get_3_hour_forecast.markdown @EetuPelkonen @hyvatti-foreca
+source/_actions/foreca.get_air_quality_forecast.markdown @EetuPelkonen @hyvatti-foreca
 source/_actions/foreca.get_forecasts_extra.markdown @EetuPelkonen @hyvatti-foreca
+source/_actions/foreca.get_minute_forecast.markdown @EetuPelkonen @hyvatti-foreca
 source/_actions/forecast_solar.get_forecast.markdown @klaasnicolaas @frenck
 source/_actions/foscam.ptz.markdown @Foscam-wangzhengyu
 source/_actions/foscam.ptz_preset.markdown @Foscam-wangzhengyu
@@ -1747,6 +1756,7 @@ source/_actions/insteon.x10_all_lights_on.markdown @teharris1 @ssyrell @connorga
 source/_actions/insteon.x10_all_units_off.markdown @teharris1 @ssyrell @connorgallopo
 source/_actions/intent_script.reload.markdown @arturpragacz
 source/_actions/iperf3.speedtest.markdown @rohankapoorcom
+source/_actions/irm_kmi.get_forecasts_radar.markdown @jdejaegh
 source/_actions/isy994.delete_zwave_lock_user_code.markdown @bdraco @shbatm
 source/_actions/isy994.get_zwave_parameter.markdown @bdraco @shbatm
 source/_actions/isy994.rename_node.markdown @bdraco @shbatm
@@ -1779,6 +1789,7 @@ source/_actions/kiosker.set_blackout.markdown @Claeysson
 source/_actions/knx.event_register.markdown @Julius2342 @farmio @marvin-w
 source/_actions/knx.exposure_register.markdown @Julius2342 @farmio @marvin-w
 source/_actions/knx.read.markdown @Julius2342 @farmio @marvin-w
+source/_actions/knx.reload.markdown @Julius2342 @farmio @marvin-w
 source/_actions/knx.save_scene.markdown @Julius2342 @farmio @marvin-w
 source/_actions/knx.send.markdown @Julius2342 @farmio @marvin-w
 source/_actions/kodi.add_to_playlist.markdown @OnFreund
@@ -2250,6 +2261,7 @@ source/_actions/todo.remove_completed_items.markdown @home-assistant/core
 source/_actions/todo.remove_item.markdown @home-assistant/core
 source/_actions/todo.update_item.markdown @home-assistant/core
 source/_actions/todoist.new_task.markdown @boralyl
+source/_actions/tomorrowio.get_minute_forecast.markdown @raman325 @lymanepp
 source/_actions/totalconnect.arm_away_instant.markdown @austinmroczek
 source/_actions/totalconnect.arm_home_instant.markdown @austinmroczek
 source/_actions/tplink.random_effect.markdown @rytilahti @bdraco @sdb9696
@@ -2327,6 +2339,7 @@ source/_actions/water_heater.turn_on.markdown @home-assistant/core
 source/_actions/watts.activate_timer_mode.markdown @theobld-ww @devender-verma-ww @ssi-spyro
 source/_actions/waze_travel_time.get_travel_times.markdown @eifinger
 source/_actions/weather.get_forecasts.markdown @home-assistant/core
+source/_actions/webdav.upload.markdown @jpbede
 source/_actions/webostv.button.markdown @thecode
 source/_actions/webostv.command.markdown @thecode
 source/_actions/webostv.select_sound_output.markdown @thecode

@@ -20,6 +20,8 @@ related:
     title: Setting up a serial connection in Home Assistant
   - docs: /integrations/climate/
     title: Climate
+  - docs: /integrations/sensor/
+    title: Sensor
 ---
 
 The **Intesis Modbus** {% term integration %} lets you control an air conditioner that is connected to an [Intesis](https://www.intesis.com) Modbus gateway. The gateway is wired to the air conditioner's own control bus and makes the unit available over Modbus RTU. Home Assistant talks to the gateway locally over a serial connection, without a cloud service.
@@ -76,6 +78,23 @@ The **Intesis Modbus** integration provides the following entities.
   - **Fan speeds**: Auto, low, medium, and high. Units with four fan speeds also offer powerful.
   - **Swing modes**: Swing and positions 1 to 4. Only available if you selected **Unit has a swing vane** during setup.
   - **Remarks**: The target temperature is limited to the range the unit reports, typically 16&nbsp;°C to 30&nbsp;°C. Home Assistant always works in degrees Celsius with the gateway, whatever temperature format the gateway uses, and shows temperatures in the unit of your Home Assistant settings.
+
+### Sensors
+
+- **Outdoor intake temperature**
+  - **Description**: The temperature of the air the outdoor unit takes in.
+- **Return path temperature**
+  - **Description**: The temperature of the air that returns to the indoor unit.
+- **Error**
+  - **Description**: Whether the gateway reports a problem. The value is *No error*, *Initialising* while the gateway starts up, *Communication error with the unit* when the gateway can't reach the air conditioner, or *Unit error* when the air conditioner reports an error.
+- **Error code**
+  - **Description**: The code the air conditioner reports, as shown on its remote controller, for example `E5`. It has no value while there is no error.
+  - **Remarks**: Look up the code in the manual of your air conditioner.
+- **Operation time**
+  - **Description**: The number of hours the air conditioner has been running.
+- **Undervoltage time**
+  - **Description**: The number of hours the gateway counted with a supply voltage that was too low.
+  - **Remarks**: This sensor is disabled by default.
 
 ## Intesis Modbus automation examples
 
@@ -214,7 +233,7 @@ The climate entity is unavailable, either all the time or from time to time.
 
 #### Description
 
-The gateway stopped answering, or it answers but can't reach the air conditioner. Home Assistant keeps trying, and the entity becomes available again as soon as the gateway reports the air conditioner again.
+The gateway stopped answering, or it answers but can't reach the air conditioner. In the second case, the **Error** sensor stays available and shows *Communication error with the unit*. Home Assistant keeps trying, and the entity becomes available again as soon as the gateway reports the air conditioner again.
 
 #### Resolution
 

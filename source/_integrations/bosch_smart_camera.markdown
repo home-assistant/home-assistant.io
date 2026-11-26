@@ -14,6 +14,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - update
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -54,6 +55,10 @@ The **Wi-Fi signal strength** sensor shows how well a camera is connected to you
 ### Notifications
 
 The **Notifications** switch turns the push notifications of a camera on or off. While it is off, the camera sends no push notifications. The switch is shown with the configuration entities of the device.
+
+### Firmware
+
+The **Firmware** entity shows the installed firmware version of a camera and whether a newer version is available. Bosch installs firmware updates on its own, so you cannot start an update from Home Assistant. While an update is installed, the entity shows its progress.
 
 ### Camera light
 

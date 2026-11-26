@@ -16,6 +16,7 @@
     "network"
   ],
   "platforms": [
+    "diagnostics",
     "sensor"
   ]
 }
