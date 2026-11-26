@@ -121,7 +121,7 @@ These entities require Music Assistant server version 2.11 or later.
 
 The Music Assistant integration creates a **Playback speed** number entity for each player. It sets the speed of the current item in the player's queue, from half speed (0.5) to three times the normal speed (3.0). This works for audiobooks and podcast episodes, also while they are paused. For any other item, such as music, and while the queue is empty, the entity is unavailable.
 
-The entity belongs to the player's own queue. While a player plays along with another player, use the entity of that other player.
+While a player plays along with another player, the entity sets the speed in the queue of that other player.
 
 The **Playback speed** entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first. It requires Music Assistant server version 2.11 or later.
 
