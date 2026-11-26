@@ -35,7 +35,7 @@ Support for tech-in messages is not implemented.
 
 {% include integrations/config_flow.md %}
 
-Despite the UI-based configuration of the hub, lights, sensors and switches are still configured using YAML (see next chapters). Binary sensors configured in YAML are [imported into the integration](#binary-sensor).
+Binary sensors are [added in the UI](#adding-a-binary-sensor). Despite the UI-based configuration of the hub, lights, sensors and switches are still configured using YAML (see next chapters).
 
 ## Binary sensor
 
@@ -50,6 +50,20 @@ The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/spec
 
 - F6-02-01 (Light and Blind Control - Application Style 1)
 - F6-02-02 (Light and Blind Control - Application Style 2)
+
+### Adding a binary sensor
+
+To add a wall switch, you need its EnOcean ID. This is the 4 bytes long number written on the device, for example `FE:DC:BA:98`.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the EnOcean integration.
+2. Select **Add device**.
+3. Enter the **Device ID**.
+4. Optionally, select a **Device class**. It sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+5. Select **Submit**.
+
+The binary sensor is named after its ID, for example **Rocker switch FE:DC:BA:98**. You can rename it afterwards. The device class cannot be changed later; to change it, remove the device and add it again.
+
+To remove a binary sensor, select the three dots {% icon "mdi:dots-vertical" %} menu next to the device on the integration page, and select **Delete**.
 
 ### Binary sensors configured in YAML
 
@@ -66,8 +80,7 @@ A binary sensor is not imported in the following cases. The repair issue then sa
 - The EnOcean hub is not set up.
 - Another binary sensor with the same `id` but a different `device_class` has already been imported. A device can only be set up once.
 
-Until the YAML configuration is removed, a binary sensor can still be added with the following entry, which is then imported as described above.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+The YAML configuration that is imported looks like this:
 
 ```yaml
 # Example configuration.yaml entry
