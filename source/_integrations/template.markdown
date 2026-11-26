@@ -984,6 +984,11 @@ cover:
       description: Defines an action to close the cover.
       required: inclusive
       type: action
+    closed_tilt_positions:
+      description: Defines a template for the tilt positions where the slats are closed. The template must return a list with `0`, `100`, or both, for example `"{{ [0, 100] }}"`. If `closed_tilt_positions` is specified, `set_cover_tilt_position` must also be specified. For details, refer to [Cover tilt positions](#cover-tilt-positions).
+      required: false
+      type: template
+      default: "[0]"
     device_class:
       description: Sets the [class of the device](/integrations/cover/#device-class), changing the device state and icon that is displayed in the UI.
       required: false
@@ -992,6 +997,11 @@ cover:
       description: Defines an action to open the cover. If `open_cover` is specified, `close_cover` must also be specified. At least one of `open_cover` and `set_cover_position` must be specified.
       required: inclusive
       type: action
+    open_tilt_position:
+      description: Defines a template for the tilt position where the slats are open. Legal values are numbers between `0` and `100`. If `open_tilt_position` is specified, `set_cover_tilt_position` must also be specified. For details, refer to [Cover tilt positions](#cover-tilt-positions).
+      required: false
+      type: template
+      default: 100
     optimistic:
       description: Force cover position to use [optimistic mode](#cover-optimistic-mode).
       required: false
@@ -1022,7 +1032,11 @@ cover:
       required: false
       type: [string, list]
     tilt:
-      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value, the current tilt state is set to `unknown`. If `tilt` is specified, `set_cover_tilt_position` must also be specified.
+      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` and `100`. By default, `0` is closed and `100` is open. To change this, use `open_tilt_position` and `closed_tilt_positions`. If the template produces a `None` value, the current tilt state is set to `unknown`. If `tilt` is specified, `set_cover_tilt_position` must also be specified.
+      required: false
+      type: template
+    tilt_end_angle:
+      description: Defines a template for the angle of the slats at tilt position `100`. Legal values are numbers between `-90` and `90` degrees. If `tilt_end_angle` is specified, `tilt_start_angle` and `set_cover_tilt_position` must also be specified.
       required: false
       type: template
     tilt_optimistic:
@@ -1030,6 +1044,10 @@ cover:
       required: false
       type: boolean
       default: false
+    tilt_start_angle:
+      description: Defines a template for the angle of the slats at tilt position `0`. Legal values are numbers between `-90` and `90` degrees. At `0` degrees, the slats let the most light through. At `-90` and `90` degrees, they lie flat. If `tilt_start_angle` is specified, `tilt_end_angle` and `set_cover_tilt_position` must also be specified.
+      required: false
+      type: template
 
 {% endconfiguration %}
 
@@ -1095,6 +1113,44 @@ template:
 ### Cover Optimistic Mode
 
 In optimistic mode, the cover position state is maintained internally. This mode is automatically enabled if neither `state` or `position` are specified. Note that this is unlikely to be very reliable without some feedback mechanism, since there is otherwise no way to know if the cover is moving properly. The cover can be forced into optimistic mode by using the `optimistic` attribute. There is an equivalent mode for `tilt_position` that is enabled when `tilt` is not specified or when the `tilt_optimistic` attribute is used.
+
+### Cover tilt positions
+
+By default, the slats of a template cover are closed at tilt position `0` and open at `100`. Some covers work differently. For example, the slats of many venetian blinds are open in the middle and closed at both ends. To describe this, use the `open_tilt_position` and `closed_tilt_positions` options. If you know the angles of the slats, use `tilt_start_angle` and `tilt_end_angle` instead. For more background, refer to [Tilt positions](/integrations/cover/#tilt-positions).
+
+These options change how the cover handles tilt actions:
+
+- [Open cover tilt](/actions/cover.open_cover_tilt/) moves the slats to the open tilt position.
+- [Close cover tilt](/actions/cover.close_cover_tilt/) moves the slats to the closed tilt position. If the slats are closed at both ends, the cover closes them at the end on the same side of the open position as the current tilt. This way, the slats don't turn through the open position. If the current tilt is unknown, the slats close at `0`.
+- [Toggle cover tilt](/actions/cover.toggle_cover_tilt/) and scenes also use these positions.
+
+If the values don't fit together, for example when the open position is also listed as a closed position, Home Assistant logs an error and uses the default tilt positions.
+
+Because the options are templates, a template cover that wraps another cover can pass on the tilt positions of that cover:
+
+```yaml
+template:
+  - cover:
+      - name: "Living room blind"
+        state: "{{ states('cover.living_room_blind_motor') }}"
+        tilt: "{{ state_attr('cover.living_room_blind_motor', 'current_tilt_position') }}"
+        open_tilt_position: "{{ state_attr('cover.living_room_blind_motor', 'open_tilt_position') }}"
+        closed_tilt_positions: "{{ state_attr('cover.living_room_blind_motor', 'closed_tilt_positions') }}"
+        open_cover:
+          - action: cover.open_cover
+            target:
+              entity_id: cover.living_room_blind_motor
+        close_cover:
+          - action: cover.close_cover
+            target:
+              entity_id: cover.living_room_blind_motor
+        set_cover_tilt_position:
+          - action: cover.set_cover_tilt_position
+            target:
+              entity_id: cover.living_room_blind_motor
+            data:
+              tilt_position: "{{ tilt }}"
+```
 
 ### Combining `state` and `position` templates
 
