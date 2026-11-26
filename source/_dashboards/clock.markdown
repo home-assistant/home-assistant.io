@@ -70,30 +70,25 @@ date_format:
   description: "Shows the date with the time, either as a preset or as a list of date parts. If left empty, no date is shown. See [Formatting the date](/dashboards/date/#formatting-the-date) on the date card page for the available presets and parts."
   type: [string, list]
   required: false
-analog_options:
-  description: When using the analog clock style, this allows you to configure the appearance of the clock.
-  type: map
+border:
+  description: With the analog clock style, shows a border around the clock face.
+  type: boolean
   required: false
+  default: false
+ticks:
+  description: With the analog clock style, shows ticks (indices) on the clock face.
+  type: list
+  required: false
+  default: hour
   keys:
-    border:
-      description: Shows a border around the clock face. Defaults to false.
-      type: boolean
-      required: false
-      default: false
-    ticks:
-      description: Shows ticks (indices) on the clock face. Defaults to hour.
-      type: list
-      required: false
-      default: hour
-      keys:
-        none:
-          description: No ticks are shown.
-        quarter:
-          description: Quarter hour ticks are shown.
-        hour:
-          description: Hour ticks are shown.
-        minute:
-          description: Minute ticks are shown.
+    none:
+      description: No ticks are shown.
+    quarter:
+      description: Quarter hour ticks are shown.
+    hour:
+      description: Hour ticks are shown.
+    minute:
+      description: Minute ticks are shown.
 {% endconfiguration %}
 
 ### Examples
@@ -182,9 +177,8 @@ Analog clock with no border and hour ticks:
 type: clock
 clock_style: analog
 clock_size: medium
-analog_options:
-  border: false
-  ticks: hour
+border: false
+ticks: hour
 ```
 
 <p class='img'>
@@ -199,9 +193,8 @@ type: clock
 clock_style: analog
 clock_size: medium
 show_seconds: true
-analog_options:
-  border: true
-  ticks: minute
+border: true
+ticks: minute
 ```
 
 <p class='img'>
@@ -216,9 +209,8 @@ type: clock
 clock_style: analog
 clock_size: medium
 show_seconds: true
-analog_options:
-  border: true
-  ticks: none
+border: true
+ticks: none
 title: Mountain Time
 ```
 
