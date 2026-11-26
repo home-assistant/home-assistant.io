@@ -20,10 +20,7 @@ related:
 
 The to-do list card allows you to add, edit, check-off, and clear items from your to-do list.
 
-<p class='img'>
-<img src='/images/dashboards/todo-list_card_shopping-list.png' alt='Screenshot of the to-do list card'>
-Screenshot of the to-do list card.
-</p>
+{% include dashboard/demo.html demo="todo_list_top" caption="The to-do list card." %}
 
 ## Adding the to-do list card to a dashboard
 

@@ -12,10 +12,7 @@ related:
 
 The calendar card displays your {% term calendar %} {% term entities %} in a month, day, and list view (7 days).
 
-<p class='img'>
-  <img src='/images/dashboards/calendar_card.png' alt='Screenshot of the calendar card'>
-  Screenshot of the calendar card.
-</p>
+{% include dashboard/demo.html demo="calendar_top" caption="The calendar card with two calendars." %}
 
 All options for this card can be configured via the user interface.
 
