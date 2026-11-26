@@ -14,10 +14,7 @@ related:
 
 The sensor card gives you a quick overview of a sensor's state with an optional graph to visualize change over time.
 
-<p class='img'>
-  <img src='/images/dashboards/sensor.png' alt='Screenshot of the sensor card'>
-  Screenshot of the sensor card.
-</p>
+{% include dashboard/demo.html demo="sensor_top" caption="The sensor card." %}
 
 All options for this card can be configured via the user interface.
 

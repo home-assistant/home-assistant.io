@@ -18,10 +18,7 @@ related:
 
 The button card allows you to add buttons to perform tasks.
 
-<p class='img'>
-<img src='/images/dashboards/entity_button_card.png' alt='Screenshot of three button cards'>
-Screenshot of three button cards.
-</p>
+{% include dashboard/demo.html demo="button_top" caption="Three button cards." %}
 
 All options for this card can be configured via the user interface.
 
@@ -136,14 +133,12 @@ entity: light.living_room
 
 Button card with a button name and a [script](/docs/script/) that runs when card is tapped:
 
-<p class='img'>
-<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script action'>
-Screenshot of the button card with script action.
-</p>
+{% include dashboard/demo.html demo="button_script" caption="A button card with a script action." %}
 
 ```yaml
 type: button
 name: Turn Off Lights
+icon: mdi:script-text
 show_state: false
 tap_action:
   action: perform-action

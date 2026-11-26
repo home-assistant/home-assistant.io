@@ -14,10 +14,7 @@ related:
 
 The media control card is used to display [media player](/integrations/#media-player) entities on an interface with easy to use controls.
 
-<p class='img'>
-<img src='/images/dashboards/mediaplayer.png' alt='Screenshot of the media player control card'>
-Screenshot of the media control card.
-</p>
+{% include dashboard/demo.html demo="media_control_top" caption="The media control card." %}
 
 {% include dashboard/edit_dashboard.md %}
 
