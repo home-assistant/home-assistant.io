@@ -74,7 +74,7 @@ Each recipient device has one notify entity, named after the recipient. To find 
 
 In end-to-end encryption mode, the Gateway device has a **Gateway QR code** entity, a diagnostic entity containing a `3mid:` QR code built from your Gateway ID and public key, the same format Threema's apps use to verify a contact's identity. Scan it with the Threema app to confirm, out-of-band, that the gateway you configured really is yours before trusting messages sent through it.
 
-### Sensor
+#### Sensor
 
 The Gateway device has a **Remaining credits** sensor, a diagnostic entity that shows how many message credits are left on your Threema Gateway account. Each message you send uses credits, so you can use this sensor in an automation to warn you before your balance runs out.
 
