@@ -396,7 +396,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
        - **CPU Mode**: Select **Host Passthrough**.
        - **Memory Size**: Set to at least **2 GB**.
     3. Under **Disks**, specify the following settings:
-       - **Create new disk image**: Select this to create a new Zvol of the specified **Size**.
+       - **Create new disk image**: Select this to create a new zvol (ZFS volume) of the specified Size. TrueNAS uses the zvol as the VM's virtual disk.
        - **Import Image**: Check this box to import the **.qcow2** image.
        - **Image Source**: Select the decompressed **.qcow2** image you copied to TrueNAS.
        - **Select Disk Type**: Select **VirtIO**.
