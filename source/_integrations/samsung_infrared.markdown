@@ -177,7 +177,7 @@ The integration only works if a functional infrared emitter is configured and en
 
 #### Resolution
 
-1. Check that your Infrared Proxy Emitter device is connected to power.
+1. Check that your infrared remote adapter is connected to power.
 2. Check that the emitter has been configured in Home Assistant.
 3. Check that the emitter entity is enabled.
 
