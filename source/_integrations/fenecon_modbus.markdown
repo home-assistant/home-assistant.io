@@ -93,7 +93,6 @@ The following sensors are added, but disabled. They are useful for a detailed lo
 - **Production peak power**: The highest production the FEMS has recorded.
 - **Consumption peak power**: The highest consumption the FEMS has recorded.
 - **Off-grid time**: The total time the system has run without a grid connection.
-- **System time**: The current time of the FEMS.
 
 ## Energy dashboard
 
@@ -235,13 +234,13 @@ Your FEMS received a new IP address, for example after a router change, and the 
 
 #### Description
 
-Home Assistant recognizes your FEMS by its serial number. When you add it again with the new address, the existing entry is updated instead of creating a second device.
+The integration still connects to the old address. Home Assistant recognizes your FEMS by its serial number, so adding it again with the new address reports that the device is already configured and changes nothing.
 
 #### Resolution
 
 1. Look up the new address of the FEMS in your router, and give it a fixed address while you are there.
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and add the **Fenecon Modbus** integration again with the new address.
-3. The form reports that the device is already configured. Home Assistant has updated the existing entry with the new address and keeps the history of your sensors.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Fenecon Modbus**, and delete the entry of your FEMS.
+3. Add the **Fenecon Modbus** integration again with the new address.
 
 {% enddetails %}
 
