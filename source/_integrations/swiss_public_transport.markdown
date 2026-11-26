@@ -12,7 +12,7 @@ You can add two kinds of entries:
 
 The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 requests per 24 hours. The default polling rate is set to `90s`, which is just enough for one connection polling continuously. Every connection and every stationboard you add counts toward this limit. If more entries are needed, consider [defining a custom polling interval](#defining-a-custom-polling-interval) to reduce the amount of requests.
 
-When you add the integration, you first select what you want to set up. The options below belong to **Connection between two stations**. For the options of **Departures from a station**, refer to [Set up departures from a station](#set-up-departures-from-a-station).
+When you add the integration, you first select what you want to set up. The options below are for **Connection between two stations**. For the options for **Departures from a station**, refer to [Set up departures from a station](#set-up-departures-from-a-station).
 
 {% configuration_basic %}
 Start station:
@@ -92,7 +92,7 @@ A popular use case would be to know if your family member is running late and se
 ## Set up departures from a station
 
 A stationboard shows the next departures from a station, like the departure board at the station itself.
-Use it when you want to know what leaves from your stop next, no matter where it goes, or when several lines take you in the right direction.
+Use it when you want to know what leaves from your stop next, no matter where it goes, or when several lines serve the direction you want to travel.
 
 To set up a stationboard, add the integration and select **Departures from a station**.
 
@@ -133,7 +133,7 @@ With one or more **Stops at** stations, it only shows departures that stop at on
 - A departure is shown if it stops at any of the stations you entered. It doesn't need to stop at all of them. This is different from the via stations of a connection, where the route goes through every station.
 - If your destination has more than one stop, for example `Luzern` and `Luzern, Bahnhof`, enter all of them to see every way to get there.
 - Home Assistant looks up each station you enter and saves it under its official name. For example, `luzern` becomes `Luzern`. The name of the stationboard shows the result, such as "Bern stops at Bern Wankdorf".
-- With a **Stops at** station, Home Assistant searches the next 40 departures of each station. At a very busy stop, fewer than three of them might match. The sensors without a matching departure then show as unknown.
+- With a **Stops at** station, Home Assistant searches the next 40 departures of each station. At a very busy stop, fewer than three of those departures might stop at your **Stops at** stations. The sensors without a matching departure then show as unknown.
 
 ### Stationboard sensors
 
