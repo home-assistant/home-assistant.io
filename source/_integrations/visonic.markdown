@@ -191,7 +191,7 @@ For additional wiring examples, example DIY hardware builds and hardware photogr
 
 {% include integrations/config_flow.md %}
 
-After setup, select **Configure** on the Visonic integration entry to review its options.
+Connection details are set during setup. To change the connection type, address, cloud account credentials, or panel user code, remove the integration entry and add it again with the new details.
 
 {% configuration_basic %}
 Ethernet, Cloud or Serial:
@@ -199,7 +199,7 @@ Ethernet, Cloud or Serial:
     Select how Home Assistant connects to the panel. Choose **Ethernet** for a TCP-to-serial bridge, **Serial** for a directly attached serial adapter or an ESPHome serial proxy, or **Cloud** for a panel registered to your Visonic cloud account. The default is **Ethernet**.
 Panel number:
   description: >-
-    A number used to identify the panel and name its entities. Enter a whole number greater than or equal to `0`, and if you have more than 1 panel then use a different number for each configured panel. The default is `0`. For example, panel `1` produces an alarm entity named `alarm_control_panel.visonic_alarm_p1`. This number remains fixed during reconfiguration to preserve existing device and entity identities.
+    A number used to identify the panel and name its entities. Enter a whole number greater than or equal to `0`, and if you have more than 1 panel then use a different number for each configured panel. The default is `0`. For example, panel `1` produces an alarm entity named `alarm_control_panel.visonic_alarm_p1`.
 {% endconfiguration_basic %}
 
 The panel number controls naming. The integration separately checks whether the same local connection or cloud panel is already configured.
@@ -271,12 +271,9 @@ Serial Path:
     Select the serial device or ESPHome serial proxy connected to the panel. For a directly attached adapter, use a persistent device path such as `/dev/serial/by-id/...` when available. This field is required and has no fixed default.
 {% endconfiguration_basic %}
 
-## Reconfigure the connection
-
-Select **Reconfigure** from the integration entry menu to change the connection type, address, or cloud account settings. Saved settings are prefilled. Cloud panels are retrieved again after authentication, and the current panel is suggested if it is still available. Reconfiguration preserves the configuration, device, and entity identities. For cloud connections, select the same panel serial that is already configured, including when switching a known local panel to cloud access. To use a different physical panel, add a new integration entry. Reauthentication retains the selected cloud panel while validating corrected credentials.
-
-
 {% include integrations/option_flow.md %}
+
+The **Panel options** form contains the arming and disarming settings. For Ethernet and Serial connections, the same form also includes **Reconnection delay (seconds)**.
 
 ### Arming and disarming
 
@@ -310,19 +307,14 @@ Arm Home performs an Arm Home Instant:
 
 Cloud connections use the panel user code supplied during setup. They do not offer the local code-free or instant-arming options.
 
-### Local connection retries
+### Local reconnection delay
 
-These options are available only for Ethernet and Serial connections. Home Assistant's retries of initial integration setup are handled separately.
-
-These settings determine what the integration does if there are local disconnections (through causes such as you rebooting your local router).
+This option is available only for Ethernet and Serial connections. The integration automatically attempts to reconnect after a local connection failure. Home Assistant's retries of initial integration setup are handled separately.
 
 {% configuration_basic %}
-Try this number of times to attempt a reload:
+Reconnection delay (seconds):
   description: >-
-    Controls how many connection attempts are allowed when reconnecting after a local connection failure. Set to `0` to disable automatic reconnection attempts. The default is `1`. The allowed range is `0` to `1000000`.
-Time delay (seconds) between reload attempts:
-  description: >-
-    The delay between local connection retry attempts, in seconds. The default is `90` seconds. The allowed range is `5` to `1000` seconds.
+    The time between connection attempts when the panel is disconnected. The default is `90` seconds. The allowed range is `5` to `1000` seconds.
 {% endconfiguration_basic %}
 
 ## Visonic Security System automation examples
