@@ -10,7 +10,9 @@ You can add two kinds of entries:
 - **Connection between two stations**: The next three departure times from a given location to another one.
 - **Departures from a station**: The next three departures from one or more stations, like the departure board at the station.
 
-The [Swiss public transport API](https://transport.opendata.ch/) only allows 1000 requests per 24 hours. The default polling rate is set to `90s`, which is just enough for one connection polling continuously. Every connection and every stationboard you add counts toward this limit. If more entries are needed, consider [defining a custom polling interval](#defining-a-custom-polling-interval) to reduce the amount of requests.
+The data comes from the [Swiss public transport API](https://transport.opendata.ch/), a free service run by Opendata.ch.
+You don't need an account or an API key.
+For details on how often the data is updated, refer to [Data updates](#data-updates).
 
 When you add the integration, you first select what you want to set up. The options below are for **Connection between two stations**. For the options for **Departures from a station**, refer to [Set up departures from a station](#set-up-departures-from-a-station).
 
@@ -232,6 +234,21 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+## Data updates
+
+The integration {% term polling polls %} the [Swiss public transport API](https://transport.opendata.ch/) every 90 seconds for each connection and each stationboard you add.
+
+The API has no fixed limit on the number of requests per client.
+The earlier limit of 1000 requests per 24 hours no longer applies.
+The service is shared by many applications, so it can still refuse a request when it is busy or when a client sends requests too often.
+When that happens, the sensors of the affected connection or stationboard become unavailable until the next successful update.
+
+To keep the load on the service low:
+
+- Only add the connections and stationboards you use.
+- To get the departures from your station in a certain direction, prefer a stationboard with a **Stops at** station over a connection. A connection has to be planned by the route planner of the service, which is the part that gets busy. A stationboard is read directly from the timetable.
+- If you don't need an update every 90 seconds, consider [defining a custom polling interval](#defining-a-custom-polling-interval).
 
 ## Defining a custom polling interval
 
