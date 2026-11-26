@@ -40,6 +40,7 @@ There is currently support for the following Home Assistant Platforms:
 - [Dashboard displays](#dashboards)
 - [Button](#favorite-current-song-button)
 - [Switch](#queue-settings)
+- [Sensor](#sleep-timer)
 
 Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
 
@@ -108,6 +109,19 @@ The Music Assistant integration creates two switch entities for the queue of eac
 The switches belong to the player's own queue. While a player plays along with another player, change them on that other player.
 
 These entities require Music Assistant server version 2.11 or later.
+
+### Sleep timer
+
+The Music Assistant integration creates two sensor entities for the sleep timer of each player:
+
+- **Sleep timer end**: When the sleep timer stops playback. The sensor is unknown when no sleep timer is set, and while a timer for the end of the item or chapter waits for paused playback.
+- **Sleep timer mode**: When the sleep timer stops playback: **Off**, **After a duration**, **End of the current item**, or **End of the current chapter**.
+
+While a player plays along with another player, the sensors show the sleep timer of that other player.
+
+To set or clear a sleep timer, use the [Set sleep timer](/actions/music_assistant.set_sleep_timer/) and [Clear sleep timer](/actions/music_assistant.clear_sleep_timer/) actions.
+
+The sensors are disabled by default. To use them, [enable the entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first. With a Music Assistant server older than version 2.11, the mode is **After a duration** whenever a sleep timer is set.
 
 ### Player options
 
