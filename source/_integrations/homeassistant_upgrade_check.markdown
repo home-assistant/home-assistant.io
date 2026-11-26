@@ -19,20 +19,18 @@ Every release comes with release notes that list what changed. When you skip a f
 
 ## Where to find it
 
-When an update of Home Assistant is available, go to {% my updates title="**Settings** > **System** > **Updates**" %} and select the Home Assistant update. Below the version numbers, a summary lists the integrations with backward-incompatible changes, and how many general changes there are. Select an integration to go straight to its changes, or select **Show all changes** to open the **Before you update** page.
+When an update of Home Assistant is available, go to {% my updates title="**Settings** > **System** > **Updates**" %}. The Home Assistant update shows how many backward-incompatible changes concern your setup, including general changes. Select the update to see the **What's new** card. It lists the integrations you use that have backward-incompatible changes, a single entry for the general changes, and the integrations you use that are being removed. Select an entry to go straight to its changes, or select **Details and what to do for each change** to open the page with every change.
 
 The upgrade check is only shown while a Home Assistant update is waiting to be installed. Once you are up to date, it disappears until the next update.
 
 ## What it shows
 
-The **Before you update** page groups the changes into sections. Each change links to the release notes it comes from, so you can always read the full story.
+The page with every change groups the changes into sections. Each change links to the release notes it comes from, so you can always read the full story.
 
-- **Backward-incompatible changes**: Changes that may need you to take action, grouped per integration. Changes that are not tied to a single integration, such as changes to dashboards or automations, are grouped under **General changes**. Read these before you update.
-- **Noteworthy improvements**: New features and improvements in the integrations you use, grouped per integration.
-- **Quality scale changes**: Integrations you use that reached a higher tier on the [integration quality scale](/docs/quality_scale/), together with the contributors who made it happen.
-- **Removed integrations**: Integrations you use that are no longer part of Home Assistant, with the release that removed them and what you can use instead.
-
-Changes that only mention one of your integrations, without being about it, are listed separately under **Also mentions your integrations**.
+- **Breaking changes for your setup**: Changes that may need you to take action, grouped per integration. Changes that are not tied to a single integration, such as changes to dashboards or automations, are grouped under **General changes**. These concern every installation, so the **What's new** card only shows how many there are. Read these before you update.
+- **Removed integrations you use**: Integrations you use that are no longer part of Home Assistant, with the release that removed them and what you can use instead. These stop working after the update, so they are also listed on the **What's new** card.
+- **Improvements for your integrations**: New features and improvements in the integrations you use, grouped per integration.
+- **Quality scale achievements for your integrations**: Integrations you use that reached a higher tier on the [integration quality scale](/docs/quality_scale/), together with the contributors who made it happen.
 
 ## Data updates
 
@@ -47,9 +45,15 @@ The upgrade check reads the release notes from the [Home Assistant website](/blo
 
 ## Troubleshooting
 
-### Symptom: "Unable to read the release notes right now"
+### Symptom: "Can't check this update for your setup"
 
-The **Before you update** page shows **Unable to read the release notes right now. Try again later.** instead of the changes.
+The upgrade check shows **Can't check this update for your setup** instead of the changes.
 
-Home Assistant could not download the release notes. This can happen when your Home Assistant has no internet connection, or when the website hosting the release notes is temporarily unavailable or limits the number of requests. Check the internet connection of your Home Assistant, and try again later. In the meantime, you can read the release notes on the [Home Assistant website](/blog/categories/release-notes/).
+Home Assistant could not read the release notes. This can happen when:
+
+- Your Home Assistant has no internet connection.
+- The website hosting the release notes is temporarily unavailable or limits the number of requests.
+- The update is offered before its release notes are published. This can happen for a short while on release day.
+
+Check the internet connection of your Home Assistant, and try again later. Nothing is stored until the release notes of every release up to the update could be read, so a later try picks up the full set. In the meantime, you can read the release notes on the [Home Assistant website](/blog/categories/release-notes/).
 
