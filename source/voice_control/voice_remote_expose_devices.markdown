@@ -1,9 +1,9 @@
 ---
 title: "Exposing entities to voice assistants"
-description: Step-by-step instructions on exposing entities to Assist, Alexa, and Google Assistant.
+description: Step-by-step instructions on exposing entities to Assist, Alexa, and Google Home.
 related:
   - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Creating a Cloud assistant
+    title: Creating an assistant with Home Assistant Link
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
   - docs: /voice_control/best_practices/
@@ -28,25 +28,25 @@ Home Assistant never exposes other entities automatically. For example, locks, a
 
 After an entity is added, it keeps its setting until you change it. You can expose or stop exposing any entity at any time.
 
-The **Alexa** and **Google Assistant** cards have their own **Expose new entities** setting. It's turned off by default.
+The **Alexa** and **Google Home** cards have their own **Expose new entities** setting. It's turned off by default.
 
-## Alexa and Google Assistant
+## Alexa and Google Home
 
-With [Home Assistant Link](/integrations/link/), you can also control your {% term entities %} with Alexa or Google Assistant. Each of them has its own card on the **Voice assistants** page, with its own exposure settings. You expose entities to them the same way as to {% term Assist %}.
+With [Home Assistant Link](/integrations/link/), you can also control your {% term entities %} with Alexa or Google Home. Each of them has its own card on the **Voice assistants** page, with its own exposure settings. You expose entities to them the same way as to {% term Assist %}.
 
-To use Alexa or Google Assistant this way, you need the following:
+To use Alexa or Google Home this way, you need the following:
 
-- You're signed in to Home Assistant Cloud.
-- Alexa or Google Assistant is connected to Home Assistant Cloud:
-  - For Alexa, the Home Assistant skill is enabled in the Alexa app. For the steps, refer to [Alexa](https://support.nabucasa.com/hc/articles/25619363899677) in the Home Assistant Cloud documentation.
-  - For Google Assistant, the **Home Assistant Cloud by Nabu Casa** service is added in the Google Home app. For the steps, refer to [Google Assistant](https://support.nabucasa.com/hc/articles/25619376817053) in the Home Assistant Cloud documentation.
-- Alexa or Google Assistant is turned on in its card under {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
+- You're signed in to Home Assistant Link.
+- Alexa or Google Home is connected to Home Assistant Link:
+  - For Alexa, the Home Assistant skill is enabled in the Alexa app. For the steps, refer to [Alexa](https://support.nabucasa.com/hc/articles/25619363899677) in the Home Assistant Link documentation.
+  - For Google Home, the **Home Assistant Link by Nabu Casa** service is added in the Google Home app. For the steps, refer to [Google Home](https://support.nabucasa.com/hc/articles/25619376817053) in the Home Assistant Link documentation.
+- Alexa or Google Home is turned on in its card under {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
 
-If you set up Alexa or Google Assistant without Home Assistant Cloud, you choose the entities in {% term YAML %} instead. For details, refer to [Configure filter](/integrations/alexa.smart_home/#configure-filter) for Alexa and to the [Google Assistant](/integrations/google_assistant/) {% term integration %}.
+If you set up Alexa or Google Home without Home Assistant Link, you choose the entities in {% term YAML %} instead. For details, refer to [Configure filter](/integrations/alexa.smart_home/#configure-filter) for Alexa and to the [Google Home](/integrations/google_assistant/) {% term integration %}.
 
 ## Exposing entities to a voice assistant
 
-You can expose several {% term entities %} at once from the **Expose** tab, or a single entity from its settings. Both work for {% term Assist %}, Alexa, and Google Assistant.
+You can expose several {% term entities %} at once from the **Expose** tab, or a single entity from its settings. Both work for {% term Assist %}, Alexa, and Google Home.
 
 ### Exposing entities from the Expose tab
 
@@ -55,7 +55,7 @@ Use the **Expose** tab to expose several {% term entities %} at once, or entitie
 Prerequisites:
 
 - An administrator account.
-- For Alexa or Google Assistant: the requirements in [Alexa and Google Assistant](#alexa-and-google-assistant).
+- For Alexa or Google Home: the requirements in [Alexa and Google Home](#alexa-and-google-home).
 
 To expose entities from the Expose tab:
 
@@ -63,7 +63,7 @@ To expose entities from the Expose tab:
 2. At the bottom of the card of the voice assistant, select the text that shows the number of exposed entities.
    - Result: The **Expose** tab opens. It only lists the entities that are exposed to that voice assistant.
    - For example, at the bottom of the **Assist** card, the text shows **12 entities exposed**.
-   - If the **Alexa** or **Google Assistant** card shows **Show entities** instead, you configured entity filters in your {% term "`configuration.yaml`" %} file. In that case, you can't change the exposed entities in the UI.
+   - If the **Alexa** or **Google Home** card shows **Show entities** instead, you configured entity filters in your {% term "`configuration.yaml`" %} file. In that case, you can't change the exposed entities in the UI.
 3. In the lower-right corner, select **Expose entities** {% icon "mdi:plus" %}.
 4. Select the entities that you want to expose.
    - To find an entity, use the search field.
@@ -79,7 +79,7 @@ Prerequisites:
 
 - An administrator account.
 - The entity has a [unique ID](/faq/unique_id/). Entities without a unique ID have no voice assistant settings. To expose them, use the [Expose tab](#exposing-entities-from-the-expose-tab).
-- For Alexa or Google Assistant: the requirements in [Alexa and Google Assistant](#alexa-and-google-assistant).
+- For Alexa or Google Home: the requirements in [Alexa and Google Home](#alexa-and-google-home).
 
 To expose a single entity from its settings:
 
@@ -92,7 +92,7 @@ To expose a single entity from its settings:
    - Result: The change takes effect right away.
    - For example, turn on **Assist**.
    - If a voice assistant shows **Unsupported**, it can't control this kind of entity.
-   - For doors, garage doors, and locks, Google Assistant also shows **Ask for PIN**. If you turn it on, Google Assistant asks for the PIN that you set under **Security devices** on the **Google Assistant** card.
+   - For doors, garage doors, and locks, Google Home also shows **Ask for PIN**. If you turn it on, Google Home asks for the PIN that you set under **Security devices** on the **Google Home** card.
 
 ## Unexposing entities
 
@@ -101,7 +101,7 @@ Unexpose an {% term entity %} when you no longer want to control it by voice. Fo
 Prerequisites:
 
 - An administrator account.
-- For Alexa or Google Assistant: the requirements in [Alexa and Google Assistant](#alexa-and-google-assistant).
+- For Alexa or Google Home: the requirements in [Alexa and Google Home](#alexa-and-google-home).
 
 To unexpose entities:
 
@@ -120,12 +120,12 @@ To unexpose entities:
 **Expose new entities** decides whether Home Assistant exposes new {% term entities %} to a voice assistant as you add them. Each voice assistant has its own setting:
 
 - For {% term Assist %}, it's turned on by default. If you want to decide on every entity yourself, turn it off. For example, you don't want a new garage door to be exposed before you decide. For the kinds of entities that it exposes, refer to [Entities that are exposed automatically](#entities-that-are-exposed-automatically).
-- For Alexa and Google Assistant, it's turned off by default. If you want to control each new entity with them, turn it on. For example, you often add new lights and switches, and you want to control each one with Alexa without exposing it yourself. Home Assistant uses the same [automatic exposure rules](#entities-that-are-exposed-automatically) as for Assist.
+- For Alexa and Google Home, it's turned off by default. If you want to control each new entity with them, turn it on. For example, you often add new lights and switches, and you want to control each one with Alexa without exposing it yourself. Home Assistant uses the same [automatic exposure rules](#entities-that-are-exposed-automatically) as for Assist.
 
 Prerequisites:
 
 - An administrator account.
-- For Alexa or Google Assistant: the requirements in [Alexa and Google Assistant](#alexa-and-google-assistant).
+- For Alexa or Google Home: the requirements in [Alexa and Google Home](#alexa-and-google-home).
 
 To change Expose new entities:
 

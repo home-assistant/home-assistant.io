@@ -70,7 +70,7 @@ The **AccuWeather** integration provides the following entities for each configu
   - **Description**: The amount of precipitation in the past hour.
   - **Unit**: mm/h
   - **Attributes**:
-    - **Type**: The type of precipitation, such as rain or snow.
+    - **Type**: The type of precipitation: `rain`, `snow`, `ice`, or `mixed`. The value is empty when there is no precipitation.
 - **Pressure**
   - **Description**: The atmospheric pressure.
   - **Unit**: hPa
@@ -90,7 +90,7 @@ The **AccuWeather** integration provides the following entities for each configu
   - **Description**: The current ultraviolet index.
   - **Unit**: UV index
   - **Attributes**:
-    - **Level**: The UV level description, such as Low or High.
+    - **Level**: The UV level: `low`, `moderate`, `high`, `very high`, or `extreme`.
   - **Remarks**: Disabled by default.
 - **Wet bulb temperature**
   - **Description**: The lowest temperature that can be reached by evaporating water into the air.
@@ -152,13 +152,13 @@ A forecast sensor is created for a given day only when AccuWeather provides that
   - **Description**: The forecasted speed of wind gusts during the day and during the night.
   - **Unit**: km/h
   - **Attributes**:
-    - **Direction**: The wind direction, such as NW.
+    - **Direction**: The wind direction, such as `n`, `nw`, or `wsw`.
   - **Remarks**: Disabled by default.
 - **Wind speed day N** and **Wind speed night N**
   - **Description**: The forecasted wind speed during the day and during the night.
   - **Unit**: km/h
   - **Attributes**:
-    - **Direction**: The wind direction, such as NW.
+    - **Direction**: The wind direction, such as `n`, `nw`, or `wsw`.
 
 ## AccuWeather automation examples
 

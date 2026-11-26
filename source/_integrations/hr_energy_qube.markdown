@@ -168,6 +168,10 @@ Home Assistant checks that the new address belongs to a Qube heat pump and, when
   - **Description**: Target room temperature for cooling during nighttime.
 - **Heat pump status**
   - **Description**: Current operational status of the heat pump.
+- **Working hours DHW**, **Working hours heating**, **Working hours cooling**
+  - **Description**: Total hours the heat pump has run for domestic hot water, heating, and cooling. These are diagnostic sensors.
+- **Working hours heater 1**, **Working hours heater 2**, **Working hours heater 3**
+  - **Description**: Total hours each electric backup heater has run. These diagnostic sensors are disabled by default; enable the ones for the heaters that are installed.
 
 ### Switches
 

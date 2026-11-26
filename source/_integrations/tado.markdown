@@ -44,7 +44,7 @@ By default, the integration detects when re-authentication is needed for the new
 
 ## Unsupported device types
 
-New Tado X devices are not supported by this integration, they have to be used through the [Matter integration](/integrations/matter).
+New Tado X devices are not supported by this integration. Tado X uses a different API that Tado does not allow third parties to access, so cloud support cannot be added. To use Tado X devices with Home Assistant, connect them through the [Matter integration](/integrations/matter) instead, which requires a Thread border router.
 
 ## Changing the presence mode
 

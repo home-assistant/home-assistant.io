@@ -17,6 +17,10 @@ Additionally, various sensor entities are provided:
 - **Windspeed**: Sensor containing the current windspeed at the selected location.
 - **Air Quality Index**: Sensor containing the air quality index at the selected location.
 
+The integration also provides an image entity:
+
+- **Map**: A map showing the current Stookwijzer advice areas around the selected location, with a legend of the advice codes. This entity is disabled by default.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}

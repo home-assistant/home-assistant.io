@@ -22,6 +22,7 @@ All your automations are listed in a table under {% my automations title="**Sett
   - **Add label**
   - **Move to area**
   - **Enable** or **Disable**, in the **Action** {% icon "mdi:dots-vertical" %} menu
+  - **Delete selected**, in the **Action** {% icon "mdi:dots-vertical" %} menu
 
   On narrow screens, **Move to category**, **Add label**, and **Move to area** are also in the **Action** menu.
 
@@ -98,6 +99,16 @@ Open the automation, and in the top bar, select **Menu** {% icon "mdi:dots-verti
 - **Disable**: Turns off the automation, so it doesn't react to its triggers. To turn it on again, select **Enable**.
 - **Delete**: Deletes the automation after you confirm. You can't undo this.
 
+To delete several automations at once:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button.
+3. Select the automations you want to delete.
+4. Select **Action** {% icon "mdi:dots-vertical" %} > **Delete selected**.
+5. To confirm, select **Delete**.
+   - Result: The selected automations are permanently deleted.
+   - Only automations stored in `automations.yaml` can be deleted. Automations that you create in the UI are stored there. If some automations can't be deleted, the **Delete failed** dialog tells you how many. The other automations are still deleted.
+
 ## Working with triggers, conditions, and actions
 
 Each trigger, condition, and action has its own **Menu** {% icon "mdi:dots-vertical" %} on the right side of its row.
@@ -172,7 +183,8 @@ The visual editor supports the following keyboard shortcuts. On a Mac, use <kbd>
 - <kbd>Ctrl</kbd>+<kbd>X</kbd>: Cut the selected trigger, condition, or action.
 - <kbd>Ctrl</kbd>+<kbd>V</kbd>: Paste after the selected trigger, condition, or action.
 - <kbd>Ctrl</kbd>+<kbd>Delete</kbd> or <kbd>Ctrl</kbd>+<kbd>Backspace</kbd>: Delete the selected trigger, condition, or action.
-- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd>: Switch between the visual editor and the YAML editor. This shortcut also works in the script and scene editors, in card and dashboard editors, and in **Settings** > **Tools** > **Actions**. It also works work while you type in a text field.
+- <kbd>Esc</kbd>: Close the settings sidebar of the selected trigger, condition, or action. This shortcut also works in the script editor.
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Y</kbd>: Switch between the visual editor and the YAML editor. This shortcut also works in the script and scene editors, in card and dashboard editors, and in **Settings** > **Tools** > **Actions**. It also works while you type in a text field.
 
 To see all shortcuts, open the keyboard shortcuts dialog with <kbd>Shift</kbd>+<kbd>?</kbd>.
 

@@ -28,10 +28,10 @@ ADS variable:
   description: The name of the variable to write to. To access global variables on TwinCAT2, prepend a dot, for example `.myvariable`. For TwinCAT3, use a name such as `GVL.myvariable`.
   required: true
 ADS type:
-  description: The data type of the variable to write to.
+  description: The data type of the variable to write to. The value is converted to this type before it is written.
   required: true
 Value:
-  description: The value to write to the variable.
+  description: "The value to write to the variable. Enter a whole number for the integer types, a number with decimals such as `21.5` for `real` and `lreal`, and `1` or `0` for `bool`."
   required: true
 {% endoptions_ui %}
 
@@ -63,13 +63,18 @@ adsvar:
 adstype:
   description: >
     The data type of the variable to write to. One of `bool`, `byte`,
-    `dint`, `int`, `udint`, or `uint`.
+    `dint`, `dword`, `int`, `lreal`, `real`, `sint`, `udint`, `uint`,
+    `usint`, or `word`. The value is converted to this type before it is
+    written.
   required: true
   type: string
 value:
-  description: The value to write to the variable.
+  description: >
+    The value to write to the variable. Use a whole number for the integer
+    types, a number with decimals for `real` and `lreal`, and `true` or
+    `false` for `bool`.
   required: true
-  type: integer
+  type: [integer, float, boolean]
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
@@ -83,8 +88,8 @@ Write a new value to a PLC variable whenever an input number helper changes, for
 - **Trigger**: State changed: Setpoint helper changes
 - **Action**: ADS: Write data by name
   - **ADS variable**: `.setpoint`
-  - **ADS type**: `int`
-  - **Value**: `21`
+  - **ADS type**: `real`
+  - **Value**: `21.5`
 
 {% details "Show example YAML" %}
 
@@ -98,8 +103,8 @@ automation: |
       - action: ads.write_data_by_name
         data:
           adsvar: ".setpoint"
-          adstype: int
-          value: "{{ states('input_number.heating_setpoint') | int }}"
+          adstype: real
+          value: "{{ states('input_number.heating_setpoint') }}"
 {% endexample %}
 
 {% enddetails %}

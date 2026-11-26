@@ -273,6 +273,39 @@ This integration uses the KNX/IP protocol to receive telegrams live as they appe
 
 States of diagnostic entities of the "KNX Interface" device are {% term polling polled %} every 10 seconds.
 
+## Project data
+
+Project data has the group addresses of your installation with their names and data point types, its devices, and its building structure. With it, the KNX integration decodes telegrams, names group addresses in the group monitor and in trigger data, and suggests entities. You can upload a project file in the KNX panel.
+
+### Providing project data from another program
+
+Other integrations and tools can replace the project data with data that is already parsed into the format of [xknxproject](https://github.com/XKNX/xknxproject), the library the KNX integration uses to read project files. An example is a project editor that keeps Home Assistant up to date while you edit the project.
+
+- An integration calls `homeassistant.components.knx.async_set_project(hass, project)`.
+- An external tool sends the WebSocket command `knx/set_knx_project` with the data in `project`. It requires an administrator account.
+
+```json
+{
+  "id": 1,
+  "type": "knx/set_knx_project",
+  "project": {
+    "info": {
+      "xknxproject_version": "3.11.1",
+      "group_address_style": "ThreeLevel",
+      "...": "..."
+    },
+    "group_addresses": { "...": "..." },
+    "...": "..."
+  }
+}
+```
+
+The data must be in the format of the xknxproject version installed with Home Assistant, down to its minor version. It is validated before anything is stored. Invalid or incompatible data is refused with an error, and the current project is kept. Valid data is stored and used like an uploaded project file.
+
+Each call stores the whole project. A tool that updates it while the project is edited should send it after a short pause in the changes rather than after every single change.
+
+The WebSocket command sends the whole project in one message, which is limited to 4&nbsp;MiB. A larger message closes the connection. Larger project data can be provided from Python with `async_set_project`.
+
 ## Triggers
 
 The KNX integration provides its own trigger platform which can be used in automations.
@@ -441,16 +474,19 @@ Every telegram that matches an address pattern with its destination field will b
 
 ## KNX tools for AI conversation agents
 
-The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation and to interact with the bus.
+The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation, to interact with the bus, and to create and manage KNX entities.
 
-With these tools, an agent can answer questions such as "Which device sent the last telegram to 1/2/3?", "What is connected to line 1.1?", or "What is the current temperature on 4/0/1?". None of this requires a Home Assistant {% term entity %} for the group address in question.
+With these tools, an agent can answer questions such as "Which device sent the last telegram to 1/2/3?", "What is connected to line 1.1?", or "What is the current temperature on 4/0/1?". None of this requires a Home Assistant {% term entity %} for the group address in question. An agent can also set up entities for you, for example "Create lights for all dimming channels in the living room".
 
 ### Enabling the KNX tools
 
 {% important %}
-Only administrators can change the tools of a conversation agent. Once **KNX** is selected, everyone who can talk to that agent can use every KNX tool, including the ones that write to the bus. This also covers voice satellites, where the request is not associated with a user.
+Only administrators can use the KNX tools.
+Requests from other users can't use them.
+The same applies to requests that are not associated with a user, such as requests from voice satellites.
+The tools include ones that write to the bus and ones that create, change, and delete entities and devices.
 
-Only enable the KNX API on agents you are willing to give write access to your installation.
+Only enable the KNX API on agents you trust to write to the KNX bus and to add, change, and remove KNX entities and devices in Home Assistant.
 {% endimportant %}
 
 The KNX API is not used by default. Select it on the {% term integration %} that provides your conversation agent, such as [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation/), [OpenAI](/integrations/openai_conversation/), or [Ollama](/integrations/ollama/):
@@ -463,7 +499,7 @@ To use the tools from an external MCP client instead, use the [Model Context Pro
 
 ### Available tools
 
-The API provides 21 tools in four groups. If a tool cannot run, it reports the reason back to the agent, for example that no ETS project is loaded or that the telegram store is unavailable.
+The tools are organized in groups. If a tool cannot run, it reports the reason back to the agent, for example that no ETS project is loaded or that the telegram store is unavailable.
 
 #### Telegram history
 
@@ -471,7 +507,10 @@ The API provides 21 tools in four groups. If a tool cannot run, it reports the r
 
 #### ETS project
 
-`get_project_info`, `list_group_addresses`, `describe_group_address`, `list_devices`, `list_communication_objects`, `list_functions`, `describe_function`, and `get_topology` answer questions about your installation: group addresses and their names, devices and their communication objects, functional blocks, and the area and line topology. They require a project file uploaded in the KNX panel.
+`get_project_info`, `list_group_addresses`, `describe_group_address`, `list_devices`, `list_communication_objects`, `list_functions`, `describe_function`, and `get_topology` answer questions about your installation: group addresses and their names, devices and their communication objects, functional blocks, and the area and line topology.
+`list_channels`, `describe_channel`, and `find_similar_channels` look at the channels of a device, such as one output of a switch actuator.
+They show which communication objects and group addresses belong to a channel, and find channels of the same kind across your installation.
+All of these tools require a project file uploaded in the KNX panel.
 
 #### Data point types
 
@@ -480,6 +519,46 @@ The API provides 21 tools in four groups. If a tool cannot run, it reports the r
 #### Live bus access
 
 `get_connection_status`, `read_group_value`, `send_group_value_read`, and `send_group_value_write` report the connection state and read from or write to group addresses on the bus. `send_group_value_write` sends a telegram to your installation, just like the group monitor does.
+
+#### Entities and devices
+
+These tools set up and manage KNX entities the same way the KNX panel does.
+
+`list_entity_suggestions`, `get_entity_schema`, `validate_entity`, `create_entity`, and `create_device` create entities.
+An agent can create an entity from a suggestion.
+Suggestions are based on your project file and on the KNX entities you already have.
+An agent can also put a configuration together from the group addresses of your installation, or adjust a suggestion.
+`validate_entity` checks a configuration without creating anything.
+`create_device` adds a new Home Assistant {% term device %} that the agent can assign entities to, so entities that belong together are grouped.
+This is not a KNX device from your ETS project.
+
+`list_entities`, `get_entity_config`, `update_entity`, `delete_entity`, and `delete_device` manage the entities you have.
+All of them only work with entities configured in the KNX panel.
+They can't list, read, change, or delete entities configured in YAML.
+`list_entities` lists your entities with the group addresses they use.
+`get_entity_config` returns the configuration of one entity.
+`update_entity` replaces the configuration of an entity.
+It can't change the type of the entity, for example from a switch to a light.
+`delete_entity` removes an entity and its configuration.
+`delete_device` removes a Home Assistant device together with its entities, like removing the device in the UI does.
+It can't remove a device that still has entities configured in YAML.
+
+Entities and devices created by an agent show up in the KNX panel.
+You can edit or delete them there like any other.
+These tools don't send telegrams themselves.
+A new entity requests its state from the bus, like any other KNX entity that has a state address.
+
+### Read-only access for MCP clients
+
+When **Read-only** is turned on in the [Model Context Protocol](/integrations/mcp_server/) integration, its main URL only exposes the tools that don't change anything.
+It leaves out these KNX tools:
+
+- `read_group_value` and `send_group_value_read`, because they send a telegram to the bus
+- `send_group_value_write`
+- `create_entity` and `create_device`
+- `update_entity`, `delete_entity`, and `delete_device`
+
+The `/api/mcp/knx` URL ignores this option and always exposes all KNX tools.
 
 ## Exposing entity states, entity attributes or time to KNX bus
 

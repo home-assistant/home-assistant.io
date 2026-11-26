@@ -6,6 +6,11 @@
 # a dashboard. A demo gets the entities of `entities` that its cards name in
 # their `entity`, or that are in the `area` of a card, with that area from
 # `areas`.
+#
+# Instead of a list of cards, an entry can hold one `section`, `view` or
+# `dashboard`, with its configuration the same as in a dashboard. It gets the
+# entities and areas its configuration names by their ID, and the entities in
+# those areas. A dashboard takes its height from `heights`.
 
 entities:
   # Card features, see source/dashboards/features.markdown
@@ -362,13 +367,154 @@ entities:
       precipitation_unit: mm
       supported_features: 1
 
+  # Tile card, see source/_dashboards/tile.markdown
+  - entity_id: sensor.living_room_temperature
+    state: "22.8"
+    attributes:
+      friendly_name: Living room temperature
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: °C
+  - entity_id: sensor.living_room_humidity
+    state: "57"
+    attributes:
+      friendly_name: Living room humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: light.floor_lamp
+    state: "on"
+    attributes:
+      friendly_name: Floor lamp
+      icon: mdi:floor-lamp
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 179
+  - entity_id: light.spotlights
+    state: "on"
+    attributes:
+      friendly_name: Spotlights
+      icon: mdi:light-recessed
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 125
+  - entity_id: light.bar_lamp
+    state: "on"
+    attributes:
+      friendly_name: Bar lamp
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 255
+  - entity_id: cover.blinds
+    state: open
+    attributes:
+      friendly_name: Blinds
+      device_class: blind
+      current_position: 100
+      supported_features: 15
+  - entity_id: media_player.speaker
+    state: playing
+    attributes:
+      friendly_name: Speaker
+      device_class: speaker
+      media_title: Clair de lune
+      media_artist: Claude Debussy
+      supported_features: 21437
+  - entity_id: sun.sun
+    state: above_horizon
+    attributes:
+      friendly_name: Sun
+  - entity_id: sensor.rain
+    state: "7.2"
+    attributes:
+      friendly_name: Rain
+      device_class: precipitation
+      state_class: total_increasing
+      unit_of_measurement: mm
+  - entity_id: climate.downstairs
+    state: heat
+    attributes:
+      friendly_name: Downstairs
+      current_temperature: 20.8
+      temperature: 21.5
+      min_temp: 7
+      max_temp: 30
+      target_temp_step: 0.5
+      hvac_action: heating
+      hvac_modes:
+        - heat
+        - "off"
+      preset_mode: comfort
+      preset_modes:
+        - comfort
+        - eco
+        - away
+      supported_features: 17
+  - entity_id: climate.upstairs
+    state: heat
+    attributes:
+      friendly_name: Upstairs
+      current_temperature: 21.7
+      temperature: 21
+      min_temp: 7
+      max_temp: 30
+      target_temp_step: 0.5
+      hvac_action: idle
+      hvac_modes:
+        - heat
+        - "off"
+      preset_mode: comfort
+      preset_modes:
+        - comfort
+        - eco
+        - away
+      supported_features: 17
+
+  # Light card, see source/_dashboards/light.markdown
+  - entity_id: light.bedroom
+    state: "on"
+    attributes:
+      friendly_name: Bedroom
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 120
+  - entity_id: light.office
+    state: "on"
+    attributes:
+      friendly_name: Office
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 230
+
+  # Gauge card, see source/_dashboards/gauge.markdown
+  - entity_id: sensor.cpu_usage
+    state: "34"
+    attributes:
+      friendly_name: CPU usage
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: sensor.kitchen_humidity
+    state: "52"
+    attributes:
+      friendly_name: Kitchen humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+
 areas:
   - area_id: kitchen
     name: Kitchen
 
 # The height in pixels each demo takes once its cards have loaded. The page
 # keeps this room for the demo while it loads, so the content below doesn't
-# move. A tile card with one feature takes two rows of a section: 120.
+# move. A tile card with one feature takes two rows of a section: 120. A view
+# takes the height it has on a phone while it loads, then the height of its
+# cards, as wider pages put its sections side by side.
 heights:
   feature_alarm_modes: 120
   feature_bar_gauge: 120
@@ -423,6 +569,24 @@ heights:
   feature_area_controls: 184
   feature_temperature_forecast: 120
   feature_precipitation_forecast: 120
+  tile_sections: 507
+  view_types: 480
+  # A section row is 56, with 8 between rows.
+  clock_default: 56
+  clock_large: 120
+  clock_medium: 120
+  clock_london: 120
+  clock_new_york: 120
+  clock_analog_hour_ticks: 184
+  clock_analog_minute_ticks: 184
+  clock_analog_no_ticks: 248
+  date_default: 56
+  date_large: 120
+  date_day_month_year: 56
+  date_tokyo: 56
+  light_names: 255
+  gauge_name_unit: 194
+  gauge_segments: 194
 
 demos:
   # Card features, one tile card each, with the feature of the example on
@@ -975,3 +1139,251 @@ demos:
           forecast_type: daily
           days_to_show: 7
           precipitation_type: amount
+
+  # Clock card, the examples of source/_dashboards/clock.markdown
+  clock_default:
+    - type: clock
+
+  clock_large:
+    - type: clock
+      clock_size: large
+      time_format: "12"
+      show_seconds: true
+
+  clock_medium:
+    - type: clock
+      clock_size: medium
+      time_format: "12"
+      show_seconds: false
+
+  clock_london:
+    - type: clock
+      clock_size: medium
+      time_zone: Europe/London
+      title: London 💂
+
+  clock_new_york:
+    - type: clock
+      clock_size: medium
+      time_format: "12"
+      time_zone: America/New_York
+      title: New York 🦅
+
+  clock_analog_hour_ticks:
+    - type: clock
+      clock_style: analog
+      clock_size: medium
+      border: false
+      ticks: hour
+
+  clock_analog_minute_ticks:
+    - type: clock
+      clock_style: analog
+      clock_size: medium
+      show_seconds: true
+      border: true
+      ticks: minute
+
+  clock_analog_no_ticks:
+    - type: clock
+      clock_style: analog
+      clock_size: medium
+      show_seconds: true
+      border: true
+      ticks: none
+      title: Mountain Time
+
+  # Date card, the examples of source/_dashboards/date.markdown
+  date_default:
+    - type: date
+
+  # Full width, as the long weekday doesn't fit in the default 6 columns of a
+  # large date card.
+  date_large:
+    - type: date
+      title: Today
+      date_size: large
+      grid_options:
+        columns: 12
+
+  date_day_month_year:
+    - type: date
+      date_format:
+        - day-2-digit
+        - separator-slash
+        - month-2-digit
+        - separator-slash
+        - year-numeric
+
+  date_tokyo:
+    - type: date
+      title: Tokyo
+      time_zone: Asia/Tokyo
+      no_background: true
+
+  # Light card, the names example of source/_dashboards/light.markdown
+  light_names:
+    - type: light
+      entity: light.bedroom
+      name: Kids Bedroom
+      grid_options:
+        columns: 6
+    - type: light
+      entity: light.office
+      name: My Office
+      grid_options:
+        columns: 6
+
+  # Gauge card, the examples of source/_dashboards/gauge.markdown
+  gauge_name_unit:
+    - type: gauge
+      name: CPU Usage
+      unit: "%"
+      entity: sensor.cpu_usage
+
+  gauge_segments:
+    - type: gauge
+      entity: sensor.kitchen_humidity
+      needle: true
+      min: 20
+      max: 80
+      segments:
+        - from: 0
+          color: "#db4437"
+        - from: 35
+          color: "#ffa600"
+        - from: 40
+          color: "#43a047"
+        - from: 60
+          color: "#ffa600"
+        - from: 65
+          color: "#db4437"
+
+  # The tile cards at the top of source/_dashboards/tile.markdown, in two
+  # sections of a sections view
+  tile_sections:
+    view:
+      type: sections
+      max_columns: 2
+      sections:
+        - type: grid
+          cards:
+            - type: heading
+              heading: Living room
+              icon: mdi:sofa
+              badges:
+                - type: entity
+                  entity: sensor.living_room_temperature
+                - type: entity
+                  entity: sensor.living_room_humidity
+            - type: tile
+              entity: light.floor_lamp
+            - type: tile
+              entity: light.spotlights
+              features:
+                - type: light-brightness
+            - type: tile
+              entity: light.bar_lamp
+            - type: tile
+              entity: cover.blinds
+            - type: tile
+              entity: media_player.speaker
+        - type: grid
+          cards:
+            - type: heading
+              heading: Climate
+              icon: mdi:thermometer
+            - type: tile
+              entity: sun.sun
+            - type: tile
+              entity: sensor.rain
+            - type: tile
+              entity: climate.downstairs
+              state_content:
+                - preset_mode
+                - current_temperature
+              features:
+                - type: target-temperature
+            - type: tile
+              entity: climate.upstairs
+              state_content:
+                - preset_mode
+                - current_temperature
+              features:
+                - type: target-temperature
+
+  # The view types on source/dashboards/views.markdown, one tab each
+  view_types:
+    dashboard:
+      title: View types
+      views:
+        - title: Sections
+          path: sections
+          type: sections
+          max_columns: 2
+          sections:
+            - type: grid
+              cards:
+                - type: heading
+                  heading: Kitchen
+                - type: tile
+                  entity: light.kitchen_ceiling
+                - type: tile
+                  entity: light.kitchen_counter
+                - type: tile
+                  entity: fan.kitchen_fan
+                - type: tile
+                  entity: switch.kettle
+            - type: grid
+              cards:
+                - type: heading
+                  heading: Climate
+                - type: tile
+                  entity: climate.living_room
+                  features:
+                    - type: target-temperature
+        - title: Masonry
+          path: masonry
+          type: masonry
+          cards:
+            - type: entities
+              title: Kitchen
+              entities:
+                - light.kitchen_ceiling
+                - light.kitchen_counter
+                - fan.kitchen_fan
+                - switch.kettle
+            - type: thermostat
+              entity: climate.living_room
+            - type: tile
+              entity: sensor.kitchen_temperature
+            - type: tile
+              entity: sensor.kitchen_air_humidity
+            - type: media-control
+              entity: media_player.living_room_speaker
+        - title: Panel
+          path: panel
+          type: panel
+          cards:
+            - type: thermostat
+              entity: climate.living_room
+        - title: Sidebar
+          path: sidebar
+          type: sidebar
+          cards:
+            - type: thermostat
+              entity: climate.living_room
+            - type: media-control
+              entity: media_player.living_room_speaker
+            - type: tile
+              entity: sensor.kitchen_temperature
+              view_layout:
+                position: sidebar
+            - type: tile
+              entity: sensor.kitchen_air_humidity
+              view_layout:
+                position: sidebar
+            - type: tile
+              entity: switch.kettle
+              view_layout:
+                position: sidebar

@@ -85,7 +85,4 @@ entity: light.office
 name: My Office
 ```
 
-<p class='img'>
-<img src='/images/dashboards/light_complex_card.png' alt='Screenshot of the Light card'>
-Screenshot of the Light card names.
-</p>
+{% include dashboard/demo.html demo="light_names" caption="Light cards with their names overwritten." %}

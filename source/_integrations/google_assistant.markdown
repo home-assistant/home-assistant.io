@@ -1,5 +1,5 @@
 ---
-description: Setup for Google Assistant integration
+description: Setup for Google Home integration
 ha_categories:
   - other_ecosystems
 featured: true
@@ -7,23 +7,23 @@ ha_release: 0.56
 ha_domain: google_assistant
 ---
 
-The **Google Assistant** {% term integration %} allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet, or Google Home device.
+The **Google Home** {% term integration %} allows you to control your Home Assistant devices via Google Home on your mobile, tablet, or Google Nest device.
 
 If you want to send commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant, or broadcast messages to Google Assistant speakers and displays without interrupting music/video playback, take a look at the [Google Assistant SDK](/integrations/google_assistant_sdk) integration.
 
 ## Automatic setup via Home Assistant Link
 
-With [Home Assistant Link](/link/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Link you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Link requires a paid subscription after a 30-day free trial.
+With [Home Assistant Link](/link/), you can connect your Home Assistant instance in a few simple clicks to Google Home. With Home Assistant Link you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Link requires a paid subscription after a 30-day free trial.
 
 For Home Assistant Link users, documentation can be found [here](https://www.nabucasa.com/config/google_assistant/).
 
 ## Manual setup (if you don't have Home Assistant Link)
 
-The Google Assistant integration (without Home Assistant Link) requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
+The Google Home integration (without Home Assistant Link) requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
 ### Prerequisites
 
-To use Google Assistant, your Home Assistant configuration has to be [externally accessible with a hostname and SSL certificate](/docs/configuration/remote/).
+To use Google Home, your Home Assistant configuration has to be [externally accessible with a hostname and SSL certificate](/docs/configuration/remote/).
 
 - If you haven't already configured that, you should do so before continuing.
 - If you make DNS changes to accomplish this, ensure you have allowed up to the full 48 hours for DNS changes to propagate, otherwise, Google may not be able to reach your server.
@@ -105,11 +105,11 @@ Try it with "OK Google, sync my devices" - the Google Home app should import you
 
 ### Enable local fulfillment
 
-Google Assistant devices can send their commands locally to Home Assistant allowing them to respond faster.
+Google Home devices can send their commands locally to Home Assistant allowing them to respond faster.
 
-Your Home Assistant instance needs to be connected to the same network as the Google Assistant device that you’re talking to so that it can be discovered via mDNS discovery (UDP broadcasts).
+Your Home Assistant instance needs to be connected to the same network as the Google Home device that you’re talking to so that it can be discovered via mDNS discovery (UDP broadcasts).
 
-Your Google Assistant devices will still communicate via the internet to:
+Your Google Home devices will still communicate via the internet to:
 
 - Get credentials to establish a local connection.
 - Send commands that involve a [secure device](#secure-devices).
@@ -118,7 +118,7 @@ Your Google Assistant devices will still communicate via the internet to:
 {% important %}
 The [HTTP integration](/integrations/http) must **not** be configured to use an SSL certificate with the [`ssl_certificate` option](/integrations/http/#ssl_certificate).
 
-This is because the Google Assistant device will connect directly to the IP of your Home Assistant instance and will fail if it encounters an invalid SSL certificate.
+This is because the Google Home device will connect directly to the IP of your Home Assistant instance and will fail if it encounters an invalid SSL certificate.
 
 For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} app (formerly known as NGINX SSL add-on) instead of directing external traffic straight to Home Assistant.
 {% endimportant %}
@@ -138,9 +138,9 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
    4. Select **Add field**, then under **Select a field**, choose **Name**.
    5. Enter a new **Value** field set to `.*\._home-assistant\._tcp\.local`
 7. Scroll to bottom of page and **Save** your changes.
-8. Either wait for 30 minutes, or restart all your Google Assistant devices.
+8. Either wait for 30 minutes, or restart all your Google Home devices.
 9. Restart Home Assistant Core.
-10. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
+10. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Home support.
 
 You can debug the setup by following [these instructions](https://developers.home.google.com/local-home/test#debugging_from_chrome).
 
@@ -192,7 +192,7 @@ service_account:
       required: true
       type: string
 report_state:
-  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Assistant knows beforehand what state they are. It is also required for some features on visual controls.
+  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Home knows beforehand what state they are. It is also required for some features on visual controls.
   required: false
   default: false
   type: boolean
@@ -202,11 +202,11 @@ expose_by_default:
   default: true
   type: boolean
 exposed_domains:
-  description: List of entity domains to expose to Google Assistant if `expose_by_default` is set to true. This has no effect if `expose_by_default` is set to false.
+  description: List of entity domains to expose to Google Home if `expose_by_default` is set to true. This has no effect if `expose_by_default` is set to false.
   required: false
   type: list
 entity_config:
-  description: Entity specific configuration for Google Assistant
+  description: Entity specific configuration for Google Home
   required: false
   type: map
   keys:
@@ -216,7 +216,7 @@ entity_config:
       type: map
       keys:
         name:
-          description: Name of the entity to show in Google Assistant
+          description: Name of the entity to show in Google Home
           required: false
           type: string
         expose:
@@ -229,7 +229,7 @@ entity_config:
           required: false
           type: list
         room:
-          description: Allows for associating this device to a Room in Google Assistant.
+          description: Allows for associating this device to a Room in Google Home.
           required: false
           type: string
 {% endconfiguration %}
@@ -238,7 +238,7 @@ To apply changes to this configuration without restarting Home Assistant, use th
 
 ### Available domains
 
-Currently, the following domains are available to be used with Google Assistant, listed with their default types:
+Currently, the following domains are available to be used with Google Home, listed with their default types:
 
 - alarm_control_panel (arm/disarm)
 - binary_sensor (entities with device class: `carbon_monoxide`, `door`, `garage_door`, `lock`, `moisture`, `opening`, `smoke`, `window`)
@@ -274,7 +274,7 @@ Some of these devices may not display correctly in the Google Home app, such as 
 
 Certain devices are considered secure. This includes devices in the `lock` domain, the `alarm_control_panel` domain, as well as `covers` with device types `door`, `garage`, or `gate`.
 
-By default, secure devices cannot be opened by Google Assistant unless a `secure_devices_pin` code is set up. To allow opening, set the `secure_devices_pin` to something. You will then be prompted to speak the pin when opening the device. Closing or locking these devices does not require a pin.
+By default, secure devices cannot be opened by Google Home unless a `secure_devices_pin` code is set up. To allow opening, set the `secure_devices_pin` to something. You will then be prompted to speak the pin when opening the device. Closing or locking these devices does not require a pin.
 
 If a code is set for the Alarm control panel, it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false`, the system will arm without prompting for the pin.
 
@@ -290,7 +290,7 @@ The automatic room assignment will not work when multiple homes are set up in yo
 
 ### Climate operation modes
 
-There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.
+There is not an exact 1-1 match between Home Assistant and Google Home for the available operation modes.
 Here are the modes that are currently available:
 
 - off
@@ -315,7 +315,7 @@ Some of the troubleshooting steps below reference the legacy [Actions on Google 
 
 #### 404 errors on request sync
 
-Syncing from Google Assistant may fail after a period of time, likely around 30 days, due to the fact that your Actions on Google app is technically in testing mode and has never been published. Eventually, it seems that the test expires. Control of devices will continue to work but syncing may not. If you say "Ok Google, sync my devices" and get the response "Unable to sync Home Assistant" (or whatever you named your project), this can usually be resolved by going back to your test app in the [Actions on Google console](https://console.actions.google.com/) and clicking `Simulator` under `TEST`. Regenerate the draft version Test App and try asking Google to sync your devices again. If regenerating the draft does not work, go back to the `Action` section and just hit the `enter` key for the URL to recreate the Preview.
+Syncing from Google Home may fail after a period of time, likely around 30 days, due to the fact that your Actions on Google app is technically in testing mode and has never been published. Eventually, it seems that the test expires. Control of devices will continue to work but syncing may not. If you say "Ok Google, sync my devices" and get the response "Unable to sync Home Assistant" (or whatever you named your project), this can usually be resolved by going back to your test app in the [Actions on Google console](https://console.actions.google.com/) and clicking `Simulator` under `TEST`. Regenerate the draft version Test App and try asking Google to sync your devices again. If regenerating the draft does not work, go back to the `Action` section and just hit the `enter` key for the URL to recreate the Preview.
 
 Syncing from Home Assistant will always work and will automatically update entity changes.
 
@@ -329,7 +329,7 @@ The `request_sync` service may fail with a 404 if the `project_id` of the HomeGr
   4. Once you begin to create a new `service_account` in the [Google Cloud API Console], ensure you select the project created in  [Actions on Google console] by verifying the `project_id`.
   5. Enable HomeGraph API to the new project.
 
-Verify that the Google Assistant is available on `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` If it is working it should return `405: Method Not Allowed` when opened in a browser or via curl.
+Verify that Google Home is available on `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` If it is working it should return `405: Method Not Allowed` when opened in a browser or via curl.
 
 #### 403 errors on request sync
 
@@ -363,7 +363,7 @@ If you're having trouble linking your account, with the error message `Could not
 
 {% include integrations/actions.md %}
 
-## Google Assistant automation examples
+## Google Home automation examples
 
 With the manual setup, Google doesn't always notice right away when your devices change. These examples keep the Google Home app up to date for you.
 
@@ -375,7 +375,7 @@ When you add or remove devices in your YAML configuration, use the [`google_assi
 
 - **Trigger**: Home Assistant
   - **Event**: Start
-- **Action**: Google Assistant: Request sync
+- **Action**: Google Home: Request sync
   - **Agent user ID**: Your Home Assistant user ID
 
 {% details "YAML example for syncing with Google after a restart" %}
@@ -401,7 +401,7 @@ When a new entity is added to Home Assistant, ask Google to sync, so a new devic
 - **Trigger**: Manual event received
   - **Event type**: `entity_registry_updated`
   - **Event data**: `action: create`
-- **Action**: Google Assistant: Request sync
+- **Action**: Google Home: Request sync
   - **Agent user ID**: Your Home Assistant user ID
 
 {% details "YAML example for syncing with Google when an entity is added" %}
