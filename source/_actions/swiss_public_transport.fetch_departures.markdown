@@ -19,8 +19,7 @@ To fetch departures from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Swiss public transport: Fetch departures**.
-6. Select the stationboard as the **Instance** to fetch departures for. Optionally, set a **Limit** for the number of departures to return.
-7. Select **Save**.
+6. Select the stationboard as the **Instance** to fetch departures for. Optionally, set a **Limit** for the number of departures to return. In the **Response variable** field, enter a name to store the departures in, such as `departures`.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
@@ -31,7 +30,7 @@ Instance:
   description: The Swiss public transport stationboard to fetch departures for.
   required: true
 Limit:
-  description: The number of departures to fetch.
+  description: The number of departures to fetch. Defaults to 3.
   required: false
 {% endoptions_ui %}
 
