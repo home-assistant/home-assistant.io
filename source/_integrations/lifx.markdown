@@ -106,13 +106,20 @@ By default, the LIFX Ceiling and LIFX Mirror each show as a single light. Each a
 
 Both buttons are configuration entities.
 
+### Numbers
+
+- **Infrared brightness**
+  - **Description**: Sets how bright the infrared LEDs run when the visible brightness is low, from 0% (off) to 100%.
+  - **Available for**: LIFX Nightvision lights
+  - **Remarks**: Configuration entity. In an automation or a script, change it with the [**Set number value**](/actions/number.set_value/) action.
+
 ### Selects
 
 - **Infrared brightness**
   - **Description**: Sets how bright the infrared LEDs run when the visible brightness is low.
   - **Options**: `Disabled`, `25%`, `50%` or `100%`
-  - **Available for**: LIFX Nightvision lights
-  - **Remarks**: Configuration entity. In an automation or a script, change it with the [**Select option**](/actions/select.select_option/) action.
+  - **Available for**: LIFX Nightvision lights that already had this select before the **Infrared brightness** number replaced it
+  - **Remarks**: Deprecated. It will be removed in Home Assistant 2027.7. Use the **Infrared brightness** number instead, which can be set to any percentage: `Disabled` is 0, and the other options are the same percentages. Home Assistant raises a repair issue for each light that still has the select. Fixing the issue removes the select. If an automation or a script still uses it, the repair lists them so you can switch them to the number first. If you disable the select and nothing uses it, Home Assistant removes it when it next starts.
 
 - **Mood**
   - **Description**: Applies one of the LIFX app's Moods to the light, the way the app does.
