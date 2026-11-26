@@ -14,6 +14,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - update
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -56,6 +57,10 @@ The **Wi-Fi signal strength** sensor shows how well a camera is connected to you
 The camera entity can show a live stream in dashboards and in the more-info dialog. Home Assistant opens a stream session when you start watching. The camera manages stream sessions of up to 60 minutes. Home Assistant renews the session automatically while you are watching, or while **Preload stream** is enabled for the camera. Otherwise, the session stays open until the camera ends it.
 
 Home Assistant must be able to reach the camera in your local network to show the stream.
+
+### Firmware
+
+The **Firmware** entity shows the installed firmware version of a camera and whether a newer version is available. Bosch installs firmware updates on its own, so you cannot start an update from Home Assistant. While an update is installed, the entity shows its progress.
 
 ### Camera light
 

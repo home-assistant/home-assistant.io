@@ -210,6 +210,7 @@ Example YAML configuration of a cover group:
 cover:
   - platform: group
     name: "Window Covers"
+    device_class: window
     entities:
       - cover.hall_window
       - cover.living_room_window
@@ -346,7 +347,7 @@ unit_of_measurement:
   type: string
   required: false
 device_class:
-  description: Only available for `binary-sensor` or `sensor` group. Set the device class according to available options for [binary sensors](/integrations/binary_sensor/#device-class) or [sensors](/integrations/sensor/#device-class) respectively.
+  description: Only available for `binary_sensor`, `cover`, and `sensor` groups. Set the device class according to the available options for [binary sensors](/integrations/binary_sensor/#device-class), [covers](/integrations/cover/#list-of-available-device-classes), or [sensors](/integrations/sensor/#device-class). A cover group doesn't take its device class from its members. If you don't set one, the cover group has no device class. For a cover group created in the UI, you can [change the device class](/integrations/cover/#changing-the-device-class-of-a-cover) in the entity settings.
   type: string
   required: false
 state_class:

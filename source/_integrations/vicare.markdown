@@ -95,6 +95,15 @@ Heat pumps that report the heat they produce have the following sensors:
 - **Heating heat production today**: the heat produced for heating today
 - **DHW heat production today**: the heat produced for domestic hot water today
 
+Devices that report their internal pump have an **Internal pump** binary sensor that shows whether the pump is running.
+
+Devices that report the modulation of their internal pump have the following sensors:
+
+- **Internal pump modulation**: the current modulation of the internal pump, in percent
+- **Internal pump target modulation**: the modulation the device requests from the internal pump, in percent
+
+Not every device reports both. Some gas boilers only report the target.
+
 {% include integrations/actions.md %}
 
 ## Viessmann ViCare automation examples

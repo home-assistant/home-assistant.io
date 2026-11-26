@@ -226,6 +226,25 @@ After you authorize access, Home Assistant uses your Google Account profile to v
 
 {% enddetails %}
 
+{% details "Re-authentication required often" %}
+
+### Symptom: Integration asks to reauthenticate every few days
+
+You may be asked to reauthenticate more often than you expect, such as every 7 days.
+
+#### Description
+
+This means the OAuth Consent Screen is misconfigured, or your authentication token was revoked by Google for some other reason. You may also see the error message `invalid_grant: Token has been expired or revoked` in the logs.
+
+#### Resolution
+
+- The most likely reason is that the **OAuth Consent Screen** is set to **Testing** by default, which expires the token after 7 days.
+- Visit the Google Cloud OAuth [Audience](https://console.cloud.google.com/auth/audience) page, set **Publishing status** to **In production**, and reauthorize the integration in Home Assistant one more time to get a new token.
+- Leave **App logo** empty on the OAuth **Branding** page, because uploading a logo triggers Google's verification process.
+- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for other reasons why your token may have expired.
+
+{% enddetails %}
+
 ## Removing the integration
 
 This integration follows standard integration removal.
