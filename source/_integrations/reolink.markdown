@@ -1,31 +1,7 @@
 ---
-title: Reolink
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
-ha_categories:
-  - security_safety.cameras
-  - security_safety.doorbells_intercoms
-ha_iot_class: Local Push
 ha_release: 2023.1
 ha_domain: reolink
-ha_codeowners:
-  - '@starkillerOG'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - time
-  - update
-ha_integration_type: hub
-ha_dhcp: true
-ha_quality_scale: platinum
 related:
   - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
     title: Controlling the camera from the dashboard
@@ -96,6 +72,16 @@ This integration creates a few camera entities, one for each stream type with di
 The Fluent stream camera entity is enabled by default; the other streams are disabled by default.
 The Snapshots stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
 Dual lens cameras provide additional streams for the second lens.
+
+#### Two-way audio
+
+If the camera model supports two-way audio ([see specifications of the camera model on Reolink.com](#tested-models)), you can talk through the camera from the live view of the camera entity in Home Assistant.
+
+Two-way audio has the following requirements:
+
+- The **Two-way audio** preview feature is enabled in {% my labs title="**Settings** > **System** > **Labs**" %}. For more information, see [Home Assistant Labs](/integrations/labs/).
+- The **Protocol** option of the integration is set to <abbr title="real-time streaming protocol">RTSP</abbr>.
+- Home Assistant is opened over HTTPS, because browsers only allow microphone access over a secure connection.
 
 ### Binary sensors
 
@@ -830,7 +816,7 @@ Prerequisites:
 
 ## Known limitations
 
-- 2-way audio or Text-to-speech is not available in the Reolink Home Assistant integration.
+- Text-to-speech is not available in the Reolink Home Assistant integration.
 - The 4K camera streams are H265 encoded, support for playing H265 encoding in browsers (such as Chrome, Firefox, Edge, or Safari) is still very limited, therefore the 4K clear stream may not play in all browsers or on all phones in the Home Assistant Companion app. By default only the lower resolution Fluent camera entity is enabled in Home Assistant. This Fluent stream is H264 encoded and will play on any browser or phone.
 
 ## Troubleshooting

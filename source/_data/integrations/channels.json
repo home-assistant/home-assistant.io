@@ -1,0 +1,15 @@
+{
+  "domain": "channels",
+  "name": "Channels",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

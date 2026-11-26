@@ -19,6 +19,20 @@ Since Home Assistant works with discrete samples of power rather than continuous
 
 If you can sample power values frequently enough (for example, every few seconds), you can reliably estimate transferred energy using numerical approximations such as [Riemann sums](https://en.wikipedia.org/wiki/Riemann_sum).
 
+## Using a power sensor or a flow rate sensor
+
+The **Energy** dashboard tracks energy in kWh, and gas and water as volumes. If a device only reports power in watts, or a flow rate, Home Assistant can calculate the totals for you.
+
+1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
+2. Add an individual device, solar panels, home consumption, gas, or water, and select the power sensor or flow rate sensor.
+3. Select **Save**.
+   - Result: A dialog suggests a sensor that can be created from the sensor you selected.
+   - If a sensor that calculates the total from the same sensor already exists, the dialog lists that one instead, so you don't get a duplicate.
+4. Select **Create**, or **Use sensor** if the dialog only lists existing sensors.
+   - Result: The sensor is created or reused, and added to the **Energy** dashboard.
+
+New sensors start counting when you create them, so earlier values are not included. The sensor that Home Assistant creates is an [Integration (Riemann sum integral)](/integrations/integration/) helper. You can find it under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
+
 ## Split consumption by tariffs
 
 If you are using a third-party device (for example, not reading directly from your utility meter or from the utility provider's cloud service) you need Home Assistant to split your energy measurements into two or more tariffs in accordance with your utility provider contract.
@@ -51,13 +65,19 @@ If inflated data has already been recorded, you can review and adjust it from {%
 
 If you do not see the Energy dashboard in the sidebar, make sure you have not removed [`default_config:`](/integrations/default_config/) from your {% term "`configuration.yaml`" %}. If you have, you will need to enable the integrations and UI elements required for the dashboard to appear.
 
-## Troubleshooting missing entities
+## Troubleshooting
 
-### Condition
+{% details "Sensor is missing from the Energy dashboard" %}
 
-You are trying to add a sensor to the Energy dashboard, but it does not appear in the selection list.
+### Symptom: The sensor doesn't appear in the selection list
 
-### Resolution
+You are trying to add a sensor to the Energy dashboard, but it doesn't appear in the selection list.
+
+#### Description
+
+The Energy dashboard only lists sensors that it can use for the field you're filling in. A sensor doesn't appear if it has the wrong attributes, if it isn't a `sensor` entity, or if it has statistics errors.
+
+#### Resolution
 
 To find out why the sensor is not showing, check the following points:
 
@@ -69,7 +89,32 @@ To find out why the sensor is not showing, check the following points:
   - **Water**: `device_class: water` with `state_class: total` or `state_class: total_increasing`.
   - The sensor must use a supported `unit_of_measurement`. See the help text for the Energy dashboard field for the accepted units. Units containing an exponent must match superscript characters exactly.
 
-  If any of the attributes are not correct, please open an issue against the integration that provides your sensor, or if you are developing custom template sensors, make sure the templates have the correct attributes.
-
-- The entity must be a `sensor`. If you are trying to add something from another domain (for example an `input_number`), then you must first create a template sensor from it.
+  If an attribute is missing or not correct, refer to [The sensor is missing an attribute that the Energy dashboard needs](#symptom-the-sensor-is-missing-an-attribute-that-the-energy-dashboard-needs).
+- The entity must be a `sensor`. If you are trying to add something from another domain (for example an `input_number`), then you must first [create a template sensor](/integrations/template/#creating-a-template-helper-from-the-user-interface) from it.
 - The entity must not have any statistics errors. Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %} to check your specific entity. If your unit has a listed issue here, address that first.
+
+{% enddetails %}
+
+{% details "Sensor is missing the device class or state class" %}
+
+### Symptom: The sensor is missing an attribute that the Energy dashboard needs
+
+In {% my tools_states title="**Settings** > **Tools** > **States**" %}, the device class, state class, or unit of measurement of your sensor is missing or not correct. You can't change it in the entity settings.
+
+#### Description
+
+The integration that provides the sensor sets these attributes. You can't change the device class or state class of a sensor in the entity settings.
+
+#### Resolution
+
+Create a template sensor helper that copies the value of your sensor and has the correct attributes:
+
+1. Create a template sensor helper. For the steps, refer to [Creating a template helper from the user interface](/integrations/template/#creating-a-template-helper-from-the-user-interface).
+2. In **State**, enter a template that reads your sensor, for example `{{ states('sensor.garden_water_meter') | float(none) }}`.
+   - The [`float(none)`](/template-functions/float/) filter keeps the template sensor working while your sensor has no value, for example while Home Assistant starts.
+3. Select the **Unit of measurement**, **Device class**, and **State class** that the Energy dashboard needs.
+4. Add the new template sensor to the Energy dashboard.
+
+Also open an issue against the integration that provides your sensor, so that it can set the correct attributes.
+
+{% enddetails %}

@@ -1,100 +1,40 @@
 ---
-title: Matter
 description: Instructions on how to integrate Matter with Home Assistant.
-ha_categories:
-  - hubs_protocols.wireless_protocols
 featured: true
 ha_release: '2022.12'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@home-assistant/matter'
 ha_domain: matter
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-  - vacuum
-  - valve
-  - water_heater
-ha_integration_type: hub
 related:
-  - docs: /integrations/thread/
-    title: Thread
+  - docs: /connectivity/matter/
+    title: About Matter
+  - docs: /connectivity/thread/
+    title: About Thread
   - docs: /integrations/homekit_controller/
     title: HomeKit
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
     title: Adding an Apple HomeKit device through Thread
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
-ha_zeroconf: true
 ---
 
 The **Matter** {% term integration %} allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
 
+This page documents the **Matter** integration. To learn more about Matter, refer to [Matter](/connectivity/matter/).
+
 For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as an app (formerly known as add-on). This Matter Server app runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
-
-# Introduction - What is Matter?
-
-Matter is a new smart home connectivity standard for home automation products and IoT (Internet of Things) devices, see its [Wikipedia article](https://en.wikipedia.org/wiki/Matter_(standard)).
-
-The initial version 1.0 release of Matter was published in October of 2022. Matter is still in the process of being adopted in the smart home market. It has gotten much publicity because of its promise of interoperability across all ecosystems. The largest tech companies like Google, Apple and Amazon teamed up to develop this new smart home connectivity standard under the roof of the CSA ([Connectivity Standards Alliance](https://csa-iot.org/)). The largest tech companies that are already active in the home automation market have announced that they are or will be working on Matter-compatible products and also joined the development effort.
-
-Matter products run locally and always allow local control, with device control done without the need for any internet connection or cloud services. From a technical perspective, you can use a Matter-compatible device with Home Assistant without connecting to a vendor-specific cloud. However, some vendors may require you to set up an account before you can enable Matter support for some products, (especially for commercial manufacturer's own branded gateways/bridges/hubs/controllers sold as appliances).
-
-Unlike other common radio-based protocols for IoT, (like Zigbee, Z-Wave, and Bluetooth), the Matter standard specification itself does not contain its own proprietary radio protocol or network transport protocol, but instead, it is a service control protocol that runs **on top** of the existing network infrastructure at the application level, with all Matter devices communicating using standard IP-based (IPv6) communication over your existing [local area network (that is, LAN networks like Wi-Fi and Ethernet)](https://en.wikipedia.org/wiki/Local_area_network) or [Thread (Low-Power Wireless Personal Area Network)](https://en.wikipedia.org/wiki/Thread_(network_protocol)) depending on the type of device.
-
-Home Assistant is a so-called "_controller_" in a Matter ecosystem, meaning that it can control Matter-based devices. Other examples of Matter controllers are the Google Nest products, Apple HomePod speakers, Samsung SmartThings Station, and some newer Amazon Echo devices.
-
-## What does Thread have to do with Matter?
-
-{% term Thread %} is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it a suitable transport protocol option for Matter.
-
-The figure below illustrates the landscape of {% term Matter %}, {% term Thread %}, and Border routers. The Thread border router forwards traffic from the devices in the Thread network to devices outside that network.
-
-![image](/images/integrations/matter/matter_thread_infographic.png)
-
-Image taken from [the Thread Smart Home Fact Sheet](https://www.threadgroup.org/support#Resources) by the Thread Group.
-
-For more information about Thread, refer to the [Thread documentation](/integrations/thread/).
-
-### Thread devices don't necessarily support Matter
-
-Many devices on the market use {% term Thread %} for radio communication and Matter as a control protocol. But this is not guaranteed. Some Thread-based devices support Apple HomeKit or another vendor-specific communication protocol. There are also a few cases where you need to apply for a (beta) firmware update on the device to enable Matter as a communication protocol.
-
-Don't assume Matter support when you see a Thread logo on a device. Always look for the _Matter_ logo itself (on either Wi-Fi/Ethernet-based devices or {% term Thread %}) or any other confirmation by the manufacturer that the device supports Matter.
-
-## Bluetooth used during commissioning
-
-Most (if not all) Matter-compliant devices have a Bluetooth chip onboard to ease {% term commissioning %}. Bluetooth is not used to control but to pair a device after unboxing or after factory resetting. The Home Assistant controller uses the Home Assistant Companion app for {% term commissioning %}. During commissioning, you need to bring your phone close to the device. The controller then sends your network credentials to your device over Bluetooth. Once that is done, the device communicates over its native interface: Wi-Fi or Thread.
-
-{% note %}
-Although your Home Assistant server might have a Bluetooth adapter on board that the controller can use to {% term commission %} devices, Home Assistant does not use that adapter. Mainly to prevent issues with the built-in Bluetooth integration but also because it is easier to bring your mobile devices close to the Matter device than bringing the device near your server.
-{% endnote %}
-
-## Multi fabric: join to multiple controllers
-
-One of the great features of Matter is the so-called _Multi Fabric_ feature: you can join the same device to multiple controllers. For example, simultaneously add it to Google Home, Apple Home, and Home Assistant. The standard describes that each device should be able to at least support 5 different fabrics simultaneously.
-
-For devices where Home Assistant provides a native integration (with local API), Matter may not be the best option. Matter, being a universal standard, might not have the nitty-gritty features that come with a product-specific protocol. A good example is Philips Hue: the communication over Matter only provides the basic controls over lights, while the official [Hue integration](/integrations/hue) brings all Hue unique features like (dynamic) scenes or entertainment mode.
 
 ## Supported installation types
 
 It is recommended to run the Matter app (formerly known as Matter add-on) on Home Assistant OS. This is currently the only supported option. Other installation types are without support and at your own risk.
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/matter-js/matterjs-server). The requirements and instructions for your host setup are described on that GitHub page.
+
+## Matter cameras
+
+Home Assistant supports cameras that use Matter 1.5 or later. Camera support requires the Matter Server app 9.3.0 or newer. If you run the Matter server in a container, use [Matter Server](https://github.com/matter-js/matterjs-server) 1.5.0 or newer.
+
+After you add a Matter camera, you can watch its live video, take snapshots, and use the camera in your dashboards and automations, like any other camera in Home Assistant. The live video is streamed with <abbr title="Web Real-Time Communication">WebRTC</abbr>, directly between your browser and the camera. When privacy mode is turned on in the camera, the camera entity shows as off.
+
+If your camera supports two-way audio, you can also talk through it. For the steps, refer to [Talking through a Matter camera](#talking-through-a-matter-camera).
 
 ## Adding a Matter device to Home Assistant
 
@@ -135,7 +75,7 @@ Make sure you have all these components ready before trying to add a Matter devi
 
 #### Prepare Android or iPhone
 
-- Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](#bluetooth-used-during-commissioning):
+- Have either an Android or iPhone ready and Bluetooth enabled. For information why Bluetooth is required, refer to the section on [Bluetooth used during commissioning](/connectivity/matter/#bluetooth-used-during-commissioning):
   - **Android**:
     - At a minimum, have Android version 8.1. Recommended is version 12 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
@@ -287,6 +227,7 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
 3. Select **Share device**, then in the dialog, select **Share device** again.
    - There is no need to press a hardware button on the device to set it to commissioning mode.
 4. To join the device to the other platform, in their app, scan the QR code or enter the sharing code.
+   - In the Home Assistant Companion app, you can instead select **Add to Apple Home** (iOS) or **Share with app** (Android, `full` flavor only), if shown. This adds the device directly, with its Home Assistant name.
 5. Follow the instructions in their app. Once the process is complete, you can see that the device is shared in Home Assistant:
    - Next to the **Share device** button, select the three dots {% icon "mdi:dots-vertical" %} menu, then **Manage fabrics**.
    - In the list there, the new platform should be listed.
@@ -330,6 +271,20 @@ This section provides a bit more information on some of the categories:
 **Network name**: Name of the network the device joined when it was commissioned.
 
 **IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
+
+## Talking through a Matter camera
+
+Prerequisites:
+
+- A [Matter camera](#matter-cameras) that supports two-way audio.
+- Home Assistant opened over HTTPS. Browsers only allow microphone access over a secure connection.
+
+To talk through the camera:
+
+1. Go to {% my labs title="**Settings** > **System** > **Labs**" %} and turn on the **Two-way audio** preview feature.
+2. Open the camera's live view and select **Start talking**.
+3. If your browser asks for microphone access, allow it.
+4. To stop, select **Stop talking**.
 
 ## Viewing your Matter network map
 
@@ -389,7 +344,7 @@ A connection without any recent signal is not drawn. A device that has no known 
 
 The Matter protocol supports OTA (Over-the-Air) software updates. But the OTA software update is an optional feature for Matter devices, so not all Matter devices implement it. Home Assistant creates an update entity for every Matter device which does support Matter updates.
 
-The CSA operates a Distributed Compliance Ledger (DCL) which provides metadata for firmware updates. By default, the Matter update entities check the DCL every 12 hours for updates. If you want to force an update check, use the `homeassistant.update_entity` [action](/integrations/homeassistant/), with the update entity as the target. Currently, Eve and Nanoleaf are using the DCL to provide updates. It is expected that in future, more and more firmware updates become available through the DCL.
+The CSA operates a Distributed Compliance Ledger (DCL) which provides metadata for firmware updates. By default, the Matter update entities check the DCL every 12 hours for updates. If you want to force an update check, use the `homeassistant.update_entity` [action](/integrations/homeassistant/), with the update entity as the target. For example, Eve, Heiman, IKEA, insta, and Nanoleaf are using the DCL to provide updates. It is expected that in future, more and more firmware updates become available through the DCL.
 
 <p class='img'>
 <img src='/images/integrations/matter/matter_ota_message.png' alt='Matter device OTA update message'>
@@ -483,7 +438,7 @@ Make sure the requirements listed in the [prerequisites](#prerequisites) are met
   - Minimum version is 8.1. Recommended is version 12 or higher.
     - More issues have been reported by people using older Android versions.
   - Android Automotive is not supported.
-  - Install the app from the Google Play Store. Versions of the app without Google Play services can't add Matter devices.
+  - Install the app from the Google Play Store. Versions of the app without Google Play services, such as the version from F-Droid, can't add Matter devices.
   - Make sure the Google Play Services are all up to date.
 - **iPhone or iPad**:
   - Minimum version is iOS or iPadOS 16.4.
@@ -545,7 +500,7 @@ Over-the-air (OTA) updates of Matter devices from Home Assistant are not support
 - If you only have a {% term "Thread border router" %} from Apple, you cannot update the device from Home Assistant.
   - If you want to be able to use OTA updates on these devices, you could add another border router, for example by [turning Home Assistant into a Thread border router](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
 
-- If you have a mixture of Apple and other {% term "Thread border routers" %} such as the Home Assistant [OpenThread border router](/integrations/thread#openthread-border-routers), follow these steps:
+- If you have a mixture of Apple and other {% term "Thread border routers" %} such as the Home Assistant [OpenThread border router](/connectivity/thread/#openthread-border-routers), follow these steps:
   1. Power down all the Apple {% term "Thread border routers" %}.
   2. Wait at least 30 minutes.
   3. Try again to update the devices from Home Assistant.

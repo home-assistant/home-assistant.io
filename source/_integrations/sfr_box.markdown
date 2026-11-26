@@ -1,21 +1,7 @@
 ---
-title: SFR Box
 description: Instructions on how to integrate your SFR Box broadband router into Home Assistant.
-ha_categories:
-  - computers_network.routers_network
 ha_release: 2023.2
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@epenet'
 ha_domain: sfr_box
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - sensor
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **SFR Box** {% term integration %} connects your **SFR** broadband router to Home Assistant over your local network. It shows the state of your internet connection, details about your DSL or fiber line, and the status of your phone line. You can restart the box from Home Assistant.
@@ -239,11 +225,15 @@ Home Assistant cannot reach the local API of the box with the host you entered.
 
 ### Symptom: Home Assistant asks you to enter the credentials again
 
-During setup, you get an invalid authentication error. Or, after setup, **SFR Box** appears under **Attention required** in **Settings** > **Devices & services**.
+You see one of the following:
+
+- During setup, you get an invalid authentication error.
+- After setup, **SFR Box** appears under **Attention required** in **Settings** > **Devices & services**.
+- When you press the **Restart** button, Home Assistant shows **The provided credentials are invalid.**
 
 #### Description
 
-The box does not accept the username and password that Home Assistant uses. This usually happens after you change the password in the box's web interface.
+The box doesn't accept the username and password that Home Assistant uses. This usually happens after you change the password in the box's web interface. Home Assistant notices this during setup, during data updates, and when you press the **Restart** button. It then asks you to enter the credentials again.
 
 #### Resolution
 

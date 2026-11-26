@@ -1,0 +1,35 @@
+{
+  "domain": "bond",
+  "name": "Bond",
+  "integration_type": "hub",
+  "codeowners": [
+    "@bdraco",
+    "@prystupa",
+    "@joshs85",
+    "@marciogranzotto"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "climate.fans_ventilation",
+    "buttons_remotes",
+    "blinds_curtains"
+  ],
+  "connectivity": [
+    "infrared",
+    "network",
+    "rf"
+  ],
+  "platforms": [
+    "button",
+    "cover",
+    "diagnostics",
+    "fan",
+    "light",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp",
+    "zeroconf"
+  ]
+}

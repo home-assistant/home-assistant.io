@@ -1,18 +1,7 @@
 ---
-title: SensorPush Cloud
 description: Instructions on how to integrate SensorPush Cloud devices into Home Assistant.
-ha_categories:
-  - sensors.temperature_humidity
 ha_release: 2025.3
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@sstallion'
 ha_domain: sensorpush_cloud
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 Integrates [SensorPush Cloud](https://www.sensorpush.com/) devices into Home Assistant.
@@ -31,6 +20,13 @@ Sensor entities (temperature, humidity, barometric pressure) will not be availab
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Email:
+  description: "The email address you use to sign in to the Gateway Cloud Dashboard."
+Password:
+  description: "The password you use to sign in to the Gateway Cloud Dashboard."
+{% endconfiguration_basic %}
+
 ## Sensors
 
 For each device, the following *sensors* are created:
@@ -45,6 +41,10 @@ For each device, the following *sensors* are created:
 | `signal_strength`      | Measures the Bluetooth signal strength. (disabled by default) |
 | `temperature`          | Measures the temperature.                                     |
 | `vapor_pressure`       | Measures the vapor-pressure deficit. (disabled by default)    |
+
+## Data updates
+
+The integration {% term polling polls %} the SensorPush cloud every 60 seconds. The [SensorPush Gateway Cloud API](https://www.sensorpush.com/gateway-cloud-api) allows requests at most once per minute. Use an interval of at least 60 seconds if you customize polling.
 
 ## Known limitations
 

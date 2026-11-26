@@ -1,20 +1,7 @@
 ---
-title: Toon
 description: Instructions on how to integrate Eneco Toon/Engie Electrabel Boxx/Viesgo within Home Assistant.
-ha_categories:
-  - climate.thermostats_heating
-  - energy.meters_monitoring
 ha_release: 0.56
-ha_iot_class: Cloud Push
-ha_config_flow: true
 ha_domain: toon
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - climate
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **Toon** {% term integration %} platform can be used to control your Quby Toon thermostat,

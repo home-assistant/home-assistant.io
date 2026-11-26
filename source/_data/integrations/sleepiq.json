@@ -1,0 +1,29 @@
+{
+  "domain": "sleepiq",
+  "name": "SleepIQ",
+  "integration_type": "hub",
+  "codeowners": [
+    "@mfugate1",
+    "@kbickar"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "health_wellbeing"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "light",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

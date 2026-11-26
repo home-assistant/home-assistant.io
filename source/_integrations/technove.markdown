@@ -1,26 +1,10 @@
 ---
-title: TechnoVE
 description: Instructions on how to integrate TechnoVE smart EV charging stations with Home Assistant.
-ha_categories:
-  - energy.ev_charging
 ha_release: 2024.2
-ha_iot_class: Local Polling
 ha_domain: technove
-ha_config_flow: true
-ha_zeroconf: true
-ha_codeowners:
-  - '@Moustachauve'
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - number
-  - sensor
-  - switch
-ha_integration_type: device
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
-ha_quality_scale: platinum
 ---
 
 The **TechnoVE** {% term integration %} lets you monitor and control your [TechnoVE](https://technove.ca/) smart EV charging station directly from Home Assistant using the station's local API. No cloud account or internet connection is required. Everything communicates over your local network.

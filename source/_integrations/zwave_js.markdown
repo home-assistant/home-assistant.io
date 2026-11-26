@@ -1,35 +1,11 @@
 ---
-title: Z-Wave
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave JS.
 featured: true
-ha_categories:
-  - hubs_protocols.wireless_protocols
 ha_release: '2021.2'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@home-assistant/z-wave'
 ha_domain: zwave_js
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-ha_integration_type: hub
-ha_zeroconf: true
 related:
+  - docs: /connectivity/z-wave/
+    title: About Z-Wave
   - docs: /connect/zwa-2
     title: Home Assistant Connect ZWA-2 Z-Wave adapter
   - docs: /docs/z-wave/controllers/
@@ -37,6 +13,8 @@ related:
 ---
 
 The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
+
+This page documents the **Z-Wave** integration. To learn more about Z-Wave, refer to [Z-Wave](/connectivity/z-wave/).
 
 ## Getting started
 
@@ -59,7 +37,7 @@ Once you have set up the Z-Wave server, you can [add devices to the network](#ad
 
 #### Prerequisites
 
-- A [supported Z-Wave adapter](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). 
+- A [supported Z-Wave adapter](/docs/z-wave/controllers/). 
   - First-time user? For recommendations, refer to the [what-to-buy-section](#which-z-wave-adapter-should-i-buy).
 
 #### To set up a Z-Wave server
@@ -107,7 +85,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
        - If it was already on, you might need to power-cycle it.
    - **Option 2: your device does not support SmartStart**:
      - Set the device in inclusion mode. Refer to the device manual to see how this is done.
-     - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
+     - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/connectivity/z-wave/#z-wave-security).
 5. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
 6. Troubleshooting: If the adapter fails to add/find your device, cancel the inclusion process.
    - In some cases, it might help to first [remove](#removing-a-device-from-a-foreign-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
@@ -144,16 +122,7 @@ Do this when you have a device that is still paired with an adapter, but you don
 
 ## Using a Z-Wave adapter connected to an ESPHome device
 
-Your Z-Wave adapter doesn't have to be plugged into your Home Assistant server. It can also connect to an ESP32-based device running [ESPHome](/integrations/esphome/). The ESPHome device then passes the Z-Wave traffic to Home Assistant over your network. This lets you place the adapter anywhere you have a Wi-Fi or Ethernet connection.
-
-For example, you can use the experimental [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/) firmware with a [Home Assistant Connect ZWA-2](/connect/zwa-2). Portable Z-Wave is ESPHome firmware for connecting a Z-Wave adapter to Home Assistant over your network. You can use it in two ways:
-
-- Install it on the Home Assistant Connect ZWA-2 itself. The adapter then connects over its built-in Wi-Fi.
-- Install it on an ESP32 board with Power over Ethernet (PoE). Then plug the Home Assistant Connect ZWA-2 into that board by USB. The adapter keeps its standard firmware.
-
-To install the firmware, use the [Open Home Foundation toolbox](https://toolbox.openhomefoundation.org/home-assistant-connect-zwa-2/).
-
-Over the network, Z-Wave devices respond a little slower than over USB. On most home networks, you won't notice the difference. On a busy network or with a weak Wi-Fi signal, the delay can become noticeable.
+Your Z-Wave adapter doesn't have to be plugged into your Home Assistant server. It can also connect to an ESP32-based device running [ESPHome](/integrations/esphome/), which passes the Z-Wave traffic to Home Assistant over your network. For the devices you can use, refer to [Placing your adapter elsewhere in your home](/connectivity/z-wave/#placing-your-adapter-elsewhere-in-your-home).
 
 ### How Home Assistant finds an adapter connected to an ESPHome device
 
@@ -169,7 +138,7 @@ Two integrations work together to find the adapter:
   - On other installation types, connect your own [Z-Wave JS server](#setting-up-a-z-wave-server-without-using-the-z-wave-js-app) to `esphome://` followed by the IP address of the ESPHome device. For example: `esphome://192.168.1.50`.
     - If the ESPHome device uses API encryption, add `?key=` followed by its URL-encoded encryption key. For example: `esphome://192.168.1.50?key=YOUR_ENCRYPTION_KEY`. For details, refer to the [Z-Wave JS documentation](https://zwave-js.github.io/zwave-js/#/usage/esphome-connection).
 - An ESP32-based device running ESPHome with the [Z-Wave proxy](https://esphome.io/components/zwave_proxy/) component. A Z-Wave adapter must be connected to it.
-  - For example, a Home Assistant Connect ZWA-2 running Portable Z-Wave, or plugged into an ESP32 board running it.
+  - For example, a Home Assistant Connect ZWA-2 plugged into a [Home Assistant Connect AUX-2](/connect/aux-2/), or a Connect ZWA-2 running Portable Z-Wave.
 - If you already use Z-Wave, your Z-Wave network must run on the Z-Wave JS app.
   - If you use Z-Wave JS UI, first [migrate to the Z-Wave JS app](#migrating-from-z-wave-js-ui-to-the-z-wave-js-app).
 - If the adapter already holds a Z-Wave network, [back up your Z-Wave network](#backing-up-your-z-wave-network) before you change the adapter's connection.
@@ -178,7 +147,7 @@ Two integrations work together to find the adapter:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Under **Discovered**, find the ESPHome device and select **Add**.
-   - For example: your Home Assistant Connect ZWA-2 running Portable Z-Wave, or the ESP32 board it's plugged into.
+   - For example: the Home Assistant Connect AUX-2 that your Connect ZWA-2 is plugged into, or your Connect ZWA-2 running Portable Z-Wave.
    - Follow the steps on screen to add the device to the ESPHome integration.
    - If you already added the ESPHome device, skip this step.
 3. Continue with the Z-Wave adapter:
@@ -451,7 +420,7 @@ It is recommended to back up your Z-Wave network before resetting the device.
 
 - Administrator rights on Home Assistant
 - [Backup your Z-Wave network](#backing-up-your-z-wave-network)
-- [Remove all devices that are paired with your adapter from the network](#removing-a-device-from-the-z-wave-network).
+- [Remove all devices that are paired with your adapter from the network](#removing-a-device-from-the-current-z-wave-network).
   - Removing can be done by any adapter, not just the one that originally managed the network. In theory, this could also be done later.
 
 ### To reset a Z-Wave adapter
@@ -753,7 +722,7 @@ This method provides the same server application and UI as the Z-Wave JS UI app.
 This is considered a more involved use case. In this case, you run the Z-Wave JS Server or Z-Wave JS UI NodeJS application directly. Installation and maintaining this is out of scope for this document. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [Z-Wave JS UI](https://github.com/zwave-js/zwave-js-ui/) GitHub repository for information.
 
 {% note %}
-[Supported Z-Wave adapter](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave adapter should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave JS server, you need to provide the path to this adapter. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your adapter, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
+[Supported Z-Wave adapter](/docs/z-wave/controllers/). The Z-Wave adapter should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave JS server, you need to provide the path to this adapter. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your adapter, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
 {% endnote %}
 
 {% note %}
@@ -786,9 +755,7 @@ You can also keep track of the road map for the Z-Wave integration [here](https:
 
 ### Which Z-Wave adapter should I buy?
 
-Z-Wave supports all known 500, 700, and 800 series Z-Wave adapters. If you are just starting out, we recommend that you purchase a 800-series adapter (with firmware updated to >=7.23.2).
-
-For more information, see [Supported Z-Wave adapters](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
+For the recommended adapter, refer to [Z-Wave adapters](/docs/z-wave/controllers/).
 
 ### Why was I (not) automatically prompted to install Z-Wave?
 
@@ -810,16 +777,6 @@ Zwavejs2Mqtt was renamed Z-Wave JS UI in September 2022. They are synonymous wit
 ### What happened to the Z-Wave JS UI app?
 
 The **Z-Wave JS UI** app is being phased out, as its feature-rich UI is now included in the **Z-Wave JS** app. The **Z-Wave JS UI** app will continue to be supported for a while, but users are encouraged to switch to the **Z-Wave JS** app.
-
-### Should I use `Secure Inclusion`?
-
-That depends. There are two generations of Z-Wave encryption, Security S0, and Security S2. Both provide encryption and allow detecting packet corruption.
-
-Security S0 imposes significant additional traffic on your mesh and is recommended only for older devices that do not support Security S2 but require encryption to work, such as door locks.
-
-Security S2 does not impose additional network traffic and provides additional benefits. For example, end devices using S2 require the hub to report whether it has received and understood their reports.
-
-By default, Z-Wave prefers Security S2, if supported. Security S0 is used only when absolutely necessary.
 
 ### Where can I see the security keys in the Z-Wave JS app?
 
@@ -858,7 +815,7 @@ The first-generation Gen5 adapter has a known bug when plugged into a Pi&nbsp;4 
 
 Entities will be created only after the node is ready (the interview is completed). Also, note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the events section on how to handle those events in your automations.
 
-If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), create an issue about your problem on the GitHub issue tracker.
+If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), create an issue about your problem on the [GitHub issue tracker](https://github.com/home-assistant/core/issues).
 
 ### My device doesn't automatically update its status in Home Assistant if I control it manually
 
@@ -887,10 +844,6 @@ When trying to determine why something isn't working as you expect, or when repo
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration. Then, select the three-dot {% icon "mdi:dots-vertical" %} menu.
 3. From the dropdown menu, select **Download diagnostics**.
-
-### How do I address interference issues?
-
-Many users have reported issues with interference when the adapter was directly connected to the machine (proximity). If you are having issues, try to use a short USB&nbsp;2.0&nbsp;A (male to female) extension cord.
 
 ### How do I access the Z-Wave logs?
 
@@ -924,13 +877,13 @@ This sections lists functionality that is available in Z-Wave but that is not cu
 
 In Home Assistant, it is currently not possible to set the Z-Wave controller into learn mode to receive network information from another controller.
 
-### Including / excluding a adapter in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
+### Including / excluding a adapter in an existing network using [classic inclusion](/connectivity/z-wave/#classic-inclusion-versus-smartstart)
 
 A Z-Wave controller that manages an empty network can also join a different network and act as a secondary controller there. However, with Home Assistant, this is not possible. Home Assistant does not allow the Z-Wave controller to join another network, because Home Assistant acts as the central hub.
 
 ## Z-Wave association groups
 
-In Home Assistant, a single [association group](#association-group) is implemented:
+In Home Assistant, a single [association group](/connectivity/z-wave/#association-group) is implemented:
 
 - **Group 1**: This is an association group that includes only one device. It is used after a [factory reset](#resetting-a-z-wave-adapter), to send a **Device Reset Locally Notification**.
 
@@ -979,46 +932,13 @@ The following table lists the Command Classes together with the implemented vers
 Home Assistant and Z-Wave JS will never return a "Working" or "Fail" status for a valid and supported command of the Supervision Command Class.
 {% endnote %}
 
-## Z-Wave terminology
-
-This section explains some Z-Wave terms and concepts you might find in Z-Wave product documentation.
-
-### Association group
-
-An _association_ in Z-Wave terminology is when two or more Z-Wave products communicate directly. This enables devices to communicate with each other without the need to communicate via a hub, or to send unsolicited reports to the central hub.
-
-An _association group_ in Z-Wave terminology is a group of devices that another one will send commands to in certain situations. Association groups and their functionality are specific to the device that sends the commands. Refer to the device manual for details.
-
-### Classic inclusion versus SmartStart
-
-Home Assistant supports both _classic inclusion_ and _SmartStart_. _Classic inclusion_ means you set both the hub and the device to be included into the corresponding mode. The alternative is _SmartStart_, where the hub is constantly listening for inclusion requests from devices that want to join the network.
-
-### SmartStart
-
-SmartStart enabled products can be added into a Z-Wave network by scanning the Z-Wave QR Code present on the product with an adapter supporting SmartStart inclusion.
-No further action is required and the SmartStart product will be added automatically within 10 minutes of being switched on in the network vicinity. Not all devices support SmartStart. Some devices require *classic inclusion*. For documentation on adding a device to Home Assistant, refer to [adding a new device to the Z-Wave network](#adding-a-new-device-to-the-z-wave-network).
-
-### Terminology mapping table
-
-Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms.
-
-| Z-Wave functionality | Home Assistant | Definition |
-| -------------------- | -------------- | ---------- |
-| barrier operator | cover | |
-| controller | adapter, when referring to the hardware device that provides the Z-Wave functionality. The term controller is still used when referring to the network role (such as primary, secondary controller)  | |
-| exclusion | remove | The process of removing a node from the Z-Wave network |
-| [inclusion](#classic-inclusion-versus-smartstart) | add | The process of adding a node to the Z-Wave network |
-| multilevel switch | represented by different entity types, such as light or fan. | |
-| replication | copy (not supported in Home Assistant) | The process of copying network information from one adapter to another. Not supported in Home Assistant. |
-| window covering | cover | |
-
 ## Removing Z-Wave JS from Home Assistant
 
 This removes all paired Z-Wave devices and their entities, the Z-Wave JS app, and the Z-Wave integration from Home Assistant.
 
 ### To remove Z-Wave JS from Home Assistant
 
-1. [Remove the device from your Z-Wave network](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network).
+1. [Remove the device from your Z-Wave network](/integrations/zwave_js/#removing-a-device-from-the-current-z-wave-network).
    - Do this for each device that is joined to your network so that it is no longer paired to the adapter.
    - You cannot add a device to a new adapter while it is still paired with an old one.
    - Alternatively, you can factory reset each device. Refer to the device manual to see how this is done.

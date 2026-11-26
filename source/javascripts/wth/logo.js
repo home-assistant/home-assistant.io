@@ -1,7 +1,7 @@
 // The "What the Heck?!" wordmark in 3D.
 //
 // Builds the wordmark with three.js from the live text in
-// source/wth/components/_wordmark.html, so the words stay editable there. The
+// source/what-the-heck/components/_wordmark.html, so the words stay editable there. The
 // CSS version of the wordmark stays on the page as the fallback and is only
 // hidden once the 3D version has drawn its first frame.
 //
@@ -14,6 +14,10 @@
 // and the sky outline with its dark sides. The letters are then placed in 3D
 // space, word by word, and lit. The mint sticker is drawn in 2D on top of the
 // rendered image: it traces the silhouette of the whole scene on screen.
+//
+// The date line under the words (`wth-mark__line--date`) is centred under them
+// and hangs from its own pivot inside the wordmark. It
+// tips up and down with the words, but turns left and right on its own timing.
 
 import {
     AmbientLight,
@@ -43,6 +47,9 @@ const FONT_URL = new URL('logo-font.json', import.meta.url).href;
 
 // Sizes in world units, where 1 is the font size of the large line.
 const SIZE_SM = 0.68;
+// The date is sized to run about as wide as the large line (HECK?!), times
+// this factor.
+const DATE_WIDTH = 1;
 const TRACKING = -0.01;
 // Gaps between the outlines of neighbouring words and lines.
 const WORD_GAP = 0.1;
@@ -66,6 +73,7 @@ const POSES = {
     what: { rx: 0, ry: 12, rz: 2 },
     the: { rx: 0, ry: -14, rz: 4 },
     heck: { rx: 0, ry: -20, rz: -3 },
+    date: { rx: 0, ry: -8, rz: 2 },
 };
 
 // The resting view, turned so the left and bottom sides of the letters show,
@@ -73,6 +81,10 @@ const POSES = {
 const VIEW = { x: -0.2, y: 0.3 };
 // How far the wordmark turns towards the pointer, in radians.
 const TILT = { x: 0.14, y: 0.22 };
+// The date turns left and right further and more slowly than the words, and
+// sways at its own pace. Follow is the share of the way it catches up each
+// frame.
+const DATE_TURN = { y: 0.32, follow: 0.03 };
 // On phones and tablets, the device tilt turns the wordmark instead: tilting
 // this many degrees away from how the device is held turns it all the way.
 // The resting angle follows the device slowly, so the wordmark settles when
@@ -108,10 +120,16 @@ function clamp(value) {
     return Math.max(-1, Math.min(1, value));
 }
 
+// WebGL 2 alone is not enough: the sticker outline renders into float
+// color buffers, which need EXT_color_buffer_float. Without it those passes
+// fail silently (WebGL errors don't throw), so keep the CSS wordmark.
 function supportsWebGL() {
     try {
         const canvas = document.createElement('canvas');
-        return Boolean(canvas.getContext('webgl2'));
+        const gl = canvas.getContext('webgl2');
+        const ok = Boolean(gl && gl.getExtension('EXT_color_buffer_float'));
+        gl?.getExtension('WEBGL_lose_context')?.loseContext();
+        return ok;
     } catch {
         return false;
     }
@@ -258,6 +276,7 @@ class WthLogo {
         this.root = new Group();
         this.scene.add(this.root);
         this.words = [];
+        this.dateWords = [];
         this.build();
 
         this.camera = new PerspectiveCamera(30, 1, 0.1, 100);
@@ -278,6 +297,7 @@ class WthLogo {
         this.setUpSticker(cssColor('--wth-mint', '#16F3BE'));
 
         this.fit();
+        this.detachDate();
         this.words.forEach((word) => { word.rest = word.group.position.clone(); });
         this.introPlaying = !this.reducedMotion.matches;
         if (this.introPlaying) this.intro(0);
@@ -285,6 +305,7 @@ class WthLogo {
 
         this.pointer = { x: 0, y: 0 };
         this.tilt = { x: 0, y: 0 };
+        this.dateTurn = 0;
         this.visible = true;
         this.listen();
         this.resize();
@@ -333,6 +354,15 @@ class WthLogo {
         return { group, meshes };
     }
 
+    // The advance width of a line's text at size 1, from the font.
+    textWidth(line) {
+        const text = [...line.querySelectorAll('.wth-mark__word')]
+            .map((word) => (word.dataset.text || word.textContent).trim())
+            .join(' ');
+        const { glyphs, resolution } = this.font.data;
+        return [...text].reduce((sum, char) => sum + (glyphs[char] || glyphs['?']).ha / resolution + TRACKING, 0);
+    }
+
     // Lays the words out in lines like the CSS version. Words are placed by
     // the outlines they have once rotated, so lines stay left-aligned and
     // tight whatever the poses are.
@@ -340,9 +370,14 @@ class WthLogo {
         let top = 0;
         let depth = 0;
 
+        const large = this.mark.querySelector('.wth-mark__line--lg');
+        const dateLine = this.mark.querySelector('.wth-mark__line--date');
+        const sizeDate = large && dateLine ? (this.textWidth(large) / this.textWidth(dateLine)) * DATE_WIDTH : 0.28;
+
         // Bottom line first, so each line can sit on top of the one below.
         [...this.mark.querySelectorAll('.wth-mark__line')].reverse().forEach((line) => {
-            const size = line.classList.contains('wth-mark__line--lg') ? 1 : SIZE_SM;
+            const isDate = line.classList.contains('wth-mark__line--date');
+            const size = isDate ? sizeDate : line.classList.contains('wth-mark__line--lg') ? 1 : SIZE_SM;
             const words = [...line.querySelectorAll('.wth-mark__word')].map((word) => {
                 const variant = [...word.classList]
                     .map((name) => name.match(/^wth-mark__word--(.+)$/)?.[1])
@@ -371,7 +406,10 @@ class WthLogo {
             depth += LINE_DEPTH;
             // Keep reading order, which the intro follows.
             this.words.unshift(...words);
+            if (isDate) this.dateWords.push(...words);
         });
+
+        this.centreDate();
 
         // Centre the whole wordmark on the origin.
         this.root.updateMatrixWorld(true);
@@ -424,6 +462,38 @@ class WthLogo {
         this.frame.style.aspectRatio = camera.aspect.toFixed(4);
     }
 
+    // Centres the date under the widest line of the wordmark. The date is
+    // one word.
+    centreDate() {
+        const [date] = this.dateWords;
+        if (!date) return;
+        this.root.updateMatrixWorld(true);
+        const words = boxOf(this.words.filter((word) => word !== date).flatMap((word) => word.meshes));
+        const box = boxOf(date.meshes);
+        date.group.position.x += (words.min.x + words.max.x) / 2 - (box.min.x + box.max.x) / 2;
+    }
+
+    // Hangs the date words from a pivot of their own at the date's centre,
+    // inside the wordmark, so they share its every move and add their own
+    // turn left and right on top.
+    detachDate() {
+        if (!this.dateWords.length) return;
+        const { root } = this;
+        root.updateMatrixWorld(true);
+
+        // The date's centre in the wordmark's own space.
+        const centre = boxOf(this.dateWords.flatMap((word) => word.meshes)).getCenter(new Vector3());
+        root.worldToLocal(centre);
+
+        this.date = new Group();
+        this.date.position.copy(centre);
+        root.add(this.date);
+        this.dateWords.forEach(({ group }) => {
+            group.position.sub(centre);
+            this.date.add(group);
+        });
+    }
+
     listen() {
         new ResizeObserver(() => this.resize()).observe(this.canvas);
 
@@ -472,7 +542,9 @@ class WthLogo {
         };
 
         window.addEventListener('deviceorientation', onOrientation);
-        if (typeof DeviceOrientationEvent.requestPermission !== 'function') return;
+        // Inside a link, such as the homepage card, a tap must follow the
+        // link, so do not ask there.
+        if (typeof DeviceOrientationEvent.requestPermission !== 'function' || this.mark.closest('a')) return;
 
         // Other browsers have the same call but send the tilt without it, so
         // only offer the tap while no tilt has come in.
@@ -529,6 +601,7 @@ class WthLogo {
                 // Skip to the end of the intro if it was cut short.
                 if (this.introPlaying) this.introPlaying = this.intro(Infinity);
                 this.root.rotation.set(VIEW.x, VIEW.y, 0);
+                this.date?.rotation.set(0, 0, 0);
                 this.render();
                 return;
             }
@@ -538,8 +611,15 @@ class WthLogo {
             const idle = time / 1000;
             this.tilt.x += (this.pointer.y * TILT.x - this.tilt.x) * 0.06;
             this.tilt.y += (this.pointer.x * TILT.y - this.tilt.y) * 0.06;
+            const turn = this.tilt.y + Math.sin(idle * 0.5) * 0.05;
             this.root.rotation.x = VIEW.x + this.tilt.x + Math.sin(idle * 0.7) * 0.03;
-            this.root.rotation.y = VIEW.y + this.tilt.y + Math.sin(idle * 0.5) * 0.05;
+            this.root.rotation.y = VIEW.y + turn;
+            if (this.date) {
+                // The date inherits the words' turn, so it swaps it for its
+                // own.
+                this.dateTurn += (this.pointer.x * DATE_TURN.y - this.dateTurn) * DATE_TURN.follow;
+                this.date.rotation.y = this.dateTurn + Math.sin(idle * 0.8 + 2) * 0.1 - turn;
+            }
             this.render();
             requestAnimationFrame(tick);
         };
@@ -602,17 +682,29 @@ class WthLogo {
     }
 }
 
+// Shows the CSS wordmark, which is hidden while the 3D one loads: by
+// `wth-3d` on the page (source/_includes/wth/3d-check.html), or by
+// `wth-mark--loading` on the wordmark (the Astro build's WthWordmark.astro).
+function showCssWordmark() {
+    document.documentElement.classList.remove('wth-3d');
+    document.querySelectorAll('.wth-mark--loading').forEach((mark) => mark.classList.remove('wth-mark--loading'));
+}
+
 async function init() {
     const mark = document.querySelector('.wth-mark[data-wth-logo]');
-    if (!mark || !supportsWebGL()) return;
+    if (!mark || !supportsWebGL()) {
+        showCssWordmark();
+        return;
+    }
 
     try {
         const response = await fetch(FONT_URL);
-        if (!response.ok) return;
+        if (!response.ok) throw new Error(`Font request failed: ${response.status}`);
         new WthLogo(mark, new Font(await response.json())).start();
     } catch (error) {
         // Keep the CSS wordmark if anything goes wrong.
         console.warn('WTH logo: falling back to the CSS wordmark.', error);
+        showCssWordmark();
     }
 }
 

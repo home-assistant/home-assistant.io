@@ -1,20 +1,7 @@
 ---
-title: Android Debug Bridge
 description: Instructions on how to integrate Android and Fire TV devices into Home Assistant.
-ha_categories:
-  - media_entertainment.tv_streaming
 ha_release: 0.7.6
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@JeffLIrion'
-  - '@ollo69'
 ha_domain: androidtv
-ha_platforms:
-  - diagnostics
-  - media_player
-  - remote
-ha_integration_type: device
 ---
 
 The **Android Debug Bridge** {% term integration %} allows you to control an Android device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
@@ -49,8 +36,8 @@ Retrieve the running apps as the list of sources:
   description: "Whether or not to retrieve the running apps as the list of sources. If this option is checked, the running apps will be retrieved and used as the sources. If not, there will be only one source: the current app."
 Exclude apps with unknown name:
   description: "Exclude app with unknown name from the source list. If this option is checked, then only apps configured in `Configured Application List` option will be listed among the sources."
-Use screen capture for album art:
-  description: "Determines if album art should be pulled from what is shown on screen."
+Interval in minutes between screen capture for album art:
+  description: "How often, in minutes, to take a screen capture of the device and show it as album art. A new screen capture is also taken when the app in the foreground changes. Screen captures can slow down some devices. Set to 0 to turn them off. Defaults to 5, and the maximum is 15."
 ADB shell turn off command:
   description: "ADB shell command to override default turn off command. Leave empty to use default."
 ADB shell turn on command:

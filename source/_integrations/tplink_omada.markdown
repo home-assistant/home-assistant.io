@@ -1,23 +1,7 @@
 ---
-title: TP-Link Omada
 description: Instructions on integrating TP-Link Omada SDN networking devices to Home Assistant.
-ha_categories:
-  - computers_network.routers_network
 ha_release: 2023.3
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@MarkGodwin'
 ha_domain: tplink_omada
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - diagnostics
-  - sensor
-  - switch
-  - update
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **TP-Link Omada** {% term integration %} allows you to control your [TP-Link Omada SDN Devices](https://www.tp-link.com/omada-sdn/) such as network switches, access points, and internet gateways.
@@ -51,7 +35,7 @@ Controller versions 5.1.0 and later are supported.
 
 {% configuration_basic %}
 Host:
-    description: "Enter the URL of the Omada management interface. You can get this from your Omada web management interface."
+    description: "Enter the URL of the Omada management interface, for example `https://192.168.1.10` or `https://omada.example.com`. If your controller uses a custom port, add it after the address, for example `https://192.168.1.10:8043`. Use the address only, without a page path such as `/login`. If you leave out `http://` or `https://`, Home Assistant uses `https://`. You can get this from your Omada web management interface."
 Verify SSL Certificates:
     description: "Un-check this box if you are using an HTTPS URL and you have not installed a matching device certificate for the Omada controller."
 Username:

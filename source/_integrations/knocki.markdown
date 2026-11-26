@@ -1,20 +1,7 @@
 ---
-title: Knocki
 description: Instructions on how to set up Knocki devices in Home Assistant.
-ha_categories:
-  - buttons_remotes
-ha_config_flow: true
 ha_release: 2024.7
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@joostlek'
-  - '@jgatto1'
-  - '@JakeBosh'
 ha_domain: knocki
-ha_platforms:
-  - event
-ha_integration_type: hub
-ha_dhcp: true
 ---
 
 The **Knocki** {% term integration %} allows you to trigger your favorite automations simply by tapping custom patterns (such as triple taps) on ordinary surfaces.
@@ -35,6 +22,13 @@ The **Knocki** {% term integration %} allows you to trigger your favorite automa
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Username:
+  description: "The email address of your Knocki account."
+Password:
+  description: "The password of your Knocki account."
+{% endconfiguration_basic %}
+
 ## Automation example
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and in the lower right corner, select  **Create Automation**.
@@ -44,3 +38,13 @@ The **Knocki** {% term integration %} allows you to trigger your favorite automa
    - Select **State** as the type of entity change.
 4. Select **Add action** and choose whatever action(s) you’d like the automation to trigger.
 5. Finally, test the action by tapping the associated gesture pattern.
+
+## Data updates
+
+The integration keeps a WebSocket connection to the Knocki cloud, so knocks reach Home Assistant as they happen. It reads your triggers when it starts, and updates the list when you add or delete a trigger in the Knocki app.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

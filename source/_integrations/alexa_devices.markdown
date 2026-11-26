@@ -1,29 +1,7 @@
 ---
-title: Alexa Devices
 description: Instructions on how to integrate Alexa Devices into Home Assistant.
-ha_categories:
-  - ai_voice.voice_assistants
-  - media_entertainment.speakers_audio
 ha_release: '2025.6'
 ha_domain: alexa_devices
-ha_config_flow: true
-ha_codeowners:
-  - '@chemelli74'
-  - '@jamesonuk'
-ha_iot_class: Cloud Polling
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - event
-  - media_player
-  - notify
-  - select
-  - sensor
-  - switch
-  - todo
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Alexa Devices** {% term integration %} lets you control Alexa-enabled devices connected to your Amazon account.
@@ -37,6 +15,7 @@ There is support for the following device families within Home Assistant:
 - **Amazon Echo Auto**
 - **Amazon Echo Dot**
 - **Amazon Echo Flex**
+- **Amazon Echo Glow**
 - **Amazon Echo Plus**
 - **Amazon Echo Show**
 - **Amazon Fire TV Stick**
@@ -113,6 +92,7 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 In addition to sensors, you can use the following entities:
 
 - **Button** - Execute Alexa routines, restart the device
+- **Light** - Echo Glow on/off, brightness, color, and light modes such as **Campfire** or **Disco** as effects
 - **Media Player** - Play audio/video from several sources
 - **Notify** - Speak and Announce notifications
 - **Select** - Select Drop In status
@@ -180,14 +160,14 @@ template:
     - name: Alexa Devices Last Called
       unique_id: alexa_devices_last_called
       state: >
-        {{
+        {% set timestamps =
           integration_entities('alexa_devices')
             | select('match', '^event\.')
             | select('has_value')
             | map('states')
-            | sort
-            | last
-        }}
+            | list
+        %}
+        {{ (timestamps | sort | last) if timestamps else none }}
       attributes:
         event_entity: >
           {{
@@ -200,19 +180,35 @@ template:
           }}
       
         voice_command: >
-          {{ state_attr(this.attributes.event_entity, 'voice_command') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'voice_command')
+            if event_entity else none
+          }}
       
         voice_reply: >
-          {{ state_attr(this.attributes.event_entity, 'voice_reply') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'voice_reply')
+            if event_entity else none
+          }}
       
         person_first_name: >
-          {{ state_attr(this.attributes.event_entity, 'person_first_name') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'person_first_name')
+            if event_entity else none
+          }}
       
         person_type: >
-          {{ state_attr(this.attributes.event_entity, 'person_type') }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{
+            state_attr(event_entity, 'person_type')
+            if event_entity else none
+          }}
       
         notify_announce: >
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {{
             device_entities(dev)
@@ -223,7 +219,7 @@ template:
           }}
       
         notify_speak: >
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {{
             device_entities(dev)
@@ -234,7 +230,7 @@ template:
           }}
       
         media_player: >
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {{
             device_entities(dev)
@@ -245,7 +241,7 @@ template:
           }}
       
         serial_number: >-
-          {% set event_entity = this.attributes.event_entity %}
+          {% set event_entity = this.attributes.get('event_entity') %}
           {% set dev = device_id(event_entity) if event_entity else none %}
           {% set identifiers = device_attr(dev, 'identifiers') if dev else none %}
           {{
@@ -254,7 +250,8 @@ template:
           }}
       
         device_id: >
-          {{ device_id(this.attributes.event_entity) if this.attributes.event_entity else none }}
+          {% set event_entity = this.attributes.get('event_entity') %}
+          {{ device_id(event_entity) if event_entity else none }}
 ```
 {% enddetails %}
 
@@ -294,6 +291,7 @@ The following items are updated through push events, so changes appear in Home A
 - Volume
 - Media state
 - Do not disturb status
+- Light state
 
 ## Known limitations
 

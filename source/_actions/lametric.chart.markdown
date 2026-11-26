@@ -20,7 +20,7 @@ To display a chart from an automation or a script:
 5. From the search box, search for and select **LaMetric: Display a chart**.
 6. Select the LaMetric device to display the chart on.
 7. Enter the data points to plot in the **Data** field.
-8. _Optional_: set a sound, the number of cycles, an icon type, and a priority.
+8. _Optional_: set a sound, how many times the sound repeats, the number of cycles, an icon type, and a priority.
 9. Select **Save**.
 
 ### Options in the UI
@@ -33,8 +33,14 @@ Data:
 Sound:
   description: "The notification sound to play. See [Notification sounds](/integrations/lametric/#notification-sounds) for the full list."
   required: false
+Custom sound:
+  description: "An MP3 file to play instead of a built-in sound: pick one from your media, or enter its URL. When a sound is selected as well, it plays when the file cannot be fetched."
+  required: false
 Cycles:
   description: "How many times to display the chart. Set to 0 to keep it on screen until it is dismissed."
+  required: false
+Repeat:
+  description: "How many times to play the sound with the chart. Set to 0 to keep playing it until the notification is dismissed. Does not apply to sounds fetched from a URL."
   required: false
 Icon type:
   description: "The type of icon to display, indicating the nature of the notification. One of none, info, or alert."
@@ -76,9 +82,20 @@ sound:
     The notification sound to play. See [Notification sounds](/integrations/lametric/#notification-sounds) for the full list.
   required: false
   type: string
+sound_url:
+  description: >
+    An MP3 file to play instead of a built-in sound: a media source ID of a file in Home Assistant, or the URL of the file. When `sound` is set as well, that sound plays when the file cannot be fetched. The device fetches the file itself, so it must be able to reach Home Assistant, or the URL, on the network.
+  required: false
+  type: string
 cycles:
   description: >
     How many times to display the chart. Set to `0` to keep it on screen until it is dismissed.
+  required: false
+  type: integer
+  default: 1
+repeat:
+  description: >
+    How many times to play the sound with the chart. Set to `0` to keep playing it until the notification is dismissed. Does not apply to sounds fetched from a URL.
   required: false
   type: integer
   default: 1

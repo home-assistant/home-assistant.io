@@ -1,29 +1,8 @@
 ---
-title: Sonos
 description: Instructions on how to integrate Sonos devices into Home Assistant.
-ha_categories:
-  - media_entertainment.speakers_audio
 featured: true
 ha_release: 0.7.3
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: sonos
-ha_codeowners:
-  - '@peterager'
-  - '@jjlawren'
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - media_player
-  - number
-  - select
-  - sensor
-  - switch
-ha_zeroconf: true
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Sonos** {% term integration %} allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.

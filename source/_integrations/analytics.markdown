@@ -1,13 +1,7 @@
 ---
-title: Analytics
 description: Share system analytics and diagnostics
 ha_release: 2021.4
-ha_iot_class: Cloud Push
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: analytics
-ha_integration_type: system
 ---
 
 {% assign current_version = site.current_major_version | append: "." | append: site.current_minor_version | append: "." | append: site.current_patch_version  %}

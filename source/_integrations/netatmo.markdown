@@ -1,31 +1,7 @@
 ---
-title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
-ha_categories:
-  - climate.thermostats_heating
-  - security_safety.cameras
-  - weather_alerts
 ha_release: '0.20'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@cgtobi'
-ha_config_flow: true
 ha_domain: netatmo
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - cover
-  - diagnostics
-  - fan
-  - light
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 [Netatmo](https://www.netatmo.com/) is a smart home brand from the Legrand group that makes connected devices for the home, including weather stations, indoor and outdoor cameras, video doorbells, smart thermostats and radiator valves, air quality monitors, and Legrand and BTicino electrical products such as switches, dimmers, and power plugs.

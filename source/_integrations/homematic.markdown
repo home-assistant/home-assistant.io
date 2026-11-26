@@ -1,27 +1,10 @@
 ---
-title: Homematic
 description: Instructions for integrating Homematic into Home Assistant.
-ha_categories:
-  - hubs_protocols.smart_home_hubs
-ha_iot_class: Local Push
 ha_release: 0.23
-ha_codeowners:
-  - '@pvizeli'
 ha_domain: homematic
-ha_platforms:
-  - binary_sensor
-  - climate
-  - cover
-  - light
-  - lock
-  - notify
-  - sensor
-  - switch
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The [Homematic](https://www.eq-3.com/products/homematic.html) {% term integration %} provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.

@@ -1,18 +1,7 @@
 ---
-title: Sunsynk
 description: Instructions on how to integrate Sunsynk inverters within Home Assistant.
-ha_categories:
-  - energy.solar_batteries
 ha_release: '2026.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@jamesridgway'
 ha_domain: sunsynk
-ha_platforms:
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Sunsynk** {% term integration %} gets data from the [Sunsynk](https://www.sunsynk.org) cloud and shows it in Home Assistant.

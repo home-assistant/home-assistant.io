@@ -1,0 +1,15 @@
+{
+  "domain": "london_air",
+  "name": "London Air",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "weather_alerts.air_quality_pollen"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

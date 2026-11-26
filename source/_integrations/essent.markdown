@@ -1,23 +1,12 @@
 ---
-title: Essent
 description: Monitor dynamic energy prices from Essent Netherlands
-ha_categories:
-  - energy.energy_prices
 ha_release: 2025.12
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@jaapp'
 ha_domain: essent
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_quality_scale: silver
 ---
 
 The **Essent** {% term integration %} monitors dynamic energy prices for Essent customers in the Netherlands with Dynamic Contracts.
 
-Price data is fetched from Essent's public API and requires no authentication. The integration provides real-time electricity and gas pricing information, updated twice a day.
+Price data is fetched from Essent's public API and requires no authentication. The integration provides real-time electricity and gas pricing information.
 
 {% note %}
 This is a community integration using Essent's public API, not officially provided by Essent.
@@ -58,7 +47,7 @@ The following sensors are created for gas prices:
 
 ## Data updates
 
-The API is polled every 12 hours to fetch price data. Each call fetches all hourly prices for today and tomorrow (when available). Tomorrow's prices typically appear after 12:00 CET for electricity and 19:00 CET for gas.
+The API is polled every hour to fetch price data. Each call fetches all hourly prices for today and tomorrow (when available). Tomorrow's prices typically appear after 12:00 CET for electricity and 19:00 CET for gas.
 
 Sensors update on the hour using cached API data, so they advance to the current price without additional API calls between polls.
 

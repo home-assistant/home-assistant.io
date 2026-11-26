@@ -1,15 +1,21 @@
 ---
 layout: post
-title: "HACS 2.0 - The best way to share community-made projects just got better"
+title: "HACS 2.0: The best way to share community-made projects just got better"
 description: "2.0 brings new features making it the best to share community-made integrations and UI elements."
 date: 2024-08-21 00:00:01
 date_formatted: "August 21, 2024"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Joakim Sørensen
 comments: true
 categories: Announcements
 og_image: /images/blog/2024-08-hacs2/art.png
 ---
 <p class='img'><img src='/images/blog/2024-08-hacs2/art.png' style='border: 0;box-shadow: none;' alt="HACS 2.0 - The best way to share community-made projects just got better">Art by Clelia Rella</p>
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing. The installation steps in this post no longer apply.
+{% endnote %}
 
 **TL;DR:**  HACS 2.0 is a big step forward, adding an easier install method, faster updates, a new UI, and proper Home Assistant update/repair notifications.
 

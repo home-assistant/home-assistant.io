@@ -229,7 +229,7 @@ You can set a background image for a whole dashboard. The background is shown be
 
 The **Background** tab is not available for [YAML dashboards](#adding-yaml-dashboards) and for dashboards that are still generated automatically. To set a background for a generated dashboard, [take control](#editing-a-new-dashboard) of it first.
 
-## Deleting a dashboard
+## Deleting dashboards
 
 If you do not use one of the predefined dashboards, or created a dashboard you no longer need, you can delete that dashboard. It will then no longer show in the sidebar.
 
@@ -237,6 +237,16 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 2. From the list of dashboards, select the dashboard you want to delete.
 3. In the dialog, select **Delete**.
    ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
+
+To delete several dashboards at once:
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. Select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button.
+3. Select the dashboards you want to delete.
+4. In the bar at the top of the list, select **Delete**, then confirm.
+   - Result: The selected dashboards are permanently deleted.
+
+You can only delete dashboards you created in the UI. Built-in dashboards and dashboards configured in YAML are skipped. In that case, the dialog tells you how many of the selected dashboards can be deleted.
 
 ## Adding or removing a dashboard from the sidebar
 

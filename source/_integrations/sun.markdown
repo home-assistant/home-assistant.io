@@ -1,19 +1,7 @@
 ---
-title: Sun
 description: Instructions on how to track the sun within Home Assistant.
-ha_categories:
-  - weather_alerts.forecasts
 ha_release: pre 0.7
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
-ha_iot_class: Calculated
 ha_domain: sun
-ha_config_flow: true
-ha_integration_type: service
-ha_platforms:
-  - binary_sensor
-  - sensor
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -62,7 +50,7 @@ sun:
 
 Home Assistant provides a set of dedicated sun triggers for sunrise, sunset, dawn, dusk, solar noon, solar midnight, golden hour, blue hour, midnight sun, polar night, and the sun's elevation. See the [list of triggers](#list-of-triggers) below for the full set.
 
-For example, to run an automation at sunrise, use the [Sunrise](/triggers/sun.sunrise/) trigger. In the automation editor, add a trigger and search for **Sunrise**. To run it before or after sunrise, set an **Offset**, and choose **Before** or **After** under **Offset type**.
+For example, to run an automation at sunrise, use the [Sunrise](/triggers/sun.sunrise/) trigger. In the automation editor, add a trigger and search for **Sunrise**. To run it before or after sunrise, under **Offset**, select **Before** or **After**, and then set the **Duration**.
 
 In YAML, the Sunrise trigger looks like this:
 

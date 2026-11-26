@@ -1,27 +1,7 @@
 ---
-title: Vistapool
 description: Monitor and control Vistapool-compatible pool controllers via the Vistapool cloud API.
-ha_categories:
-  - water.pools_spas
 ha_release: 2026.6
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@fdebrus'
 ha_domain: vistapool
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_integration_type: hub
-ha_dhcp: true
-ha_quality_scale: bronze
 ---
 
 The **Vistapool** integration connects Home Assistant to **Vistapool-compatible pool controllers**, including AquaRite, Vistapool, Sugar Valley, Poolwatch, Kripsol, and Dagen devices.
@@ -92,8 +72,9 @@ These are available if your controller has a hydrolysis or electrolysis module i
 
 ### Buttons
 
-If your controller drives a multi-color LED light fixture, the integration exposes a one-shot button to cycle through the available colors from Home Assistant.
+The integration provides the following buttons.
 
+- **Sync time**: set the controller's clock to Home Assistant's current local time. The controller runs its filtration intervals and light schedule on its own clock, which drifts over time, so your schedules can start and stop a few minutes off. Select this button to put the clock back in step. It appears under the **Configuration** section of the device page.
 - **LED next color**: advance the LED fixture to its next color. The integration briefly toggles the pool light off and back on (or just turns it on if it was off). The physical fixture interprets the power cycle as the color-advance signal, just as the **Next** button under **LED Color** does in the Vistapool app's **Illumination** screen. Available only if your controller reports an LED fixture.
 
 #### Examples

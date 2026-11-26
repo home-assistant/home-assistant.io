@@ -23,7 +23,7 @@ You add conditions in the **And if** section of the automation editor, with **Ad
 
 For all conditions, refer to the [list of available conditions](/conditions/). The built-in conditions are in the [General](/conditions/#homeassistant) group. The **Device** condition is in the [Device automation](/conditions/#device_automation) group.
 
-Many conditions check a target, such as a light or all windows in an area. If the target covers several entities, the **Condition passes if** option decides whether one or all of them must match. For details, refer to [Automation targets](/docs/automation/targets/#conditions-any-and-all).
+Many conditions check a target, such as a light or all windows in an area. If the target covers several entities, the **Condition passes if** option decides whether one or all of them must match. For details, refer to [Automation targets](/docs/automation/targets/#conditions-any-and-all). To leave out some of the targets, refer to [Excluding targets](/docs/automation/targets/#excluding-targets).
 
 ## Conditions check the current state
 
@@ -53,7 +53,7 @@ You can also check a condition between the actions under **Then do**:
 
 To try an automation without one of its conditions, disable the condition instead of deleting it. In the editor, in the **Menu** {% icon "mdi:dots-vertical" %} of the condition, select **Disable**. For details, refer to [Turning off a trigger, condition, or action](/docs/automation/editor/#turning-off-a-trigger-condition-or-action).
 
-A disabled condition is skipped, as if it isn't there. In YAML, add `enabled: false` to the condition. `enabled` can also be a [limited template](/docs/templating/limited-templates/) or a blueprint input. The limited template can't use variables, such as `trigger`, `this`, or values from the `variables` section. If the limited template refers to a variable, the condition is disabled or causes an error. For details, refer to [Variables in limited templates](/docs/templating/limited-templates/#in-the-enabled-option-of-conditions-and-other-steps). For conditions in the **And if** section, Home Assistant checks the value once, when the automation loads.
+A disabled condition is skipped, as if it isn't there. In YAML, add `enabled: false` to the condition. `enabled` can also be a [limited template](/docs/templating/limited-templates/) or a blueprint input. The limited template can't use variables, such as `trigger`, `this`, or values from the `variables` section. If the limited template refers to a variable, the condition is disabled or causes an error. For details, refer to [Variables in limited templates](/docs/templating/limited-templates/#in-the-enabled-option-of-conditions). For conditions in the **And if** section, Home Assistant checks the value once, when the automation loads. A condition that is a step of its own in the actions works like any other step: its `enabled` option can be a regular template that uses states and variables. For details, refer to [Turning off a step](/docs/automation/building-blocks/#turning-off-a-step).
 
 ## Testing conditions
 

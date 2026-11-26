@@ -45,7 +45,7 @@ This action has no additional options in YAML.
 
 ## Response data
 
-The action returns the name of each map and the name and ID number of each room on it. You can use the room IDs to clean a specific room.
+The action returns the name of each map and the name and ID number of each room on it. You can use the room IDs to [clean rooms more than once](/integrations/roborock/#automation-clean-rooms-more-than-once).
 
 {% include actions/stuck.md %}
 

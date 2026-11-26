@@ -91,15 +91,21 @@ article {
 
   .meta {
     $meta-color: $site-background;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 15px;
     font-size: 12px;
     padding: 0 0 5px;
-    > * {
-      margin-right: 15px;
-      white-space: nowrap;
 
-      &:last-child {
-        margin-right: 0;
-      }
+    // The clearfix pseudo-elements would become empty flex items.
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    > * {
+      white-space: nowrap;
     }
 
     .comments::before {
@@ -174,7 +180,9 @@ article {
       margin-bottom: 3em;
     }
 
-    > header + img + p{
+    > header + img + p,
+    > header + img + .alert,
+    > header + lite-youtube + .alert {
       margin-top: 24px;
     }
   }

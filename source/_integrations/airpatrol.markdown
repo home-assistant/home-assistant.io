@@ -1,19 +1,7 @@
 ---
-title: AirPatrol
 description: Instructions on how to integrate Airpatrol air conditioning controllers into Home Assistant.
-ha_categories:
-  - climate.heat_pumps_air_conditioning
 ha_release: 2026.1
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@antondalgren'
 ha_domain: airpatrol
-ha_platforms:
-  - climate
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Airpatrol** {% term integration %} allows you to control air conditioning units through [Airpatrol](https://www.airpatrol.com/) devices in Home Assistant.
@@ -58,6 +46,10 @@ The integration will create the following sensors for each air conditioning syst
 - **Temperature**: Shows the current temperature (°C) in the room.
 - **Humidity**: Shows the current humidity in the room.
 
+
+## Data updates
+
+The integration {% term polling polls %} the Airpatrol cloud every minute.
 
 ## Known limitations
 

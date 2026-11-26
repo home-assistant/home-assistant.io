@@ -1,23 +1,12 @@
 ---
-title: Washington State Department of Transportation (WSDOT)
 description: Instructions on how to integrate WSDOT data into your home.
-ha_categories:
-  - vehicles_transport
-  - local_services
-ha_iot_class: Cloud Polling
 ha_release: 0.37
 ha_domain: wsdot
-ha_platforms:
-  - sensor
-ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs
-ha_config_flow: true
-ha_codeowners:
-  - '@ucodery'
 ---
 
 The **Washington State Department of Transportation (WSDOT)** {% term integration %} will give you travel time information from the [Washington State Department of Transportation (WSDOT)](https://wsdot.com/).
@@ -62,7 +51,7 @@ Here's an example of the sensor in use:
 
 ## Data updates
 
-**WSDOT** retrieves travel time updates every 2 minutes. This is not currently configurable.
+**WSDOT** retrieves travel time updates every 3 minutes. This is not currently configurable.
 
 ## Advanced configuration
 
@@ -119,7 +108,7 @@ One or more **WSDOT** element content displays `unknown`.
 
 ##### Resolution
 
-The **WSDOT** travel sensors poll for new travel times every 2 minutes.
+The **WSDOT** travel sensors poll for new travel times every 3 minutes.
 You may have to wait up to 4 minutes for initial durations to populate.
 
 ## Removing the integration

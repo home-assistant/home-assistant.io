@@ -53,10 +53,7 @@ Language:
   description: The language of the post. If omitted, your Mastodon account preference is used.
   required: false
 Media:
-  description: An image or video to attach to the post.
-  required: false
-Media description:
-  description: A description of the attached media for people with visual impairments.
+  description: Media to attach to the post. Up to 4 images, videos, or 1 audio file.
   required: false
 Media warning:
   description: Mark the attached media as sensitive.
@@ -66,6 +63,28 @@ In reply to:
   required: false
 Quote:
   description: The ID of the status to quote in this post.
+  required: false
+{% endoptions_ui %}
+
+### Media options
+
+Media attachments are configured in the **Media** field. Each item supports:
+
+{% options_ui %}
+Media source:
+  description: Media to attach to the post, such as image, video, or audio. If a camera source is selected, a snapshot of the camera's current view is captured when the post is sent.
+  required: true
+Alt text:
+  description: Alternative text describing the attached media for people who are blind or visually impaired. Providing alt text improves accessibility and may be required by some Mastodon instances.
+  required: false
+Horizontal focus:
+  description: Horizontal focal point used when previewing or cropping an image. Use -1.0 for the far left, 0.0 for the center, and 1.0 for the far right.
+  required: false
+Vertical focus:
+  description: Vertical focal point used when previewing or cropping an image. Use -1.0 for the top, 0.0 for the center, and 1.0 for the bottom.
+  required: false
+Thumbnail:
+  description: Custom thumbnail for an audio attachment. If a camera source is selected, a snapshot of the camera's current view is captured when the post is sent.
   required: false
 {% endoptions_ui %}
 
@@ -128,14 +147,9 @@ language:
   type: string
 media:
   description: >
-    An image or video to attach to the post.
+    Media to attach to the post. Up to 4 images, videos, or 1 audio file.
   required: false
-  type: string
-media_description:
-  description: >
-    A description of the attached media for people with visual impairments.
-  required: false
-  type: string
+  type: list
 media_warning:
   description: >
     Mark the attached media as sensitive.
@@ -157,6 +171,38 @@ quoted_status:
 {% note %}
 Mastodon holds idempotency keys for up to one hour. The exact timeframe is controlled by your Mastodon instance, not Home Assistant. If you do not set an idempotency key, the post is published without any duplicate check.
 {% endnote %}
+
+### Media options in YAML
+
+Media attachments are configured in the `media` field. Each item supports:
+
+{% options_yaml %}
+media_source:
+  description: >
+    Media to attach to the post, such as image, video, or audio. If a camera source is selected, a snapshot of the camera's current view is captured when the post is sent.
+  required: true
+  type: map
+media_description:
+  description: >
+    Alternative text describing the attached media for people who are blind or visually impaired. Providing alt text improves accessibility and may be required by some Mastodon instances.
+  required: false
+  type: string
+focus_x:
+  description: >
+    Horizontal focal point used when previewing or cropping an image. Use -1.0 for the far left, 0.0 for the center, and 1.0 for the far right.
+  required: false
+  type: float
+focus_y:
+  description: >
+    Vertical focal point used when previewing or cropping an image. Use -1.0 for the top, 0.0 for the center, and 1.0 for the bottom.
+  required: false
+  type: float
+thumbnail:
+  description: >
+    Custom thumbnail for an audio attachment. If a camera source is selected, a snapshot of the camera's current view is captured when the post is sent.
+  required: false
+  type: map
+{% endoptions_yaml %}
 
 {% include actions/try_it.md %}
 
@@ -192,8 +238,11 @@ action: |
     config_entry_id: 6b4be47a1fa7c3764f14cf756dc9899d
     status: "A media toot from Home Assistant"
     visibility: unlisted
-    media: /config/www/funny_meme.png
-    media_description: "A funny meme"
+    media:
+    - media_source:
+        media_content_id: media-source://media_source/local/funny_meme.png
+        media_content_type: image/png
+      media_description: A funny meme
     content_warning: "This might not be funny enough"
 {% endexample %}
 

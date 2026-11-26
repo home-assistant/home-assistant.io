@@ -1,0 +1,23 @@
+{
+  "domain": "victron_ble",
+  "name": "Victron BLE",
+  "integration_type": "device",
+  "codeowners": [
+    "@rajlaud"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "connectivity": [
+    "bluetooth"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

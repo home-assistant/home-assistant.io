@@ -32,6 +32,10 @@
                     color: #002332;
                 }
             }
+
+            .mobile-name {
+                color: #002332;
+            }
         }
     }
 
@@ -84,6 +88,10 @@
                             opacity: 1;
                         }
                     }
+                }
+
+                .mobile-name {
+                    color: #002332;
                 }
             }
 
@@ -156,8 +164,15 @@
             }
         }
 
+        // Phones show the name as two lines of text instead of the one-line
+        // logo, so the Buy button fits in the bar beside the menu button,
+        // as on the Connect AUX-2 page.
         .logo {
-            display: grid;
+            display: none;
+
+            @include bp(1025px) {
+                display: grid;
+            }
 
             img {
                 grid-area: 1/1;
@@ -168,6 +183,44 @@
                 &.dark {
                     opacity: 0;
                 }
+            }
+        }
+
+        .mobile-name {
+            color: #ffffff;
+            font-family: Figtree, sans-serif;
+            font-size: 20px;
+            line-height: 1.2;
+            margin: 0;
+            transition: color 0.3s ease-out;
+
+            strong,
+            span {
+                display: block;
+            }
+
+            strong {
+                font-weight: 600;
+            }
+
+            span {
+                font-weight: 300;
+            }
+
+            @include bp(1025px) {
+                display: none;
+            }
+        }
+
+        .mobile-buy {
+            flex-shrink: 0;
+            font-size: 12px;
+            height: 32px;
+            margin-left: auto;
+            padding: 0 12px;
+
+            @include bp(1025px) {
+                display: none;
             }
         }
 

@@ -1,24 +1,7 @@
 ---
-title: Ohme
 description: Instructions to configure the Ohme integration into Home Assistant.
-ha_categories:
-  - energy.ev_charging
 ha_release: 2025.1
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@dan-r'
-ha_config_flow: true
 ha_domain: ohme
-ha_platforms:
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_quality_scale: platinum
-ha_integration_type: device
 ---
 
 The **Ohme** {% term integration %} allows you to connect your [Ohme](https://ohme-ev.com/) EV charger to Home Assistant.

@@ -1,29 +1,7 @@
 ---
-title: Viessmann ViCare
 description: Instructions how to integrate Viessmann heating devices with Home Assistant
-ha_categories:
-  - climate.thermostats_heating
-  - climate.heat_pumps_air_conditioning
 ha_release: 0.99
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: vicare
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - number
-  - select
-  - sensor
-  - switch
-  - water_heater
-ha_dhcp: true
-ha_integration_type: hub
-ha_codeowners:
-  - '@CFenner'
-  - '@lackas'
 ---
 
 The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann-climatesolutions.com) devices via the Viessmann ViCare (REST) API.
@@ -127,7 +105,7 @@ The `climate.set_temperature` action always affects the current normal temperatu
 
 The ViCare integration maps the Home Assistant HVAC modes to Viessmann operation modes as follows:
 
-- `off`: maps to `ForcedReduced`, which permanently sets heating to the reduced temperature. This also deactivates domestic hot water.
+- `off`: maps to `Standby`, which switches off heating and domestic hot water. Devices without standby use `DHW` (hot water only) or `ForcedReduced` instead.
 - `heat`: maps to `ForcedNormal`, which permanently sets heating to the normal temperature.
 - `auto`: maps to `DHWandHeating`, which switches between the reduced and normal temperature based on the heating schedule programmed in your device.
 

@@ -26,6 +26,7 @@ const truncate = (text, length) =>
 const pageDescription = description ?? setting("description");
 
 const socialTitle = title ?? siteTitle;
+// A page can share its own picture; Jekyll calls this `og_image`.
 const socialImage = new URL(image ?? "/images/default-social.png", siteUrl).href;
 ---
 

@@ -1,12 +1,7 @@
 ---
-title: Tags
 description: Instructions on how to get started with tags in Home Assistant
 ha_release: 0.115
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: tag
-ha_quality_scale: internal
-ha_integration_type: entity
 ---
 
 <p class='img'>
@@ -35,6 +30,23 @@ Only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
 Home Assistant has a dedicated panel that allows you to manage your tags. You can add names, automate or delete them. If you open the tag dashboard from the mobile app, you can also write them directly to a tag.
 
 ![Tag user interface in Home Assistant](/images/blog/2020-09-15-home-assistant-tags/tag-ui.gif)
+
+### Deleting tags
+
+To delete a tag:
+
+1. Go to {% my tags title="**Settings** > **Tags**" %}.
+2. Select the tag you want to delete.
+3. In the dialog, select **Delete**, then confirm.
+
+To delete several tags at once:
+
+1. Go to {% my tags title="**Settings** > **Tags**" %}.
+2. Select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button.
+3. Select the tags you want to delete.
+4. In the bar at the top of the list, select **Delete**, then confirm.
+   - Result: The selected tags are permanently deleted.
+   - If some tags can't be deleted, a dialog tells you. The other tags are still deleted. For details, check the system logs.
 
 ## Entities
 

@@ -1,0 +1,25 @@
+{
+  "domain": "cookidoo",
+  "name": "Cookidoo",
+  "integration_type": "service",
+  "codeowners": [
+    "@miaucl"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "productivity_information.shopping_groceries",
+    "appliances_cleaning.cooking"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "button",
+    "calendar",
+    "diagnostics",
+    "sensor",
+    "todo"
+  ]
+}

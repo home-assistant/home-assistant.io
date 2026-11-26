@@ -1,0 +1,21 @@
+{
+  "domain": "foreca",
+  "name": "Foreca",
+  "integration_type": "service",
+  "codeowners": [
+    "@EetuPelkonen",
+    "@hyvatti-foreca"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "weather"
+  ]
+}

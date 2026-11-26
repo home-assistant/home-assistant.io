@@ -1,0 +1,20 @@
+{
+  "domain": "crownstone",
+  "name": "Crownstone",
+  "codeowners": [
+    "@Crownstone",
+    "@RicArch97"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "plugs_switches"
+  ],
+  "connectivity": [
+    "cloud",
+    "serial"
+  ],
+  "platforms": [
+    "light"
+  ]
+}

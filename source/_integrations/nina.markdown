@@ -1,20 +1,7 @@
 ---
-title: NINA
 description: Instructions on how to set up NINA warnings in Home Assistant.
-ha_categories:
-  - weather_alerts.public_warnings
 ha_release: 2022.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@DeerMaximum'
 ha_domain: nina
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: silver
 ---
 
 The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html) {% term integration %} displays warnings from the [Bundesamt für Bevölkerungsschutz und Katastrophenhilfe](https://www.bbk.bund.de/) in Germany.
@@ -91,7 +78,7 @@ This integration provides the following entities for each warning slot.
 
 - **Affected areas**:
   - **Description**: Areas affected by the warning.
-  - **Remarks**: Shortened to 250 chars. To get all areas please use the `nina.get_affected_areas` action.
+  - **Remarks**: Shortened to 250 characters. To get all areas, use the [Get warning details](#action-get-warning-details) action (`nina.get_details`).
 - **Expires**:
   - **Description**: Expiration timestamp of the warning.
 - **Headline**:

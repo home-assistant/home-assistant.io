@@ -1,21 +1,6 @@
 ---
-title: Schlage
 description: Instructions on how to integrate Schlage WiFi smart locks into Home Assistant.
-ha_categories:
-  - security_safety.locks_access
 ha_release: 2023.9
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@dknowles2'
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - lock
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
 ha_domain: schlage
 ---
 
@@ -37,6 +22,13 @@ There is currently support for the following device types within Home Assistant:
 - Switch
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Username:
+  description: "The email address of your Schlage account."
+Password:
+  description: "The password of your Schlage account."
+{% endconfiguration_basic %}
 
 ## Data updates
 
