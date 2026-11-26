@@ -144,7 +144,7 @@ A stationboard provides the following sensors:
 - **Departure +2**: The time of the third departure.
 - **Destination**: The final stop of the next departure.
 - **Platform**: The platform or stop the next departure leaves from.
-- **Delay**: The delay of the next departure, in minutes.
+- **Delay**: The delay of the next departure, in minutes. Shows as unknown when no delay is reported.
 - **Line**: The line of the next departure, for example `S3` or `IC1`.
 
 {% include integrations/actions.md %}
@@ -159,15 +159,15 @@ Here are a few ideas to get you started.
 ### Automation: Sending a notification when the next departure is delayed
 
 Get a notification when the next departure on your stationboard is more than 5 minutes late.
-This example uses the sensors of a stationboard for the station `Bern`.
+This example uses the sensors of the stationboard from the screenshot above, with `Bern` as the station and `Bern Wankdorf` under **Stops at**.
 Replace them with the sensors of your own stationboard.
 
 - **Trigger**: Numeric state
-  - **Entity**: The **Delay** sensor of your stationboard (`sensor.bern_delay`)
+  - **Entity**: The **Delay** sensor of your stationboard (`sensor.bern_stops_at_bern_wankdorf_delay`)
   - **Above**: 5
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-  - **Message**: {% raw %}`{{ states('sensor.bern_line') }} to {{ states('sensor.bern_destination') }} is {{ states('sensor.bern_delay') }} minutes late.`{% endraw %}
+  - **Message**: {% raw %}`{{ states('sensor.bern_stops_at_bern_wankdorf_line') }} to {{ states('sensor.bern_stops_at_bern_wankdorf_destination') }} is {{ states('sensor.bern_stops_at_bern_wankdorf_delay') }} minutes late.`{% endraw %}
 
 {% details "YAML example for sending a notification when the next departure is delayed" %}
 
@@ -176,7 +176,7 @@ automation: |
   alias: "Notify when the next departure is delayed"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.bern_delay
+      entity_id: sensor.bern_stops_at_bern_wankdorf_delay
       above: 5
   actions:
     - action: notify.send_message
@@ -184,9 +184,9 @@ automation: |
         entity_id: notify.my_device
       data:
         message: >
-          {{ states('sensor.bern_line') }} to
-          {{ states('sensor.bern_destination') }} is
-          {{ states('sensor.bern_delay') }} minutes late.
+          {{ states('sensor.bern_stops_at_bern_wankdorf_line') }} to
+          {{ states('sensor.bern_stops_at_bern_wankdorf_destination') }} is
+          {{ states('sensor.bern_stops_at_bern_wankdorf_delay') }} minutes late.
 {% endexample %}
 
 {% enddetails %}
