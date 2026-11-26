@@ -568,15 +568,18 @@ The initial {% term commissioning %} keeps failing, you experience issues with d
 
 ### Symptom: Commissioning a Matter device fails after a long wait
 
-Your Home Assistant host is connected to the same LAN through more than one network interface, for example Ethernet and Wi-Fi. Commissioning a Matter device fails after a long wait, or devices that were added successfully become unavailable because their (CASE) sessions time out.
+Your Home Assistant host is connected to the same LAN through more than one network interface, for example Ethernet and Wi-Fi.
+Commissioning a Matter device fails after a long wait, or devices that were added successfully become unavailable because their <abbr title="Certificate Authenticated Session Establishment">CASE</abbr> sessions time out.
 
 #### Description
 
-The Matter Server sends its mDNS and Matter traffic over one primary network interface. When several interfaces are connected to the same network, the server can pick a different interface than the one your Matter devices and Thread border routers reach. The replies then never arrive. The Matter Server app logs the interface it uses at startup: `Using '<interface>' as primary network interface.`
+The Matter Server app sends its <abbr title="multicast Domain Name System">mDNS</abbr> and Matter traffic over one primary network interface. When several interfaces are connected to the same network, the app can pick a different interface than the one your Matter devices and the {% term "Thread border router" %} can reach.
+The replies then never arrive.
+The Matter Server app logs the interface it uses at startup: `Using 'INTERFACE_NAME' as primary network interface.`
 
 #### Resolution
 
-- **Home Assistant OS with the Matter Server app**: Connect the host to the network through a single interface. Disconnect or disable the other interface under **{% my network title="Settings > System > Network" %}**. Then restart the Matter Server app and check its log to confirm it uses the interface you expect.
-- **Matter Server running in a container**: Set the primary interface explicitly with the `--primary-interface <interface>` command line option or the `PRIMARY_INTERFACE` environment variable (for example, `eth0`). For details, refer to the [Matter server Docker documentation](https://github.com/matter-js/matterjs-server/blob/main/docs/docker.md).
+- If you use Home Assistant OS with the Matter Server app, connect the host to the network through a single interface. Go to {% my network title="**Settings** > **System** > **Network**" %}, select the interface you don't want to use, and set **IPv4** and **IPv6** to **Disabled**. Then restart the Matter Server app and check its log to confirm it uses the interface you expect.
+- If you run the Matter Server in a container, set the primary interface with the `--primary-interface INTERFACE` command line option or the `PRIMARY_INTERFACE` environment variable, for example `eth0`. For details, refer to the [Matter Server Docker documentation](https://github.com/matter-js/matterjs-server/blob/main/docs/docker.md).
 
 {% enddetails %}
