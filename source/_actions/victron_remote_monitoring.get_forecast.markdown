@@ -157,8 +157,8 @@ At 11:00, compare the solar production and consumption expected over the next fo
   - **At time**: 11:00
 - **Action**: Victron Remote Monitoring: Get forecast
   - **Victron Remote Monitoring entry**: Your installation
-  - **Start**: Now
-  - **End**: Four hours from now
+  - **Start**: Today at 11:00
+  - **End**: Today at 15:00
   - **Response variable**: `victron_forecast`
 - **Condition**: Template
   - Expected solar production is at least 1.5 kWh above expected consumption
@@ -177,8 +177,8 @@ automation: |
     - action: victron_remote_monitoring.get_forecast
       data:
         config_entry: YOUR_CONFIG_ENTRY_ID
-        start: "{{ now() }}"
-        end: "{{ now() + timedelta(hours=4) }}"
+        start: "{{ today_at('11:00') }}"
+        end: "{{ today_at('15:00') }}"
       response_variable: victron_forecast
     - condition: template
       value_template: >
