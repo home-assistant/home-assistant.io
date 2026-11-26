@@ -48,11 +48,24 @@ Filters narrow the table down, so you only see the items that match.
 
    ![Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for](/images/organizing/filter-panel.png)
 
+3. To show everything _except_ what you picked, select **Without** at the top of the filter. See [Showing everything except your selection](#showing-everything-except-your-selection).
+
 ### Finding items without an area, label, or other value
 
 Not every item has an area, a label, or a category. To find those items, select the **No …** option at the top of the filter's list, such as **No area**, **No device**, **No label**, or **No category**. You can select it together with other options. For example, select **No label** and **Lighting** to show the items that have the **Lighting** label or no label at all.
 
 Filters where every item always has a value, such as **Integrations**, don't have this option.
+
+### Showing everything except your selection
+
+Most filters have a **With** and **Without** toggle at the top:
+
+- **With**: Shows the items that match what you picked. This is the default.
+- **Without**: Shows all other items. For example, in the **Areas** filter, **Without** and **Garage** shows everything that is not in the garage. **Without** and **No label** shows every item that has at least one label.
+
+When you collapse a filter set to **Without**, a **≠** appears in front of the number of options you picked.
+
+The toggle is also available in the filters on other pages, such as **History**, **Logbook**, and **Settings** > **System** > **Logs**. On the **Logs** page, the raw logs can't leave out integrations. After you select **Show raw logs**, you can't switch the **Integrations** filter to **Without**, and a **Without** selection you made before is not applied.
 
 ### Filtering by floor and area
 
