@@ -36,7 +36,7 @@ Sensors:
 - **Total missions**: The total number of all missions
 - **Scrubs**: Total number of times the robot has executed a "scrub"
 - **Total cleaning time**: The total time the robot has spent cleaning, including minutes, shown in hours by default. You can change the unit in the entity settings.
-- **Total cleaned area**: The total area in m² the robot has cleaned
+- **Total cleaned area**: The total area the robot has cleaned. New entities are shown in m² or ft² depending on your unit system; existing entities remain in m².
 - **Signal strength**: The Wi-Fi signal strength the robot reports, in dBm. [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ### Retrieving your credentials
