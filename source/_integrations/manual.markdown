@@ -18,17 +18,17 @@ Code:
 Code template:
   description: A template that renders the code, instead of a fixed code. The variables `from_state` and `to_state` identify the current and desired state. An empty result disables checking the code. Only one of **Code** and **Code template** can be set.
 Code required for arming:
-  description: Whether the code is also required to arm the alarm, not just to disarm it.
+  description: Whether the code is also required to arm the alarm, not just to disarm it. The default is enabled.
 Arming states:
-  description: The arm modes the alarm control panel supports.
+  description: The arm modes the alarm control panel supports. The default is **Armed away**, **Armed home**, **Armed night**, **Armed vacation**, and **Armed custom bypass**.
 Arming time:
-  description: The time it takes to go from **arming** to the armed state.
+  description: The time it takes to go from **arming** to the armed state. The default is 60 seconds.
 Delay time:
-  description: The time the alarm stays in the **pending** state after it is triggered, before it goes off.
+  description: The time the alarm stays in the **pending** state after it is triggered, before it goes off. The default is 60 seconds.
 Trigger time:
-  description: The time the alarm stays **triggered**. Set to zero to disable triggering.
+  description: The time the alarm stays **triggered**. Set to zero to disable triggering. The default is 120 seconds.
 Disarm after trigger:
-  description: Disarm the alarm after the trigger time has passed, instead of returning to the previous state.
+  description: Disarm the alarm after the trigger time has passed, instead of returning to the previous state. The default is disabled.
 Disarmed, Armed away, Armed home, Armed night, Armed vacation, Armed custom bypass:
   description: Collapsed sections to override the times for a specific state. Each section has a **Delay time** and **Trigger time**, and the armed states also have an **Arming time**. Fields left empty use the general times above.
 {% endconfiguration_basic %}
