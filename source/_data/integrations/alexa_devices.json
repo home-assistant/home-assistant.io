@@ -25,6 +25,7 @@
     "light",
     "media_player",
     "notify",
+    "number",
     "select",
     "sensor",
     "switch",

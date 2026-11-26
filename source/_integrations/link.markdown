@@ -15,7 +15,7 @@ related:
 The Home Assistant Link allows you to quickly integrate your local Home Assistant with various cloud services, such as the following:
 
 - [Amazon Alexa](https://support.nabucasa.com/hc/articles/25619363899677)
-- [Google Assistant](https://support.nabucasa.com/hc/articles/25619376817053)
+- [Google Home](https://support.nabucasa.com/hc/articles/25619376817053)
 - [Secure remote access](https://support.nabucasa.com/hc/sections/26496346499997)
 - [Speech-to-text](https://support.nabucasa.com/hc/articles/29718084245149)
 - [Text-to-speech](https://support.nabucasa.com/hc/articles/25619386304541)

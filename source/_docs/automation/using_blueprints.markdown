@@ -105,6 +105,24 @@ If you don't want to [re-import the blueprint](#re-importing-a-blueprint), you c
 
 The new changes will appear to your existing automations as well.
 
+## Deleting blueprints
+
+If you no longer need a blueprint, you can delete it. You can't delete a blueprint that is used by an automation or script. First, remove those automations and scripts or [take control](#taking-control-of-a-blueprint-automation) of them.
+
+1. Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
+2. On the blueprint you want to delete, select **Overflow menu** {% icon "mdi:dots-vertical" %}, and select **Delete blueprint**.
+3. To confirm, select **Delete**.
+
+To delete several blueprints at once:
+
+1. Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
+2. Select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button.
+3. Select the blueprints you want to delete.
+4. In the bar at the top of the list, select **Delete**, then confirm.
+   - Home Assistant first checks which blueprints are in use. **Delete** is available once the check is done.
+   - Result: The selected blueprints that are not in use are permanently deleted.
+   - Blueprints that are in use are skipped. The dialog tells you how many can be deleted. If none can, no blueprint is deleted.
+
 ## Creating your own blueprint
 
 Using blueprints is nice and easy, but what if you could create that one missing blueprint that our community definitely needs?

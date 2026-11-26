@@ -10,8 +10,8 @@ related:
 ---
 
 Assist uses the names of your entities, areas, and floors, as well as any aliases you've configured.
-If you have set up Google Assistant or Amazon Alexa, they use the first alias of an entity as its name.
-Google Assistant also uses the other aliases as alternatives.
+If you have set up Google Home or Amazon Alexa, they use the first alias of an entity as its name.
+Google Home also uses the other aliases as alternatives.
 
 These aliases are helpful in case you call the same device by multiple names
 or when using a voice assistant in multiple languages at the same time.
@@ -38,7 +38,7 @@ When the switch next to it is turned on, the default name is used as the first a
 The order matters for some voice assistants:
 
 - Assist uses all aliases equally.
-- Google Assistant uses the first alias as the main name and the others as alternatives.
+- Google Home uses the first alias as the main name and the others as alternatives.
 - Amazon Alexa uses only the first alias.
 
 Renaming an entity, its device, or its area doesn't change the aliases you added. Only the default name in the list follows the new name.
