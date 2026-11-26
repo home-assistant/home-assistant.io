@@ -213,19 +213,19 @@ A device answered at this unit ID, but it isn't a supported gateway. This happen
 
 {% enddetails %}
 
-{% details "The air conditioner shows as unknown or unavailable" %}
+{% details "The air conditioner shows as unavailable" %}
 
-### Symptom: The climate entity is unknown after the gateway powers up
+### Symptom: The air conditioner is unavailable after the gateway powers up
 
-After a power cut or after power cycling the gateway, the climate entity has no state and shows no temperatures.
+After a power cut or after power cycling the gateway, the entities of the air conditioner are unavailable.
 
 #### Description
 
-The gateway needs about two minutes to start up. During that time, it doesn't report any values yet.
+The gateway needs about two minutes to start up. During that time, it doesn't report the air conditioner yet. The **Error** sensor stays available and shows *Initialising*.
 
 #### Resolution
 
-Wait a few minutes. The values appear on their own.
+Wait a few minutes. The entities become available on their own.
 
 ### Symptom: The climate entity is unavailable
 
