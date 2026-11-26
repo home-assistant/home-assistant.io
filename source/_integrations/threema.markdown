@@ -11,7 +11,7 @@ The **Threema** {% term integration %} allows you to send end-to-end encrypted t
 - A [Threema Gateway](https://gateway.threema.ch) account. For testing purposes, you can [request developer credits](https://gateway.threema.ch) from Threema.
 - A Gateway ID (starts with `*`). You can use an existing ID or create a new one during setup. Make sure to select the **E2E Gateway** configuration when making the request.
 - An API secret from the Threema Gateway dashboard.
-- Message credits on your Threema Gateway account. Requesting the Gateway ID itself costs **1,600 credits for E2E mode** or **800 credits for basic mode**.
+- Message credits on your Threema Gateway account. Requesting a Threema ID with E2E support **costs 1,600 credits** or **800 credits with basic support.**
 
 Setting up Threema Gateway is a two-step process:
 
@@ -62,15 +62,15 @@ Each recipient subentry creates its own **device**, named after the recipient, f
 
 The integration also creates one **Gateway** device for the gateway itself. This device hosts the remaining credits sensor and, in end-to-end encryption mode, the QR code image entity described below.
 
-## Supported functionality
+### Supported functionality
 
 The **Threema** integration provides the following entities.
 
-### Notify
+#### Notify
 
 Each recipient device has one notify entity, named after the recipient. To find its entity ID, go to **Settings** > **Devices & services** > **Threema**, and open the device of the recipient.
 
-### Image
+#### Image
 
 In end-to-end encryption mode, the Gateway device has a **Gateway QR code** entity, a diagnostic entity containing a `3mid:` QR code built from your Gateway ID and public key, the same format Threema's apps use to verify a contact's identity. Scan it with the Threema app to confirm, out-of-band, that the gateway you configured really is yours before trusting messages sent through it.
 
