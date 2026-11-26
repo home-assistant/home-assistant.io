@@ -137,10 +137,7 @@ unit: '%'
 entity: sensor.cpu_usage
 ```
 
-<p class='img'>
-<img src='/images/dashboards/gauge_card.gif' alt='Screenshot of the gauge card with custom title and unit of measurement'>
-Screenshot of the gauge card with custom title and unit of measurement.
-</p>
+{% include dashboard/demo.html demo="gauge_name_unit" caption="The gauge card with a custom name and unit of measurement." %}
 
 Define the severity map:
 
@@ -157,10 +154,7 @@ severity:
 
 Multiple segments:
 
-<p class='img'>
-<img src='/images/dashboards/gauge_segments.png' alt='Screenshot of the gauge card with multiple colored segments.'>
-Screenshot of the gauge card with multiple colored segments.
-</p>
+{% include dashboard/demo.html demo="gauge_segments" caption="The gauge card with multiple colored segments." %}
 
 ```yaml
 type: gauge

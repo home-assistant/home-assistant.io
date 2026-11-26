@@ -39,6 +39,10 @@ There are four different view types:
 - **Panel**: Displays one card in full width. For example a map or an image.
 - **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
 
+To see each view type with real cards, select a tab in the dashboard below.
+
+{% include dashboard/demo.html demo="view_types" caption="A dashboard with a view of each type." %}
+
 ## Adding a view to a dashboard
 
 {% note %}
