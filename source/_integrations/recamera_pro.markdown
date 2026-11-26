@@ -15,7 +15,7 @@ ha_zeroconf: true
 ha_integration_type: device
 ---
 
-The **reCamera Pro** {% term integration %} allows you to connect Seeed Studio reCamera Pro AI cameras to Home Assistant over your local network. It streams live RTSP video through Home Assistant's standard WebRTC and HLS pipelines and supports device-native snapshot and MP4 recording actions.
+The **reCamera Pro** {% term integration %} allows you to connect Seeed Studio reCamera Pro AI cameras to Home Assistant over your local network. It streams live RTSP video through Home Assistant's standard WebRTC and HLS pipelines.
 
 ## Prerequisites
 
@@ -58,63 +58,40 @@ The **reCamera Pro** integration provides the following entities.
   - **Description**: High-resolution RTSP camera stream (4K), disabled by default. Supports live viewing via WebRTC/HLS, on-demand snapshots, and `camera.turn_on` / `camera.turn_off` stream toggling.
   - **Remarks**: When RTSP streaming is turned off for a stream, the camera entity remains available (with attribute `rtsp_enabled: false`) and displays an offline placeholder image so automations can turn it back on via `camera.turn_on`.
 
-{% include integrations/actions.md %}
-
 ## reCamera Pro automation examples
 
-Here is an example to get you started with device-native capture automations.
+Here is an example to get you started with stream control automations.
 
 {% include docs/paste_yaml_tip.md %}
 
-### Automation: Record a 30-second clip when motion is detected
+### Automation: Turn on the camera stream when motion is detected
 
-Automatically record an MP4 clip directly to the camera's `/mnt` storage when a motion sensor triggers.
+Automatically enable the **reCamera Pro** RTSP stream when a motion sensor triggers.
 
 - **Trigger**: State changed
   - **Entity**: Front door motion sensor
   - **To**: Detected
-- **Action**: Start device recording (`recamera_pro.start_device_recording`)
+- **Action**: Turn on camera (`camera.turn_on`)
   - **Target**: reCamera Pro camera entity
-  - **Duration**: `30` seconds
 
-{% details "YAML example for recording a 30-second clip on motion" %}
+{% details "YAML example for enabling the stream on motion" %}
 
 {% example %}
 automation: |
-  alias: "Record reCamera Pro clip on front door motion"
+  alias: "Turn on reCamera Pro stream on front door motion"
   triggers:
     - trigger: state
       entity_id: binary_sensor.front_door_motion
       to: "on"
   actions:
-    - action: recamera_pro.start_device_recording
+    - action: camera.turn_on
       target:
         entity_id: camera.recamera_pro_sub_stream
-      data:
-        duration: 30
 {% endexample %}
 
 {% enddetails %}
 
 ## Troubleshooting
-
-{% details "Authentication failed after changing the device password" %}
-
-### Symptom: Integration reports authentication error
-
-Home Assistant prompts you to reauthenticate the **reCamera Pro** integration or fails to connect to the camera.
-
-#### Description
-
-If the login password on the reCamera Pro device is changed, existing credentials stored in Home Assistant are rejected by the camera.
-
-#### Resolution
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select **Reconfigure** or **Reauthenticate** on the **reCamera Pro** integration card.
-3. Enter the updated device username and password and submit the form.
-
-{% enddetails %}
 
 {% details "Camera shows an offline placeholder image" %}
 
