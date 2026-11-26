@@ -78,7 +78,7 @@ The **Intesis Modbus** integration provides the following entities.
   - **Description**: Withdraws the external temperature reference, so the air conditioner regulates on its own sensor again.
 - **Reset error**
   - **Description**: Acknowledges the error the air conditioner reports.
-- **Reset gateway**
+- **Restart**
   - **Description**: Restarts the gateway. It takes about two minutes to start up, during which the air conditioner can't be controlled from Home Assistant.
   - **Remarks**: This button is disabled by default.
 
