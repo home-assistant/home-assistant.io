@@ -4,7 +4,7 @@ ha_release: 2022.6
 ha_domain: application_credentials
 ---
 
-The **Application credentials** {% term integration %} is used by integrations that use OAuth2 to link your account to Home Assistant. The most common and preferred approach is using account linking with Home Assistant Cloud, however, not all cloud providers support that and integrations can use Application Credentials instead. Additionally, users may use Application Credentials if preferred instead of Home Assistant Cloud Account Linking.
+The **Application credentials** {% term integration %} is used by integrations that use OAuth2 to link your account to Home Assistant. The most common and preferred approach is using account linking with Home Assistant Link, however, not all cloud providers support that and integrations can use Application Credentials instead. Additionally, users may use Application Credentials if preferred instead of Home Assistant Link Account Linking.
 
 ## Automatic setup
 

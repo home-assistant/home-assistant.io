@@ -2,6 +2,7 @@
 title: "List RFID tokens"
 action: peblar.list_rfid_tokens
 domain: peblar
+response: required
 description: "Returns all RFID tokens currently configured in the Peblar charger's standalone authorization list."
 related:
   - docs: /integrations/peblar/
@@ -60,6 +61,8 @@ config_entry_id:
 {% endoptions_yaml %}
 
 ### Response data
+
+{% include actions/response.md %}
 
 The action returns an object with a single `tokens` member. Each token has a
 `uid` and a `description`:

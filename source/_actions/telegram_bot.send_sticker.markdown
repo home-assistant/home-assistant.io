@@ -2,6 +2,7 @@
 title: "Send sticker"
 action: telegram_bot.send_sticker
 domain: telegram_bot
+response: optional
 description: "Sends a sticker through a Telegram bot to one or more chats."
 ---
 
@@ -148,6 +149,8 @@ chat_id:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 When the sticker is sent, the action returns a `chats` list. Each item describes one delivered message:
 

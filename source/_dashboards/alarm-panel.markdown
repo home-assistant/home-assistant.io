@@ -14,10 +14,7 @@ related:
 
 The alarm panel card allows you to arm and disarm your [alarm control panel](/integrations/#alarm) {% term integrations %}.
 
-<p class='img'>
-<img src='/images/dashboards/alarm_panel_card.gif' alt='Screenshot of the alarm panel card'>
-Screenshot of the alarm panel card.
-</p>
+{% include dashboard/demo.html demo="alarm_panel_top" caption="The alarm panel card." %}
 
 All options for this card can be configured via the user interface.
 
@@ -38,7 +35,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
   default: Current state of the alarm entity.
 states:
@@ -71,10 +68,7 @@ name: House Alarm
 entity: alarm_control_panel.alarm
 ```
 
-<p class='img'>
-<img src='/images/dashboards/alarm_panel_title_card.gif' alt='Screenshot of the alarm panel card'>
-Screenshot of the alarm panel card.
-</p>
+{% include dashboard/demo.html demo="alarm_panel_title" caption="The alarm panel card with a name." %}
 
 Define the state list:
 

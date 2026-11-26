@@ -1,6 +1,6 @@
 {
   "domain": "wattwaechter",
-  "name": "WattWächter Plus",
+  "name": "WattWächter",
   "integration_type": "device",
   "codeowners": [
     "@smartcircuits"
@@ -10,6 +10,9 @@
   "quality_scale": "platinum",
   "categories": [
     "energy.meters_monitoring"
+  ],
+  "connectivity": [
+    "network"
   ],
   "platforms": [
     "diagnostics",

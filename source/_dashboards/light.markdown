@@ -40,7 +40,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
   default: Name of entity
 icon:
@@ -85,7 +85,4 @@ entity: light.office
 name: My Office
 ```
 
-<p class='img'>
-<img src='/images/dashboards/light_complex_card.png' alt='Screenshot of the Light card'>
-Screenshot of the Light card names.
-</p>
+{% include dashboard/demo.html demo="light_names" caption="Light cards with their names overwritten." %}

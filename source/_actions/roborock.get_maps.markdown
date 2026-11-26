@@ -2,6 +2,7 @@
 title: "Get maps"
 action: roborock.get_maps
 domain: roborock
+response: required
 description: "Retrieves the map and room information of a Roborock vacuum."
 related_actions:
   - roborock.set_vacuum_goto_position
@@ -11,7 +12,7 @@ related_actions:
 
 Use this action to retrieve the maps available on a Roborock vacuum, along with details about any named rooms on each map. This returns the name of each map and the name and ID number of each room.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script. It does not move the vacuum.
+This action does not move the vacuum.
 
 {% include actions/ui_header.md %}
 
@@ -45,7 +46,9 @@ This action has no additional options in YAML.
 
 ## Response data
 
-The action returns the name of each map and the name and ID number of each room on it. You can use the room IDs to clean a specific room.
+{% include actions/response.md %}
+
+The action returns the name of each map and the name and ID number of each room on it. You can use the room IDs to [clean rooms more than once](/integrations/roborock/#automation-clean-rooms-more-than-once).
 
 {% include actions/stuck.md %}
 

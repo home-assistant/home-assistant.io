@@ -44,18 +44,23 @@ Before adding SwitchBot devices over Bluetooth, confirm whether your Bluetooth a
   - Devices cannot be discovered via local Bluetooth scanning and must be synchronized through your SwitchBot account.
   - To sync devices from your account, go to {% my integrations title="**Settings** > **Devices & services**" %}, open **Integrations**, select **SwitchBot**, select  the integration to open the login window, and sign in. If the local Bluetooth scan detects devices that are linked to your SwitchBot account and within range, you can add them after signing in.
 
+When signing in, select **Sign in with SwitchBot OAuth (recommended)**. Home Assistant opens the SwitchBot authorization page. After you authorize access, Home Assistant downloads device information to help discover supported Bluetooth devices. The OAuth token is used only during setup and is not saved.
+
 If you still cannot add a device, make sure it is powered on, within Bluetooth range, and not connected to another app. If necessary, follow the manufacturer's reset instructions or consult SwitchBot support.
 
 ### Adding encrypted SwitchBot devices
 
 Some types of the SwitchBot devices are encrypted for improved security. More types and models will be added as encrypted devices in the future.
 
-An encrypted SwitchBot device can be set up in Home Assistant in two different ways.
-You can enter the key ID and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
+An encrypted SwitchBot device can be set up in Home Assistant in three different ways. You can authorize Home Assistant with SwitchBot OAuth, enter your SwitchBot username and password, or enter the key ID and encryption key manually.
 
-#### SwitchBot account (recommended)
+#### SwitchBot OAuth (recommended)
 
-Using this option you can provide your SwitchBot account login credentials and Home Assistant will import the appropriate encryption key from your account.
+Select **Sign in with SwitchBot OAuth (recommended)** to open the SwitchBot authorization page. After you authorize access, Home Assistant imports the encryption key for the device. The OAuth token is used only during setup and is not saved.
+
+#### SwitchBot username and password
+
+Using this option, you can provide your SwitchBot account login credentials, and Home Assistant imports the appropriate encryption key from your account. Your username and password are used only during setup and are not saved.
 
 {% configuration_basic %}
 Username:
@@ -65,7 +70,7 @@ Password:
 {% endconfiguration_basic %}
 
 {% important %}
-This integration doesn't support SSO accounts (such as Login with Google) only username and password accounts.
+Signing in with a username and password does not support single sign-on accounts, such as **Sign in with Google**. Use SwitchBot OAuth for these accounts.
 {% endimportant %}
 
 #### Enter the lock encryption key manually
@@ -101,6 +106,7 @@ In addition to the certified devices, the following devices are also supported:
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Plug Mini EU](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
+- Plug Mini IT (W1197)
 - [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm)
 
 ### Cover
@@ -118,6 +124,8 @@ In addition to the certified devices, the following devices are also supported:
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- RGBIC Neon Rope Light
+- RGBIC Neon Wire Rope Light
 - RGBICWW Light Bars
 - [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
 - [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
@@ -149,11 +157,14 @@ In addition to the certified devices, the following devices are also supported:
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
 - [Hub Mini Matter Enabled](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
 - [Hub 3 (WoHub3)](https://www.switch-bot.com/products/switchbot-hub-3)(currently only supports retrieving sensor data, does not yet support device control)
+- Hub 4 (W1213), sensor data only
+
 
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
 - [Circulator Fan Pro](https://www.switch-bot.com/products/switchbot-battery-circulator-fan-2-pro)
+- Standing Fan (FAN2)
 
 ### Vacuums
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
@@ -211,7 +222,7 @@ Features:
 - turn on or off
 - get power consumption readings
 
-#### Plug Mini EU
+#### Plug Mini EU and IT
 
 This is an encrypted device.
 
@@ -602,6 +613,17 @@ Features:
 - change color
 - set effect
 
+#### RGBIC Neon Rope Light and RGBIC Neon Wire Rope Light
+
+These are encrypted devices. To set them up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+Features:
+
+- Turn on or off
+- Change brightness
+- Change color
+- Set effect
+
 #### RGBICWW Light Bars
 
 This is an encrypted device.
@@ -768,9 +790,18 @@ Features:
 - get light level
 - motion detection state
 
+#### Hub4
+
+Features:
+
+- get temperature
+- get humidity
+- get light level (a level from 1 to 20, not a value in lux)
+- motion detection state
+
 ### Fans
 
-Fan entities are added for Battery Circulator Fan/Circulator Fan
+Fan entities are added for Battery Circulator Fan/Circulator Fan, Circulator Fan Pro, and Standing Fan.
 
 #### Battery Circulator Fan/Circulator Fan
 
@@ -792,6 +823,18 @@ The Circulator Fan Pro combines a fan with a built-in night light. It adds the f
 - A light for the two-level (high and low) night light.
 - A switch for vertical oscillation.
 - A sensor for the battery level.
+
+#### Standing Fan
+
+Features:
+
+- Turn on or off
+- Set speed
+- Set mode (Normal, Natural, Sleep, Baby, or Custom Natural)
+- Control horizontal and vertical oscillation
+- Set horizontal and vertical oscillation angles (30°, 60°, or 90°)
+- Set the night light level (Off, Level 1, or Level 2)
+- View the battery level
 
 ### Air Purifiers
 
@@ -916,7 +959,7 @@ The integration connects locally to the devices without going via the SwitchBot 
 
 ### Slow connection times
 
-Move the device closer, or replace the Bluetooth adapter with a faster one. See [Improving connection times](/integrations/bluetooth/#improving-connection-times) for more information.
+Move the device closer, or replace the Bluetooth adapter with a faster one. See [Improving connection times](/connectivity/bluetooth/#improving-connection-times) for more information.
 
 ### Device names not synced
 

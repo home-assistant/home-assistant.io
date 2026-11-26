@@ -9,6 +9,9 @@
   "categories": [
     "energy.meters_monitoring"
   ],
+  "connectivity": [
+    "cloud"
+  ],
   "platforms": [
     "sensor"
   ]

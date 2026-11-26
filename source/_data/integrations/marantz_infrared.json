@@ -11,8 +11,12 @@
   "categories": [
     "media_entertainment.speakers_audio"
   ],
+  "connectivity": [
+    "infrared"
+  ],
   "platforms": [
     "button",
-    "media_player"
+    "media_player",
+    "switch"
   ]
 }

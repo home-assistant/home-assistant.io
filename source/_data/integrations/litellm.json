@@ -11,8 +11,14 @@
   "categories": [
     "ai_voice.ai_models"
   ],
+  "connectivity": [
+    "cloud",
+    "network"
+  ],
   "platforms": [
+    "ai_task",
     "conversation",
-    "stt"
+    "stt",
+    "tts"
   ]
 }

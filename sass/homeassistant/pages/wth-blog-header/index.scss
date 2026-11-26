@@ -1,0 +1,108 @@
+// The animated "What the Heck?!" 2026 header for blog posts, from
+// source/_includes/blog/wth-2026-header.html. It borrows the hero of the WTH
+// landing page: the 3D wordmark and the moving routing lines, with the date
+// set as on the OpenGraph image.
+
+@use 'homeassistant/pages/wth-blog-header/wordmark' as *;
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+// Read by source/javascripts/wth/logo.js for the wordmark's colours.
+:root {
+    --wth-mint: #16F3BE;
+    --wth-sky: #5AB9EE;
+    // The brand blue, darkened so the date clears 4.5:1 on the header
+    // background at every size.
+    --wth-brand-ink: #03729E;
+    --wth-ink: #1E2126;
+    --wth-bg: #F2F4F9;
+}
+
+.wth-blog-hero-wrap {
+    margin-bottom: 24px;
+}
+
+.wth-blog-hero {
+    // The key visual's background: a faint mint-to-blue wash over the page
+    // grey.
+    background:
+        linear-gradient(110deg, rgba(242, 244, 249, 0.1) 10%, rgba(24, 188, 242, 0.1) 55%, rgba(22, 243, 190, 0.1) 97%),
+        var(--wth-bg);
+    border-radius: 16px;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    justify-content: center;
+    overflow: hidden;
+    padding: 32px 24px;
+    position: relative;
+
+    // From tablets up, the header keeps the shape of the OpenGraph image.
+    @include tablet {
+        aspect-ratio: 1200 / 630;
+        padding: 0 6%;
+    }
+}
+
+.wth-blog-hero__content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include tablet {
+        width: 60%;
+    }
+}
+
+.wth-blog-hero__date {
+    color: var(--wth-brand-ink);
+    font-family: "Figtree", sans-serif;
+    font-size: clamp(18px, 4.5cqi, 34px);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 0.5em;
+}
+
+// The routing lines from the key visual. They show from tablets up, matching
+// `SHOWN` in source/javascripts/wth/hero-background.js, which adds the pulses
+// that travel along them on scroll.
+.wth-blog-hero .wth-hero-bg {
+    display: none;
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+
+    svg {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    .wth-hero-bg__art {
+        opacity: 0.4;
+    }
+
+    @include tablet {
+        display: block;
+    }
+}
+
+// The wordmark, as on the WTH landing page.
+.wth-blog-hero {
+    @include wth-wordmark;
+
+    .wth-mark {
+        font-size: 15cqi;
+
+        @include tablet {
+            font-size: 9.5cqi;
+        }
+    }
+}

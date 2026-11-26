@@ -14,10 +14,7 @@ related:
 
 The plant status card is for all the lovely botanists out there.
 
-<p class='img'>
-<img src='/images/dashboards/plant_card.png' alt='Screenshot of the plant status card'>
-Screenshot of the plant status card.
-</p>
+{% include dashboard/demo.html demo="plant_status_top" caption="The plant status card." %}
 
 All options for this card can be configured via the user interface.
 
@@ -38,7 +35,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
   default: Entity name
 theme:

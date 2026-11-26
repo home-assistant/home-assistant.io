@@ -16,10 +16,7 @@ related:
 
 The glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/dashboards/entity-filter/) cards to create dynamic cards.
 
-<p class='img'>
-<img src='/images/dashboards/glance_card.png' alt='Screenshot of the glance card'>
-Screenshot of the glance card.
-</p>
+{% include dashboard/demo.html demo="glance_sample" caption="The glance card." %}
 
 All options for this card can be configured via the user interface.
 
@@ -83,7 +80,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
 icon:
   required: false
@@ -143,10 +140,7 @@ entities:
   - lock.kitchen_door
 ```
 
-<p class='img'>
-<img src='/images/dashboards/glance_card.png' alt='Screenshot of the glance card with custom title'>
-Screenshot of the glance card with custom title.
-</p>
+{% include dashboard/demo.html demo="glance_sample" caption="The glance card with a custom title." %}
 
 Define entities as objects and apply a custom name:
 

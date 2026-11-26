@@ -14,10 +14,7 @@ related:
 
 The humidifier card lets you control and monitor humidifiers, dehumidifiers, and hygrostat devices.
 
-<p class='img'>
-  <img src='/images/dashboards/humidifier_card.png' alt='Screenshot of the humidifier card'>
-  Screenshot of the humidifier card.
-</p>
+{% include dashboard/demo.html demo="humidifier_top" caption="The humidifier card." %}
 
 All options for this card can be configured via the user interface.
 
@@ -38,7 +35,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
   default: Entity name
 theme:

@@ -1,22 +1,22 @@
 ---
-description: Instructions for integrating NexBlue EV chargers with Home Assistant.
+description: Instructions for integrating NexBlue EV chargers and smart meters with Home Assistant.
 ha_release: 2026.9
 ha_domain: nexblue
 ---
 
-The **NexBlue** {% term integration %} connects NexBlue EV chargers to Home Assistant through the NexBlue cloud service. It provides charger status, charging measurements, energy consumption, and diagnostic information.
+The **NexBlue** {% term integration %} connects NexBlue EV chargers and smart meters to Home Assistant through the NexBlue cloud service. It provides charger status, charging measurements, energy consumption, and diagnostic information.
 
 ## Supported devices
 
-The integration supports NexBlue EV chargers that are associated with your NexBlue account.
+The integration supports NexBlue EV chargers and NexBlue Zen smart meters that are associated with your NexBlue account.
 
 ## Prerequisites
 
 To use the NexBlue integration, you need:
 
 - A NexBlue account.
-- At least one NexBlue EV charger added to your NexBlue account.
-- An online charger to receive current charger data.
+- At least one supported NexBlue charger or smart meter associated with your NexBlue account.
+- An online charger to receive current charger data, if you use a charger.
 
 {% include integrations/config_flow.md %}
 
@@ -39,7 +39,7 @@ For multiple chargers, use a reserved IP address for each charger instead of rel
 
 ## Supported functionality
 
-The NexBlue integration provides sensor entities, binary sensor entities, and a charging switch for each charger in your account.
+The NexBlue integration provides sensors, binary sensors, a charging switch, and a current limit control for each charger in your account. It also provides household consumption sensors for supported smart meters.
 
 ### Sensors
 
@@ -50,9 +50,11 @@ The integration provides the following charger information:
 - **Session energy**: The energy used during the current charging session in kilowatt-hours (kWh).
 - **Lifetime energy**: The total energy delivered by the charger in kilowatt-hours (kWh). This sensor can be used in the [Home Assistant energy dashboard](/home-energy-management/).
 - **Current and voltage**: Measurements for L1, L2, and L3 when reported by the charger.
-- **Current limit**: The configured charging current limit.
+- **Max charging current**: The configured maximum charging current.
 - **Cable rating** and **circuit fuse**: Electrical limits reported by the charger.
 - **Charger diagnostics**: Cable lock mode, access level, charging phase, network status, and LED brightness.
+
+For each supported smart meter, the integration provides household consumption sensors in kilowatt-hours (kWh) for today, this month, and this year. These values are period totals from NexBlue, rather than a continuously increasing energy reading.
 
 ### Binary sensors
 
@@ -70,17 +72,24 @@ The integration provides a charging switch for each charger:
 
 If the charger is offline or rejects a command, Home Assistant reports the command failure.
 
+### Number
+
+The **Current limit** control adjusts the dynamic charging current limit between 6 and 32 A on supported chargers. It can only be changed during an active charging session and does not change the configured maximum charging current.
+
+The dynamic limit remains after the charging session ends and is cleared when the charger restarts. The control is unavailable if the charger does not report a dynamic current limit.
+
 ## NexBlue and automations
 
 NexBlue does not provide integration-specific triggers, conditions, or actions in this initial version. You can still use its sensor entities with standard Home Assistant automations, such as sending a notification when charging completes.
 
 ## Data updates
 
-The NexBlue integration uses cloud {% term polling %} and updates charger data every minute.
+The NexBlue integration uses cloud {% term polling %}. Charger data is updated every minute, and smart meter consumption data is updated every five minutes.
 
 ## Known limitations
 
 - The integration requires an internet connection between Home Assistant and the NexBlue cloud service.
+- Household consumption statistics are currently available for NexBlue Zen smart meters, but not for Zen CT devices.
 - A charger that is offline remains visible, but its entities become unavailable until the charger can be reached again.
 
 ## Troubleshooting
