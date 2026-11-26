@@ -2262,6 +2262,7 @@ source/_actions/velbus.set_memo_text.markdown @Cereal2nd @brefra
 source/_actions/velbus.sync_clock.markdown @Cereal2nd @brefra
 source/_actions/vesync.update_devices.markdown @markperdue @webdjoe @thegardenmonkey @cdnninja @iprak @sapuseven
 source/_actions/vicare.set_vicare_mode.markdown @CFenner @lackas
+source/_actions/victron_remote_monitoring.get_forecast.markdown @AndyTempel
 source/_actions/vizio.send_text.markdown @raman325
 source/_actions/vizio.update_setting.markdown @raman325
 source/_actions/volvo.get_image_url.markdown @thomasddn
