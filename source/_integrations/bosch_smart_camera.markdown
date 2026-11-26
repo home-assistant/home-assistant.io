@@ -55,7 +55,7 @@ The **Wi-Fi signal strength** sensor shows how well a camera is connected to you
 
 ### Restart
 
-The **Restart** button restarts a camera. It is disabled by default. To use it, enable the entity in the entity list of the device.
+The **Restart** button restarts a camera. It is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
 
 ### Firmware
 
