@@ -5,7 +5,7 @@ description: "Home Assistant runs all the time on its own system in your home. L
 
 Home Assistant runs on its own system in your home, day and night. It connects to your devices, runs your automations, and keeps the history of your sensors. You use it from your other devices. For example, you can use your phone, a tablet on the wall, or your laptop. You open it in a browser or in the [Home Assistant Companion app](https://companion.home-assistant.io/).
 
-Home Assistant runs locally, so your home keeps working when the internet is down. Your data stays in your home. To use Home Assistant when you're away from home, set up [remote access](/docs/configuration/remote/).
+Home Assistant runs locally, so automations and devices that use local protocols can keep working when the internet is down. Devices that rely on a vendor's cloud still need an internet connection. Your data stays in your home. To use Home Assistant when you're away from home, set up [remote access](/docs/configuration/remote/).
 
 ## A system that stays on all the time
 
@@ -21,7 +21,7 @@ Connect the system to your router with an Ethernet cable if you can. Ethernet is
 
 ## A system just for Home Assistant
 
-The recommended way to run Home Assistant is the {% term "Home Assistant Operating System" %}. It's a complete operating system. Besides Home Assistant itself, it takes care of updates, backups, and {% term apps %}. That's why it uses the entire system that it runs on. When you install it, everything on the drive of that system is erased.
+The recommended way to run Home Assistant is the {% term "Home Assistant Operating System" %}. It's a complete operating system. Besides Home Assistant itself, it provides tools for updates, backups, and {% term apps %}. When you install it directly on a device, everything on that device's drive is erased; in a virtual machine, only the virtual machine's disk is affected.
 
 You can run Home Assistant OS in one of the following ways:
 
@@ -40,16 +40,16 @@ The quickest way to start is Home Assistant Green, which comes with Home Assista
 
 You can run Home Assistant on the following systems. Each link leads to the installation guide.
 
-- [Home Assistant Green](/green/)
-- [Home Assistant Yellow](/installation/yellow/)
-- A [Raspberry Pi](/installation/raspberrypi/) 4 or 5 with at least 2&nbsp;GB of RAM, and an SD card of at least 32&nbsp;GB
-- An [ODROID](/installation/odroid/) board, like the ODROID-N2+ or the ODROID-M1
-- A [mini PC or other computer](/installation/generic-x86-64/) with a 64-bit Intel or AMD processor that can start in UEFI mode
+- [Home Assistant Green](/green/).
+- [Home Assistant Yellow](/installation/yellow/).
+- A [Raspberry Pi](/installation/raspberrypi/) 4 or 5 with at least 2&nbsp;GB of RAM, and an SD card of at least 32&nbsp;GB.
+- An [ODROID](/installation/odroid/) board, like the ODROID-N2+ or the ODROID-M1.
+- A [mini PC or other computer](/installation/generic-x86-64/) with a 64-bit Intel or AMD processor that can start in UEFI mode.
   - Most computers made in the last 10 years can do this. The installation guide shows how to turn on UEFI mode.
-- A virtual machine with at least 2&nbsp;GB of RAM and 2 virtual processors
+- A virtual machine with at least 2&nbsp;GB of RAM and 2 virtual processors.
   - For most homes, 4&nbsp;GB of RAM and 4 virtual processors work better.
   - You create the virtual machine with virtualization software. For example, you can use VirtualBox, KVM, Proxmox, VMware, or Hyper-V. For the steps, refer to [Linux](/installation/linux/), [macOS](/installation/macos/), [Windows](/installation/windows/), or [Other systems](/installation/alternative/).
-- Home Assistant Container, on your own [Linux](/installation/linux/) system with Docker
+- Home Assistant Container, on your own [Linux](/installation/linux/) system with Docker.
 
 ## Ways to install Home Assistant
 
@@ -59,4 +59,4 @@ How you install Home Assistant depends on the system. For most systems, you use 
 - For a Raspberry Pi, an ODROID, or a mini PC, you write the Home Assistant OS image to its drive. For example, you can use Raspberry Pi Imager. The installation guide of your system has the steps.
 - For a virtual machine, you download the Home Assistant OS image for your virtualization software, and create a virtual machine with it.
 
-When the installation is finished, open `homeassistant.local` in a browser on a device on the same network. Then you [create your account and set up Home Assistant](/getting-started/onboarding/).
+When the installation is finished, open `homeassistant.local` in a browser on a device on the same network for Home Assistant OS. For Home Assistant Container, open `http://YOUR_HOST:8123`, where `YOUR_HOST` is the host name or IP address of the computer running the container. Then, [create your account and set up Home Assistant](/getting-started/onboarding/).
