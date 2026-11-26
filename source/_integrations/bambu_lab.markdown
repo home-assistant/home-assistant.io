@@ -13,6 +13,8 @@ ha_domain: bambu_lab
 ha_integration_type: device
 ha_platforms:
   - camera
+  - diagnostics
+  - light
   - sensor
 ha_quality_scale: bronze
 related:
@@ -22,7 +24,7 @@ related:
     title: Bambu Lab
 ---
 
-The **Bambu Lab** {% term integration %} lets you follow your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. You can see what the printer is doing, how far along the print is, when it will finish, and the temperatures of the bed and the chamber. You can also watch the camera of the printer.
+The **Bambu Lab** {% term integration %} lets you follow your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. You can see what the printer is doing, how far along the print is, when it will finish, and the temperatures of the bed and the chamber. You can also watch the camera of the printer, and turn the light inside the printer on and off.
 
 The integration talks directly to the printer over your local network. It does not use the Bambu Lab cloud, and the printer sends its updates to Home Assistant as soon as something changes. For example, you can get a notification on your phone the moment a print finishes, or when the printer pauses a print and needs your attention.
 
@@ -81,6 +83,12 @@ The **Bambu Lab** integration adds your printer as a device, with the following 
   - **Description**: The camera inside the printer.
   - **Available for printers**: Printers with a camera.
   - **Remarks**: Printers like the A1 and P1 series send a new image every second or two, so the camera shows images, not video. Other printers serve a video stream, which you turn on in the settings of the printer, as described in the [prerequisites](#prerequisites). The camera is unavailable while that stream is turned off.
+
+### Lights
+
+- **Chamber light**
+  - **Description**: The light inside the printer. You can turn it on and off.
+  - **Available for printers**: Printers that report a chamber light.
 
 ### Sensors
 
@@ -178,7 +186,7 @@ When the connection to the printer is lost, for example because the printer is t
 
 ## Known limitations
 
-- The integration follows what the printer is doing. It cannot control the printer yet, like pausing a print or switching the light.
+- Apart from the chamber light, the integration cannot control the printer yet. For example, you cannot pause a print.
 - Home Assistant does not find printers on your network by itself yet. You enter the IP address and serial number yourself.
 - If the access code of the printer changes, the integration can no longer connect. Remove the printer from Home Assistant, and add it again with the new access code.
 - If the IP address of the printer changes, the integration can no longer connect. To prevent this, give the printer a fixed IP address in your router. Otherwise, remove the printer from Home Assistant, and add it again with the new address.
