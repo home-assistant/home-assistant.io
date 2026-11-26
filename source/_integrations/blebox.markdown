@@ -589,30 +589,47 @@ resolvable and accessible within the device network. If in doubt, please refer t
 general [documentation of automations with webhook triggers](/triggers/webhook/).
 {% endnote %}
 
-### uRemote, sRemote, inBox via actionBox
+### Remotes with an actionBox or Simon GO Control hub
 
-μWiFi remotes can be integrated with Home Assistant indirectly, using an actionBox as a bridge (hub) between the remote and Home Assistant. 
+This integration does not add direct support for BleBox μWiFi remotes or for Simon GO Control B.
+You can still use them to trigger automations in Home Assistant by pairing each remote with a hub.
+The hub receives the button press from the remote and calls a webhook in Home Assistant.
 
-Remotes simulate a specific trigger. Unlike physical buttons, only a single defined trigger is activated, not all matching patterns. For example, the “rising edge” trigger does not activate together with a “short press”, as would happen when pressing a physical button connected to a controller input. This allows for a higher number of available control actions when actionBox is a hub for μWiFi remotes.
-
-Up to 20 different remotes can be paired with a single actionBox. The actionBox provides 5 types of triggers and 4 inputs, allowing up to 20 different automations through a single actionBox controller acting as a hub. The following μWiFi remotes are supported:
+You can use the following remotes:
 
 - μRemote (4 channels, 3 buttons per channel = 12 automations)
 - sRemote (1 channel, 4 buttons = 4 automations)
 - inBox (4 channels, each supporting short and long press = 8 automations)
+- Simon GO Control B from the Simon 24 GO, Simon 54 GO, or Simon 55 GO series
 
-When a μWiFi remote is paired with an actionBox, pressing a button on the remote simulates a trigger on a specific input of the actionBox. For example, pressing button 1 on a μRemote paired with an actionBox fires all actions configured with the trigger "short press on input 1" on that actionBox.
+You can use the following devices as a hub:
 
-Integrating a μWiFi remote via actionBox consists of three steps:
+- actionBox
+- Simon GO Control from the Simon 24 GO, Simon 54 GO, or Simon 55 GO series
+
+You can pair any of these remotes with any of these hubs, so BleBox and Simon GO devices work together.
+For example, you can pair a μRemote with a Simon GO Control, or a Simon GO Control B with an actionBox.
+
+When you press a button on a paired remote, the hub reacts as if a trigger happened on one of its inputs.
+For example, pressing button 1 on a μRemote paired with an actionBox fires all actions configured with the trigger "short press on input 1" on that actionBox.
+
+A remote button activates only the one trigger you assign to it.
+This is different from a physical button connected to a hub input, where a short press also activates other matching triggers, such as "rising edge".
+Because of this, a hub can handle more separate actions from remotes than from physical buttons.
+
+An actionBox supports up to 20 paired remotes.
+It provides 4 inputs and 5 trigger types, so you can set up to 20 automations through a single actionBox.
+
+Integrating a remote consists of three steps:
 
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
-- [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
+- [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app) for the hub
 - [Configuring the remote in the wBox app](#configuring-the-remote-in-the-wbox-app)
 
 #### Configuring the remote in the wBox app
 
-1. Pair the remote with the actionBox according to the remote's pairing instructions available on the [Blebox manuals page](https://blebox.eu/en/manuals/).
-2. In the wBox app, go to the actionBox settings and select the **Remote controls** tab.
+1. Pair the remote with the hub according to the remote's pairing instructions available on the [BleBox manuals page](https://blebox.eu/en/manuals/).
+2. In the wBox app, go to the hub settings and select the **Remote controls** tab.
 
    ![wBox app Remote controls tab showing paired remote](/images/integrations/blebox/wbox_remote_controls.jpg)
 
@@ -622,11 +639,11 @@ Integrating a μWiFi remote via actionBox consists of three steps:
 
 4. Edit the remote actions:
    - Select the trigger the remote button should simulate, for example "short press".
-   - Select the actionBox input the remote button should simulate, for example input 1.
+   - Select the hub input the remote button should simulate, for example input 1.
 
    ![wBox app remote actions editor showing button gesture and input number](/images/integrations/blebox/wbox_remote_actions.jpg)
 
-5. Once configured, pressing a button on the remote triggers the actionBox, which calls the webhook URL you set up in the [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant) section.
+5. Once configured, pressing a button on the remote triggers the hub, which calls the webhook URL you set up in the [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant) section.
 
 ------
 
@@ -742,9 +759,14 @@ The configuration consists of two steps:
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
+Simon 24 GO Control can also work as a hub for remotes, such as μRemote or Simon GO Control B.
+For details, see [Remotes with an actionBox or Simon GO Control hub](#remotes-with-an-actionbox-or-simon-go-control-hub).
+
 ### Simon 24 GO CONTROL B (NENB1W.01)
 
-This integration does not add direct support for the Simon 24 GO Control B device. However, it is possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge, in the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
+This integration does not add direct support for the Simon 24 GO Control B device.
+You can use it as a remote paired with an actionBox or a Simon GO Control hub.
+For details, see [Remotes with an actionBox or Simon GO Control hub](#remotes-with-an-actionbox-or-simon-go-control-hub).
 
 ## "BleBox inside" - Simon 54 GO
 
@@ -858,9 +880,14 @@ The configuration consists of two steps:
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
+Simon 54 GO Control can also work as a hub for remotes, such as μRemote or Simon GO Control B.
+For details, see [Remotes with an actionBox or Simon GO Control hub](#remotes-with-an-actionbox-or-simon-go-control-hub).
+
 ### Simon 54 GO CONTROL B (DENB1W.01)
 
-This integration does not add direct support for the Simon 24 GO Control B device. However, it is possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge, in the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
+This integration does not add direct support for the Simon 54 GO Control B device.
+You can use it as a remote paired with an actionBox or a Simon GO Control hub.
+For details, see [Remotes with an actionBox or Simon GO Control hub](#remotes-with-an-actionbox-or-simon-go-control-hub).
 
 ## "BleBox inside" - Simon 55 GO
 
@@ -997,9 +1024,14 @@ The configuration consists of two steps:
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
+Simon 55 GO Control can also work as a hub for remotes, such as μRemote or Simon GO Control B.
+For details, see [Remotes with an actionBox or Simon GO Control hub](#remotes-with-an-actionbox-or-simon-go-control-hub).
+
 ### Simon 55 GO CONTROL B (TENB1W.01)
 
-This integration does not add direct support for the Simon 24 GO Control B device. However, it is possible to integrate this device with Home Assistant indirectly, using an actionBox as a bridge, in the same way as [uRemote, sRemote, inBox via actionBox](#uremote-sremote-inbox-via-actionbox).
+This integration does not add direct support for the Simon 55 GO Control B device.
+You can use it as a remote paired with an actionBox or a Simon GO Control hub.
+For details, see [Remotes with an actionBox or Simon GO Control hub](#remotes-with-an-actionbox-or-simon-go-control-hub).
 
 ## "BleBox inside" - other manufacturers
 
