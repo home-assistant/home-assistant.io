@@ -276,7 +276,7 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 {% configuration_basic %}
 Camera snapshots over WebRTC:
-  description: For cameras that only support WebRTC, get snapshots through go2rtc instead of a placeholder. See [WebRTC camera snapshots](#webrtc-camera-snapshots).
+  description: For cameras that only support WebRTC, get snapshots through go2rtc instead of a placeholder. Off by default. See [WebRTC camera snapshots](#webrtc-camera-snapshots).
 {% endconfiguration_basic %}
 
 ## Climate
@@ -348,9 +348,11 @@ support capturing media (snapshots or clips) through device triggers. The table 
 
 The SDM API has no snapshots for WebRTC cameras. To get real snapshots, enable **Camera snapshots over WebRTC** in the [integration options](#options).
 
-This uses the [go2rtc](/integrations/go2rtc/) integration. Home Assistant runs go2rtc itself on installations that use the Home Assistant container image, such as Home Assistant OS. On other installations, configure go2rtc with a `url` to a go2rtc server that has the `nest` module. Your Nest OAuth client ID, client secret, and refresh token are passed to go2rtc.
+This uses the [go2rtc](/integrations/go2rtc/) integration. Home Assistant runs go2rtc itself on {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %} installations. On other installations, configure go2rtc with a `url` to a go2rtc server that has the `nest` module. Your Nest OAuth client ID, client secret, and refresh token are passed to go2rtc.
 
-A snapshot is reused for two minutes, so it can be up to two minutes old. Each new one opens a short WebRTC session to the camera, which may wake a battery camera, and counts toward Google's command limit for the camera (100 an hour for Sandbox projects). That limit is shared with any other app that uses the camera through Google's Device Access API.
+An external go2rtc server receives these credentials in the request URL and keeps them in its configuration, also after you turn the option off. Use an `https://` URL for it, so they aren't sent unencrypted, and keep its configuration private.
+
+A snapshot is reused for two minutes, so it can be up to two minutes old. Each new one opens a short WebRTC session to the camera, which may wake a battery camera, and counts toward Google's [command limits](https://developers.google.com/nest/device-access/project/limits) for the camera: 30 a minute and 100 an hour for Sandbox projects. Those limits are shared with any other app that uses the camera through Google's Device Access API.
 
 ## Event
 
