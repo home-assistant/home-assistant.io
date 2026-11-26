@@ -171,7 +171,7 @@ In the **Template editor**, the result of your template is true, but the automat
 
 #### Cause
 
-A template trigger only reacts when the result of the template changes from false to true. The editor only shows the current result. If the result is already true when you load the automation, the trigger does not react until the result has been false again.
+By default, a template trigger only reacts when the result of the template changes from false to true. The editor only shows the current result. If the result is already true when you load the automation, the trigger does not react until the result has been false again.
 
 #### Resolution
 

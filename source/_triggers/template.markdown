@@ -61,7 +61,7 @@ value_template:
   required: true
   type: template
 for:
-  description: How long the template must stay true before the trigger reacts. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds. You can also use a template, which Home Assistant renders when `value_template` becomes true. For a list of all accepted formats and templates, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  description: How long the template must stay true, or keep the same result with `triggered_when: changed`, before the trigger reacts. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds. You can also use a template, which Home Assistant renders when the timer starts. For a list of all accepted formats and templates, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
   type: [string, integer, map, template]
   default: "00:00:00"
@@ -105,10 +105,10 @@ automation: |
 - By default, the trigger only reacts when the template changes from false to true. If the template is already true when Home Assistant sets up the trigger, the trigger only reacts after the template has been false first.
 - With `triggered_when: changed`, the trigger doesn't react when Home Assistant sets it up. It reacts on the first change after that. If the template can't be rendered for a while and then renders the same result as before, the trigger doesn't react.
 - With `triggered_when: changed` and **For at least** (`for`), every new result restarts the timer. The trigger only reacts when the template keeps the same result for the entire time.
-- These results count as true: `true`, a number other than `0`, and the strings `yes`, `on`, and `enable`. Any other result counts as false.
+- With the default `triggered_when: turned_true`, these results count as true: `true`, a number other than `0`, and the strings `yes`, `on`, and `enable`. Any other result counts as false.
 - Home Assistant renders the template again when one of the entities in the template changes. You can also check an attribute, for example, with `{{ is_state_attr('climate.living_room', 'preset_mode', 'away') }}`.
 - A template that uses the current time, with `now()`, `utcnow()`, `today_at`, `relative_time`, `time_since`, or `time_until`, is rendered again at the start of every minute. For details, refer to [Getting the current time](/docs/templating/dates-and-times/#getting-the-current-time). A template without entities that doesn't use any of these is only rendered once, when Home Assistant sets up the trigger.
-- If you use **For at least** (`for`), the template must stay true for the entire time. If it becomes false before the time is up, the trigger doesn't react. Use a template that renders `true` or `false`: if the result changes while it stays true, for example from `5` to `6`, the timer stops, and the trigger only reacts after the template has been false first.
+- If you use **For at least** (`for`) with the default `triggered_when: turned_true`, the template must stay true for the entire time. If it becomes false before the time is up, the trigger doesn't react. Use a template that renders `true` or `false`: if the result changes while it stays true, for example from `5` to `6`, the timer stops, and the trigger only reacts after the template has been false first.
 - If you use **For at least** (`for`), the timer resets when Home Assistant restarts or automations reload. If that's a problem for your automation, you can have the automation set a [date and time helper](/integrations/input_datetime/) instead, and use that helper in a [Time trigger](/triggers/time/).
 - If the template can't be rendered, for example, because of an error in the template, the trigger doesn't react, and Home Assistant logs a warning.
 - For the data that this trigger passes to your conditions and actions, such as `trigger.value` and `trigger.previous_value`, refer to [Template triggers](/docs/automation/trigger-data/#template-triggers).
