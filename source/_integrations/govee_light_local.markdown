@@ -10,18 +10,44 @@ Each light is added to Home Assistant as its own device, with one light entity.
 ## Prerequisites
 
 - Enable **LAN Control** for each light in the Govee Home app. Refer to the [Govee LAN guide](https://app-h5.govee.com/user-manual/wlan-guide) for instructions.
-- The lights must be on the same network as Home Assistant. Discovery uses multicast, which usually does not cross VLANs or separate subnets.
+- To be discovered, the lights must be on the same network as Home Assistant. Discovery uses multicast, which usually does not cross VLANs or separate subnets. A light on another network can be [added by its IP address](#adding-a-light-by-ip-address).
 - UDP port 4002 must be free on the Home Assistant host. Only one application on the host can listen for Govee lights at a time.
 
-{% include integrations/config_flow.md %} 
+{% include integrations/config_flow.md %}
+
 
 ## Adding lights
 
 Home Assistant scans the network for Govee lights. Each light that answers shows up under **Discovered** in {% my integrations title="**Settings** > **Devices & services**" %}, labeled with its model and IP address. Select **Add** on a discovered light to set it up.
 
-When you add the integration manually, Home Assistant runs a new scan and the lights it finds appear under **Discovered** in the same way. If you dismissed a discovered light earlier, adding the integration again brings it back.
+When you add the integration manually, you choose how to find the light:
+
+- **Search the network**: Home Assistant runs a new scan and the lights it finds appear under **Discovered** in the same way. If you dismissed a discovered light earlier, searching again brings it back.
+- **Enter the IP address**: Home Assistant contacts the light at the address you enter and adds it directly.
+
+### Adding a light by IP address
+
+Use this option for a light that the scan does not find, for example, because it is on another VLAN or subnet.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Add integration**.
+2. Select **Govee Lights Local**, then select **Enter the IP address**.
+3. Enter the IPv4 address of the light and select **Submit**.
+
+The light must be powered on and answer at that address, otherwise it is not added. If the light is already set up in Home Assistant, its stored IP address is updated instead.
+
+For a light on another network, your router or firewall must allow UDP traffic from Home Assistant to the light on ports 4001 and 4003, and from the light back to Home Assistant on port 4002.
+
+### Changing the IP address of a light
 
 If the IP address of a light changes, Home Assistant picks up the new address the next time the light answers a scan.
+
+A light that the scan cannot reach, such as one on another network, is not updated this way. Assign it a fixed IP address in your router, or change the address in Home Assistant:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Govee Lights Local**.
+2. On the entry of the light, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Enter the new IP address and select **Submit**.
+
+The new address must belong to the same light. If a different light answers there, the address is not changed.
 
 ## Upgrading from an earlier version
 
@@ -37,10 +63,18 @@ Earlier versions used a single integration entry for all lights. After the updat
 - Check that **LAN Control** is turned on for the light in the Govee Home app. The option only appears for models that support it.
 - Make sure the light and Home Assistant are on the same network and that your router or access point does not block multicast traffic.
 - Make sure no other application on the Home Assistant host is using UDP port 4002.
+- If the light is on another VLAN or subnet, [add it by its IP address](#adding-a-light-by-ip-address).
+
+### A light cannot be added by its IP address
+
+- **Invalid hostname or IP address**: Enter an IPv4 address, such as `192.168.1.50`. Hostnames and IPv6 addresses are not supported.
+- **Failed to connect**: The light did not answer at that address. Check the address, that the light is powered and connected to Wi-Fi, and that **LAN Control** is turned on. For a light on another network, check that the UDP ports listed in [Adding a light by IP address](#adding-a-light-by-ip-address) are allowed.
 
 ### A light is shown as failing to set up
 
 The light did not answer. Check that it is powered and connected to Wi-Fi. Home Assistant keeps retrying and sets the light up as soon as it answers.
+
+If the light is on another network and its IP address has changed, [change the IP address](#changing-the-ip-address-of-a-light) of the light.
 
 ## Removing the integration
 
