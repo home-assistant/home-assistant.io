@@ -115,12 +115,6 @@ Both buttons are configuration entities.
 
 ### Selects
 
-- **Infrared brightness**
-  - **Description**: Sets how bright the infrared LEDs run when the visible brightness is low.
-  - **Options**: `Disabled`, `25%`, `50%` or `100%`
-  - **Available for**: LIFX Nightvision lights that already had this select before the **Infrared brightness** number replaced it
-  - **Remarks**: Deprecated. It will be removed in Home Assistant 2027.7. Use the **Infrared brightness** number instead, which can be set to any percentage: `Disabled` is 0, and the other options are the same percentages. Home Assistant raises a repair issue for each light that still has the select. Fixing the issue removes the select. If an automation or a script still uses it, the repair lists them so you can switch them to the number first. If you disable the select and nothing uses it, Home Assistant removes it when it next starts.
-
 - **Mood**
   - **Description**: Applies one of the LIFX app's Moods to the light, the way the app does.
   - **Options**: any of the [available themes](#themes), shown as category and name
