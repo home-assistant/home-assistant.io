@@ -112,16 +112,15 @@ These entities require Music Assistant server version 2.11 or later.
 
 ### Sleep timer
 
-The Music Assistant integration creates two sensor entities for the sleep timer of each player:
+The Music Assistant integration creates a **Sleep timer** sensor entity for each player. It shows when the sleep timer stops playback. The sensor is unknown when no sleep timer is set, and while a timer for the end of the item or chapter waits for paused playback.
 
-- **Sleep timer end**: When the sleep timer stops playback. The sensor is unknown when no sleep timer is set, and while a timer for the end of the item or chapter waits for paused playback.
-- **Sleep timer mode**: When the sleep timer stops playback: **Off**, **After a duration**, **End of the current item**, or **End of the current chapter**.
+Its **Mode** attribute shows when the sleep timer stops playback: **Off**, **After a duration**, **End of the current item**, or **End of the current chapter**. While a timer for the end of the item or chapter waits for paused playback, the mode still shows that timer.
 
-While a player plays along with another player, the sensors show the sleep timer of that other player.
+While a player plays along with another player, the sensor shows the sleep timer of that other player.
 
 To set or clear a sleep timer, use the [Set sleep timer](/actions/music_assistant.set_sleep_timer/) and [Clear sleep timer](/actions/music_assistant.clear_sleep_timer/) actions.
 
-The sensors are disabled by default. To use them, [enable the entities](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first. With a Music Assistant server older than version 2.11, the mode is **After a duration** whenever a sleep timer is set.
+The **Sleep timer** entity is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) first. With a Music Assistant server older than version 2.11, the mode is **After a duration** whenever a sleep timer is set.
 
 ### Player options
 
