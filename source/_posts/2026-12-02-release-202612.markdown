@@ -806,7 +806,7 @@ Thanks, [@erwindouna], for all three of these!
 
 Last release, your AI assistant learned to look into Home Assistant and help you troubleshoot. This release, it learns to help you set things up and keep them tidy. Paulus and Allen went on quite a tool-building spree this month. 😅
 
-Say you just unpacked a box of new sensors, and Home Assistant discovered all of them. Normally, that's the start of an evening of setting them up one by one, renaming them, and putting each one in the right room. Now you can ask: "Add the new sensors, name them after the room they're in, put them in that area, and give them a Security label." Your assistant adds the integration, renames the devices, and sorts them into your areas. You check the result.
+Say you just unpacked a box of new sensors, and Home Assistant discovered all of them. Normally, that's the start of an evening of setting them up one by one, renaming them, and putting each one in the right room. Now you can ask: "Add the new sensors, give them clear names, put each one in the right area, and give them a Security label." Your assistant adds the integration, renames the devices, and sorts them into your areas. You check the result.
 
 Or: "Why didn't the hallway light turn on last night?" Your assistant reads the automation, looks at what it did last night, and tells you. Or: "Is my home battery set up right in the Energy dashboard?"
 
