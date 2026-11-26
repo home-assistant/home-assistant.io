@@ -2,7 +2,8 @@
 title: TIS Control
 description: Instructions on how to integrate TIS Control devices with Home Assistant.
 ha_release: 2025.11
-ha_category: Switch
+ha_categories:
+  - plugs_switches
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
