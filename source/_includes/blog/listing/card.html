@@ -1,14 +1,29 @@
 {%- comment -%}
-  A post on the blog's listing pages: image, first category, date,
-  title, description and authors. The whole card links to the post.
+  A post on the blog's listing pages. The whole card links to the post.
+  Cards come in three sizes, so the page steps down from one wide card
+  to two, then rows of three:
+
+    featured: the newest post. Image, category, title, description, date
+      and authors.
+    secondary: the next two posts. Image, title, description, date and
+      authors.
+    compact: everything else. Category, title, description, date and
+      authors, with no image.
+
+  A post shared from another site gets a pill at the top, in place of
+  the category.
 
   Parameters:
     entry: an entry from page.listing (see plugins/blog_listings.rb)
-    featured: true for the wide card of the newest post
+    size: "featured", "secondary" or "compact" (the default)
 {%- endcomment -%}
 {%- assign post = include.entry.post -%}
 {%- assign category = include.entry.categories | first -%}
-<a href="{{ post.url }}" class="blog-card{% if include.featured %} featured{% endif %}">
+{%- assign size = include.size | default: "compact" -%}
+{%- assign description_length = 140 -%}
+{%- if size == "featured" %}{% assign description_length = 260 %}{% endif -%}
+<a href="{{ post.url }}" class="blog-card {{ size }}">
+  {%- unless size == "compact" %}
   {%- comment -%} Posts without an image of their own use the site's social image, as when they're shared. {%- endcomment %}
   <div class="blog-card-media">
     {%- comment -%}
@@ -19,37 +34,36 @@
     <span class="blog-card-placeholder" aria-hidden="true">
       <svg viewBox="0 0 24 24" width="48" height="48" focusable="false"><path fill="currentColor" d="M22.939 10.627L13.061.749a1.505 1.505 0 0 0-2.121 0l-9.879 9.878C.478 11.21 0 12.363 0 13.187v9c0 .826.675 1.5 1.5 1.5h9.227l-4.063-4.062a2 2 0 0 1-.664.113c-1.13 0-2.05-.92-2.05-2.05s.92-2.05 2.05-2.05s2.05.92 2.05 2.05c0 .233-.041.456-.113.665l3.163 3.163V9.928a2.05 2.05 0 0 1-1.15-1.84c0-1.13.92-2.05 2.05-2.05s2.05.92 2.05 2.05a2.050 2.050 0 0 1-1.15 1.84v8.127l3.146-3.146A2.05 2.05 0 0 1 18 12.239c1.13 0 2.05.92 2.05 2.05s-.92 2.05-2.05 2.05a2 2 0 0 1-.709-.13L12.9 20.602v3.088h9.6c.825 0 1.5-.675 1.5-1.5v-9c0-.825-.477-1.977-1.061-2.561z"/></svg>
     </span>
-    <img src="{{ post.og_image | default: '/images/default-social.png' }}" alt="" width="1200" height="630" {% if include.featured %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async" onload="this.parentNode.classList.add('loaded')" onerror="this.onerror=null;this.src='/images/default-social.png'" />
+    <img src="{{ post.og_image | default: '/images/default-social.png' }}" alt="" width="1200" height="630" {% if size == "featured" %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async" onload="this.parentNode.classList.add('loaded')" onerror="this.onerror=null;this.src='/images/default-social.png'" />
   </div>
+  {%- endunless %}
   <div class="blog-card-body">
-    <div class="blog-card-meta">
-      {%- if category %}
+    {%- comment -%}
+      Every card's text follows the same pattern: the category, or for a
+      post shared from another site a pill in its place, then the title,
+      description, date and authors. Secondary cards leave the category out.
+    {%- endcomment %}
+    {%- assign show_category = false %}
+    {%- if size != "secondary" and category and post.external_url == nil %}{% assign show_category = true %}{% endif %}
+    {%- if show_category or post.external_url %}
+    <div class="blog-card-kicker">
+      {%- if show_category %}
       <span class="blog-card-category">{{ category.label }}</span>
+      {%- else %}
+      <span class="blog-card-source shared">Shared from {{ post.external_source | default: "another site" }}</span>
       {%- endif %}
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
     </div>
+    {%- endif %}
     <h2 class="blog-card-title">{{ post.title }}</h2>
     {%- if post.description %}
-    <p class="blog-card-description">{% if include.featured %}{{ post.description | truncate: 260, "…" }}{% else %}{{ post.description | truncate: 140, "…" }}{% endif %}</p>
+    <p class="blog-card-description">{{ post.description | truncate: description_length, "…" }}</p>
     {%- endif %}
-    {%- comment -%}
-      Two lines of one line each, so footers are the same height and
-      author rows line up across a row of cards.
-    {%- endcomment %}
-    <div class="blog-card-footer">
+    <p class="blog-card-date">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
       {%- if include.entry.authors.size > 0 %}
-      <span class="blog-card-authors">
-        <span class="blog-card-avatars">
-          {%- for author in include.entry.authors %}{% if author.avatar %}<img src="{{ author.avatar }}" alt="" width="24" height="24" loading="lazy" />{% else %}<span class="avatar-placeholder" aria-hidden="true"></span>{% endif %}{% endfor -%}
-        </span>
-        <span class="blog-card-author-names">{{ include.entry.authors | map: "label" | join: ", " }}</span>
-      </span>
+      <span class="blog-card-separator" aria-hidden="true">·</span>
+      <span class="blog-card-authors">by {{ include.entry.authors | map: "label" | array_to_sentence_string }}</span>
       {%- endif %}
-      {%- if post.external_url %}
-      <span class="blog-card-source">Shared from {{ post.external_source | default: "another site" }}</span>
-      {%- else %}
-      <span class="blog-card-source">{{ include.entry.reading_time }} min read</span>
-      {%- endif %}
-    </div>
+    </p>
   </div>
 </a>

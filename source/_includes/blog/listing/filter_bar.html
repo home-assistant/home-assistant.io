@@ -1,6 +1,6 @@
 {%- comment -%}
-  The blog's filters: the active filters, each removable on its own, and
-  a Filters button that opens a drawer with every category, year and
+  The blog's filters: the active filters, each removable on its own (shown
+  only when a filter is active), and a Filters button that opens a drawer with every category, year and
   author. The drawer's lists show what each choice gives from this page,
   so a category's years, or a year's categories, combine the two. The
   drawer is a side panel on wider screens and a bottom sheet on phones.
@@ -14,10 +14,8 @@
 {%- assign drawer = listing.drawer -%}
 
 <div class="blog-toolbar">
+  {%- if listing.filters.size > 0 %}
   <div class="blog-active-filter">
-    {%- if listing.filters.size == 0 %}
-    <span class="blog-chip active">All posts <span class="blog-count">{{ listing.count }}</span></span>
-    {%- else %}
     {%- for filter in listing.filters %}
     {%- capture prefix %}{% case filter.kind %}{% when "category" %}Category{% when "year" %}Year{% else %}Author{% endcase %}{% endcapture %}
     <a class="blog-chip active" href="{{ filter.remove_url }}" aria-label="Remove filter {{ prefix }}: {{ filter.label }}">
@@ -28,8 +26,8 @@
     {%- if listing.filters.size > 1 %}
     <a class="blog-clear-filter" href="/blog/">Clear filters</a>
     {%- endif %}
-    {%- endif %}
   </div>
+  {%- endif %}
   <div class="blog-actions">
     <button type="button" class="blog-action blog-filters-button" commandfor="blog-filters" command="show-modal">
       {% icon "mdi:filter-variant" %} Filters

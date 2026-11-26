@@ -49,15 +49,27 @@ layout: default
 
   {% include blog/listing/filter_bar.html %}
 
+  {%- comment -%}
+    With a featured post, the page steps down: one wide card, two
+    cards with images, then rows of three without images. Other pages
+    are rows of three only.
+  {%- endcomment %}
+  {%- assign compact_offset = 0 %}
   {%- if listing.featured %}
+  {%- assign compact_offset = 2 %}
   <div class="blog-listing-featured">
-    {% include blog/listing/card.html entry=listing.featured featured=true %}
+    {% include blog/listing/card.html entry=listing.featured size="featured" %}
   </div>
+  <ul class="blog-listing-secondary">
+    {%- for entry in listing.entries limit: 2 %}
+    <li>{% include blog/listing/card.html entry=entry size="secondary" %}</li>
+    {%- endfor %}
+  </ul>
   {%- endif %}
 
   <ul class="blog-listing-grid">
-    {%- for entry in listing.entries %}
-    <li>{% include blog/listing/card.html entry=entry %}</li>
+    {%- for entry in listing.entries offset: compact_offset %}
+    <li>{% include blog/listing/card.html entry=entry size="compact" %}</li>
     {%- endfor %}
   </ul>
 

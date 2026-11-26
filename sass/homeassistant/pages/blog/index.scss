@@ -58,6 +58,33 @@ $desk: 1200px;
   }
 }
 
+// From tablets up, with no filter active, the Filters and RSS buttons sit
+// beside the intro, lined up with its last line, rather than alone on a
+// row of their own. With a filter active, the toolbar keeps its own row
+// for the filter chips. Everything else spans the full width.
+@media (min-width: $tab) {
+  .blog-listing {
+    column-gap: 32px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+
+    > * {
+      grid-column: 1 / -1;
+    }
+
+    > .blog-listing-intro {
+      grid-column: 1;
+    }
+
+    > .blog-toolbar:not(:has(.blog-active-filter)) {
+      align-self: end;
+      grid-column: 2;
+      grid-row: 1;
+      margin-bottom: 32px;
+    }
+  }
+}
+
 // --- Toolbar: the active filter, Filters and RSS ---
 
 .blog-toolbar {
@@ -138,9 +165,11 @@ a.blog-chip.active {
   font-weight: 500;
 }
 
+// Pushed right, also when there are no active filters beside it.
 .blog-actions {
   display: flex;
   gap: 8px;
+  margin-left: auto;
 }
 
 .blog-action {
@@ -175,14 +204,33 @@ a.blog-chip.active {
 
 // --- Cards ---
 
+// The page steps down: the featured card, a row of two, then rows of
+// three. Rows of three stay three columns down to tablets, so page 1's
+// nine compact cards never leave one alone in a row.
 .blog-listing-featured {
   margin-bottom: 24px;
+}
+
+// Two classes, so the margin wins over the list reset in .blog-listing.
+.blog-listing .blog-listing-secondary {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
+  margin-bottom: 24px;
+
+  @media (min-width: $tab) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .blog-listing-grid {
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  grid-template-columns: minmax(0, 1fr);
+
+  @media (min-width: $tab) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .blog-card {
@@ -211,6 +259,50 @@ a.blog-chip.active {
     box-shadow: 0 0 0 3px var(--blog-ink);
     outline: none;
   }
+}
+
+// Secondary and compact cards end with one line: the date, and where a
+// post was shared from. It sits at the bottom of the card, so dates line
+// up across a row.
+// It's smaller, in a cooler grey than the description and set apart from
+// it, so it reads as a label rather than more text. The grey has a 5:1
+// contrast ratio on white, which passes WCAG AA.
+.blog-card-date {
+  color: #667075;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin: auto 0 0;
+  padding-top: 16px;
+}
+
+// The dot between the date and the authors has room on both sides.
+.blog-card-separator {
+  margin: 0 8px;
+}
+
+.blog-card.compact {
+  .blog-card-category {
+    font-size: 0.8125rem;
+  }
+
+  .blog-card-description {
+    font-size: 0.9375rem;
+  }
+}
+
+.blog-listing .blog-card.secondary .blog-card-title {
+  font-size: 1.25rem;
+
+  @media (min-width: $tab) {
+    font-size: 1.5rem;
+  }
+}
+
+.blog-listing .blog-card.compact .blog-card-title {
+  font-size: 1.125rem;
+  line-height: 1.35;
 }
 
 // Every card's image box has the shape of a social image (1200 × 630),
@@ -268,16 +360,6 @@ a.blog-chip.active {
   padding: 24px;
 }
 
-.blog-card-meta,
-.blog-card-footer {
-  align-items: center;
-  color: var(--blog-muted);
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 0.875rem;
-  gap: 8px 16px;
-}
-
 .blog-card-category {
   color: var(--blog-link);
   font-weight: 600;
@@ -294,56 +376,43 @@ a.blog-chip.active {
   transition: color 0.2s ease;
 }
 
+// `pretty` keeps a single word from ending up alone on the last line.
 .blog-card-description {
   color: var(--blog-muted);
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;
+  text-wrap: pretty;
 }
 
-.blog-card-footer {
-  align-items: stretch;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 12px;
-}
-
-.blog-card-authors {
-  align-items: center;
-  display: flex;
-  gap: 8px;
-  min-width: 0;
-}
-
-.blog-card-author-names,
 .blog-card-source {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-// Several authors' avatars overlap. Authors without a GitHub account get
-// a plain circle, as in the filters panel.
-.blog-card-avatars {
-  display: inline-flex;
-  flex-shrink: 0;
+// A post shared from another site gets a pill, sized to its text.
+.blog-card-source.shared {
+  align-self: flex-start;
+  background: var(--blog-subtle);
+  border-radius: var(--blog-pill);
+  max-width: 100%;
+  padding: 2px 12px;
+}
 
-  img,
-  .avatar-placeholder {
-    background: var(--blog-subtle);
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px var(--blog-surface);
-    display: block;
-    height: 24px;
-    margin: 0;
-    width: 24px;
+// The line above the title holds the category, or for a post shared
+// from another site, a small shared-from pill.
+.blog-card-kicker {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
 
-    + img,
-    + .avatar-placeholder {
-      margin-left: -8px;
-    }
+  .blog-card-source.shared {
+    color: var(--blog-text);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 2px 10px;
   }
 }
 
@@ -371,10 +440,6 @@ a.blog-chip.active {
 
     .blog-card-body {
       padding: 32px 40px;
-    }
-
-    .blog-card-footer {
-      margin-top: 16px;
     }
   }
 }

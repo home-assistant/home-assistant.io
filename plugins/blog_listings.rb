@@ -193,15 +193,16 @@ module Jekyll
         }
       end
 
-      # The unfiltered blog features its newest post on page 1, ahead of a
-      # full page of cards.
+      # The unfiltered blog features its newest post on page 1. The
+      # featured post counts toward that page's POSTS_PER_PAGE, so page 1
+      # fills its rows exactly: one wide card, two, then three rows of three.
       def paginate(filters)
         matching = @entries.select { |e| BlogListings.matches?(e, filters) }
         base = BlogListings.filters_url(filters)
         featured = filters.empty? ? matching.first : nil
         rest = featured ? matching.drop(1) : matching
-        pages = rest.each_slice(POSTS_PER_PAGE).to_a
-        pages = [[]] if pages.empty?
+        first_size = featured ? POSTS_PER_PAGE - 1 : POSTS_PER_PAGE
+        pages = [rest.first(first_size)] + rest.drop(first_size).each_slice(POSTS_PER_PAGE).to_a
         shared = {
           'heading' => heading(filters),
           'intro' => intro(filters),
