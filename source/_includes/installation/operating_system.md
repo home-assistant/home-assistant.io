@@ -404,7 +404,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
        - **Size**: Set this to at least **32 GB**.
     4. Under **Network Interface**, specify the following settings:
        - **Adapter Type**: Select **VirtIO**.
-       - **Attach NIC**: Select a network interface (a bridge such as **br0** is recommended to avoid mDNS/multicast discovery issues and so the VM can communicate with TrueNAS).
+       - **Attach NIC**: Select a network interface (a bridge such as **br0** is recommended to avoid mDNS or multicast discovery issues and so the VM can communicate with TrueNAS).
     5. Under **Installation Media**, leave the default settings and select **Next**.
     6. Under **GPU**, leave the default settings and select **Next**.
     7. Under **Confirm Options**, review the settings and select **Save**.
