@@ -17,4 +17,5 @@ Learn more:
 
 - [Home Assistant Green](/green/)
 - [Home Assistant Voice Preview Edition](/voice-pe/)
+- [How Home Assistant runs](/installation/how-home-assistant-runs/)
 - [Installation](/installation/)
