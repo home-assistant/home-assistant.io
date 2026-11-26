@@ -400,7 +400,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
        - **Import Image**: Check this box to import the **.qcow2** image.
        - **Image Source**: Select the decompressed **.qcow2** image you copied to TrueNAS.
        - **Select Disk Type**: Select **VirtIO**.
-       - **Zvol Location**: Select a dataset for the new Zvol disk image.
+       - **Zvol Location**: Select a dataset to create the zvol.
        - **Size**: Set this to at least **32 GB**.
     4. Under **Network Interface**, specify the following settings:
        - **Adapter Type**: Select **VirtIO**.
