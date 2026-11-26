@@ -12,6 +12,7 @@
     "presence_location.trackers"
   ],
   "platforms": [
+    "button",
     "device_tracker",
     "diagnostics",
     "sensor"

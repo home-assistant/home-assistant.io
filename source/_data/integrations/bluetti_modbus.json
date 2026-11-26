@@ -16,6 +16,7 @@
   ],
   "platforms": [
     "diagnostics",
+    "number",
     "sensor"
   ],
   "discovery": [

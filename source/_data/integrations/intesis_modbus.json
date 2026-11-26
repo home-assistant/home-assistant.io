@@ -16,6 +16,7 @@
   ],
   "platforms": [
     "climate",
-    "diagnostics"
+    "diagnostics",
+    "sensor"
   ]
 }
