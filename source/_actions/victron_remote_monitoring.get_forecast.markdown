@@ -138,9 +138,13 @@ automation: |
              | rejectattr('solar', 'none')
              | sort(attribute='solar')
              | last %}
+          {% if best is defined %}
           Today's sunniest hour starts at
           {{ as_datetime(best.datetime).strftime('%H:%M') }},
           with about {{ (best.solar / 1000) | round(1) }} kWh.
+          {% else %}
+          No solar production forecast is available for today.
+          {% endif %}
 {% endexample %}
 
 {% enddetails %}
