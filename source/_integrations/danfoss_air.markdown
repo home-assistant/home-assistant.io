@@ -19,7 +19,7 @@ Host:
     description: "The hostname or IP address of the Danfoss Air CCM module. For example, `192.168.1.50`."
 {% endconfiguration_basic %}
 
-If you configured Danfoss Air in your {% term "`configuration.yaml`" %} file, that configuration is imported automatically. Afterwards, remove the `danfoss_air` entry from your {% term "`configuration.yaml`" %} file.
+If you configured Danfoss Air in your {% term "`configuration.yaml`" %} file, that configuration is imported automatically when Home Assistant starts. Once Danfoss Air appears under {% my integrations title="**Settings** > **Devices & services**" %}, remove the `danfoss_air` entry from your {% term "`configuration.yaml`" %} file. If the import fails, for example because the CCM module cannot be reached, a repair issue explains what went wrong. The import is tried again at the next restart.
 
 ## Supported functionality
 
