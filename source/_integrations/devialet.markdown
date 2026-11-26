@@ -33,3 +33,7 @@ You can play music on your speakers from Home Assistant, for example a radio sta
 ## Turning off the device
 
 The media player `turn off`  button and the `media_player.turn_off` action will turn off all the devices of the designated system. Exiting OFF mode is only possible by pressing a physical button on each device.
+
+## Data updates
+
+The speakers push changes, such as volume and the track that is playing, to Home Assistant as soon as they happen.
