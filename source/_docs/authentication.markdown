@@ -38,6 +38,8 @@ On the **Security** page, you can:
 - Manage your **Refresh tokens**. A refresh token is created each time you sign in from a device. Delete one to force that device to sign out.
   - Unused refresh tokens are automatically removed. A refresh token is considered unused if it has not been used to sign in within 90 days. If you need a permanent token, we recommend using a [long-lived access token](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens) instead.
 - Create [long-lived access tokens](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens) so scripts and apps can securely interact with Home Assistant.
+  Each token shows when it was created and, if available, when and from which IP address it was last used.
+  This helps you find tokens you no longer need, so you can delete them.
 
 In addition to the settings above, Administrators can enable IP banning to prevent brute force attacks by going to {% my network title="**Settings** > **System** > **Network** > **HTTP server** > **IP banning**" %}.
 

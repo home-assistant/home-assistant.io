@@ -13,6 +13,7 @@
   ],
   "platforms": [
     "device_tracker",
-    "diagnostics"
+    "diagnostics",
+    "sensor"
   ]
 }

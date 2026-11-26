@@ -115,9 +115,6 @@ Once Assist has been defined as the default digital assistant on your phone, you
    - Long press the power button.
    - Hold the home button (square button at the bottom).
 4. Open the assistant drop-down menu.
-
-   ![Using Assist with multiple servers](/images/assist/android_multi-server_01.png)
-
 5. Select the assistant from the instance you want to speak to.
    - Speak your command.
 

@@ -14,6 +14,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - update
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -54,6 +55,10 @@ The **Wi-Fi signal strength** sensor shows how well a camera is connected to you
 ### Motion detection
 
 The **Motion detection** switch turns the motion detection of a camera on or off. The switch is shown with the configuration entities of the device. The camera can switch motion detection back on its own, for example because of its own rules. The switch then shows the state the camera reports at the next update.
+
+### Firmware
+
+The **Firmware** entity shows the installed firmware version of a camera and whether a newer version is available. Bosch installs firmware updates on its own, so you cannot start an update from Home Assistant. While an update is installed, the entity shows its progress.
 
 ### Camera light
 
