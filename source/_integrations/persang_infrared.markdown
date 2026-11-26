@@ -21,6 +21,16 @@ Infrared transmitter:
   description: The infrared transmitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR transmitter.
 {% endconfiguration_basic %}
 
+## Reconfiguration
+
+If you replace your infrared transmitter or want to use a different one, you can change it without removing and adding the integration again:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Persang Infrared** integration.
+2. Next to the speaker entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Select the new **Infrared emitter**, and select **Submit**.
+
+Each infrared transmitter can only be used by one Persang speaker entry.
+
 ## Supported devices
 
 The IR commands were captured from the remote shipped with a Persang Octane 9 speaker. Persang sells the same remote as a spare part for several of its speakers, so other Persang models are likely to respond to the same commands, but only the Octane 9 has been verified.
