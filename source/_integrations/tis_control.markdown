@@ -24,9 +24,10 @@ Configuration is handled entirely through the Home Assistant UI. Users can initi
 
 {% include integrations/config_flow.md %}
 
-{% important %}
-You will be prompted to enter the **UDP Port** for communication. If you haven't changed it on your devices, leave the default value of `6000`.
-{% endimportant %}
+{% configuration_basic %}
+UDP Port:
+  description: "The UDP port used for communication with TIS Control devices. The default is `6000`."
+{% endconfiguration_basic %}
 
 ## Supported devices
 
