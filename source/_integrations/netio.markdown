@@ -43,9 +43,9 @@ The integration provides a switch entity for every output of the device, allowin
 
 Not all NETIO devices provide metering: models such as the PowerCable 2Px, PowerBOX 3Px, or PowerPDU 4Px are switch-only and provide no sensor entities, and on some devices only some of the outputs are metered.
 
-For metered outputs, the integration additionally provides sensor entities for the instantaneous load, current, and power factor, as well as energy counters. Which measurements are available depends on the device model and firmware; for example, older devices such as the PowerPDU 4C only provide the resettable **energy** counter.
+For metered outputs, the integration additionally provides sensor entities for the instantaneous load, current, and power factor, as well as energy counters. Which measurements are available depends on the device model and firmware. For example, older devices such as the PowerPDU 4C only provide the resettable **energy** counter.
 
-The **energy** sensor is the resettable counter, and the **total energy** sensor is the non-resettable counter. Both measure the energy consumed by the connected device. You can use either of them as individual device consumption in the [energy dashboard](/docs/energy/individual-devices/).
+The **energy** sensor is the resettable counter, and the **total energy** sensor is the non-resettable counter. Both measure the energy consumed by the connected device. You can use either of them as individual device consumption in the [**Energy** dashboard](/docs/energy/individual-devices/).
 
 The **reverse energy** and **total reverse energy** sensors measure energy flowing in the opposite direction. They are disabled by default. Don't use them as individual device consumption.
 
