@@ -49,6 +49,7 @@ Filters narrow the table down, so you only see the items that match.
    ![Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for](/images/organizing/filter-panel.png)
 
 3. To show everything _except_ what you picked, select **Without** at the top of the filter. See [Showing everything except your selection](#showing-everything-except-your-selection).
+4. To show only the items that have _all_ of your picks, select **All** at the top of the filter. See [Matching any or all of your picks](#matching-any-or-all-of-your-picks).
 
 ### Finding items without an area, label, or other value
 
@@ -67,6 +68,24 @@ When you collapse a filter set to **Without**, a **≠** appears in front of the
 
 The toggle is also available in the filters on other pages, such as **History**, **Logbook**, and **Settings** > **System** > **Logs**. On the **Logs** page, the raw logs can't leave out integrations. After you select **Show raw logs**, you can't switch the **Integrations** filter to **Without**, and a **Without** selection you made before is not applied.
 
+### Matching any or all of your picks
+
+Some items can have several values at once. For example, an automation can have several labels and use devices in several areas, and a backup can be stored in several locations. Filters for these values have an **Any** and **All** toggle:
+
+- **Any**: Shows the items that have at least one of your picks. This is the default.
+- **All**: Shows only the items that have every one of your picks. For example, on the automations page, selecting **All** with the **Lighting** and **Security** labels shows the automations that have both labels.
+
+Together with **With** and **Without**, a filter can match in four ways:
+
+- **With** and **Any**: The item has at least one of your picks.
+- **With** and **All**: The item has all of your picks.
+- **Without** and **Any**: The item has none of your picks.
+- **Without** and **All**: The item is missing at least one of your picks.
+
+While **All** is selected, you can't pick options that never go together. For example, selecting **No label** clears the labels you picked, because an item can't have no label and a label at the same time.
+
+When you collapse a filter set to **All**, the word **All** appears in front of the number of options you picked.
+
 ### Filtering by floor and area
 
 In the **Areas** filter, areas are listed under their [floor](/docs/organizing/floors/):
@@ -83,7 +102,7 @@ On the entities page, the **Status** filter groups opposite statuses in pairs:
 - **Activation**: **Enabled** and **Disabled**
 - **Visibility**: **Visible** and **Hidden**
 
-Selecting the name of a pair selects both of its statuses. A disabled entity counts as **Unavailable**, as it has no state while it is disabled.
+Selecting the name of a pair selects both of its statuses. While **All** is selected, you can pick only one status of each pair. A disabled entity counts as **Unavailable**, as it has no state while it is disabled.
 
 ## Grouping and sorting items in a table
 
