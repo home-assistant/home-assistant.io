@@ -811,6 +811,7 @@ heights:
   feature_target_temperature: 120
   feature_timer_actions: 120
   feature_timer_presets: 120
+  feature_timer_progress: 120
   feature_toggle: 120
   feature_trend_graph: 120
   feature_update_actions: 120
@@ -1286,6 +1287,14 @@ demos:
       features:
         - type: timer-presets
           style: buttons
+
+  feature_timer_progress:
+    - type: tile
+      entity: timer.laundry
+      grid_options:
+        columns: 12
+      features:
+        - type: timer-progress
 
   feature_toggle:
     - type: tile
