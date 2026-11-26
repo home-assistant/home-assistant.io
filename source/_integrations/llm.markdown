@@ -49,7 +49,7 @@ Many of the Home Assistant AI tools only read. The AI tools that change things c
 - Create, change, and delete {% term areas %}, floors, and labels.
 - Change the settings of {% term devices %} and {% term entities %}. For example, they can rename, disable, or move a device or an entity to another area. They can also change the entity ID.
 - Remove entities that their integration no longer provides.
-- Change the settings of the Energy dashboard. For example, they can add a solar panel or remove a gas meter.
+- Change the settings of the **Energy** dashboard. For example, they can add a solar panel or remove a gas meter.
 
 Each entry in [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools) says if the AI tool only reads or changes things.
 
