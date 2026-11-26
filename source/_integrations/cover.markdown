@@ -84,6 +84,30 @@ You can only change the device class in the UI if the cover has a unique ID. A c
 4. Select **Update**.
    - Result: The cover shows up as the new type in triggers and dashboards.
 
+## Tilt positions
+
+The tilt position of a cover goes from 0 to 100. On most covers, the slats are closed at 0 and open at 100. Some covers work differently. For example, the slats of many venetian blinds are open in the middle, at 50. They are closed at both ends, at 0 and at 100.
+
+The integration that provides the cover tells Home Assistant where the slats are open and where they are closed. Some integrations tell Home Assistant the angles of the slats instead. Home Assistant then works out the positions from the angles. Home Assistant uses the positions in the following places:
+
+- [Toggle cover tilt](/actions/cover.toggle_cover_tilt/) opens the slats when they are at a closed position. Otherwise, it closes them.
+- [Open cover tilt](/actions/cover.open_cover_tilt/) moves the slats to the position where they are open.
+- The more-info dialog draws the slats at their angle. If the integration doesn't tell Home Assistant the angles, the dialog estimates them from the open position. When the slats are open, you can't select the open tilt button. When they are closed, you can't select the close tilt button.
+- The [cover tilt position](/dashboards/features/#cover-tilt-position) card feature shows where the slats are open.
+
+If the integration tells Home Assistant neither the positions nor the angles, the slats are open at 100 and closed at 0.
+
+### Tilt positions in templates
+
+Covers that can be set to a tilt position have the following attributes:
+
+- `open_tilt_position`: The tilt position where the slats are open.
+- `closed_tilt_positions`: The tilt positions where the slats are closed. This is `[0]`, `[100]`, or `[0, 100]`.
+- `tilt_start_angle`: The angle of the slats at tilt position 0, from -90 to 90 degrees. At 0 degrees, the slats let the most light through. At -90 and 90 degrees, they lie flat.
+- `tilt_end_angle`: The angle of the slats at tilt position 100, from -90 to 90 degrees.
+
+Only covers whose integration knows the angles of the slats have `tilt_start_angle` and `tilt_end_angle`.
+
 {% include integrations/triggers.md %}
 
 {% include integrations/conditions.md %}
