@@ -16,6 +16,8 @@ There is currently support for the following platforms within Home Assistant:
 - Button - clear traffic statistics, restart
 - Select - preferred network mode
 
+The DHCP server switch only changes whether the DHCP server is enabled. The configured address pool, lease time, and DNS settings are kept as they are.
+
 ## Setup
 
 The integration can be enabled using the frontend, see below for details.
