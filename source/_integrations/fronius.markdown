@@ -251,7 +251,7 @@ automation:
 
 With a lower charge limit on, the `-100 %` is refused, as the two limits would add up to less than `0 %`. That includes the charge ceiling example above, which holds the charge limit at `0 %`, so the two examples can't be combined unchanged: either turn `Battery charge power limiting` off for the night, or force with no more than the charge limit, for example `-40 %` at a charge limit of `40 %`.
 
-Like every battery setpoint, a forced charge stays on the inverter if Home Assistant stops running, so the battery keeps charging from the grid until the limit is changed again.
+Unless **Revert the power and battery limits if Home Assistant stops** is on, a forced charge stays on the inverter if Home Assistant stops running, so the battery keeps charging from the grid until the limit is changed again. See [Falling back to the inverter's own settings](#falling-back-to-the-inverters-own-settings).
 
 ## Energy dashboard
 

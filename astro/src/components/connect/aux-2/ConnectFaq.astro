@@ -1,0 +1,337 @@
+---
+// Frequently asked questions of a Connect product page: a heading and
+// an accordion of questions, on the site's light gray. Its id is
+// `faq`, the target of the product bar's FAQ link. All questions start
+// closed (the Figma file shows the first one open).
+//
+// Built from "FAQ" in the Figma file "Connect AUX-2" (node 2002:36189).
+// It replaces the per-page `#faq` section of the Jekyll Connect pages
+// (`source/connect/*/components/_faq.html`) and keeps its checkbox
+// accordion, so answers slide open and closed in CSS alone (sass
+// `pages/connect/*/components/_faq.scss`): the answer's row grows from
+// 0fr to 1fr while the answer slides down from above it, then fades
+// fully in. Unlike there, the checkbox is only visually hidden, so the
+// keyboard opens questions too, and a closed answer is hidden from
+// keyboard and screen readers. The toggles are round "+" points
+// in the Figma file's FAQ colors: a blue dot with a white plus, open a
+// white dot with a minus in a white halo.
+//
+// Answers are HTML, as the Jekyll pages' FAQ data is. An item can take
+// an optional `cta`, a quiet text link with an arrow under its answer.
+//
+// The questions are also published as schema.org FAQPage structured
+// data, built from the same items so it always matches the page. Each
+// answer keeps its HTML (links included), and its CTA follows as a
+// link.
+import Icon from "../../Icon.astro";
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+  cta?: { label: string; href: string };
+}
+
+interface Props {
+  items: FaqItem[];
+}
+
+const { items } = Astro.props;
+
+// The answer as schema.org reads it: the answer's HTML, then the CTA
+// as a link.
+const answerText = ({ answer, cta }: FaqItem) =>
+  cta ? `${answer}<p><a href="${cta.href}">${cta.label}</a></p>` : answer;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: answerText(item) },
+  })),
+};
+// "<" escaped so no answer can end the script element early.
+const schemaJson = JSON.stringify(schema).replace(/</g, "\\u003c");
+---
+
+<script type="application/ld+json" set:html={schemaJson} />
+
+<section class="connect-faq" id="faq">
+  <div class="inner">
+    <h2>Any questions?</h2>
+    {
+      items.map(({ question, answer, cta }: FaqItem, i: number) => (
+        <div class="item">
+          <input
+            class="state"
+            type="checkbox"
+            id={`faq-${i + 1}`}
+          />
+          <label class="question" for={`faq-${i + 1}`}>
+            {question}
+            <span class="toggle" aria-hidden="true" />
+          </label>
+          <div class="reveal">
+            <div class="clip">
+              <div class="slide">
+                <div class="answer" set:html={answer} />
+                {cta && (
+                  <a class="cta" href={cta.href}>
+                    {cta.label}
+                    <Icon name="arrow-right" />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../../styles/breakpoints";
+  @use "../../../styles/layout";
+
+  .connect-faq {
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+  }
+
+  .inner {
+    @include layout.container;
+    padding-block: var(--space-xxlarge);
+  }
+
+  h2 {
+    font-size: var(--font-size-title);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin: 0 0 var(--space-xlarge);
+    padding-block: var(--space-xlarge);
+  }
+
+  /* Each question keeps the same space above and below it, open or
+     closed: the label's bottom padding and the reveal's add up to the
+     label's top padding. */
+  .item {
+    border-bottom: 1px solid var(--color-ink-muted);
+  }
+
+  /* The open state, visually hidden but reachable by keyboard. */
+  .state {
+    clip-path: inset(50%);
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .question {
+    align-items: center;
+    color: var(--color-ink-muted);
+    cursor: pointer;
+    display: flex;
+    font-size: var(--font-size-large);
+    font-weight: 500;
+    gap: var(--space-xlarge);
+    justify-content: space-between;
+    line-height: 1.2;
+    padding-bottom: var(--space-large);
+    padding-top: var(--space-xlarge);
+    user-select: none;
+
+    .state:checked + & {
+      color: var(--color-ink);
+    }
+
+    .state:focus-visible + & {
+      outline: 2px solid var(--color-ink);
+      outline-offset: var(--space-xsmall);
+    }
+  }
+
+  /* A blue dot with a white plus in a thin white ring; open, a white
+     dot with a navy minus in a wide white halo. */
+  .toggle {
+    background: #006895;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.25rem var(--color-surface);
+    flex: none;
+    height: 1.5rem;
+    margin-right: var(--space-medium);
+    position: relative;
+    transition:
+      background-color 0.25s ease-out,
+      box-shadow 0.25s ease-out;
+    width: 1.5rem;
+
+    &::before,
+    &::after {
+      background: var(--color-text-inverse);
+      content: "";
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition:
+        opacity 0.25s ease-out,
+        background-color 0.25s ease-out;
+    }
+
+    &::before {
+      height: 2px;
+      width: 0.5rem;
+    }
+
+    &::after {
+      height: 0.5rem;
+      width: 2px;
+    }
+
+    .state:checked + .question & {
+      background: var(--color-surface);
+      box-shadow: 0 0 0 0.75rem rgb(255 255 255 / 70%);
+
+      &::before {
+        background: var(--color-ink);
+      }
+
+      &::after {
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      &::before,
+      &::after {
+        transition: none;
+      }
+    }
+  }
+
+  /* The slide: the row grows from nothing to the answer's height while
+     the answer moves down from above, and fades fully in at the end.
+     Closing runs it back, and hides the answer once it is gone. */
+  .reveal {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    padding-bottom: var(--space-small);
+    transition: grid-template-rows 0.4s ease;
+
+    .state:checked ~ & {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  .clip {
+    min-height: 0;
+  }
+
+  .slide {
+    opacity: 0.875;
+    padding-bottom: var(--space-large);
+    transform: translateY(-100%);
+    transition:
+      transform 0.4s ease,
+      opacity 0.3s ease,
+      visibility 0s 0.4s;
+    visibility: hidden;
+
+    .state:checked ~ .reveal & {
+      opacity: 1;
+      transform: none;
+      transition:
+        transform 0.4s ease,
+        opacity 0.3s ease 0.425s;
+      visibility: visible;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .slide,
+    .state:checked ~ .reveal .slide {
+      transition: none;
+    }
+  }
+
+  .answer {
+    color: var(--color-ink-muted);
+    font-size: var(--font-size-medium);
+    line-height: 1.5;
+    /* Keep clear of the toggle column: end where the question does. */
+    padding-right: calc(1.5rem + var(--space-medium) + var(--space-xlarge));
+
+    :global(p) {
+      margin: 0;
+    }
+
+    :global(a) {
+      color: inherit;
+    }
+  }
+
+  /* The answer's follow-up: a text link in the question's color, its
+     arrow nudging forward on hover. */
+  .cta {
+    align-items: center;
+    color: var(--color-ink);
+    display: inline-flex;
+    font-size: var(--font-size-medium);
+    font-weight: 500;
+    gap: var(--space-xsmall);
+    margin-top: var(--space-large);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 0.2s ease-out;
+
+    :global(.icon) {
+      transition: transform 0.2s ease-out;
+    }
+
+    &:hover {
+      text-decoration-color: currentColor;
+
+      :global(.icon) {
+        transform: translateX(0.125rem);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-ink);
+      outline-offset: var(--space-xsmall);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      :global(.icon) {
+        transition: none;
+      }
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$connect-desk) {
+    .inner {
+      padding-block: var(--space-xxxlarge);
+    }
+
+    .question {
+      font-size: var(--font-size-xlarge);
+    }
+
+    .answer,
+    .cta {
+      font-size: var(--font-size-large);
+    }
+  }
+</style>

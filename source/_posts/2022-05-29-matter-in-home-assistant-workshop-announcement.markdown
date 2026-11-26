@@ -4,6 +4,8 @@ title: "Matter in Home Assistant workshop announcement"
 description: "On June 15 we're showing how Matter will work and guide you in getting it set up."
 date: 2022-05-29 00:00:00
 date_formatted: "May 29, 2022"
+updated: 2026-11-24 00:00:00
+updated_formatted: "November 24, 2026"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
@@ -15,6 +17,10 @@ og_image: /images/blog/2022-05-matter-in-home-assistant-workshop-announcement/so
 <!--<img src='/images/blog/2022-05-matter-in-home-assistant-workshop-announcement/header.png' alt="Decorative header." class='no-shadow'>-->
 
 <lite-youtube videoid="9fOHBl5w0_k" videotitle="Matter in Home Assistant workshop"></lite-youtube>
+
+{% note title="Update" %}
+From Home Assistant 2026.11, HACS is built into Home Assistant as the [Marketplace](/integrations/marketplace/). This post describes HACS as it was at time of writing.
+{% endnote %}
 
 ## [The workshop instructions can be found here.](/matter-june-22)
 

@@ -8,7 +8,8 @@ related_triggers:
   - counter.minimum_reached
 ---
 
-The **Counter decremented** trigger fires when a counter {% term helper %} decreases by its configured step size.
+The **Counter decremented** trigger reacts when the value of a counter {% term helper %} goes down by any amount. This happens with the [Decrement counter](/actions/counter.decrement/) action, and also when [Set counter value](/actions/counter.set_value/) or [Reset counter](/actions/counter.reset/) sets a lower value.
+
 Use it when you want an automation to react as a count goes down, like turning something off, sending a warning that a balance is getting low, or reacting when a user-created tally is being worked back down to zero.
 
 {% include triggers/ui_header.md %}
@@ -47,9 +48,9 @@ This trigger has no additional YAML options.
 
 ## Good to know
 
-- The trigger fires each time the counter decrements.
+- For example, setting a counter from 10 to 2 with **Set counter value** triggers it once. The step size of the counter doesn't matter.
 - A counter in the `unknown` or `unavailable` state does not fire the trigger until it has a valid value again.
-- Resetting a counter does not count as a decrement. To react to resets, use [Counter reset](/triggers/counter.reset/).
+- A reset that lowers the value also triggers it. At the same time, [Counter reset](/triggers/counter.reset/) reacts, because it reacts whenever the counter returns to its initial value, whatever action caused it.
 - To react only when a counter reaches its configured minimum, use [Counter reached minimum](/triggers/counter.minimum_reached/).
 
 {% include triggers/try_it.md %}

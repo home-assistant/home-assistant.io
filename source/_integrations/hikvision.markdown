@@ -66,6 +66,23 @@ This platform has also been confirmed to work with the following Hikvision-based
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Hikvision device. For example, `192.168.1.100`."
+Port:
+  description: "The port number of the web interface of your device. The default is `80`."
+Username:
+  description: "The username of a user on your device. This user needs the permissions described earlier on this page."
+Password:
+  description: "The password of that user."
+Use SSL:
+  description: "Turn on if your device uses HTTPS. This is off by default."
+Verify SSL certificate:
+  description: "Turn off if your device uses a self-signed certificate, which is what Hikvision devices come with. This only applies when **Use SSL** is on. This is on by default."
+{% endconfiguration_basic %}
+
+You cannot change these settings after you add the device. To use different settings, remove the integration and add it again.
+
 ## Camera
 
 The integration creates camera entities for each video channel on your Hikvision device. These camera entities support:

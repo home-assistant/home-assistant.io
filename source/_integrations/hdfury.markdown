@@ -42,6 +42,7 @@ Below is a complete overview of the entities this integration provides.
 - eARC unmute delay (Controls time offset before sending audio data to eARC TX)
 - OLED fade timer (Controls time before the front-panel OLED display fades out)
 - Restart timer (Controls interval for automatic device restarts)
+- IP interrupt port (Controls the TCP command server port number)
 
 ### Select
 
@@ -85,6 +86,7 @@ Below is a complete overview of the entities this integration provides.
 - Relay (Controls the onboard relay output)
 - TX0 force +5v (Forces the +5v line on the HDMI cable for TX0 to be active)
 - TX1 force +5v (Forces the +5v line on the HDMI cable for TX1 to be active)
+- IP interrupt (Enables or disables the TCP command server)
 
 ## Data updates
 
