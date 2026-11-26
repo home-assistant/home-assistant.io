@@ -107,9 +107,6 @@ The **Intesis Modbus** integration provides the following entities.
 - **Gateway disabled**
   - **Description**: Disables the gateway, so it stops passing commands to the air conditioner.
   - **Remarks**: This switch is disabled by default.
-- **Block repeated commands**
-  - **Description**: Makes the gateway send a command to the air conditioner only when its value changes.
-  - **Remarks**: This switch is disabled by default.
 - **XY bus master**
   - **Description**: Makes the gateway the master on the control bus of the air conditioner. Exactly one device on that bus has to be the master.
   - **Remarks**: This switch is disabled by default. Only change it if you know how the remote controller of the air conditioner is set.
