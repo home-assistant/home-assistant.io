@@ -240,7 +240,6 @@ automation: |
 The integration {% term polling polls %} the [Swiss public transport API](https://transport.opendata.ch/) every 90 seconds for each connection and each stationboard you add.
 
 The API has no fixed limit on the number of requests per client.
-The earlier limit of 1000 requests per 24 hours no longer applies.
 The service is shared by many applications, so it can still refuse a request when it is busy or when a client sends requests too often.
 When that happens, the sensors of the affected connection or stationboard become unavailable until the next successful update.
 
