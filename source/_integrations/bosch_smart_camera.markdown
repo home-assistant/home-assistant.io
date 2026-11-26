@@ -15,6 +15,7 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - update
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -55,6 +56,10 @@ The **Wi-Fi signal strength** sensor shows how well a camera is connected to you
 ### Speaker level
 
 The **Speaker level** number sets the speaker volume of a camera, from 0 to 100 percent. It is only added for cameras that have a speaker and is shown with the configuration entities of the device.
+
+### Firmware
+
+The **Firmware** entity shows the installed firmware version of a camera and whether a newer version is available. Bosch installs firmware updates on its own, so you cannot start an update from Home Assistant. While an update is installed, the entity shows its progress.
 
 ### Camera light
 

@@ -94,8 +94,6 @@ Before you can use this device with Home Assistant, you need to install a bit of
    - Under **M5Stack ATOM Echo**, select **1 device**. Under **Configuration**, change the **Finished speaking detection**.
    - This setting defines how much silence is needed for Assist to find you're done speaking and it can start processing your command.
 
-     ![Open My link](/images/assist/esp32-atom_silence_detection_01.png)
-
 ## Troubleshooting
 
 Are things not working as expected?
