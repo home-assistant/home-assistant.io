@@ -1,10 +1,10 @@
 ---
-description: Integration to control Persang speakers using an infrared emitter.
+description: Integration to control Persang speakers using an infrared transmitter.
 ha_release: '2026.10'
 ha_domain: persang_infrared
 ---
 
-The **Persang Infrared** {% term integration %} lets you control a Persang Bluetooth speaker using any infrared emitter previously configured in Home Assistant.
+The **Persang Infrared** {% term integration %} lets you control a Persang Bluetooth speaker using any infrared transmitter previously configured in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the speaker but there is no feedback channel to confirm the current state. The integration therefore uses assumed states, and restores the last state it sent after a restart.
 
@@ -17,8 +17,8 @@ For example, you can use an ESPHome device with an IR LED pointed at your speake
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Infrared emitter:
-  description: The infrared emitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
+Infrared transmitter:
+  description: The infrared transmitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR transmitter.
 {% endconfiguration_basic %}
 
 ## Reconfiguration
@@ -60,7 +60,7 @@ Button entities are provided for the remaining remote buttons, which the media p
 ## Known limitations
 
 - The integration uses assumed state, meaning Home Assistant cannot read the actual state of the speaker (for example, whether it is on or off, or what the current volume is).
-- Presses on the physical remote are not tracked. The integration only sends commands through an infrared emitter, so using the remote directly leaves the entities showing whatever state Home Assistant last set.
+- Presses on the physical remote are not tracked. The integration only sends commands through an infrared transmitter, so using the remote directly leaves the entities showing whatever state Home Assistant last set.
 - Turning on and turning off the speaker both send the same IR power toggle command, as is standard with infrared remotes. The same applies to play and pause, and to muting and unmuting. The command is always sent, so if the speaker and Home Assistant disagree, sending the opposite command brings them back in sync.
 - Volume control is step-based only; there is no way to set an absolute volume level.
 - Mute is not restored after a restart.
