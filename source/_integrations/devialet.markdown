@@ -36,4 +36,4 @@ The media player `turn off`  button and the `media_player.turn_off` action will 
 
 ## Data updates
 
-The speakers send changes to Home Assistant as soon as they happen, such as a new volume or the track that is playing. As a fallback, the integration also checks the speakers once a minute. If the speakers cannot be reached, they are shown as unavailable.
+The speakers push changes, such as volume and the track that is playing, to Home Assistant as soon as they happen.
