@@ -44,6 +44,20 @@
     template.replaceWith(template.content.cloneNode(true));
     figure.classList.remove("pending");
 
+    // A view renders once it has its configuration and cards, so the figure
+    // keeps the height of its placeholder until the view has a height.
+    if (figure.dataset.kind === "view") {
+      const content = figure.querySelector(".dashboard-demo-content");
+      const viewObserver = new ResizeObserver(() => {
+        if (content.getBoundingClientRect().height > 0) {
+          figure.classList.add("rendered");
+          viewObserver.disconnect();
+        }
+      });
+
+      viewObserver.observe(content);
+    }
+
     const section = figure.querySelector(".dashboard-demo-section");
 
     if (!section) {

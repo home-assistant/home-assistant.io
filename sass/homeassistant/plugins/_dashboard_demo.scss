@@ -37,8 +37,8 @@ figure.dashboard-demo {
 
   // A view lays out its sections or columns by the width it has, so it is
   // only as high as the narrowest page needs while it loads, then takes the
-  // height of its cards.
-  &[data-kind="view"]:not(.pending) .dashboard-demo-stage {
+  // height of its cards once it has rendered.
+  &[data-kind="view"].rendered .dashboard-demo-stage {
     min-height: 0;
   }
 
