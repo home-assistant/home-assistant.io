@@ -45,7 +45,7 @@ The integration looks at the contract on each meter and creates the price sensor
 
 #### Fixed and variable tariff prices
 
-All prices are in EUR/kWh, shown with six decimals.
+Prices are in EUR/kWh, shown with six decimals. The gas price per m³ is in EUR/m³.
 
 These sensors show the supplier energy price only. They do not include network and distribution costs, energy taxes and levies, green energy contributions, or other charges on your bill, so your total cost per kWh is higher than the value shown. The default sensors include VAT, and each one has an excluding-VAT version that is turned off by default. You can turn it on from the entity settings if you need the price before VAT.
 
@@ -54,6 +54,9 @@ Entity IDs are derived from the device name, which is the full address, so a met
 Gas is always billed at a single rate:
 
 - **Gas offtake price**: energy price per kWh of gas
+- **Gas offtake price per m³**: energy price per m³ of gas
+
+The integration calculates the price per m³ with the gas conversion factor ENGIE lists for your meter. This sensor only appears when ENGIE provides that factor.
 
 A meter on a single electricity rate gets an offtake price, and an injection price when the contract supports it:
 
@@ -109,9 +112,9 @@ Every address gets the following peak sensors:
 
 The peak start and peak end sensors are diagnostic sensors. Power and energy values are shown with two decimals.
 
-Early in the month, ENGIE has not published a peak for the current month yet. The monthly sensors then show the peak of the previous month instead. The **Capacity tariff monthly power peak** sensor makes this visible with two attributes: `peak_month` shows which month the displayed peak belongs to, like `2026-10`, and `peak_is_fallback` is `true` while the previous month's peak is shown. When neither month has a peak, for example on a new address, the monthly sensors have no value yet. If a new peak during the month is higher than the current one, the replaced peak stays available in the `previous_peak` attribute.
+Early in the month, ENGIE has not published a peak for the current month yet. The monthly sensors then show the peak of the previous month instead. When neither month has a peak, for example on a new address, the monthly sensors have no value yet.
 
-The **Capacity tariff daily power peak** sensor lists all daily peaks of the month in its `daily_peaks` attribute. It does not fall back to the previous month, so it has no value until the first daily peak of the month is published.
+The **Capacity tariff daily power peak** sensor does not fall back to the previous month, so it has no value until the first daily peak of the month is published.
 
 ENGIE publishes peaks after the fact, so these sensors tell you that a peak has been set rather than warning you while one is forming.
 
@@ -125,7 +128,7 @@ A single ENGIE login can cover more than one address or meter. The integration a
 
 ## Data updates
 
-The integration polls the ENGIE API once an hour. Contracted prices only change when your tariff is revised, so there is nothing to gain from polling more often. The sign-in tokens it uses are refreshed on their own, so it keeps working without you signing in again.
+The integration polls the ENGIE API once an hour. Contracted prices only change when your tariff is revised, so there is nothing to gain from polling more often. The sign-in tokens it uses are refreshed on their own, so it keeps working without you signing in again. The gas conversion factor is updated once a day.
 
 For an address on a dynamic tariff, the integration also fetches the EPEX day-ahead prices once an hour. The EPEX sensors refresh on every quarter-hour boundary, so the current and next prices switch on time. If the prices cannot be fetched during startup, the sensors stay unavailable and come back once a retry succeeds.
 
@@ -156,7 +159,7 @@ The integration could not look up your tariff while it was starting, for example
 
 ### The capacity tariff peak sensors show an old peak
 
-Early in the month, ENGIE has not published a peak for the current month yet, so the monthly sensors show the previous month's peak. The `peak_is_fallback` attribute of the **Capacity tariff monthly power peak** sensor is `true` while the shown peak belongs to the previous month.
+Early in the month, ENGIE has not yet published a peak for the current month, so the monthly sensors show the previous month's peak until the new one is published. To check which peak you are seeing, look at the **Capacity tariff monthly peak start** sensor, which shows when that peak started.
 
 ## Removing the integration
 

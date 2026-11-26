@@ -44,9 +44,28 @@ Filters narrow the table down, so you only see the items that match.
 
 2. In the filters panel, choose what you want to see.
    - Which filters are available depends on the table. For example, you can filter by [floors](/docs/organizing/floors/), [areas](/docs/organizing/areas/), [labels](/docs/organizing/labels/), and [categories](/docs/organizing/categories/) once you have created them.
+   - To find items that don't have an area yet, select **No area** in the area filter.
    - To remove a filter, select **Clear filter**.
 
    ![Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for](/images/organizing/filter-panel.png)
+
+### Filtering by floor and area
+
+In the **Areas** filter, areas are listed under their [floor](/docs/organizing/floors/):
+
+- Selecting a floor selects all of its areas. On the automations and scripts pages, this also shows the items that target the floor itself.
+- If you clear one area of a selected floor, its other areas stay selected, and the floor shows as partly selected.
+- If you select all areas of a floor, the floor is selected again.
+
+### Filtering entities by status
+
+On the entities page, the **Status** filter groups opposite statuses in pairs:
+
+- **Availability**: **Available** and **Unavailable**
+- **Activation**: **Enabled** and **Disabled**
+- **Visibility**: **Visible** and **Hidden**
+
+Selecting the name of a pair selects both of its statuses. A disabled entity counts as **Unavailable**, as it has no state while it is disabled.
 
 ## Grouping and sorting items in a table
 

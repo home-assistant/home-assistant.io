@@ -6,6 +6,11 @@
 # a dashboard. A demo gets the entities of `entities` that its cards name in
 # their `entity`, or that are in the `area` of a card, with that area from
 # `areas`.
+#
+# Instead of a list of cards, an entry can hold one `section`, `view` or
+# `dashboard`, with its configuration the same as in a dashboard. It gets the
+# entities and areas its configuration names by their ID, and the entities in
+# those areas. A dashboard takes its height from `heights`.
 
 entities:
   # Card features, see source/dashboards/features.markdown
@@ -362,13 +367,408 @@ entities:
       precipitation_unit: mm
       supported_features: 1
 
+  # Tile card, see source/_dashboards/tile.markdown
+  - entity_id: sensor.living_room_temperature
+    state: "22.8"
+    attributes:
+      friendly_name: Living room temperature
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: °C
+  - entity_id: sensor.living_room_humidity
+    state: "57"
+    attributes:
+      friendly_name: Living room humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: light.floor_lamp
+    state: "on"
+    attributes:
+      friendly_name: Floor lamp
+      icon: mdi:floor-lamp
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 179
+  - entity_id: light.spotlights
+    state: "on"
+    attributes:
+      friendly_name: Spotlights
+      icon: mdi:light-recessed
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 125
+  - entity_id: light.bar_lamp
+    state: "on"
+    attributes:
+      friendly_name: Bar lamp
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 255
+  - entity_id: cover.blinds
+    state: open
+    attributes:
+      friendly_name: Blinds
+      device_class: blind
+      current_position: 100
+      supported_features: 15
+  - entity_id: media_player.speaker
+    state: playing
+    attributes:
+      friendly_name: Speaker
+      device_class: speaker
+      media_title: Clair de lune
+      media_artist: Claude Debussy
+      supported_features: 21437
+  - entity_id: sun.sun
+    state: above_horizon
+    attributes:
+      friendly_name: Sun
+  - entity_id: sensor.rain
+    state: "7.2"
+    attributes:
+      friendly_name: Rain
+      device_class: precipitation
+      state_class: total_increasing
+      unit_of_measurement: mm
+  - entity_id: climate.downstairs
+    state: heat
+    attributes:
+      friendly_name: Downstairs
+      current_temperature: 20.8
+      temperature: 21.5
+      min_temp: 7
+      max_temp: 30
+      target_temp_step: 0.5
+      hvac_action: heating
+      hvac_modes:
+        - heat
+        - "off"
+      preset_mode: comfort
+      preset_modes:
+        - comfort
+        - eco
+        - away
+      supported_features: 17
+  - entity_id: climate.upstairs
+    state: heat
+    attributes:
+      friendly_name: Upstairs
+      current_temperature: 21.7
+      temperature: 21
+      min_temp: 7
+      max_temp: 30
+      target_temp_step: 0.5
+      hvac_action: idle
+      hvac_modes:
+        - heat
+        - "off"
+      preset_mode: comfort
+      preset_modes:
+        - comfort
+        - eco
+        - away
+      supported_features: 17
+
+  # Light card, see source/_dashboards/light.markdown
+  - entity_id: light.bedroom
+    state: "on"
+    attributes:
+      friendly_name: Bedroom
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 120
+  - entity_id: light.office
+    state: "on"
+    attributes:
+      friendly_name: Office
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 230
+
+  # Button, entity, entities and glance cards, see their pages in
+  # source/_dashboards
+  - entity_id: switch.ac
+    state: "off"
+    attributes:
+      friendly_name: AC
+      icon: mdi:air-conditioner
+  - entity_id: script.bedtime_routine
+    state: "off"
+    attributes:
+      friendly_name: Bedtime Routine
+  - entity_id: lock.kitchen_door
+    state: unlocked
+    attributes:
+      friendly_name: Kitchen Door
+      supported_features: 0
+  - entity_id: cover.kitchen_window
+    state: closed
+    attributes:
+      friendly_name: Kitchen Window
+      device_class: window
+      supported_features: 3
+  - entity_id: sensor.bedroom_humidity
+    state: "68"
+    attributes:
+      friendly_name: Bedroom
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: sensor.vacuum_battery
+    state: "100"
+    attributes:
+      friendly_name: Vacuum
+      icon: mdi:battery
+      device_class: battery
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: binary_sensor.movement_backyard
+    state: "on"
+    attributes:
+      friendly_name: Movement Backyard
+      device_class: motion
+  - entity_id: light.bed_light
+    state: "off"
+    attributes:
+      friendly_name: Bed Light
+      supported_color_modes:
+        - onoff
+  - entity_id: binary_sensor.basement_floor_wet
+    state: "off"
+    attributes:
+      friendly_name: Basement Floor Wet
+      device_class: moisture
+  - entity_id: light.ceiling_lights
+    state: "off"
+    attributes:
+      friendly_name: Ceiling Lights
+      supported_color_modes:
+        - onoff
+  - entity_id: light.office_ceiling
+    state: "on"
+    attributes:
+      friendly_name: Office Ceiling
+      supported_color_modes:
+        - onoff
+      color_mode: onoff
+  - entity_id: light.dining_ceiling
+    state: "off"
+    attributes:
+      friendly_name: Dining Ceiling
+      supported_color_modes:
+        - onoff
+
+  # Sensor, thermostat, humidifier, alarm panel and plant status cards, see
+  # their pages in source/_dashboards
+  - entity_id: sensor.study_temperature
+    state: "20.9"
+    attributes:
+      friendly_name: Temperature Study
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: °C
+  - entity_id: climate.heatpump
+    state: heat
+    attributes:
+      friendly_name: HeatPump
+      current_temperature: 25
+      temperature: 27.5
+      min_temp: 7
+      max_temp: 35
+      target_temp_step: 0.5
+      hvac_action: heating
+      hvac_modes:
+        - heat
+        - "off"
+      supported_features: 1
+  - entity_id: humidifier.humidifier
+    state: "on"
+    attributes:
+      friendly_name: Humidifier
+      device_class: humidifier
+      humidity: 72
+      current_humidity: 45
+      min_humidity: 30
+      max_humidity: 80
+      action: humidifying
+  - entity_id: alarm_control_panel.alarm
+    state: disarmed
+    attributes:
+      friendly_name: Alarm
+      code_format: number
+      code_arm_required: true
+      supported_features: 3
+  - entity_id: plant.bonsai
+    state: ok
+    attributes:
+      friendly_name: Bonsai
+      moisture: 54
+      temperature: 15.6
+      brightness: 11
+      conductivity: 9
+      battery: 3
+      problem: none
+      unit_of_measurement_dict:
+        moisture: "%"
+        temperature: °C
+        brightness: lx
+        conductivity: µS/cm
+        battery: "%"
+
+  # Gauge card, see source/_dashboards/gauge.markdown
+  - entity_id: sensor.cpu_usage
+    state: "34"
+    attributes:
+      friendly_name: CPU usage
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: sensor.kitchen_humidity
+    state: "52"
+    attributes:
+      friendly_name: Kitchen humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+
+  # Calendar and to-do list cards, see their pages in source/_dashboards
+  - entity_id: calendar.home
+    state: "off"
+    attributes:
+      friendly_name: Home
+  - entity_id: calendar.work
+    state: "off"
+    attributes:
+      friendly_name: Work
+  - entity_id: todo.shopping_list
+    state: "2"
+    attributes:
+      friendly_name: Shopping list
+      supported_features: 15
+
+  # Area card, the areas at the top of source/_dashboards/area.markdown, with
+  # the kitchen above
+  - entity_id: sensor.bedroom_temperature
+    state: "25.8"
+    area_id: bedroom
+    attributes:
+      friendly_name: Bedroom temperature
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: °C
+  - entity_id: sensor.bedroom_air_humidity
+    state: "59.6"
+    area_id: bedroom
+    attributes:
+      friendly_name: Bedroom air humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: sensor.garage_temperature
+    state: "28.2"
+    area_id: garage
+    attributes:
+      friendly_name: Garage temperature
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: °C
+  - entity_id: sensor.garage_humidity
+    state: "52.4"
+    area_id: garage
+    attributes:
+      friendly_name: Garage humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: sensor.garage_illuminance
+    state: "9.8"
+    area_id: garage
+    attributes:
+      friendly_name: Garage illuminance
+      device_class: illuminance
+      state_class: measurement
+      unit_of_measurement: lx
+  - entity_id: light.garage
+    state: "off"
+    area_id: garage
+    attributes:
+      friendly_name: Garage light
+      supported_color_modes:
+        - onoff
+      color_mode: onoff
+  - entity_id: fan.garage
+    state: "off"
+    area_id: garage
+    attributes:
+      friendly_name: Garage fan
+      supported_features: 1
+  - entity_id: switch.garage_heater
+    state: "on"
+    area_id: garage
+    attributes:
+      friendly_name: Garage heater
+  - entity_id: sensor.office_temperature
+    state: "25.9"
+    area_id: office
+    attributes:
+      friendly_name: Office temperature
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: °C
+  - entity_id: sensor.office_humidity
+    state: "56.9"
+    area_id: office
+    attributes:
+      friendly_name: Office humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: sensor.office_illuminance
+    state: "13"
+    area_id: office
+    attributes:
+      friendly_name: Office illuminance
+      device_class: illuminance
+      state_class: measurement
+      unit_of_measurement: lx
+  - entity_id: light.office_desk
+    state: "off"
+    area_id: office
+    attributes:
+      friendly_name: Office desk light
+      supported_color_modes:
+        - onoff
+      color_mode: onoff
+  - entity_id: fan.office
+    state: "off"
+    area_id: office
+    attributes:
+      friendly_name: Office fan
+      supported_features: 1
+
 areas:
   - area_id: kitchen
     name: Kitchen
+  - area_id: bedroom
+    name: Bedroom
+    icon: mdi:bed-king
+  - area_id: garage
+    name: Garage
+    icon: mdi:garage
+  - area_id: office
+    name: Office
+    icon: mdi:chair-rolling
 
 # The height in pixels each demo takes once its cards have loaded. The page
 # keeps this room for the demo while it loads, so the content below doesn't
-# move. A tile card with one feature takes two rows of a section: 120.
+# move. A tile card with one feature takes two rows of a section: 120. A view
+# takes the height it has on a phone while it loads, then the height of its
+# cards, as wider pages put its sections side by side.
 heights:
   feature_alarm_modes: 120
   feature_bar_gauge: 120
@@ -423,6 +823,44 @@ heights:
   feature_area_controls: 184
   feature_temperature_forecast: 120
   feature_precipitation_forecast: 120
+  tile_sections: 507
+  view_types: 480
+  # A section row is 56, with 8 between rows.
+  clock_default: 56
+  clock_large: 120
+  clock_medium: 120
+  clock_london: 120
+  clock_new_york: 120
+  clock_analog_hour_ticks: 184
+  clock_analog_minute_ticks: 184
+  clock_analog_no_ticks: 248
+  date_default: 56
+  date_large: 120
+  date_day_month_year: 56
+  date_tokyo: 56
+  button_top: 120
+  button_script: 120
+  entity_top: 248
+  entities_buttons_row: 186
+  glance_sample: 280
+  sensor_top: 120
+  thermostat_top: 312
+  humidifier_top: 312
+  media_control_top: 138
+  plant_status_top: 173
+  alarm_panel_top: 501
+  alarm_panel_title: 501
+  heading_top: 60
+  markdown_example: 106
+  markdown_alerts: 350
+  markdown_qr: 556
+  weather_top: 376
+  calendar_top: 632
+  todo_list_top: 532
+  area_top: 312
+  light_names: 255
+  gauge_name_unit: 194
+  gauge_segments: 194
 
 demos:
   # Card features, one tile card each, with the feature of the example on
@@ -975,3 +1413,468 @@ demos:
           forecast_type: daily
           days_to_show: 7
           precipitation_type: amount
+
+  # Clock card, the examples of source/_dashboards/clock.markdown
+  clock_default:
+    - type: clock
+
+  clock_large:
+    - type: clock
+      clock_size: large
+      time_format: "12"
+      show_seconds: true
+
+  clock_medium:
+    - type: clock
+      clock_size: medium
+      time_format: "12"
+      show_seconds: false
+
+  clock_london:
+    - type: clock
+      clock_size: medium
+      time_zone: Europe/London
+      title: London 💂
+
+  clock_new_york:
+    - type: clock
+      clock_size: medium
+      time_format: "12"
+      time_zone: America/New_York
+      title: New York 🦅
+
+  clock_analog_hour_ticks:
+    - type: clock
+      clock_style: analog
+      clock_size: medium
+      border: false
+      ticks: hour
+
+  clock_analog_minute_ticks:
+    - type: clock
+      clock_style: analog
+      clock_size: medium
+      show_seconds: true
+      border: true
+      ticks: minute
+
+  clock_analog_no_ticks:
+    - type: clock
+      clock_style: analog
+      clock_size: medium
+      show_seconds: true
+      border: true
+      ticks: none
+      title: Mountain Time
+
+  # Date card, the examples of source/_dashboards/date.markdown
+  date_default:
+    - type: date
+
+  # Full width, as the long weekday doesn't fit in the default 6 columns of a
+  # large date card.
+  date_large:
+    - type: date
+      title: Today
+      date_size: large
+      grid_options:
+        columns: 12
+
+  date_day_month_year:
+    - type: date
+      date_format:
+        - day-2-digit
+        - separator-slash
+        - month-2-digit
+        - separator-slash
+        - year-numeric
+
+  date_tokyo:
+    - type: date
+      title: Tokyo
+      time_zone: Asia/Tokyo
+      no_background: true
+
+  # Button card, source/_dashboards/button.markdown
+  button_top:
+    - type: button
+      entity: switch.ac
+      grid_options:
+        columns: 4
+    - type: button
+      entity: script.bedtime_routine
+      show_icon: false
+      grid_options:
+        columns: 4
+    - type: button
+      entity: lock.kitchen_door
+      grid_options:
+        columns: 4
+
+  button_script:
+    - type: button
+      name: Turn Off Lights
+      icon: mdi:script-text
+      show_state: false
+      tap_action:
+        action: perform-action
+        perform_action: script.turn_on
+        data:
+          entity_id: script.turn_off_lights
+
+  # Entity card, source/_dashboards/entity.markdown
+  entity_top:
+    - type: entity
+      entity: cover.kitchen_window
+      grid_options:
+        columns: 12
+    - type: entity
+      entity: sensor.bedroom_humidity
+    - type: entity
+      entity: sensor.vacuum_battery
+
+  # Entities card, the buttons row of source/_dashboards/entities.markdown
+  entities_buttons_row:
+    - type: entities
+      entities:
+        - entity: light.office_ceiling
+        - entity: light.dining_ceiling
+        - type: divider
+        - type: buttons
+          entities:
+            - entity: light.office_ceiling
+              name: Office Ceiling
+            - entity: light.dining_ceiling
+              name: Dining Ceiling
+
+  # Glance card, the basic example of source/_dashboards/glance.markdown
+  glance_sample:
+    - type: glance
+      title: Glance card sample
+      entities:
+        - binary_sensor.movement_backyard
+        - light.bed_light
+        - binary_sensor.basement_floor_wet
+        - sensor.outside_temperature
+        - light.ceiling_lights
+        - switch.ac
+        - lock.kitchen_door
+
+  # The cards at the top of source/_dashboards/sensor.markdown,
+  # thermostat.markdown, humidifier.markdown, media-control.markdown and
+  # plant-status.markdown
+  sensor_top:
+    - type: sensor
+      entity: sensor.study_temperature
+      graph: line
+
+  thermostat_top:
+    - type: thermostat
+      entity: climate.heatpump
+
+  humidifier_top:
+    - type: humidifier
+      entity: humidifier.humidifier
+
+  media_control_top:
+    - type: media-control
+      entity: media_player.living_room_speaker
+
+  plant_status_top:
+    - type: plant-status
+      entity: plant.bonsai
+
+  # Alarm panel card, source/_dashboards/alarm-panel.markdown
+  alarm_panel_top:
+    - type: alarm-panel
+      entity: alarm_control_panel.alarm
+
+  alarm_panel_title:
+    - type: alarm-panel
+      name: House Alarm
+      entity: alarm_control_panel.alarm
+
+  # Heading card, the example at the top of source/_dashboards/heading.markdown
+  # and a subtitle with a button badge
+  heading_top:
+    - type: heading
+      heading: Kitchen
+      icon: mdi:fridge
+      badges:
+        - type: entity
+          entity: sensor.kitchen_temperature
+        - type: entity
+          entity: sensor.kitchen_humidity
+    - type: heading
+      heading: Lights
+      heading_style: subtitle
+      icon: mdi:lightbulb
+      badges:
+        - type: button
+          icon: mdi:lightbulb-off
+          text: Turn off lights
+          color: yellow
+
+  # Markdown card, the examples of source/_dashboards/markdown.markdown
+  markdown_example:
+    - type: markdown
+      content: >
+        ## Dashboards
+
+        Starting with Home Assistant 0.72, we're experimenting with a new way of defining your interface.
+
+  markdown_alerts:
+    - type: markdown
+      content: |
+        <ha-alert alert-type="error">This is an error alert — check it out!</ha-alert>
+        <ha-alert alert-type="warning">This is a warning alert — check it out!</ha-alert>
+        <ha-alert alert-type="info">This is an info alert — check it out!</ha-alert>
+        <ha-alert alert-type="success">This is a success alert — check it out!</ha-alert>
+        <ha-alert title="Test alert">This is an alert with a title</ha-alert>
+
+  markdown_qr:
+    - type: markdown
+      content: >-
+        <ha-qr-code data='hallo' width="180"></ha-qr-code>
+
+        <ha-qr-code data='hallo' scale="6" margin="0"
+        center-image="/static/icons/favicon-192x192.png"></ha-qr-code>
+
+        <ha-qr-code data='hallo' error-correction-level="quartile" scale="6"
+        center-image="https://brands.home-assistant.io/_/tuya/icon@2x.png"></ha-qr-code>
+
+  # Weather forecast card, the cards at the top of
+  # source/_dashboards/weather-forecast.markdown: with the daily forecast, and
+  # without a forecast
+  weather_top:
+    - type: weather-forecast
+      entity: weather.home
+      forecast_type: daily
+    - type: weather-forecast
+      entity: weather.home
+      show_forecast: false
+
+  # Calendar card, source/_dashboards/calendar.markdown. The calendars get
+  # sample events around today.
+  calendar_top:
+    - type: calendar
+      entities:
+        - calendar.home
+        - calendar.work
+      grid_options:
+        rows: 10
+
+  # To-do list card, source/_dashboards/todo-list.markdown
+  todo_list_top:
+    - type: todo-list
+      entity: todo.shopping_list
+      title: Shopping list
+
+  # Area card, the cards at the top of source/_dashboards/area.markdown. Areas
+  # in the demo have no picture, so each shows its icon instead.
+  area_top:
+    - type: area
+      area: bedroom
+      display_type: compact
+      sensor_classes:
+        - temperature
+        - humidity
+      grid_options:
+        columns: 6
+    - type: area
+      area: garage
+      display_type: compact
+      sensor_classes:
+        - temperature
+        - humidity
+        - illuminance
+      features:
+        - type: area-controls
+      grid_options:
+        columns: 6
+    - type: area
+      area: office
+      display_type: icon
+      sensor_classes:
+        - temperature
+        - humidity
+        - illuminance
+      features:
+        - type: area-controls
+      grid_options:
+        columns: 6
+    - type: area
+      area: kitchen
+      display_type: icon
+      sensor_classes:
+        - temperature
+        - humidity
+      grid_options:
+        columns: 6
+
+  # Light card, the names example of source/_dashboards/light.markdown
+  light_names:
+    - type: light
+      entity: light.bedroom
+      name: Kids Bedroom
+      grid_options:
+        columns: 6
+    - type: light
+      entity: light.office
+      name: My Office
+      grid_options:
+        columns: 6
+
+  # Gauge card, the examples of source/_dashboards/gauge.markdown
+  gauge_name_unit:
+    - type: gauge
+      name: CPU Usage
+      unit: "%"
+      entity: sensor.cpu_usage
+
+  gauge_segments:
+    - type: gauge
+      entity: sensor.kitchen_humidity
+      needle: true
+      min: 20
+      max: 80
+      segments:
+        - from: 0
+          color: "#db4437"
+        - from: 35
+          color: "#ffa600"
+        - from: 40
+          color: "#43a047"
+        - from: 60
+          color: "#ffa600"
+        - from: 65
+          color: "#db4437"
+
+  # The tile cards at the top of source/_dashboards/tile.markdown, in two
+  # sections of a sections view
+  tile_sections:
+    view:
+      type: sections
+      max_columns: 2
+      sections:
+        - type: grid
+          cards:
+            - type: heading
+              heading: Living room
+              icon: mdi:sofa
+              badges:
+                - type: entity
+                  entity: sensor.living_room_temperature
+                - type: entity
+                  entity: sensor.living_room_humidity
+            - type: tile
+              entity: light.floor_lamp
+            - type: tile
+              entity: light.spotlights
+              features:
+                - type: light-brightness
+            - type: tile
+              entity: light.bar_lamp
+            - type: tile
+              entity: cover.blinds
+            - type: tile
+              entity: media_player.speaker
+        - type: grid
+          cards:
+            - type: heading
+              heading: Climate
+              icon: mdi:thermometer
+            - type: tile
+              entity: sun.sun
+            - type: tile
+              entity: sensor.rain
+            - type: tile
+              entity: climate.downstairs
+              state_content:
+                - preset_mode
+                - current_temperature
+              features:
+                - type: target-temperature
+            - type: tile
+              entity: climate.upstairs
+              state_content:
+                - preset_mode
+                - current_temperature
+              features:
+                - type: target-temperature
+
+  # The view types on source/dashboards/views.markdown, one tab each
+  view_types:
+    dashboard:
+      title: View types
+      views:
+        - title: Sections
+          path: sections
+          type: sections
+          max_columns: 2
+          sections:
+            - type: grid
+              cards:
+                - type: heading
+                  heading: Kitchen
+                - type: tile
+                  entity: light.kitchen_ceiling
+                - type: tile
+                  entity: light.kitchen_counter
+                - type: tile
+                  entity: fan.kitchen_fan
+                - type: tile
+                  entity: switch.kettle
+            - type: grid
+              cards:
+                - type: heading
+                  heading: Climate
+                - type: tile
+                  entity: climate.living_room
+                  features:
+                    - type: target-temperature
+        - title: Masonry
+          path: masonry
+          type: masonry
+          cards:
+            - type: entities
+              title: Kitchen
+              entities:
+                - light.kitchen_ceiling
+                - light.kitchen_counter
+                - fan.kitchen_fan
+                - switch.kettle
+            - type: thermostat
+              entity: climate.living_room
+            - type: tile
+              entity: sensor.kitchen_temperature
+            - type: tile
+              entity: sensor.kitchen_air_humidity
+            - type: media-control
+              entity: media_player.living_room_speaker
+        - title: Panel
+          path: panel
+          type: panel
+          cards:
+            - type: thermostat
+              entity: climate.living_room
+        - title: Sidebar
+          path: sidebar
+          type: sidebar
+          cards:
+            - type: thermostat
+              entity: climate.living_room
+            - type: media-control
+              entity: media_player.living_room_speaker
+            - type: tile
+              entity: sensor.kitchen_temperature
+              view_layout:
+                position: sidebar
+            - type: tile
+              entity: sensor.kitchen_air_humidity
+              view_layout:
+                position: sidebar
+            - type: tile
+              entity: switch.kettle
+              view_layout:
+                position: sidebar

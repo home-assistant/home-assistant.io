@@ -98,6 +98,12 @@ Whenever a trigger reacts, all related entities re-render and have access to [th
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [State changed trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
+A **State changed** trigger without `from`, `to`, `not_from`, or `not_to` also fires when only an attribute of the entity changes. To fire only when the state itself changes, add `to: null`. For details, see the [State changed trigger](/triggers/state/#good-to-know).
+
+{% important %}
+Be careful with a trigger for this template entity itself, or for an entity whose state or attributes are calculated from it. Unless the template stops changing after an update, each update fires the trigger again and the loop can make Home Assistant unresponsive.
+{% endimportant %}
+
 The state, including attributes, of trigger-based template entities is restored when Home Assistant is restarted. This doesn't apply to buttons, images, and update entities.
 
 {% note %}
@@ -423,7 +429,7 @@ binary_sensor:
   type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity.
+      description: Defines templates for attributes of the entity. The `device_class` attribute is not allowed inside the attributes map. Use the `device_class` option instead.
       required: false
       type: [map, template]
       keys:
@@ -1016,7 +1022,7 @@ cover:
       required: false
       type: [string, list]
     tilt:
-      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value, the current tilt state is set to `unknown`.
+      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value, the current tilt state is set to `unknown`. If `tilt` is specified, `set_cover_tilt_position` must also be specified.
       required: false
       type: template
     tilt_optimistic:
@@ -1247,6 +1253,23 @@ template:
         location_accuracy: "{{ trigger.json.resolution }}"
 ```
 
+### State based device tracker - Presence from a router binary sensor
+
+This example sets presence from another entity, such as a router binary sensor, using `in_zones`.
+
+```yaml
+# Example configuration.yaml entry
+template:
+  - device_tracker:
+      - name: Phone on Wi-Fi
+        unique_id: phone_on_wifi
+        in_zones: >-
+          {{ ['zone.home'] if is_state('binary_sensor.phone_home', 'on')
+             else [] }}
+```
+
+The `in_zones` template must return a list of zone entity IDs, not `home` or `not_home`. An empty list makes the state `not_home`. This is also a way to move away from the `device_tracker.see` action for presence that is not GPS based.
+
 ## Event
 
 The template event platform allows you to create events with templates to define the state.
@@ -1277,7 +1300,7 @@ event:
   type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The `event_type` and `event_types` attributes are not allowed inside the attributes map.
+      description: Defines templates for attributes of the entity. The `device_class`, `event_type`, and `event_types` attributes are not allowed inside the attributes map. Use the options with the same names instead.
       required: false
       type: [map, template]
       keys:
@@ -1391,11 +1414,11 @@ fan:
       required: false
       type: template
     preset_mode:
-      description: Defines a template to get the preset mode of the fan.
+      description: Defines a template to get the preset mode of the fan. Must render a value in `preset_modes`. If `preset_mode` is specified, `preset_modes` and `set_preset_mode` must also be specified.
       required: false
       type: template
     preset_modes:
-      description: List of preset modes the fan is capable of. This is an arbitrary list of strings.
+      description: List of preset modes the fan is capable of. This is an arbitrary list of strings. If `preset_modes` is specified, `set_preset_mode` must also be specified.
       required: false
       type: [string, list]
     set_percentage:
@@ -1403,7 +1426,7 @@ fan:
       required: false
       type: action
     set_preset_mode:
-      description: Defines an action to run when the fan is given a preset command.
+      description: Defines an action to run when the fan is given a preset command. Receives the variable `preset_mode`. If `set_preset_mode` is specified, `preset_modes` must also be specified.
       required: false
       type: action
     set_oscillating:
@@ -1716,15 +1739,15 @@ Actions on turn on:
 Actions on turn off:
   description: The action or actions run when the light is turned off.
 Brightness level:
-  description: A template for the light's brightness.
+  description: A template for the light's brightness. Requires **Actions on set level**.
 Actions on set level:
   description: The action or actions run when a brightness change is requested.
 HS color:
-  description: A template that gets the light's color (hue and saturation).
+  description: A template that gets the light's color (hue and saturation). Requires **Actions on set HS color**.
 Actions on set HS color:
   description: The action or actions run when a light's color change is requested.
 Color temperature:
-  description: A template that gets the light's color temperature in mireds.
+  description: A template that gets the light's color temperature in kelvin. Requires **Actions on set color temperature**.
 Actions on set color temperature:
   description: The action or actions run when a color temperature change is requested.
 Device:
@@ -1762,42 +1785,42 @@ light:
       type: template
       default: optimistic
     hs:
-      description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation).
+      description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation). If `hs` is specified, `set_hs` must also be specified.
       required: false
       type: template
       default: optimistic
     level:
-      description: Defines a template to get the brightness of the light.
+      description: Defines a template to get the brightness of the light. If `level` is specified, `set_level` must also be specified.
       required: false
       type: template
       default: optimistic
-    min_mireds:
-      description: Defines a template to get the minimum mired value of the light.
+    min_kelvin:
+      description: Defines a template to get the lowest (warmest) color temperature the light supports, in kelvin. Must render a number of at least `1`. If the template doesn't render a valid number, the light uses the default range of 2000 K to 6535 K. If `min_kelvin` is higher than `max_kelvin`, the light also uses the default range.
       required: false
       type: template
-      default: optimistic
-    max_mireds:
-      description: Defines a template to get the maximum mired value of the light.
+      default: 2000
+    max_kelvin:
+      description: Defines a template to get the highest (coolest) color temperature the light supports, in kelvin. Must render a number of at least `1`. If the template doesn't render a valid number, the light uses the default range of 2000 K to 6535 K.
       required: false
       type: template
-      default: optimistic
+      default: 6535
     optimistic:
       description: Flag that defines if the light works in optimistic mode. When enabled, the light's state updates immediately when it's changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the light updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the light works in optimistic mode.
       required: false
       type: boolean
       default: "`true` without a `state` template, otherwise `false`"
     rgb:
-      description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
+      description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue). If `rgb` is specified, `set_rgb` must also be specified.
       required: false
       type: template
       default: optimistic
     rgbw:
-      description: Defines a template to get the RGBW color of the light. Must render a tuple or a list (red, green, blue, white).
+      description: Defines a template to get the RGBW color of the light. Must render a tuple or a list (red, green, blue, white). If `rgbw` is specified, `set_rgbw` must also be specified.
       required: false
       type: template
       default: optimistic
     rgbww:
-      description: Defines a template to get the RGBWW color of the light. Must render a tuple or a list (red, green, blue, cold white, warm white).
+      description: Defines a template to get the RGBWW color of the light. Must render a tuple or a list (red, green, blue, cold white, warm white). If `rgbww` is specified, `set_rgbww` must also be specified.
       required: false
       type: template
       default: optimistic
@@ -1843,8 +1866,8 @@ light:
       required: false
       type: template
       default: false
-    temperature:
-      description: Defines a template to get the color temperature of the light. The template must return the color temperature in mireds. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
+    temperature_kelvin:
+      description: Defines a template to get the color temperature of the light, in kelvin. Must render a number between `min_kelvin` and `max_kelvin`. The value is rounded to a whole number. If `temperature_kelvin` is specified, `set_temperature` must also be specified.
       required: false
       type: template
       default: optimistic
@@ -1857,7 +1880,7 @@ light:
       required: true
       type: action
     xy:
-      description: Defines a template to get the XY color of the light. Must render a tuple or a list (X, Y).
+      description: Defines a template to get the XY color of the light. Must render a tuple or a list (X, Y). If `xy` is specified, `set_xy` must also be specified.
       required: false
       type: template
       default: optimistic
@@ -1873,7 +1896,7 @@ template:
       - name: "Theater Lights"
         level: "{{ state_attr('sensor.theater_brightness', 'lux') | int }}"
         state: "{{ state_attr('sensor.theater_brightness', 'lux') | int > 0 }}"
-        temperature: "{{states('input_number.temperature_input') | int}}"
+        temperature_kelvin: "{{ states('input_number.temperature_input') | int }}"
         hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
         effect: "{{ state_attr('light.led_strip', 'effect') }}"
@@ -1887,9 +1910,10 @@ template:
             brightness: "{{ brightness }}"
         set_temperature:
           action: input_number.set_value
-          data:
-            value: "{{ color_temp }}"
+          target:
             entity_id: input_number.temperature_input
+          data:
+            value: "{{ color_temp_kelvin }}"
         set_hs:
           - action: input_number.set_value
             data:
@@ -1931,7 +1955,7 @@ template:
       - name: "Theater Lights"
         level: "{{ state_attr('sensor.theater_brightness', 'lux') | int }}"
         state: "{{ state_attr('sensor.theater_brightness', 'lux') | int > 0 }}"
-        temperature: "{{states('input_number.temperature_input') | int}}"
+        temperature_kelvin: "{{ states('input_number.temperature_input') | int }}"
         hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
         effect: "{{ state_attr('light.led_strip', 'effect') }}"
@@ -1945,9 +1969,10 @@ template:
             brightness: "{{ brightness }}"
         set_temperature:
           action: input_number.set_value
-          data:
-            value: "{{ color_temp }}"
+          target:
             entity_id: input_number.temperature_input
+          data:
+            value: "{{ color_temp_kelvin }}"
         set_hs:
           - action: input_number.set_value
             data:
@@ -2742,7 +2767,7 @@ number:
       type: template
       default: optimistic
     unit_of_measurement:
-      description: Defines the units of measurement of the number, if any.
+      description: Defines the units of measurement of the number, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/number/#list-of-available-device-classes).
       required: false
       type: string
       default: None
@@ -2961,7 +2986,7 @@ sensor:
   type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity.
+      description: Defines templates for attributes of the entity. The `device_class`, `state_class`, and `last_reset` attributes are not allowed inside the attributes map. Use the options with the same names instead.
       required: false
       type: [map, template]
       keys:
@@ -2984,12 +3009,12 @@ sensor:
       required: true
       type: template
     state_class:
-      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
+      description: "The [state_class](/integrations/sensor/#state-class) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
       required: false
       type: string
       default: None
     unit_of_measurement:
-      description: "Defines the units of measurement of the sensor, if any. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value."
+      description: "Defines the units of measurement of the sensor, if any. When a `device_class` is set, the unit must be one of the [units listed for that device class](/integrations/sensor/#list-of-available-device-classes). This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
       default: None
@@ -3480,11 +3505,11 @@ State:
 Actions on start:
   description: The action or actions run when the vacuum is started.
 Fan speed:
-  description: A template that gets the vacuum's current fan speed.
+  description: A template that gets the vacuum's current fan speed. Requires **Fan speeds** and **Actions on set fan speed**.
 Fan speeds:
-  description: The list of fan speeds the vacuum supports.
+  description: The list of fan speeds the vacuum supports. Requires **Actions on set fan speed**.
 Actions on set fan speed:
-  description: The action or actions run when the fan speed is changed.
+  description: The action or actions run when the fan speed is changed. Requires **Fan speeds**.
 Actions on stop:
   description: The action or actions run when the vacuum is stopped.
 Actions on pause:
@@ -3510,7 +3535,7 @@ vacuum:
   type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The `fan_speed` and `fan_speed_list` attributes are not allowed inside the attributes map.
+      description: Defines templates for attributes of the entity. The `fan_speed` and `fan_speed_list` attributes are not allowed inside the attributes map. Use the `fan_speed` and `fan_speeds` options instead.
       required: false
       type: [map, template]
       keys:
@@ -3527,11 +3552,12 @@ vacuum:
       required: false
       type: action
     fan_speed:
-      description: Defines a template to get the fan speed of the vacuum.
+      description: Defines a template to get the fan speed of the vacuum. Must render a value in `fan_speeds`. If `fan_speed` is specified, `fan_speeds` and `set_fan_speed` must also be specified.
       required: false
       type: template
+      default: optimistic
     fan_speeds:
-      description: List of fan speeds supported by the vacuum.
+      description: List of fan speeds supported by the vacuum. If `fan_speeds` is specified, `set_fan_speed` must also be specified.
       required: false
       type: [string, list]
     locate:
@@ -3556,7 +3582,7 @@ vacuum:
       required: inclusive
       type: template
     set_fan_speed:
-      description: Defines an action to run when the vacuum is given a command to set the fan speed.
+      description: Defines an action to run when the vacuum is given a command to set the fan speed. Receives the variable `fan_speed`. If `set_fan_speed` is specified, `fan_speeds` must also be specified.
       required: false
       type: action
     start:
@@ -3899,7 +3925,7 @@ weather:
       required: false
       type: template
     condition:
-      description: The current weather condition.
+      description: The current weather condition. It must resolve to one of Home Assistant's [recognized weather conditions](/integrations/weather/#condition-mapping).
       required: true
       type: template
     dew_point:

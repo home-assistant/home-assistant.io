@@ -17,7 +17,16 @@ Additionally, various sensor entities are provided:
 - **Windspeed**: Sensor containing the current windspeed at the selected location.
 - **Air Quality Index**: Sensor containing the air quality index at the selected location.
 
+The integration also provides an image entity:
+
+- **Map**: A map showing the current Stookwijzer advice areas around the selected location, with a legend of the advice codes. This entity is disabled by default.
+
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Location:
+  description: "The location you want the Stookwijzer information for. Select it on the map. It defaults to your Home Assistant home location."
+{% endconfiguration_basic %}
 
 {% include integrations/actions.md %}
 
@@ -53,3 +62,13 @@ template:
 ```
 
 {% enddetails %}
+
+## Data updates
+
+The integration {% term polling polls %} the Stookwijzer API once an hour. The **Get forecast** action fetches the forecast from the API each time it runs.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

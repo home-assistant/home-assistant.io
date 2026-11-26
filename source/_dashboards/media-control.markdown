@@ -14,10 +14,7 @@ related:
 
 The media control card is used to display [media player](/integrations/#media-player) entities on an interface with easy to use controls.
 
-<p class='img'>
-<img src='/images/dashboards/mediaplayer.png' alt='Screenshot of the media player control card'>
-Screenshot of the media control card.
-</p>
+{% include dashboard/demo.html demo="media_control_top" caption="The media control card." %}
 
 {% include dashboard/edit_dashboard.md %}
 
@@ -36,7 +33,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
   default: Name of entity
 theme:

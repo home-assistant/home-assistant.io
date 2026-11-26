@@ -58,6 +58,7 @@ There is currently support for the following device types within Home Assistant:
 - [Actions](#actions)
 - [Switch](#switch)
 - [Sensor](#sensor)
+- [Firewall policy schedules](#firewall-policy-schedules)
 - [Firmware updates](#firmware-updates)
 - [IPS engine updates](#ips-engine-updates)
 
@@ -86,7 +87,7 @@ and in many cases, get a read-only sensor instead of an editable switch {% term 
 
 ## Configuration options
 
-All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure**.
+All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure** {% icon "mdi:cog-outline" %}.
 
 {% configuration_basic %}
 Track network clients:
@@ -198,7 +199,7 @@ Entities appear for each Zone-Based Firewall Policy. The switches can be identif
 
 ### Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable them, refer to the steps in the [configuration options](#configuration-options), expand **More options**, and enable **Bandwidth usage sensors for network clients**.
 
 ### Wired client link speed sensor
 
@@ -243,7 +244,7 @@ Get entities reporting the current memory utilization of a UniFi Network device.
 
 ### Port Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable them, refer to the steps in the [configuration options](#configuration-options), expand **More options**, and enable **Bandwidth usage sensors for network clients**.
 
 ### Port link speed sensor
 
@@ -258,6 +259,14 @@ Get entities reporting whether a Zone-Based Firewall Policy is in effect right n
 - **Active**: The policy is turned on and applies now.
 
 The schedule is evaluated in the time zone of the UniFi Network application. If the application doesn't report a time zone that Home Assistant can use, Home Assistant's time zone is used instead. A turned-on policy with no schedule, or with a schedule Home Assistant doesn't recognize, reports an unknown state. These sensors are disabled by default.
+
+## Firewall policy schedules
+
+You can change the schedule of each Zone-Based Firewall Policy you created, for example to make a policy apply only today. The entities belong to the **UniFi Network** device. They are disabled by default and require admin privileges, so first [enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the ones you need. Changes are sent to the UniFi Network application right away.
+
+- **Schedule** (select): The schedule mode: **Always**, **Every day**, **Every week**, **One time**, or **Custom**. **Every week** and **Custom** can only be chosen in the UniFi Network application.
+
+When you change the mode, the policy keeps its time window. If it didn't have one, it gets 09:00 to 12:00, like in the UniFi Network application. Choosing **One time** dates the schedule today, even when it's already selected. Today's date is taken from the UniFi Network application's time zone.
 
 ## Light
 
@@ -301,7 +310,7 @@ If the WebSocket connection is lost, the integration automatically tries to reco
 - **The IPS engine entity needs a gateway that reports its engine version.** For example, a UniFi Cloud Gateway Fiber running UniFi Network 11 reports it.
 - **Changes to LED control** on access points may take over 5 seconds to apply because the device must adopt a new configuration first.
 - **Firewall policy schedule status can lag** a schedule's start or end by up to 10 seconds, because firewall policies are polled.
-- **The UniFi Network application's time zone is read when the integration starts and after it reconnects.** If you change it, reload the integration so firewall policy schedules are evaluated correctly.
+- **The UniFi Network application's time zone is read only when the integration starts.** If you change it, reload the integration so firewall policy schedules are evaluated correctly.
 - **Lingering entities**: In some edge cases, clients or devices removed from UniFi Network may remain in the Home Assistant device registry and need to be [removed manually](#removing-a-device-in-home-assistant).
 
 ## Removing a device in Home Assistant

@@ -187,7 +187,7 @@ entity:
     device_class:
       description: >
         Limits the list of areas to areas that have entities with a certain
-        device class(es), for example, `motion` or `window`. Can be either a string
+        [device class](/integrations/homeassistant/#device-class), for example, `motion` or `window`. Can be either a string
         with a single device_class, or a list of string device_class to limit
         the selection to.
       type: [device_class, list]
@@ -398,6 +398,8 @@ max:
   required: false
 {% endconfiguration %}
 
+When `unit` is `kelvin`, `min` and `max` are the default slider bounds. They apply when no targeted entity reports `min_color_temp_kelvin` and `max_color_temp_kelvin`. Otherwise the slider uses the range those entities report.
+
 The output of this selector is the number representing the chosen color temperature for the unit used.
 
 ## Condition selector
@@ -596,8 +598,8 @@ entity:
       required: false
     device_class:
       description: >
-        Limits the list of devices to devices that have entities with a certain device
-        class(es), for example, `motion` or `window`. Can be either a string
+        Limits the list of devices to devices that have entities with a certain
+        [device class](/integrations/homeassistant/#device-class), for example, `motion` or `window`. Can be either a string
         with a single device_class, or a list of string device_class to limit
         the selection to.
       type: [device_class, list]
@@ -883,7 +885,7 @@ filter:
       required: false
     device_class:
       description: >
-        Limits the list of entities to entities that have a certain device class(es),
+        Limits the list of entities to entities that have a certain [device class](/integrations/homeassistant/#device-class),
         for example, `motion` or `window`. Can be either a string with a single device_class,
         or a list of string device_class to limit the selection to.
       type: [device_class, list]
@@ -1039,7 +1041,7 @@ entity:
     device_class:
       description: >
         When set, the list only includes floors that have entities with a certain
-        device class, for example, `motion` or `window`. Can be either a string
+        [device class](/integrations/homeassistant/#device-class), for example, `motion` or `window`. Can be either a string
         with a single device_class, or a list of string device_class to limit
         the selection.
       type: [device_class, list]
@@ -1292,7 +1294,7 @@ Example output:
 
 ```yaml
 entity_id: media_player.living_room
-media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US
 media_content_type: provider
 metadata:
   title: TTS Message
@@ -1305,13 +1307,13 @@ metadata:
       media_content_id: media-source://tts
     - media_content_type: provider
       media_content_id: >-
-        media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+        media-source://tts/cloud?message=TTS+Message&language=en-US
 ```
 
 Example output if accept filter is used. Note that the `entity_id` is not present:
 
 ```yaml
-media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US
 media_content_type: provider
 metadata:
   title: TTS Message
@@ -1324,7 +1326,7 @@ metadata:
       media_content_id: media-source://tts
     - media_content_type: provider
       media_content_id: >-
-        media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+        media-source://tts/cloud?message=TTS+Message&language=en-US
 ```
 
 Example output when `multiple` is set to `true` (a list of media objects):
@@ -1719,7 +1721,7 @@ multiple:
   required: false
 state_classes:
   description: >
-    Limits the selectable state classes to the state classes supplied. When not configured, all available state classes are selectable.
+    Limits the selectable [state classes](/integrations/sensor/#state-class) to the state classes supplied. When not configured, all available state classes are selectable.
   type: list
   required: false
 {% endconfiguration %}
@@ -1803,7 +1805,7 @@ entity:
       required: false
     device_class:
       description: >
-        Limits the targets to entities with a certain device class(es), for example,
+        Limits the targets to entities with a certain [device class](/integrations/homeassistant/#device-class), for example,
         `motion` or `window`. Can be either a string with a single device_class,
         or a list of string device_class to limit the selection to.
       type: [device_class, list]

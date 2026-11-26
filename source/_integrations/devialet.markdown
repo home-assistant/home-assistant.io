@@ -23,6 +23,13 @@ Known supported devices:
 - Phantom I
 - Phantom II
 
+## Playing media
+
+You can play music on your speakers from Home Assistant, for example a radio station from the [Radio Browser](/integrations/radio_browser/) integration. Open the media player and select **Browse media**, or use the `media_player.play_media` action.
+
+- After Home Assistant starts or a speaker is turned on, it can take up to 2 minutes before you can play media.
+- Home Assistant and the speakers must be on the same network.
+
 ## Turning off the device
 
 The media player `turn off`  button and the `media_player.turn_off` action will turn off all the devices of the designated system. Exiting OFF mode is only possible by pressing a physical button on each device.

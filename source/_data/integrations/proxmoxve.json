@@ -9,7 +9,7 @@
   ],
   "config_flow": true,
   "iot_class": "local_polling",
-  "quality_scale": "gold",
+  "quality_scale": "platinum",
   "categories": [
     "computers_network.nas_servers"
   ],
