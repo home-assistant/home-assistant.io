@@ -149,6 +149,90 @@ A stationboard provides the following sensors:
 
 {% include integrations/actions.md %}
 
+## Swiss public transport automation examples
+
+Once you have set up a stationboard, you can use its sensors and the **Fetch departures** action in your automations.
+Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Sending a notification when the next departure is delayed
+
+Get a notification when the next departure on your stationboard is more than 5 minutes late.
+This example uses the sensors of a stationboard for the station `Bern`.
+Replace them with the sensors of your own stationboard.
+
+- **Trigger**: Numeric state
+  - **Entity**: The **Delay** sensor of your stationboard (`sensor.bern_delay`)
+  - **Above**: 5
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: {% raw %}`{{ states('sensor.bern_line') }} to {{ states('sensor.bern_destination') }} is {{ states('sensor.bern_delay') }} minutes late.`{% endraw %}
+
+{% details "YAML example for sending a notification when the next departure is delayed" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the next departure is delayed"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.bern_delay
+      above: 5
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          {{ states('sensor.bern_line') }} to
+          {{ states('sensor.bern_destination') }} is
+          {{ states('sensor.bern_delay') }} minutes late.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Sending the next departures before you leave
+
+Get the next five departures from your stop as a notification on your phone every morning, so you know when to leave the house.
+
+- **Trigger**: Time: at 07:00
+- **Action**: Fetch departures
+  - **Instance**: Your stationboard
+  - **Limit**: 5
+  - **Response variable**: `stationboard`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: A template that lists the time, line, and destination of each departure. Copy it from the YAML example.
+
+{% details "YAML example for sending the next departures in the morning" %}
+
+Replace `YOUR_CONFIG_ENTRY_ID` by selecting your stationboard under **Instance** after you paste the example.
+
+{% example %}
+automation: |
+  alias: "Send the next departures in the morning"
+  triggers:
+    - trigger: time
+      at: "07:00:00"
+  actions:
+    - action: swiss_public_transport.fetch_departures
+      data:
+        config_entry_id: YOUR_CONFIG_ENTRY_ID
+        limit: 5
+      response_variable: stationboard
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          {% for departure in stationboard.departures %}
+          {{ as_timestamp(departure.departure) | timestamp_custom('%H:%M') }}
+          {{ departure.line }} to {{ departure.destination }}.
+          {% endfor %}
+{% endexample %}
+
+{% enddetails %}
+
 ## Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}

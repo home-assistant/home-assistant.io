@@ -42,12 +42,12 @@ In YAML, refer to this action as `swiss_public_transport.fetch_departures`. A ba
 action: |
   action: swiss_public_transport.fetch_departures
   data:
-    config_entry_id: bern_stationboard
+    config_entry_id: YOUR_CONFIG_ENTRY_ID
     limit: 3
   response_variable: departures
 {% endexample %}
 
-This fetches the next three departures for the selected stationboard.
+This fetches the next three departures for the selected stationboard. Replace `YOUR_CONFIG_ENTRY_ID` with the ID of your stationboard. If you paste the example into the visual editor, you can select the stationboard under **Instance** instead.
 
 ### Options in YAML
 
@@ -59,7 +59,7 @@ config_entry_id:
   type: string
 limit:
   description: >
-    The number of departures to fetch, between 1 and 15.
+    The number of departures to fetch, between 1 and 15. Defaults to 3.
   required: false
   type: integer
 {% endoptions_yaml %}
@@ -83,6 +83,96 @@ The action returns a `departures` list. Each departure includes the following in
 - If the stationboard has **Stops at** stations and the stop is very busy, the action can return fewer departures than the limit.
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+### Automation: sending the next departures before you leave
+
+Get the next five departures from your stop as a notification on your phone every morning, so you know when to leave the house.
+
+- **Trigger**: Time: at 07:00
+- **Action**: Fetch departures
+  - **Instance**: Your stationboard
+  - **Limit**: 5
+  - **Response variable**: `stationboard`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: A template that lists the time, line, and destination of each departure. Copy it from the YAML example.
+
+{% details "YAML example for sending the next departures in the morning" %}
+
+Replace `YOUR_CONFIG_ENTRY_ID` by selecting your stationboard under **Instance** after you paste the example.
+
+{% example %}
+automation: |
+  alias: "Send the next departures in the morning"
+  triggers:
+    - trigger: time
+      at: "07:00:00"
+  actions:
+    - action: swiss_public_transport.fetch_departures
+      data:
+        config_entry_id: YOUR_CONFIG_ENTRY_ID
+        limit: 5
+      response_variable: stationboard
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          {% for departure in stationboard.departures %}
+          {{ as_timestamp(departure.departure) | timestamp_custom('%H:%M') }}
+          {{ departure.line }} to {{ departure.destination }}.
+          {% endfor %}
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: sending the next departures when you leave work
+
+Get the next departures from the stop near your workplace as soon as you leave. This example uses a stationboard for that stop and a zone named **Work**.
+
+- **Trigger**: Person leaves a zone
+  - **Target**: Your person (`person.me`)
+  - **Zone**: Work (`zone.work`)
+- **Action**: Fetch departures
+  - **Instance**: Your stationboard
+  - **Limit**: 3
+  - **Response variable**: `stationboard`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: A template that lists the time, line, and destination of each departure. Copy it from the YAML example.
+
+{% details "YAML example for sending the next departures when you leave work" %}
+
+Replace `YOUR_CONFIG_ENTRY_ID` by selecting your stationboard under **Instance** after you paste the example.
+
+{% example %}
+automation: |
+  alias: "Send the next departures when leaving work"
+  triggers:
+    - trigger: zone
+      entity_id: person.me
+      zone: zone.work
+      event: leave
+  actions:
+    - action: swiss_public_transport.fetch_departures
+      data:
+        config_entry_id: YOUR_CONFIG_ENTRY_ID
+        limit: 3
+      response_variable: stationboard
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          {% for departure in stationboard.departures %}
+          {{ as_timestamp(departure.departure) | timestamp_custom('%H:%M') }}
+          {{ departure.line }} to {{ departure.destination }}.
+          {% endfor %}
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 
