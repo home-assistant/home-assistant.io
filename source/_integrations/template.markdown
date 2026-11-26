@@ -1132,25 +1132,25 @@ Because the options are templates, a template cover that wraps another cover can
 template:
   - cover:
       - name: "Living room blind"
-        state: "{{ states('cover.living_room_blind_motor') }}"
+        state: "{{ states('cover.blind_motor') }}"
         tilt: >
-          {{ state_attr('cover.living_room_blind_motor', 'current_tilt_position') }}
+          {{ state_attr('cover.blind_motor', 'current_tilt_position') }}
         open_tilt_position: >
-          {{ state_attr('cover.living_room_blind_motor', 'open_tilt_position') }}
+          {{ state_attr('cover.blind_motor', 'open_tilt_position') }}
         closed_tilt_positions: >
-          {{ state_attr('cover.living_room_blind_motor', 'closed_tilt_positions') }}
+          {{ state_attr('cover.blind_motor', 'closed_tilt_positions') }}
         open_cover:
           - action: cover.open_cover
             target:
-              entity_id: cover.living_room_blind_motor
+              entity_id: cover.blind_motor
         close_cover:
           - action: cover.close_cover
             target:
-              entity_id: cover.living_room_blind_motor
+              entity_id: cover.blind_motor
         set_cover_tilt_position:
           - action: cover.set_cover_tilt_position
             target:
-              entity_id: cover.living_room_blind_motor
+              entity_id: cover.blind_motor
             data:
               tilt_position: "{{ tilt }}"
 ```
