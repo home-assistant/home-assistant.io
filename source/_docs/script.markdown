@@ -73,6 +73,24 @@ When you run a script, Home Assistant performs its steps one after the other. Yo
 - From an automation or another script
   - Add the script as an action. For details, refer to [Starting a script from an automation or another script](#starting-a-script-from-an-automation-or-another-script).
 
+## Deleting scripts
+
+If you no longer need a script, you can delete it. You can't undo this.
+
+1. Go to {% my scripts title="**Settings** > **Automations & scenes** > **Scripts**" %}, and open the script.
+2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Delete**.
+3. To confirm, select **Delete**.
+
+To delete several scripts at once:
+
+1. Go to {% my scripts title="**Settings** > **Automations & scenes** > **Scripts**" %}.
+2. Select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button.
+3. Select the scripts you want to delete.
+4. Select **Action** {% icon "mdi:dots-vertical" %} > **Delete selected**.
+5. To confirm, select **Delete**.
+   - Result: The selected scripts are permanently deleted.
+   - Only scripts stored in `scripts.yaml` can be deleted. Scripts that you create in the UI are stored there. If some scripts can't be deleted, a dialog tells you how many. The other scripts are still deleted.
+
 <a id="fields"></a>
 
 ## About fields in scripts
