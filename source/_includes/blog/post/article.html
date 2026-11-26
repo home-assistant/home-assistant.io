@@ -42,7 +42,7 @@
   {% unless post.meta == false %}
   <div class="meta clearfix">
     {% include post/author.html %}
-    {% include blog/post/date.html %}{{ time }}
+    {% include blog/post/date.html %}{{ time }}{% if updated %}{{ updated }}{% endif %}
     {% include blog/post/tags.html %}
     {% if page.comments != false and post.comments != false and post.external_url == nil %}
       <a class='comments'
