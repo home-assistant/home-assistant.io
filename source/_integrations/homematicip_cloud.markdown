@@ -87,6 +87,7 @@ The Full Flush Lock Controller (`HmIP-FLC`) has no lock entity. Its lock state i
 ### Sensors
 
 - Access point duty cycle (`HmIP-HAP`, `HmIP-HAP-B1`, `HmIP-HAP2`)
+- Access point client role, the role of Home Assistant in the Homematic IP user management, shown after setup or a reauthentication (`HmIP-HAP`, `HmIP-HAP-B1`, `HmIP-HAP2`)
 - Wall thermostats (`HmIP-WTH`, `HmIP-WTH-1`, `HmIP-WTH-2`, `HmIP-WTH-B`, `HmIPW-WTH`, `HmIP-BWTH`, `HmIP-WGT`, `HmIP-WGT-A`, `HmIP-WGTC`, `ALPHA-IP-RBG`, `ALPHA-IP-RBGa`)
 - Radiator thermostats (`HmIP-eTRV`, `HmIP-eTRV-2`, `HmIP-eTRV-3`, `HmIP-eTRV-C`, `HmIP-eTRV-CL`, `HmIP-eTRV-E`, `HmIP-eTRV-F`)
 - Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`, `HmIP-STHO`, `HmIP-STHO-A`, `ELV-SH-CTH`)
