@@ -99,7 +99,7 @@ The air conditioning is allowed to run on the vehicle's battery when the vehicle
 
 ### Device tracker
 
-- **Parking position**: Where the vehicle is parked. The device tracker is named after the vehicle. While the vehicle is driving, the location is unknown.
+- **Parking position**: Where the vehicle is parked. The device tracker is named after the vehicle and uses the render image of the vehicle as its picture. While the vehicle is driving, the location is unknown.
 
 ### Numbers
 
@@ -138,9 +138,19 @@ Switches are only created for commands the vehicle supports remotely.
 
 The vehicle applies a command with a short delay. After you switch it, the switch shows the requested state until the next data update reports the actual state.
 
+{% include integrations/actions.md %}
+
 ## Examples
 
-### Notify when charging is interrupted
+### Showing the vehicle render on a dashboard
+
+The device tracker uses the render image of the vehicle as its picture, for example on the map. To show the full render image on a dashboard:
+
+1. Add a [picture entity card](/dashboards/picture-entity/) to your dashboard.
+2. For **Entity**, select the device tracker of your vehicle.
+3. Turn on **Show entity picture**.
+
+### Getting notified when charging is interrupted
 
 Send a notification if charging unexpectedly stops before the vehicle is fully charged.
 
