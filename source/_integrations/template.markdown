@@ -1133,9 +1133,12 @@ template:
   - cover:
       - name: "Living room blind"
         state: "{{ states('cover.living_room_blind_motor') }}"
-        tilt: "{{ state_attr('cover.living_room_blind_motor', 'current_tilt_position') }}"
-        open_tilt_position: "{{ state_attr('cover.living_room_blind_motor', 'open_tilt_position') }}"
-        closed_tilt_positions: "{{ state_attr('cover.living_room_blind_motor', 'closed_tilt_positions') }}"
+        tilt: >
+          {{ state_attr('cover.living_room_blind_motor', 'current_tilt_position') }}
+        open_tilt_position: >
+          {{ state_attr('cover.living_room_blind_motor', 'open_tilt_position') }}
+        closed_tilt_positions: >
+          {{ state_attr('cover.living_room_blind_motor', 'closed_tilt_positions') }}
         open_cover:
           - action: cover.open_cover
             target:
