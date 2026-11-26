@@ -22,6 +22,7 @@ All your automations are listed in a table under {% my automations title="**Sett
   - **Add label**
   - **Move to area**
   - **Enable** or **Disable**, in the **Action** {% icon "mdi:dots-vertical" %} menu
+  - **Delete selected**, in the **Action** {% icon "mdi:dots-vertical" %} menu
 
   On narrow screens, **Move to category**, **Add label**, and **Move to area** are also in the **Action** menu.
 
@@ -97,6 +98,16 @@ Open the automation, and in the top bar, select **Menu** {% icon "mdi:dots-verti
 - **Duplicate**: Opens a copy of the automation in a new editor. The copy is only kept when you save it.
 - **Disable**: Turns off the automation, so it doesn't react to its triggers. To turn it on again, select **Enable**.
 - **Delete**: Deletes the automation after you confirm. You can't undo this.
+
+To delete several automations at once:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button.
+3. Select the automations you want to delete.
+4. Select **Action** {% icon "mdi:dots-vertical" %} > **Delete selected**.
+5. To confirm, select **Delete**.
+   - Result: The selected automations are permanently deleted.
+   - Only automations stored in `automations.yaml` can be deleted. Automations that you create in the UI are stored there. If some automations can't be deleted, the **Delete failed** dialog tells you how many. The other automations are still deleted.
 
 ## Working with triggers, conditions, and actions
 

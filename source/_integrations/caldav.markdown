@@ -200,6 +200,8 @@ The todo entity is the number of incomplete items on the to-do list. See the
 [todo integration](/integrations/todo) documentation for details and available
 actions that can be used in automations.
 
+Items are listed by the position Nextcloud Tasks and Tasks.org save when you sort by hand, otherwise by the time they were created. Moving an item in the [to-do list card](/dashboards/todo-list/) saves its new position on the server, where these apps pick it up.
+
 ## Troubleshooting
 
 {% details "iCloud" %}
