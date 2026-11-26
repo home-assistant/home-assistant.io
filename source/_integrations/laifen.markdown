@@ -50,7 +50,7 @@ It then shows up under {% my integrations title="**Settings** > **Devices & serv
 
 {% configuration_basic %}
 Device:
-  description: "The Bluetooth device that is your toothbrush."
+  description: "The toothbrush to set up. This field only appears when you add the integration yourself, and it lists the toothbrushes that Home Assistant has found over Bluetooth."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -75,25 +75,29 @@ Use the battery level of your toothbrush to know when it needs charging.
 
 ### Automation: Get a notification when the battery is low
 
-Get a message on your phone when the battery of the toothbrush runs low, so you can put it on its charger in time.
+Get a message on your phone when the battery of the toothbrush drops below 20%, so you can put it on its charger in time. Replace the entity IDs in the example with the entity IDs of your own toothbrush and mobile device.
 
-- **Trigger**: Numeric state crossed threshold
-  - **Entity**: LFTB01-P-1234 Battery (`sensor.lftb01_p_1234_battery`)
-  - **Below**: `20`
+- **Trigger**: Battery level crossed threshold
+  - **Target**: LFTB01-P-1234 Battery (`sensor.lftb01_p_1234_battery`)
+  - **Threshold type**: Below 20%
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+  - **Message**: A message with the current battery level
 
 {% details "YAML example for a notification when the battery is low" %}
-
-The example uses the entity ID of a toothbrush named `LFTB01-P-1234`. Replace it with the entity ID of your toothbrush.
 
 {% example %}
 automation: |
   alias: "Notify when the toothbrush battery is low"
   triggers:
-    - trigger: numeric_state
-      entity_id: sensor.lftb01_p_1234_battery
-      below: 20
+    - trigger: battery.level_crossed_threshold
+      target:
+        entity_id: sensor.lftb01_p_1234_battery
+      options:
+        threshold:
+          type: below
+          value:
+            number: 20
   actions:
     - action: notify.send_message
       target:
@@ -115,11 +119,11 @@ The toothbrush does not push changes of its battery level, so while it stays con
 
 - The toothbrush accepts only one connection at a time. While Home Assistant is connected, which is the whole time the toothbrush sits on its charger, the Laifen app cannot connect, and the other way around.
 - While the toothbrush sits on its charger, it permanently uses one of the few connection slots of the Bluetooth adapter or proxy that reaches it.
-- Home Assistant measures brushing sessions while it is connected. If a session started before Home Assistant connected, Home Assistant measures it from the connection, so its duration can be a few seconds short. Home Assistant does not record sessions while it is not connected.
-- If the connection drops during a session and comes back within a minute while the toothbrush still runs, the session continues. If it comes back later, Home Assistant only records the rest of the session. If the toothbrush has stopped by the time Home Assistant reconnects, Home Assistant does not record the session.
+- Home Assistant measures brushing sessions while it is connected. If a session started before Home Assistant connected, Home Assistant measures it from the moment it connected, so the recorded duration can be shorter than the actual session. Home Assistant does not record sessions while it is not connected.
+- If the connection drops during a session and comes back within a minute while the toothbrush still runs, the session continues. If the continued session would then last longer than five minutes, the toothbrush was stopped and started again in between, so Home Assistant records it from the reconnection. If the connection comes back later, Home Assistant only records the rest of the session. If the toothbrush has stopped by the time Home Assistant reconnects, Home Assistant does not record the session.
 - Home Assistant does not read the brushing history stored in the toothbrush, because reading it may remove it from the toothbrush before the Laifen app collects it.
 - The toothbrush does not report whether it is charging.
-- Home Assistant only shows the firmware version for firmware that reports it in a known format.
+- Home Assistant only shows the firmware version on the device page when the toothbrush reports it in a known format.
 
 ## Troubleshooting
 
@@ -176,7 +180,7 @@ This can happen after a firmware update of the toothbrush.
 A newer version of Home Assistant might support the firmware.
 
 - If the setup stopped with this message, update Home Assistant, and then add the toothbrush again.
-- If the toothbrush is already set up, update Home Assistant, and then reload the integration. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Laifen**, and in the {% icon "mdi:dots-vertical" %} menu of the toothbrush, select **Reload**.
+- If the toothbrush is already set up, update Home Assistant, and then press the button of the toothbrush to wake it up.
 
 {% enddetails %}
 
