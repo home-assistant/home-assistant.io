@@ -187,7 +187,9 @@ automation: |
            | map('float', 0) | sum %}
         {% set used = hours | map(attribute='consumption')
            | map('float', 0) | sum %}
-        {{ solar - used >= 1500 }}
+        {{ (hours | selectattr('solar', 'none') | list | count == 0)
+           and (hours | selectattr('consumption', 'none') | list | count == 0)
+           and solar - used >= 1500 }}
     - action: switch.turn_on
       target:
         entity_id: switch.dishwasher_plug
