@@ -12,7 +12,7 @@ Each light is added to Home Assistant as its own device, with one light entity.
 - Enable **LAN Control** for each light in the Govee Home app. Refer to the [Govee LAN guide](https://app-h5.govee.com/user-manual/wlan-guide) for instructions.
 - To be discovered, the lights must be on the same network as Home Assistant. Discovery uses multicast, which usually does not cross VLANs or separate subnets. A light on another network can be [added by its IP address](#adding-a-light-by-ip-address).
 - UDP port 4002 must be free on the Home Assistant host. Only one application on the host can listen for Govee lights at a time.
-
+ 
 {% include integrations/config_flow.md %}
 
 
