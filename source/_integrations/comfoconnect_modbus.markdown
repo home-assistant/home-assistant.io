@@ -21,7 +21,7 @@ It reads the airflow, the temperature and humidity of each air stream, the CO₂
 
 ## Use cases
 
-- Following CO₂ in each room. Each CO₂ zone wired to the unit becomes a sensor.
+- Following CO₂ in each room. Each CO₂ zone set up on the unit becomes a device with a CO₂ sensor.
 - Knowing when to order filters. **Filter days remaining** counts down to the next filter change.
 - Getting told about alarms. **Active error 1** names the alarm the unit reports.
 - Seeing how much heat the unit recovers, from the outdoor and supply air temperatures.
@@ -69,7 +69,7 @@ Two ComfoConnect PRO gateways on the same RS-485 bus share one connection to the
 
 ## Supported functionality
 
-All entities belong to one device, named after the config entry.
+The entities belong to one device, named after the config entry. Each CO₂ zone gets its own device under it.
 
 ### Sensors
 
@@ -77,7 +77,7 @@ All entities belong to one device, named after the config entry.
 - **Extract air temperature**, **Exhaust air temperature**, **Outdoor air temperature**, **Supply air temperature**. Extract air comes from the rooms into the unit. Exhaust air leaves the house. Supply air goes into the rooms.
 - The humidity of the same four air streams.
 - **Room temperature** and **Room humidity**: added once a room sensor reports.
-- **CO₂ zone 1** to **CO₂ zone 8**: added once a zone reports a level.
+- **Carbon dioxide** on the devices **CO₂ zone 1** to **CO₂ zone 8**: added once a zone reports a level. A zone groups up to 8 CO₂ sensors on the unit.
 - **Filter days remaining**.
 - **Comfort temperature**: the comfort temperature the unit aims for, from the temperature profile and its mode.
 - **Boost time remaining**: the time left on a running boost, or 0.
