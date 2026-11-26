@@ -12,10 +12,7 @@ related:
 
 The Heading card structures your dashboard by providing title, icon and navigation. This card supports [actions](/dashboards/actions/).
 
-<p class='img'>
-  <img src='/images/dashboards/heading_card.png' alt='Screenshot of heading cards'>
-  Screenshot of heading cards with entity badges and a button badge.
-</p>
+{% include dashboard/demo.html demo="heading_top" caption="Heading cards with entity badges and a button badge." %}
 
 ```yaml
 type: heading

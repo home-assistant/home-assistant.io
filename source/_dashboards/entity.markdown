@@ -16,10 +16,7 @@ related:
 
 The entity card gives you a quick overview of your entity's state.
 
-<p class='img'>
-  <img src='/images/dashboards/entity_card.png' alt='Screenshot of the entity card'>
-  Screenshot of the Entity card.
-</p>
+{% include dashboard/demo.html demo="entity_top" caption="Entity cards." %}
 
 {% include dashboard/edit_dashboard.md %}
 
