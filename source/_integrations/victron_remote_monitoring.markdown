@@ -83,7 +83,7 @@ The `victron_remote_monitoring.get_forecast` action returns the cached hourly so
   - **Description**: Earliest hour to return (inclusive). A value without a timezone is interpreted in the Home Assistant timezone. If omitted, the response begins at the start of the cached forecast.
   - **Optional**: Yes
 - **Data attribute**: `end`
-  - **Description**: Latest hour to return (exclusive). If omitted, the response includes the rest of the cached forecast. The end must be after the start.
+  - **Description**: Latest hour to return (exclusive). If omitted, the response includes the rest of the cached forecast. The end must be at or after the start; equal bounds return an empty forecast list.
   - **Optional**: Yes
 
 The response contains forecast, a list of hours ordered from earliest to latest. Each hour has datetime as a local ISO timestamp, plus solar and consumption in watt-hours. A series with no value for an hour omits that field. An empty range returns an empty list.
