@@ -73,6 +73,10 @@ This integration supports the following actions (see [Climate](/integrations/cli
 
 For the stoves that support it, this integration provides a Silent button to trigger the silent mode.
 
+## Cover
+
+For stoves that support it, this integration provides a cover entity to open and close the motorized door.
+
 ## Numbers
 
 When the appliance supports it, the Palazzetti integration offers control over the following elements:
@@ -171,12 +175,6 @@ actions:
 ## Data updates
 
 The Palazzetti integration {% term polling polls %} the device for new data every 60 seconds.
-
-## Known limitations
-
-This integration does **not** yet support the following features and sensors:
-
-- Light and Door entities on stove models equipped with them.
 
 ## Troubleshooting
 
