@@ -8,19 +8,9 @@ ha_codeowners:
 ha_domain: electrolux
 ha_integration_type: hub
 ha_config_flow: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Vacuum
+ha_categories:
+  - appliances_cleaning
+  - climate
 ha_platforms:
   - binary_sensor
   - button
