@@ -20,6 +20,8 @@ related:
     title: Setting up a serial connection in Home Assistant
   - docs: /integrations/climate/
     title: Climate
+  - docs: /integrations/number/
+    title: Number
   - docs: /integrations/sensor/
     title: Sensor
 ---
@@ -78,6 +80,15 @@ The **Intesis Modbus** integration provides the following entities.
   - **Fan speeds**: Auto, low, medium, and high. Units with four fan speeds also offer powerful.
   - **Swing modes**: Swing and positions 1 to 4. Only available if you selected **Unit has a swing vane** during setup.
   - **Remarks**: The target temperature is limited to the range the unit reports, typically 16&nbsp;°C to 30&nbsp;°C. Home Assistant always works in degrees Celsius with the gateway, whatever temperature format the gateway uses, and shows temperatures in the unit of your Home Assistant settings.
+
+### Numbers
+
+- **External temperature reference**
+  - **Description**: A room temperature that you send to the air conditioner, for example from a sensor in the middle of the room. The air conditioner then regulates on this value in place of its own sensor.
+  - **Remarks**: The value can be set from 10&nbsp;°C to 38&nbsp;°C. It has no value until you set one.
+- **Open window timeout**
+  - **Description**: The number of minutes, from 0 to 30, a window can stay open before the gateway turns the air conditioner off.
+  - **Remarks**: This number is disabled by default.
 
 ### Sensors
 
