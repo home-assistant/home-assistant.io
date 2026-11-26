@@ -368,6 +368,43 @@ To create the virtual machine, follow the instructions for the hypervisor you us
 
 {% unless page.installation_type == 'macos' %}
 
+- title: TrueNAS
+  content: |
+
+    Begin by downloading and decompressing the **.qcow2** image above (use **Extract all** in Windows), then copy the decompressed image to your TrueNAS server.
+
+    In the TrueNAS UI, select **Virtual Machines** from the left-hand menu and click **Add** to begin creating a virtual machine. The following are the minimal recommended settings intended for new users. Additional fields not mentioned can be safely left at their default values.
+
+    1. Under **Operating System**, specify the following settings:
+       - **Guest Operating System**: Select **Linux**.
+       - **Name**: Give your VM a name.
+       - **Boot Method**: Select **UEFI**.
+       - **Enable Secure Boot**: Leave unchecked.
+       - **Enable Trusted Platform Module (TPM)**: Leave unchecked.
+       - **Start on Boot**: Leave checked.
+       - **Enable Display (VNC)**: Uncheck.
+    2. Under **CPU and Memory**, specify the following settings:
+       - **Virtual CPUs**: Leave set to **1**.
+       - **Cores**: Set to at least **2**.
+       - **Threads**: Leave set to **1**.
+       - **CPU Mode**: Select **Host Passthrough**.
+       - **Memory Size**: Set to at least **2 GB**.
+    3. Under **Disks**, specify the following settings:
+       - **Create new disk image**: Select this to create a new Zvol of the specified **Size**.
+       - **Import Image**: Check this box to import the **.qcow2** image.
+       - **Image Source**: Select the decompressed **.qcow2** image you copied to TrueNAS.
+       - **Select Disk Type**: Select **VirtIO**.
+       - **Zvol Location**: Select a dataset for the new Zvol disk image.
+       - **Size**: Set this to at least **32 GB**.
+    4. Under **Network Interface**, specify the following settings:
+       - **Adapter Type**: Select **VirtIO**.
+       - **Attach NIC**: Select a network interface (a bridge such as **br0** is recommended so the VM can communicate with TrueNAS).
+    5. Under **Installation Media**, leave the default settings and click **Next**.
+    6. Under **GPU**, leave the default settings and click **Next**.
+    7. Under **Confirm Options**, review the settings and click **Save**.
+ 
+    Finally, start the virtual machine by turning on the **Running** toggle in the virtual machine list.
+
 - title: Unraid
   content: |
     1. Download the **.qcow2** image above and decompress it. (**Extract all** in Windows)
