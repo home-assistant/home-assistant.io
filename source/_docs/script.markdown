@@ -89,7 +89,7 @@ To delete several scripts at once:
 4. Select **Action** {% icon "mdi:dots-vertical" %} > **Delete selected**.
 5. To confirm, select **Delete**.
    - Result: The selected scripts are permanently deleted.
-   - Only scripts stored in `scripts.yaml` can be deleted. Scripts that you create in the UI are stored there. If some scripts can't be deleted, a dialog tells you how many. The other scripts are still deleted.
+   - Only scripts stored in `scripts.yaml` can be deleted. Scripts that you create in the UI are stored there. If some scripts can't be deleted, the **Delete failed** dialog tells you how many. The other scripts are still deleted.
 
 <a id="fields"></a>
 

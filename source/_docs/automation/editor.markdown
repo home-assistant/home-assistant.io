@@ -107,7 +107,7 @@ To delete several automations at once:
 4. Select **Action** {% icon "mdi:dots-vertical" %} > **Delete selected**.
 5. To confirm, select **Delete**.
    - Result: The selected automations are permanently deleted.
-   - Only automations stored in `automations.yaml` can be deleted. Automations that you create in the UI are stored there. If some automations can't be deleted, a dialog tells you how many. The other automations are still deleted.
+   - Only automations stored in `automations.yaml` can be deleted. Automations that you create in the UI are stored there. If some automations can't be deleted, the **Delete failed** dialog tells you how many. The other automations are still deleted.
 
 ## Working with triggers, conditions, and actions
 
