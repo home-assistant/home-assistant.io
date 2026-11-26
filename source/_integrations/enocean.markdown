@@ -58,7 +58,7 @@ To add a wall switch, you need its EnOcean ID. This is the 4 bytes long number w
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the EnOcean integration.
 2. Select **Add device**.
 3. Enter the **Device ID**.
-4. Optionally, select a **Device class**. It sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+4. Optionally, select a **Device class**. It sets the [class of the device](/integrations/binary_sensor/). The binary sensor itself has no on/off state: what the switch does is reported by the `button_pressed` event described below.
 5. Select **Submit**.
 
 The binary sensor is named after its ID, for example **Rocker switch FE:DC:BA:98**. You can rename it afterwards. The device class cannot be changed later; to change it, remove the device and add it again.
