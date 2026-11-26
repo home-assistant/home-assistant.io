@@ -375,11 +375,12 @@ To create the virtual machine, follow the instructions for the hypervisor you us
 
     Begin by downloading and decompressing the **.qcow2** image above (use **Extract all** in Windows), then copy the decompressed image to your TrueNAS server.
 
-    In the TrueNAS UI, select **Virtual Machines** from the left-hand menu and click **Add** to begin creating a virtual machine. The following are the minimal recommended settings intended for new users. Additional fields not mentioned can be safely left at their default values.
+    In the TrueNAS UI, select **Virtual Machines** from the left-hand menu and select **Add** to begin creating a virtual machine. Below are the minimal recommended settings intended for new users. Additional fields not mentioned can be safely left at their default values. Most of these settings, including CPU cores, memory, and disk size, can be adjusted later as your installation grows.
 
     1. Under **Operating System**, specify the following settings:
        - **Guest Operating System**: Select **Linux**.
        - **Name**: Give your VM a name.
+       - **System Clock**: Select **UTC**.
        - **Boot Method**: Select **UEFI**.
        - **Enable Secure Boot**: Leave unchecked.
        - **Enable Trusted Platform Module (TPM)**: Leave unchecked.
