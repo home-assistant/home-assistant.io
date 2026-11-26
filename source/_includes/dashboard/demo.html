@@ -4,38 +4,91 @@
   source/_data/dashboard_demos.yml, with the entities their `entity` names,
   or that are in their `area`, from `entities` there.
 
+  Instead of a list of cards, a demo can hold one `section`, `view` or
+  `dashboard`, with its configuration the same as in a dashboard. It gets the
+  entities and areas its configuration names by their ID, and the entities in
+  those areas.
+
   The page keeps the height from `heights` there for the demo, with a
-  placeholder, so nothing below it moves when the cards load.
+  placeholder, so nothing below it moves when the cards load. A dashboard
+  takes that height, and scrolls inside it.
   source/javascripts/dashboard-demo.js adds the cards from the template once
   they are in view, so their animations play where they can be seen.
 
   {% include dashboard/demo.html demo="feature_toggle" caption="Toggle." %}
 {%- endcomment -%}
 {%- assign demo_data = site.data.dashboard_demos -%}
-{%- assign demo_cards = demo_data.demos[include.demo] -%}
+{%- assign demo_entry = demo_data.demos[include.demo] -%}
 {%- assign demo_height = demo_data.heights[include.demo] | default: 56 -%}
 {%- comment -%}
-  Only the entities the cards show, by their `entity` or the `area` they are
-  in, to keep the page small.
+  Includes share the variables of the page, so clear the kind of the last
+  demo on it.
 {%- endcomment -%}
-{%- assign demo_entity_ids = demo_cards | map: "entity" -%}
-{%- assign demo_area_ids = demo_cards | map: "area" | compact -%}
-{%- assign demo_entities = demo_data.entities | where_exp: "item", "demo_entity_ids contains item.entity_id or demo_area_ids contains item.area_id" -%}
-{%- assign demo_areas = demo_data.areas | where_exp: "item", "demo_area_ids contains item.area_id" -%}
+{%- assign demo_kind = nil -%}
+{%- if demo_entry.section -%}
+  {%- assign demo_kind = "section" -%}
+  {%- assign demo_config = demo_entry.section -%}
+{%- elsif demo_entry.view -%}
+  {%- assign demo_kind = "view" -%}
+  {%- assign demo_config = demo_entry.view -%}
+{%- elsif demo_entry.dashboard -%}
+  {%- assign demo_kind = "dashboard" -%}
+  {%- assign demo_config = demo_entry.dashboard -%}
+{%- endif -%}
+{%- if demo_kind -%}
+  {%- comment -%}
+    The entities and areas the configuration names, as a whole JSON string,
+    so `light.kitchen` doesn't also bring in `light.kitchen_ceiling`.
+  {%- endcomment -%}
+  {%- assign demo_json = demo_config | jsonify -%}
+  {%- assign demo_areas = "" | split: "" -%}
+  {%- for area in demo_data.areas -%}
+    {%- capture demo_quoted_id -%}"{{ area.area_id }}"{%- endcapture -%}
+    {%- if demo_json contains demo_quoted_id -%}
+      {%- assign demo_areas = demo_areas | push: area -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- assign demo_area_ids = demo_areas | map: "area_id" -%}
+  {%- assign demo_entities = "" | split: "" -%}
+  {%- for entity in demo_data.entities -%}
+    {%- capture demo_quoted_id -%}"{{ entity.entity_id }}"{%- endcapture -%}
+    {%- if demo_json contains demo_quoted_id or demo_area_ids contains entity.area_id -%}
+      {%- assign demo_entities = demo_entities | push: entity -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- comment -%}
+    Only the entities the cards show, by their `entity` or the `area` they
+    are in, to keep the page small.
+  {%- endcomment -%}
+  {%- assign demo_entity_ids = demo_entry | map: "entity" -%}
+  {%- assign demo_area_ids = demo_entry | map: "area" | compact -%}
+  {%- assign demo_entities = demo_data.entities | where_exp: "item", "demo_entity_ids contains item.entity_id or demo_area_ids contains item.area_id" -%}
+  {%- assign demo_areas = demo_data.areas | where_exp: "item", "demo_area_ids contains item.area_id" -%}
+{%- endif -%}
 {%- capture demo_home -%}
   {"entities": {{ demo_entities | jsonify }}, "areas": {{ demo_areas | jsonify }}}
 {%- endcapture -%}
-<figure class="dashboard-demo pending">
+<figure class="dashboard-demo pending"{% if demo_kind %} data-kind="{{ demo_kind }}"{% endif %}>
   <div class="dashboard-demo-stage" style="--demo-height: {{ demo_height }}px">
     <template class="dashboard-demo-template">
+      {%- if demo_kind %}
+      <ha-embed-provider class="dashboard-demo-content" color-scheme="light">
+        <script type="application/json">{{ demo_home | strip | replace: "<", "\u003c" }}</script>
+        <ha-embed-{{ demo_kind }}{% if demo_kind == "dashboard" %} style="height: {{ demo_height }}px"{% endif %}>
+          <script type="application/json">{{ demo_config | jsonify | replace: "<", "\u003c" }}</script>
+        </ha-embed-{{ demo_kind }}>
+      </ha-embed-provider>
+      {%- else %}
       <ha-embed-provider class="dashboard-demo-section" color-scheme="light">
         <script type="application/json">{{ demo_home | strip | replace: "<", "\u003c" }}</script>
-        {%- for card in demo_cards %}
+        {%- for card in demo_entry %}
         <ha-embed-card>
           <script type="application/json">{{ card | jsonify | replace: "<", "\u003c" }}</script>
         </ha-embed-card>
         {%- endfor %}
       </ha-embed-provider>
+      {%- endif %}
     </template>
   </div>
   {%- if include.caption %}

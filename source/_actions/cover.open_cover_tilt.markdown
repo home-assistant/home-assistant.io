@@ -50,6 +50,7 @@ This action has no additional YAML options beyond the target.
 ## Good to know
 
 - This action only works with cover entities that support tilting.
+- The slats move to the position where they are open. On some covers, this is in the middle, for example at 50, not at 100. For details, refer to [Tilt positions](/integrations/cover/#tilt-positions).
 
 {% include actions/try_it.md %}
 

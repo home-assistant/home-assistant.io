@@ -29,7 +29,7 @@ To set a cover tilt position from an automation or a script:
 
 {% options_ui %}
 Tilt position:
-  description: The target tilt position as a percentage, from 0 (closed) to 100 (open).
+  description: The target tilt position as a percentage, from 0 to 100. On most covers, the slats are closed at 0 and open at 100.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -51,7 +51,7 @@ This tilts `cover.living_room_blind` to the halfway position.
 
 {% options_yaml %}
 tilt_position:
-  description: The target tilt position as a percentage, from 0 (closed) to 100 (open).
+  description: The target tilt position as a percentage, from 0 to 100. On most covers, the slats are closed at 0 and open at 100.
   required: true
   type: integer
 {% endoptions_yaml %}
@@ -61,6 +61,7 @@ tilt_position:
 ## Good to know
 
 - This action only works with cover entities that support setting a tilt position.
+- On some covers, the slats are open in the middle, for example at 50, and closed at both 0 and 100. For details, refer to [Tilt positions](/integrations/cover/#tilt-positions).
 
 {% include actions/try_it.md %}
 
