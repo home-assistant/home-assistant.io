@@ -38,7 +38,7 @@ To avoid this:
 
 ## What the Home Assistant AI tools can reach
 
-The Home Assistant {% term "AI tools" %} can read the state of every entity, the status of your {% term integrations %}, your logs, and the history of your sensors. They can also read the configuration and the traces of your automations and scripts. For the full list, refer to [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools).
+The Home Assistant {% term "AI tools" %} can read the state of every entity, the status of your {% term integrations %}, your logs, and the history of your sensors. They can also read the configuration of your automations, scripts, scenes, and blueprints, and the traces of your automations and scripts. For the full list, refer to [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools).
 
 Many of the Home Assistant AI tools only read. The AI tools that change things can do the following:
 
@@ -198,9 +198,9 @@ To find a device or an entity, the conversation agent first uses **Search Home A
 - **Remove entity** (`config__remove_entity`): Removes an entity that its integration no longer provides. For example, the entity of a device that you removed. It can't remove an entity that the integration still provides. Changes things.
   - To do this yourself: Under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, select the entity, and then select **Settings** {% icon "mdi:cog-outline" %} > **Delete**.
 
-#### Automation, script, and scene AI tools
+#### Automation, script, scene, blueprint, and trace AI tools
 
-These AI tools only read. They can't change, run, or turn on or off your automations, scripts, and scenes.
+These AI tools only read data. They can't change, run, or turn on or off your automations, scripts, and scenes.
 
 - **List automations** (`automation__list_automations`): Lists your {% term automations %}, sorted by name. For each automation, it returns whether it's on or off, when it last triggered, and its description, area, category, and labels. An automation with an error in its configuration is unavailable. Only reads.
   - To do this yourself: Go to {% my automations title="**Settings** > **Automations & scenes**" %}. The list shows your automations. For each automation, it shows when it last triggered and whether it's on or off.
