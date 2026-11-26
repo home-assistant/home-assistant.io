@@ -106,10 +106,14 @@ During setup or reauthentication, the Monzo authentication page displays **Netwo
 #### Description
 
 This error can occur when the redirect URL configured for your OAuth client in the Monzo developer portal is incorrect.
+Monzo can also show this error if Home Assistant is using saved credentials for a previous OAuth client.
 
 #### Resolution
 
 In the [Monzo developer portal](https://developers.monzo.com/), open the OAuth client used by Home Assistant and set **Redirect URLs** to `https://my.home-assistant.io/redirect/oauth`. Use this URL exactly as shown. Do not replace it with a local or Home Assistant Cloud URL. Then, retry authentication in Home Assistant.
+
+If the redirect URL is correct, [check the saved Monzo application credentials](/integrations/application_credentials/#to-view-stored-application-credentials) and compare the client ID with the one in the Monzo developer portal.
+If the IDs differ, use the matching credentials when you retry authentication. You can [add the correct credentials](/integrations/application_credentials/#manual-setup) if needed.
 
 ### Approval times out
 
