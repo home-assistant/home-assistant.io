@@ -636,9 +636,133 @@ entities:
       state_class: measurement
       unit_of_measurement: "%"
 
+  # Calendar and to-do list cards, see their pages in source/_dashboards
+  - entity_id: calendar.home
+    state: "off"
+    attributes:
+      friendly_name: Home
+  - entity_id: calendar.work
+    state: "off"
+    attributes:
+      friendly_name: Work
+  - entity_id: todo.shopping_list
+    state: "2"
+    attributes:
+      friendly_name: Shopping list
+      supported_features: 15
+
+  # Area card, the areas at the top of source/_dashboards/area.markdown, with
+  # the kitchen above
+  - entity_id: sensor.bedroom_temperature
+    state: "25.8"
+    area_id: bedroom
+    attributes:
+      friendly_name: Bedroom temperature
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: °C
+  - entity_id: sensor.bedroom_air_humidity
+    state: "59.6"
+    area_id: bedroom
+    attributes:
+      friendly_name: Bedroom air humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: sensor.garage_temperature
+    state: "28.2"
+    area_id: garage
+    attributes:
+      friendly_name: Garage temperature
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: °C
+  - entity_id: sensor.garage_humidity
+    state: "52.4"
+    area_id: garage
+    attributes:
+      friendly_name: Garage humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: sensor.garage_illuminance
+    state: "9.8"
+    area_id: garage
+    attributes:
+      friendly_name: Garage illuminance
+      device_class: illuminance
+      state_class: measurement
+      unit_of_measurement: lx
+  - entity_id: light.garage
+    state: "off"
+    area_id: garage
+    attributes:
+      friendly_name: Garage light
+      supported_color_modes:
+        - onoff
+      color_mode: onoff
+  - entity_id: fan.garage
+    state: "off"
+    area_id: garage
+    attributes:
+      friendly_name: Garage fan
+      supported_features: 1
+  - entity_id: switch.garage_heater
+    state: "on"
+    area_id: garage
+    attributes:
+      friendly_name: Garage heater
+  - entity_id: sensor.office_temperature
+    state: "25.9"
+    area_id: office
+    attributes:
+      friendly_name: Office temperature
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: °C
+  - entity_id: sensor.office_humidity
+    state: "56.9"
+    area_id: office
+    attributes:
+      friendly_name: Office humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: sensor.office_illuminance
+    state: "13"
+    area_id: office
+    attributes:
+      friendly_name: Office illuminance
+      device_class: illuminance
+      state_class: measurement
+      unit_of_measurement: lx
+  - entity_id: light.office_desk
+    state: "off"
+    area_id: office
+    attributes:
+      friendly_name: Office desk light
+      supported_color_modes:
+        - onoff
+      color_mode: onoff
+  - entity_id: fan.office
+    state: "off"
+    area_id: office
+    attributes:
+      friendly_name: Office fan
+      supported_features: 1
+
 areas:
   - area_id: kitchen
     name: Kitchen
+  - area_id: bedroom
+    name: Bedroom
+    icon: mdi:bed-king
+  - area_id: garage
+    name: Garage
+    icon: mdi:garage
+  - area_id: office
+    name: Office
+    icon: mdi:chair-rolling
 
 # The height in pixels each demo takes once its cards have loaded. The page
 # keeps this room for the demo while it loads, so the content below doesn't
@@ -730,6 +854,10 @@ heights:
   markdown_example: 106
   markdown_alerts: 350
   markdown_qr: 556
+  weather_top: 376
+  calendar_top: 632
+  todo_list_top: 532
+  area_top: 312
   light_names: 255
   gauge_name_unit: 194
   gauge_segments: 194
@@ -1514,6 +1642,75 @@ demos:
 
         <ha-qr-code data='hallo' error-correction-level="quartile" scale="6"
         center-image="https://brands.home-assistant.io/_/tuya/icon@2x.png"></ha-qr-code>
+
+  # Weather forecast card, the cards at the top of
+  # source/_dashboards/weather-forecast.markdown: with the daily forecast, and
+  # without a forecast
+  weather_top:
+    - type: weather-forecast
+      entity: weather.home
+      forecast_type: daily
+    - type: weather-forecast
+      entity: weather.home
+      show_forecast: false
+
+  # Calendar card, source/_dashboards/calendar.markdown. The calendars get
+  # sample events around today.
+  calendar_top:
+    - type: calendar
+      entities:
+        - calendar.home
+        - calendar.work
+      grid_options:
+        rows: 10
+
+  # To-do list card, source/_dashboards/todo-list.markdown
+  todo_list_top:
+    - type: todo-list
+      entity: todo.shopping_list
+      title: Shopping list
+
+  # Area card, the cards at the top of source/_dashboards/area.markdown. Areas
+  # in the demo have no picture, so each shows its icon instead.
+  area_top:
+    - type: area
+      area: bedroom
+      display_type: compact
+      sensor_classes:
+        - temperature
+        - humidity
+      grid_options:
+        columns: 6
+    - type: area
+      area: garage
+      display_type: compact
+      sensor_classes:
+        - temperature
+        - humidity
+        - illuminance
+      features:
+        - type: area-controls
+      grid_options:
+        columns: 6
+    - type: area
+      area: office
+      display_type: icon
+      sensor_classes:
+        - temperature
+        - humidity
+        - illuminance
+      features:
+        - type: area-controls
+      grid_options:
+        columns: 6
+    - type: area
+      area: kitchen
+      display_type: icon
+      sensor_classes:
+        - temperature
+        - humidity
+      grid_options:
+        columns: 6
 
   # Light card, the names example of source/_dashboards/light.markdown
   light_names:
