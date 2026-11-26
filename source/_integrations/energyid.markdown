@@ -68,6 +68,8 @@ Receive EnergyID directives:
   description: When enabled, an entity is created for every directive this record may access. Disable to remove the directive entities again.
 {% endconfiguration_basic %}
 
+{% include integrations/actions.md %}
+
 ## EnergyID automation examples
 
 A directive sensor changes state a few times a day. You can use those changes to run appliances when your energy community asks for it.
