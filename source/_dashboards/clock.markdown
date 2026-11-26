@@ -99,10 +99,7 @@ Basic example:
 type: clock
 ```
 
-<p class='img'>
-<img src='/images/dashboards/clock_card_default.png' alt='Screenshot of the basic clock card'>
-Screenshot of the basic clock card
-</p>
+{% include dashboard/demo.html demo="clock_default" caption="The basic clock card." %}
 
 Example of a larger clock card for tablet dashboards:
 
@@ -113,10 +110,7 @@ time_format: "12"
 show_seconds: true
 ```
 
-<p class='img'>
-<img src='/images/dashboards/clock_card_large.png' alt='Screenshot of a large sized, 12 hour clock card showing am/pm and seconds'>
-Screenshot of a large sized, 12 hour clock card showing am/pm and seconds
-</p>
+{% include dashboard/demo.html demo="clock_large" caption="A large, 12 hour clock card showing am/pm and seconds." %}
 
 A medium-sized clock card better suited for desktop dashboards:
 
@@ -127,10 +121,7 @@ time_format: "12"
 show_seconds: false
 ```
 
-<p class='img'>
-<img src='/images/dashboards/clock_card_medium.png' alt='Screenshot of a medium sized, 12 hour clock showing am/pm'>
-Screenshot of a medium sized, 12 hour clock showing am/pm
-</p>
+{% include dashboard/demo.html demo="clock_medium" caption="A medium, 12 hour clock showing am/pm." %}
 
 A medium-sized, 24 hour clock using the London timezone with a title
 
@@ -142,10 +133,7 @@ title: London 💂
 
 ```
 
-<p class='img'>
-<img src='/images/dashboards/clock_card_london.png' alt='Screenshot of a medium sized, 24 hour clock showing seconds based in London along with a title'>
-Screenshot of a medium sized, 24 hour clock showing seconds based in London along with a title
-</p>
+{% include dashboard/demo.html demo="clock_london" caption="A medium, 24 hour clock in London, with a title." %}
 
 A medium-sized, 12 hour clock using the New York timezone with a title
 
@@ -158,10 +146,7 @@ title: New York 🦅
 
 ```
 
-<p class='img'>
-<img src='/images/dashboards/clock_card_new_york.png' alt='Screenshot of a medium sized, 12 hour clock showing am/pm and seconds based in New York along with a title'>
-Screenshot of a medium sized, 12 hour clock showing am/pm and seconds based in New York along with a title
-</p>
+{% include dashboard/demo.html demo="clock_new_york" caption="A medium, 12 hour clock in New York showing am/pm, with a title." %}
 
 A medium-sized clock showing the date below the time, using the long date preset:
 
@@ -181,10 +166,7 @@ border: false
 ticks: hour
 ```
 
-<p class='img'>
-<img src='/images/dashboards/clock_card_analog_hour_ticks.png' alt='Screenshot of a medium sized, analog clock and hour ticks'>
-Screenshot of a medium sized, analog clock and hour ticks
-</p>
+{% include dashboard/demo.html demo="clock_analog_hour_ticks" caption="A medium, analog clock with hour ticks." %}
 
 Analog clock with border and minute ticks showing seconds:
 
@@ -197,10 +179,7 @@ border: true
 ticks: minute
 ```
 
-<p class='img'>
-<img src='/images/dashboards/clock_card_analog_minute_ticks_border.png' alt='Screenshot of a medium sized, analog clock and minute ticks showing seconds'>
-Screenshot of a medium sized, analog clock and minute ticks showing seconds
-</p>
+{% include dashboard/demo.html demo="clock_analog_minute_ticks" caption="A medium, analog clock with a border and minute ticks, showing seconds." %}
 
 Analog clock with a title, no ticks and border with seconds:
 
@@ -214,7 +193,4 @@ ticks: none
 title: Mountain Time
 ```
 
-<p class='img'>
-<img src='/images/dashboards/clock_card_analog_no_ticks_border_title_mountain_time.png' alt='Screenshot of a medium sized, analog clock with a title, no ticks and border showing seconds'>
-Screenshot of a medium sized, analog clock with a title, no ticks and border showing seconds
-</p>
+{% include dashboard/demo.html demo="clock_analog_no_ticks" caption="A medium, analog clock with a title, a border and no ticks, showing seconds." %}

@@ -473,6 +473,39 @@ entities:
         - away
       supported_features: 17
 
+  # Light card, see source/_dashboards/light.markdown
+  - entity_id: light.bedroom
+    state: "on"
+    attributes:
+      friendly_name: Bedroom
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 120
+  - entity_id: light.office
+    state: "on"
+    attributes:
+      friendly_name: Office
+      supported_color_modes:
+        - brightness
+      color_mode: brightness
+      brightness: 230
+
+  # Gauge card, see source/_dashboards/gauge.markdown
+  - entity_id: sensor.cpu_usage
+    state: "34"
+    attributes:
+      friendly_name: CPU usage
+      state_class: measurement
+      unit_of_measurement: "%"
+  - entity_id: sensor.kitchen_humidity
+    state: "52"
+    attributes:
+      friendly_name: Kitchen humidity
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+
 areas:
   - area_id: kitchen
     name: Kitchen
@@ -538,6 +571,22 @@ heights:
   feature_precipitation_forecast: 120
   tile_sections: 507
   view_types: 480
+  # A section row is 56, with 8 between rows.
+  clock_default: 56
+  clock_large: 120
+  clock_medium: 120
+  clock_london: 120
+  clock_new_york: 120
+  clock_analog_hour_ticks: 184
+  clock_analog_minute_ticks: 184
+  clock_analog_no_ticks: 248
+  date_default: 56
+  date_large: 120
+  date_day_month_year: 56
+  date_tokyo: 56
+  light_names: 255
+  gauge_name_unit: 194
+  gauge_segments: 194
 
 demos:
   # Card features, one tile card each, with the feature of the example on
@@ -1090,6 +1139,125 @@ demos:
           forecast_type: daily
           days_to_show: 7
           precipitation_type: amount
+
+  # Clock card, the examples of source/_dashboards/clock.markdown
+  clock_default:
+    - type: clock
+
+  clock_large:
+    - type: clock
+      clock_size: large
+      time_format: "12"
+      show_seconds: true
+
+  clock_medium:
+    - type: clock
+      clock_size: medium
+      time_format: "12"
+      show_seconds: false
+
+  clock_london:
+    - type: clock
+      clock_size: medium
+      time_zone: Europe/London
+      title: London 💂
+
+  clock_new_york:
+    - type: clock
+      clock_size: medium
+      time_format: "12"
+      time_zone: America/New_York
+      title: New York 🦅
+
+  clock_analog_hour_ticks:
+    - type: clock
+      clock_style: analog
+      clock_size: medium
+      border: false
+      ticks: hour
+
+  clock_analog_minute_ticks:
+    - type: clock
+      clock_style: analog
+      clock_size: medium
+      show_seconds: true
+      border: true
+      ticks: minute
+
+  clock_analog_no_ticks:
+    - type: clock
+      clock_style: analog
+      clock_size: medium
+      show_seconds: true
+      border: true
+      ticks: none
+      title: Mountain Time
+
+  # Date card, the examples of source/_dashboards/date.markdown
+  date_default:
+    - type: date
+
+  # Full width, as the long weekday doesn't fit in the default 6 columns of a
+  # large date card.
+  date_large:
+    - type: date
+      title: Today
+      date_size: large
+      grid_options:
+        columns: 12
+
+  date_day_month_year:
+    - type: date
+      date_format:
+        - day-2-digit
+        - separator-slash
+        - month-2-digit
+        - separator-slash
+        - year-numeric
+
+  date_tokyo:
+    - type: date
+      title: Tokyo
+      time_zone: Asia/Tokyo
+      no_background: true
+
+  # Light card, the names example of source/_dashboards/light.markdown
+  light_names:
+    - type: light
+      entity: light.bedroom
+      name: Kids Bedroom
+      grid_options:
+        columns: 6
+    - type: light
+      entity: light.office
+      name: My Office
+      grid_options:
+        columns: 6
+
+  # Gauge card, the examples of source/_dashboards/gauge.markdown
+  gauge_name_unit:
+    - type: gauge
+      name: CPU Usage
+      unit: "%"
+      entity: sensor.cpu_usage
+
+  gauge_segments:
+    - type: gauge
+      entity: sensor.kitchen_humidity
+      needle: true
+      min: 20
+      max: 80
+      segments:
+        - from: 0
+          color: "#db4437"
+        - from: 35
+          color: "#ffa600"
+        - from: 40
+          color: "#43a047"
+        - from: 60
+          color: "#ffa600"
+        - from: 65
+          color: "#db4437"
 
   # The tile cards at the top of source/_dashboards/tile.markdown, in two
   # sections of a sections view
