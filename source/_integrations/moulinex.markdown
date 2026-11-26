@@ -34,12 +34,14 @@ Your appliance must be connected to Wi-Fi and added to your account in the mobil
 Home Assistant can also discover the appliance on your network and suggest the integration. You still log in with your account to finish the setup.
 
 {% configuration_basic %}
-Region:
-  description: "The brand and country you selected when you created the account. **Moulinex (France)** is selected by default, change it if your account is from another brand or country. An account only works with its own region."
+Country:
+  description: "The country you selected when you created the account. The country of your Home Assistant instance is selected by default. An account only works with its own country."
 Email:
   description: "The email address of the account you use in the app of your appliance."
 Password:
   description: "The password of that account. Home Assistant only uses it to log in and does not store it."
+Language:
+  description: "Only asked for Switzerland, where accounts depend on the language of the app: German (Moulinex), French, Italian, or German (Krups)."
 {% endconfiguration_basic %}
 
 After setup, Home Assistant creates one {% term device %} for each compatible appliance of your account.
@@ -147,7 +149,11 @@ The appliance is turned off, unplugged, or out of reach of your Wi-Fi. The senso
 
 ### The email or password is refused
 
-Check that you selected the region of your account. An account created for one brand and country is not known in another region, even when the email and the password are correct.
+Check that you selected the country of your account. An account created in one country is not known in another one, even when the email and the password are correct. After several refused attempts, the account is locked for 15 minutes.
+
+### No appliance is found on the account
+
+In Switzerland, check that you selected the language you use in the app. An account only shows its appliances in its own language.
 
 ## Removing the integration
 
