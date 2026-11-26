@@ -113,6 +113,19 @@ To reconfigure the integration:
 3. From the list of gateways, find the one you want to reconfigure.
 4. Next to that gateway, select the three dots menu ({% icon "mdi:dots-vertical" %}), then select **Reconfigure**.
 
+## Supported functionality
+
+### Climate
+
+Some Atlantic towel dryers, such as the Adélis 2 Digit, are controlled with heating levels.
+Home Assistant selects this entity automatically for towel dryers that don't support the standard towel dryer commands.
+Other Atlantic towel dryers keep their existing climate entity.
+
+- **Towel dryer**
+  - **Description**: Turns the towel dryer on or off, sets the preset and the target temperature, and shows the current temperature.
+  - **Options**: **Comfort**, **Comfort -1°C**, **Comfort -2°C**, **Eco**, **Frost protection**, **Boost**
+  - **Remarks**: **Boost** heats for 60 minutes, like the boost button on the towel dryer. The towel dryer then returns to the preset it had before the boost. Tested with the Adélis 2 Digit (firmware: E725008).
+
 {% include integrations/actions.md %}
 
 ## Data updates
@@ -165,6 +178,15 @@ cover:
 If a scene or automation sets both the position and the tilt of a cover, Home Assistant sends these as two separate actions: [Set cover position](/actions/cover.set_cover_position/) followed by [Set cover tilt position](/actions/cover.set_cover_tilt_position/). On Somfy venetian blinds and similar io-homecontrol motors, the second command interrupts the first while it's still moving, so the cover only makes a short stuttering move instead of reaching the target position and tilt.
 
 To move a cover to a target position and tilt in one smooth motion, use the [Set cover position and tilt](/actions/overkiz.set_cover_position_and_tilt/) action instead.
+
+### Atlantic towel dryers driven by heating levels
+
+The gateway doesn't report a boost or when it ends, so Home Assistant tracks the boosts it starts.
+It also doesn't report changes made on the towel dryer itself.
+
+- A boost started on the towel dryer or from the vendor's app isn't shown in Home Assistant.
+- While a boost that Home Assistant doesn't know about is running, changing the preset from Home Assistant can fail.
+- If you select another preset during a boost that Home Assistant started, the boost ends and the new preset is applied after a few seconds.
 
 ### Troubleshooting connection issues with the local API
 

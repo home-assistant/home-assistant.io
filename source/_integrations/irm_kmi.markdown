@@ -59,6 +59,10 @@ There is also a pollen sensor for each type the provider reports, such as **Gras
 - `active`: The type is in season, but the provider gives no level.
 - `none`: The type is not in season.
 
+### Image
+
+An image entity is provided for rain radar and short-term rain previsions. 
+
 ### Binary sensors
 
 - **Warning**: On while at least one official weather warning is in effect. All published warnings, including upcoming ones, are listed in the `warnings` attribute.
