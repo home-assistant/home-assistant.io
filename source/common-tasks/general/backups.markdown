@@ -148,7 +148,7 @@ This creates a backup instantly. You can create a manual backup at any time, irr
    - To learn more about the locations, refer to the section on [defining backup locations](#defining-backup-locations).
    - To store the backup on Home Assistant Link, include the Home Assistant settings in the backup data.
 6. To start the backup process, select **Create backup**.
-   - A bar at the top of the **Backup** page shows the progress, including the upload progress to some locations.
+   - A bar at the top of the **Backups** page shows the progress, including the upload progress to some locations.
 
 ## Downloading your local backups
 
