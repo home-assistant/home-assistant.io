@@ -97,6 +97,8 @@ Heat pumps that report the heat they produce have the following sensors:
 - **Heating heat production today**: the heat produced for heating today
 - **DHW heat production today**: the heat produced for domestic hot water today
 
+Gas boilers that report their target temperature have a **Boiler target temperature** sensor that shows the temperature the boiler currently heats its water to.
+
 Devices that report their internal pump have an **Internal pump** binary sensor that shows whether the pump is running.
 
 Devices that report the modulation of their internal pump have the following sensors:
