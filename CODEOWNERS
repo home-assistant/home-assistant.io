@@ -1759,6 +1759,7 @@ source/_actions/kiosker.set_blackout.markdown @Claeysson
 source/_actions/knx.event_register.markdown @Julius2342 @farmio @marvin-w
 source/_actions/knx.exposure_register.markdown @Julius2342 @farmio @marvin-w
 source/_actions/knx.read.markdown @Julius2342 @farmio @marvin-w
+source/_actions/knx.reload.markdown @Julius2342 @farmio @marvin-w
 source/_actions/knx.save_scene.markdown @Julius2342 @farmio @marvin-w
 source/_actions/knx.send.markdown @Julius2342 @farmio @marvin-w
 source/_actions/kodi.add_to_playlist.markdown @OnFreund
