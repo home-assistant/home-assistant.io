@@ -27,7 +27,7 @@ To use this action from an automation or a script:
 
 {% options_ui %}
 Mode:
-  description: When playback stops. **After a duration** stops when the duration has passed, **End of the current item** stops when the item playing now ends, and **End of the current chapter** stops when its chapter ends. An item without chapters stops at its end.
+  description: When playback stops. **After a duration** stops when the duration has passed, **End of the current item** stops when the item playing now ends, and **End of the current chapter** stops when its chapter ends. An item without chapters stops at its end. Defaults to **After a duration**.
 Duration:
   description: Time until playback stops, at least one second. Required for **After a duration**, and not allowed for the other modes.
 Username:
