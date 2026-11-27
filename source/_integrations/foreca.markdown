@@ -4,7 +4,7 @@ ha_release: '2026.11'
 ha_domain: foreca
 ---
 
-The **Foreca** {% term integration %} uses the [Foreca Weather API](https://business.foreca.com/weather-api) to provide weather forecasts for any location worldwide. [Foreca](https://business.foreca.com) is an independent weather company that has produced forecasts for consumer and business services since 1996.
+The **Foreca Weather** {% term integration %} uses the [Foreca Weather API](https://business.foreca.com/weather-api) to provide weather forecasts for any location worldwide. [Foreca](https://business.foreca.com) is an independent weather company that has produced forecasts for consumer and business services since 1996.
 
 You can use this integration free of charge with a [Foreca Weather API Freemium](https://business.foreca.com/weather-api/free-weather-api) subscription, which is strictly for non-commercial use. It also works with [Foreca's premium packages](https://business.foreca.com/weather-api/pricing), which allow commercial use and provide higher request limits and further weather products.
 
@@ -39,7 +39,7 @@ Location:
     description: "The location to retrieve weather data for. Defaults to the home location set in your Home Assistant configuration."
 {% endconfiguration_basic %}
 
-To add another location later, select **Add location** on the Foreca entry under **Settings** > **Devices & services**. One API key covers as many locations as its request limit allows.
+To add another location later, select **Add location** on the Foreca Weather entry under **Settings** > **Devices & services**. One API key covers as many locations as its request limit allows.
 
 ## Supported functionality
 
