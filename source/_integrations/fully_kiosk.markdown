@@ -81,8 +81,9 @@ The Fully Kiosk Browser app does not provide feedback on the device volume or me
 ### App updates
 
 Devices with a supported app and edition have an update {% term entity %} with the same name as the device.
-It shows the version of the Fully app installed on the device, the latest version available from the Fully website, and the file name and size of the download.
-When you start an update, the entity shows that the update is in progress until the app has restarted.
+It shows the version of the Fully app installed on the device and the latest version available from the Fully website.
+When you install an update, the app downloads it from the Fully website, installs it, and restarts.
+Until the new version is running, the entity shows which step the update is in: downloading, installing, waiting for someone to confirm the installation, or restarting.
 
 What the update entity can do depends on the app and edition installed on your device:
 
@@ -105,6 +106,36 @@ By default, the update entity installs the latest version. You can also install 
 
 For more details, see the [**Install update**](/actions/update.install/) action.
 
+#### Confirming the installation on the device
+
+Android installs the update without asking only when Fully Kiosk Browser is the device owner, or when the device is rooted.
+On other devices, someone has to confirm the installation on the device's screen.
+Home Assistant warns you about this before the update starts, and the update shows **Waiting for user** while the device waits for the confirmation.
+
+To get a notification when a device waits for someone to confirm an update, you can use an automation like this one.
+
+{% details "YAML example for a notification when the update waits for a confirmation" %}
+
+{% example %}
+automation: |
+  alias: "Send a notification when the tablet waits for an update confirmation"
+  triggers:
+    - trigger: state
+      entity_id: update.wall_tablet
+      attribute: install_phase
+      to: waiting_for_user
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Update waiting"
+        message: >
+          Confirm the Fully Kiosk Browser update on the wall tablet's screen.
+{% endexample %}
+
+{% enddetails %}
+
 {% include integrations/actions.md %}
 
 ## Data updates
@@ -121,7 +152,8 @@ The following limitations apply to app updates:
 
 - You can only install versions that are listed in the Fully update feed. The feed covers downloads updated within the last 365 days.
 - You can't switch to a different app or edition. For example, you can't replace the regular edition with the EMM edition.
-- If an installation fails on the device, or the new version is not running within 5 minutes, the action shows an error.
+- You can't install a version older than the installed one, because Android doesn't downgrade apps.
+- If an installation fails on the device, or the new version is not running in time, the action shows an error. The update has 5 minutes, or 15 minutes when someone has to confirm the installation on the device.
 - Devices on Android 5 or earlier don't have an update entity, because the current versions of the app don't support them.
 - Apps other than the ones listed in [App updates](#app-updates), such as Fully Exam Kiosk, don't have an update entity.
 
