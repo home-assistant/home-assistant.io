@@ -38,7 +38,8 @@ Use the [energy dashboard](/energy) to track costs with these sensors:
 
 - **Current all-in price**: Electricity costs based on EnergyZero's all-in prices
 - **Current market price**: Only the market component of your electricity costs
-- **Current hour**: Gas costs based on the gas market price
+- **Current hour all-in price**: Gas costs based on EnergyZero's all-in gas price
+- **Current hour market price**: Only the market component of your gas costs
 
 To show prices in a dashboard chart, use one of the actions with a [template sensor](#prices-sensor-with-response-data).
 
@@ -48,7 +49,7 @@ The integration will poll the EnergyZero API every 10 minutes to update the data
 
 ## Known limitations
 
-Market prices include VAT but exclude energy tax and purchase costs. Gas sensors provide market prices only.
+Market prices include VAT but exclude energy tax and purchase costs. The all-in gas price adds energy tax to the market price, but excludes EnergyZero's purchase costs.
 
 The all-in electricity sensors use EnergyZero's rates. If your contract uses different rates, you can calculate your own price with a [template sensor](#all-in-price-sensor). There is no option to configure contract rates in the integration.
 
@@ -89,11 +90,16 @@ The integration also provides five sensors for the all-in electricity prices fro
 
 The current and next prices follow the same interval as the market sensors. Both sets of sensors appear on the **Electricity price** device.
 
-### Gas market price
+### Gas price
 
-For the dynamic gas prices, only entities are created that display the
-`current` and `next hour` price because the price is always fixed for
-24 hours; new prices are published every morning at **05:00 UTC time**.
+The gas price is fixed for 24 hours; new prices are published every morning at **05:00 UTC time**. For that reason, the integration only creates sensors for the current and next hour:
+
+- **Current hour market price** and **Next hour market price**
+- **Current hour all-in price** and **Next hour all-in price**
+
+The all-in sensors show the market price plus energy tax, including VAT. All four sensors appear on the **Gas price** device.
+
+The market sensors were previously named **Current hour** and **Next hour**. They keep their entity IDs, so your automations and templates continue to work with the renamed sensors.
 
 {% include integrations/actions.md %}
 

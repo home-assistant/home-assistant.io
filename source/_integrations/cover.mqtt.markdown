@@ -16,7 +16,7 @@ If a `state_topic` is configured, the entity's state will be updated only after 
 
 If the cover reports its position, a `position_topic` can be configured for receiving the position. If no `state_topic` is configured, the cover's state will be set to either `open` or `closed` when a position is received.
 
-If the cover reports its tilt position, a `tilt_status_topic` can be configured for receiving the tilt position.
+If the cover reports its tilt position, a `tilt_status_topic` can be configured for receiving the tilt position. To describe where the slats are open and closed, see [tilt positions](#tilt-positions).
 If position topic and state topic are both defined, the device state (`open`, `opening`, `closed` or `closing`) will be set by the state topic and the cover position will be set by the position topic.
 
 If neither a state topic nor a position topic are defined, the cover will work in optimistic mode. In this mode, the cover will immediately change state (`open` or `closed`) after every command sent by Home Assistant. If a state topic/position topic is defined, the cover will wait for a message on `state_topic` or `position_topic`.
@@ -71,6 +71,11 @@ availability_topic:
   description: "The subscribed-to MQTT topic to receive birth and LWT messages from the MQTT cover device. If an `availability` topic is not defined, the cover availability state will always be `available`. If an `availability` topic is defined, the cover availability state will be `unavailable` by default. Must not be used together with `availability`."
   required: false
   type: string
+closed_tilt_positions:
+  description: "The tilt positions where the slats are closed: `0`, `100`, or both. Overrides the closed tilt positions derived from `tilt_start_angle` and `tilt_end_angle`. See [tilt positions](#tilt-positions)."
+  required: false
+  type: list
+  default: "The ends where the slats lie the flattest if the angles are set, else `0`."
 command_topic:
   description: The MQTT topic to publish commands to control the cover.
   required: false
@@ -144,6 +149,11 @@ name:
   required: false
   type: string
   default: MQTT Cover
+open_tilt_position:
+  description: The tilt position where the slats are open, from 0 to 100. Overrides the open tilt position derived from `tilt_start_angle` and `tilt_end_angle`. See [tilt positions](#tilt-positions).
+  required: false
+  type: integer
+  default: "The position where the angle is 0 degrees if the angles are set, else `100`."
 optimistic:
   description: Flag that defines if switch works in optimistic mode.
   required: false
@@ -248,11 +258,6 @@ state_topic:
   description: The MQTT topic subscribed to receive cover state messages. State topic can only read a (`open`, `opening`, `closed`, `closing` or `stopped`) state. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
-tilt_closed_value:
-  description: The value that will be sent on a `close_cover_tilt` command.
-  required: false
-  type: integer
-  default: 0
 tilt_command_template:
   description: "Defines a [template](/docs/templating/where-to-use/#mqtt) that can be used to extract the payload for the `tilt_command_topic` topic. Within the template the following variables are available: `entity_id`, `tilt_position`, the target tilt position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/templating/states/) template function;"
   required: false
@@ -261,6 +266,10 @@ tilt_command_topic:
   description: The MQTT topic to publish commands to control the cover tilt.
   required: false
   type: string
+tilt_end_angle:
+  description: The angle of the slats at `tilt_max`, from -90 to 90 degrees. Must be set together with `tilt_start_angle`. See [tilt positions](#tilt-positions).
+  required: false
+  type: integer
 tilt_max:
   description: The maximum tilt value.
   required: false
@@ -271,16 +280,15 @@ tilt_min:
   required: false
   type: integer
   default: 0
-tilt_opened_value:
-  description: The value that will be sent on an `open_cover_tilt` command.
-  required: false
-  type: integer
-  default: 100
 tilt_optimistic:
   description: Flag that determines if tilt works in optimistic mode.
   required: false
   type: boolean
   default: "`true` if `tilt_status_topic` is not defined, else `false`"
+tilt_start_angle:
+  description: The angle of the slats at `tilt_min`, from -90 to 90 degrees. Must be set together with `tilt_end_angle`. See [tilt positions](#tilt-positions).
+  required: false
+  type: integer
 tilt_status_template:
   description: "Defines a [template](/docs/templating/where-to-use/#mqtt) that can be used to extract the payload for the `tilt_status_topic` topic. Within the template the following variables are available: `entity_id`, `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/templating/states/) template function;"
   required: false
@@ -306,10 +314,29 @@ visible_by_default:
 
 
 {% note %}
-MQTT cover expects position and tilt values to be in range of 0 to 100, where 0 indicates closed position and 100 indicates fully open position.
+MQTT cover expects position and tilt values to be in range of 0 to 100. For the position, 0 indicates closed position and 100 indicates fully open position. For the tilt, see [tilt positions](#tilt-positions).
 If position `min` or `max` are set to a different range, for example, 40 to 140, when sending command to the device the range will be adjusted to the device range (position 0 will send a value of 40 to device) and when position payload is received from the device it will be adjusted back to the 0 to 100 range (device value of 40 will report cover position 0).
 If `min` is set to 100 and `max` is set to `0`, `min` and `max` can also be used to reverse the direction of the device, and device operation will be inverted. For example, when setting position to 40, a value of 60 will be sent to the device.
 {% endnote %}
+
+## Tilt positions
+
+The tilt position is a percentage from 0 to 100, where 0 is `tilt_min` and 100 is `tilt_max`. To tell Home Assistant where the slats are open and where they are closed, set the angles of the slats at `tilt_min` and `tilt_max` with `tilt_start_angle` and `tilt_end_angle`. The angle of a slat is between -90 and 90 degrees:
+
+- At 0 degrees, the slat is perpendicular to the cover, so light passes through.
+- At -90 or 90 degrees, the slat lies flat in the plane of the cover, so the slats are closed.
+
+Home Assistant uses the angles to work out the open tilt position, where the angle is closest to 0 degrees, and the closed tilt positions, the ends where the slats lie the flattest. For example, slats that turn from -90 degrees at `tilt_min` to 90 degrees at `tilt_max` are open at 50 and closed at both 0 and 100.
+
+If you don't know the angles of the slats, set `open_tilt_position` and `closed_tilt_positions` instead. You can also set them together with the angles, to override the positions derived from the angles.
+
+When the angles or tilt positions are set:
+
+- Opening the tilt moves the slats to the open tilt position.
+- Closing the tilt moves the slats to the closed tilt position. If the slats are closed at both ends, they move to the end where they lie the flattest. If both ends are equally flat, they move to the end nearest to the current tilt position, or to 0 if the tilt position is unknown.
+- Toggling the tilt opens the slats when they are at a closed tilt position, and closes them otherwise.
+
+When none of these options are set, opening the tilt sends `100` and closing the tilt sends `0` to the `tilt_command_topic`.
 
 ## Examples
 
@@ -408,8 +435,8 @@ mqtt:
       tilt_status_template: "{{ value_json["PWM"]["PWM1"] }}"
       tilt_min: 0
       tilt_max: 180
-      tilt_closed_value: 70
-      tilt_opened_value: 180
+      tilt_start_angle: -90
+      tilt_end_angle: 90
 ```
 
 
@@ -547,8 +574,7 @@ mqtt:
       position_closed: 0
       tilt_min: 0
       tilt_max: 6
-      tilt_opened_value: 3
-      tilt_closed_value: 0
+      open_tilt_position: 50
       optimistic: false
       position_template: |-
         {% if not state_attr(entity_id, "current_position") %}
