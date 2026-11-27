@@ -14,10 +14,7 @@ related:
 
 The thermostat card gives control of your [climate](/integrations/#climate) {% term entity %} or [water heater](/integrations/#water_heater) {% term entity %}, allowing you to change the temperature and mode of the {% term entity %}.
 
-<p class='img'>
-  <img src='/images/dashboards/thermostat_card.png' alt='Screenshot of the thermostat card'>
-  Screenshot of the thermostat card.
-</p>
+{% include dashboard/demo.html demo="thermostat_top" caption="The thermostat card." %}
 
 All options for this card can be configured via the user interface.
 

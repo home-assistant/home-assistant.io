@@ -10,6 +10,7 @@ ha_domain: bosch_smart_camera
 ha_codeowners:
   - "@mosandlt"
 ha_platforms:
+  - button
   - camera
   - light
   - number
@@ -56,6 +57,10 @@ The **Wi-Fi signal strength** sensor shows how well a camera is connected to you
 ### Speaker level
 
 The **Speaker level** number sets the speaker volume of a camera, from 0 to 100 percent. It is only added for cameras that have a speaker and is shown with the configuration entities of the device.
+
+### Restart
+
+The **Restart** button restarts a camera. It is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
 
 ### Firmware
 

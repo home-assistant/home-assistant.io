@@ -15,7 +15,7 @@ There is currently support for the following entity types within Home Assistant:
 You need an API key, which is free but requires a [registration](https://opendata.aemet.es/centrodedescargas/altaUsuario).
 The AEMET OpenData service is completely free but is limited to the Spanish territory.
 
-New AEMET API keys expire after 3 months, and older keys without an expiration date are being retired. When AEMET rejects your key, Home Assistant asks you to enter a new one. For the steps, refer to [Troubleshooting](#troubleshooting).
+New AEMET API keys include an expiration date, and older keys without an expiration date are being retired. When AEMET rejects your key, Home Assistant asks you to enter a new one. For the steps, refer to [Troubleshooting](#troubleshooting).
 
 ## Configuration
 
@@ -27,6 +27,12 @@ API Key:
 Location:
   description: "Latitude and longitude for weather forecast and sensor"
 {% endconfiguration_basic %}
+
+### API key expiry
+
+Home Assistant reads the expiration date from the API key and creates a repair issue seven days before the key expires. Select **Fix** in the repair issue and enter a new API key. You can also replace the key at any time using the reconfigure option.
+
+When AEMET rejects the key, Home Assistant starts a reauthentication flow where you can enter a new API key. Keys without an expiration date do not create a repair issue; reauthentication starts when AEMET rejects them.
 
 To replace your API key before it expires, without removing the integration:
 
@@ -75,7 +81,7 @@ In {% my integrations title="**Settings** > **Devices & services**" %}, **AEMET 
 
 #### Description
 
-New AEMET API keys expire after 3 months. AEMET is also retiring older keys that were issued without an expiration date. Until they are fully retired, AEMET rejects these older keys more and more often, so replace an older key as soon as you can. When AEMET rejects the key, Home Assistant stops updating the AEMET data and asks you for a new key.
+New AEMET API keys include an expiration date. AEMET is also retiring older keys that were issued without an expiration date. Until they are fully retired, AEMET rejects these older keys more and more often, so replace an older key as soon as you can. When AEMET rejects the key, Home Assistant stops updating the AEMET data and asks you for a new key.
 
 #### Resolution
 

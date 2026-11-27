@@ -1,10 +1,10 @@
 ---
-description: Integration to control Dyson Fan using an infrared transmitter.
+description: Integration to control Dyson Fan using an infrared emitter.
 ha_release: '2026.8'
 ha_domain: dyson_infrared
 ---
 
-The **Dyson Infrared** {% term integration %} lets you control a Dyson device using any infrared transmitter previously configured in Home Assistant.
+The **Dyson Infrared** {% term integration %} lets you control a Dyson device using any infrared emitter previously configured in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device but there is no feedback channel to confirm the current state of the device. The integration therefore uses assumed states.
 
@@ -19,8 +19,8 @@ For example, you can use an ESPHome device with an IR LED pointed at your Dyson 
 {% configuration_basic %}
 Device type:
   description: The type of Dyson device to control. Currently, only **Fan** is supported.
-Infrared transmitter:
-  description: The infrared transmitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR transmitter.
+Infrared emitter:
+  description: The infrared emitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
 {% endconfiguration_basic %}
 
 ## Supported devices

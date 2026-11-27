@@ -9,7 +9,7 @@ related:
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
 
-The EnOcean integration adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/product/usb-300/) in order for it to work.
+The EnOcean integration adds support for some of these devices. You will need an EnOcean USB dongle in order for it to work. Dongles that speak the EnOcean Serial Protocol 3 (ESP3), like the [USB300](https://www.enocean.com/product/usb-300/), and dongles that speak the older EnOcean Serial Protocol 2 (ESP2), like the Eltako FAM-USB, are both supported. Home Assistant detects which protocol your dongle speaks when you set up the integration.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -308,6 +308,8 @@ The window handle sensor can have the following states:
 ## Switch
 
 An EnOcean switch can take many forms. Currently, only a few types have been tested: Permundo PSC234 and Nod On SIN-2-1-01.
+
+Switches cannot be controlled through a dongle that speaks ESP2, like the Eltako FAM-USB: the telegrams these switches need cannot be sent with that protocol.
 
 To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file:
 

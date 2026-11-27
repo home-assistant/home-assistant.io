@@ -18,10 +18,7 @@ related:
 
 The weather forecast card displays the weather. This card is particularly useful on wall-mounted displays.
 
-<p class='img'>
-  <img src='/images/dashboards/weather.png' alt='Screenshot of the weather card'>
-  Screenshot of the weather card.
-</p>
+{% include dashboard/demo.html demo="weather_top" caption="The weather forecast card, with and without the forecast." %}
 
 {% include dashboard/edit_dashboard.md %}
 
