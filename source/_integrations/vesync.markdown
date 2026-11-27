@@ -155,7 +155,7 @@ The OasisMist 4.5L has a minimum light brightness of 40%, so its night light can
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `humidity`              | Current humidity (in %)                                                            | 35        |
 | `temperature`           | Current temperature (Superior6000S)                                                | 68        |
-| `drying_time_remaining` | Seconds left in the current wick drying cycle (Superior6000S, Sprout)              | 1664      |
+| `drying_time_remaining` | Seconds left in the current wick drying cycle. Only available on humidifiers that support drying mode. | 1664      |
 
 | Number                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
@@ -169,7 +169,7 @@ The OasisMist 4.5L has a minimum light brightness of 40%, so its night light can
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
 | `auto_off_config`       | Auto turn off when humidity target exceeded, resume when below target              | On        |
-| `drying_mode_power_off` | Enable drying mode while power is off (Superior6000S)                              | On        |
+| `drying_mode_power_off` | Enable drying mode while power is off. Only available on humidifiers that support drying mode. | On        |
 
 
 ## Binary Sensors
@@ -178,7 +178,7 @@ The OasisMist 4.5L has a minimum light brightness of 40%, so its night light can
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `water_lacks`           | Indicates whether the device needs a water refill                                  | false     |
 | `water_tank_lifted`     | Water tank is lifted                                                               | false     |
-| `drying`                | The humidifier is drying its wick (Superior6000S, Sprout)                          | true      |
+| `drying`                | The humidifier is drying its wick. Only available on humidifiers that support drying mode. | true      |
 | `sync_chambers`         | On dual-basket air fryers, indicates whether both baskets use the same settings   | true      |
 
 ## Air Fryers
