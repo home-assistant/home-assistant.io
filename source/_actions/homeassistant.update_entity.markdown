@@ -56,8 +56,8 @@ entity_id:
 
 Every entity is provided by an integration, and the integration decides how the entity gets its data.
 Polled entities get their data because the integration regularly asks a device or service for it. Pushed entities get their data when the device or service sends it.
-This action asks an entity to fetch its data immediately, so it only works for polled entities.
-A pushed entity has nothing to fetch.
+This action asks the entity's integration to update it immediately, so it works when that entity supports on-demand updates, which is common for polled entities. Some integrations support both pushed updates and on-demand polling.
+Whether an entity can be refreshed depends on the integration's implementation, not only on whether it receives pushed data.
 
 To know if your entity polls or pushes data, [check how an entity gets its data](/common-tasks/general/#checking-how-an-entity-gets-its-data).
 
