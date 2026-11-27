@@ -23,6 +23,19 @@ Infrared emitter:
   description: The infrared emitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
 {% endconfiguration_basic %}
 
+## Reconfiguring the integration
+
+If you replace your infrared emitter, you can switch the amplifier to the new one without removing and re-adding the integration.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Marantz Infrared** integration and select it.
+3. Next to the amplifier, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+4. Select the infrared emitter you want to use, then select **Submit**.
+
+Reconfiguring changes only the infrared emitter. The amplifier model stays as you set it up.
+
+Each infrared emitter can be used for one amplifier of each model, so you can't select an emitter that another amplifier of the same model already uses.
+
 ## Supported devices
 
 The integration currently supports the **Marantz PM6006** integrated amplifier. Other Marantz amplifiers share much of the IR command set, but each model has its own quirks (for example, which inputs are present, which functions exist as discrete codes versus toggles, and which proprietary "Pre-Code" 38 kHz raw timings are needed for digital inputs). Adding more models is a community effort — if you own another Marantz amplifier and want it supported, please [open an issue on the infrared-protocols repository](https://github.com/home-assistant-libs/infrared-protocols/issues) with captured IR signals from your remote.
