@@ -5,7 +5,7 @@ ha_domain: zonneplan
 ---
 
 The **Zonneplan** {% term integration %} lets you retrieve electricity and gas price information from [Zonneplan](https://www.zonneplan.nl/), a Dutch provider of dynamic energy contracts and energy services, including home batteries and EV charge points.
-This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, the status, control mode and settings of your Zonneplan home battery, and the status of your EV charge point. An action returns all known electricity prices, for example to plan when to charge an electric car.
+This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, the status, control mode and settings of your Zonneplan home battery, and the status of your EV charge point. Actions return all known electricity and gas prices, for example to plan when to charge an electric car.
 
 ## Prerequisites
 
