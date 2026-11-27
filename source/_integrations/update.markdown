@@ -60,9 +60,17 @@ While an update is installing, some integrations report the step the installatio
 
 ## Updates that need someone at the device
 
-Some updates need someone to do something by hand, like confirming the update on the device's screen or turning the device off and on again.
-When the integration knows this in advance, Home Assistant warns you before the update starts, so you can make sure someone is near the device.
-While the update is available or installing, the `manual_action` attribute is set, and the installation shows **Waiting for user** when it is time to act.
+Some updates need someone at the device to help, for example, to confirm the update on its screen or to press a button on it. The update can't finish until then, and the device might not work in the meantime.
+
+When the integration knows this in advance, Home Assistant tells you before the update starts, so you can make sure someone is there to help:
+
+- In {% my updates title="**Settings** > **System** > **Updates**" %}, the update shows **Needs your help during the update**.
+- The update dialog says what someone will have to do, and when.
+- When you start the update, Home Assistant asks you to confirm first.
+
+When it's time to help, the update shows **Waiting for user** and what to do now. It continues once that's done.
+
+While the update is available or installing, the `manual_action` attribute is set.
 
 ## Device class
 
