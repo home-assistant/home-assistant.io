@@ -2,12 +2,13 @@
 title: "Set sleep timer"
 action: music_assistant.set_sleep_timer
 domain: music_assistant
-description: "Stops playback on a Music Assistant player after a duration, or at the end of the current item or chapter, or clears its sleep timer."
+description: "Stops playback on a Music Assistant player after a duration, or at the end of the current item or chapter."
 related_actions:
+  - music_assistant.clear_sleep_timer
   - music_assistant.play_media
 ---
 
-Use this action to stop playback on a Music Assistant player later, for example when you fall asleep to an audiobook or a podcast. Playback stops after a duration you choose, or when the current item or chapter ends. The **Off** mode clears the sleep timer, so playback continues.
+Use this action to stop playback on a Music Assistant player later, for example when you fall asleep to an audiobook or a podcast. Playback stops after a duration you choose, or when the current item or chapter ends.
 
 {% include actions/ui_header.md %}
 
@@ -26,7 +27,7 @@ To use this action from an automation or a script:
 
 {% options_ui %}
 Mode:
-  description: When playback stops. **After a duration** stops when the duration has passed, **End of the current item** stops when the item playing now ends, and **End of the current chapter** stops when its chapter ends. An item without chapters stops at its end. **Off** clears the sleep timer.
+  description: When playback stops. **After a duration** stops when the duration has passed, **End of the current item** stops when the item playing now ends, and **End of the current chapter** stops when its chapter ends. An item without chapters stops at its end.
 Duration:
   description: Time until playback stops, at least one second. Required for **After a duration**, and not allowed for the other modes.
 Username:
@@ -52,7 +53,7 @@ This stops playback on the bedroom speaker in 30 minutes.
 
 {% options_yaml %}
 mode:
-  description: "When playback stops: `duration` stops when the duration has passed, `end_of_item` stops when the item playing now ends, and `end_of_chapter` stops when its chapter ends. An item without chapters stops at its end. `off` clears the sleep timer."
+  description: "When playback stops: `duration` stops when the duration has passed, `end_of_item` stops when the item playing now ends, and `end_of_chapter` stops when its chapter ends. An item without chapters stops at its end."
   required: false
   type: string
   default: duration
@@ -70,7 +71,7 @@ username:
 
 ## Good to know
 
-- A player has one sleep timer. Setting a new one replaces the running timer. Clearing it when none is set changes nothing.
+- A player has one sleep timer. Setting a new one replaces the running timer.
 - A timer with a duration keeps running while playback is paused. A timer for the end of the item or chapter waits while playback is paused.
 - The end of the item or chapter needs an item with a known length, playing from the player's queue. Radio streams don't have one.
 - For a player that plays along with another player, the sleep timer stops the playback of that other player.
