@@ -49,6 +49,17 @@ Infrared emitter:
   description: The infrared emitter entity to use for sending commands to your ceiling fan. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
 {% endconfiguration_basic %}
 
+## Reconfiguring the integration
+
+If you replace the infrared emitter, or want a different emitter to control the fan, you can update the integration without removing and re-adding it.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Ceiling Fan Infrared** integration and select it.
+3. Next to the ceiling fan you want to change, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+4. Select the new infrared emitter and select **Submit**.
+
+The integration stores the infrared emitter by its entity ID. Changing the emitter's friendly name does not affect the integration, but changing its entity ID does. Reconfiguring keeps the fan entity and its entity ID, so dashboards and automations keep working. Each infrared emitter can control only one ceiling fan in Home Assistant.
+
 ## Supported functionality
 
 The **Ceiling Fan Infrared** integration provides the following entity.
@@ -138,11 +149,11 @@ Some remotes use overlapping infrared codes with other devices, so the same code
 
 #### Description
 
-The integration remembers the infrared emitter by its entity registry entry. If the emitter entity is deleted, or if the integration that provides it is removed and added again, the integration can no longer find it. Renaming the emitter entity is handled automatically.
+The integration stores the infrared emitter by its entity ID. If the emitter entity is deleted, or if its entity ID changes, the integration can no longer find it. Changing the emitter's friendly name does not affect the integration.
 
 #### Resolution
 
-Remove and re-add the integration, selecting the current infrared emitter. Set up the new emitter first if the old one no longer exists. The fan entity gets a new entity ID, so update dashboards and automations.
+Use the integration's **Reconfigure** option to select the current infrared emitter. Set up the new emitter first if the old one no longer exists. Reconfiguring keeps the fan entity ID, so dashboards and automations keep working.
 
 {% enddetails %}
 
