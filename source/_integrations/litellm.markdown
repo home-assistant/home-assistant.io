@@ -41,7 +41,7 @@ Model:
 Instructions:
    description: "Instruct how the LLM should respond. This field supports [templates](/docs/configuration/templating/)."
 AI tools:
-   description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices. Leave it empty if you do not want the agent to control Home Assistant."
+   description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not for voice satellites. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). Leave it empty if you do not want the agent to control Home Assistant."
 {% endconfiguration_basic %}
 
 To change the model, instructions, or tools later, select the conversation agent and choose **Reconfigure conversation agent**.

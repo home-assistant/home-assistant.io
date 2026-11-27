@@ -53,7 +53,7 @@ Model:
 Instructions:
   description: "Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/)."
 AI tools:
-  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices."
+  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not for voice satellites. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools)."
 {% endconfiguration_basic %}
 
 ## Supported functionality
