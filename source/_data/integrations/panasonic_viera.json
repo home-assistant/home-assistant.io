@@ -2,6 +2,9 @@
   "domain": "panasonic_viera",
   "name": "Panasonic Viera",
   "integration_type": "device",
+  "codeowners": [
+    "@jerome-pouiller"
+  ],
   "config_flow": true,
   "iot_class": "local_polling",
   "categories": [
