@@ -515,6 +515,11 @@ Which entities are available depends on the generator brand and model, and on th
 Generator support is new to the integration. Some sensors can report values that are not listed below.
 {% endnote %}
 
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_stand_by_generator.png" alt="envoy standby generator">
+  <figcaption>Envoy standby generator entities.</figcaption>
+</figure>
+
 #### Generator sensor entities
 
 - **Generator <abbr title="Envoy serial number">SN</abbr> Admin state**: The administrative state of the generator, for example `open`, `auto`, `standby`, or `on`.
@@ -533,6 +538,23 @@ Generator support is new to the integration. Some sensors can report values that
 
 - **Generator <abbr title="Envoy serial number">SN</abbr> Present**: Shows **Connected** when a generator is present in the system. This is a diagnostic entity.
 - **Generator <abbr title="Envoy serial number">SN</abbr> Schedule enabled**: On when the generator has an exercise schedule enabled.
+
+#### Generator number entities
+
+- **Generator <abbr title="Envoy serial number">SN</abbr> Exercise interval**: Time between generator exercise executions, in weeks. This is a configuration entity that can be changed.
+- **Generator <abbr title="Envoy serial number">SN</abbr> Exercise duration**: How long the generator exercise should run, in minutes. This is a configuration entity that can be changed in steps of 10 minutes.
+
+#### Generator select entities
+
+- **Generator <abbr title="Envoy serial number">SN</abbr> Exercise day**: Day of the week the generator exercise should run. This is a configuration entity that can be changed by selecting a day from a list of weekdays.
+
+#### Generator switch entities
+
+- **Generator <abbr title="Envoy serial number">SN</abbr> Charge from generator**: When on, the generator can be used to charge the batteries. This is a configuration entity that can be set to `on` or `off`.
+
+#### Generator time entities
+
+- **Generator <abbr title="Envoy serial number">SN</abbr> Exercise start time**: Time of day the generator exercise should run, in hours and minutes. This is a configuration entity that can be changed.
 
 ### IQ Meter Collar data
 
@@ -669,14 +691,15 @@ Although not a replacement for individual energy or power measurement devices, w
 
 ## Actions
 
-Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select_option`](#action-selectselect_option) and [`button.press`](#action-buttonpress).
+Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select_option`](#action-selectselect_option), [`time.set_value`](#action-timeset_value) and [`button.press`](#action-buttonpress).
 
 ### Action `switch.turn_on`/`switch.turn_off`/`switch.toggle`
 
-These actions turn on, off or toggle
+These actions turn on, off or toggle:
 
-- the Enpower device switches `grid_enabled`, `charge_from_grid`
+- the [Enpower device switches](#enpower-switch-entities) `grid_enabled`, `charge_from_grid`
 - the [Enpower load shedding relays](#enpower-load-shedding-relays) switch.
+- the [Standby generator](#generator-switch-entities) `charge_from_generator` switch
 
 | Data attribute | Optional | Description |
 | - | - | - |
@@ -701,12 +724,18 @@ target:
 
 ### Action `number.set_value`
 
-This action changes the setting for the Enpower `Reserve battery level`.
+This action changes the value for:
+
+- the [Enpower](#enpower-number-entities) `reserve_battery_level`.
+- the [Standby generator](#generator-number-entities) `exercise_interval`.
+- the [Standby generator](#generator-number-entities) `exercise_duration`.
 
 | Data attribute | Optional | Description |
 | - | - | - |
 | `entity_id` | no | Name(s) of entities. For example, `number.enpower_12345678901001_reserve_battery_level`. |
-| `value` | no | The target value between 0 and 100 to set Enpower reserve battery level to. |
+| `value` | no | Enpower reserve battery level: The target value between 0 and 100 |
+| | no | Standby generator exercise_interval: Number of weeks between exercises starting from 1 |
+| | no | Standby generator exercise_duration: Time in minutes the exercise should run, rounded to multiples of 10 minutes. |
 
 Example:
 
@@ -722,13 +751,16 @@ data:
 
 This action changes the:
 
-- Relays relay_mode, grid_action, micro_grid_action or generator_action
-- Battery storage mode
+- the [Relays](#dry-contact-select-entities) relay_mode, grid_action, micro_grid_action or generator_action
+- the [Battery](#enpower-select-entities) storage mode
+- the [Standby generator](#generator-select-entities) `exercise_day`.
 
 | Data attribute | Optional | Description |
 | - | - | - |
 | `entity_id` | no | Name(s) of entities. For example, `select.nc2_generator_action`. |
-| `option` | no | For relay modes: `powered`, `not_powered`, `schedule`, `none`. <br> For storage modes: `backup`, `self_consumption`, `savings` |
+| `option` | no | for relay modes: `powered`, `not_powered`, `schedule`, `none` |
+| | no | for storage modes: `backup`, `self_consumption`, `savings` |
+| | no | for exercise days: `sun`, `mon`, `tue`, `wed`, `thu`, `fri`, `sat` |
 
 Example:
 
@@ -754,7 +786,9 @@ Technically `select.first`, `select.last`, `select.previous`, `select.next` are 
 
 ### Action `button.press`
 
-This action presses the ACB [Sleep or Wake controls](#ac-battery-sleep-and-wake-controls), putting all AC-batteries to sleep (using the selected sleep SOC target) or waking them.
+This action presses:
+
+- the ACB [Sleep or Wake controls](#ac-battery-sleep-and-wake-controls), putting all AC-batteries to sleep (using the selected sleep SOC target) or waking them.
 
 | Data attribute | Optional | Description |
 | - | - | - |
@@ -768,6 +802,28 @@ target:
   entity_id:
     - button.acb_1234_sleep
 data: {}
+```
+
+### Action `time.set_value`
+
+This action changes the [time value](/actions/time.set_value/) of:
+
+- the [Standby generator](#generator-time-entities) `exercise_start_time`.
+
+| Data attribute | Optional | Description |
+| - | - | - |
+| `entity_id` | no | Name(s) of entities. For example, `time.generator_1234_exercise_start_time`. |
+| `time` | no | Time to set in 24 hour format `HH:MM:SS`. |
+
+Example:
+
+```yaml
+action: time.set_value
+target:
+  entity_id:
+    - time.generator_1234_exercise_start_time
+data:
+  time: "14:15:00"
 ```
 
 ## Envoy replacement
