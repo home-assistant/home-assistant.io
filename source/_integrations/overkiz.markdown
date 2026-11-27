@@ -126,14 +126,6 @@ Other Atlantic towel dryers keep their existing climate entity.
   - **Options**: **Comfort**, **Comfort -1°C**, **Comfort -2°C**, **Eco**, **Frost protection**, **Boost**
   - **Remarks**: **Boost** heats for 60 minutes, like the boost button on the towel dryer. The towel dryer then returns to the preset it had before the boost. Tested with the Adélis 2 Digit (firmware: E725008).
 
-### Cover
-
-The slats of a Somfy bioclimatic pergola turn about 150 degrees, from flat to past vertical. The more-info dialog shows them at their real angle.
-
-- **Bioclimatic pergola**
-  - **Description**: Opens and closes the pergola, and turns its slats to a tilt position.
-  - **Remarks**: The slats are closed at tilt position `0`. [Open cover tilt](/actions/cover.open_cover_tilt/) turns the slats to vertical, at `60`, where they let the most light through. To turn them further, set the tilt position to `100`.
-
 {% include integrations/actions.md %}
 
 ## Data updates
