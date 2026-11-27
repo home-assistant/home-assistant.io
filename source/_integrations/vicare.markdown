@@ -68,6 +68,8 @@ The holiday programs appear as **Holiday** and **Holiday at home** binary sensor
 
 The **Domestic hot water** water heater entity shows the hot water temperature and sets its target. It cannot switch hot water on or off. Use the **DHW operating mode** select if your device has one, or the **Operating mode** select of the heating circuit.
 
+Devices with legionella protection have a **DHW legionella protection** binary sensor. It is on only while the device heats the hot water to the legionella protection temperature. At all other times it is off, also while the function is switched on but not running.
+
 The **Activate one-time charge** button heats the hot water once, also outside of the schedule. Depending on the device, it heats to the normal temperature or to the **DHW secondary temperature**. The **Deactivate one-time charge** button stops it.
 
 If your device has a domestic hot water circulation pump, you can read its weekly schedule with the [Get circulation schedule](/actions/vicare.get_circulation_schedule/) action and change it with the [Set circulation schedule](/actions/vicare.set_circulation_schedule/) action.
