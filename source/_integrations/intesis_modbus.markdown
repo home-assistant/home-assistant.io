@@ -95,6 +95,14 @@ The **Intesis Modbus** integration provides the following entities.
 - **Undervoltage time**
   - **Description**: The number of hours the gateway counted with a supply voltage that was too low.
   - **Remarks**: This sensor is disabled by default.
+- **Applied setpoint**
+  - **Description**: The target temperature the air conditioner applies. It can differ from the target temperature of the climate entity when an external temperature reference is in use.
+- **Input reference temperature**
+  - **Description**: The temperature the air conditioner regulates on when it gets one from an external sensor. It has no value while the air conditioner uses its own sensor.
+  - **Remarks**: This sensor is disabled by default.
+- **Control lock**
+  - **Description**: What the remote controller of the air conditioner is allowed to do. The value is *Remote unlocked*, *On/off locked*, *All locked*, or *Remote only*.
+  - **Remarks**: This sensor is disabled by default.
 
 ## Intesis Modbus automation examples
 
