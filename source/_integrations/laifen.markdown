@@ -41,7 +41,8 @@ The following devices are not supported by the integration:
 
 1. Set up [Bluetooth](/integrations/bluetooth/) in Home Assistant, with a Bluetooth adapter or proxy within range of the toothbrush. The adapter or proxy must support [active connections](/connectivity/bluetooth/#connection). An adapter or proxy that can only listen for advertisements cannot connect to the toothbrush. [ESPHome Bluetooth proxies](https://esphome.io/projects/?type=bluetooth) work well for a toothbrush in the bathroom.
 2. Close the Laifen app on your phone, or turn off Bluetooth on your phone. The toothbrush accepts only one connection, and the app can keep it connected in the background.
-3. Press the button of the toothbrush to wake it up.
+3. If you set up the toothbrush in a custom integration before, delete it from that integration, for the same reason.
+4. Press the button of the toothbrush to wake it up.
 
 {% include integrations/config_flow.md %}
 
