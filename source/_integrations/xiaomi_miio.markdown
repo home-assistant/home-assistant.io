@@ -13,6 +13,7 @@ The **Xiaomi Home** {% term integration %} supports the following devices:
 - [Xiaomi IR Remote](#xiaomi-ir-remote)
 - [Xiaomi Mi Robot Vacuum](#xiaomi-mi-robot-vacuum)
 - [Xiaomi Philips Light](#xiaomi-philips-light)
+- [Xiaomi Smart Space Heater](#xiaomi-smart-space-heater)
 - [Xiaomi Smart Wi-Fi Socket and Smart Power Strip](#xiaomi-smart-wi-fi-socket-and-smart-power-strip)
 
 ## Prerequisites
@@ -1731,6 +1732,21 @@ In addition to the standard light attributes, the light entity shows these attri
 ### Actions
 
 This integration adds actions to set a fixed scene, schedule a delayed turn off, and, on the Philips Eyecare Smart Lamp 2, toggle the reminder, night light, and eyecare modes. For the full list, see [Actions](#list-of-actions).
+
+## Xiaomi Smart Space Heater
+
+Home Assistant shows your Xiaomi Smart Space Heater as a climate entity.
+
+### Supported heater models
+
+| Name                           | Model              | Target temperature |
+| ------------------------------ | ------------------ | ------------------ |
+| Xiaomi Smart Space Heater S    | `zhimi.heater.mc2` | 18–28 °C           |
+| Xiaomi Smart Space Heater 1S   | `zhimi.heater.za2` | 16–28 °C           |
+
+### Heater features
+
+- **Climate**: Turns the heater on (**Heat**) or off (**Off**), sets the target temperature in steps of 1 °C, and shows the current temperature measured by the heater.
 
 ## Xiaomi Smart Wi-Fi Socket and Smart Power Strip
 
