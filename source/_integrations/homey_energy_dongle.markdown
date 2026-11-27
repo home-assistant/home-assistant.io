@@ -143,7 +143,7 @@ When Home Assistant receives no data for 60 seconds, the sensors become unavaila
 - The Homey Energy Dongle allows two Local API connections at the same time. Home Assistant uses one of them.
 - The Local API has no password. Anyone on your local network can read your smart meter data.
 - Home Assistant can't read encrypted smart meter data. Some energy providers in Austria, Luxembourg, and Sweden encrypt the data of your smart meter.
-- Home Assistant recognizes the Homey Energy Dongle by the name it advertises on your network. When you add it by IP address and Home Assistant has never discovered it, for example because it's on another network, Home Assistant can't follow it to a new IP address. [Update the IP address](#the-ip-address-of-the-homey-energy-dongle-changed) yourself.
+- Home Assistant recognizes the Homey Energy Dongle by the name it advertises on your network. When you add it by IP address and Home Assistant has never discovered it, for example because it's on another network, Home Assistant can't follow it to a new IP address. [Add it again at the new IP address](#the-ip-address-of-the-homey-energy-dongle-changed).
 - Home Assistant doesn't remove meters that are missing from the data, because wireless meters can be out of reach for a while. To remove one, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Homey Energy Dongle**, open the device, and select **Delete**.
 
 ## Troubleshooting
@@ -166,16 +166,11 @@ Some smart meters don't supply enough power to the Homey Energy Dongle. This is 
 
 ### Wrong or missing values
 
-When the active tariff is swapped, or sensors are missing, you may have selected the wrong DSMR version. To change it:
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select **Homey Energy Dongle**.
-3. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
-4. Select the right **DSMR version**.
+When the active tariff is swapped, or sensors are missing, you may have selected the wrong DSMR version. Remove the integration and add the Homey Energy Dongle again, then select the right DSMR version.
 
 ### The IP address of the Homey Energy Dongle changed
 
-Home Assistant updates the IP address automatically when it discovers the Homey Energy Dongle again. When Home Assistant can't discover it, change the **Host** with **Reconfigure**, like in [Wrong or missing values](#wrong-or-missing-values). After that, Home Assistant follows the Homey Energy Dongle again once it discovers it on the new IP address. To prevent this, give the Homey Energy Dongle a fixed IP address in your router.
+Home Assistant updates the IP address automatically when it discovers the Homey Energy Dongle again. When Home Assistant can't discover it, remove the integration and add the Homey Energy Dongle again with the new IP address. To prevent this, give the Homey Energy Dongle a fixed IP address in your router.
 
 If you ignored the discovered Homey Energy Dongle and then added it by IP address, Home Assistant can't follow it to a new IP address. Remove the ignored entry under **Ignored integrations** on the {% my integrations title="**Settings** > **Devices & services**" %} page.
 
