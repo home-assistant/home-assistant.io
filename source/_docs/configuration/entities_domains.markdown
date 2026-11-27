@@ -14,9 +14,9 @@ All your entities are listed in the entities table, under {% my entities title="
 
 ## Recently removed devices and entities
 
-When you delete a device or entity, Home Assistant remembers its settings: its name, area, labels, and entity ID. If the device or entity is found again, for example after pairing the device again, these settings come back.
+When you delete a device or entity, Home Assistant remembers its settings. For a device, these are its name, area, and labels. For an entity, these are its name, area, labels, and entity ID. If the device or entity is found again, for example after pairing the device again, these settings come back.
 
-To see what Home Assistant remembers:
+To see what Home Assistant remembers, you need an administrator account:
 
 1. Go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %} or {% my entities title="**Entities**" %}.
 2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Recently removed**.
@@ -24,8 +24,8 @@ To see what Home Assistant remembers:
    - If its integration is still installed, select **Reload integration** to look for it again.
    - If its integration was deleted, select **Add integration** to set it up again.
 4. To start fresh instead, in the same menu, select **Forget**.
-   - The next time the device or entity is added, it gets the default name and no area or labels.
-   - Forgetting a device also forgets its removed entities.
+   - The next time the device or entity is added, it gets the default name and no area or labels. An entity also gets a new entity ID.
+   - Forgetting a device also forgets its removed entities. Entities removed before the **Recently removed** list was added are not included. Forget them separately.
 
 When you delete an integration, Home Assistant keeps the settings of its devices and entities for 30 days.
 
