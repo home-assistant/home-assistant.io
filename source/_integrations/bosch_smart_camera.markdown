@@ -10,6 +10,7 @@ ha_domain: bosch_smart_camera
 ha_codeowners:
   - "@mosandlt"
 ha_platforms:
+  - button
   - camera
   - light
   - sensor
@@ -57,6 +58,10 @@ The **Wi-Fi signal strength** sensor shows how well a camera is connected to you
 The camera entity can show a live stream in dashboards and in the more-info dialog. Home Assistant opens a stream session when you start watching. The camera manages stream sessions of up to 60 minutes. Home Assistant renews the session automatically while you are watching, or while **Preload stream** is enabled for the camera. Otherwise, the session stays open until the camera ends it.
 
 Home Assistant must be able to reach the camera in your local network to show the stream.
+
+### Restart
+
+The **Restart** button restarts a camera. It is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
 
 ### Firmware
 

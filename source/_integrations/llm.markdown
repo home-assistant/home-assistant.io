@@ -38,7 +38,7 @@ To avoid this:
 
 ## What the Home Assistant AI tools can reach
 
-The Home Assistant {% term "AI tools" %} can read the state of every entity, the status of your {% term integrations %}, your logs, and the history of your sensors. For the full list, refer to [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools).
+The Home Assistant {% term "AI tools" %} can read the state of every entity, the status of your {% term integrations %}, your logs, and the history of your sensors. They can also read the configuration of your automations, scripts, scenes, and blueprints, and the traces of your automations and scripts. For the full list, refer to [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools).
 
 Many of the Home Assistant AI tools only read. The AI tools that change things can do the following:
 
@@ -49,6 +49,7 @@ Many of the Home Assistant AI tools only read. The AI tools that change things c
 - Create, change, and delete {% term areas %}, floors, and labels.
 - Change the settings of {% term devices %} and {% term entities %}. For example, they can rename, disable, or move a device or an entity to another area. They can also change the entity ID.
 - Remove entities that their integration no longer provides.
+- Change the settings of the **Energy** dashboard. For example, they can add a solar panel or remove a gas meter.
 
 Each entry in [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools) says if the AI tool only reads or changes things.
 
@@ -198,6 +199,32 @@ To find a device or an entity, the conversation agent first uses **Search Home A
 - **Remove entity** (`config__remove_entity`): Removes an entity that its integration no longer provides. For example, the entity of a device that you removed. It can't remove an entity that the integration still provides. Changes things.
   - To do this yourself: Under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, select the entity, and then select **Settings** {% icon "mdi:cog-outline" %} > **Delete**.
 
+#### Automation, script, scene, blueprint, and trace AI tools
+
+These AI tools only read data. They can't change, run, or turn on or off your automations, scripts, and scenes.
+
+- **List automations** (`automation__list_automations`): Lists your {% term automations %}, sorted by name. For each automation, it returns whether it's on or off, when it last triggered, and its description, area, category, and labels. An automation with an error in its configuration is unavailable. Only reads.
+  - To do this yourself: Go to {% my automations title="**Settings** > **Automations & scenes**" %}. The list shows your automations. For each automation, it shows when it last triggered and whether it's on or off.
+- **Get automation configuration** (`automation__get_config`): Returns the triggers, conditions, and actions of an automation. If the automation uses a [blueprint](/docs/automation/using_blueprints/), it returns which blueprint it uses and the inputs that you entered instead. To read the blueprint itself, the conversation agent uses **Get blueprint**. Only reads.
+  - To do this yourself: Refer to [Editing an automation in YAML](/docs/automation/editor/#editing-an-automation-in-yaml).
+- **List scripts** (`script__list_scripts`): Lists your {% term scripts %}, sorted by name. For each script, it returns whether it's running, when it last ran, and its description, area, category, and labels. A script with an error in its configuration is unavailable. Only reads.
+  - To do this yourself: Go to {% my scripts title="**Settings** > **Automations & scenes** > **Scripts**" %}. The list shows your scripts.
+- **Get script configuration** (`script__get_config`): Returns the fields and the actions of a script. If the script uses a blueprint, it returns which blueprint it uses and the inputs that you entered instead. Only reads.
+  - To do this yourself: Go to {% my scripts title="**Settings** > **Automations & scenes** > **Scripts**" %}, and open the script. Then, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML**.
+- **List scenes** (`scene__list_scenes`): Lists your {% term scenes %}, sorted by name. For each scene, it returns when it was last activated, and its area, category, and labels. Only reads.
+  - To do this yourself: Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}. The list shows your scenes. For each scene, it shows when it was last activated.
+- **Get scene configuration** (`scene__get_config`): Returns the state and the attributes that a scene sets on each entity. It only works for scenes that you created in Home Assistant, not for scenes that come from an integration. Only reads.
+  - To do this yourself: Refer to [Editing a scene in the YAML editor](/docs/scene/#editing-a-scene-in-the-yaml-editor).
+- **List blueprints** (`blueprint__list_blueprints`): Lists your blueprints, sorted by type and name. For each blueprint, it returns its type, such as automation or script, and its file path. The conversation agent uses both with **Get blueprint**. If the blueprint has them, it also returns its description, its author, and the address that you imported it from. For a blueprint that failed to load, it returns the error. Only reads.
+  - To do this yourself: Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}. The list shows your blueprints. For each blueprint, it shows its type and file name.
+- **Get blueprint** (`blueprint__get_blueprint`): Returns the YAML of a blueprint. This includes its inputs, and the triggers, conditions, and actions that use them. Only reads.
+- **List traces** (`trace__list_traces`): Lists the stored traces of an automation or a script, newest first. For each trace, it returns when the run started and finished, how it ended, what triggered it, and any error. By default, Home Assistant keeps the last 5 traces. Only reads.
+  - Some triggers also store a trace when they notice a change but don't start the automation. In the UI, these traces are marked **Did not trigger**. The AI tool lists them too.
+  - An automation that you created in YAML needs an `id` for its traces to be stored. For details, refer to [Traces of automations created in YAML](/docs/automation/testing/#traces-of-automations-created-in-yaml).
+  - To do this yourself: Refer to [Viewing the traces of an automation](/docs/automation/testing/#viewing-the-traces-of-an-automation).
+- **Get trace** (`trace__get_trace`): Returns each step of one run of an automation or a script, in the order they ran. For each step, it returns the result, any error, and the variables that changed. This helps to find out why an automation didn't do what you expected. Only reads.
+  - To do this yourself: Refer to [Viewing the traces of an automation](/docs/automation/testing/#viewing-the-traces-of-an-automation).
+
 #### System AI tools
 
 - **Get system info** (`system_health__get_system_info`): Returns the installation type, the CPU architecture, the time zone, and the versions of Home Assistant Core, the frontend, Python, the operating system, and the Supervisor. For example, you can use it to fill in a bug report. Only reads.
@@ -217,7 +244,7 @@ To find a device or an entity, the conversation agent first uses **Search Home A
 
 #### History and log AI tools
 
-- **Get history** (`history__get_history`): Returns statistics of entities, not their individual state changes. For example, it can return the mean, minimum, and maximum temperature per 5 minutes or per hour. It only works for entities with statistics, such as sensors with a state class. Only reads.
+- **Get history** (`history__get_history`): Returns statistics, not individual state changes. For example, it can return the mean, minimum, and maximum temperature per 5 minutes or per hour. It works for entities with statistics, such as sensors with a state class. It also works for statistics that an integration adds without an entity. For example, the [Opower](/integrations/opower/) integration adds the energy use from your utility this way. Only reads.
   - To do this yourself: Use the {% my history title="**History**" %} panel.
 - **Get system log entries** (`system_log__get_entries`): Returns recent errors and warnings from the system log. It doesn't include info or debug messages. It can filter by level and by integration. Only reads.
   - To do this yourself: Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
@@ -226,6 +253,16 @@ To find a device or an entity, the conversation agent first uses **Search Home A
   - On {% term "Home Assistant Container" %} installations, and on other installations without the Supervisor, the ID is `system_log__get_logs`. It only reads the Home Assistant log, and it needs the log file.
   - To do this yourself: Under {% my logs title="**Settings** > **System** > **Logs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Show raw logs**.
 
+
+- **Search statistics** (`history__search_statistics`): Finds statistics by name, by the alias of the entity, or by ID. This includes statistics without an entity. It can filter by the type of unit, for example, energy or power. It can also filter by the type of statistic. For example, it can find only meters that count up, such as an energy meter, or only measurements, such as a temperature. For each statistic, it returns its ID, name, and unit. The conversation agent uses the ID with **Get history** or **Update energy preferences**. Only reads.
+  - To do this yourself: Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+
+#### Energy AI tools
+
+- **Get energy preferences** (`energy__get_preferences`): Returns the settings of the [Energy dashboard](/docs/energy/). These are your grid connections, solar panels, home batteries, and gas and water meters. They also include the meter of your [home consumption](/docs/energy/home-consumption/), if you added one. It also returns the devices whose electricity, gas, or water use you track. Only reads.
+  - To do this yourself: Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
+- **Update energy preferences** (`energy__update_preferences`): Changes the settings of the **Energy** dashboard. It replaces each list that it changes, such as the list of solar panels, with a new list. If the conversation agent leaves out an entry in that list, the entry is removed. Lists that it doesn't change stay the same. Afterwards, it returns the new settings, and any issues that Home Assistant found with them. Changes things.
+  - To do this yourself: Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
 
 ### List of Device control AI tools
 
@@ -358,15 +395,15 @@ If you removed the integration that added a set of AI tools, open the settings o
 
 {% enddetails %}
 
-{% details "Get history: “No statistics are recorded for this entity”" %}
+{% details "Get history: “No statistics are recorded for this ID”" %}
 
 ### Symptom: The conversation agent can't tell you the past values of an entity
 
-You ask the {% term "conversation agent" %} about the past values of an {% term entity %}, and it can't answer. Under **Show details** in the {% term Assist %} dialog, the result of `history__get_history` says "No statistics are recorded for this entity."
+You ask the {% term "conversation agent" %} about the past values of an {% term entity %}, and it can't answer. Under **Show details** in the {% term Assist %} dialog, the result of `history__get_history` says "No statistics are recorded for this ID."
 
 #### Description
 
-**Get history** only reads statistics, not individual state changes. Home Assistant only keeps statistics for entities that measure something over time, such as a temperature sensor or an energy meter. Other entities have no statistics. For example, a switch has none. For how statistics work, refer to [Long-term statistics](/docs/configuration/long-term-statistics/).
+**Get history** only reads statistics, not individual state changes. An entity only has statistics if it measures something over time, such as a temperature sensor or an energy meter. Other entities have no statistics. For example, a switch has none. For how statistics work, refer to [Long-term statistics](/docs/configuration/long-term-statistics/).
 
 #### Resolution
 

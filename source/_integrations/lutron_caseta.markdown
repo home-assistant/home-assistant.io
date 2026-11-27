@@ -92,7 +92,7 @@ For more information on working with shades in Home Assistant, see the [Covers i
 
 Available actions: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover` and `cover.set_cover_position`. Cover `position` ranges from `0` for fully closed to `100` for fully open.
 
-Available actions for tilt-only wood blinds: `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, `cover.toggle_tilt`. Cover `position` is `0` or `100` for fully closed and `50` for fully open.
+Available actions for tilt-only wood blinds: `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.set_cover_tilt_position`, and `cover.toggle_cover_tilt`. The tilt position is `0` or `100` for fully closed and `50` for fully open. `cover.toggle_cover_tilt` opens the slats from both closed positions. `cover.close_cover_tilt` moves the slats to `0`.
 
 ## Light
 

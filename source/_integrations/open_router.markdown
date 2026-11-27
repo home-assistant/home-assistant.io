@@ -30,7 +30,7 @@ Model:
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
 AI tools:
-  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not voice assistant devices."
+  description: "**Device control** only accesses the entities you [expose](/voice_control/voice_remote_expose_devices/) to voice assistants. **Home Assistant** accesses everything and only works for administrators, not for voice satellites. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools)."
 Reasoning:
   description: "Whether the model reasons before it answers, and how much. **Auto** (the default) uses the model's own default. **Off** turns reasoning off, which usually makes answers faster. **On** turns reasoning on at the model's default level. **Minimal**, **Low**, **Medium**, **High**, **X-High**, and **Max** set the reasoning effort: higher levels can improve answers to complex requests, but take longer and cost more. Not every model supports every setting. Models without reasoning support only accept **Auto**, models that always reason cannot be set to **Off**, and only the effort levels a model offers are accepted. Routers such as **Auto Router** accept every setting except **Off**. If the model does not support your choice, an error is shown when you save. See [reasoning tokens](https://openrouter.ai/docs/guides/best-practices/reasoning-tokens) for details."
 {% endconfiguration_basic %}

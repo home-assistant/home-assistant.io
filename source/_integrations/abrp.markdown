@@ -76,6 +76,7 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
 - **SoE**: Estimated battery energy.
 - **Range**: Estimated remaining driving range.
 - **Power**: Current charging or discharging power.
+- **HVAC power**: Power used by heating and air conditioning.
 - **Charging state**: Whether the vehicle is charging and how. Possible states are:
 
     - **Charging (AC)**
@@ -84,7 +85,18 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
     - **Plugged in**
     - **Not charging**
 - **Voltage**: Battery pack voltage.
+- **Current**: Battery pack current.
 - **Battery temperature**: Battery pack temperature.
+- **Minimum battery temperature**: Lowest battery cell temperature. This sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+- **Maximum battery temperature**: Highest battery cell temperature. This sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
+- **Cabin temperature**: Temperature inside the vehicle.
+- **External temperature**: Outside air temperature.
+- **Driving state**: The gear the vehicle is in. Possible states are:
+
+    - **Park**
+    - **Reverse**
+    - **Neutral**
+    - **Drive**
 - **Odometer**: Total distance driven.
 - **Calibrated ref cons**: ABRP's calibrated [reference consumption](https://abrp.featurebase.app/articles/3305478-reference-consumption) for the vehicle, in energy per distance. A steady-state baseline tuned from live data, not real-time consumption.
 - **State of health**: Estimated battery health percentage.
@@ -214,7 +226,7 @@ The integration does not control your vehicle. It can send telemetry to ABRP, bu
 
 ### Telemetry availability
 
-Data freshness depends on ABRP and your vehicle manufacturer data source. Some entities appear only after the first value is received.
+Data freshness and accuracy depend on ABRP and your vehicle manufacturer data source. Which sensors a vehicle gets depends on the data ABRP receives for it, so some vehicles never get certain sensors. Some entities appear only after the first value is received.
 
 ### Vehicle location
 

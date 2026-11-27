@@ -85,6 +85,7 @@ The action returns a `connections` list. Each connection includes the following 
 ## Good to know
 
 - When you do not set a limit, the action returns three connections.
+- This action only works with connections. For a stationboard, use [Fetch departures](/actions/swiss_public_transport.fetch_departures/) instead.
 
 {% include actions/try_it.md %}
 
