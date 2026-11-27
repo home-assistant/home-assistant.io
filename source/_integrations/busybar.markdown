@@ -42,7 +42,18 @@ API key:
 ### Sensors
 
 - **Battery**: The remaining battery charge, as a percentage.
+- **Charging state**: Whether the battery is **Discharging**, **Charging**, or **Charged**.
+
+The following diagnostic sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). You can enable them in the entity settings if needed.
+
 - **Wi-Fi signal**: The Wi-Fi signal strength, in dBm.
+- **Battery voltage**: The battery voltage, in mV.
+- **Battery current**: The battery current, in mA. The value is negative while the battery is discharging.
+- **USB voltage**: The voltage supplied over USB, in mV.
+- **Uptime**: The date and time the bar last started.
+- **Wi-Fi SSID**: The name of the Wi-Fi network the bar is connected to.
+- **Wi-Fi channel**: The Wi-Fi channel the bar uses.
+- **IP address**: The IP address of the bar on your network.
 
 ## Data updates
 
