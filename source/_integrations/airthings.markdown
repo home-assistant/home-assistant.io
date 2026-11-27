@@ -16,7 +16,7 @@ Requires Airthings hardware and an Airthings account.
 
 Airthings API setup (needed to acquire the required ID and Secret for the Home Assistant Airthings Integration).
 
-1. Sign in to the [Airthings Consumer API portal](https://consumer-api-doc.airthings.com/) with your Airthings account.
+1. Sign in to the [Airthings Consumer API portal](https://consumer-api-doc.airthings.com/dashboard) with your Airthings account.
 2. Select **My Applications**.
 3. Select **Create New Application**.
 4. Enter a name (for example, "Home Assistant") and a description.
