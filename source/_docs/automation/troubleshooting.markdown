@@ -230,22 +230,41 @@ For the description and the resolution, refer to [I see an "Already running" war
 
 {% enddetails %}
 
-{% details "Update for entity fails" %}
+{% details "Update entity action doesn't refresh an entity, and no error appears" %}
 
 #### Symptom
 
-The logs show "Update for YOUR_ENTITY_ID fails", followed by a traceback that ends with "NotImplementedError: Update method not implemented".
+You run the **Update entity** action, but the state of an entity doesn't change. The trace shows that the action ran, and the logs show no error.
 
 #### Description
 
-The entity most likely belongs to an integration that receives its data instead of asking for it. It has no way to refresh on request.
+The entity most likely belongs to an integration that receives its data from the device or service instead of asking for it. This action can't refresh such an entity, so Home Assistant ignores the request.
+
+#### Resolution
+
+1. Check how the integration gets its data. For the steps, refer to [How this action works for polled and pushed entities](/actions/homeassistant.update_entity/#how-this-action-works-for-polled-and-pushed-entities).
+2. If the integration receives its data, remove the entity from the action. The entity updates whenever the device or service sends new data.
+3. If the integration asks for its data, wait at least 10 seconds and run the action again. Many integrations update their data at most once every 10 seconds, even when you request it more often.
+
+{% enddetails %}
+
+{% details "Update entity action logs: “Update for ... fails”" %}
+
+#### Symptom
+
+The logs show "Update for YOUR_ENTITY_ID fails", followed by a traceback that ends with "NotImplementedError: Update method not implemented". The automation continues, and the other entities in the action still update.
+
+#### Description
+
+The entity most likely belongs to an integration that receives its data instead of asking for it. It has no update function, so it can't refresh on request. Home Assistant logs the error and leaves the entity as it is.
 
 #### Resolution
 
 1. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and note the entity name in the error.
 2. Remove that entity from the **Update entity** action.
+3. If the integration's page says it asks for its data, [report the issue](/help/reporting_issues/) for that integration. Include the log message.
 
-The entity keeps updating whenever its integration receives new data.
+The error stops appearing after the next run of the automation, and the entity keeps updating whenever its integration receives new data.
 
 {% enddetails %}
 
