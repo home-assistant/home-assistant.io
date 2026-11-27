@@ -57,7 +57,7 @@ If you replace your infrared emitter, you can switch the TV to the new one witho
 3. Next to the TV, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
 4. Select the infrared emitter you want to use, then select **Submit**.
 
-As during setup, you can't select an infrared emitter that another Philips TV already uses.
+Each infrared emitter can be used for one Philips TV, so you can't select an emitter that another Philips TV already uses.
 
 ## Supported functionality
 
