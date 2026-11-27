@@ -68,6 +68,8 @@ The <abbr title="Victron Remote Monitoring">VRM</abbr> integration fetches fresh
 - Peak consumption time — Today
 - Peak consumption time — Tomorrow
 
+{% include integrations/actions.md %}
+
 ## Adding Victron Remote Monitoring to the Energy dashboard
 
 Solar production forecasts can be added to the built-in [Energy dashboard](/docs/energy/) to visualize expected solar production alongside your actual energy data.

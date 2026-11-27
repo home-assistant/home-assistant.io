@@ -2341,6 +2341,7 @@ source/_actions/vesync.update_devices.markdown @markperdue @webdjoe @thegardenmo
 source/_actions/vicare.get_circulation_schedule.markdown @CFenner @lackas
 source/_actions/vicare.set_circulation_schedule.markdown @CFenner @lackas
 source/_actions/vicare.set_vicare_mode.markdown @CFenner @lackas
+source/_actions/victron_remote_monitoring.get_forecast.markdown @AndyTempel
 source/_actions/vizio.send_text.markdown @raman325
 source/_actions/vizio.update_setting.markdown @raman325
 source/_actions/volvo.get_image_url.markdown @thomasddn
