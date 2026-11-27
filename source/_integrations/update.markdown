@@ -42,6 +42,27 @@ information on the update state:
   and contains the actual version that was skipped.
 - `release_summary`: A summary of the release notes for the update available.
 - `release_url`: A link to the full release announcement for the update available.
+- `install_phase`: The step an update installation is in. See [Install phases](#install-phases).
+- `manual_action`: Set when someone has to do something by hand to install the update. See [Updates that need someone at the device](#updates-that-need-someone-at-the-device).
+
+## Install phases
+
+While an update is installing, some integrations report the step the installation is in, as the `install_phase` attribute. Each item shows the label you see in the Home Assistant interface, followed by the value as Home Assistant stores it.
+
+- **Preparing** (`preparing`)
+- **Backing up** (`backing_up`)
+- **Waiting** (`waiting`): The installation waits for something else, for example, for a battery-powered device to wake up.
+- **Waiting for user** (`waiting_for_user`): The installation can't continue until someone does something by hand, for example, confirm the update on the device's screen.
+- **Downloading** (`downloading`)
+- **Installing** (`installing`)
+- **Restarting** (`restarting`)
+- **Finishing** (`finishing`)
+
+## Updates that need someone at the device
+
+Some updates need someone to do something by hand, like confirming the update on the device's screen or turning the device off and on again.
+When the integration knows this in advance, Home Assistant warns you before the update starts, so you can make sure someone is near the device.
+While the update is available or installing, the `manual_action` attribute is set, and the installation shows **Waiting for user** when it is time to act.
 
 ## Device class
 
@@ -130,6 +151,41 @@ automation: |
     - action: update.install
       target:
         entity_id: update.office_router_firmware
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: send a notification when an update waits for someone
+
+If an update can't continue until someone does something by hand, such as
+confirming it on the device's screen, this automation sends a notification to
+your phone.
+
+- **Trigger**: Entity attribute changed
+  - **Entity**: Wall tablet update
+  - **Attribute**: Install phase
+  - **To**: Waiting for user
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a notification when an update waits for someone" %}
+
+{% example %}
+automation: |
+  alias: "Send a notification when an update waits for someone"
+  triggers:
+    - trigger: state
+      entity_id: update.wall_tablet
+      attribute: install_phase
+      to: waiting_for_user
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Update waiting"
+        message: >
+          The wall tablet update waits for someone at the device.
 {% endexample %}
 
 {% enddetails %}
