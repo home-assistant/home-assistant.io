@@ -12,6 +12,23 @@ All your entities are listed in the entities table, under {% my entities title="
 
 <p class='img'><img src='/images/getting-started/entities.png' style='border: 0;box-shadow: none;' alt="Screenshot showing the Entities table">Screenshot of the Entities table. Each line represents an entity.</p>
 
+## Recently removed devices and entities
+
+When you delete a device or entity, Home Assistant remembers its settings: its name, area, labels, and entity ID. If the device or entity is found again, for example after pairing the device again, these settings come back.
+
+To see what Home Assistant remembers:
+
+1. Go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %} or {% my entities title="**Entities**" %}.
+2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Recently removed**.
+3. To get a device or entity back, next to it, select the three dots {% icon "mdi:dots-vertical" %} menu:
+   - If its integration is still installed, select **Reload integration** to look for it again.
+   - If its integration was deleted, select **Add integration** to set it up again.
+4. To start fresh instead, in the same menu, select **Forget**.
+   - The next time the device or entity is added, it gets the default name and no area or labels.
+   - Forgetting a device also forgets its removed entities.
+
+When you delete an integration, Home Assistant keeps the settings of its devices and entities for 30 days.
+
 ## Domains
 
 Each integration in Home Assistant has a unique identifier: a domain. All entities and actions available in Home Assistant are provided by integrations and thus belong to such a domain. The first part of the entity or action, before the `.` shows the domain they belong to. For example, `light.bed_light` is an entity in the light domain. `bed_light` is the ID of the entity.

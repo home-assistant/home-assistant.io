@@ -7,6 +7,7 @@
      - **Integration entries**
 3. To confirm, select **Delete**.
    - Home Assistant also deletes the devices and entities of the entry.
+   - Home Assistant keeps their settings for 30 days, so they come back if you add the integration again. For details, refer to [Recently removed devices and entities](/docs/configuration/entities_domains/#recently-removed-devices-and-entities).
 4. If Home Assistant asks you to restart, [restart Home Assistant](/common-tasks/general/restarting/#restarting-home-assistant).
 5. If Home Assistant asks whether to also delete the application credentials, select **Remove** or **Keep**.
    - If you keep them, Home Assistant uses them automatically when you add the integration again.
