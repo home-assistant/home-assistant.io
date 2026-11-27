@@ -234,7 +234,7 @@ If authentication keeps failing during the OAuth setup flow, the most likely cau
    - Make sure the **Client ID** is the base URL of the {% term "AI app" %} (for example, `https://claude.ai` for Claude or `https://chatgpt.com` for ChatGPT), and never your Home Assistant instance URL. IndieAuth validates that the redirect URI shares the same scheme and domain with the client ID; setting the client ID to your Home Assistant instance causes the authorization flow to fail.
    - Home Assistant does not use a client secret. If the field is required by the client application, enter any text; if it is optional, leave it blank.
    - Make sure the URL used to access Home Assistant matches the configured **Internal URL** or **External URL** in {% my network title="**Settings** > **System** > **Network**" %}.
-2. If you have explicitly enabled IP bans in Home Assistant and repeated failed sign-in attempts caused a ban, check the `ip_bans.yaml` file in your Home Assistant configuration directory. If your computer's IP address or the client's IP address is listed there, remove it, restart Home Assistant, and then try authenticating again.
+2. If you have explicitly enabled IP bans in Home Assistant and repeated failed sign-in attempts caused a ban, go to **Settings** > **System** > **Network** and check the **Banned IP addresses** section. If your computer's IP address or the client's IP address is listed there, select **Unban**, and then try authenticating again.
 
 #### Symptom: OAuth discovery fails or authorization server metadata is rejected
 
