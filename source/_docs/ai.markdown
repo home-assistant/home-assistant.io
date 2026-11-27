@@ -62,7 +62,7 @@ In the other direction, the [Model Context Protocol Client](/integrations/mcp/) 
 
 ## Cloud services and local models
 
-Conversation agents and AI tasks need an AI model. [AI integrations](/integrations/category/ai_voice/ai_models/) connect Home Assistant to a model, and add conversation agents, AI tasks, or both. AI apps use their own model, so you don't need an AI integration for them.
+AI conversation agents that use AI and AI tasks need an AI model.
 
 A cloud service runs the model on the servers of a provider. You don't need powerful hardware, but your requests go to the provider, and most providers charge for usage.
 
