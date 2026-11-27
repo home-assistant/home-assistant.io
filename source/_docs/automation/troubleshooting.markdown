@@ -230,6 +230,25 @@ For the description and the resolution, refer to [I see an "Already running" war
 
 {% enddetails %}
 
+{% details "Update for entity fails" %}
+
+#### Symptom
+
+The logs show "Update for YOUR_ENTITY_ID fails", followed by a traceback that ends with "NotImplementedError: Update method not implemented".
+
+#### Description
+
+The entity most likely belongs to an integration that receives its data instead of asking for it. It has no way to refresh on request.
+
+#### Resolution
+
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and note the entity name in the error.
+2. Remove that entity from the **Update entity** action.
+
+The entity keeps updating whenever its integration receives new data.
+
+{% enddetails %}
+
 ## My automation stopped working after an update
 
 Use this section if an automation that used to work broke after you updated or restarted Home Assistant, or after you replaced or renamed a device.
