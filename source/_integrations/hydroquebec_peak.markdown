@@ -19,9 +19,11 @@ The integration uses [Hydro-Québec's public open data](https://www.hydroquebec.
 
 {% include integrations/config_flow.md %}
 
+During setup, first select your customer type: **Residential** or **Business**. The next step lists only the offers for that customer type.
+
 {% configuration_basic %}
 Offer:
-  description: The Hydro-Québec peak savings offer you are enrolled in. The list is retrieved from Hydro-Québec's open data for the current season and includes residential and business offers.
+  description: The Hydro-Québec peak savings offer you are enrolled in. The list is retrieved from Hydro-Québec's open data and shows the offers for the selected customer type.
 {% endconfiguration_basic %}
 
 To track more than one offer, add the integration again and select another offer. Each configured offer appears as its own device with its own set of entities.
