@@ -193,7 +193,7 @@ Entities appear for each Policy-Based Routing Rule. The switches can be identifi
 
 ### Control Zone-Based Firewall Policies
 
-Entities appear for each Zone-Based Firewall Policy. The switches can be identified from icon {% icon "mdi:security-network" %}.
+Entities appear for each Zone-Based Firewall Policy. The switches can be identified from icon {% icon "mdi:security-network" %}. Each policy gets its own [child device](/docs/configuration/customizing-entities/#parent-and-child-devices), named after the policy, under the **UniFi Network** device.
 
 ## Sensor
 
