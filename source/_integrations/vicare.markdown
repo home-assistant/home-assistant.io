@@ -104,6 +104,8 @@ Devices that report the modulation of their internal pump have the following sen
 
 Not every device reports both. Some gas boilers only report the target.
 
+Gas boilers that report their target temperature have a **Boiler target temperature** sensor: the temperature the boiler currently heats its water to.
+
 {% include integrations/actions.md %}
 
 ## Viessmann ViCare automation examples
