@@ -155,6 +155,8 @@ The **NextDNS** integration provides the following entities.
   - **Description**: Controls blocking of newly active domains
 - **Block newly registered domains**
   - **Description**: Controls blocking of newly registered domains
+- **Block algorithmically generated domains**
+  - **Description**: Controls blocking of algorithmically generated domains
 - **Block bypass methods**
   - **Description**: Controls blocking of filter bypass methods
 - **Block child sexual abuse material**
@@ -187,6 +189,8 @@ The **NextDNS** integration provides the following entities.
   - **Remarks**: This entity is disabled by default
 - **Block residential hosting**
   - **Description**: Controls blocking of residential hosting
+- **Block rotating ad domains**
+  - **Description**: Controls blocking of advertisements that hide behind constantly changing domains; NextDNS identifies the advertising infrastructure behind new domains, so it can block them before popular blocklists catch up
 - **Block social networks**
   - **Description**: Controls blocking of social networks
   - **Remarks**: This entity is disabled by default

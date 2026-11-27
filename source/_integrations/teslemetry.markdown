@@ -10,7 +10,7 @@ The **Teslemetry** {% term integration %} exposes various commands and sensors f
 
 You must have a [Teslemetry](https://teslemetry.com) account with active subscription.
 
-The [virtual key](https://teslemetry.com/docs/topics/virtualkey) is Teslemetry's public key, installed in your vehicle through the Tesla app. It is required for fleet telemetry (live streaming) and signed vehicle commands. Since nearly all vehicles support both, nearly all customers need it: if your vehicle supports the virtual key, install it as a standard setup step. Vehicles without virtual-key support are the exception. They still work with Teslemetry at reduced capability—data by polling instead of streaming, and commands unsigned where Tesla permits.
+The [virtual key](https://teslemetry.com/docs/topics/virtualkey) is Teslemetry's public key, installed in your vehicle through the Tesla app. It is required for fleet telemetry (live streaming) and signed vehicle commands. Since nearly all vehicles support both, nearly all customers need it: if your vehicle supports the virtual key, install it as a standard setup step. Until the key is installed on such a vehicle, Home Assistant shows a repair issue, the vehicle's data does not update, and its commands fail. Once the key is installed, streaming starts without reloading the integration. Vehicles without virtual-key support are the exception. They still work with Teslemetry at reduced capability—data by polling instead of streaming, and commands unsigned where Tesla permits.
 
 {% include integrations/config_flow.md %}
 
@@ -20,7 +20,7 @@ By default, Teslemetry sends every vehicle command through the cloud. If Home As
 
 ### Requirements
 
-- A Bluetooth adapter available to Home Assistant, such as a built-in adapter or a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies).
+- A Bluetooth adapter available to Home Assistant, such as a built-in adapter or a [Bluetooth proxy](/connectivity/bluetooth/#remote-adapters-bluetooth-proxies).
 - The vehicle must be within Bluetooth range of that adapter while you set up pairing.
 - The vehicle must support Tesla's vehicle command protocol. Vehicles that don't, such as certain pre-2021 Model S and Model X vehicles, are not listed when you add a local vehicle.
 
@@ -76,6 +76,7 @@ To pair your Powerwall or Backup Gateway:
 3. Under **Energy site**, choose the site whose Powerwall you want to control over your local network, then continue.
 4. On the **Approve the local access key** step, flick the On/Off switch on your primary Powerwall off and back on to approve Home Assistant's access, then continue. You only need to do this once.
 5. On the **Connect to your Powerwall system** step, confirm the local network address that Home Assistant discovered, or edit it if needed, and enter your Powerwall's Wi-Fi password in the **Password** field. Only the last 5 characters are needed - find them on the QR label behind the front cover of your Powerwall 3, or behind the Backup Gateway door on Powerwall 2.
+   If your site has a Backup Gateway 1, Home Assistant asks for its full gateway password instead.
 
 Once paired, Home Assistant stores your Powerwall's address and password and sends energy commands to it directly, falling back to the cloud automatically whenever your Powerwall can't be reached.
 

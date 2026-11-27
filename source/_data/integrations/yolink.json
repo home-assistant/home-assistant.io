@@ -17,6 +17,7 @@
     "binary_sensor",
     "climate",
     "cover",
+    "diagnostics",
     "light",
     "lock",
     "number",

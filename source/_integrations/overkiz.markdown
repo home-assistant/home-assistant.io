@@ -166,6 +166,15 @@ If a scene or automation sets both the position and the tilt of a cover, Home As
 
 To move a cover to a target position and tilt in one smooth motion, use the [Set cover position and tilt](/actions/overkiz.set_cover_position_and_tilt/) action instead.
 
+### Atlantic towel dryers driven by heating levels
+
+The gateway doesn't report a boost or when it ends, so Home Assistant tracks the boosts it starts.
+It also doesn't report changes made on the towel dryer itself.
+
+- A boost started on the towel dryer or from the vendor's app isn't shown in Home Assistant.
+- While a boost that Home Assistant doesn't know about is running, changing the preset from Home Assistant can fail.
+- If you select another preset during a boost that Home Assistant started, the boost ends and the new preset is applied after a few seconds.
+
 ### Troubleshooting connection issues with the local API
 
 If your entities frequently become unavailable for short periods, this usually indicates connection problems between Home Assistant and your gateway. To improve reliability, try connecting to your gateway using its IP address instead of the `gateway-xxxx-xxxx-xxx.local` hostname.

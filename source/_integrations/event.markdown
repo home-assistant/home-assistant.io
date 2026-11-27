@@ -34,7 +34,7 @@ In addition, the entity can have the following states. Each item shows the inter
 
 Besides the timestamp of the last event, the event entity also keeps track of the event type that was last emitted. This lets you trigger different automation actions based on the type of event.
 
-For example, you can trigger a different action when a remote control button is pressed once versus twice, if your remote control can emit those different event types.
+For example, you can trigger a different action when a remote control button is pressed once versus twice, if your remote control can emit those different event types. If the button uses the button device class and supports the standard **Multi-press** event type, you can also use the [Button pressed](/triggers/button.pressed/) trigger and set **Number of presses** to **Double press**.
 
 When creating automations in the UI, the event types are available as a dropdown list, depending on the event entity you are using. This means you don't have to remember or look up the different event types.
 
@@ -42,25 +42,26 @@ For buttons and doorbells, Home Assistant has standard event types. If the integ
 
 ## Device class
 
-The device class tells Home Assistant what kind of signal an event entity reports, such as a doorbell press. Home Assistant uses the device class to choose the icon, the default name, and readable names for the [event types](#event-types), such as **Ring**. Google Assistant, Alexa, and Apple Home use the device class to recognize doorbells.
+The device class tells Home Assistant what kind of signal an event entity reports, such as a doorbell press. Home Assistant uses the device class to choose the icon, the default name, and readable names for the [event types](#event-types), such as **Ring**. Google Home, Alexa, and Apple Home use the device class to recognize doorbells.
 
 The integration that provides the event entity sets the device class. When you create an event entity yourself with a [template helper](/integrations/template/), you choose the device class.
 
 ### Device classes in automations and templates
 
-- Automations: The button device class has its own [Button pressed](/triggers/button.pressed/), [Button held](/triggers/button.held/), and [Button hold ended](/triggers/button.hold_ended/) triggers, and the doorbell device class has the [Doorbell rang](/triggers/doorbell.rang/) trigger. Each trigger only reacts to event entities with its device class. The motion device class doesn't change how an event entity works in automations.
+- Automations: The button device class has its own [Button pressed](/triggers/button.pressed/), [Button held](/triggers/button.held/), and [Button hold ended](/triggers/button.hold_ended/) triggers, and the doorbell device class has the [Doorbell rang](/triggers/doorbell.rang/) trigger. Each trigger only reacts to event entities with its device class. The button device class also has its own [Button is being held](/conditions/button.is_being_held/) condition. The motion device class doesn't change how an event entity works in automations.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `doorbell`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
 An event entity without a device class is a generic event and shows {% icon "mdi:eye-check" %}.
 
-Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. If the device class has its own triggers, they are listed below the item.
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. If the device class has its own triggers or conditions, they are listed below the item.
 
 - {% icon "mdi:gesture-tap-button" %} **Button** (`button`): For buttons, such as the buttons of a remote control.
   - Trigger: [Button pressed](/triggers/button.pressed/)
   - Trigger: [Button held](/triggers/button.held/)
   - Trigger: [Button hold ended](/triggers/button.hold_ended/)
+  - Condition: [Button is being held](/conditions/button.is_being_held/)
 - {% icon "mdi:doorbell" %} **Doorbell** (`doorbell`): For buttons that are used as a doorbell.
   - Trigger: [Doorbell rang](/triggers/doorbell.rang/)
 - {% icon "mdi:motion-sensor" %} **Motion** (`motion`): For motion detected by a motion sensor.

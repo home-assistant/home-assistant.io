@@ -18,10 +18,7 @@ related:
 
 The weather forecast card displays the weather. This card is particularly useful on wall-mounted displays.
 
-<p class='img'>
-  <img src='/images/dashboards/weather.png' alt='Screenshot of the weather card'>
-  Screenshot of the weather card.
-</p>
+{% include dashboard/demo.html demo="weather_top" caption="The weather forecast card, with and without the forecast." %}
 
 {% include dashboard/edit_dashboard.md %}
 
@@ -66,7 +63,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
   default: Entity name
 show_current:

@@ -2,7 +2,7 @@
 title: "World's most private voice assistant"
 related:
   - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Creating a Cloud assistant
+    title: Creating an assistant with Home Assistant Link
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
   - docs: /voice_control/assist_create_open_ai_personality/
@@ -10,7 +10,7 @@ related:
   - url: https://www.amazon.com/dp/B06XW1BQHC
     title: Grandstream HT801
   - url: https://www.nabucasa.com
-    title: Home Assistant Cloud
+    title: Home Assistant Link
 ---
 
 This tutorial will guide you to turn your old landline phone into the
@@ -27,7 +27,7 @@ your smart home and issue commands and get responses.
   [Grandstream HT801](https://www.amazon.com/dp/B06XW1BQHC)
   - includes a 5&nbsp;V power adapter and an Ethernet cable
 - RJ11 phone cable to connect the phone to the Grandstream
-- [Cloud assistant pipeline](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local assistant pipeline](/voice_control/voice_remote_local_assistant/)
+- An assistant, for example with [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local assistant](/voice_control/voice_remote_local_assistant/)
 
 ## Setting up Grandstream
 
@@ -69,7 +69,6 @@ your smart home and issue commands and get responses.
    - Calls from new devices are blocked by default since voice commands could be used to control sensitive devices, such as locks and garage doors.
    - In the **Voice over IP** integration, select the **device** link.
    - To allow this phone to control your smart home, under **Configuration**, enable **Allow calls**.
-   ![Voice over IP integration - allow calls](/images/assist/voip_configuration.png)
 4. Congratulations! You set up your analog phone to work with Home Assistant. Now pick up the phone and control your device.
    - Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.
    - You can also ask a question, such as
@@ -88,8 +87,6 @@ Note: this procedure requires an OpenAI account. To just run the example, the fr
 
 1. [Create a Mario personality](/voice_control/assist_create_open_ai_personality/).
 2. In the **Voice over IP** integration, under **Configuration**, select the Mario assistant you just created.
-
-      ![VoIP: select OpenAI](/images/assist/assistant-openai-mario-03.png)
 3. That's it! Pick up your phone and ask Mario a question.
 4. You can repeat this with other OpenAI personalities. You can add as many OpenAI Conversation integrations as you would like.
    - To add a new personality, you need to create a new API key. Then, add a new OpenAI Conversation integration with that API key.
@@ -112,7 +109,7 @@ If you’re unable to call Home Assistant, confirm the following settings in you
 
 **Symptom**
 You were able to control Home Assistant over the phone but it no longer works. When picking up the phone, no sound is played.
-The [debug information](/voice_control/troubleshooting#view-debug-information) shows no runs.
+The [debug information](/voice_control/troubleshooting/#viewing-debug-information) shows no runs.
 
 **Potential remedy**
 

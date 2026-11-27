@@ -1,0 +1,528 @@
+---
+// A full-width hero whose only job is to get someone to post their WTH.
+//
+// Around the edges, a collage of real WTHs from the forum (fetched at build
+// by scripts/fetch-wth-forum.mjs): proof that people are posting, and of
+// the range of what they write. In the middle, the wordmark, one line, and
+// the button. Under the button, one quiet line of ideas for anyone who
+// isn't sure what counts, changing every few seconds; tap it for another.
+// The campaign's pipes run in from both edges and fade before the middle.
+//
+// The hero is one screen high and scrolls away like any section. Its
+// colour carries on below it and its bottom melts into the next section's
+// colour (--fh-into). As it scrolls away the forum cards drift up and out
+// with parallax; on phones and tablets they shift gently with the device's
+// tilt instead, and sit in a swipeable row. With reduced motion nothing
+// drifts or changes on its own.
+import "../../styles/tokens.scss";
+import "../../styles/wth.scss";
+import WthHeroBackground from "./WthHeroBackground.astro";
+import WthWordmark from "./WthWordmark.astro";
+import WthIcon from "./WthIcon.astro";
+import Button from "../Button.astro";
+import { forumUrl, statements } from "../../lib/wth.mjs";
+import { loadWthForum, pickWthTopics } from "../../lib/wth-forum.mjs";
+
+const forum = loadWthForum();
+// A pool larger than the hero shows, most-voted first, of the community's
+// best-backed WTHs: the top six always show and the page picks the other
+// six afresh on every visit (see the script below). The pool is as fresh
+// as the last build.
+const pool = pickWthTopics(forum, 36).map(({ title, url, author, avatar, votes, replies }) => ({ title, url, author, avatar, votes, replies }));
+let cards = pool.slice(0, 12);
+// Without fetched topics, fall back to the page's own example WTHs.
+if (!cards.length) {
+  cards = statements.slice(0, 12).map((title, i) => ({ id: i, title, excerpt: "", url: forumUrl, votes: null, replies: null, author: null, avatar: null }));
+}
+// Where each card sits (left %, top %, tilt): two columns each side of the
+// middle, three rows deep, so the cards fill the hero around the wordmark
+// and the button. Outer columns stay on smaller screens; inner ones go.
+const spots = [
+  [3, 5, -4], [3, 35, 3], [3, 65, -2],
+  [17.5, 12, 2], [17.5, 42, -2], [17.5, 72, 3],
+  [68.5, 9, -2], [68.5, 39, 2], [68.5, 69, -3],
+  [83, 3, 3], [83, 32, -3], [83, 62, 2],
+];
+const order = [5, 0, 9, 2, 7, 11, 1, 6, 3, 10, 4, 8];
+// How "near" each card is, for parallax and tilt: nearer cards (higher
+// numbers) move further. The outer columns sit nearer than the inner ones.
+const depths = [1.35, 1.2, 1.3, 0.7, 0.6, 0.75, 0.65, 0.7, 0.6, 1.4, 1.25, 1.3];
+const placed = cards.slice(0, spots.length).map((card, i) => {
+  const [left, top, tilt] = spots[i];
+  return { ...card, left, top, tilt, dx: left + 8 - 50, dy: top + 8 - 50, pop: order[i], depth: depths[i], outer: left < 10 || left > 80 };
+});
+
+// Ideas for anyone who isn't sure what to write: prompts, not posts.
+const ideas = [
+  "the setting you’ve given up looking for",
+  "what whoever you live with finds annoying",
+  "the error message that told you nothing",
+  "the automation you never built because it looked too hard",
+  "something your guests can’t work out",
+  "the workaround you’re secretly proud of",
+  "the thing you always have to look up",
+  "what made your first week hard",
+];
+---
+<section class="fh" aria-labelledby="fh-title" data-wth-forum-hero>
+  <div class="stage">
+    <div class="pipes pipes--left" aria-hidden="true"><WthHeroBackground /></div>
+    <div class="pipes pipes--right" aria-hidden="true"><WthHeroBackground /></div>
+
+    <script type="application/json" data-wth-pool set:html={JSON.stringify(pool).replace(/</g, "\\u003c")} />
+    <ul class="collage" aria-label="WTHs people have already posted">
+      {placed.map((card) => (
+        <li
+          class:list={["card", { outer: card.outer }]}
+          style={`--left:${card.left}%;--top:${card.top}%;--tilt:${card.tilt}deg;--pop:${card.pop}`}
+          data-dx={card.dx}
+          data-dy={card.dy}
+          data-depth={card.depth}
+        >
+          <a href={card.url} target="_blank" rel="noopener">
+            <span class="post__head">
+              {card.avatar ? <img src={card.avatar} alt="" width="24" height="24" loading="lazy" /> : <span class="post__avatar" />}
+              <span class="post__user">{card.author ?? "Community forum"}</span>
+            </span>
+            <span class="post__title">{card.title}</span>
+            {card.votes !== null && (
+              <span class="post__meta">
+                <span class="post__count" aria-label={`${card.votes} votes`}><WthIcon name="mdi:arrow-up-bold-outline" title="Votes" /><span data-n="votes">{card.votes}</span></span>
+                <span class="post__count" aria-label={`${card.replies} replies`}><WthIcon name="mdi:comment-outline" title="Replies" /><span data-n="replies">{card.replies}</span></span>
+              </span>
+            )}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="center">
+      <h1 id="fh-title" class="visually-hidden">What the Heck?! November 2026</h1>
+      <div class="mark"><WthWordmark /></div>
+      <p class="lead">What in Home Assistant makes you go “what the heck?!” We want to hear from everyone: whether you build automations or just live with them.</p>
+    </div>
+
+    <div class="action">
+      <Button href={forumUrl} scheme="green" icon target="_blank" rel="noopener" data-wth-share="hero">Share your WTH</Button>
+      <p class="prompt" data-wth-prompt>
+        <span class="prompt__label">Not sure what to write? Try</span>
+        <button type="button" class="prompt__idea" aria-label="Show another idea">
+          {ideas.map((idea, i) => <span class="prompt__text" hidden={i !== 0}>{idea}</span>)}
+          <span class="prompt__next" aria-hidden="true"><WthIcon name="mdi:refresh" title="" /></span>
+        </button>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .fh {
+    position: relative;
+  }
+  /* The hero's colour runs on past its own bottom edge and fades out
+     slowly there, behind the next section (z-index -1; .fh makes no
+     stacking context of its own, so the next section draws over it). */
+  .fh::before {
+    background:
+      radial-gradient(ellipse 45% 40% at 50% 30%, rgb(255 255 255 / 85%), transparent 70%),
+      linear-gradient(180deg, #eaf6fd 0%, #e7fbf5 70%);
+    content: "";
+    height: calc(100% + 45svh);
+    left: 0;
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 65svh), transparent 100%);
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  .stage {
+    /* On wide screens the line and the button wait for the wordmark and
+       the cards to land (the last card pops in at about 1.6s; the line starts
+       just before, as they settle), so the
+       hero builds up and then says what to do. Phones, where they come
+       first and the cards follow, show them straight away. */
+    --fh-lead-delay: 1.4s;
+    --fh-action-delay: 1.6s;
+    height: calc(100svh - var(--header-height));
+    /* On short screens the hero grows a little past the screen rather than
+       letting the button ride up into the intro line. */
+    min-height: 46rem;
+    overflow: hidden;
+    position: relative;
+  }
+  /* The bottom melts into the next section's colour (the tips' blue band
+     by default; set --fh-into to match whatever follows), over the
+     background and pipes but under the cards and the button. */
+  .stage::after {
+    background: linear-gradient(to bottom, transparent, var(--fh-into, var(--wth-wash)));
+    bottom: 0;
+    content: "";
+    height: 32%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+  }
+
+  /* Pipes come in from both edges, fading out towards the middle and the
+     bottom. */
+  .pipes {
+    bottom: 0;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    mask-image: linear-gradient(to left, #000 30%, transparent 95%), linear-gradient(to bottom, #000 60%, transparent 100%);
+    opacity: 0.85;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: min(31vw, 36rem);
+    :global(.wth-hero-bg) { height: 100%; inset: 0; position: absolute; width: 100%; }
+    :global(svg) { height: 100%; width: 100%; }
+  }
+  .pipes--right { right: 0; }
+  .pipes--left { left: 0; transform: scaleX(-1); }
+
+  /* Forum cards, held to a sensible width however wide the screen is. */
+  .collage {
+    inset: 0;
+    list-style: none;
+    margin: 0 auto;
+    max-width: 100rem;
+    padding: 0;
+    position: absolute;
+    z-index: 2;
+  }
+  .card {
+    left: var(--left);
+    position: absolute;
+    rotate: var(--tilt);
+    top: var(--top);
+    /* Device tilt on touch screens (set by the script). */
+    translate: var(--gx, 0px) var(--gy, 0px);
+    width: clamp(12rem, 13vw, 15.5rem);
+    /* The same look as the campaign's chat bubbles: white, a hairline
+       border, a soft shadow, and a speech-bubble corner. */
+    a {
+      animation: wth-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      animation-delay: calc(var(--pop) * 60ms + 350ms);
+      background: var(--wth-surface);
+      border: 1px solid var(--wth-border);
+      border-radius: 1.25rem 1.25rem 1.25rem 0.375rem;
+      box-shadow: 0 10px 28px rgb(30 33 38 / 10%);
+      color: var(--wth-ink);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-small);
+      padding: var(--space-medium) var(--space-large);
+      text-decoration: none;
+      transition: box-shadow 0.25s, border-color 0.25s, translate 0.25s;
+    }
+    a:hover { border-color: var(--wth-mint); box-shadow: 0 16px 36px rgb(30 33 38 / 14%); translate: 0 -3px; }
+    a:focus-visible { outline: 3px solid var(--wth-focus); outline-offset: 3px; }
+  }
+  .post__head { align-items: center; color: var(--wth-ink-soft); display: flex; font-family: var(--font-sans); font-size: var(--font-size-small); gap: 0.4rem; min-width: 0;
+    img, .post__avatar { border-radius: 50%; flex: none; height: 1.375rem; width: 1.375rem; }
+    .post__avatar { background: var(--wth-border); } }
+  .post__user { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .post__title { font-family: var(--font-heading); font-size: var(--font-size-large); font-weight: 600; line-height: 1.3; }
+  .post__meta { color: var(--wth-ink-soft); display: flex; font-family: var(--font-sans); font-size: var(--font-size-small); gap: var(--space-large); }
+  .post__count { align-items: center; display: inline-flex; gap: 0.25rem;
+    &:first-child { color: var(--wth-mint-ink); font-weight: 700; } }
+
+  /* Wordmark and one line, in the upper middle. */
+  .center {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-large);
+    left: 50%;
+    max-width: min(32rem, 88vw);
+    position: absolute;
+    text-align: center;
+    top: 33%;
+    translate: -50% -50%;
+    z-index: 3;
+  }
+  .mark { animation: wth-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; width: 100%; :global(.wth-mark) { font-size: clamp(2.2rem, 1.2rem + 3.6vw, 6rem); margin-inline: auto; } }
+  .lead { animation: wth-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--fh-lead-delay, 0.1s) both; color: var(--wth-ink-soft); font-family: var(--font-sans); font-size: var(--font-size-xlarge); line-height: 1.5; margin: var(--space-large) 0 0; }
+
+  /* The button and the line of ideas under it. (The blog is linked from
+     the challenge note in the tips, so the hero keeps to one action.) */
+  .action {
+    align-items: center;
+    animation: wth-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--fh-action-delay, 0.15s) both;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-medium);
+    left: 50%;
+    max-width: min(32rem, 88vw);
+    position: absolute;
+    text-align: center;
+    top: 74%;
+    translate: -50% -50%;
+    z-index: 4;
+  }
+
+  /* One quiet line of ideas: the idea itself is a small button, so tapping
+     it shows the next one. */
+  .prompt {
+    align-items: baseline;
+    color: var(--wth-ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-medium);
+    gap: 0.35rem;
+    justify-content: center;
+    margin: var(--space-small) 0 0;
+  }
+  .prompt__idea {
+    align-items: center;
+    background: none;
+    border: 0;
+    color: var(--wth-ink);
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-weight: 600;
+    gap: 0.35rem;
+    min-height: 2rem;
+    padding: 0.2rem 0.1rem;
+    text-align: left;
+    &:hover .prompt__next,
+    &:focus-visible .prompt__next { rotate: 360deg; }
+    &:focus-visible { outline: 3px solid var(--wth-focus); outline-offset: 3px; border-radius: 0.3rem; }
+  }
+  /* A light dotted underline under the words only, firming up on hover. */
+  .prompt__text {
+    animation: wth-idea-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    line-height: 1.3;
+    text-decoration: underline dotted rgb(90 185 238 / 70%);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.25em;
+  }
+  .prompt__idea:hover .prompt__text,
+  .prompt__idea:focus-visible .prompt__text { text-decoration-color: var(--wth-sky); text-decoration-style: solid; }
+  /* The "another one" icon, from the site's icon set (a text arrow
+     character rendered unevenly between fonts). */
+  .prompt__next {
+    color: var(--color-highlight-shade);
+    display: inline-flex;
+    flex: none;
+    font-size: 1.1em;
+    /* The icon's own box, nudged to sit on the middle of the lower-case
+       letters rather than the full line height. */
+    translate: 0 0.04em;
+    transition: rotate 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    :global(svg), :global(iconify-icon) { display: block; height: 1em; vertical-align: 0; width: 1em; }
+  }
+  @keyframes wth-idea-in { from { opacity: 0; translate: 0 0.35em; } }
+
+
+  @keyframes wth-rise { from { opacity: 0; transform: translateY(1.5rem); } }
+  @keyframes wth-pop { from { opacity: 0; transform: scale(0.7); } }
+  .visually-hidden { clip: rect(0 0 0 0); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px; }
+
+  /* Narrower or shorter screens: only the outer columns of cards, so the
+     middle keeps room to breathe. */
+  @media (max-width: 88rem), (max-height: 50rem) {
+    .card:not(.outer) { display: none; }
+    .card { width: 13rem; }
+  }
+
+  /* Phones: one column. Wordmark, line, button and ideas first, then the
+     forum cards in a row that runs edge to edge and scrolls sideways, with
+     room inside so lifted cards and shadows aren't cut off. */
+  @media (max-width: 48rem) {
+    .stage { --fh-lead-delay: 0.1s; --fh-action-delay: 0.15s; display: flex; flex-direction: column; gap: var(--space-xlarge); height: auto; min-height: 0; padding: var(--space-xxlarge) var(--wth-gutter); }
+    .stage::after { height: 6rem; }
+    .center, .action { left: auto; position: relative; top: auto; translate: none; }
+    .center { order: -2; }
+    .action { order: -1; }
+    .collage {
+      display: flex;
+      gap: var(--space-large);
+      inset: auto;
+      /* A scrolling row clips on both axes, so it keeps room under the
+         cards for their whole shadow (0 10px 28px reaches about 2.4rem),
+         and gives that room back below so the spacing stays the same. */
+      margin: 0 calc(-1 * var(--wth-gutter)) -1.5rem;
+      overflow-x: auto;
+      padding: 0.75rem var(--wth-gutter) 2.75rem;
+      position: relative;
+      scroll-padding-inline: var(--wth-gutter);
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .card, .card:not(.outer) { display: block; flex: none; left: auto; position: relative; rotate: none; scroll-snap-align: start; top: auto; width: 15rem; }
+    .pipes { opacity: 0.35; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card a, .mark, .lead, .action, .prompt__text { animation: none; }
+  }
+</style>
+
+<script>
+  // A fresh pick of forum WTHs on every visit: the build ships a pool, and
+  // the cards are filled from it. Without the script the build's own
+  // twelve (the most-voted) stay.
+  document.querySelectorAll<HTMLElement>("[data-wth-forum-hero]").forEach((hero) => {
+    const data = hero.querySelector<HTMLScriptElement>("[data-wth-pool]");
+    if (!data) return;
+    let pool: { title: string; url: string; author: string | null; avatar: string | null; votes: number; replies: number }[] = [];
+    try { pool = JSON.parse(data.textContent || "[]"); } catch { return; }
+    const cards = [...hero.querySelectorAll<HTMLElement>(".card")];
+    if (pool.length <= cards.length) return;
+    const shuffle = <T,>(list: T[]) => {
+      for (let i = list.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [list[i], list[j]] = [list[j], list[i]];
+      }
+      return list;
+    };
+    // The pool comes most-voted first. The biggest WTHs always show; the
+    // other half of the cards rotate through the rest, and all of them
+    // swap places so the top ones aren't always in the same spots.
+    const keep = Math.ceil(cards.length / 2);
+    pool = shuffle([...pool.slice(0, keep), ...shuffle(pool.slice(keep)).slice(0, cards.length - keep)]);
+    cards.forEach((card, i) => {
+      const t = pool[i];
+      const link = card.querySelector("a");
+      if (!link || !t) return;
+      link.href = t.url;
+      const img = card.querySelector("img");
+      if (img && t.avatar) img.src = t.avatar;
+      const user = card.querySelector(".post__user");
+      if (user) user.textContent = t.author ?? "Community forum";
+      const title = card.querySelector(".post__title");
+      if (title) title.textContent = t.title;
+      const [votes, replies] = card.querySelectorAll<HTMLElement>(".post__count");
+      if (votes) { votes.setAttribute("aria-label", `${t.votes} votes`); votes.querySelector("[data-n]")!.textContent = String(t.votes); }
+      if (replies) { replies.setAttribute("aria-label", `${t.replies} replies`); replies.querySelector("[data-n]")!.textContent = String(t.replies); }
+    });
+  });
+
+  // The line of ideas: changes every few seconds, and tapping the idea
+  // shows the next one and restarts the wait before the next change. It pauses while hovered or focused, and with
+  // reduced motion it only changes when tapped. Screen readers hear the
+  // new idea only after a tap, not on the timer.
+  document.querySelectorAll<HTMLElement>("[data-wth-prompt]").forEach((prompt) => {
+    const button = prompt.querySelector<HTMLButtonElement>(".prompt__idea");
+    const texts = [...prompt.querySelectorAll<HTMLElement>(".prompt__text")];
+    if (!button || texts.length < 2) return;
+    let i = 0;
+    let paused = false;
+    const show = (next: number) => {
+      texts[i].hidden = true;
+      i = next % texts.length;
+      texts[i].hidden = false;
+    };
+    const auto = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const EVERY = 3500;
+    // When the idea last changed, automatically or by a tap. The next
+    // automatic change comes a full interval after that, so a tap always
+    // restarts the wait; while paused, the wait keeps restarting too.
+    let last = performance.now();
+    button.addEventListener("click", () => {
+      button.setAttribute("aria-live", "polite");
+      show(i + 1);
+      last = performance.now();
+    });
+    if (auto) {
+      setInterval(() => {
+        const now = performance.now();
+        if (paused || document.hidden) { last = now; return; }
+        if (now - last >= EVERY) {
+          button.removeAttribute("aria-live");
+          show(i + 1);
+          last = now;
+        }
+      }, 200);
+    }
+    // Hold still while a mouse is over it or it has keyboard focus. A tap
+    // also focuses the button, but that shouldn't stop the line for good,
+    // so only keyboard (visible) focus counts.
+    prompt.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") paused = true; });
+    prompt.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") paused = false; });
+    button.addEventListener("focus", () => { if (button.matches(":focus-visible")) paused = true; });
+    button.addEventListener("blur", () => (paused = false));
+  });
+</script>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+  // Scroll parallax on the forum cards, as the hero leaves the screen: they
+  // rise and drift outward by how near they are, turning a little further
+  // the way they already lean, nearer ones growing. Everything else
+  // scrolls with the page.
+  gsap.matchMedia().add("(prefers-reduced-motion: no-preference) and (min-width: 48.0625rem)", () => {
+    document.querySelectorAll<HTMLElement>("[data-wth-forum-hero]").forEach((hero) => {
+      const tl = gsap.timeline({ scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 0.5 } });
+      gsap.utils.toArray<HTMLElement>(hero.querySelectorAll(".card")).forEach((card) => {
+        const depth = Number(card.dataset.depth) || 1;
+        const tilt = parseFloat(getComputedStyle(card).getPropertyValue("--tilt")) || 0;
+        tl.to(card, {
+          x: Number(card.dataset.dx) * 5 * depth,
+          y: -260 * depth,
+          rotation: tilt * 1.5 * depth,
+          scale: 1 + (depth - 1) * 0.25,
+          ease: "none",
+          duration: 1,
+        }, 0);
+      });
+    });
+  });
+
+  // On phones and tablets there's no pointer, so the cards answer the
+  // device's tilt instead, gently: a few pixels, nearer cards further, like
+  // looking into a shallow box. The wordmark already turns with the tilt
+  // (logo.js). On iPhone and iPad the tilt is shared only after the visitor
+  // allows it, which logo.js asks for when the wordmark is tapped; this
+  // listens to the same events, so it starts once that's allowed.
+  if (
+    matchMedia("(pointer: coarse)").matches &&
+    !matchMedia("(prefers-reduced-motion: reduce)").matches &&
+    "DeviceOrientationEvent" in window
+  ) {
+    const RANGE = 30; // degrees of tilt for the full shift
+    const SHIFT = 10; // px, at depth 1
+    const cards = [...document.querySelectorAll<HTMLElement>("[data-wth-forum-hero] .card")];
+    let rest: { x: number; y: number } | null = null;
+    let target = { x: 0, y: 0 };
+    const now = { x: 0, y: 0 };
+    let frame = 0;
+    const clamp = (v: number) => Math.max(-1, Math.min(1, v));
+    const draw = () => {
+      now.x += (target.x - now.x) * 0.12;
+      now.y += (target.y - now.y) * 0.12;
+      cards.forEach((card) => {
+        const depth = Number(card.dataset.depth) || 1;
+        card.style.setProperty("--gx", `${(now.x * SHIFT * depth).toFixed(1)}px`);
+        card.style.setProperty("--gy", `${(now.y * SHIFT * 0.6 * depth).toFixed(1)}px`);
+      });
+      const moving = Math.abs(target.x - now.x) > 0.002 || Math.abs(target.y - now.y) > 0.002;
+      frame = moving ? requestAnimationFrame(draw) : 0;
+    };
+    addEventListener("deviceorientation", (event) => {
+      if (event.beta === null || event.gamma === null) return;
+      const angle = screen.orientation?.angle ?? 0;
+      const tilt = ({
+        0: { x: event.gamma, y: event.beta },
+        90: { x: event.beta, y: -event.gamma },
+        180: { x: -event.gamma, y: -event.beta },
+        270: { x: -event.beta, y: event.gamma },
+      } as Record<number, { x: number; y: number }>)[angle] ?? { x: event.gamma, y: event.beta };
+      // Measured from however the device is being held, which drifts
+      // slowly towards the current angle, so holding still settles.
+      if (!rest) rest = { ...tilt };
+      rest.x += (tilt.x - rest.x) * 0.01;
+      rest.y += (tilt.y - rest.y) * 0.01;
+      target = { x: clamp((tilt.x - rest.x) / RANGE), y: clamp((tilt.y - rest.y) / RANGE) };
+      if (!frame) frame = requestAnimationFrame(draw);
+    });
+  }
+</script>

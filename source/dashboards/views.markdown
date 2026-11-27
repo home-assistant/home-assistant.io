@@ -39,6 +39,10 @@ There are four different view types:
 - **Panel**: Displays one card in full width. For example a map or an image.
 - **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
 
+To see each view type with real cards, select a tab in the dashboard below.
+
+{% include dashboard/demo.html demo="view_types" caption="A dashboard with a view of each type." %}
+
 ## Adding a view to a dashboard
 
 {% note %}
@@ -68,6 +72,17 @@ You can't add views to the built-in dashboards **Activity**, **Climate**, **Ener
 5. On the **Badges** tab, select the entities you want to be represented by a badge.
     - Sidebar and panel views do not support badges.
 6. By default, the new view is visible to all users. On the **Visibility** tab, you can disable the view for specific users.
+
+## Reordering views
+
+You can change the order of the view tabs of a dashboard. For example, you can move the view you use most to the first place.
+
+1. Open the dashboard. In the top right of the screen, select **Edit dashboard** {% icon "mdi:pencil" %}.
+   - On a narrow screen, such as a phone, this option might be under **Menu** {% icon "mdi:dots-vertical" %}.
+2. Drag the tab of a view to its new place.
+   - On a touch screen, the selected tab has a drag handle {% icon "mdi:drag-horizontal-variant" %}. Drag the tab by its handle. To drag another tab, press and hold it first.
+   - With a keyboard, move the focus to the tab. To move it one place earlier, press <kbd>Alt</kbd>+<kbd>↑</kbd>. To move it one place later, press <kbd>Alt</kbd>+<kbd>↓</kbd>.
+3. Select **Done**.
 
 ## Migrating a view into a sections view
 

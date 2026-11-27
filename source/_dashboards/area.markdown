@@ -16,14 +16,11 @@ related:
 
 The area card lets you control and monitor an individual {% term area %}.
 
-<p class='img'>
-  <img src='/images/dashboards/area-cards.png' alt='Screenshot of the area cards'>
-  Screenshot of the area cards.
-</p>
+{% include dashboard/demo.html demo="area_top" caption="Area cards." %}
 
 All options for this card can be configured via the user interface.
 
-As shown in the screenshot of the area cards, they can display values and buttons of entities and devices that you have assigned the area to, such as:
+As the area cards above show, they can display values and buttons of entities and devices that you have assigned the area to, such as:
 
 - Buttons for {% term entities %} such as fan, light, and switch that are in the area of the card.
 - The measured value of a sensor, if the sensor is in the area of the card or if the sensor is assigned to the area in {% my areas title="**Settings** > **Areas, labels & zones**" %}.
@@ -104,12 +101,12 @@ alert_classes:
   required: false
   type: list
   default: "moisture, motion"
-  description: A list of binary sensor device classes which will populate alert icons in the card when the state is on. If the display type is set to `compact`, only the first alert icon will be displayed.
+  description: A list of [binary sensor device classes](/integrations/binary_sensor/#device-class) which will populate alert icons in the card when the state is on. If the display type is set to `compact`, only the first alert icon will be displayed.
 sensor_classes:
   required: false
   type: list
   default: "temperature, humidity"
-  description: A list of sensor device classes to display for the area. Most classes (such as temperature, humidity, or pressure) show the median value when multiple sensors are present. Sensors representing cumulative measurements (such as power, energy, gas, or water) show the sum instead.
+  description: A list of [sensor device classes](/integrations/sensor/#device-class) to display for the area. Most classes (such as temperature, humidity, or pressure) show the median value when multiple sensors are present. Sensors representing cumulative measurements (such as power, energy, gas, or water) show the sum instead.
 features:
   required: false
   description: Additional widgets to control entities in the area. See [available features](/dashboards/features).

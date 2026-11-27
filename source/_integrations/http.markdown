@@ -41,7 +41,10 @@ SSL key path:
   description: The absolute path to the TLS private key, for example `/ssl/privkey.pem`.
   required: false
 SSL peer certificate path:
-  description: The absolute path to a client certificate Home Assistant should require for secure connections.
+  description: The absolute path to the certificate authority file that signs your client certificates. If set, local secure connections require a client certificate signed by it.
+  required: false
+Require client certificates for remote access:
+  description: By default, SSL peer certificates apply only to local connections to Home Assistant. Enabling this also requires a client certificate on remote access through [Home Assistant Link](/integrations/link/). Requires an **SSL peer certificate path**.
   required: false
 SSL profile:
   description: |
@@ -112,7 +115,7 @@ When a network mask is provided, you must use the network address (for example, 
 
 {% note %}
 
-The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel instead of a reverse proxy. These settings have no effect on cloud connections, and you do not need to configure them for remote access.
+The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Link](/integrations/link/) for remote access, requests arrive through a secure tunnel instead of a reverse proxy. These settings have no effect on cloud connections, and you do not need to configure them for remote access.
 
 {% endnote %}
 
@@ -147,7 +150,7 @@ If you want to apply additional IP filtering and automatically ban brute force a
 
 {% note %}
 
-If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, Home Assistant sees the source IP address of the remote client. A ban applies only to that IP address and leaves other cloud connections unaffected.
+If you use [Home Assistant Link](/integrations/link/) for remote access, Home Assistant sees the source IP address of the remote client. A ban applies only to that IP address and leaves other cloud connections unaffected.
 
 {% endnote %}
 

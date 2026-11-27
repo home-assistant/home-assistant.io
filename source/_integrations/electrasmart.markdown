@@ -45,6 +45,16 @@ Each air conditioner on your Electra account is added as a climate {% term entit
 - **Preset**: `Shabat`, which corresponds to the Shabat option in the Electra Smart app.
 - **Current temperature**: the temperature measured by the air conditioner.
 
+### Sensors
+
+Air conditioners report their own measurements to the Electra cloud. The models differ in what they report, so an air conditioner only gets the sensors for the measurements it sends.
+
+- **Wi-Fi signal**: the strength of the Wi-Fi connection of the air conditioner's network module.
+- **Indoor coil temperature**: the temperature of the indoor coil of the air conditioner.
+- **Outdoor coil temperature**: the temperature of the outdoor coil of the air conditioner. Air conditioners that do not report this measurement do not get this sensor.
+
+The measurement sensors are diagnostic entities, so they are grouped under Diagnostics on the device page.
+
 ## Data updates
 
 The integration {% term polling polls %} the Electra cloud every 30 seconds and uses the settings that are reported there. The air conditioner only reports to the cloud when its network module wakes up, so a change made with the remote control or in the Electra Smart app can take a moment to appear in Home Assistant.

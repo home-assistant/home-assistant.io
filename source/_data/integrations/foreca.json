@@ -1,6 +1,6 @@
 {
   "domain": "foreca",
-  "name": "Foreca",
+  "name": "Foreca Weather",
   "integration_type": "service",
   "codeowners": [
     "@EetuPelkonen",
@@ -8,7 +8,7 @@
   ],
   "config_flow": true,
   "iot_class": "cloud_polling",
-  "quality_scale": "bronze",
+  "quality_scale": "silver",
   "categories": [
     "weather_alerts.forecasts"
   ],

@@ -16,10 +16,7 @@ related:
 
 The entity card gives you a quick overview of your entity's state.
 
-<p class='img'>
-  <img src='/images/dashboards/entity_card.png' alt='Screenshot of the entity card'>
-  Screenshot of the Entity card.
-</p>
+{% include dashboard/demo.html demo="entity_top" caption="Entity cards." %}
 
 {% include dashboard/edit_dashboard.md %}
 
@@ -40,7 +37,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  description: Overwrites the default name of the entity. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
   type: [string, map, list]
   default: Entity name.
 icon:
