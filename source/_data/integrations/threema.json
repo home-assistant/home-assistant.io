@@ -6,7 +6,7 @@
     "@LukasQ"
   ],
   "config_flow": true,
-  "iot_class": "cloud_push",
+  "iot_class": "cloud_polling",
   "quality_scale": "silver",
   "categories": [
     "messaging_notifications.chat_apps"
@@ -16,6 +16,7 @@
   ],
   "platforms": [
     "image",
-    "notify"
+    "notify",
+    "sensor"
   ]
 }

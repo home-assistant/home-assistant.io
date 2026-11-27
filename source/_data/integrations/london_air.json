@@ -1,6 +1,11 @@
 {
   "domain": "london_air",
   "name": "London Air",
+  "integration_type": "service",
+  "codeowners": [
+    "@MichaelMKKelly"
+  ],
+  "config_flow": true,
   "iot_class": "cloud_polling",
   "quality_scale": "legacy",
   "categories": [

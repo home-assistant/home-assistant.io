@@ -15,7 +15,11 @@
     "modbus"
   ],
   "platforms": [
+    "binary_sensor",
+    "button",
     "climate",
-    "diagnostics"
+    "diagnostics",
+    "number",
+    "sensor"
   ]
 }

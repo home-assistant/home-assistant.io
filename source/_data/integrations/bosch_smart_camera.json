@@ -15,6 +15,7 @@
     "cloud"
   ],
   "platforms": [
+    "button",
     "camera",
     "diagnostics",
     "light",

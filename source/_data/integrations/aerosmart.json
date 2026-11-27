@@ -18,6 +18,7 @@
   "platforms": [
     "binary_sensor",
     "number",
+    "select",
     "sensor"
   ]
 }
