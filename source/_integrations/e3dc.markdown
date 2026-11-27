@@ -31,7 +31,7 @@ The **E3/DC** {% term integration %} connects Home Assistant to an E3/DC home po
 
 The integration supports E3/DC home power stations whose Modbus interface uses the E3/DC protocol ("Simple Mode"), such as the S10 E, S10 E PRO, S10 X, S20 X PRO and E3/DC one, and the systems running the Q10 and P10 firmware lines.
 
-Newer firmware releases add registers: the failsafe timeouts from release 2025_06, the inverter mode from release 2025_43, and the battery's limits and stored energy from release 2026_04. The SG Ready status comes with the 32-bit power meter values. The integration checks which of these your firmware serves during setup and adds only the matching entities. After a firmware update, reload the integration.
+Newer firmware releases add registers: the failsafe timeouts from release 2025_06, the inverter mode from release 2025_43, and the battery's limits and stored energy from release 2026_04. The inverter values also depend on the firmware. The SG Ready status comes with the 32-bit power meter values. The integration checks which of these your firmware serves during setup and adds only the matching entities. After a firmware update, reload the integration.
 
 ## Unsupported devices
 
@@ -86,9 +86,10 @@ These sensors depend on the installed hardware:
 
 - **Wallbox power** and **Wallbox solar power**, in watts, if a wallbox is configured.
 - **Additional feeder power**, in watts, if a power meter measures an additional feeder, such as a second PV inverter.
+- **Grid power L1**, **Grid power L2** and **Grid power L3**, the power per phase at the grid connection point, if a power meter measures it. They are disabled by default.
 - **Emergency power**, if the power station supports emergency power. It shows whether emergency power is active, inactive or not available. On the S10 E and S10 E PRO, **Motor switch off** means the emergency power motor switch is not in its on position.
 
-The integration checks the wallboxes and power meters when it starts. After you add a wallbox or a power meter, reload the integration.
+These sensors appear as soon as the power station reports the hardware. The integration only checks for a wallbox when it starts, so reload it after you add one.
 
 These sensors depend on the firmware:
 
@@ -106,6 +107,21 @@ The power station device has these binary sensors:
 - **Charging limited by forecast**: the weather forecast holds back charging capacity for the expected sunshine. This shows whether that is happening right now, not whether the forecast setting is on.
 - **Feed-in limited**: output is throttled because the maximum feed-in was reached.
 - **Charging lockout period** and **Discharging lockout period**: a lockout time from **Smart Charge** is active. Disabled by default.
+
+### Power meters and inverters
+
+Each configured power meter gets its own device, connected through the power station. The meter at the grid connection point is the exception: the power station's grid sensors cover it. Each power meter device has these sensors:
+
+- **Meter type**, a diagnostic sensor. It shows what the meter measures, such as **External production** or **External consumption**.
+- **Power**, the meter's total power in watts.
+- **Power L1**, **Power L2** and **Power L3**, the power per phase. They are disabled by default.
+
+The power station's own inverter gets its own device, **Inverter 1**, as a part of the power station's device. Each additional inverter that reports a grid voltage gets its own device, connected through the power station. Each inverter has these sensors:
+
+- **Active power L1** to **L3**, and **DC power 1** to **3** for its DC trackers, in watts.
+- The apparent power, reactive power, voltage and current per phase, the frequency, and the voltage and current of each DC tracker. They are disabled by default.
+
+Power meters and additional inverters appear as soon as the power station reports them, including ones you add later. The integration looks for inverter slots when it starts. If a slot doesn't answer then, reload the integration once its inverter is connected.
 
 ## Data updates
 
