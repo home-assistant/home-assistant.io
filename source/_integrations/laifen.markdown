@@ -17,7 +17,7 @@ ha_bluetooth: true
 ---
 
 The **Laifen** {% term integration %} lets you monitor your [Laifen](https://www.laifentech.com/) Wave electric toothbrush in Home Assistant.
-It shows the battery level of the toothbrush and the duration of the last brushing session.
+It shows the battery level of the toothbrush, how long you have been brushing, and the duration of the last brushing session.
 For example, you can get a notification when the battery runs low, or follow how long each brushing session lasts.
 
 Home Assistant connects to the toothbrush over Bluetooth.
@@ -61,11 +61,14 @@ The **Laifen** integration provides the following entities.
 
 - **Battery**
   - **Description**: The battery level of the toothbrush, in percent.
+- **Current brushing duration**
+  - **Description**: How long the brushing session in progress has lasted, updated every second.
+  - **Remarks**: Shows 0 while the toothbrush is not brushing and during the first five seconds of a session.
 - **Last brushing duration**
   - **Description**: The duration of the last brushing session.
   - **Remarks**: The integration ignores runs of the motor shorter than five seconds, such as the short vibrations that confirm a button press.
 
-The sensors keep their last value while the toothbrush is asleep.
+The **Battery** and **Last brushing duration** sensors keep their last value while the toothbrush is asleep.
 
 ## Laifen automation examples
 
