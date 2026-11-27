@@ -91,7 +91,7 @@ Home Assistant resolves the target to the entities behind it and passes them to 
 It's only available when you add a `target`.
 
 This example reacts when more than 2 lights in the living room are on.
-An area contains more than lights, so the template first keeps only the light entities:
+An area can also contain entities other than lights, such as switches and sensors, so the template first keeps only the light entities:
 
 {% example %}
 trigger: |
