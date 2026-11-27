@@ -64,7 +64,7 @@ The **Laifen** integration provides the following entities.
   - **Description**: The battery level of the toothbrush, in percent.
 - **Current brushing duration**
   - **Description**: How long the brushing session in progress has lasted, updated every second.
-  - **Remarks**: Shows 0 while the toothbrush is not brushing and during the first five seconds of a session.
+  - **Remarks**: Shows 0 while the toothbrush is not brushing.
 - **Last brushing duration**
   - **Description**: The duration of the last brushing session.
   - **Remarks**: The integration ignores runs of the motor shorter than five seconds, such as the short vibrations that confirm a button press.
