@@ -48,6 +48,17 @@ Infrared emitter:
 
 To control more than one Philips TV, add the integration again for each TV and select a different infrared emitter each time.
 
+## Reconfiguring the integration
+
+If you replace your infrared emitter, you can switch the TV to the new one without removing and re-adding the integration.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Philips Infrared** integration and select it.
+3. Next to the TV, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+4. Select the infrared emitter you want to use, then select **Submit**.
+
+As during setup, you can't select an infrared emitter that another Philips TV already uses.
+
 ## Supported functionality
 
 ### Media player
@@ -95,7 +106,6 @@ automation: |
 - Philips TVs have a single power toggle command, so turning the TV on and turning it off both send the same command. If Home Assistant shows the TV as on while it's already off, a turn off command turns it on, and the other way around. Keep this in mind when you use these actions in automations.
 - Mute also toggles. Each mute command switches the sound on or off, regardless of whether you select mute or unmute.
 - Volume control is step-based only. There is no way to set an absolute volume level.
-- You can't change the infrared emitter after setup. To use a different emitter, remove the TV from the integration and add it again.
 
 ## Troubleshooting
 
