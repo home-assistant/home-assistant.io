@@ -272,10 +272,10 @@ You can change the schedule of each Zone-Based Firewall Policy you created, for 
 Each mode uses only some of these settings:
 
 - **Always**: none.
-- **Every day**: the start and end time.
-- **Every week**: the start and end time, unless it runs all day, which can only be changed in the UniFi Network application.
-- **One time**: the start date, and the start and end time.
-- **Custom**: the start and end date, and the start and end time, unless it runs all day, which can only be changed in the UniFi Network application.
+- **Every day**: the start and end times.
+- **Every week**: the start and end times, unless it runs all day, which can only be changed in the UniFi Network application.
+- **One time**: the start date and the start and end times.
+- **Custom**: the start and end dates and the start and end times, unless it runs all day, which can only be changed in the UniFi Network application.
 
 Settings the current mode doesn't use show an unknown state, and can't be changed until you choose a mode that uses them. Changing a setting never changes the mode.
 
