@@ -10,6 +10,7 @@ ha_domain: bosch_smart_camera
 ha_codeowners:
   - "@mosandlt"
 ha_platforms:
+  - button
   - camera
   - light
   - sensor
@@ -55,6 +56,10 @@ The **Wi-Fi signal strength** sensor shows how well a camera is connected to you
 ### Motion detection
 
 The **Motion detection** switch turns the motion detection of a camera on or off. The switch is shown with the configuration entities of the device. The camera can switch motion detection back on its own, for example because of its own rules. The switch then shows the state the camera reports at the next update.
+
+### Restart
+
+The **Restart** button restarts a camera. It is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
 
 ### Firmware
 
