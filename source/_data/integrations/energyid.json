@@ -14,5 +14,8 @@
   ],
   "connectivity": [
     "cloud"
+  ],
+  "platforms": [
+    "sensor"
   ]
 }

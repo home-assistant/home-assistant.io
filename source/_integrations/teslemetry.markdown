@@ -76,6 +76,7 @@ To pair your Powerwall or Backup Gateway:
 3. Under **Energy site**, choose the site whose Powerwall you want to control over your local network, then continue.
 4. On the **Approve the local access key** step, flick the On/Off switch on your primary Powerwall off and back on to approve Home Assistant's access, then continue. You only need to do this once.
 5. On the **Connect to your Powerwall system** step, confirm the local network address that Home Assistant discovered, or edit it if needed, and enter your Powerwall's Wi-Fi password in the **Password** field. Only the last 5 characters are needed - find them on the QR label behind the front cover of your Powerwall 3, or behind the Backup Gateway door on Powerwall 2.
+   If your site has a Backup Gateway 1, Home Assistant asks for its full gateway password instead.
 
 Once paired, Home Assistant stores your Powerwall's address and password and sends energy commands to it directly, falling back to the cloud automatically whenever your Powerwall can't be reached.
 

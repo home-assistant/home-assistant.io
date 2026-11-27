@@ -16,6 +16,8 @@
   ],
   "platforms": [
     "diagnostics",
+    "number",
+    "select",
     "sensor"
   ],
   "discovery": [

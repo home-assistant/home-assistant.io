@@ -10,6 +10,7 @@ ha_domain: bosch_smart_camera
 ha_codeowners:
   - "@mosandlt"
 ha_platforms:
+  - button
   - camera
   - light
   - sensor
@@ -51,6 +52,10 @@ The **Privacy mode** switch turns the privacy mode of a camera on or off. While 
 ### Wi-Fi signal strength
 
 The **Wi-Fi signal strength** sensor shows how well a camera is connected to your Wi-Fi network, in percent. It is a diagnostic sensor and is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
+
+### Restart
+
+The **Restart** button restarts a camera. It is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
 
 ### Firmware
 

@@ -48,7 +48,7 @@ Password:
 | Drawer removed                | `binary_sensor` | Indicates whether the waste drawer is removed, only for Litter-Robot 5.                                     |
 | Hopper connected              | `binary_sensor` | Indicates whether a LitterHopper is connected, only for Litter-Robot 5.                                     |
 | Laser dirty                   | `binary_sensor` | Indicates whether the cat detection laser is dirty, only for Litter-Robot 4 and 5.                          |
-| Online                        | `binary_sensor` | Indicates whether the unit is connected to the Whisker cloud, only for Litter-Robot 5.                      |
+| Online                        | `binary_sensor` | Indicates whether the unit is connected to the Whisker cloud.                                               |
 | Power status                  | `binary_sensor` | Indicates whether power is currently connected.                                                             |
 | Sleep mode                    | `binary_sensor` | Indicates whether sleep mode is enabled.                                                                    |
 | Sleeping                      | `binary_sensor` | Indicates whether sleep mode is currently active.                                                           |
@@ -69,17 +69,18 @@ The per-day sleep schedule entities (**Sleep mode (per day)**, **Sleep mode star
 
 ### Feeder-Robot
 
-| Entity               | Domain   | Description                                                                                |
-| -------------------- | -------- | ------------------------------------------------------------------------------------------ |
-| Give snack           | `button` | Button to dispense a single snack portion.                                                 |
-| Meal insert size     | `select` | View and select the meal insert size.                                                      |
-| Food dispensed today | `sensor` | Displays the amount of food, in cups, by the feeder.                                       |
-| Food level           | `sensor` | Displays the approximate food level remaining in the hopper.                               |
-| Last feeding         | `sensor` | Displays the timestamp of the last dispensed meal or snack.                                |
-| Next feeding         | `sensor` | Displays the timestamp of the next scheduled meal.                                         |
-| Gravity mode         | `switch` | When turned on, the unit will keep the bowl full by checking the food level every 6 hours. |
-| Night light mode     | `switch` | When turned on, automatically turns on the night light in darker settings.                 |
-| Panel lockout        | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings.           |
+| Entity               | Domain          | Description                                                                                |
+| -------------------- | --------------- | ------------------------------------------------------------------------------------------ |
+| Online               | `binary_sensor` | Indicates whether the unit is connected to the Whisker cloud.                              |
+| Give snack           | `button`        | Button to dispense a single snack portion.                                                 |
+| Meal insert size     | `select`        | View and select the meal insert size.                                                      |
+| Food dispensed today | `sensor`        | Displays the amount of food, in cups, by the feeder.                                       |
+| Food level           | `sensor`        | Displays the approximate food level remaining in the hopper.                               |
+| Last feeding         | `sensor`        | Displays the timestamp of the last dispensed meal or snack.                                |
+| Next feeding         | `sensor`        | Displays the timestamp of the next scheduled meal.                                         |
+| Gravity mode         | `switch`        | When turned on, the unit will keep the bowl full by checking the food level every 6 hours. |
+| Night light mode     | `switch`        | When turned on, automatically turns on the night light in darker settings.                 |
+| Panel lockout        | `switch`        | When turned on, disables the buttons on the unit to prevent changes to settings.           |
 
 ### Pet
 

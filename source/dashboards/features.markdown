@@ -1086,6 +1086,24 @@ style:
   default: buttons
 {% endconfiguration %}
 
+## Timer progress
+
+Widget that displays the progress bar of a [timer](/integrations/timer).
+
+{% include dashboard/demo.html demo="feature_timer_progress" caption="The tile card with the timer progress feature." %}
+
+```yaml
+features:
+  - type: "timer-progress"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`timer-progress`"
+  type: string
+{% endconfiguration %}
+
 ## Toggle
 
 Widget that displays a button to toggle a [switch](/integrations/switch) or [input boolean](/integrations/input_boolean) entity on or off.

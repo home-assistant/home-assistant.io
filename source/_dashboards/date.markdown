@@ -100,10 +100,7 @@ Basic example:
 type: date
 ```
 
-<p class='img'>
-<img src='/images/dashboards/date_card_default.png' alt='Screenshot of the basic date card'>
-Screenshot of the basic date card
-</p>
+{% include dashboard/demo.html demo="date_default" caption="The basic date card." %}
 
 A larger date card with a title, for a tablet or wall-mounted dashboard:
 
@@ -113,10 +110,7 @@ title: Today
 date_size: large
 ```
 
-<p class='img'>
-<img src='/images/dashboards/date_card_large.png' alt='Screenshot of a large date card with a title'>
-Screenshot of a large date card with a title
-</p>
+{% include dashboard/demo.html demo="date_large" caption="A large date card with a title." %}
 
 A date card using the full date preset:
 
@@ -137,10 +131,7 @@ date_format:
   - year-numeric
 ```
 
-<p class='img'>
-<img src='/images/dashboards/date_card_format_dmy.png' alt='Screenshot of a date card showing a day/month/year formatted date'>
-Screenshot of a date card showing a day/month/year formatted date
-</p>
+{% include dashboard/demo.html demo="date_day_month_year" caption="A date card showing the date as day/month/year." %}
 
 A date card without a background, showing a different time zone:
 
@@ -151,7 +142,4 @@ time_zone: Asia/Tokyo
 no_background: true
 ```
 
-<p class='img'>
-<img src='/images/dashboards/date_card_tokyo.png' alt='Screenshot of a date card without a background, showing the date in Tokyo'>
-Screenshot of a date card without a background, showing the date in Tokyo
-</p>
+{% include dashboard/demo.html demo="date_tokyo" caption="A date card without a background, showing the date in Tokyo." %}

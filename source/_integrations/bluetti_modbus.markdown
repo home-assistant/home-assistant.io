@@ -79,8 +79,9 @@ The device page links to the power station's own web interface. The serial numbe
 ### Controls
 
 - **Charge limit**, **Discharge limit**: The battery levels the power station stops charging at, and stops discharging at. Both accept 5 to 100 %.
+- **Working mode**: The power station's working mode, as in the BLUETTI app: **Self-consumption**, **Backup**, or **Custom**. A mode Home Assistant does not know shows as unknown. On a firmware that does not report the working mode, the entity is unavailable.
 
-Both limits are configuration entities. They are read every 60 seconds, so a change made in the BLUETTI app shows up within a minute. They are unavailable while the power station cannot be read.
+The charge and discharge limits are configuration entities. The controls are read every 60 seconds, so a change made in the BLUETTI app shows up within a minute. They are unavailable while the power station cannot be read.
 
 ## Data updates
 
