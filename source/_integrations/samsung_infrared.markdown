@@ -1,10 +1,10 @@
 ---
-description: Integration to control Samsung TVs and air conditioners using an infrared transmitter.
+description: Integration to control Samsung TVs and air conditioners using an infrared emitter.
 ha_release: 2026.6
 ha_domain: samsung_infrared
 ---
 
-The **Samsung Infrared** {% term integration %} lets you control a Samsung TV or air conditioner using any infrared transmitter previously configured in Home Assistant.
+The **Samsung Infrared** {% term integration %} lets you control a Samsung TV or air conditioner using any infrared emitter previously configured in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device but there is no feedback channel to confirm its current state. The integration therefore uses assumed states.
 
@@ -26,8 +26,8 @@ For example, you can use an ESPHome device with an IR LED pointed at your Samsun
 {% configuration_basic %}
 Device type:
   description: The type of Samsung device to control. Choose **TV** or **AC** (air conditioner).
-Infrared transmitter:
-  description: The infrared transmitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR transmitter.
+Infrared emitter:
+  description: The infrared emitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -173,13 +173,13 @@ In the Device info page, all buttons are greyed out and the "Activity" panel sho
 
 #### Description
 
-The integration only works if a functional infrared transmitter is configured and enabled.
+The integration only works if a functional infrared emitter is configured and enabled.
 
 #### Resolution
 
-1. Check that your Infrared Proxy Transmitter device is connected to power.
-2. Check that the transmitter has been configured in Home Assistant.
-3. Check that the transmitter entity is enabled.
+1. Check that your infrared remote adapter is connected to power.
+2. Check that the emitter has been configured in Home Assistant.
+3. Check that the emitter entity is enabled.
 
 {% enddetails %}
 
