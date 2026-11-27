@@ -64,6 +64,10 @@ for:
   required: false
   type: [string, integer, map, template]
   default: "00:00:00"
+target:
+  description: The entities, devices, areas, floors, or labels that the template works with. Home Assistant resolves the target to a list of entity IDs and passes it to the template as `entity_ids`. For details, refer to [Using a target in the template](#using-a-target-in-the-template).
+  required: false
+  type: map
 {% endoptions_yaml %}
 
 This example uses a template for `for`. The trigger reacts when Paulus has been home for as many minutes as `input_number.minutes` is set to:
@@ -75,6 +79,59 @@ trigger: |
   for:
     minutes: "{{ states('input_number.minutes') | int(0) }}"
 {% endexample %}
+
+### Using a target in the template
+
+Instead of writing entity IDs in the template, you can add a `target`.
+The target works like the target of other triggers: you can select entities, devices, areas, floors, and labels, and leave some of them out with `exclude`.
+For details, refer to [Automation targets](/docs/automation/targets/).
+
+Home Assistant resolves the target to the entities behind it and passes them to the template in the `entity_ids` variable.
+`entity_ids` is a sorted list of entity IDs.
+It's only available when you add a `target`.
+
+This example reacts when more than 2 lights in the living room are on.
+An area contains more than lights, so the template first keeps only the light entities:
+
+{% example %}
+trigger: |
+  trigger: template
+  target:
+    area_id: living_room
+  value_template: >
+    {{
+      entity_ids
+      | select('match', 'light\.')
+      | select('is_state', 'on')
+      | list
+      | count > 2
+    }}
+{% endexample %}
+
+When the entities behind the target change, for example, because you add a light to the area, Home Assistant updates `entity_ids` and renders the template again.
+If the template changes from false to true, the trigger reacts, like it does for any other change.
+
+A target is especially useful in {% term blueprint blueprints %}.
+A blueprint can take a [target selector](/docs/blueprint/selectors/#target-selector) input and pass it to the trigger.
+The template then works with the resolved entities, so it doesn't need to work out which entities belong to an area, device, floor, or label:
+
+```yaml
+blueprint:
+  name: "Many lights on"
+  domain: automation
+  input:
+    lights:
+      selector:
+        target:
+          entity:
+            domain: light
+
+triggers:
+  - trigger: template
+    target: !input lights
+    value_template: >
+      {{ entity_ids | select('is_state', 'on') | list | count > 2 }}
+```
 
 ## Good to know
 
