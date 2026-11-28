@@ -53,6 +53,10 @@ The **Privacy mode** switch turns the privacy mode of a camera on or off. While 
 
 The **Wi-Fi signal strength** sensor shows how well a camera is connected to your Wi-Fi network, in percent. It is a diagnostic sensor and is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
 
+### Notifications
+
+The **Notifications** switch turns the push notifications of a camera on or off. While it is off, the camera sends no push notifications. The switch is shown with the configuration entities of the device.
+
 ### Restart
 
 The **Restart** button restarts a camera. It is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
