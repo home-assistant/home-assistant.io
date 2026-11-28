@@ -15,7 +15,7 @@ The AI task {% term entities %} come from AI integrations. For example, OpenAI, 
 You can use AI tasks in the following ways:
 
 - In automations and scripts, with the AI task actions. With them, you can generate text or structured data, generate images, and evaluate questions. For all actions, refer to [List of actions](#list-of-actions).
-- In the Home Assistant interface, with the **Suggest** button. For example, when you save an automation, it suggests a name, a description, a category, and labels.
+- In the Home Assistant interface, with the **Suggest** button. For example, when you save an automation, it suggests a name, a description, a category, and labels. The button only appears after you set up an AI integration. For details, refer to [Getting AI suggestions](#getting-ai-suggestions).
 
 Not every AI task supports every action. For example, some AI tasks can generate data, but not images.
 
@@ -46,6 +46,45 @@ To choose the preferred AI task entities:
 4. Optional: under **Decisions**, select an AI task entity that can evaluate questions.
 5. Select **Save**.
    - Result: The actions and the **Suggest** button use these AI task entities when you don't select one yourself.
+
+## Getting AI suggestions
+
+When you save an automation, a script, or a scene, AI can suggest how to describe it. For example, it suggests a name and a description for your automation, based on its triggers and actions. You can change each suggestion before you save.
+
+The **Suggest** button isn't there by default. It only appears after you set up an AI integration that adds AI tasks, and choose one of its AI tasks for suggestions.
+
+{% important %}
+**Risk of sharing private information with your AI provider**
+
+To make its suggestions, the AI task sends information to its AI provider. For an automation, a script, or a scene, this includes its configuration and the names of your other automations, scripts, or scenes, with their categories and labels. For an area, it includes the names of your other areas, with their floors and labels. This information can be private. For example, an automation can contain the names of the people who live in your home, or the times when they usually leave and come home. It can also show how your home is secured. For example, it can show that your alarm turns on when everyone leaves.
+
+To avoid this:
+
+- Only select **Suggest** when you want a suggestion. Nothing is sent until you select it.
+- To keep this information on your network, use an AI task from a local AI integration, such as [Ollama](/integrations/ollama/). This needs a powerful computer.
+{% endimportant %}
+
+Prerequisites:
+
+- An administrator account in Home Assistant.
+
+To get AI suggestions:
+
+1. If you haven't yet, set up an AI integration that adds AI tasks. For example, set up [OpenAI](/integrations/openai_conversation/).
+   - You don't need a conversation agent or an AI app.
+   - Some AI integrations don't add an AI task when you set them up. For example, in [Ollama](/integrations/ollama/#configuration-options), you add one with **Add AI task**.
+2. Choose a preferred AI task entity for data generation. For the steps, refer to [Choosing the preferred AI task entities](#choosing-the-preferred-ai-task-entities).
+   - Without it, the **Suggest** button doesn't appear.
+3. Open the dialog of what you want suggestions for:
+   - For an automation, a script, or a scene: Go to {% my automations title="**Settings** > **Automations & scenes**" %}, and open it. In the top-right corner, select **Menu** {% icon "mdi:dots-vertical" %} > **Rename**. For a new one, the dialog opens when you save it for the first time.
+   - For an area: Go to {% my areas title="**Settings** > **Areas, labels & zones**" %}, and open the area. Select **Area settings** {% icon "mdi:pencil" %}. For a new area, select **Create area**.
+4. In the dialog, select **Suggest** {% icon "mdi:star-four-points" %}.
+   - Result: AI fills in the fields with its suggestions.
+   - For an automation, a script, or a scene, it suggests a name, a description, a category, and labels.
+   - For an area, it suggests labels and a floor. If the name is empty, it also suggests a name.
+   - AI only suggests categories, labels, and floors that you already created.
+5. Check the suggestions, and change them if you want to.
+6. To save, select **Rename**, **Save**, or **Create**, depending on the dialog.
 
 ## AI task states
 
@@ -271,3 +310,27 @@ template:
       - name: "AI generated image of New York"
         url: "http://localhost:8123{{ trigger.event.data.url }}"
 ```
+
+## Troubleshooting
+
+{% details "The Suggest button doesn't appear" %}
+
+### Symptom: No Suggest button
+
+The **Suggest** {% icon "mdi:star-four-points" %} button is missing from the dialog where you save or rename an automation, a script, or a scene. Or it's missing from the dialog where you create or edit an area.
+
+#### Description
+
+The **Suggest** button isn't there by default. It only appears when you have an AI integration that adds AI tasks, and one of its AI tasks is chosen as the preferred AI task entity for data generation.
+
+#### Resolution
+
+1. If you don't have an AI integration yet, set up one that adds AI tasks. For example, set up [OpenAI](/integrations/openai_conversation/). For the full list, refer to [AI integrations](/integrations/category/ai_voice/ai_models/).
+2. Check that your AI integration has an AI task. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your AI integration.
+   - Some AI integrations don't add an AI task when you set them up. For example, in [Ollama](/integrations/ollama/#configuration-options), you add one with **Add AI task**.
+3. Go to {% my config_ai title="**Settings** > **System** > **AI**" %}. On the **AI suggestions** card, check that an AI task entity is selected under **Data generation tasks**.
+   - If none is selected, select one, and then select **Save**. For details, refer to [Choosing the preferred AI task entities](#choosing-the-preferred-ai-task-entities).
+4. Close the dialog, and open it again.
+   - Result: The **Suggest** button appears in the top-right corner of the dialog.
+
+{% enddetails %}
