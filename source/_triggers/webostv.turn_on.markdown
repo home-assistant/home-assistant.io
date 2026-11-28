@@ -9,7 +9,8 @@ related_triggers:
 
 The **TV turn on requested** trigger fires when Home Assistant requests an LG webOS TV to power on. Use it to react to that request and carry out the actual turn-on step, such as sending a Wake-on-LAN packet or an HDMI-CEC command.
 
-LG webOS TVs cannot be powered on by the integration itself. Instead, Home Assistant fires this trigger when something (an automation, a script, or the UI) calls the turn-on action for the TV. You then use an automation to run whichever method your TV supports. Without such an automation, the TV appears as unavailable while it is off.
+Use this trigger when you want an automation to handle turning on the TV instead of the integration's built-in Wake-on-LAN.
+The automation takes priority, so its actions must include a method that powers on the TV.
 
 {% include triggers/ui_header.md %}
 
@@ -64,6 +65,8 @@ entity_id:
 
 ## Good to know
 
+- An automation using this trigger replaces the integration's Wake-on-LAN turn-on method. If the automation only sends a notification, the TV will not turn on.
+
 - This trigger fires when Home Assistant _requests_ the TV to turn on, not when the TV reports that it turned on. To react to the TV actually reporting that it is on, use [Media player turned on](/triggers/media_player.turned_on/) instead.
 - To turn on the TV from this trigger, add an action that can power it on, such as [Wake-on-LAN](/integrations/wake_on_lan/) or [HDMI-CEC](/integrations/hdmi_cec/).
 - For Wake-on-LAN, enable **LG Connect Apps** in the TV's **Network** settings, or **Mobile App** in the **General** settings on older models. The exact setting name varies by model and webOS version.
@@ -76,7 +79,9 @@ entity_id:
 
 ### Automation: turn on the TV with Wake-on-LAN
 
-When something requests the LG webOS TV to turn on, send a Wake-on-LAN magic packet to power it on over the network. Set up the [Wake-on-LAN integration](/integrations/wake_on_lan/) before using this example.
+Use this example if you need a Wake-on-LAN automation instead of the integration's built-in turn-on method.
+When something requests the LG webOS TV to turn on, the automation sends a Wake-on-LAN magic packet.
+Set up the [Wake-on-LAN integration](/integrations/wake_on_lan/) before using this example.
 
 - **Trigger**: TV turn on requested
   - **Entities**: Living room LG TV (`media_player.lg_webos_tv`)
@@ -102,6 +107,8 @@ automation: |
 ### Automation: send a notification when the TV is requested to turn on
 
 When something requests the LG webOS TV to turn on, send a notification to your phone.
+This example only sends a notification.
+Add an action that powers on the TV if you also want the turn-on request to wake it.
 
 - **Trigger**: TV turn on requested
   - **Entities**: Living room LG TV (`media_player.lg_webos_tv`)
