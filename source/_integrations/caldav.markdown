@@ -202,6 +202,8 @@ actions that can be used in automations.
 
 Items are listed by the position Nextcloud Tasks and Tasks.org save when you sort by hand, otherwise by the time they were created. Moving an item in the [to-do list card](/dashboards/todo-list/) saves its new position on the server, where these apps pick it up.
 
+{% include integrations/actions.md %}
+
 ## Troubleshooting
 
 {% details "iCloud" %}
