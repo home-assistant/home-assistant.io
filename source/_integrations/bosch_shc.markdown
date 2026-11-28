@@ -61,6 +61,8 @@ Outdoor Sirens that report their power supply also get diagnostic **AC/DC error*
 
 A Motion Detector II gets an **Occupancy** binary sensor and a **Tamper** diagnostic binary sensor that turns on when the device was tampered with.
 
+A Shutter Contact II Plus gets a **Vibration** binary sensor that turns on while the contact detects vibration.
+
 A Smoke Detection System gets a **Smoke** binary sensor. It turns on while the system reports a smoke alarm, including a pre-alarm or a muted alarm, and turns off when the alarm ends.
 
 ### Buttons
