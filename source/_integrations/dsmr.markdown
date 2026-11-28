@@ -27,18 +27,6 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For EasyMeter Q3D, choose DSMR version `Q3D`
 - For E-ON Hungary meters (and for most of other Hungarian meters), choose DSMR version `5EONHU`
 
-### Options
-
-To configure options for DSMR integration go to {% my integrations title="**Settings** > **Devices & services**" %} and press **Options** on the DSMR card.
-
-#### Time between updates
-
-Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter.
-
-{% important %}
-Reducing the default time between updates will increase the amount of events generated and can potentially flood the system with events.
-{% endimportant %}
-
 ### Supported meters
 
 This integration is known to work for:
@@ -170,3 +158,9 @@ Smart meters in Belgium, Luxembourg and Sweden provided telegrams with largely t
 This module sets up an asynchronous reading loop using the `dsmr_parser` module which waits for a complete telegram, parser it and puts it on an async queue as a dictionary of `obis`/object mapping. The numeric value and unit of each value can be read from the objects attributes. Because the `obis` are know for each DSMR version the Entities for this integration are create during bootstrap.
 
 Another loop (DSMR class) is set up which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.
+
+## Data updates
+
+**DSMR** meters typically push updates every 5 to 10 seconds. Newer devices commonly provide updates every second.
+
+Due to this high update frequency, the integration can generate a significant amount of data, increasing the size of the Home Assistant database and its disk space requirements. Before setting up the integration, ensure that sufficient storage is available.
