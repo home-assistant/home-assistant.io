@@ -26,7 +26,7 @@ related:
     title: Sensor
 ---
 
-The **Intesis Modbus** {% term integration %} lets you control an air conditioner that is connected to an [Intesis](https://www.intesis.com) Modbus gateway. The gateway is wired to the air conditioner's own control bus and makes the unit available over Modbus RTU. Home Assistant talks to the gateway locally over a serial connection, without a cloud service.
+The **Intesis Modbus** {% term integration %} lets you control an air conditioner that is connected to an [Intesis](https://www.intesis.com) Modbus gateway. The gateway is wired to the air conditioner's own control bus and makes the unit available over Modbus RTU. Home Assistant talks to the gateway locally, over a serial connection or through a Modbus TCP bridge, without a cloud service.
 
 Use case: Turn the air conditioner on and off, and change its mode, target temperature, and fan speed from Home Assistant, for example to lower the temperature at night or when nobody is home.
 
@@ -46,22 +46,34 @@ The following devices are not supported by the integration:
 
 ## Prerequisites
 
-{% include integrations/serial_connected.md %}
+Home Assistant reaches the gateway in one of two ways:
 
-- The gateway's EIA-485 port is wired to an RS-485 adapter.
-- You know how the DIP switches on the gateway are set. The gateway only reads them when it powers up, so power it off and on again after changing one.
-  - **Modbus slave address** (SW3): a number from 1 to 63. The factory default is 1.
-  - **Baud rate** (SW3 and SW4): the factory default is 9600. The gateway always uses 8 data bits, no parity, and 2 stop bits.
-  - **Temperature format** (SW4): degrees Celsius, tenths of a degree Celsius, or degrees Fahrenheit. The integration detects this setting.
-  - **Termination resistor** (SW4): turn it on when the gateway is at the end of the RS-485 line.
+- **Serial connection**: The gateway's EIA-485 port is wired to an RS-485 adapter. You can connect the adapter to a serial port on the system that runs Home Assistant, or reach it over your network with an [ESPHome](/integrations/esphome/) serial proxy. For more details, refer to [setting up a serial connection](/connectivity/serial/#setting-up-a-serial-connection-in-home-assistant).
+- **Modbus TCP**: The gateway's EIA-485 port is wired to a bridge that converts Modbus TCP to Modbus RTU. The bridge is on your network, and its RS-485 side is set to the baud rate of the gateway, 8 data bits, no parity, and 2 stop bits. You don't need a serial connection on the Home Assistant side.
+
+You also need to know how the DIP switches on the gateway are set. The gateway only reads them when it powers up, so power it off and on again after changing one.
+
+- **Modbus slave address** (SW3): a number from 1 to 63. The factory default is 1.
+- **Baud rate** (SW3 and SW4): the factory default is 9600. The gateway always uses 8 data bits, no parity, and 2 stop bits.
+- **Temperature format** (SW4): degrees Celsius, tenths of a degree Celsius, or degrees Fahrenheit. The integration detects this setting.
+- **Termination resistor** (SW4): turn it on when the gateway is at the end of the RS-485 line.
 
 {% include integrations/config_flow.md %}
 
+When you add the integration, you first choose how Home Assistant reaches the gateway:
+
+- **Serial port (Modbus RTU)**: The gateway is wired to an RS-485 adapter. This also covers a serial port that a serial proxy shares over the network.
+- **Modbus TCP**: The gateway is wired to a bridge that speaks Modbus TCP on your network.
+
 {% configuration_basic %}
 Serial port:
-    description: "The serial port of the RS-485 adapter that the gateway is wired to."
+    description: "Serial connections only. The serial port of the RS-485 adapter that the gateway is wired to."
 Baud rate:
-    description: "The speed set on the DIP switches of the gateway. The factory default is `9600`."
+    description: "Serial connections only. The speed set on the DIP switches of the gateway. The factory default is `9600`."
+Host:
+    description: "Modbus TCP connections only. The hostname or IP address of the bridge the gateway is wired to."
+Port:
+    description: "Modbus TCP connections only. The port the bridge listens on. The default is `502`."
 Modbus unit ID:
     description: "The Modbus slave address set on the DIP switches of the gateway. The factory default is `1`."
 Unit has a swing vane:
@@ -159,7 +171,6 @@ Changes made with the remote controller of the air conditioner show up in Home A
 
 - The gateway doesn't report whether the unit is currently heating or cooling. The climate entity shows the selected mode, but not the current activity.
 - The integration doesn't discover gateways. You need to add each gateway manually.
-- The integration doesn't support gateways reached through Modbus TCP.
 - The integration never changes the Modbus slave address or the baud rate of the gateway. Change them with the DIP switches.
 
 ## Troubleshooting
@@ -172,14 +183,15 @@ When trying to set up the integration, the form shows the message "Failed to con
 
 #### Description
 
-Home Assistant didn't receive an answer from the gateway on the selected serial port.
+Home Assistant didn't receive an answer from the gateway on the selected serial port or through the bridge.
 
 #### Resolution
 
 1. Make sure the gateway is powered on.
 2. Check the RS-485 wiring. If the A and B wires are swapped, the gateway doesn't answer.
-3. Make sure the **Baud rate** and **Modbus unit ID** match the DIP switches of the gateway.
+3. Make sure the **Modbus unit ID** matches the DIP switches of the gateway. For a serial connection, make sure the **Baud rate** matches them too.
 4. Make sure the termination resistor is on if the gateway is at the end of the RS-485 line.
+5. If you use a Modbus TCP bridge, make sure Home Assistant can reach its host and port, and that its RS-485 side uses the baud rate of the gateway with 8 data bits, no parity, and 2 stop bits.
 
 ### Symptom: "The serial port is already in use with other settings"
 
@@ -258,7 +270,7 @@ The gateway stopped answering, or it answers but can't reach the air conditioner
 
 1. Make sure the gateway is powered on.
 2. Check the RS-485 wiring and the termination resistor.
-3. Make sure the RS-485 adapter is still connected to the system that runs Home Assistant.
+3. For a serial connection, make sure the RS-485 adapter is still connected to the system that runs Home Assistant. For a Modbus TCP connection, make sure the bridge is powered on and that Home Assistant can still reach it on your network.
 4. Check the wiring between the gateway and the indoor unit, and make sure the indoor unit is powered on.
 
 {% enddetails %}
