@@ -97,6 +97,18 @@ A light entity will be added to cameras + light combos. You can turn it on/off a
 
 The image entity represents the last detected event from a camera and visually represents the event within Home Assistant.
 
+### Motion event entity
+
+Each camera has a motion event entity. It fires every time the camera reports a new alarm, so you can use it to trigger automations on a detection. Doorbell rings and unlocks, which EZVIZ doorbells and intercoms also report as alarms, do not fire it.
+
+The event carries the alarm in its attributes:
+
+- `alarm_time`: the time of the alarm as reported by EZVIZ, for example `2026-11-17 12:00:20`.
+- `alarm_type_code`: the alarm code reported by EZVIZ, for example `10079`.
+- `alarm_type_name`: the alarm name reported by EZVIZ, for example `Smart Detection Alarm`.
+
+The integration reads the last alarm when it polls the EZVIZ API, every 30 seconds. An event can therefore arrive up to about 30 seconds after the detection, and if the camera reports more than one alarm between two polls, only the latest one fires an event. The alarm that is already present when Home Assistant starts is not fired as a new event.
+
 {% include integrations/actions.md %}
 
 ## Troubleshooting
