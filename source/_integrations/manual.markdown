@@ -7,11 +7,37 @@ related:
     title: Configuration file
 ---
 
-The **Manual Alarm control panel** {% term integration %} enables you to create an alarm system in Home Assistant.
+The **Manual Alarm control panel** {% term integration %} enables you to create an alarm system in Home Assistant. You arm, disarm, and trigger the alarm yourself, for example from the dashboard or with automations.
 
-## Configuration
+{% include integrations/config_flow.md %}
+{% configuration_basic %}
+Name:
+  description: The name of the alarm control panel.
+Code:
+  description: The code to arm or disarm the alarm. Leave empty to not require a code. Only one of **Code** and **Code template** can be set.
+Code template:
+  description: A template that renders the code, instead of a fixed code. The variables `from_state` and `to_state` identify the current and desired state. An empty result disables checking the code. Only one of **Code** and **Code template** can be set.
+Code required for arming:
+  description: Whether the code is also required to arm the alarm, not just to disarm it. The default is enabled.
+Arming states:
+  description: The arm modes the alarm control panel supports. The default is **Armed away**, **Armed home**, **Armed night**, **Armed vacation**, and **Armed custom bypass**.
+Arming time:
+  description: The time it takes to go from **arming** to the armed state. The default is 60 seconds.
+Delay time:
+  description: The time the alarm stays in the **pending** state after it is triggered, before it goes off. The default is 60 seconds.
+Trigger time:
+  description: The time the alarm stays **triggered**. Set to zero to disable triggering. The default is 120 seconds.
+Disarm after trigger:
+  description: Disarm the alarm after the trigger time has passed, instead of returning to the previous state. The default is disabled.
+Disarmed, Armed away, Armed home, Armed night, Armed vacation, Armed custom bypass:
+  description: Collapsed sections to override the times for a specific state. Each section has a **Delay time** and **Trigger time**, and the armed states also have an **Arming time**. Fields left empty use the general times above.
+{% endconfiguration_basic %}
 
-To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+To change these settings later, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, select the alarm control panel, and in its settings select **Manual alarm control panel options**.
+
+## YAML configuration
+
+Alternatively, this {% term integration %} can be set up in YAML. To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -155,6 +181,10 @@ garage door opens, but not for the "armed home" state.
 
 **trigger_time** is useful to disable the alarm when disarmed, but it can also
 be used for example to sound the siren for a shorter time during the night.
+
+When Home Assistant restarts, the alarm restores its state. An **arming** or
+**pending** countdown continues from when the transition started, and an alarm
+that finished arming stays armed.
 
 ## Examples
 
