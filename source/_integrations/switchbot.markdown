@@ -137,6 +137,7 @@ In addition to the certified devices, the following devices are also supported:
 - Lock Vision
 - Lock Vision Pro
 - Lock Pro Wifi
+- Lock Nano
 
 ### Humidifiers
 
@@ -660,6 +661,10 @@ Features:
 ### Locks
 
 Note: The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
+
+#### Lock Nano
+
+Lock Nano supports locking, unlocking, battery level, charging status, calibration status, the auto-lock paused status, and the unlocked timeout alarm. Its Bluetooth advertisements do not provide door open or closed status, so this model has no door sensor entity.
 
 #### Lock
 
