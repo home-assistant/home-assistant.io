@@ -455,6 +455,12 @@ If your Teslemetry authentication token becomes invalid or expires, Home Assista
 
 Timeouts can occur due to connection issues between Home Assistant, Teslemetry, Tesla, or the vehicle itself (e.g., the vehicle is in an area with poor cellular reception). These are often temporary. If timeouts persist, please contact `support@teslemetry.com`.
 
+### Insufficient Teslemetry credits
+
+If Teslemetry rejects a command because your account does not have enough command credits, Home Assistant creates a repair issue named **Insufficient Teslemetry credits**. The issue names your Teslemetry account and links to the credits page in the Teslemetry console. You can find it under {% my repairs title="**Settings** > **System** > **Repairs**" %}.
+
+To fix it, add more credits to your account in the Teslemetry console. You do not need to do anything in Home Assistant. The issue is removed automatically when Teslemetry reports that your account has enough credits again. Until then, the issue stays after you reload the integration or restart Home Assistant.
+
 ## Examples
 
 ### Common use cases
