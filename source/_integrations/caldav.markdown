@@ -204,6 +204,55 @@ Items are listed by the position Nextcloud Tasks and Tasks.org save when you sor
 
 {% include integrations/actions.md %}
 
+## CalDAV automation examples
+
+With the busy periods of a calendar, an automation can run only when you're not in a meeting.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Start the robot vacuum only when you're not in a meeting
+
+Start the robot vacuum at 10:00 on weekdays, but only when the work calendar has nothing busy in the next 2 hours, so the noise doesn't disturb a call. Events marked as free don't hold it back.
+
+- **Trigger**: Time, 10:00:00 on weekdays
+- **Action**: CalDAV: Get free/busy
+  - **Target**: Work (`calendar.work`)
+  - **Duration**: 2 hours
+  - **Response variable**: `busy`
+- **Condition**: Template, nothing is busy
+- **Action**: Start vacuum cleaner
+  - **Target**: Robot vacuum (`vacuum.robot`)
+
+{% details "YAML example for starting the robot vacuum when you're not in a meeting" %}
+
+{% example %}
+automation: |
+  alias: "Vacuum when no meeting is planned"
+  triggers:
+    - trigger: time
+      at: "10:00:00"
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  actions:
+    - action: caldav.get_free_busy
+      target:
+        entity_id: calendar.work
+      data:
+        duration:
+          hours: 2
+      response_variable: busy
+    - condition: "{{ busy['calendar.work'].periods | length == 0 }}"
+    - action: vacuum.start
+      target:
+        entity_id: vacuum.robot
+{% endexample %}
+
+{% enddetails %}
+
 ## Troubleshooting
 
 {% details "iCloud" %}
