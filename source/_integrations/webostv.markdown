@@ -30,6 +30,21 @@ Sources:
   description: It is possible to select which sources will be available to the media player. When the TV is powered on press the **CONFIGURE** button in the {% term integration %} card and select the sources to enable. If you don't select any source the media player will offer all of the sources of the TV.
 {% endconfiguration_basic %}
 
+### Advanced Wake-on-LAN options
+
+To change the options, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **LG webOS TV**, and select the cogwheel {% icon "mdi:cog-outline" %} next to your TV.
+
+Expand **Advanced Wake-on-LAN options** to change how the integration sends wake-up packets.
+Both fields are optional.
+Leave them empty to use the default broadcast address and the MAC addresses reported by your TV.
+
+{% configuration_basic %}
+Broadcast address:
+  description: "The IPv4 address to send the magic packet to. Defaults to `255.255.255.255` and is normally not changed. If your TV is on another subnet, you can enter that subnet's broadcast address or the TV's IP address. Your network must allow the packet to reach the TV."
+MAC address:
+  description: "The MAC address of the TV to wake up. Overrides the MAC addresses reported by the TV. Accepts common formats, such as `AA:BB:CC:DD:EE:FF`, `AA-BB-CC-DD-EE-FF`, or `AABBCCDDEEFF`."
+{% endconfiguration_basic %}
+
 ## Supported devices
 
 LG webOS TV devices running webOS 2.0 and above.
@@ -55,10 +70,11 @@ The **LG webOS TV** integration provides the following entities.
 ### Turning on the TV from Home Assistant
 
 To turn on your TV from Home Assistant, the integration uses Wake-on-LAN.
-This works on webOS 3.0 and newer when Wake-on-LAN is enabled on the TV (see [Troubleshooting](#turning-on-the-tv-does-not-work)) and the TV has reported its <abbr title="Media Access Control">MAC</abbr> address.
+This works on webOS 3.0 and newer when Wake-on-LAN is enabled on the TV (see [Troubleshooting](#turning-on-the-tv-does-not-work)) and a <abbr title="Media Access Control">MAC</abbr> address is available.
+The integration uses the MAC addresses reported by your TV unless you enter an override in [Advanced Wake-on-LAN options](#advanced-wake-on-lan-options).
 
 If you have an automation that uses the [TV turn on requested](/triggers/webostv.turn_on/) trigger, it is used instead of the integration's Wake-on-LAN.
-Use an automation when Wake-on-LAN doesn't work for your setup, for example, if your TV doesn't report a MAC address, is on a different subnet, or you want to turn it on using [HDMI-CEC](/integrations/hdmi_cec/) or [infrared](/integrations/lg_infrared/).
+Use an automation when Wake-on-LAN doesn't work for your setup, or you want to turn it on using [HDMI-CEC](/integrations/hdmi_cec/) or [infrared](/integrations/lg_infrared/).
 
 If a MAC address is known, the TV appears as **off** when it is off.
 If Wake-on-LAN is disabled on the TV or the wake-up packet cannot reach it, the TV may stay off without Home Assistant reporting an error.
@@ -181,7 +197,9 @@ This integration uses the [SSDP](/integrations/ssdp) integration, which must be 
 On newer models (2025+), Wake-on-LAN may need to be enabled in the TV settings by going to **Settings** > **Support** > **IP control settings** > **Wake on LAN**.
 For other models (2017+) the same settings is under **Settings** > **General** > **Mobile TV On** > **Turn On Via WiFi**, see [these instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
-Check that Home Assistant and the TV are on the same subnet.
+If your TV doesn't report a MAC address, enter its MAC address in [Advanced Wake-on-LAN options](#advanced-wake-on-lan-options).
+If Home Assistant and the TV are on different subnets, set **Broadcast address** to the TV's subnet broadcast address or to the TV's IP address.
+Your router and firewall must allow the wake-up packets from Home Assistant to reach the TV.
 
 If the TV still does not turn on, use an automation with the [TV turn on requested](/triggers/webostv.turn_on/) trigger to use another turn-on method.
 This automation takes priority over the integration's Wake-on-LAN.
@@ -193,9 +211,10 @@ Make sure to enable *LG Connect Apps* feature in *Network* settings of the TV.
 ## Known limitations
 
 {% important %}
-For the integration's Wake-on-LAN to work, Home Assistant and the TV must be on the same subnet.
-Routing the Wake-on-LAN packet to a different subnet requires special configuration on your router or may not be possible.
-For these setups, use a turn-on automation.
+Wake-on-LAN broadcasts normally stay on the same subnet.
+Setting a **Broadcast address** does not configure routing or firewall rules on your network.
+Waking a TV on a different subnet may require router configuration and is not supported by every network.
+If wake-up packets cannot reach your TV, use a turn-on automation with another method.
 {% endimportant %}
 
 - If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on ports 3000 & 3001 with the TCP protocol from Home Assistant to your TV.
