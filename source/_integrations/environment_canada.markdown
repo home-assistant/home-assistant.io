@@ -75,7 +75,13 @@ The alert sensors use the number of current alerts as their state, with an attri
 
 ## Radar camera options
 
-You can customize the radar display settings, grouped into four sections.
+You can customize the radar display settings. You choose the radar type first, and then the settings for that radar type, grouped into four sections. Settings marked *Rain and Snow only* aren't shown when the radar type is **Precipitation type**.
+
+### Radar type
+
+- **Radar type**: The radar layer to display (default: **Precipitation type**):
+  - **Rain** and **Snow**: Precipitation intensity.
+  - **Precipitation type**: Where it's raining, snowing, or mixed. Because it shows categories rather than intensity, it has a single color scale, can't be smoothed, and has no forecast data to extend the loop with.
 
 ### Map
 
@@ -83,22 +89,21 @@ You can customize the radar display settings, grouped into four sections.
 
 ### Radar
 
-- **Radar type**: The radar layer to display: **Rain**, **Snow**, or **Precipitation type** (a composite layer showing the type of precipitation). The default is **Precipitation type**.
-- **Color scale**: Number of colors in the **Rain** and **Snow** radar images, either **8 colors** or **14 colors** (default: **14 colors**). This setting does not apply to the **Precipitation type** radar type, which always uses its own color scale.
+- **Color scale** (*Rain and Snow only*): Number of colors in the radar image, either **8 colors** or **14 colors** (default: **14 colors**).
 - **Radar opacity**: Opacity of the radar overlay, from 0 to 100 (default: 65).
 - **Show legend**: Whether to show the color legend on the radar image (default: off).
 
 ### Time
 
 - **Past minutes**: How far back the radar animation goes, in minutes, from 0 to 180 (default: 0, which uses the full history available from Environment Canada).
-- **Future minutes**: Extends the radar loop past now using Environment Canada's short-term forecast (nowcast) data, in minutes, from 0 to 72 (default: 0, no extrapolation frames). This setting only applies to the **Rain** and **Snow** radar types; it has no effect on **Precipitation type**.
+- **Future minutes** (*Rain and Snow only*): Extends the radar loop past now using Environment Canada's short-term forecast (nowcast) data, in minutes, from 0 to 72 (default: 0, no extrapolation frames).
 - **Show timestamp**: Whether to show the timestamp on the radar image (default: on).
 
 ### Image
 
 This section is collapsed by default.
 
-- **Smooth radar image**: Whether to smooth the radar image instead of leaving it pixelated. Turning this on uses more bandwidth (default: off).
+- **Smooth radar image** (*Rain and Snow only*): Whether to smooth the radar image instead of leaving it pixelated. Turning this on uses more bandwidth (default: off).
 - **Loop frame rate**: Frame rate of the radar animation, from 1 to 30 frames per second (FPS) (default: 5 FPS).
 
 ### Configuring radar camera display
@@ -108,8 +113,11 @@ To configure the radar camera display:
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Environment Canada** integration.
 3. Select **Configure** (the cogwheel icon).
-4. Change the options you want.
-5. Select **Submit**.
+4. Select the **Radar type**, then select **Next**.
+5. Change the options you want.
+6. Select **Submit**.
+
+If you switch to **Precipitation type**, any *Rain and Snow only* settings you had saved are cleared. Switching back to **Rain** or **Snow** starts those settings from their defaults.
 
 Changing these settings reloads the integration, so the new radar settings take effect immediately. The radar camera entity is briefly unavailable during the reload.
 
