@@ -235,7 +235,9 @@ These are the properties available for a [**Template** trigger](/triggers/templa
 - `trigger.entity_id`: Entity ID that caused the change.
 - `trigger.from_state`: Previous [state object] of the entity that caused the change.
 - `trigger.to_state`: New [state object] of the entity that caused the template to change.
-- `trigger.for`: Timedelta object of how long the template has been true, or `None` if the trigger has no duration.
+- `trigger.value`: The result of the template that made the trigger react, for example `true`, `42`, or `"heating"`.
+- `trigger.previous_value`: The previous result of the template. Results from when the template couldn't be rendered are skipped. `None` if the template had no previous result.
+- `trigger.for`: Timedelta object of how long the template has been true, or kept the same result with `triggered_when: changed`. `None` if the trigger has no duration.
 
 If the template changed because of time, for example because it uses `now()`, `trigger.entity_id`, `trigger.from_state`, and `trigger.to_state` are `None`.
 

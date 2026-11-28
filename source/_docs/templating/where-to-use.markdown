@@ -56,7 +56,7 @@ output: "True (when the outdoor temperature is below 5°C)"
 
 ## Automation triggers
 
-A [template trigger](/triggers/template/) reacts when the template changes from false to true. This lets you react to conditions that no single entity represents.
+A [template trigger](/triggers/template/) reacts when the template changes from false to true. With `triggered_when: changed`, it reacts whenever the result of the template changes. This lets you react to conditions that no single entity represents.
 
 {% example %}
 trigger: |
