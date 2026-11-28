@@ -372,7 +372,6 @@ You can also add YAML dashboards when your main dashboard is configured in the U
 
 ```yaml
 lovelace:
-  mode: storage
   # Add YAML dashboards
   dashboards:
     yaml-dashboard: # Needs to contain a hyphen (-)
