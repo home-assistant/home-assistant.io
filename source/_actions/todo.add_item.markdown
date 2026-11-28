@@ -38,6 +38,9 @@ Due date and time:
 Description:
   description: A longer description of the item than the name provides. Only available on to-do lists that support descriptions.
   required: false
+Parent item name or UID:
+  description: The name or UID of the item to add this item to as a subtask. If you have items with the same name, use the parent's UID instead. You can find the UID with the [Get to-do list items](/actions/todo.get_items/) action. Only available on to-do lists that support subtasks.
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -76,6 +79,10 @@ description:
   description: A longer description of the item than the name provides. Only on to-do lists that support descriptions.
   required: false
   type: string
+parent:
+  description: The name or UID of the item to add this item to as a subtask. If you have items with the same name, use the parent's UID instead. You can find the UID with the `todo.get_items` action. Only on to-do lists that support subtasks.
+  required: false
+  type: string
 {% endoptions_yaml %}
 
 {% include actions/targets.md %}
@@ -83,6 +90,7 @@ description:
 ## Good to know
 
 - You can set either a due date or a due date and time, but not both.
+- Subtasks are one level deep. The parent must be on the same to-do list and can't be a subtask itself.
 
 {% include actions/try_it.md %}
 
@@ -116,6 +124,29 @@ automation: |
         entity_id: todo.shopping_list
       data:
         item: "Pick up groceries"
+{% endexample %}
+
+{% enddetails %}
+
+### Action: add a subtask to an existing item
+
+Add milk as a subtask of the item named Dairy on a grocery list that supports subtasks.
+
+- **Action**: Add to-do list item
+  - **Target**: Groceries
+  - **Item name**: Milk
+  - **Parent item name or UID**: Dairy
+
+{% details "Show example YAML" %}
+
+{% example %}
+action: |
+  action: todo.add_item
+  target:
+    entity_id: todo.groceries
+  data:
+    item: "Milk"
+    parent: "Dairy"
 {% endexample %}
 
 {% enddetails %}

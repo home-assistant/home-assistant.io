@@ -44,6 +44,9 @@ Due date and time:
 Description:
   description: A longer description of the item than the name provides. Only available on to-do lists that support descriptions.
   required: false
+Parent item name or UID:
+  description: The name or UID of the item to make this item a subtask of. If you have items with the same name, use the parent's UID instead. Only available on to-do lists that support subtasks.
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -89,6 +92,10 @@ description:
   description: A longer description of the item than the name provides. Only on to-do lists that support descriptions.
   required: false
   type: string
+parent:
+  description: The name or UID of the item to make this item a subtask of. If you have items with the same name, use the parent's UID instead. An empty value turns a subtask back into a top-level item. Only on to-do lists that support subtasks.
+  required: false
+  type: string
 {% endoptions_yaml %}
 
 {% include actions/targets.md %}
@@ -97,6 +104,8 @@ description:
 
 - Set at least one of the fields you want to change, such as a new name or a new status.
 - You can set either a due date or a due date and time, but not both.
+- Subtasks are one level deep. The parent must be on the same to-do list and can't be a subtask itself, and an item that has subtasks can't become a subtask.
+- To turn a subtask back into a top-level item, set `parent: ""` in YAML. The visual editor doesn't send an empty field.
 
 {% include actions/try_it.md %}
 
@@ -127,6 +136,29 @@ automation: |
       data:
         item: "Check the mailbox"
         status: completed
+{% endexample %}
+
+{% enddetails %}
+
+### Action: make an item a subtask of another item
+
+Move the item named Milk under the item named Dairy on a grocery list that supports subtasks.
+
+- **Action**: Update to-do list item
+  - **Target**: Groceries
+  - **Item name or UID**: Milk
+  - **Parent item name or UID**: Dairy
+
+{% details "Show example YAML" %}
+
+{% example %}
+action: |
+  action: todo.update_item
+  target:
+    entity_id: todo.groceries
+  data:
+    item: "Milk"
+    parent: "Dairy"
 {% endexample %}
 
 {% enddetails %}

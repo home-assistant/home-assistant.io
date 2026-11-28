@@ -71,6 +71,7 @@ The action returns the matching items for each to-do list you targeted. The resp
 - `status`: Whether the item is `completed` or still `needs_action`.
 - `due`: The due date or date and time, if the item has one.
 - `description`: A longer description of the item, if it has one.
+- `parent_uid`: The UID of the item this item is a subtask of, if it is a subtask.
 
 A shortened example of the response looks like this:
 
