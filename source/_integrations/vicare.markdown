@@ -99,6 +99,8 @@ Heat pumps that report the heat they produce have the following sensors:
 
 Gas boilers that report their target temperature have a **Boiler target temperature** sensor that shows the temperature the boiler currently heats its water to.
 
+Gas boilers that report why their burner stopped have a diagnostic sensor for each stop reason, such as **Normal burner stops**, **Burner stops by flame loss**, and **Burner stops without ignition at start**. Each sensor counts how often the burner has stopped for that reason in total. These sensors are disabled by default, so enable the ones you want to follow.
+
 Devices that report their internal pump have an **Internal pump** binary sensor that shows whether the pump is running.
 
 Devices that report the modulation of their internal pump have the following sensors:
