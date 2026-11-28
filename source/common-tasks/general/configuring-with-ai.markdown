@@ -1,6 +1,6 @@
 ---
 title: "Configuring Home Assistant with AI"
-description: "Ask a conversation agent in Assist or an AI app to organize your home, explain your automations, set up the Energy dashboard, and fix repair issues."
+description: "Ask Assist with AI or an AI app to organize your home, explain your automations, set up the Energy dashboard, and fix repair issues."
 related:
   - docs: /integrations/llm/
     title: LLM
@@ -12,7 +12,7 @@ related:
 
 AI can help you configure Home Assistant and organize your home. You ask in your own words, and the AI does the work in Home Assistant for you. For example, it can move your devices to the right areas, explain what an automation does, or add your solar panels to the **Energy** dashboard.
 
-You can ask a {% term "conversation agent" %} in {% term Assist %}, or an {% term "AI app" %}, such as Claude or ChatGPT. Both use the **Home Assistant** set of {% term "AI tools" %}. Only administrators can use this set.
+You can ask {% term Assist %} with an AI {% term "conversation agent" %}, or an {% term "AI app" %}, such as Claude or ChatGPT. Both use the **Home Assistant** set of {% term "AI tools" %}. Only administrators can use this set.
 
 ## What you can ask AI to do
 
@@ -59,23 +59,23 @@ To avoid this:
 - After each change, check the result in Home Assistant.
 {% endimportant %}
 
-## Difference between using Assist and an AI app
+## Difference between using Assist with AI and an AI app
 
 Both use the same **Home Assistant** set of {% term "AI tools" %}, so they can help with the same tasks. They differ in where you ask, and in how they connect to Home Assistant:
 
-- A {% term "conversation agent" %} in {% term Assist %}: You ask in the Assist dialog of Home Assistant or of the {% term "Home Assistant Companion app" %}. You need an AI integration that adds conversation agents. For example, [OpenAI](/integrations/openai_conversation/) adds conversation agents. The Home Assistant AI tools only work when you're signed in with an administrator account. So they don't work on a {% term "voice satellite" %}.
+- {% term Assist %} with an AI {% term "conversation agent" %}: You ask in the Assist dialog of Home Assistant or of the {% term "Home Assistant Companion app" %}. You need an AI integration that adds conversation agents. For example, [OpenAI](/integrations/openai_conversation/) adds conversation agents. The Home Assistant AI tools only work when you're signed in with an administrator account. So they don't work on a {% term "voice satellite" %}.
 - An {% term "AI app" %}: You ask in an app such as Claude or ChatGPT, outside Home Assistant. It connects through the [Model Context Protocol](/integrations/mcp_server/) integration. You can make it read-only, so it can explain things but can't change them.
 
-## Asking a conversation agent in Assist
+## Asking Assist with AI
 
-You can ask a {% term "conversation agent" %} in the Assist dialog of Home Assistant, or of the {% term "Home Assistant Companion app" %}. For what you can ask, refer to [What you can ask AI to do](#what-you-can-ask-ai-to-do).
+You can ask {% term Assist %} with an AI {% term "conversation agent" %} in the Assist dialog of Home Assistant, or of the {% term "Home Assistant Companion app" %}. For what you can ask, refer to [What you can ask AI to do](#what-you-can-ask-ai-to-do).
 
 Prerequisites:
 
 - An administrator account in Home Assistant.
 - An assistant whose conversation agent uses the **Home Assistant** set of {% term "AI tools" %}. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](/integrations/llm/#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
 
-To ask a conversation agent in Assist:
+To ask Assist with AI:
 
 1. On a dashboard, in the top-right corner, select **Assist** {% icon "mdi:comment-processing-outline" %}.
    - On a narrow screen, it's under **Menu** {% icon "mdi:dots-vertical" %}. On a computer, you can also press <kbd>A</kbd>.
