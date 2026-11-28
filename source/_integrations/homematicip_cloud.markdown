@@ -379,9 +379,9 @@ Allow Home Assistant to control the device under **Access Control** in the Homem
 
 ### Create a debug log
 
-A debug log helps when you report a problem. If the integration is already set up, select **Enable debug logging** on its page under {% my integrations title="**Settings** > **Devices & services**" %}, reproduce the problem, and then select **Disable debug logging** to download the log.
+A debug log helps when you report a problem. If the integration is already set up, [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) on its page.
 
-If the problem happens during setup, there is no integration page yet. Before you start the setup, use the [Actions tab](/docs/tools/dev-tools/#actions-tab) in **Settings** > **Tools** to call the [`logger.set_level`](/integrations/logger/#action-set-level) action, and download the log from {% my logs title="**Settings** > **System** > **Logs**" %} afterwards:
+If the problem happens during setup, there is no integration page yet. Before you start the setup, use the [Actions tab](/docs/tools/dev-tools/#actions-tab) in **Settings** > **Tools** to call the [`logger.set_level`](/actions/logger.set_level/) action, and download the log from {% my logs title="**Settings** > **System** > **Logs**" %} afterwards. The log level returns to normal after the next restart of Home Assistant.
 
 ```yaml
 action: logger.set_level
