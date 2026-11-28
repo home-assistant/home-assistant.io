@@ -66,11 +66,10 @@ entity_id:
 ## Good to know
 
 - An automation using this trigger replaces the integration's Wake-on-LAN turn-on method. If the automation only sends a notification, the TV will not turn on.
-
 - This trigger fires when Home Assistant _requests_ the TV to turn on, not when the TV reports that it turned on. To react to the TV actually reporting that it is on, use [Media player turned on](/triggers/media_player.turned_on/) instead.
 - To turn on the TV from this trigger, add an action that can power it on, such as [Wake-on-LAN](/integrations/wake_on_lan/) or [HDMI-CEC](/integrations/hdmi_cec/).
-- For Wake-on-LAN, enable **LG Connect Apps** in the TV's **Network** settings, or **Mobile App** in the **General** settings on older models. The exact setting name varies by model and webOS version.
-- Wake-on-LAN works best when the TV is connected to your network with Ethernet, and usually only works when Home Assistant is on the same network as the TV.
+- For Wake-on-LAN, enable the setting on the TV described in [Troubleshooting](/integrations/webostv/#turning-on-the-tv-does-not-work).
+- Wake-on-LAN usually only works when Home Assistant and the TV are on the same subnet.
 - On the TV's device page, the same trigger is listed as **Device is requested to turn on**. It works the same way.
 
 {% include triggers/try_it.md %}
