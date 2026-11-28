@@ -12,8 +12,8 @@ related:
     title: AI Task
   - docs: /integrations/mcp_server/
     title: Model Context Protocol
-  - docs: /common-tasks/general/setting-up-with-ai/
-    title: Setting up and organizing with AI
+  - docs: /common-tasks/general/configuring-with-ai/
+    title: Configuring Home Assistant with AI
 ---
 
 AI can help you use Home Assistant in several ways. You can talk to your home in your own words, let your automations use AI for a single job, and ask AI to help you set up, organize, and fix Home Assistant.
@@ -48,11 +48,11 @@ The **Suggest** button in the Home Assistant interface also uses an AI task. For
 
 Your automations can also send text to a conversation agent. For an example, refer to the [Daily summary by Assist](/voice_control/assist_daily_summary/) tutorial.
 
-### Help with setting up and fixing Home Assistant
+### Help with configuring and fixing Home Assistant
 
 With the **Home Assistant** [set of AI tools](/integrations/llm/#sets-of-ai-tools), a conversation agent or an AI app can look into Home Assistant itself. It can read your logs, the status of your integrations, and your automations. It can also change settings. For example, it can organize your areas and devices, or set up the Energy dashboard. Only administrators can use this set.
 
-For what you can ask, and the steps, refer to [Setting up and organizing with AI](/common-tasks/general/setting-up-with-ai/). To find a problem with AI, refer to [Troubleshooting with AI](/docs/configuration/troubleshooting/#troubleshooting-with-ai).
+For what you can ask, and the steps, refer to [Configuring Home Assistant with AI](/common-tasks/general/configuring-with-ai/). To find a problem with AI, refer to [Troubleshooting with AI](/docs/configuration/troubleshooting/#troubleshooting-with-ai).
 
 ### Home Assistant in AI apps
 
@@ -61,7 +61,7 @@ You might already use an {% term "AI app" %}, such as Claude or ChatGPT, on your
 This is useful in the following situations:
 
 - You want to talk to your home in the AI app that you already use. For example, ask "Is the garage door closed?" in the app.
-- You want help to set up and organize Home Assistant in a longer conversation. For details, refer to [Setting up and organizing with AI](/common-tasks/general/setting-up-with-ai/).
+- You want help to configure Home Assistant in a longer conversation. For details, refer to [Configuring Home Assistant with AI](/common-tasks/general/configuring-with-ai/).
 
 You need an AI app that supports <abbr title="Model Context Protocol">MCP</abbr> servers. Refer to the [Prerequisites](/integrations/mcp_server/#prerequisites) of the Model Context Protocol integration. To set up your AI app, refer to [Client configuration](/integrations/mcp_server/#client-configuration).
 
@@ -141,7 +141,7 @@ Information about using AI in Home Assistant is spread over several parts of the
 
 ### Setup, organization, and troubleshooting
 
-- [Setting up and organizing with AI](/common-tasks/general/setting-up-with-ai/)
+- [Configuring Home Assistant with AI](/common-tasks/general/configuring-with-ai/)
 - [Troubleshooting with AI](/docs/configuration/troubleshooting/#troubleshooting-with-ai)
 - [Troubleshooting your configuration](/docs/configuration/troubleshooting/)
 - Organizing your home: [Areas](/docs/organizing/areas/), [floors](/docs/organizing/floors/), and [labels](/docs/organizing/labels/)
