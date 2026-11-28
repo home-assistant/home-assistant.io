@@ -52,10 +52,27 @@ entity_id:
   type: list
 {% endoptions_yaml %}
 
+## How this action works for polled and pushed entities
+
+Every entity is provided by an integration, and the integration decides how the entity gets its data.
+Polled entities get their data because the integration regularly asks a device or service for it. Pushed entities get their data when the device or service sends it.
+This action asks the entity's integration to update it immediately, so it works when that entity supports on-demand updates, which is common for polled entities. Some integrations support both pushed updates and on-demand polling.
+Whether an entity can be refreshed depends on the integration's implementation, not only on whether it receives pushed data.
+
+To know if your entity polls or pushes data, [check how an entity gets its data](/common-tasks/general/#checking-how-an-entity-gets-its-data).
+
+If you use the action on an entity that doesn't poll, depending on how its integration is built, one of these happens:
+
+- Nothing. The entity ignores the request.
+- Home Assistant writes an error to the logs, and the entity isn't refreshed.
+
+In both cases, the action itself doesn't fail, and the other entities you selected still update.
+
 ## Good to know
 
 - This action requests an immediate update. The entity's normal update schedule continues unchanged.
-- Some entities do not poll for data on a schedule. For those, this action has no effect.
+- Use this action only for entities that Home Assistant {% term polling polls %}. For details, refer to [How this action works for polled and pushed entities](#how-this-action-works-for-polled-and-pushed-entities).
+- To refresh polled entities on your own schedule, refer to [Defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval).
 
 {% include actions/stuck.md %}
 

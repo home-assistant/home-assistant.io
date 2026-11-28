@@ -191,7 +191,7 @@ The entity name must not start or end with an underscore. If you create an entit
 
 For instructions on how to change an entity name, refer to the section on [customizing entities](/docs/configuration/customizing-entities/).
 
-## Asking AI to help find a problem
+## Troubleshooting with AI
 
 AI can help you find out why an {% term integration %} doesn't work. You can ask a {% term "conversation agent" %} in {% term Assist %}, or an {% term "AI app" %}, such as Claude or ChatGPT. With the **Home Assistant** set of {% term "AI tools" %}, a conversation agent or an AI app can read your logs, the status of your integrations, and information about your system. You can check the answers with the steps in [Debug logs and diagnostics](#debug-logs-and-diagnostics).
 

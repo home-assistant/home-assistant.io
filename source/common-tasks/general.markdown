@@ -28,6 +28,17 @@ Creating an automation for polling gives you more flexibility on when to poll:
 
 {% include common-tasks/define_custom_polling.md %}
 
+## Checking how an entity gets its data
+
+In principle, an entity polls data if the integration that provides it regularly asks a device or service for data.
+An entity pushes data when the device or service sends it.
+To find out whether an entity polls or pushes data, check the integration that provides it:
+
+1. Find the integration of the entity. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and look at the **Integration** column.
+2. Open the integration's page in the [integration documentation](/integrations/).
+3. Find its IoT class on the page. A class that ends in Push, such as Local Push, means the integration mainly receives data. A class that ends in Polling, such as Cloud Polling, means it asks for data. Use the IoT class as a general indication of how the integration gets data. It does not necessarily describe every entity.
+4. If the page has a **Data updates** section, read it to find entity-specific behavior, including whether entities support polling, push updates, or both.
+
 ## Removing an integration instance
 
 If you no longer want to use a device or service in Home Assistant, you can remove its integration instance, including all its devices and entities.
