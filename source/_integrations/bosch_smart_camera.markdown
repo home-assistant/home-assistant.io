@@ -13,6 +13,7 @@ ha_platforms:
   - button
   - camera
   - light
+  - number
   - sensor
   - switch
   - update
@@ -52,6 +53,10 @@ The **Privacy mode** switch turns the privacy mode of a camera on or off. While 
 ### Wi-Fi signal strength
 
 The **Wi-Fi signal strength** sensor shows how well a camera is connected to your Wi-Fi network, in percent. It is a diagnostic sensor and is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
+
+### Speaker level
+
+The **Speaker level** number sets the speaker volume of a camera, from 0 to 100 percent. It is only added for cameras that have a speaker and is shown with the configuration entities of the device.
 
 ### Restart
 
