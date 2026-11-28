@@ -3,12 +3,50 @@ description: Instructions on how to integrate Govee lights with Govee local API
 ha_release: 2024.2
 ha_domain: govee_light_local
 ---
+The **Govee Lights Local** {% term integration %} controls [Govee](https://www.govee.com/) lights over your local network using the Govee LAN API. No cloud connection or Govee account is needed in Home Assistant.
 
-Integrates [Govee](https://www.govee.com/) lights into Home Assistant using Local API control.
+Each light is added to Home Assistant as its own device, with one light entity.
 
-To enable local control on your Govee device, refer to the instructions available [here](https://app-h5.govee.com/user-manual/wlan-guide).
+## Prerequisites
 
-{% include integrations/config_flow.md %}
+- Enable **LAN Control** for each light in the Govee Home app. Refer to the [Govee LAN guide](https://app-h5.govee.com/user-manual/wlan-guide) for instructions.
+- The lights must be on the same network as Home Assistant. Discovery uses multicast, which usually does not cross VLANs or separate subnets.
+- UDP port 4002 must be free on the Home Assistant host. Only one application on the host can listen for Govee lights at a time.
+
+{% include integrations/config_flow.md %} 
+
+## Adding lights
+
+Home Assistant scans the network for Govee lights. Each light that answers shows up under **Discovered** in {% my integrations title="**Settings** > **Devices & services**" %}, labeled with its model and IP address. Select **Add** on a discovered light to set it up.
+
+When you add the integration manually, Home Assistant runs a new scan and the lights it finds appear under **Discovered** in the same way. If you dismissed a discovered light earlier, adding the integration again brings it back.
+
+If the IP address of a light changes, Home Assistant picks up the new address the next time the light answers a scan.
+
+## Upgrading from an earlier version
+
+Earlier versions used a single integration entry for all lights. After the update, that entry is converted automatically into one entry per light. Your devices, entities, and their names are kept, so automations and dashboards keep working.
+
+- A light that is offline during the update gets its own entry the first time it answers again.
+- Lights that Home Assistant finds later are no longer added automatically. They appear under **Discovered** and you choose whether to add them.
+
+## Troubleshooting
+
+### No devices found on the network
+
+- Check that **LAN Control** is turned on for the light in the Govee Home app. The option only appears for models that support it.
+- Make sure the light and Home Assistant are on the same network and that your router or access point does not block multicast traffic.
+- Make sure no other application on the Home Assistant host is using UDP port 4002.
+
+### A light is shown as failing to set up
+
+The light did not answer. Check that it is powered and connected to Wi-Fi. Home Assistant keeps retrying and sets the light up as soon as it answers.
+
+## Removing the integration
+
+Each light has its own entry, so you can remove lights one at a time.
+
+{% include integrations/remove_device_service.md %}
 
 ## Supported devices
 
