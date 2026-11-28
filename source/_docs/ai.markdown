@@ -34,7 +34,7 @@ Assist works without AI. Its built-in conversation agent runs on your own hardwa
 - "Which windows are open?"
 - "Turn off the lights in the living room in 5 minutes."
 
-An AI conversation agent controls the entities that you [expose to Assist](/voice_control/voice_remote_expose_devices/). To get started, add an AI integration that provides a conversation agent, and choose it in your assistant. For the steps, refer to [Assist](/voice_control/).
+With the **Device control** set of AI tools, an AI conversation agent controls the entities that you [expose to Assist](/voice_control/voice_remote_expose_devices/). The **Home Assistant** set of AI tools reaches every entity. For details, refer to [Sets of AI tools](/integrations/llm/#sets-of-ai-tools). To get started, add an AI integration that provides a conversation agent, and choose it in your assistant. For the steps, refer to [Assist](/voice_control/).
 
 ### AI in automations and scripts
 
