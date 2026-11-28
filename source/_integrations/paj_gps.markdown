@@ -1,7 +1,20 @@
 ---
+title: PAJ GPS
 description: Instructions on how to integrate PAJ GPS devices into Home Assistant.
+ha_categories:
+  - presence_location.trackers
 ha_release: 2026.6
+ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@skipperro'
 ha_domain: paj_gps
+ha_platforms:
+  - device_tracker
+  - sensor
+  - switch
+ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **PAJ GPS** {% term integration %} allows you to incorporate PAJ GPS devices from <www.paj-gps.de> into your Home Assistant.
@@ -13,6 +26,7 @@ It provides entities for tracking the location of your PAJ GPS devices, monitori
 - Track the location of your PAJ GPS devices on a map in Home Assistant.
 - Create automations based on the location or status of your PAJ GPS devices (for example, open garage door when car is near).
 - Get notified when a device's battery is running low so you can recharge it before it goes offline.
+- Turn alerts on or off at set times, such as enabling the speed alert at night while your vehicle is parked to act as a theft alarm.
 
 ## Supported devices
 
@@ -50,6 +64,23 @@ The PAJ GPS {% term integration %} will track the location of each device regist
   - **Description**: Remaining battery charge (0–100%) for PAJ GPS devices that have a built-in battery. Devices that are powered by the vehicle's electrical system, such as OBD, USB, or hardwired trackers, usually do not have this sensor.
 - **Voltage**
   - **Description**: The voltage reported by the PAJ GPS device's voltage sensor, displayed in volts.
+
+### Switches
+
+The PAJ GPS {% term integration %} provides a switch for each alert type that your device model supports. Use these switches to turn alerts on or off in the PAJ GPS platform. Turning an alert off stops the platform from sending that alert to the Finder App. Enabling or disabling the alerts on the Finder App will also change the state of the switch in Home Assistant.
+
+The following switches are available:
+
+- **Battery alert**
+- **Drop alert**
+- **Ignition alert**
+- **Power cut-off alert**
+- **Shock alert**
+- **SOS alert**
+- **Speed alert**
+- **Voltage alert**
+
+Home Assistant creates a switch only for alerts that your device model supports. The switches are in the **Configuration** section of the device page. A switch shows **On** when the alert is enabled on the device.
 
 ## Examples
 
@@ -96,7 +127,8 @@ automation: |
 
 - The integration relies on the PAJ GPS cloud API, so if there are any issues with the API or your internet connection, the integration may not work properly.
 - PAJ GPS devices also rely on GPS and cellular signals, so if the device is in an area with poor signal, the location updates may be inaccurate or delayed.
-- PAJ GPS platform alerts, such as SOS/panic button, geofence entry/exit, movement, and speed alerts, are not currently supported.
+- Home Assistant does not receive alert events from the PAJ GPS platform yet, so you cannot create automations that run when an alert is raised. The alert switches only turn alerts on or off in the PAJ GPS platform.
+- Geofence entry and exit alerts are not currently supported.
 - Fleet-management features available on the PAJ GPS platform, such as logbooks, are not currently supported.
 
 ## Removing the integration
