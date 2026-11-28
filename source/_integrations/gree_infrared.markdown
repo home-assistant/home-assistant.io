@@ -36,6 +36,12 @@ Infrared receiver:
   description: "The infrared receiver entity to use for receiving commands from your Gree remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver. It is optional and keeps the entities in sync with the physical remote."
 Supported modes:
   description: "The operating modes your air conditioner supports. Select at least one of **Cool**, **Heat**, **Dry**, **Fan only**, and **Auto**. Check your remote or the manual of your unit to see which modes it has. Not all Gree models support heat. Selecting a mode your unit does not have breaks nothing. Your air conditioner simply does not respond to it."
+Remote model:
+  description: "The remote profile to use. **Generic Gree** matches existing setups. **YAP1F / YAP1FB** matches Cooper&Hunter units with a YAP1F or YAP1FB remote and enables extra options. Choose the profile during setup. To change it later, select **Reconfigure** for the device."
+Expose Generic remote options:
+  description: "Show Turbo, Display light, Health ionizer, and X-Fan for the Generic profile. Sleep, Fresh air, and Timer are always shown."
+I-Feel temperature sensor:
+  description: "YAP1F only. A temperature sensor whose reading is sent to the air conditioner as the room temperature while **I-Feel** is on. It is optional."
 {% endconfiguration_basic %}
 
 ## Reconfiguring the integration
@@ -55,15 +61,35 @@ A climate entity and three switch entities are created for each Gree air conditi
 
 - **Gree AC**
   - **Description**: Represents the Gree air conditioner and allows you to control it using infrared commands.
-  - **Supported features**: Turn on, turn off, set HVAC mode, set target temperature, and set fan mode.
-- **Turbo**
-  - **Description**: Enables or disables turbo mode, which runs the unit at maximum output.
-- **Panel light**
-  - **Description**: Turns the front panel light on or off. Shown under **Configuration** on the device page.
-- **Xtra fan**
-  - **Description**: Enables or disables extra fan mode to help remove moisture from the coils. Gree remotes label this button **X-Fan** or **Blow**. Shown under **Configuration** on the device page.
+  - **Supported features**: Turn on, turn off, set HVAC mode, set target temperature, set fan mode, and set vertical and horizontal swing.
 
-The switches are named to match the [Gree](/integrations/gree/) integration, which controls the same features over Wi-Fi.
+### Remote models
+
+Select the remote profile during setup. **Generic Gree** matches existing setups. **YAP1F / YAP1FB** matches Cooper&Hunter units with a YAP1F or YAP1FB remote and enables extra options. The YAP1FB remote is the same as the YAP1F, but its screen has a backlight; both use the same profile. If you use an infrared receiver with a YAP1F or YAP1FB remote, select **YAP1F / YAP1FB**. With **Generic Gree** selected, the receiver ignores signals from these remotes.
+
+### Switches
+
+Switches send a full new command each time, like the climate entity. When the air conditioner is off, it stores changes and sends them with the next command. They use assumed state: there is no feedback from the unit.
+
+- **Sleep**: Both profiles. Not available in Auto, Fan only, or Off. Changing the mode or turning off clears it.
+- **Turbo**: YAP1F always. Generic only when **Expose Generic remote options** is on.
+- **Display light**: YAP1F always. Generic only when **Expose Generic remote options** is on.
+- **Health ionizer**: YAP1F always. Generic only when **Expose Generic remote options** is on.
+- **X-Fan**: YAP1F always. Generic only when **Expose Generic remote options** is on.
+- **I-Feel**: YAP1F only. With an **I-Feel temperature sensor** selected, the unit regulates on that sensor instead of its own. See [I-Feel room temperature](#i-feel-room-temperature).
+- **Econo**: YAP1F only, Cool mode only. Switching to another mode turns it off.
+- **Absence**: YAP1F only, Heat mode only. Switching to another mode turns it off.
+
+### Selects and timer
+
+Selects and the timer also send a full new command each time and use assumed state.
+
+- **Fresh air**: Both profiles. Off, Level 1, Level 2.
+- **Timer**: Both profiles. Countdown in hours, 0 to 24 in 0.5-hour steps. 0 means off. When the countdown ends, the timer returns to 0.
+- **Vertical vane position**: YAP1F only. **Auto** follows the climate entity's swing setting. Selecting a numbered position parks the vane there and turns off vertical swing.
+- **Horizontal vane position**: YAP1F only. Off, Auto, Maximum left, Left, Middle, Right, Maximum right.
+- **Display temperature**: YAP1F only. Off, Setpoint, Indoor, Outdoor.
+- **Unit display scale**: YAP1F only. Celsius or Fahrenheit display on the unit.
 
 ### Supported modes
 
@@ -85,6 +111,10 @@ The climate entity offers the modes you selected during setup, in addition to **
 ### Temperature range
 
 Supported range: 16 °C to 30 °C in 1 °C steps.
+
+### I-Feel room temperature
+
+With I-Feel on, the YAP1F remote reports the temperature it measures, and the unit regulates on that report instead of the sensor in its indoor unit. If you select an **I-Feel temperature sensor**, the integration sends that sensor's reading in the same way. It sends a report after each command, whenever the reading changes by a whole degree, and every 10 minutes. It sends reports only while I-Feel is on and the unit is on. The unit uses the latest report it received, so a physical remote with I-Feel on also overrides it.
 
 ### Physical remote state tracking
 
