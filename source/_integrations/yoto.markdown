@@ -109,6 +109,9 @@ Each Yoto player also provides several sensors:
 - **Battery**: the player's battery charge.
 - **Content source**: what the player is playing from, such as a physical card, the app, or streaming content.
 - **Day mode**: the player's current mode (day or night).
+- **Sleep timer**: when the running sleep timer stops playback. Shows **Unknown** when no timer is running.
+
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -131,6 +134,36 @@ automation:
         data:
           media_content_type: "music"
           media_content_id: "yoto://card/abc123"
+```
+
+### Stop playback after 30 minutes in the evening
+
+When a player starts playing in the evening, this automation sets a sleep timer so the story stops on its own after 30 minutes.
+
+- **Trigger**: Entity state: Yoto player changes to **Playing**
+- **Condition**: Time: after 19:00
+- **Action**: Yoto set sleep timer
+  - **Target**: Yoto player
+  - **Mode**: Duration
+  - **Duration**: `00:30:00`
+
+```yaml
+automation:
+  - alias: "Yoto sleep timer in the evening"
+    triggers:
+      - trigger: state
+        entity_id: media_player.yoto_player
+        to: "playing"
+    conditions:
+      - condition: time
+        after: "19:00:00"
+    actions:
+      - action: yoto.set_sleep_timer
+        target:
+          entity_id: media_player.yoto_player
+        data:
+          duration:
+            minutes: 30
 ```
 
 ### Set a later wake-up time on weekends
