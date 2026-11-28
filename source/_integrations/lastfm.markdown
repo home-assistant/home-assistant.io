@@ -4,7 +4,7 @@ ha_release: '0.20'
 ha_domain: lastfm
 ---
 
-The **Last.fm** {% term integration %} lets you monitor the listening activity of [Last.fm](https://www.last.fm/) users. It creates a sensor for each user you add, showing whether they are currently scrobbling and what they are listening to.
+The **Last.fm** {% term integration %} lets you monitor the listening activity of [Last.fm](https://www.last.fm/) users. It creates a sensor for each user you add, showing whether they are currently scrobbling and what they are listening to, and an image with the album art of the track they are playing.
 
 ## Prerequisites
 
@@ -64,6 +64,12 @@ Each sensor also provides the following attributes:
 - **`last_played`**: The last track the user scrobbled, formatted as "Artist - Title".
 - **`play_count`**: The total number of tracks the user has scrobbled on Last.fm.
 - **`top_played`**: The user's most played track, formatted as "Artist - Title".
+
+### Images
+
+The integration creates one image entity per tracked Last.fm user.
+
+- **Now playing**: The album art of the track the user is currently playing. There is no image when the user is not listening, or when Last.fm has no album art for the track.
 
 ## Data updates
 
