@@ -80,6 +80,18 @@ The **eGauge** integration provides the following entities:
 
 The **eGauge** integration {% term polling polls %} the device every 30 seconds.
 
+## Options
+
+Some installations report a power register backwards, for example a current transformer that was clamped in the wrong direction, or a register that is configured to report generation as a negative number. You can flip the sign of individual power registers. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **eGauge**, and then select the cogwheel {% icon "mdi:cog-outline" %}.
+
+The dialog reads the register list from the device and offers the power registers that the integration is currently exposing. Select the registers whose sign you want to flip, and then select **Submit**. The integration reloads, so the change applies without a restart.
+
+The power and energy sensors of a selected register are both affected. The eGauge accumulates its counters from the same measurement it reports as power, so a register whose power reads negative has an energy counter that runs negative too, and flipping the sign leaves an increasing, non-negative total. Voltage and current sensors keep reporting the values that the device sends.
+
+Select only the registers that report the value back to front. Flipping a register that already reports positive values leaves its energy total running downwards, and Home Assistant stops calculating statistics for a total that decreases.
+
+The option changes what the integration reports from then on. Statistics that Home Assistant has already recorded keep the values they were calculated from.
+
 ## Known limitations
 
 - The integration currently only supports a subset of register types. See [Sensor](#sensors) for this list of supported types.
