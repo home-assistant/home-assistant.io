@@ -4,7 +4,7 @@ ha_release: '0.20'
 ha_domain: lastfm
 ---
 
-The **Last.fm** {% term integration %} lets you monitor the listening activity of [Last.fm](https://www.last.fm/) users. It creates a sensor for each user you add, showing whether they are currently scrobbling and what they are listening to.
+The **Last.fm** {% term integration %} lets you monitor the listening activity of [Last.fm](https://www.last.fm/) users. It creates a sensor for each user you add, showing whether they are currently scrobbling and what they are listening to. Optionally, you can also scrobble tracks to Last.fm manually using an action.
 
 ## Prerequisites
 
@@ -23,6 +23,7 @@ Last.fm username:
 {% endconfiguration_basic %}
 
 After entering your API key and Last.fm username, you are asked to select additional Last.fm users to track. Your friends list is shown for convenience, but you can also enter any Last.fm username manually.
+As a final optional step, you can enable manual scrobbling for each user by providing the API secret once, and then authenticating each user on Last.fm.
 
 If you provided an API secret, the next step asks you to authorize Home Assistant with your Last.fm account. Open the shown link, select **Authorize** on Last.fm, and the setup continues automatically once the authorization is detected.
 
@@ -64,6 +65,10 @@ Each sensor also provides the following attributes:
 - **`last_played`**: The last track the user scrobbled, formatted as "Artist - Title".
 - **`play_count`**: The total number of tracks the user has scrobbled on Last.fm.
 - **`top_played`**: The user's most played track, formatted as "Artist - Title".
+
+### Actions
+
+- **`scrobble`**: Allows to manually scrobble songs by passing Artist, Title and Timestamp (up to 14 days in the past)
 
 ## Data updates
 
