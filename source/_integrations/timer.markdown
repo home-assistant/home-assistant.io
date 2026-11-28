@@ -1,13 +1,7 @@
 ---
-title: Timer
 description: Instructions on how to integrate timers into Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_release: 0.57
-ha_quality_scale: internal
 ha_domain: timer
-ha_integration_type: helper
 ---
 
 The **Timer** {% term integration %} lets you create and manage countdown timers in Home Assistant.
@@ -95,6 +89,17 @@ Use a timer when you want a countdown that can be started, paused, changed, canc
 
 {% include integrations/actions.md %}
 
+## Showing when a timer finishes on a dashboard
+
+By default, a [tile card](/dashboards/tile/) or [badge](/dashboards/badges/) for a timer shows the remaining time.
+To also show the time when the timer finishes:
+
+1. Start the timer.
+   - **Finishes at** is only in the **State content** list while the timer is active.
+2. Edit your dashboard and open the tile card or badge for the timer.
+3. Under **State content**, add **Finishes at**.
+4. Select **Save**.
+
 ## Timer automation examples
 
 {% include docs/paste_yaml_tip.md %}
@@ -129,9 +134,9 @@ automation: |
 
 Get a reminder shortly before a timer finishes, like when laundry or cooking time is almost done.
 
-- **Trigger**: Timer time remaining
+- **Trigger**: Timer remaining time reached
   - **Target**: Laundry timer
-  - **Time remaining**: 00:05:00
+  - **Time remaining**: `00:05:00`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

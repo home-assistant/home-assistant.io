@@ -18,7 +18,7 @@ To run Lock 'n' Go from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or entity you want to control.
-6. From the actions shown for that target, select **Lock 'n' Go**.
+6. From the actions shown for that target, under **Nuki Bridge**, select **Lock 'n' Go**.
 7. To also pull the latch open when unlocking, turn on **Unlatch**.
 8. Select **Save**.
 
@@ -67,8 +67,9 @@ unlatch:
 
 Use this automation to run Lock 'n' Go when you press a dashboard button, so a visitor can come in without the door staying unlocked.
 
-- **Trigger**: Guest entry button pressed
-- **Action**: Lock 'n' Go
+- **Trigger**: State changed
+  - **Entity**: Guest entry helper
+- **Action**: Nuki Bridge: Lock 'n' Go
   - **Target**: Front door lock
 
 {% details "Show example YAML" %}

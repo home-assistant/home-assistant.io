@@ -1,51 +1,9 @@
 ---
-title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Fan
-  - Humidifier
-  - Light
-  - Lock
-  - Select
-  - Sensor
-  - Switch
-  - Vacuum
 ha_release: 0.78
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@danielhiversen'
-  - '@RenierM26'
-  - '@murtas'
-  - '@Eloston'
-  - '@dsypniewski'
-  - '@zerzhang'
 ha_domain: switchbot
 works_with:
   - bluetooth
-ha_bluetooth: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: gold
 ---
 
 The **SwitchBot Bluetooth** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, and hubs.
@@ -86,18 +44,23 @@ Before adding SwitchBot devices over Bluetooth, confirm whether your Bluetooth a
   - Devices cannot be discovered via local Bluetooth scanning and must be synchronized through your SwitchBot account.
   - To sync devices from your account, go to {% my integrations title="**Settings** > **Devices & services**" %}, open **Integrations**, select **SwitchBot**, select  the integration to open the login window, and sign in. If the local Bluetooth scan detects devices that are linked to your SwitchBot account and within range, you can add them after signing in.
 
+When signing in, select **Sign in with SwitchBot OAuth (recommended)**. Home Assistant opens the SwitchBot authorization page. After you authorize access, Home Assistant downloads device information to help discover supported Bluetooth devices. The OAuth token is used only during setup and is not saved.
+
 If you still cannot add a device, make sure it is powered on, within Bluetooth range, and not connected to another app. If necessary, follow the manufacturer's reset instructions or consult SwitchBot support.
 
 ### Adding encrypted SwitchBot devices
 
 Some types of the SwitchBot devices are encrypted for improved security. More types and models will be added as encrypted devices in the future.
 
-An encrypted SwitchBot device can be set up in Home Assistant in two different ways.
-You can enter the key ID and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
+An encrypted SwitchBot device can be set up in Home Assistant in three different ways. You can authorize Home Assistant with SwitchBot OAuth, enter your SwitchBot username and password, or enter the key ID and encryption key manually.
 
-#### SwitchBot account (recommended)
+#### SwitchBot OAuth (recommended)
 
-Using this option you can provide your SwitchBot account login credentials and Home Assistant will import the appropriate encryption key from your account.
+Select **Sign in with SwitchBot OAuth (recommended)** to open the SwitchBot authorization page. After you authorize access, Home Assistant imports the encryption key for the device. The OAuth token is used only during setup and is not saved.
+
+#### SwitchBot username and password
+
+Using this option, you can provide your SwitchBot account login credentials, and Home Assistant imports the appropriate encryption key from your account. Your username and password are used only during setup and are not saved.
 
 {% configuration_basic %}
 Username:
@@ -107,7 +70,7 @@ Password:
 {% endconfiguration_basic %}
 
 {% important %}
-This integration doesn't support SSO accounts (such as Login with Google) only username and password accounts.
+Signing in with a username and password does not support single sign-on accounts, such as **Sign in with Google**. Use SwitchBot OAuth for these accounts.
 {% endimportant %}
 
 #### Enter the lock encryption key manually
@@ -125,7 +88,15 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 {% include integrations/config_flow.md %}
 
-## Supported devices
+## Works with Home Assistant certified devices
+
+SwitchBot is committed to making sure their products are up-to-date and ready to use in Home Assistant. The following devices are certified for Bluetooth. To see the list of SwitchBot Matter-certified devices, visit the [SwitchBot Matter](/integrations/switchbot_matter/) page.
+
+{% include integrations/device_list.html brand="SwitchBot" protocol="Bluetooth" %}
+
+## Other supported devices
+
+In addition to the certified devices, the following devices are also supported:
 
 ### Plugs and switches
 
@@ -135,14 +106,13 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Plug Mini EU](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
+- Plug Mini IT (W1197)
 - [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm)
 
 ### Cover
 
 - [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
-- [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
-- [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
 - [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
 
 ### Lights
@@ -154,14 +124,15 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- RGBIC Neon Rope Light
+- RGBIC Neon Wire Rope Light
+- RGBICWW Light Bars
 - [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
 - [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
 
 ### Locks
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
-- [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
-- [Lock Ultra (WoLockUltra)](https://www.switch-bot.com/products/switchbot-lock-ultra)
 - [Lock Lite (WoLockLite)](https://www.switchbot.jp/products/switchbot-lock-lite)
 - Lock Vision
 - Lock Vision Pro
@@ -174,14 +145,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 ### Sensors
 
-- [Meter](https://switch-bot.com/pages/switchbot-meter)
 - [Meter Plus (WoSensorTH)](https://switch-bot.com/pages/switchbot-meter-plus)
-- [Indoor/Outdoor Meter (WoIOSensorTH)](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) 
-- [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
-- [Meter Pro CO2 Monitor](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
-- [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
-- [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel) (currently only supports retrieving sensor data, does not yet support device control)
 - [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
@@ -192,10 +157,14 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
 - [Hub Mini Matter Enabled](https://www.switch-bot.com/products/switchbot-hub-mini-matter-enabled)(currently only supports retrieving sensor data, does not yet support device control)
 - [Hub 3 (WoHub3)](https://www.switch-bot.com/products/switchbot-hub-3)(currently only supports retrieving sensor data, does not yet support device control)
+- Hub 4 (W1213), sensor data only
+
 
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Circulator Fan Pro](https://www.switch-bot.com/products/switchbot-battery-circulator-fan-2-pro)
+- Standing Fan (FAN2)
 
 ### Vacuums
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
@@ -205,11 +174,6 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [K20](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
 - [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
 - [S20](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s20)
-
-### Air purifiers
-
-- [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
-- [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
 ### Climates
 
@@ -223,27 +187,6 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Keypad Vision](https://www.switch-bot.com/products/switchbot-keypad-vision)
 - [Keypad Vision Pro](https://www.switch-bot.com/products/switchbot-keypad-vision-pro)
-
-## Works with Home Assistant
-
-SwitchBot is committed to making sure their products are up-to-date and ready to use in Home Assistant.
-Devices are certified for both Bluetooth and Matter.
-
-The following devices are certified for Bluetooth:
-- [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
-- [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
-- [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
-- [SwitchBot Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
-- [SwitchBot Meter](https://www.switch-bot.com/products/switchbot-meter)
-- [SwitchBot Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
-- [SwitchBot Meter Pro CO2](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
-- [SwitchBot Indoor/Outdoor Thermo-Hygrometer](https://www.switch-bot.com/products/switchbot-indoor-outdoor-thermo-hygrometer)
-- [SwitchBot Curtain 3](https://www.switch-bot.com/products/switchbot-curtain-3)
-- [SwitchBot Contact Sensor](https://www.switch-bot.com/products/contact-sensor)
-- [SwitchBot Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
-- [SwitchBot Lock Pro](https://www.switch-bot.com/products/switchbot-lock-pro)
-
-To see the list of SwitchBot Matter-certified devices, visit the [SwitchBot Matter](/integrations/switchbot_matter/) page.
 
 ## Supported functionality
 
@@ -279,7 +222,7 @@ Features:
 - turn on or off
 - get power consumption readings
 
-#### Plug Mini EU
+#### Plug Mini EU and IT
 
 This is an encrypted device.
 
@@ -426,6 +369,24 @@ Features:
 - set position
 - get position
 - get battery level
+- select motor speed
+
+The Roller Shade supports two motor speeds, which can be selected each time the shade is opened, closed, or moved to a position:
+
+| Speed         | Description                                          |
+| ------------- | ---------------------------------------------------- |
+| `performance` | Moves the shade at full speed. This is the default.  |
+| `quiet`       | Reduces motor noise, at the cost of slower movement. |
+
+To use a speed other than the default, set the **Speed** option on the [Open cover](/actions/cover.open_cover/), [Close cover](/actions/cover.close_cover/), or [Set cover position](/actions/cover.set_cover_position/) action:
+
+```yaml
+action: cover.close_cover
+target:
+  entity_id: cover.roller_shade
+data:
+  speed: quiet
+```
 
 #### Garage Door Opener
 
@@ -558,6 +519,8 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+- on button press event
+- off button press event
 
 #### Keypad Vision (Pro)
 
@@ -639,6 +602,29 @@ Features:
 - set effect
 
 #### RGBICWW Floor Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### RGBIC Neon Rope Light and RGBIC Neon Wire Rope Light
+
+These are encrypted devices. To set them up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+Features:
+
+- Turn on or off
+- Change brightness
+- Change color
+- Set effect
+
+#### RGBICWW Light Bars
 
 This is an encrypted device.
 
@@ -804,9 +790,18 @@ Features:
 - get light level
 - motion detection state
 
+#### Hub4
+
+Features:
+
+- get temperature
+- get humidity
+- get light level (a level from 1 to 20, not a value in lux)
+- motion detection state
+
 ### Fans
 
-Fan entities are added for Battery Circulator Fan/Circulator Fan
+Fan entities are added for Battery Circulator Fan/Circulator Fan, Circulator Fan Pro, and Standing Fan.
 
 #### Battery Circulator Fan/Circulator Fan
 
@@ -818,9 +813,36 @@ Features:
 - oscillate left and right
 - get battery level (Battery Circulator Fan only)
 
+#### Circulator Fan Pro
+
+This is an encrypted device. To set it up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+The Circulator Fan Pro combines a fan with a built-in night light. It adds the following entities:
+
+- A fan that supports turning on or off, setting the speed, setting the mode (including hurricane), and oscillating.
+- A light for the two-level (high and low) night light.
+- A switch for vertical oscillation.
+- A sensor for the battery level.
+
+#### Standing Fan
+
+Features:
+
+- Turn on or off
+- Set speed
+- Set mode (Normal, Natural, Sleep, Baby, or Custom Natural)
+- Control horizontal and vertical oscillation
+- Set horizontal and vertical oscillation angles (30°, 60°, or 90°)
+- Set the night light level (Off, Level 1, or Level 2)
+- View the battery level
+
 ### Air Purifiers
 
 Fan entities are added for Air Purifier, and Air Purifier Table.
+
+The **Filter usage** diagnostic sensor shows the number of hours the filter has been used, as reported by the device.
+
+After replacing the filter, use the **Reset filter usage** button under **Configuration** on the device page to reset the device counter. The sensor reports zero after the device confirms the reset.
 
 Air purifier currently supports three speed levels, which you can adjust by setting the mode.
 
@@ -841,6 +863,8 @@ Features:
 - set LED RGB
 - set LED brightness
 - get air quality level
+- get filter usage in hours
+- reset filter usage after replacing the filter
 - get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 #### Air Purifier Table
@@ -859,6 +883,8 @@ Features:
 - set LED RGB
 - set LED brightness
 - get air quality level
+- get filter usage in hours
+- reset filter usage after replacing the filter
 - get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 ### Vacuums
@@ -920,6 +946,7 @@ Note: Users need to preset images in the app.
 Features:
 - next image
 - previous image
+- random image
 
 {% include integrations/actions.md %}
 
@@ -932,7 +959,7 @@ The integration connects locally to the devices without going via the SwitchBot 
 
 ### Slow connection times
 
-Move the device closer, or replace the Bluetooth adapter with a faster one. See [Improving connection times](/integrations/bluetooth/#improving-connection-times) for more information.
+Move the device closer, or replace the Bluetooth adapter with a faster one. See [Improving connection times](/connectivity/bluetooth/#improving-connection-times) for more information.
 
 ### Device names not synced
 

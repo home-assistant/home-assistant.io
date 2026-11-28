@@ -1,19 +1,7 @@
 ---
-title: OpenRGB
 description: Instructions on how to integrate OpenRGB within Home Assistant.
-ha_category:
-  - Light
 ha_release: 2025.11
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@felipecrs'
 ha_domain: openrgb
-ha_platforms:
-  - light
-  - select
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **OpenRGB** {% term integration %} is used to integrate the RGB lighting devices from computers running [OpenRGB](https://openrgb.org/).
@@ -34,8 +22,6 @@ To enable the OpenRGB SDK server:
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Name:
-  description: A name for this integration entry, like the name of the computer running the OpenRGB SDK server (for example, `My Gaming PC`).
 Host:
   description: The hostname or IP address of the computer running the OpenRGB SDK server (for example, `192.168.1.100`).
 Port:

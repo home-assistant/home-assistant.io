@@ -18,11 +18,11 @@ related:
     title: Configure access to files
 ---
 
-A view is a tab inside a dashboard. For example, the screenshot below shows a separate view for lights on the Overview dashboard.
+A view is a tab inside a dashboard. For example, the screenshot below shows one of the views of the user-created dashboard **Main controls**.
 
 <p class='img'>
-    <img src='/images/dashboards/dashboard_view-tab.png' alt='Screenshot of a light view tab on the Overview dashboard'>
-    A lights view tab on the Overview dashboard
+    <img src='/images/dashboards/dashboard_view-tab.png' alt='Screenshot of one of the view tabs of a user-created dashboard'>
+    One of the view tabs of a user-created dashboard
 </p>
 
 Views control the layout.
@@ -39,10 +39,14 @@ There are four different view types:
 - **Panel**: Displays one card in full width. For example a map or an image.
 - **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
 
+To see each view type with real cards, select a tab in the dashboard below.
+
+{% include dashboard/demo.html demo="view_types" caption="A dashboard with a view of each type." %}
+
 ## Adding a view to a dashboard
 
 {% note %}
-You can't add views to the built-in **Activity**, **Climate**, **History**, **Maintenance**, **Energy**, **Security**, and **To-do lists** dashboards. To create your own views, [create a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard), [add the cards you want](/dashboards/cards/#adding-cards-to-your-dashboard), and add a view.
+You can't add views to the built-in dashboards **Activity**, **Climate**, **Energy**, **History**, **Lights**, **Maintenance**, **Overview**, **Security**, and **To-do lists**. To create your own views, [create a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard), [add the cards you want](/dashboards/cards/#adding-cards-to-your-dashboard), and add a view.
 {% endnote %}
 
 1. To add a view to your dashboard, in the top right corner, select the pencil icon.
@@ -68,6 +72,17 @@ You can't add views to the built-in **Activity**, **Climate**, **History**, **Ma
 5. On the **Badges** tab, select the entities you want to be represented by a badge.
     - Sidebar and panel views do not support badges.
 6. By default, the new view is visible to all users. On the **Visibility** tab, you can disable the view for specific users.
+
+## Reordering views
+
+You can change the order of the view tabs of a dashboard. For example, you can move the view you use most to the first place.
+
+1. Open the dashboard. In the top right of the screen, select **Edit dashboard** {% icon "mdi:pencil" %}.
+   - On a narrow screen, such as a phone, this option might be under **Menu** {% icon "mdi:dots-vertical" %}.
+2. Drag the tab of a view to its new place.
+   - On a touch screen, the selected tab has a drag handle {% icon "mdi:drag-horizontal-variant" %}. Drag the tab by its handle. To drag another tab, press and hold it first.
+   - With a keyboard, move the focus to the tab. To move it one place earlier, press <kbd>Alt</kbd>+<kbd>↑</kbd>. To move it one place later, press <kbd>Alt</kbd>+<kbd>↓</kbd>.
+3. Select **Done**.
 
 ## Migrating a view into a sections view
 
@@ -197,15 +212,25 @@ Set a separate [theme](/integrations/frontend/#themes) for the view and its card
 
 ## Background
 
-The background settings of a view can be customized to display a background. Alternatively, a theme variable can be used to customize the background of all views. 
+The background settings of a view can be customized to display a background. To use the same background for all views of a dashboard, [set a background for the dashboard](/dashboards/dashboards/#setting-a-background-for-a-dashboard) instead. Alternatively, a theme variable can be used to customize the background of all views.
+
+If more than one background is set, Home Assistant uses only one of them, in the following order of priority, from highest to lowest:
+
+1. The background of the view
+2. The background of the dashboard
+3. The [background theme variable](#background-theme-variable)
 
 ### View-specific background settings
 
-**Image** - Sets the background image to use behind the view: 
-   - **Upload picture** lets you pick an image from the system used to show your Home Assistant UI.
-   - **Local path** lets you pick an image stored on Home Assistant. For example: `/homeassistant/images/lights_view_background_image.jpg`.
-     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-app) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-app) app.
-   - **web URL** let you pick an image from the web. For example `https://www.home-assistant.io/images/frontpage/assist_wake_word.png`.
+To set a background for a view, open the dashboard and select **Edit dashboard** {% icon "mdi:pencil" %}. Next to the view name, select **Edit view** {% icon "mdi:pencil" %}, then open the **Background** tab.
+
+- **Background image**: drop an image file in the **Add picture** field, or select **select from media** to pick an image from your media. Supported formats are JPEG, PNG, and GIF.
+- After you add an image, you can adjust the **Background settings**:
+  - **Background opacity**: how transparent the image is, from fully visible to invisible.
+  - **Background size**: **Original** keeps the original size of the image, **Fill view** fills the view and crops the image if needed, and **Fit view** fits the whole image in the view.
+  - **Background alignment**: where the image is placed, from **Top left** to **Bottom right**. The default is **Center**.
+  - **Background repeat**: **Repeat (tile)** repeats the image across the view, which is useful for a tiled background. **No repeat** shows the image once.
+  - **Background attachment**: **Scroll** moves the image when you scroll the view. **Fixed** keeps the image in place.
 
 {% configuration views %}
 background:
@@ -259,7 +284,7 @@ background:
 
 ### Background theme variable
 
-You can style the background of all your views with a [theme](/integrations/frontend/#themes). You can use the CSS variable `lovelace-background`. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
+You can style the background of all your views with a [theme](/integrations/frontend/#themes), using the CSS variable `lovelace-background`. To use an image as a wallpaper, use the example below. For all options, refer to the [CSS `background` property](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
 
 #### Example
 

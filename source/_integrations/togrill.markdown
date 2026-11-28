@@ -1,26 +1,7 @@
 ---
-title: ToGrill
 description: Control and monitor your ToGrill compatible BBQ thermometers.
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_release: '2025.9'
-ha_category:
-  - Button
-  - Event
-  - Number
-  - Sensor
 ha_domain: togrill
-ha_bluetooth: true
-ha_platforms:
-  - button
-  - event
-  - number
-  - select
-  - sensor
-ha_integration_type: device
-ha_codeowners:
-  - '@elupus'
-ha_quality_scale: bronze
 ---
 
 The **ToGrill** {% term integration %} allows you to connect your ToGrill compatible Bluetooth grill thermometer.

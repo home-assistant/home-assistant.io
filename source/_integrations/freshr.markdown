@@ -1,19 +1,7 @@
 ---
-title: Fresh-r
 description: Instructions on how to integrate Fresh-r ventilation solutions within Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 2026.4
-ha_iot_class: Cloud Polling
 ha_domain: freshr
-ha_config_flow: true
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_codeowners:
-  - '@SierraNL'
-ha_quality_scale: platinum
 ---
 
 The **Fresh-r** {% term integration %} connects to the [fresh-r.me](https://www.fresh-r.me/) cloud dashboard, letting you monitor all Fresh-r ventilation devices linked to your account. It polls the Fresh-r cloud to keep your data up to date. Use it to keep an eye on your indoor air quality and ventilation performance, or to trigger automations when CO2 or humidity levels need attention.
@@ -69,7 +57,7 @@ The integration provides the following sensors:
 - **Dew point**
   - **Description**: Dew point temperature of the indoor air, in °C.
   - **Available for**: All devices
-  - **Remarks**: Disabled by default.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **Temperature**
   - **Description**: Indoor temperature, in °C.
@@ -77,13 +65,41 @@ The integration provides the following sensors:
 
 ## Examples
 
-### Get notified when indoor CO2 levels are high
+### Automation: Get notified when indoor CO₂ is high
 
-CO2 levels above 1000 ppm are generally considered poor for indoor air quality. You can create an automation that sends you a notification when the **CO2** sensor crosses that threshold, so you know to check that your ventilation unit is running correctly and that its filter does not need cleaning.
+This example sends a notification when the Fresh-r CO₂ sensor rises above 1000 ppm.
 
-### Monitor humidity to prevent condensation
+```yaml
+alias: "Fresh-r high CO2 notification"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.freshr_co2
+    above: 1000
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Fresh-r reports an indoor CO2 level above 1000 ppm."
+```
 
-High indoor humidity can lead to condensation and mold. Use the **Humidity** sensor to trigger an alert or switch on extra ventilation when humidity rises above a level you are comfortable with.
+### Automation: Get notified when indoor humidity is high
+
+This example sends a notification when the Fresh-r humidity sensor rises above 70%.
+
+```yaml
+alias: "Fresh-r high humidity notification"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.freshr_humidity
+    above: 70
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Fresh-r reports indoor humidity above 70%."
+```
 
 ### Track ventilation performance
 

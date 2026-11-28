@@ -8,7 +8,7 @@ related_actions:
   - insteon.delete_all_link
 ---
 
-The **Add default links** action adds the default set of links between a device and the Insteon Modem (IM). These links let the modem and the device communicate properly.
+The **Insteon: Add default links** action adds the default set of links between a device and the Insteon Modem (IM). These links let the modem and the device communicate properly.
 
 This is useful when a device is not responding as expected and you want to restore the standard links between it and the modem.
 

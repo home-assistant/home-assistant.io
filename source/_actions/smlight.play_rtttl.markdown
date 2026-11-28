@@ -103,7 +103,7 @@ notes:
 
 Play a ding-dong doorbell chime whenever the front door sensor detects the door opening.
 
-- **Trigger**: State: Front door sensor changes to _on_
+- **Trigger**: State changed: Front door sensor changes to _on_
 - **Action**: SMLIGHT SLZB: Play RTTTL tone
   - **Device**: SLZB-Ultima3
   - **Octave**: 5

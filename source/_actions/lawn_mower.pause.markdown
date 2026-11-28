@@ -6,6 +6,7 @@ description: "Pauses a lawn mower's current task."
 related_actions:
   - lawn_mower.start_mowing
   - lawn_mower.dock
+  - lawn_mower.stop
 ---
 
 Use this action to pause a robotic lawn mower's current task, for example to stop it briefly while you cross the lawn and resume it afterwards.
@@ -58,7 +59,7 @@ This action has no additional YAML options beyond the target.
 
 Pause the mower when someone steps into the garden, for example when a gate or back door opens.
 
-- **Trigger**: State: Back door opens
+- **Trigger**: State changed: Back door opens
 - **Action**: Pause lawn mower
   - **Target**: Backyard mower
 

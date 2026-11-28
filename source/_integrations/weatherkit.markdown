@@ -1,18 +1,7 @@
 ---
-title: Apple WeatherKit
 description: Instructions on how to set up Apple WeatherKit with Home Assistant.
-ha_category:
-  - Weather
 ha_release: '2023.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@tjhorner'
 ha_domain: weatherkit
-ha_integration_type: service
-ha_platforms:
-  - sensor
-  - weather
 ---
 
 The **Apple WeatherKit** {% term integration %} obtains current weather and forecasts (hourly and daily) from Apple Weather. It is the most direct replacement for those coming from the Dark Sky API since Apple bought Dark Sky and implemented its technology into their weather service.

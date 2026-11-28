@@ -18,7 +18,7 @@ To clear completed items from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Clear completed shopping list items**.
+5. Search for and select **Shopping list: Clear completed shopping list items**.
 6. Select **Save**.
 
 ### Options in the UI
@@ -44,8 +44,10 @@ This action has no options.
 
 Clear the items you ticked off as soon as you leave the supermarket, so your list is ready for next time.
 
-- **Trigger**: You leave the supermarket zone
-- **Action**: Clear completed shopping list items
+- **Trigger**: Zone left
+  - **Target**: Me
+  - **Zone**: Supermarket
+- **Action**: Shopping list: Clear completed shopping list items
 
 {% details "Show example YAML" %}
 
@@ -53,10 +55,11 @@ Clear the items you ticked off as soon as you leave the supermarket, so your lis
 automation: |
   alias: "Tidy shopping list after shopping"
   triggers:
-    - trigger: zone
-      entity_id: person.me
-      zone: zone.supermarket
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.me
+      options:
+        zone: zone.supermarket
   actions:
     - action: shopping_list.clear_completed_items
 {% endexample %}

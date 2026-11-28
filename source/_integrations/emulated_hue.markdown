@@ -1,16 +1,7 @@
 ---
-title: Emulated Hue
 description: Instructions on how to emulate a Hue Bridge within Home Assistant.
-ha_category:
-  - Hub
 ha_release: 0.27
-ha_iot_class: Local Push
-ha_quality_scale: internal
 ha_domain: emulated_hue
-ha_integration_type: integration
-ha_codeowners:
-  - '@bdraco'
-  - '@Tho85'
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -18,7 +9,7 @@ related:
 
 {% warning %}
 
-Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant](/integrations/google_assistant/) integration or [Nabu Casa cloud](/integrations/cloud) integration.
+Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Home](/integrations/google_assistant/) integration or [Nabu Casa link](/integrations/link) integration.
 
 {% endwarning %}
 

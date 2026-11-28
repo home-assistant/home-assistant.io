@@ -6,7 +6,7 @@ description: "Triggers when one or more batteries start charging."
 related_triggers:
   - battery.stopped_charging
   - battery.level_changed
-  - battery.level_crossed
+  - battery.level_crossed_threshold
 ---
 
 The **Battery started charging** trigger fires when a battery-powered device transitions from not charging to actively charging. A device starts charging when it is connected to a power source, such as a charger, dock, or USB cable. Use this trigger to confirm when a device is plugged in, kick off automations that should run while a device charges, or log charging sessions over time.
@@ -34,6 +34,8 @@ Trigger when:
     - **Each** (default): fires every time any targeted device starts charging.
     - **First**: fires only on the first device that starts charging.
     - **All**: fires only after every targeted device starts charging.
+  required: false
+  default: Each
 For at least:
   description: How long the device must be actively charging before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -53,8 +55,6 @@ This fires every time `binary_sensor.phone_battery_charging` starts charging.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -68,13 +68,13 @@ behavior:
   default: each
 for:
   description: |
-    How long the device must be actively charging before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:01:00` fires only after the device has been charging for 1 minute.
+    How long the device must be actively charging before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:01:00` fires only after the device has been charging for 1 minute. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="battery charging sensor" example="binary_sensor.phone_charging" %}
 
 {% include triggers/behavior.md %}
 
@@ -83,7 +83,7 @@ for:
 - Use a binary sensor with the battery charging device class.
 - **Battery started charging** fires only when a device transitions from not charging to actively charging. If a device is already charging when Home Assistant starts, the trigger does not fire.
 - To react when a device stops charging, use [Battery stopped charging](/triggers/battery.stopped_charging/).
-- To fire when the battery level crosses a specific percentage, use [Battery level crossed threshold](/triggers/battery.level_crossed/) instead.
+- To fire when the battery level crosses a specific percentage, use [Battery level crossed threshold](/triggers/battery.level_crossed_threshold/) instead.
 
 {% include triggers/try_it.md %}
 

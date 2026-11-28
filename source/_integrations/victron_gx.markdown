@@ -1,32 +1,7 @@
 ---
-title: Victron GX
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
-ha_category:
-  - Binary sensor
-  - Button
-  - Number
-  - Presence detection
-  - Select
-  - Sensor
-  - Switch
-  - Time
 ha_release: '2026.5'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@tomer-w'
 ha_domain: victron_gx
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-ha_integration_type: hub
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
     title: Cerbo GX communication centre
@@ -34,8 +9,6 @@ related:
     title: Victron MQTT Python library
   - url: https://tomer-w.github.io/victron_mqtt/
     title: Supported entities documentation
-ha_quality_scale: platinum
-ha_ssdp: true
 ---
 
 The **Victron GX Integration** integration connects to [Victron Energy](https://www.victronenergy.com/) GX devices using MQTT, providing real-time monitoring and control of your Victron system, including inverters, solar chargers, battery systems, grid meters, and <abbr title="electric vehicle">EV</abbr> chargers.
@@ -57,9 +30,20 @@ This integration supports Victron Energy devices that run Venus OS and have MQTT
 
 - A Victron Energy GX device running Venus OS with MQTT enabled.
 - Network connectivity between your Home Assistant instance and the Victron device.
-- For secured installations: The MQTT password configured on your Victron device.
+- For secured installations without token pairing support: the MQTT password you configured on your Victron device.
 
 {% include integrations/config_flow.md %}
+
+When Home Assistant discovers your Victron GX device, it first tries to connect using TLS on port `8883`. If TLS is unavailable, it tries an unencrypted connection on port `1883`.
+
+If authentication is required and your device supports MQTT token pairing, Home Assistant prompts you to enable pairing mode:
+
+1. Enable pairing mode using one of these methods:
+  - On the GX device, go to **Settings** > **Integrations** > **MQTT Devices** > **Pairing mode**.
+  - On a GX device without a built-in screen, quickly press the built-in button twice.
+2. In Home Assistant, select **Submit** within 120 seconds.
+
+Home Assistant requests and stores the token credentials automatically. If your device does not support token pairing, enter the password configured on the GX device when prompted.
 
 When setting up the integration manually, you need to provide connection details based on your Victron device's security profile.
 
@@ -189,6 +173,10 @@ Configurable time-of-day settings, such as:
 - **Reboot device**
   - **Description**: Reboots the GX device.
 
+#### Updates
+
+The **Venus OS firmware** update entity shows the installed and available firmware versions for your GX device. When an update is available, you can install it from Home Assistant and monitor the installation progress.
+
 ## Known limitations
 
 - The integration receives updates through MQTT push, and applies an automatic debounce interval chosen by metric type. This means rapidly changing values may appear with a short delay.
@@ -259,6 +247,20 @@ The credentials provided are incorrect.
 1. Double-check the username and password if authentication is enabled.
 2. These are device credentials configured on the Victron device, not <abbr title="Victron Remote Monitoring">VRM</abbr> portal credentials.
 3. Verify the security profile setting on your Victron device under **Settings** > **General** > **Local Network Security Profile**.
+
+### Token pairing failed
+
+#### Symptom: Pairing fails during setup
+
+#### Description
+
+Home Assistant cannot request token credentials from the Victron GX device.
+
+#### Resolution
+
+1. Enable pairing mode on the GX device.
+2. Submit the pairing form in Home Assistant within 120 seconds.
+3. If pairing mode expires, enable it again and retry the form.
 
 ### No sensors appear
 

@@ -2,10 +2,11 @@
 title: "Get travel times"
 action: waze_travel_time.get_travel_times
 domain: waze_travel_time
+response: required
 description: "Retrieves route alternatives and travel times between two locations."
 ---
 
-The **Get travel times** action retrieves route alternatives and travel times between two locations.
+The **Waze Travel Time: Get travel times** action retrieves route alternatives and travel times between two locations.
 
 This is useful when you want an automation or script to look up live travel times on demand, for example to decide when to leave or to find the exact street names along a route.
 
@@ -170,6 +171,8 @@ base_coordinates:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `routes` list. Each route includes:
 

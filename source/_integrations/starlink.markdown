@@ -1,27 +1,7 @@
 ---
-title: Starlink
 description: Instructions on how to integrate Starlink into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Device tracker
-  - Network
-  - Sensor
-  - Switch
-  - Time
 ha_release: 2023.2
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: starlink
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - sensor
-  - switch
-  - time
-ha_integration_type: device
 ---
 
 The **Starlink** {% term integration %} allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.
@@ -34,6 +14,7 @@ The **Starlink** {% term integration %} allows you to integrate your [Starlink](
 
 - Ping - The ping that Starlink has measured, in ms
 - Ping drop rate - The percentage of failed ping requests (aka "dropped"). This is the inverse of "Uptime" in the Starlink app.
+- Signal quality - The signal quality reported by Dishy, as a percentage
 - Azimuth - The direction Dishy is facing in degrees
 - Elevation - Dishy's current elevation in degrees
 - Last restart - The time Starlink was last turned on
@@ -69,6 +50,7 @@ The **Starlink** {% term integration %} allows you to integrate your [Starlink](
 
 - Stowed - Controls whether Dishy is stowed
 - Sleep schedule - Controls whether Starlink will enter a power-saving sleep mode at a predefined schedule
+- Use Starlink positioning exclusively - Controls whether Dishy determines its position using Starlink satellites only, without GPS. This matches the **Use Starlink positioning exclusively** setting in the Starlink app and can help in areas where GPS is jammed or spoofed. Dishy turns this setting off when it restarts. To keep it on, create an automation that turns the switch back on when the **Last restart** sensor changes.
 
 ### Device trackers
 

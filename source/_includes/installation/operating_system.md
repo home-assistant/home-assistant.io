@@ -16,17 +16,7 @@ To get started, we suggest the ODROID-N2+, the board that powers our [Home Assis
 
 If unavailable, we also recommend the [ODROID-C4](https://ameridroid.com/products/odroid-c4).
 
-Home Assistant bundles (US market):
-
-The bundles come with Home Assistant pre-installed.
-
-- [ODROID-N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935)
-- [ODROID-N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399)
-- ODROID-M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831)
-- ODROID-M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367)
-- [ODROID-M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903)
-
-Variants without pre-installed Home Assistant:
+Boards:
 
 - ODROID-N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418)
 - [ODROID-C4](https://ameridroid.com/products/odroid-c4)
@@ -55,11 +45,15 @@ This guide assumes that you have a dedicated {{ site.installation.types[page.ins
 - This is typically an Intel or AMD-based system.
 - The system must be 64-bit capable and be able to boot using UEFI.
   - Most systems produced in the last 10 years support the UEFI boot mode.
+- The boot medium must support 512-byte logical sectors (512n or 512e).
+  - Most drives support this. However, some NVMe SSDs and hard drives use native 4K sectors (4Kn) only. Home Assistant OS cannot boot from these, so avoid them for your boot medium.
 
 <b>Summary</b>
 
 1. First, you will need to configure your {{ site.installation.types[page.installation_type].board }} PC to use UEFI boot mode.
 2. Then, write the {% term "Home Assistant Operating System" %} disk image to your boot medium.
+
+If you only need the image, [download the image][generic-x86-64].
 
 {% endimportant %}
 
@@ -292,6 +286,7 @@ If VirtualBox is not supported on your Mac and you have experience using virtual
 - [VirtualBox (Apple Silicon chip)][vdi_aarch64] (.vdi)
 {% elsif page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
+- [VMware Workstation][vmdk] (.vmdk)
 {% elsif page.installation_type == 'alternative' %}
 - [KVM/Proxmox][qcow2] (.qcow2)
 - [VMware ESXi/vSphere][Virtual Appliance] (.ova)
@@ -336,7 +331,10 @@ To create the virtual machine, follow the instructions for the hypervisor you us
        - **Number of CPUs**: Set to at least **2**.
        - **Use EFI**: Select the checkbox to use UEFI instead of legacy BIOS. Home Assistant requires UEFI to boot.
     5. Select **Next**.
-    6. In the **Summary** step, review the settings and select **Finish**.
+    6. In the **Virtual hard disk** step, select **Do not add a virtual hard disk**.
+       - Home Assistant uses the disk image you attach in the next section.
+       - If VirtualBox asks whether to continue without a hard disk, select **Continue**.
+    7. In the **Summary** step, review the settings and select **Finish**.
 
     #### Attach the Home Assistant disk (VDI)
 
@@ -344,11 +342,10 @@ To create the virtual machine, follow the instructions for the hypervisor you us
 
     1. Select your new **Home Assistant** VM in the list, and then select **Settings** on the toolbar.
     2. Go to the **Storage** section.
-    3. In the **Storage Devices** list, under **Controller: SATA** (or on Mac with Apple silicon, **Controller: VirtioSCSI**), right-click the empty placeholder disk and select **Remove attachment**.
-    4. Next to **Controller: SATA** (or **Controller: VirtioSCSI**), select the **Add hard disk** icon (the blue disk with a plus sign).
-    5. In the dialog that appears, select the **Add** button.
-    6. Find and select the downloaded `.vdi` file.
-    7. Select **Choose** to confirm the file.
+    3. Next to **Controller: SATA** (or **Controller: VirtioSCSI**), select the **Add hard disk** icon (the blue disk with a plus sign).
+    4. In the dialog that appears, select the **Add** button.
+    5. Find and select the downloaded `.vdi` file.
+    6. Select **Choose** to confirm the file.
 
     #### Configure network
 
@@ -479,7 +476,11 @@ To create the virtual machine, follow the instructions for the hypervisor you us
 
     If networking stops working and the virtual machine console repeatedly shows `e1000: Detected Tx Unit Hang`, the emulated `E1000` adapter has stalled. Restart the virtual machine to restore connectivity.
 
-    If you change the network adapter type after installation, reset the network configuration afterwards. The hypervisor assigns the new adapter a different PCI slot, which changes the network interface name inside the virtual machine. The stored network profile no longer matches, and the machine starts up without network access. To reset it, open the virtual machine console, enter `login` at the `ha >` prompt, and run:
+    If you change the network adapter type after installation, reset the network configuration afterwards. The hypervisor assigns the new adapter a different PCI slot, which changes the network interface name inside the virtual machine. The stored network profile no longer matches, and the machine starts up without network access.
+
+    Resetting removes the saved settings of all network interfaces, not only the one that changed, such as static IP addresses. After the restart, set them up again. For the steps, refer to [Setting a static IP address](/docs/configuration/network/#setting-a-static-ip-address).
+
+    To reset the network configuration, open the virtual machine console, enter `login` at the `ha >` prompt, and run:
 
     ```bash
     rm -r /mnt/overlay/etc/NetworkManager/system-connections

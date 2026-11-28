@@ -7,7 +7,7 @@ related_actions:
   - system_log.clear
 ---
 
-The **Write to system log** action adds your own entry to the system log. This is handy for debugging automations: you can record that a certain step ran, or log a message at a chosen severity so it stands out in your logs.
+The **System Log: Write to system log** action adds your own entry to the system log. This is handy for debugging automations: you can record that a certain step ran, or log a message at a chosen severity so it stands out in your logs.
 
 {% include actions/ui_header.md %}
 

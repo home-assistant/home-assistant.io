@@ -8,7 +8,7 @@ related_actions:
   - rainmachine.stop_all
 ---
 
-The **Stop zone** action stops a single running RainMachine zone. Each zone is represented by a switch entity, and this action turns that zone off.
+The **RainMachine: Stop zone** action stops a single running RainMachine zone. Each zone is represented by a switch entity, and this action turns that zone off.
 
 {% include actions/ui_header.md %}
 

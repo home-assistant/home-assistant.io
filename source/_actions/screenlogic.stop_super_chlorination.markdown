@@ -8,7 +8,7 @@ related_actions:
   - screenlogic.set_color_mode
 ---
 
-The **Stop super chlorination** action ends an ongoing super chlorination cycle on your ScreenLogic gateway. It is the counterpart to [Start super chlorination](/actions/screenlogic.start_super_chlorination/).
+The **Pentair ScreenLogic: Stop super chlorination** action ends an ongoing super chlorination cycle on your ScreenLogic gateway. It is the counterpart to [Start super chlorination](/actions/screenlogic.start_super_chlorination/).
 
 This is handy for cutting a shock treatment short, for example stopping it early once the chlorine level is high enough or before you plan to swim.
 

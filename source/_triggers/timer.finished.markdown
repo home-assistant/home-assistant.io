@@ -28,6 +28,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple timers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted timer finishes, **First** to fire only for the first finished timer, or **All** to fire only after all targeted timers finish.
+  required: false
 For at least:
   description: How long ago the timer must have finished before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -47,8 +48,6 @@ This fires when `timer.bathroom_fan` finishes.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple timers are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
@@ -56,9 +55,9 @@ behavior:
   type: string
   default: each
 for:
-  description: How long ago the timer must have finished before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long ago the timer must have finished before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -69,9 +68,9 @@ for:
 ## Good to know
 
 - This trigger fires when the countdown completes or when you use [Finish timer](/actions/timer.finish/).
-- The `timer.finished` event includes a `finished_at` value in its event data. Home Assistant uses this timestamp for the **For at least** option.
 - If you cancel a timer, use [Timer cancelled](/triggers/timer.cancelled/) instead.
-- The **For at least** option here adds extra delay after the timer finishes. If you want the action to happen when the countdown ends, you usually do not need it.
+- The **For at least** option adds extra delay after the timer finishes. If you want the action to happen when the countdown ends, you usually do not need this option.
+- If the timer starts again during the **For at least** delay, the trigger doesn't react. With **Trigger when** set to **First**, the trigger still reacts as long as at least one of the targeted timers is still finished.
 - If a timer finishes while Home Assistant is not running, this trigger does not run after startup.
 
 {% include triggers/try_it.md %}

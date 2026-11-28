@@ -12,10 +12,7 @@ related:
 
 The calendar card displays your {% term calendar %} {% term entities %} in a month, day, and list view (7 days).
 
-<p class='img'>
-  <img src='/images/dashboards/calendar_card.png' alt='Screenshot of the calendar card'>
-  Screenshot of the calendar card.
-</p>
+{% include dashboard/demo.html demo="calendar_top" caption="The calendar card with two calendars." %}
 
 All options for this card can be configured via the user interface.
 
@@ -46,6 +43,21 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+show_add_event:
+  required: false
+  description: Show a button to create a new event. You need at least one calendar that allows you to create events.
+  type: boolean
+  default: false
+add_event_style:
+  required: false
+  description: "The layout and position of the add event button within the card. Options are `header`, `below`, and `on_top`."
+  type: string
+  default: below
+add_event_size:
+  required: false
+  description: "The size of the add event button. Options are `small`, `medium`, and `large`. Note that the size is ignored when the style is set to `header`."
+  type: string
+  default: small
 {% endconfiguration %}
 
 ### Examples

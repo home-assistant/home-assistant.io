@@ -1,0 +1,23 @@
+{
+  "domain": "bambu_lab",
+  "name": "Bambu Lab",
+  "integration_type": "device",
+  "codeowners": [
+    "@joostlek",
+    "@piitaya"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "computers_network.printers"
+  ],
+  "connectivity": [
+    "network"
+  ],
+  "platforms": [
+    "diagnostics",
+    "light",
+    "sensor"
+  ]
+}

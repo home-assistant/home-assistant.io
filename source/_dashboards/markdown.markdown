@@ -12,10 +12,7 @@ related:
 
 The Markdown card is used to render [Markdown](https://commonmark.org/help/).
 
-<p class='img'>
-<img src='/images/dashboards/markdown.png' alt='Screenshot of the markdown card'>
-Screenshot of the Markdown card.
-</p>
+{% include dashboard/demo.html demo="markdown_example" caption="The Markdown card." %}
 
 The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`. JavaScript in HTML blocks is not supported.
 
@@ -142,14 +139,11 @@ content: |
 
 ## ha-alert
 
-You can also use our [`ha-alert`](https://design.home-assistant.io/#components/ha-alert) component in the Markdown card.
+You can also use our [`ha-alert`](https://contributors.home-assistant.io/design/components/alert/) component in the Markdown card.
 
 Example:
 
-<p class='img'>
-<img src='/images/dashboards/markdown_ha-alert.png' alt='Screenshot of the ha-alert elements in a markdown card'>
-Screenshot of the ha-alert elements in a markdown card.
-</p>
+{% include dashboard/demo.html demo="markdown_alerts" caption="The ha-alert elements in a Markdown card." %}
 
 ```yaml
 type: markdown
@@ -165,10 +159,7 @@ content: |
 
 You can also create QR-Codes in the Markdown card.
 
-<p class='img'>
-<img src='/images/dashboards/markdown_card_qr_code.png' alt='Screenshot of the markdown card with QR codes'>
-Screenshot of the Markdown card with QR codes.
-</p>
+{% include dashboard/demo.html demo="markdown_qr" caption="QR codes in a Markdown card." %}
 
 Available parameters:
 

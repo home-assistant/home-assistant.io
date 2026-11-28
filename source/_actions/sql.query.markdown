@@ -2,15 +2,16 @@
 title: "Query"
 action: sql.query
 domain: sql
+response: required
 description: "Executes a read-only SQL query and returns the result."
 ---
 
-The **Query** action runs a read-only `SELECT` query against a database and returns the rows it finds.
+The **SQL: Query** action runs a read-only `SELECT` query against a database and returns the rows it finds.
 
 This is useful when you want an automation or script to pull data on demand, for example to look up recent history or summarize values, without adding a separate sensor for each query. Only `SELECT` statements are allowed.
 
 {% important %}
-The **Query** action is only available after you set up the [SQL integration](/integrations/sql/) by adding at least one SQL sensor.
+The **SQL: Query** action is only available after you set up the [SQL integration](/integrations/sql/) by adding at least one SQL sensor.
 {% endimportant %}
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. Instead, you enter the query to run, and optionally the database to run it against.
@@ -92,6 +93,8 @@ response_variable:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `result`, which is a list of rows. Each row is a mapping of column names to their values.
 

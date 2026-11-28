@@ -1,42 +1,7 @@
 ---
-title: Home Connect
 description: Instructions on how to set up the Home Connect integration within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Hub
-  - Image
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
-ha_quality_scale: platinum
-ha_codeowners:
-  - '@DavidMStraub'
-  - '@Diegorro98'
-  - '@MartinHjelmare'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - diagnostics
-  - fan
-  - image
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_zeroconf: true
-ha_dhcp: true
 ---
 
 The **Home Connect** {% term integration %} allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
@@ -96,18 +61,6 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 {% include integrations/config_flow.md %}
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
-
-During setup, you will also be asked whether you want to enable the `Images` scope. Enabling this scope allows Home Assistant to retrieve images from appliances that have cameras. See [Image entities](#image) to see what entities could be created if the scope is enabled.
-To use this feature, the scope must first be enabled in the Home Connect developer portal application.
-<p class='img'><img src='/images/integrations/home_connect/granted_scopes_w_image_scope.png' alt="Table of granted scopes for a Home Connect application.">
-The `Images` scope is enabled because it has a checkmark in the **Images** column.
-</p>
-
-{% note %}
-
-You might need to contact Home Connect support to enable the `Images` scope for your application.
-
-{% endnote %}
 
 ## Supported functionality
 
@@ -213,21 +166,6 @@ You might need to contact Home Connect support to enable the `Images` scope for 
   - **Description**: Controls the fan speed of air conditioner appliances.
   - **Availability**: Air conditioner
   - **Controls**: fan speed percentage, fan speed mode
-
-{% enddetails %}
-
-### Image
-
-{% important %}
-
- Image entities do not update automatically. Use the [update entity](/actions/homeassistant.update_entity/) action targeting one of the appliance's image entities to update all image entities for that appliance.
-
-{% endimportant %}
-
-{% details "List of image entities" %}
-
-- **Door right camera**
-- **Interior right camera**
 
 {% enddetails %}
 
@@ -915,6 +853,14 @@ Both entities can use these options, but the availability of these will depend o
 This sensor will be available only if the program is running
 {% endnote %}
 
+- **Program running time**:
+  - **Description**: Represents how long the current program has been running, in minutes, as reported by the appliance. The time while the program is paused isn't counted. The appliance reports the running time about once per minute.
+  - **Availability**: Hood, Oven
+
+{% note %}
+This sensor is only available while a program is running or paused.
+{% endnote %}
+
 - **Program progress**:
   - **Description**: Represents the progress of the program.
   - **Availability**: Coffee maker, Hood, Oven, Warming drawer, Dishwasher, Dryer, Washer, Washer dryer
@@ -1019,7 +965,7 @@ It is not recommended to use the **Current cavity temperature** sensor because t
 #### Event sensors
 
 {% important %}
-The integration adds all the event sensors supported by the appliance type, but they are disabled by default because not every appliance supports all of them.
+The integration adds all the event sensors supported by the appliance type, but they are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because not every appliance supports all of them.
 {% endimportant %}
 
 {% details "Event sensor options" %}
@@ -1317,19 +1263,6 @@ To solve the above issue, follow these steps:
     ![Application credential list](/images/integrations/application_credentials/application-credentials.png)
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu from the application credentials you created for the Home Connect integration and select **Delete**.
 4. Add the Home Connect integration again under {% my integrations title="**Settings** > **Devices & services**" %}
-
-#### Symptom: Account linking rejected: invalid_scope
-
-##### Description
-
-The Home Connect integration was initially configured with the Images scope, but that scope is not enabled in the Home Connect developer portal for the application credentials used by the integration.
-
-##### Solution
-
-You can resolve this in one of two ways:
-
-1. Enable the `Images` scope in the Home Connect developer portal for the application used by the integration. You might need to contact Home Connect support to enable this scope for your application.
-2. Set up the Home Connect integration again, and do not enable the `Images` scope during configuration.
 
 ### Missing options at the "active program" and "selected program" entities
 

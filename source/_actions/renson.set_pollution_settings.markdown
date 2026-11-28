@@ -8,7 +8,7 @@ related_actions:
   - renson.set_breeze
 ---
 
-The **Set pollution settings** action configures how your Renson ventilation unit responds to pollution. You set the ventilation levels used during the day and night, choose which sensors trigger extra ventilation, and tune the CO2 thresholds.
+The **Renson: Set pollution settings** action configures how your Renson ventilation unit responds to pollution. You set the ventilation levels used during the day and night, choose which sensors trigger extra ventilation, and tune the CO2 thresholds.
 
 This is useful when you want an automation to change how aggressively the unit ventilates, for example a quieter program at night.
 
@@ -23,7 +23,7 @@ To configure the pollution settings from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Renson ventilation unit.
-6. From the actions shown for that target, select **Renson: Set pollution settings**.
+6. From the actions shown for that target, under **Renson**, select **Set pollution settings**.
 7. Set the **Day pollution level** and **Night pollution level**, then adjust the control and CO2 options as needed.
 8. Select **Save**.
 
@@ -126,7 +126,8 @@ co2_hysteresis:
 
 This automation lowers the night pollution ventilation level every evening so the unit runs more quietly while you sleep.
 
-- **Trigger**: the time is 10:00 PM
+- **Trigger**: Time
+  - **At time**: `22:00`
 - **Action**: Renson: Set pollution settings
   - **Target**: the ventilation unit
   - **Day pollution level**: `level3`

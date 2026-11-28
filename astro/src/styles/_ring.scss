@@ -1,0 +1,17 @@
+// A ring along an element's edge, drawn by a pseudo-element: only the
+// pseudo-element's background between its padding and its edge shows.
+// Include it inside the pseudo-element and give it a background; the
+// element needs `position: relative` (or another containing block).
+@mixin ring($width: 1px) {
+	border-radius: inherit;
+	content: "";
+	inset: calc($width * -1);
+	-webkit-mask:
+		linear-gradient(#000 0 0) content-box,
+		linear-gradient(#000 0 0);
+	-webkit-mask-composite: xor;
+	mask-composite: exclude;
+	padding: $width;
+	pointer-events: none;
+	position: absolute;
+}

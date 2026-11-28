@@ -1,37 +1,7 @@
 ---
-title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
-ha_category:
-  - Binary sensor
-  - Button
-  - Image
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
-  - Vacuum
-ha_iot_class: Local Polling
 ha_release: 2023.5
-ha_config_flow: true
-ha_codeowners:
-  - '@Lash-L'
-  - '@allenporter'
 ha_domain: roborock
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - image
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-  - vacuum
-ha_integration_type: hub
-ha_quality_scale: silver
-ha_dhcp: true
 ---
 
 The **Roborock** {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
@@ -164,6 +134,10 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Selected map**
   - **Description**: Choose the map that is loaded on the vacuum.
 
+- **Cleaning cycles**
+  - **Description**: Sets how many times the vacuum cleans each area (1x or 2x).
+  - **Availability**: For Q7 series vacuums.
+
 - **Empty mode**
   - **Description**: You can set the "empty mode" setting including Max, Light, Balanced, and Smart.
   - **Availability**: For vacuum equipped with an auto-empty dock
@@ -286,7 +260,11 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 
 #### Button
 
-There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are disabled by default to make sure they are not pressed unintentionally.
+- **Resolve dock error**
+  - **Availability**: Enabled by default on supported docks that provide a **Dock error** sensor.
+  - **Description**: After fixing the cause of a dock error, such as refilling an empty clean water tank, press this button to acknowledge the current dock error. Home Assistant then refreshes the dock status. If no dock error is reported, pressing the button shows an error and sends no command. Whether an interrupted cleaning job resumes depends on the device. The button only acknowledges dock errors.
+
+The following maintenance buttons allow you to reset the various maintenance items on your vacuum. Pressing a maintenance button cannot be undone. For this reason, the maintenance buttons are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) to make sure they are not pressed unintentionally.
 
 - **Reset sensor consumable**
   - **Description**: The sensors on your vacuum are expected to be cleaned after 30 hours of use.
@@ -385,6 +363,8 @@ We are working on adding a lot of features to the core integration. We have reve
 Roborock vacuums do not support cleaning in a specific room order.
 {% endnote %}
 
+To clean rooms more than once, see [Automation: clean rooms more than once](#automation-clean-rooms-more-than-once).
+
 ## Known limitations
 
 ### The vacuum supports polling only
@@ -394,6 +374,10 @@ The Roborock integration polls your robot vacuum every 30 seconds with no push-b
 ### The vacuum requires cloud access
 
 Despite this integration's IoT class being local polling, cloud access is required for it to work just like any other cloud based integration.
+
+### Area cleaning has no option for the number of passes
+
+The [Clean area with vacuum cleaner](/actions/vacuum.clean_area/) action and **Cleaning by area** do not let you choose how many times the vacuum cleans each room. To clean rooms more than once, send the `app_segment_clean` command with its `repeat` option instead. See [Automation: clean rooms more than once](#automation-clean-rooms-more-than-once).
 
 ### Rate limiting on the cloud API
 
@@ -473,7 +457,7 @@ Running a robot vacuum while your alarm system is armed can falsely trigger moti
 alias: "Vacuum: Clean when house is empty"
 description: "Triggers a full clean when the house alarm is armed to away."
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: alarm_control_panel.home_alarm
     to: "armed_away"
 condition:
@@ -481,7 +465,7 @@ condition:
     entity_id: vacuum.roborock_s8
     state: "docked"
 action:
-  - service: vacuum.start
+  - action: vacuum.start
     target:
       entity_id: vacuum.roborock_s8
 mode: single
@@ -504,7 +488,7 @@ alias: "Vacuum: Clean kitchen after cooking"
 description: "Sends the vacuum to the kitchen zone 1 minute after the stovetop turns off."
 mode: single
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: switch.smart_hob_power
     from: "on"
     to: "off"
@@ -515,11 +499,48 @@ condition:
     entity_id: vacuum.roborock_s8
     state: "docked"
 action:
-  - service: vacuum.clean_area
+  - action: vacuum.clean_area
     target:
       entity_id: vacuum.roborock_s8
     data:
       cleaning_area_id: kitchen
 ```
+
+{% enddetails %}
+
+### Automation: clean rooms more than once
+
+Send the vacuum to clean some rooms three times every day at 10:00. To find the ID numbers of your rooms, use the [Get maps](/actions/roborock.get_maps/) action.
+
+- **Trigger**: Time
+  - **At time**: `10:00:00`
+- **Action**: Send command to vacuum cleaner
+  - **Target**: Your Roborock vacuum
+  - **Command**: `app_segment_clean`
+  - **Parameters**: A list with one item. Enter it in YAML mode, as shown in the example. The item has two keys:
+    - `segments`: The ID numbers of the rooms to clean.
+    - `repeat`: The number of passes, from 1 to 3.
+
+{% details "YAML example for cleaning two rooms three times" %}
+
+{% example %}
+automation: |
+  alias: "Vacuum: Clean rooms three times"
+  triggers:
+    - trigger: time
+      at: "10:00:00"
+  actions:
+    - action: vacuum.send_command
+      target:
+        entity_id: vacuum.roborock_s8
+      data:
+        command: app_segment_clean
+        params:
+        # Replace these IDs with the room IDs from the Get maps action
+          - segments:
+              - 16
+              - 17
+            repeat: 3
+{% endexample %}
 
 {% enddetails %}

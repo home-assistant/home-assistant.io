@@ -2,6 +2,7 @@
 title: "Process conversation"
 action: conversation.process
 domain: conversation
+response: optional
 description: "Sends text to a conversation agent for processing."
 related_actions:
   - conversation.reload
@@ -19,7 +20,7 @@ To send text to a conversation agent from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Conversation: Process conversation**.
+5. From the search box, search for and select **Process conversation**.
 6. Enter the **Text** to process. Optionally, choose an **Agent**, a **Language**, and a **Conversation ID**.
 7. Select **Save**.
 
@@ -38,7 +39,7 @@ Language:
   description: The language of the text. When left empty, the server language is used.
   required: false
 Conversation ID:
-  description: The ID of a new or previous conversation. Provide a previous ID to continue that conversation, or a new one to start a fresh conversation.
+  description: The ID of a new or previous conversation. Provide a previous ID to continue that conversation, or a new one to start a fresh conversation. For how long a conversation lasts and who can continue it, refer to [Good to know](#good-to-know).
   required: false
 {% endoptions_ui %}
 
@@ -78,16 +79,27 @@ language:
 conversation_id:
   description: >
     The ID of a new or previous conversation. Provide a previous ID to continue
-    that conversation, or a new one to start a fresh conversation.
+    that conversation, or a new one to start a fresh conversation. For how
+    long a conversation lasts and who can continue it, refer to
+    [Good to know](#good-to-know).
   required: false
   type: string
 {% endoptions_yaml %}
 
 ## Response data
 
-When you store the result in a response variable, this action returns the conversation agent's response, including the spoken reply and the result of the intent. The response has the same structure as the [`/api/conversation/process` API](https://developers.home-assistant.io/docs/intent_conversation_api#conversation-response).
+{% include actions/response.md %}
+
+When you store the result in a response variable, this action returns the conversation agent's response, including the spoken reply and the result of the intent. The response has the same structure as the [`/api/conversation/process` API](https://contributors.home-assistant.io/core/internals/conversation-api/#the-response).
 
 The reply text is then available as `{{ agent_response.response.speech.plain.speech }}`. The automation below shows how to capture this reply and send it back to a chat.
+
+## Good to know
+
+- A conversation ends after 5 minutes without activity. After that, the same conversation ID starts a new conversation.
+- If you start a conversation while signed in to your account, only your account can continue it.
+- If an automation starts a conversation, any automation can continue it, but your account can't.
+- A script counts as your account if you start it yourself, and as an automation if an automation starts it.
 
 {% include actions/try_it.md %}
 
@@ -97,9 +109,14 @@ The reply text is then available as `{{ agent_response.response.speech.plain.spe
 
 When a message arrives from a chat integration, forward its text to the conversation agent, then send the agent's spoken reply back to the chat. This processes the message and uses the response in a single automation.
 
-- **Trigger**: A chat integration receives a new message
-- **Action**: Conversation: Process conversation, using the message text, and store the result in a response variable
-- **Action**: Send the agent's reply back to the chat
+- **Trigger**: Manual event received
+  - **Event type**: `chat_message_received`
+- **Action**: Process conversation
+  - **Text**: `{{ trigger.event.data.message }}`
+  - **Response variable**: `agent_response`
+- **Action**: Send a notification message
+  - **Target**: My chat
+  - **Message**: `{{ agent_response.response.speech.plain.speech }}`
 
 {% details "YAML example for replying to a received message" %}
 

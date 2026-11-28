@@ -1,19 +1,7 @@
 ---
-title: Devialet
 description: Instructions on how to integrate Devialet devices into Home Assistant.
-ha_category:
-  - Media Player
 ha_release: 2023.11
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: devialet
-ha_codeowners:
-  - '@fwestenberg'
-ha_zeroconf: true
-ha_integration_type: device
-ha_platforms:
-  - diagnostics
-  - media_player
 ---
 
 The **Devialet** {% term integration %} lets you control your [Devialet](https://www.devialet.com) wireless speakers from Home Assistant.
@@ -35,6 +23,17 @@ Known supported devices:
 - Phantom I
 - Phantom II
 
+## Playing media
+
+You can play music on your speakers from Home Assistant, for example a radio station from the [Radio Browser](/integrations/radio_browser/) integration. Open the media player and select **Browse media**, or use the `media_player.play_media` action.
+
+- After Home Assistant starts or a speaker is turned on, it can take up to 2 minutes before you can play media.
+- Home Assistant and the speakers must be on the same network.
+
 ## Turning off the device
 
 The media player `turn off`  button and the `media_player.turn_off` action will turn off all the devices of the designated system. Exiting OFF mode is only possible by pressing a physical button on each device.
+
+## Data updates
+
+The speakers push changes, such as volume and the track that is playing, to Home Assistant as soon as they happen.

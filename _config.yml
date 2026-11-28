@@ -79,6 +79,12 @@ collections:
   conditions:
     output: true
     permalink: /conditions/:path/
+  building_blocks:
+    output: true
+    permalink: /building-blocks/:path/
+  connectivity:
+    output: true
+    permalink: /connectivity/:path/
   docs:
     output: true
   apps:
@@ -119,14 +125,14 @@ social:
 
 # Home Assistant release details
 current_major_version: 2026
-current_minor_version: 8
+current_minor_version: 11
 current_patch_version: 3
-date_released: 2026-08-21
+date_released: 2026-11-23
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
 # Major release:
-patch_version_notes: "#202683---august-21"
+patch_version_notes: "#2026113---november-23"
 # Minor release (Example #release-0431---april-25):
 
 # Set Front matter defaults
@@ -186,6 +192,16 @@ defaults:
   - scope:
       path: ""
       type: conditions
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: building_blocks
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: connectivity
     values:
       toc: true
   - scope:

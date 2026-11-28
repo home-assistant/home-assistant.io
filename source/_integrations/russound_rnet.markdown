@@ -1,20 +1,10 @@
 ---
-title: Russound RNET
 description: Instructions on how to integrate Russound RNET devices into Home Assistant.
-ha_category:
-  - Media player
 ha_release: 0.25
-ha_iot_class: Local Polling
 ha_domain: russound_rnet
-ha_platforms:
-  - media_player
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
-ha_codeowners:
-  - '@noahhusby'
 ---
 
 The **Russound RNET** {% term integration %} allows you to control Russound devices that use the RNET protocol.

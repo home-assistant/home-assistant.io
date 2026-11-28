@@ -1,54 +1,8 @@
 ---
-title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Date
-  - Fan
-  - Hub
-  - Light
-  - Notifications
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Time
-  - Weather
 ha_release: 0.24
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Julius2342'
-  - '@farmio'
-  - '@marvin-w'
 ha_domain: knx
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - date
-  - datetime
-  - diagnostics
-  - fan
-  - light
-  - notify
-  - number
-  - scene
-  - select
-  - sensor
-  - switch
-  - text
-  - time
-  - weather
-ha_config_flow: true
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The [KNX](https://www.knx.org) {% term integration %} connects Home Assistant to your KNX installation, allowing you to control KNX devices, act on telegrams and forward state changes from other integrations entities to your KNX bus.
@@ -187,7 +141,7 @@ The connection check confirms that Home Assistant can reach the server and sign 
 
 ## Basic configuration
 
-To use the various platforms offered by the KNX integration, you will need to set them up via the KNX panel or add the corresponding configuration yaml to your {% term "`configuration.yaml`" %}. See [Splitting up the configuration](/docs/configuration/splitting_configuration/) if you like to arrange YAML parts in dedicated files.
+To use the various platforms offered by the KNX integration, you will need to set them up via the KNX panel, which you can open from **Settings** > **Connectivity** > **KNX**, or add the corresponding configuration yaml to your {% term "`configuration.yaml`" %}. See [Splitting up the configuration](/docs/configuration/splitting_configuration/) if you like to arrange YAML parts in dedicated files.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -319,6 +273,39 @@ This integration uses the KNX/IP protocol to receive telegrams live as they appe
 
 States of diagnostic entities of the "KNX Interface" device are {% term polling polled %} every 10 seconds.
 
+## Project data
+
+Project data has the group addresses of your installation with their names and data point types, its devices, and its building structure. With it, the KNX integration decodes telegrams, names group addresses in the group monitor and in trigger data, and suggests entities. You can upload a project file in the KNX panel.
+
+### Providing project data from another program
+
+Other integrations and tools can replace the project data with data that is already parsed into the format of [xknxproject](https://github.com/XKNX/xknxproject), the library the KNX integration uses to read project files. An example is a project editor that keeps Home Assistant up to date while you edit the project.
+
+- An integration calls `homeassistant.components.knx.async_set_project(hass, project)`.
+- An external tool sends the WebSocket command `knx/set_knx_project` with the data in `project`. It requires an administrator account.
+
+```json
+{
+  "id": 1,
+  "type": "knx/set_knx_project",
+  "project": {
+    "info": {
+      "xknxproject_version": "3.11.1",
+      "group_address_style": "ThreeLevel",
+      "...": "..."
+    },
+    "group_addresses": { "...": "..." },
+    "...": "..."
+  }
+}
+```
+
+The data must be in the format of the xknxproject version installed with Home Assistant, down to its minor version. It is validated before anything is stored. Invalid or incompatible data is refused with an error, and the current project is kept. Valid data is stored and used like an uploaded project file.
+
+Each call stores the whole project. A tool that updates it while the project is edited should send it after a short pause in the changes rather than after every single change.
+
+The WebSocket command sends the whole project in one message, which is limited to 4&nbsp;MiB. A larger message closes the connection. Larger project data can be provided from Python with `async_set_project`.
+
 ## Triggers
 
 The KNX integration provides its own trigger platform which can be used in automations.
@@ -369,7 +356,7 @@ outgoing:
 
 #### Available trigger data
 
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `knx.telegram` trigger platform has additional trigger data available for use.
+In addition to the [standard automation trigger data](/docs/automation/trigger-data/#properties-of-all-triggers), the `knx.telegram` trigger platform has additional trigger data available for use.
 
 - `trigger.destination` Destination group address
 - `trigger.destination_name` Destination group address name
@@ -484,6 +471,94 @@ Every telegram that matches an address pattern with its destination field will b
 - `value` contains the decoded payload value if `type` is configured for the address. Will be `None` for "GroupValueRead" telegrams.
 
 {% include integrations/actions.md %}
+
+## KNX tools for AI conversation agents
+
+The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation, to interact with the bus, and to create and manage KNX entities.
+
+With these tools, an agent can answer questions such as "Which device sent the last telegram to 1/2/3?", "What is connected to line 1.1?", or "What is the current temperature on 4/0/1?". None of this requires a Home Assistant {% term entity %} for the group address in question. An agent can also set up entities for you, for example "Create lights for all dimming channels in the living room".
+
+### Enabling the KNX tools
+
+{% important %}
+Only administrators can use the KNX tools.
+Requests from other users can't use them.
+The same applies to requests that are not associated with a user, such as requests from voice satellites.
+The tools include ones that write to the bus and ones that create, change, and delete entities and devices.
+
+Only enable the KNX API on agents you trust to write to the KNX bus and to add, change, and remove KNX entities and devices in Home Assistant.
+{% endimportant %}
+
+The KNX API is not used by default. Select it on the {% term integration %} that provides your conversation agent, such as [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation/), [OpenAI](/integrations/openai_conversation/), or [Ollama](/integrations/ollama/):
+
+1. Go to {% my integrations icon title="**Settings** > **Devices & services**" %}.
+2. Select the conversation agent integration, then select **Configure**.
+3. Add **KNX** to **AI tools**.
+
+To use the tools from an external MCP client instead, use the [Model Context Protocol](/integrations/mcp_server/) integration. Its main URL exposes **KNX** when **Expose all AI tools** is on or when **KNX** is selected in **AI tools**. You can also point the client at `/api/mcp/knx`, which requires an administrator account.
+
+### Available tools
+
+The tools are organized in groups. If a tool cannot run, it reports the reason back to the agent, for example that no ETS project is loaded or that the telegram store is unavailable.
+
+#### Telegram history
+
+`query_telegrams`, `get_last_values`, `count_telegrams`, `get_store_stats`, and `get_store_capabilities` search and summarize the telegrams the integration recorded. They need telegram history to be present. See **Retention period** in the [integration options](#reconfiguration).
+
+#### ETS project
+
+`get_project_info`, `list_group_addresses`, `describe_group_address`, `list_devices`, `list_communication_objects`, `list_functions`, `describe_function`, and `get_topology` answer questions about your installation: group addresses and their names, devices and their communication objects, functional blocks, and the area and line topology.
+`list_channels`, `describe_channel`, and `find_similar_channels` look at the channels of a device, such as one output of a switch actuator.
+They show which communication objects and group addresses belong to a channel, and find channels of the same kind across your installation.
+All of these tools require a project file uploaded in the KNX panel.
+
+#### Data point types
+
+`list_dpts`, `describe_dpt`, `encode_value`, and `decode_payload` look up <abbr title="data point types">DPTs</abbr> and convert between native values and raw payloads. They need neither a project nor a bus connection.
+
+#### Live bus access
+
+`get_connection_status`, `read_group_value`, `send_group_value_read`, and `send_group_value_write` report the connection state and read from or write to group addresses on the bus. `send_group_value_write` sends a telegram to your installation, just like the group monitor does.
+
+#### Entities and devices
+
+These tools set up and manage KNX entities the same way the KNX panel does.
+
+`list_entity_suggestions`, `get_entity_schema`, `validate_entity`, `create_entity`, and `create_device` create entities.
+An agent can create an entity from a suggestion.
+Suggestions are based on your project file and on the KNX entities you already have.
+An agent can also put a configuration together from the group addresses of your installation, or adjust a suggestion.
+`validate_entity` checks a configuration without creating anything.
+`create_device` adds a new Home Assistant {% term device %} that the agent can assign entities to, so entities that belong together are grouped.
+This is not a KNX device from your ETS project.
+
+`list_entities`, `get_entity_config`, `update_entity`, `delete_entity`, and `delete_device` manage the entities you have.
+All of them only work with entities configured in the KNX panel.
+They can't list, read, change, or delete entities configured in YAML.
+`list_entities` lists your entities with the group addresses they use.
+`get_entity_config` returns the configuration of one entity.
+`update_entity` replaces the configuration of an entity.
+It can't change the type of the entity, for example from a switch to a light.
+`delete_entity` removes an entity and its configuration.
+`delete_device` removes a Home Assistant device together with its entities, like removing the device in the UI does.
+It can't remove a device that still has entities configured in YAML.
+
+Entities and devices created by an agent show up in the KNX panel.
+You can edit or delete them there like any other.
+These tools don't send telegrams themselves.
+A new entity requests its state from the bus, like any other KNX entity that has a state address.
+
+### Read-only access for MCP clients
+
+When **Read-only** is turned on in the [Model Context Protocol](/integrations/mcp_server/) integration, its main URL only exposes the tools that don't change anything.
+It leaves out these KNX tools:
+
+- `read_group_value` and `send_group_value_read`, because they send a telegram to the bus
+- `send_group_value_write`
+- `create_entity` and `create_device`
+- `update_entity`, `delete_entity`, and `delete_device`
+
+The `/api/mcp/knx` URL ignores this option and always exposes all KNX tools.
 
 ## Exposing entity states, entity attributes or time to KNX bus
 
@@ -640,8 +715,12 @@ default_entity_id:
     You can change the entity ID in the Home Assistant UI.
   required: false
   type: string
+unique_id:
+  description: A custom unique ID for this entity. By default the unique ID is derived from the entity's group addresses. Set this to a stable value of your choice so the entity keeps its identity even if its group addresses change. When you add this option to an entity that already exists, its history, area, and other customizations are migrated to the new unique ID. Removing or changing the option again cannot restore the previous identity. The value must be unique among all entities of the same platform.
+  required: false
+  type: string
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
   default: None
@@ -667,6 +746,7 @@ knx:
   sensor:
     - name: Awesome sensor
       default_entity_id: "sensor.awesome_entity_id"
+      unique_id: "never_change_me_1a2b3c4d"
       entity_category: diagnostic
       device:
         id: my_awesome_device
@@ -745,7 +825,7 @@ sync_state:
   type: [boolean, string, integer]
   default: true
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 reset_after:
@@ -1253,7 +1333,7 @@ invert_angle:
   default: false
   type: boolean
 device_class:
-  description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/cover/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 sync_state:
@@ -1813,7 +1893,7 @@ device_class:
   required: false
   type: string
 unit_of_measurement:
-  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
+  description: Overrides the DPT's default native unit of measurement. The unit must be one of the [units listed for the selected device class](/integrations/number/#list-of-available-device-classes).
   required: false
   type: string
 sync_state:
@@ -1836,6 +1916,8 @@ sync_state:
 
 The KNX scene platform allows you to activate KNX scenes and updates scene entities when the corresponding scene number is received on the KNX bus.
 
+To store the current state of the actuators in a KNX scene, use the [`knx.save_scene` action](/actions/knx.save_scene/).
+
 Scene entities can be created from the frontend in the KNX panel or via YAML.
 
 {% details "Configuration of KNX scene entities via YAML" %}
@@ -1853,7 +1935,7 @@ See also the [common entity configuration options](#common-entity-configuration-
 
 {% configuration %}
 address:
-  description: KNX group address for the scene. *DPT 17.001*
+  description: KNX group address for the scene. *DPT 17.001 or DPT 18.001*
   required: true
   type: [string, list]
 scene_number:
@@ -2012,7 +2094,7 @@ always_callback:
   type: boolean
   default: false
 state_class:
-  description: Overrides the DPT's default [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes).
+  description: Overrides the DPT's default [state_class](/integrations/sensor/#state-class).
   required: false
   type: string
 device_class:
@@ -2020,7 +2102,7 @@ device_class:
   required: false
   type: string
 unit_of_measurement:
-  description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
+  description: Overrides the DPT's default native unit of measurement. The unit must be one of the [units listed for the selected device class](/integrations/sensor/#list-of-available-device-classes).
   required: false
   type: string
 {% endconfiguration %}
@@ -2083,7 +2165,7 @@ respond_to_read:
   type: boolean
   default: false
 device_class:
-  description: Sets the [class of the device](/integrations/switch/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/switch/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 sync_state:
@@ -2506,6 +2588,10 @@ The following table lists the supported numeric Data Point Types (DPT). You can 
 
 - The integration aims to be compatible with a wide variety of KNX devices from different manufacturers and eras. However, there are some devices that use non-standard <abbr title="data point type">DPT</abbr> or use telegrams in a proprietary way. In these cases, you might not be able to configure {% term entities %} directly through this integration. However, you may still use [Template entities](/integrations/template/) with the [KNX telegram trigger](#telegram-trigger) to work around this.
 
+- The [KNX tools for AI conversation agents](#knx-tools-for-ai-conversation-agents) return at most 1000 entries per call. An agent can page through the rest, but a question that would need the entire project or the full telegram history in a single answer may not be answered completely.
+
+- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep **Device control** selected alongside **KNX**.
+
 - USB bus interfaces are not directly supported by the underlying [`xknx` library](https://github.com/XKNX/xknx). However, you could try to run a software KNX router such as `Calimero` or `knxd` alongside Home Assistant to serve as a USB to IP bridge. For best reliability, using a certified KNX IP interface or router is recommended.
 
 ## Troubleshooting / Common issues
@@ -2535,7 +2621,7 @@ logger:
 ```
 
 You can use the `logger.set_level` action to change the log level of a handler on a running instance.
-{% my developer_call_service badge service="logger.set_level" %}
+{% my tools_perform_action badge service="logger.set_level" %}
 
 ### Group address cannot be read
 

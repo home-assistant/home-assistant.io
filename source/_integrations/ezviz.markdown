@@ -1,29 +1,7 @@
 ---
-title: EZVIZ
 description: Integrate EZVIZ camera within Home Assistant.
 ha_release: 0.107
-ha_category:
-  - Camera
-  - Update
-ha_iot_class: Cloud Polling
 ha_domain: ezviz
-ha_codeowners:
-  - '@RenierM26'
-ha_config_flow: true
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - camera
-  - image
-  - light
-  - number
-  - select
-  - sensor
-  - siren
-  - switch
-  - update
-ha_integration_type: integration
 related:
   - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
     title: Controlling the camera from the dashboard
@@ -32,7 +10,7 @@ related:
 The **EZVIZ** integration uses the ezvizlife.com API to interact with the devices.
 It also exposes an RTSP stream, by using the local camera IPs (so the device hosting Home Assistant has to be able to access the local IP of the cameras).
 
-As there is no official documentation for the API, the integration retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
+The integration retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
 
 The password for each camera is usually written near the QR code. This could be underneath the device or in the user manual. It is usually referred to as the camera "verification code".
 
@@ -45,6 +23,8 @@ The local RTSP server on your camera needs to be enabled. To do that:
 - Select the gear-like icon in the top-right corner > **Local Server Settings** > **enable RTSP**.
 
 {% include integrations/config_flow.md %}
+
+If two-step verification is enabled on your EZVIZ account, EZVIZ sends you a verification code during setup. Enter this code in the **Verification code** field to finish the setup.
 
 Your cameras will now show under integration options as "discovered devices". Please complete the setup for each camera to see the video stream within Home Assistant.
 
@@ -121,4 +101,5 @@ The image entity represents the last detected event from a camera and visually r
 
 ## Troubleshooting
 
-- `authentication failed`: The authentication requires an EZVIZ account with two-step verification disabled. Google, Facebook, TikTok, or other Oauth-based accounts will not work.
+- `authentication failed`: Google, Facebook, TikTok, or other OAuth-based accounts will not work. Use an EZVIZ account that signs in with a username and password.
+- `The verification code is invalid or has expired`: Enter the latest code that EZVIZ sent you. If the code still does not work, start the setup again to receive a new code.

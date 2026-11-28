@@ -1,57 +1,27 @@
 ---
-title: Google Health
 description: Instructions on how to integrate Google Health within Home Assistant.
 ha_release: 2026.8
-ha_category:
-  - Health
-ha_iot_class: Cloud Polling
 ha_domain: google_health
-ha_codeowners:
-  - '@allenporter'
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_quality_scale: gold
+api: Google Health API
+api_link: https://console.cloud.google.com/apis/library/health.googleapis.com
 related:
   - url: https://developers.google.com/health-api
     title: Google Health API
   - url: https://console.cloud.google.com/apis/library/health.googleapis.com
-    title: Google Developers Console
+    title: Google Cloud console
 ---
 
 The **Google Health** {% term integration %} allows you to expose health and fitness data from Google Health (including Fitbit, Pixel Watch, and other devices connected to your Google Account) to Home Assistant.
 
 ## Prerequisites
 
+{% important %}
+If your Google Account is enrolled in the [Advanced Protection Program](https://support.google.com/accounts/answer/7539956), you cannot use the setup described below. Advanced Protection blocks unverified apps from accessing sensitive account data, including your Google Health data. Publishing your OAuth app does not verify it.
+{% endimportant %}
+
 You need to configure developer credentials to allow Home Assistant to access your Google Account. These credentials are the same as the ones for [Google Photos](/integrations/google_photos), [Nest](/integrations/nest), [Google Tasks](/integrations/google_tasks), and [Google Mail](/integrations/google_mail).
 
-If you have already set up the correct credentials, you can enable the API and then skip the consent screen and credential creation steps.
-
-{% details "Generate client ID and client secret" %}
-
-This section explains how to enable the API, configure the consent screen, and generate a client ID and client secret on the Google Developers Console.
-
-1. First, go to the Google Developers Console to enable the [Google Health API](https://console.cloud.google.com/apis/library/health.googleapis.com).
-2. Select a project and select **Continue**. Verify that the API is enabled.
-3. Go to the [Branding page](https://console.cloud.google.com/auth/branding) in the Google Auth Platform Console.
-4. If prompted to configure OAuth, select **Get started** and follow the setup wizard. When the wizard asks for the user type, select **External**, and continue once the OAuth consent configuration is created.
-5. Select **Branding** in the left sidebar. Fill in the required fields:
-   - **App name**: Enter a name (like *Home Assistant*). This is shown during the OAuth login flow.
-   - **User support email**: Select your Google Account email.
-   - **Developer contact email**: Enter your email address.
-   Leave all other fields empty to avoid triggering Google's verification process. Select **Save**.
-6. Select **Audience** in the left sidebar.
-   - Under **User type**, confirm it shows **External**.
-   - Under **Test users**, select **+ Add users** and add your Google Account email address. Select **Save**.
-7. Under **Publishing status**, select **Publish app** to set the status to **In production**. Make sure the status is not **Testing**, or your authentication token will expire every 7 days.
-8. Select **Credentials** in the left sidebar.
-9. Select **Create Credentials** at the top of the page, then select **OAuth client ID**.
-10. Set the Application type to **Web application** and give these credentials a name (like *Home Assistant Credentials*).
-11. Under **Authorized redirect URIs**, enter `https://my.home-assistant.io/redirect/oauth` and select **Create**. This is not a placeholder and is the URI that must be used.
-12. Copy the **Client ID** and **Client Secret** from the pop-up, or select the pencil icon next to your client ID to view them later.
-
-{% enddetails %}
+{% include integrations/google_client_secret.md %}
 
 {% include integrations/config_flow.md %}
 
@@ -62,10 +32,10 @@ The integration setup will next give you instructions to enter the [Application 
 1. Continue through the steps of selecting the Google Account you want to authorize.
 2. You will be asked to grant access to specific data in your Google Health account. The integration will dynamically adjust based on the permissions you grant:
     - **Profile** (required): Allows Home Assistant to verify your account identity.
-    - **Activity and fitness** (optional): Granting this scope creates sensors for steps, distance, active calories, total calories, and floors.
-    - **Health metrics and measurements** (optional): Granting this scope creates sensors for weight, resting heart rate, and body fat.
-    - **Sleep data** (optional): Granting this scope creates sensors for time asleep, time awake, time in bed, time to fall asleep, and time after wake-up.
-    - **Nutrition and hydration** (optional): Granting this scope creates sensors for hydration and calories consumed.
+    - **Activity and fitness** (optional): Granting this scope creates sensors for steps, distance, elevation, active calories, total calories, floors, active minutes by intensity, active zone minutes, and sedentary time.
+    - **Health metrics and measurements** (optional): Granting this scope creates sensors for weight, height, body mass index, body fat, resting heart rate, heart rate variability, oxygen saturation, respiratory rate, and <abbr title="maximal oxygen consumption">VO2 max</abbr>.
+    - **Sleep data** (optional): Granting this scope creates sensors for sleep start and end times, sleep stage durations (<abbr title="rapid eye movement">REM</abbr>, deep, and light sleep), time asleep, time awake, time in bed, time to fall asleep, and time after wake-up.
+    - **Nutrition and hydration** (optional): Granting this scope creates sensors for hydration, calories consumed, macronutrients (total fat, total carbohydrates, and protein), dietary fiber, sugar, sodium, and calories from fat.
     - **Paired devices** (optional): Granting this scope creates diagnostic sensors for battery level and last sync time for your paired wearables or devices.
 3. You may get a message telling you that the app has not been verified. Acknowledge this to proceed.
 4. You can now see the details of what you are authorizing Home Assistant to access with options at the bottom. Select **Continue**.
@@ -85,23 +55,43 @@ The **Google Health** integration provides the following entities:
 *Available for accounts that grant the Activity and fitness scope.*
 
 - **Active calories**: Daily active energy burned.
+- **Active zone minutes**: Total daily active zone minutes across all heart rate zones.
+- **Cardio active zone minutes** ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)): Daily active zone minutes earned in the cardio heart rate zone.
 - **Distance**: Daily distance.
+- **Elevation**: Daily net elevation change.
+- **Fat burn active zone minutes** (disabled by default): Daily active zone minutes earned in the fat burn heart rate zone.
 - **Floors**: Daily floors climbed.
+- **Light activity**: Daily duration spent in light activity.
+- **Moderate activity**: Daily duration spent in moderate activity.
+- **Peak active zone minutes** (disabled by default): Daily active zone minutes earned in the peak heart rate zone.
+- **Sedentary time** (disabled by default): Daily duration spent sedentary.
 - **Steps**: Daily step count.
 - **Total calories**: Daily total calories burned.
+- **Vigorous activity**: Daily duration spent in vigorous activity.
 
 **Body sensors**
 
 *Available for accounts that grant the Health metrics and measurements scope.*
 
 - **Body fat**: Body fat percentage.
+- **Body mass index** ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)): Body mass index calculated from weight and height.
+- **Heart rate variability**: Daily average heart rate variability.
+- **Height** (disabled by default): Body height.
+- **Oxygen saturation**: Daily average blood oxygen saturation percentage.
+- **Respiratory rate**: Daily respiratory rate in breaths per minute.
 - **Resting heart rate**: Daily resting heart rate.
+- **VO2 max** (disabled by default): Daily <abbr title="maximal oxygen consumption">VO2 max</abbr>.
 - **Weight**: Body weight.
 
 **Sleep sensors**
 
 *Available for accounts that grant the Sleep data scope.*
 
+- **Deep sleep**: Duration spent in deep sleep during the sleep period.
+- **Light sleep**: Duration spent in light sleep during the sleep period.
+- **REM sleep**: Duration spent in <abbr title="rapid eye movement">REM</abbr> sleep during the sleep period.
+- **Sleep end time**: Timestamp when the sleep period ended.
+- **Sleep start time**: Timestamp when the sleep period started.
 - **Time asleep**: Duration spent asleep during the sleep period.
 - **Time awake**: Duration spent awake during the sleep period.
 - **Time in bed**: Total duration spent in bed during the sleep period.
@@ -113,7 +103,14 @@ The **Google Health** integration provides the following entities:
 *Available for accounts that grant the Nutrition and hydration scope.*
 
 - **Calories consumed**: Daily energy consumed.
+- **Calories from fat** ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)): Daily energy consumed from fat.
+- **Dietary fiber** (disabled by default): Daily dietary fiber consumed.
 - **Hydration**: Daily volume of liquids consumed.
+- **Protein**: Daily protein consumed.
+- **Sodium** (disabled by default): Daily sodium consumed.
+- **Sugar** (disabled by default): Daily sugar consumed.
+- **Total carbohydrates**: Daily total carbohydrates consumed.
+- **Total fat**: Daily total fat consumed.
 
 **Paired device sensors**
 
@@ -163,7 +160,7 @@ automation: |
 
 Notify you if your daily resting heart rate goes above a certain threshold (for example, 80 bpm), which could indicate fatigue or stress.
 
-- **Trigger**: State: resting heart rate sensor state changes
+- **Trigger**: State changed: resting heart rate sensor state changes
 - **Condition**: Numeric state: resting heart rate is above 80 bpm
 - **Action**: Send a notification
 
@@ -194,28 +191,73 @@ automation: |
 
 The integration updates sensors on different intervals based on the data type:
 
-- Activity sensors (Steps, Distance, Active calories, Total calories, Floors) are updated every 15 minutes.
-- Sleep sensors (Time asleep, Time awake, Time in bed, Time to fall asleep, Time after wake-up) are updated every 15 minutes.
-- Nutrition sensors (Hydration, Calories consumed) are updated every 15 minutes.
-- Body sensors (Weight, Resting heart rate, Body fat) are updated every hour.
+- Activity sensors (Active calories, Active zone minutes, Cardio active zone minutes, Distance, Elevation, Fat burn active zone minutes, Floors, Light activity, Moderate activity, Peak active zone minutes, Sedentary time, Steps, Total calories, Vigorous activity) are updated every 15 minutes.
+- Nutrition sensors (Calories consumed, Calories from fat, Dietary fiber, Hydration, Protein, Sodium, Sugar, Total carbohydrates, Total fat) are updated every 15 minutes.
+- Sleep sensors (Deep sleep, Light sleep, REM sleep, Sleep end time, Sleep start time, Time asleep, Time awake, Time in bed, Time to fall asleep, Time after wake-up) are updated every hour.
+- Body sensors (Body fat, Body mass index, Heart rate variability, Height, Oxygen saturation, Respiratory rate, Resting heart rate, VO2 max, Weight) are updated every hour.
 - Paired device sensors (Battery level, Last sync time) are updated every hour.
 
 ## Known limitations
 
-- **Polling frequency**: Data is fetched from the Google Health API periodically (every 15 minutes for activity, sleep, and nutrition data; every hour for body measurements and paired devices). Real-time event streaming is not supported.
+- **Polling frequency**: Data is fetched from the Google Health API periodically (every 15 minutes for activity and nutrition data; every hour for sleep data, body measurements, and paired devices). Real-time event streaming is not supported.
 - **Device sync latency**: Data displayed in Home Assistant depends on when your fitness tracker, smartwatch, or mobile app syncs its data to Google Health cloud servers.
 - **Scope-dependent entities**: Entities are created dynamically based on the permission scopes granted during the initial OAuth authorization. If a specific scope is unselected, entities for that category will not be created.
 - **Daily rollups**: Activity and sleep sensors reflect cumulative daily totals or aggregate summary metrics for the current calendar day.
 
 ## Troubleshooting
 
-### Resetting a broken or incorrect configuration
+{% details "Configuration is broken or incorrect" %}
 
-If the Google Health integration was initially configured incorrectly, you can delete the credentials in the [Application Credentials](/integrations/application_credentials/) user interface and start the setup again.
+### Symptom: Integration doesn't work as expected
 
-### Connection failed after authorization
+The Google Health integration was set up with incorrect settings, for example, the wrong client ID or client secret, and does not work as expected.
 
-If authorization appears to succeed but Home Assistant returns a connection error, verify that you granted the required **Profile** permission. Home Assistant requires the profile scope to verify your account identity and setup the integration.
+#### Description
+
+Home Assistant stores the credentials you entered during the initial setup as application credentials. Setting up the integration again reuses these stored credentials, so the incorrect configuration persists until you remove them.
+
+#### Resolution
+
+1. Delete the credentials in the [Application Credentials](/integrations/application_credentials/) user interface.
+2. Set up the integration again.
+
+{% enddetails %}
+
+{% details "Connection failed after authorization" %}
+
+### Symptom: Home Assistant returns an error
+
+The authorization appears to succeed, but Home Assistant returns a connection error.
+
+#### Description
+
+After you authorize access, Home Assistant uses your Google Account profile to verify your identity and checks that the account is linked to Google Health. If either of these steps fails, the setup cannot be completed.
+
+#### Resolution
+
+- Verify that you granted the required **Profile** permission. Home Assistant requires the profile scope to verify your account identity and set up the integration.
+- Verify that you selected the correct Google Account and that this account is set up in Google Health. If the account is not linked to Google Health, the Home Assistant logs show the message `The account is not linked to Google Health`.
+
+{% enddetails %}
+
+{% details "Re-authentication required often" %}
+
+### Symptom: Integration asks to reauthenticate every few days
+
+You may be asked to reauthenticate more often than you expect, such as every 7 days.
+
+#### Description
+
+This means the OAuth Consent Screen is misconfigured, or your authentication token was revoked by Google for some other reason. You may also see the error message `invalid_grant: Token has been expired or revoked` in the logs.
+
+#### Resolution
+
+- The most likely reason is that the **OAuth Consent Screen** is set to **Testing** by default, which expires the token after 7 days.
+- Visit the Google Cloud OAuth [Audience](https://console.cloud.google.com/auth/audience) page, set **Publishing status** to **In production**, and reauthorize the integration in Home Assistant one more time to get a new token.
+- Leave **App logo** empty on the OAuth **Branding** page, because uploading a logo triggers Google's verification process.
+- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for other reasons why your token may have expired.
+
+{% enddetails %}
 
 ## Removing the integration
 

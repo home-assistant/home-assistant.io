@@ -1,43 +1,7 @@
 ---
-title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Cover
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Plug
-  - Remote
-  - Sensor
-  - Switch
-  - Vacuum
 ha_release: '2023.10'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@SeraphicRav'
-  - '@laurence-presland'
-  - '@Gigatrappeur'
-  - '@XiaoLing-git'
 ha_domain: switchbot_cloud
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - fan
-  - humidifier
-  - image
-  - light
-  - lock
-  - sensor
-  - switch
-  - vacuum
-ha_config_flow: true
-ha_integration_type: hub
 ---
 
 The **SwitchBot Cloud** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
@@ -94,8 +58,9 @@ Device names configured in the SwitchBot app are transferred into Home Assistant
 - Lock Pro Wifi
 - Lock Lite
 - [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
-- Lock Vision
-- Lock Vision Pro
+- [Lock Ultra Max](https://www.switch-bot.com/products/switchbot-lock-ultra-max)
+- [Lock Vision](https://www.switch-bot.com/products/switchbot-lock-ultra-vision-combo)
+- [Lock Vision Pro](https://www.switch-bot.com/products/switchbot-lock-ultra-vision-pro-combo)
 
 ### Sensors
 
@@ -529,6 +494,9 @@ Features:
 - get battery
 - switch picture
 - display current picture
+- upload a new picture from a web address, using the [Upload AI Art Frame image](/actions/switchbot_cloud.upload_art_frame_image/) action
+
+{% include integrations/actions.md %}
 
 ## Important considerations
 
@@ -545,7 +513,7 @@ For IR Appliances, the state is inferred from previous commands in Home Assistan
 SwitchBot's cloud pushes state updates to Home Assistant through a webhook. This is how vacuums, along with the water leak, contact, motion, and presence sensors, receive their state updates. For SwitchBot's cloud to deliver this webhook, your Home Assistant instance must be reachable from the internet, which requires one of the following:
 
 - A publicly reachable [`external_url`](/integrations/homeassistant/), or
-- A [Home Assistant Cloud](/integrations/cloud/) subscription, in which case the webhook is delivered automatically through a cloudhook.
+- A [Home Assistant Link](/integrations/link/) subscription, in which case the webhook is delivered automatically through a cloudhook.
 
 On a local-only installation with neither of these, SwitchBot's cloud cannot deliver the webhook, and these devices do not receive updates.
 

@@ -9,7 +9,7 @@ related_actions:
   - xiaomi_aqara.stop_ringtone
 ---
 
-The **Add device** action enables the join permission of a Xiaomi Aqara Gateway for 30 seconds. During that time, you can add a new device by pressing its pairing button once.
+The **Xiaomi Gateway (Aqara): Add device** action enables the join permission of a Xiaomi Aqara Gateway for 30 seconds. During that time, you can add a new device by pressing its pairing button once.
 
 This is useful for pairing a new sensor or switch without opening the Mi Home app.
 

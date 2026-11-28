@@ -1,0 +1,18 @@
+{
+  "domain": "tellstick",
+  "name": "TellStick",
+  "iot_class": "assumed_state",
+  "quality_scale": "legacy",
+  "categories": [
+    "hubs_protocols.wireless_protocols"
+  ],
+  "connectivity": [
+    "rf"
+  ],
+  "platforms": [
+    "cover",
+    "light",
+    "sensor",
+    "switch"
+  ]
+}

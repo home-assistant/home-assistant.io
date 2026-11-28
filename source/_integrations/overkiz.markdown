@@ -1,49 +1,7 @@
 ---
-title: Overkiz
 description: Instructions on how to integrate gateways that use the Overkiz IoT platform with Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Water heater
 ha_release: 2022.2
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@imicknl'
 ha_domain: overkiz
-ha_dhcp: true
-ha_zeroconf: true
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - fan
-  - light
-  - lock
-  - number
-  - scene
-  - select
-  - sensor
-  - siren
-  - switch
-  - water_heater
-ha_integration_type: hub
 ---
 
 The Overkiz (by Somfy) IoT platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
@@ -139,6 +97,22 @@ Verify SSL:
   description: "Verify the SSL certificate of your gateway. This option is available only when connecting via the hostname."
 {% endconfiguration_basic %}
 
+To adjust these settings later, or to switch between the cloud API and the local API, [reconfigure the integration](#reconfiguring-the-integration).
+
+### Reconfiguring the integration
+
+Once the integration is set up, you can change how Home Assistant connects to your gateway without removing and re-adding it. For example, you can:
+
+- Switch between the cloud API and the local API.
+- Change the host of your gateway.
+
+To reconfigure the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Overkiz** integration card.
+3. From the list of gateways, find the one you want to reconfigure.
+4. Next to that gateway, select the three dots menu ({% icon "mdi:dots-vertical" %}), then select **Reconfigure**.
+
 {% include integrations/actions.md %}
 
 ## Data updates
@@ -192,9 +166,20 @@ If a scene or automation sets both the position and the tilt of a cover, Home As
 
 To move a cover to a target position and tilt in one smooth motion, use the [Set cover position and tilt](/actions/overkiz.set_cover_position_and_tilt/) action instead.
 
+### Atlantic towel dryers driven by heating levels
+
+The gateway doesn't report a boost or when it ends, so Home Assistant tracks the boosts it starts.
+It also doesn't report changes made on the towel dryer itself.
+
+- A boost started on the towel dryer or from the vendor's app isn't shown in Home Assistant.
+- While a boost that Home Assistant doesn't know about is running, changing the preset from Home Assistant can fail.
+- If you select another preset during a boost that Home Assistant started, the boost ends and the new preset is applied after a few seconds.
+
 ### Troubleshooting connection issues with the local API
 
 If your entities frequently become unavailable for short periods, this usually indicates connection problems between Home Assistant and your gateway. To improve reliability, try connecting to your gateway using its IP address instead of the `gateway-xxxx-xxxx-xxx.local` hostname.
+
+To change the host without removing and re-adding the integration, [reconfigure the integration](#reconfiguring-the-integration).
 
 ### Overkiz API limits
 

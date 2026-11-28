@@ -1,0 +1,40 @@
+---
+// Layout for content pages the website serves from Astro: the site
+// shell (Site.astro) with a reading column for the page and the
+// feedback card.
+//
+// Ports `source/_layouts/page.html` for pages without a sidebar or
+// table of contents (the only kind served from Astro so far).
+import Site from "./Site.astro";
+import PageFeedback from "../components/PageFeedback.astro";
+import { release } from "../lib/site.mjs";
+
+// `source` is the page's file in the repository, for the feedback
+// card's edit link.
+const { title, description, source } = Astro.props;
+---
+
+<Site title={title} description={description}>
+  <main>
+    <div class="column">
+      <slot />
+      {source && <PageFeedback source={source} version={release.version} />}
+    </div>
+  </main>
+</Site>
+
+<style lang="scss">
+  @use "../styles/layout";
+
+  main {
+    @include layout.container;
+    padding-bottom: var(--space-xxlarge);
+    padding-top: var(--space-xlarge);
+  }
+
+  /* Running text keeps a readable line length, centered in the page. */
+  .column {
+    margin: 0 auto;
+    max-width: var(--layout-reading-width);
+  }
+</style>

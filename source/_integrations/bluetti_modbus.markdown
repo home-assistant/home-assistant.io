@@ -1,0 +1,196 @@
+---
+description: Instructions on how to integrate a BLUETTI power station with Home Assistant over Modbus TCP.
+ha_release: 2026.11
+ha_domain: bluetti_modbus
+---
+
+The **BLUETTI Modbus** {% term integration %} connects Home Assistant to your [BLUETTI](https://www.bluettipower.com/) power station over your own network, using the Modbus TCP interface built into the device. There is no account, no API key, and no cloud service involved, so your readings keep arriving in Home Assistant even when your internet connection or the BLUETTI cloud service is down.
+
+## Supported devices
+
+This integration has been tested with, or reported to work on, the following power stations:
+
+- Balco 260
+
+During setup, the integration checks the model the device reports and refuses any other.
+
+Modbus TCP is available on devices that have a network connection. If you cannot find the setting on your device, updating its firmware usually adds it.
+
+## Prerequisites
+
+Modbus TCP is turned off by default, so you need to enable it on the device itself first, through its built-in local web server. Depending on the device's firmware and local network security requirements, you may need to activate the web server first.
+
+{% important %}
+Modbus TCP support is only available on some device models and firmware versions. If you cannot find these settings, your device does not support this yet.
+{% endimportant %}
+
+1. Make sure the computer you are using is on the same network as the device.
+2. Find the device's IP address on the network configuration page of the BLUETTI app.
+3. Open that IP address in a browser to reach the device's local web page.
+4. Sign in. The username is `admin`; the password is the device's Bluetooth password set in the BLUETTI app, or blank if you never set one. It is not your BLUETTI account password.
+5. Go to **Settings** > **Modbus TCP**, turn on **Enable**, set **Port** to `502`, and select **Settings** to save.
+
+You also need the hostname or IP address of the device on your network. Giving the device a fixed address in your router keeps Home Assistant pointed at the right one.
+
+{% include integrations/config_flow.md %}
+
+Once Modbus TCP is enabled, a Balco 260 on your network is discovered automatically and shows up under {% my integrations title="**Settings** > **Devices & services**" %} as discovered. A discovered power station is reached on port `502` with device ID `1`, the BLUETTI defaults. If yours uses other settings, add it manually with the fields below. When a power station you added on port `502` with device ID `1` announces itself at a new IP address and answers there, Home Assistant updates its entry.
+
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your BLUETTI power station. For example, `192.168.1.100`."
+Port:
+  description: "The port the device listens on for Modbus requests. The BLUETTI default is `502`."
+Device ID:
+  description: "The Modbus device ID of the power station. The BLUETTI default is `1`, and the device's web page has no setting to change it. Keep `1` unless you know your device uses another ID."
+{% endconfiguration_basic %}
+
+You change the host, port, or device ID later, for example after your power station gets a new IP address. Go to {% my integrations title="**Settings** > **Devices & services**" %}. From the listed integrations, select **BLUETTI Modbus**, select **Menu** {% icon "mdi:dots-vertical" %} and then **Reconfigure**.
+
+## Supported functionality
+
+Your power station is added as a device, with its built-in battery as a child device named **Built-in battery**. The built-in battery is part of the power station, so its device page shows no serial number or firmware version. When you target the power station in an automation, its built-in battery is included.
+
+### Sensors
+
+On the **Built-in battery** device:
+
+- **Voltage**: The battery's voltage.
+- **Current**: The battery's current. The device only reports its magnitude, so it reads the same whether the battery is charging or discharging.
+- **SoC**: The battery's present charge level.
+- **Total charged energy**, **Total discharged energy**: Lifetime battery energy counters, in Wh.
+
+The following are added as diagnostic entities on the **Built-in battery** device: **SoH**, **Cycle count**, **Cell count**, **Temperature sensor count**.
+
+On the power station:
+
+- **AC output power**, **AC output voltage**, **AC output current**, **Total AC output energy**: What the device is feeding to AC loads.
+- **PV 1 input voltage**, **PV 1 input current**, **PV 1 input power**, and the same for **PV 2** to **PV 4**: Each of the four solar inputs (MPPT trackers). An input with no panel connected reads 0.
+- **PV AC power**, **PV AC energy**, **Total PV input power**, **Total PV input energy**: Combined solar production.
+- **Grid frequency**, **Grid voltage**, **Grid current**, **Grid input power**: What the device reads from the grid.
+- **Total grid import energy**, **Total grid export energy**: Lifetime grid energy counters, where the device reports them.
+- **Inverter status**: The inverter's current status.
+- **Inverter voltage**, **Inverter current**, **Total inverter power**: The inverter's output. The power is negative while the inverter charges the battery.
+
+The following are added as diagnostic entities on the power station: **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
+
+The device page links to the power station's own web interface. The serial number appears on the device's info page too, alongside the ARM, DSP, and IoT module firmware versions, and the built-in battery's BMS firmware version when the device reports one ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
+
+### Controls
+
+- **Charge limit**, **Discharge limit**: The battery levels the power station stops charging at, and stops discharging at. Both accept 5 to 100 %.
+- **Working mode**: The power station's working mode, as in the BLUETTI app: **Self-consumption**, **Backup**, or **Custom**. A mode Home Assistant does not know shows as unknown. On a firmware that does not report the working mode, the entity is unavailable.
+
+The charge and discharge limits are configuration entities. The controls are read every 60 seconds, so a change made in the BLUETTI app shows up within a minute. They are unavailable while the power station cannot be read.
+
+## Data updates
+
+The **BLUETTI Modbus** integration {% term polling polls %} the device every 15 seconds. This device's Modbus TCP interface has been found to become unresponsive when polled more often, so the interval is not configurable.
+
+Home Assistant keeps one Modbus connection per address and shares it between the integrations that use it. If the device does not answer a poll, its {% term entity entities %} become unavailable. Home Assistant does not keep showing the last known reading as if it were current.
+
+## Known limitations
+
+### Controls and sensors
+
+- The fault and warning bits are not available as binary sensors yet.
+- The AC output cannot be switched from Home Assistant yet.
+- Grid charging and grid feed-in are not available yet. The power station's working mode can undo a change made outside the BLUETTI app.
+
+### Battery packs
+
+- The battery pack summary (charge level and state of health across all packs, the pack count, the battery status, and the time to full or empty) is not available yet, and neither are BC260 expansion packs.
+
+### Phase measurements
+
+- Grid, AC output, and inverter voltage and current are only provided for the first phase.
+
+### Connection management
+
+- Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and the Home Assistant log says why.
+- A device accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the device, Home Assistant may not be able to connect.
+
+## Troubleshooting
+
+### The device cannot be reached
+
+If setup or a later poll cannot reach the device, work through the following steps:
+
+1. Make sure the device is powered on and reachable on your network, for example by looking it up in your router.
+2. Check that Modbus TCP is still enabled on the device.
+3. Check the port. BLUETTI uses `502` by default.
+4. Check whether another system is already polling the device, and stop it while you test.
+
+### Entities are unavailable for a short time
+
+About once an hour, the device drops its Modbus connection or answers a request with a damaged reply. The integration retries at once and reconnects if needed. If that still fails, the entities show as unavailable until the next poll, 15 seconds later. No action is needed.
+
+### The device is not a supported model
+
+Setup stops with this error when the device at that address does not report itself as a Balco 260. Check the address and device ID, and see [Supported devices](#supported-devices).
+
+### The device reports no serial number
+
+Setup stops with this error when the device answers but reports no serial number, which Home Assistant needs to tell your power station apart from any other. Restart the power station and try again.
+
+{% details "The firmware version of the built-in battery could not be read" %}
+
+### Symptom: "The firmware version of the built-in battery could not be read from the BLUETTI power station."
+
+The integration entry shows this error and keeps retrying setup.
+
+#### Description
+
+During setup, Home Assistant reads the firmware version of the built-in battery from the power station. The power station did not answer this request.
+
+#### Resolution
+
+Home Assistant retries the setup automatically. If the error doesn't go away, follow the steps in [The device cannot be reached](#the-device-cannot-be-reached).
+
+{% enddetails %}
+
+{% details "A different device answers at the address" %}
+
+### Symptom: The entities are unavailable and the log mentions a different device
+
+The entities of this entry are unavailable, and the Home Assistant log says a different device answers at the address.
+
+#### Description
+
+Home Assistant recognizes your power station by its serial number, not by its address. The power station this entry was set up for has moved or been replaced, and another device now answers at its address. The entities stay unavailable until the power station answers at that address again.
+
+#### Resolution
+
+If the power station is set up on port `502` with device ID `1`, Home Assistant updates the address once the power station announces itself at the new one. Otherwise:
+
+1. Find the new address of your power station, for example by looking it up in your router.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. From the listed integrations, select **BLUETTI Modbus**, select **Menu** {% icon "mdi:dots-vertical" %} and then **Reconfigure**.
+4. Enter the new address, and select **Submit**.
+
+{% enddetails %}
+
+{% details "Reconfiguring reports a different serial number" %}
+
+### Symptom: "The power station at this address has a different serial number than expected. Make sure you enter the address for the correct power station."
+
+When you reconfigure the entry, the flow stops with this error.
+
+#### Description
+
+Home Assistant recognizes your power station by its serial number, not by its address. The power station answering at the new address is not the one this entry was set up for.
+
+#### Resolution
+
+1. Check that you entered the address and device ID of the right power station.
+2. To add a different power station, set it up as a new entry instead.
+
+{% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+The Modbus TCP setting stays enabled on the device. You can turn it off in the device's own settings if nothing else uses it.

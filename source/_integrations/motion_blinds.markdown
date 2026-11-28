@@ -1,20 +1,7 @@
 ---
-title: Motionblinds
 description: Instructions on how to integrate Motionblinds from Coulisse B.V. into Home Assistant.
-ha_category:
-  - Cover
-ha_iot_class: Local Push
 ha_release: 2020.12
 ha_domain: motion_blinds
-ha_codeowners:
-  - '@starkillerOG'
-ha_config_flow: true
-ha_platforms:
-  - button
-  - cover
-  - sensor
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 The **Motionblinds** {% term integration %} allows you to control [Motionblinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
@@ -34,7 +21,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Gaviota](https://www.gaviotagroup.com/en/)
 - Havana Shade
 - [Heicko](https://heicko.de/en/tubular-motors/controls/e-smart-home/usb-smart-home-stick-bi-direktional-1-st.html)
-- [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
+- [Hurricane Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.autoblinds.co.nz/)
 - [Kaiser Nienhaus](https://www.kaiser-nienhaus.de/)
@@ -113,12 +100,12 @@ In the Blindsgalore AMP app go to the home screen, go to settings (three bars in
 
 ### Connector app
 
- To get the API key ([iOS app](https://apps.apple.com/app/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)), follow these steps:
- 
-  1. In the left sidebar of the app, open the **Settings** {% icon "mdi:gear-outline" %} (gear icon). 
-  2. Select the **About** page of the Connector app.
-  3. Tap the screen 5 times while being on the **About** page. 
-      - This opens a window with the API key.
+To get the API key ([iOS app](https://apps.apple.com/app/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)), follow these steps:
+
+1. In the left sidebar of the app, open the **Settings** {% icon "mdi:gear-outline" %} (gear icon).
+2. Select the **About** page of the Connector app.
+3. Tap the screen 5 times while being on the **About** page.
+   - This opens a window with the API key.
 
 ### Avosdim app
 
@@ -168,7 +155,7 @@ Therefore it is recommended to use scripts or automations with the TDBU Combined
 
 That will ensure the same absolute position with respect to the window is achieved without letting the Bottom or Top bar move to an absolute_position that is not allowed.
 
-When the `motion_blinds.set_absolute_position` action is used with values that would move the Bottom or Top bar to positions that will make them collide, nothing will happen. An error will be logged telling that that position is not allowed and the TDBU blind will not move.
+When the `motion_blinds.set_absolute_position` action is used with values that would move the Bottom or Top bar to positions that will make them collide, nothing will happen. An error will be logged stating that the position is not allowed and the TDBU blind will not move.
 
 Therefore it is always safe to use any of the actions in Home Assistant with the TDBU blinds.
 
@@ -199,6 +186,16 @@ If using separate VLANs, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 por
 For some routers "IGMP snooping" on the used wireless interface needs to be disabled to let the IGMP/multicast messages through.
 
 For Ubiquiti routers/access points the "Enable multicast enhancement (IGMPv3)" should be disabled.
+
+### Removing a stale device
+
+If a blind is removed from the gateway or the gateway is reset, its device entry may remain in Home Assistant. To remove the device entry:
+
+1. Go to {% my integration domain="motion_blinds" title="**Settings** > **Devices & services** > **Motionblinds**" %}.
+2. Open the device's info page.
+3. Select **Delete** from the device info menu.
+
+Only blinds that are no longer in the gateway's device list can be removed. The gateway itself and connected blinds cannot be removed.
 
 ### Bypassing UDP multicast
 

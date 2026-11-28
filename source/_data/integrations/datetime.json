@@ -1,0 +1,9 @@
+{
+  "domain": "datetime",
+  "name": "Date/Time",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

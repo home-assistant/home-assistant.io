@@ -1,24 +1,13 @@
 ---
-title: Netio
 description: Instructions on how to integrate Netio smart power sockets into Home Assistant.
-ha_category:
-  - Switch
-ha_iot_class: Local Polling
 ha_release: 0.24
 ha_domain: netio
-ha_platforms:
-  - switch
-ha_integration_type: device
-ha_codeowners:
-  - '@agners'
-ha_config_flow: true
-ha_quality_scale: legacy
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
 
-The **Netio** {% term integration %} allows you to control and monitor [NETIO](https://www.netio-products.com/en/) smart power sockets, power strips, and power distribution units (PDUs). The device outputs are exposed as {% term switch %} entities in Home Assistant.
+The **Netio** {% term integration %} allows you to control and monitor [NETIO](https://www.netio-products.com/en/) smart power sockets, power strips, and power distribution units (PDUs). The device outputs are exposed as {% term switch %} entities in Home Assistant. Outputs with metering also provide {% term sensor %} entities.
 
 The integration communicates with the device locally using the JSON version of the NETIO machine-to-machine (M2M) API, which is available on all current NETIO devices (such as PowerCable, PowerBox, PowerPDU, and PowerDIN) as well as on the older Netio4 family.
 
@@ -51,6 +40,14 @@ Verify SSL certificate:
 ## Provided entities
 
 The integration provides a switch entity for every output of the device, allowing you to switch the output on and off. The entities are named after the output names configured on the device.
+
+Not all NETIO devices provide metering: models such as the PowerCable 2Px, PowerBOX 3Px, or PowerPDU 4Px are switch-only and provide no sensor entities, and on some devices only some of the outputs are metered.
+
+For metered outputs, the integration additionally provides sensor entities for the instantaneous load, current, and power factor, as well as energy counters. Which measurements are available depends on the device model and firmware. For example, older devices such as the PowerPDU 4C only provide the resettable **energy** counter.
+
+The **energy** sensor is the resettable counter, and the **total energy** sensor is the non-resettable counter. Both measure the energy consumed by the connected device. You can use either of them as individual device consumption in the [**Energy** dashboard](/docs/energy/individual-devices/).
+
+The **reverse energy** and **total reverse energy** sensors measure energy flowing in the opposite direction. They are disabled by default. Don't use them as individual device consumption.
 
 ## Data updates
 

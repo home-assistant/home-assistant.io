@@ -1,19 +1,7 @@
 ---
-title: Electric Kiwi
 description: Instructions on how to set up the Electric Kiwi service in Home Assistant.
-ha_category:
-  - Energy
 ha_release: '2023.8'
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@mikey0000'
 ha_domain: electric_kiwi
-ha_config_flow: true
-ha_platforms:
-  - select
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 [Electric Kiwi](https://www.electrickiwi.co.nz/) is an independent power and broadband company in New Zealand, offering variable rates for peak, shoulder, and off-peak pricing with a selectable hour of free power. 
@@ -65,6 +53,10 @@ actions:
     data: {}
 ```
 {% enddetails %}
+
+## Data updates
+
+The integration {% term polling polls %} Electric Kiwi every 20 minutes for your hour of free power, and every 6 hours for your account balances.
 
 ## Removing the integration
 

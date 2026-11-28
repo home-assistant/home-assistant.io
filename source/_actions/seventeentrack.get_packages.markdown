@@ -2,13 +2,14 @@
 title: "Get packages"
 action: seventeentrack.get_packages
 domain: seventeentrack
+response: required
 description: "Queries the 17Track API for the latest package data."
 related_actions:
   - seventeentrack.add_package
   - seventeentrack.archive_package
 ---
 
-The **Get packages** action queries the 17Track API and returns the latest data for your tracked packages. You can limit the result to packages in specific states, such as packages that are in transit or ready to be picked up.
+The **17TRACK: Get packages** action queries the 17Track API and returns the latest data for your tracked packages. You can limit the result to packages in specific states, such as packages that are in transit or ready to be picked up.
 
 This is handy when you want to use up-to-date package information in an automation or a script, for example to send yourself a notification listing everything that is out for delivery today.
 
@@ -72,6 +73,8 @@ package_state:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `packages` list. Each entry describes a package with the following fields:
 

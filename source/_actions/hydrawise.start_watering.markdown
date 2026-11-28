@@ -8,7 +8,7 @@ related_actions:
   - hydrawise.resume
 ---
 
-The **Start watering** action starts a watering cycle in an irrigation zone.
+The **Hunter Hydrawise: Start watering** action starts a watering cycle in an irrigation zone.
 
 This is handy when you want to water on demand or from an automation, for example giving the lawn an extra run on a hot afternoon. You can set how long the cycle runs, or let it fall back to the default duration configured in the Hydrawise app.
 
@@ -20,8 +20,8 @@ To start watering from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the irrigation zone's manual watering switch.
-6. From the actions shown for that target, select **Start watering**.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the irrigation zone's **Watering** binary sensor.
+6. From the actions shown for that target, under **Hunter Hydrawise**, select **Start watering**.
 7. Optionally set the **Duration**.
 8. Select **Save**.
 
@@ -40,7 +40,7 @@ In YAML, refer to this action as `hydrawise.start_watering`. A basic example loo
 action: |
   action: hydrawise.start_watering
   target:
-    entity_id: switch.front_lawn_manual_watering
+    entity_id: binary_sensor.front_lawn_watering
   data:
     duration: 15
 {% endexample %}
@@ -59,7 +59,7 @@ duration:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="switch" %}
+{% include actions/targets.md entity_type="Hydrawise zone watering sensor" example="binary_sensor.front_lawn_watering" %}
 
 {% include actions/try_it.md %}
 

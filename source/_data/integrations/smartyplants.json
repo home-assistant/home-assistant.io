@@ -1,0 +1,22 @@
+{
+  "domain": "smartyplants",
+  "name": "SmartyPlants",
+  "integration_type": "hub",
+  "codeowners": [
+    "@bigbimbs"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "garden_plants"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor"
+  ]
+}

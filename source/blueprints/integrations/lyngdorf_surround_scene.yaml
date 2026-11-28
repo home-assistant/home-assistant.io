@@ -1,0 +1,66 @@
+blueprint:
+  name: Lyngdorf run a scene on surround audio
+  description: >
+    Run an action when a Lyngdorf processor reports a surround audio format,
+    and another when it goes back to stereo. The audio information sensor
+    reports the incoming format, so this reacts to what is actually playing
+    rather than to the selected source.
+  domain: automation
+  author: fishloa
+
+  input:
+    audio_information_entity:
+      name: Audio information
+      description: The audio information sensor.
+      selector:
+        entity:
+          filter:
+            - integration: lyngdorf
+              domain: sensor
+    surround_formats:
+      name: Surround formats
+      description: >
+        Formats that count as surround. Matched if the sensor value contains
+        any of these, so Atmos matches Dolby Atmos.
+      default:
+        - Atmos
+        - DTS
+        - Surround
+      selector:
+        text:
+          multiple: true
+    surround_action:
+      name: When surround starts
+      description: What to do when a surround format is detected.
+      selector:
+        action:
+    stereo_action:
+      name: When surround stops
+      description: What to do when the format is no longer surround.
+      default: []
+      selector:
+        action:
+
+mode: single
+
+triggers:
+  - trigger: state
+    entity_id: !input audio_information_entity
+
+variables:
+  formats: !input surround_formats
+  current: "{{ trigger.to_state.state | default('', true) }}"
+  previous: "{{ trigger.from_state.state | default('', true) }}"
+  is_surround: "{{ formats | select('in', current) | list | count > 0 }}"
+  was_surround: "{{ formats | select('in', previous) | list | count > 0 }}"
+
+actions:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ is_surround and not was_surround }}"
+        sequence: !input surround_action
+      - conditions:
+          - condition: template
+            value_template: "{{ was_surround and not is_surround }}"
+        sequence: !input stereo_action

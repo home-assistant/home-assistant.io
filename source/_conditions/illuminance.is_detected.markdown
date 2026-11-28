@@ -58,13 +58,13 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the sensor or sensors must keep detecting light before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the sensor or sensors must keep detecting light before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="light sensor" example="binary_sensor.garden_light" %}
 
 {% include conditions/behavior.md %}
 
@@ -72,7 +72,7 @@ for:
 
 - The target must be a binary sensor with the light device class.
 - The sensor's threshold for what counts as "light detected" is set on the device itself.
-- Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - For numeric illuminance readings (in lux), use [Illuminance](/conditions/illuminance.is_value/) instead.
 - To check the opposite state, use [Light level is not detected](/conditions/illuminance.is_not_detected/).
 

@@ -1,30 +1,7 @@
 ---
-title: UniFi Network
 description: Instructions on how to configure UniFi Network integration with UniFi Network application by Ubiquiti.
-ha_category:
-  - Hub
-  - Image
-  - Presence detection
-  - Sensor
-  - Switch
-  - Update
 ha_release: 0.81
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Kane610'
 ha_domain: unifi
-ha_platforms:
-  - button
-  - device_tracker
-  - diagnostics
-  - image
-  - light
-  - sensor
-  - switch
-  - update
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 [UniFi Network](https://www.ui.com/download-software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
@@ -37,6 +14,7 @@ With this {% term integration %}, you can bring your UniFi Network into Home Ass
 - Control PoE power on individual switch ports to remotely restart connected devices like cameras or access points.
 - Toggle firewall rules, port forwarding, or traffic rules as part of broader home automations.
 - Get notified about firmware updates and install them from Home Assistant.
+- See when your gateway's intrusion prevention system (IPS) engine has an upgrade waiting.
 
 ## Prerequisites
 
@@ -80,7 +58,9 @@ There is currently support for the following device types within Home Assistant:
 - [Actions](#actions)
 - [Switch](#switch)
 - [Sensor](#sensor)
+- [Firewall policy schedules](#firewall-policy-schedules)
 - [Firmware updates](#firmware-updates)
+- [IPS engine updates](#ips-engine-updates)
 
 {% include integrations/config_flow.md %}
 
@@ -107,7 +87,7 @@ and in many cases, get a read-only sensor instead of an editable switch {% term 
 
 ## Configuration options
 
-All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure**.
+All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure** {% icon "mdi:cog-outline" %}.
 
 {% configuration_basic %}
 Track network clients:
@@ -213,13 +193,13 @@ Entities appear for each Policy-Based Routing Rule. The switches can be identifi
 
 ### Control Zone-Based Firewall Policies
 
-Entities appear for each Zone-Based Firewall Policy. The switches can be identified from icon {% icon "mdi:security-network" %}.
+Entities appear for each Zone-Based Firewall Policy. The switches can be identified from icon {% icon "mdi:security-network" %}. Each policy gets its own [child device](/docs/configuration/customizing-entities/#parent-and-child-devices), named after the policy, under the **UniFi Network** device.
 
 ## Sensor
 
 ### Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable them, refer to the steps in the [configuration options](#configuration-options), expand **More options**, and enable **Bandwidth usage sensors for network clients**.
 
 ### Wired client link speed sensor
 
@@ -236,6 +216,15 @@ Get entities reporting uptime per network client or UniFi Network device.
 ### Power Outlet sensor
 
 Get entities reporting the power utilization for outlets that support metrics (such as the AC outlets on the USP-PDU-Pro).
+
+### UPS sensors
+
+Compatible UniFi UPS devices provide sensors for battery level, remaining battery runtime, output power, output current, output voltage, and output power factor.
+
+Home Assistant also provides an additional voltage sensor that depends on your UPS model:
+
+- **UniFi UPS 2U**: a bypass voltage sensor.
+- **UniFi UPS 2U Pro**: an input voltage sensor.
 
 ### Device temperature sensor
 
@@ -255,11 +244,42 @@ Get entities reporting the current memory utilization of a UniFi Network device.
 
 ### Port Bandwidth sensor
 
-Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable them, refer to the steps in the [configuration options](#configuration-options), expand **More options**, and enable **Bandwidth usage sensors for network clients**.
 
 ### Port link speed sensor
 
 Get entities reporting the link negotiation speed for network device ports. These sensors show the connection speed in megabits per second (Mbit/s) at which each port negotiated its link. Entities are disabled by default.
+
+### Firewall policy schedule status sensor
+
+Get entities reporting whether a Zone-Based Firewall Policy is in effect right now. A sensor appears for each policy you created; predefined policies are skipped. The sensor has one of these states:
+
+- **Disabled**: The policy is turned off.
+- **Inactive**: The policy is turned on, but the current time is outside its schedule.
+- **Active**: The policy is turned on and applies now.
+
+The schedule is evaluated in the time zone of the UniFi Network application. If the application doesn't report a time zone that Home Assistant can use, Home Assistant's time zone is used instead. A turned-on policy with no schedule, or with a schedule Home Assistant doesn't recognize, reports an unknown state. These sensors are disabled by default.
+
+## Firewall policy schedules
+
+You can change the schedule of each Zone-Based Firewall Policy you created, for example to block a network from now until the next morning. Each policy's entities belong to its own [child device](/docs/configuration/customizing-entities/#parent-and-child-devices) under the **UniFi Network** device, named after the policy. The entities are disabled by default and require admin privileges, so first [enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the ones you need. Changes are sent to the UniFi Network application right away.
+
+- **Schedule** (select): The schedule mode: **Always**, **Every day**, **Every week**, **One time**, or **Custom**. **Every week** and **Custom** can only be chosen in the UniFi Network application.
+- **Schedule start** and **Schedule end** (time): The time window the policy applies in each day.
+- **Schedule start date** (date): The day a **One time** schedule applies on, or the first day of a **Custom** schedule.
+- **Schedule end date** (date): The last day of a **Custom** schedule. It must be after the start date.
+
+Each mode uses only some of these settings:
+
+- **Always**: none.
+- **Every day**: the start and end times.
+- **Every week**: the start and end times, unless it runs all day, which can only be changed in the UniFi Network application.
+- **One time**: the start date and the start and end times.
+- **Custom**: the start and end dates and the start and end times, unless it runs all day, which can only be changed in the UniFi Network application.
+
+Settings the current mode doesn't use show an unknown state, and can't be changed until you choose a mode that uses them. Changing a setting never changes the mode.
+
+When you change the mode, the policy keeps its time window. If it didn't have one, it gets 09:00 to 12:00, like in the UniFi Network application. Choosing **One time** dates the schedule today, even when it's already selected. Today's date is taken from the UniFi Network application's time zone. If a schedule's end time is earlier than its start time, the window runs past midnight into the next day.
 
 ## Light
 
@@ -277,7 +297,50 @@ Changes may take over 5 seconds to apply as the device must adopt a new configur
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
 
+## IPS engine updates
+
+UniFi gateways that report their Suricata intrusion prevention system (IPS) engine get a diagnostic **IPS engine** update entity. This entity is disabled by default. It shows the running engine version and, when the gateway has an engine upgrade queued, the version it will upgrade to. It shows an update as available when a queued engine upgrade has not been applied yet.
+
+This entity is informational only: the engine upgrade cannot be installed from Home Assistant. The entity is still useful in automations, for example to get notified when an engine upgrade is waiting.
+
 ## Examples
+
+### Block a network until morning
+
+This script turns on a Zone-Based Firewall Policy from now until the next 08:00: the same morning when you run it between midnight and 08:00, or the next morning when you run it later in the day. The policy stops applying on its own at 08:00. The example assumes a policy named **Block kids' Wi-Fi** with its schedule entities enabled, and that Home Assistant and the UniFi Network application use the same time zone, because the start time is taken from Home Assistant's clock.
+
+- **Action**: Select an option, **One time**, on the policy's **Schedule** entity. Choose the mode first: the time entities can't be changed while the mode has no time window.
+- **Action**: Set the **Schedule start** time to now.
+- **Action**: Set the **Schedule end** time to 08:00.
+- **Action**: Turn on the policy's switch.
+
+{% details "YAML example for blocking a network until morning" %}
+
+{% example %}
+script: |
+  alias: "Block kids' Wi-Fi until morning"
+  sequence:
+    - action: select.select_option
+      target:
+        entity_id: select.unifi_network_block_kids_wi_fi_schedule
+      data:
+        option: one_time
+    - action: time.set_value
+      target:
+        entity_id: time.unifi_network_block_kids_wi_fi_schedule_start
+      data:
+        time: "{{ now().strftime('%H:%M:00') }}"
+    - action: time.set_value
+      target:
+        entity_id: time.unifi_network_block_kids_wi_fi_schedule_end
+      data:
+        time: "08:00:00"
+    - action: switch.turn_on
+      target:
+        entity_id: switch.unifi_network_block_kids_wi_fi
+{% endexample %}
+
+{% enddetails %}
 
 ### Community blueprints
 
@@ -285,7 +348,7 @@ The Home Assistant community has created blueprints that use the UniFi Network i
 
 ## Data updates
 
-The UniFi Network {% term integration %} uses a local push connection (WebSocket) to the UniFi Network application. This means state changes for clients, devices, and network configuration are received in near-real-time as they happen on the controller, without the need for {% term polling %}.
+The UniFi Network {% term integration %} uses a local push connection (WebSocket) to the UniFi Network application. This means state changes for clients, devices, and network configuration are received in near-real-time as they happen on the controller, without the need for {% term polling %}. Data that the UniFi Network application doesn't push, such as Zone-Based Firewall Policies, is polled every 10 seconds. While a type of data has no items, for example when no firewall policies exist, it is polled every 10 minutes instead, so the first new item can take up to 10 minutes to appear.
 
 If the WebSocket connection is lost, the integration automatically tries to reconnect. While disconnected, entities are marked as unavailable until the connection is restored.
 
@@ -294,7 +357,10 @@ If the WebSocket connection is lost, the integration automatically tries to reco
 - **Ubiquiti SSO cloud users are not supported.** You must create a local user in your UniFi OS Console. See the [Local user](#local-user) section for instructions.
 - **Early Access and Release Candidate versions of UniFi Network and UniFi OS are not supported.** Only the official Stable Release channel is expected to work with this integration.
 - **Presence detection is not compatible with MAC Address Randomization**, which is enabled by default on most modern smartphones. This feature must be disabled per network on the client device.
+- **The IPS engine entity needs a gateway that reports its engine version.** For example, a UniFi Cloud Gateway Fiber running UniFi Network 11 reports it.
 - **Changes to LED control** on access points may take over 5 seconds to apply because the device must adopt a new configuration first.
+- **Firewall policy schedule status can lag** a schedule's start or end by up to 10 seconds, because firewall policies are polled.
+- **The UniFi Network application's time zone is read only when the integration starts.** If you change it, reload the integration so firewall policy schedules are evaluated correctly.
 - **Lingering entities**: In some edge cases, clients or devices removed from UniFi Network may remain in the Home Assistant device registry and need to be [removed manually](#removing-a-device-in-home-assistant).
 
 ## Removing a device in Home Assistant

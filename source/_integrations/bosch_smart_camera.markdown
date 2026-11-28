@@ -1,0 +1,109 @@
+---
+title: Bosch Smart Camera
+description: Instructions on how to integrate Bosch cameras into Home Assistant.
+ha_categories:
+  - security_safety.cameras
+ha_release: 2026.11
+ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_domain: bosch_smart_camera
+ha_codeowners:
+  - "@mosandlt"
+ha_platforms:
+  - button
+  - camera
+  - light
+  - sensor
+  - switch
+  - update
+ha_integration_type: hub
+ha_quality_scale: bronze
+---
+
+The **Bosch Smart Camera** {% term integration %} connects your Bosch SingleKey ID account to Home Assistant. Each camera of the account is added as a camera entity that shows the latest available event image.
+
+## Supported devices
+
+The following cameras are supported with this account:
+
+- Eyes Outdoor camera
+- 360° Indoor camera
+- Eyes Outdoor camera II
+- Eyes Indoor camera II
+
+## Prerequisites
+
+You need a Bosch SingleKey ID account that has at least one camera registered in the Bosch Smart Camera app.
+
+{% include integrations/config_flow.md %}
+
+You are redirected to the Bosch login page to sign in with your SingleKey ID.
+
+## Supported functionality
+
+The integration adds one camera entity per camera of the account. The entity shows the latest available event image, for example a motion or person event. It is not a live image. The image is cached for 60 seconds, so dashboards and automations can request it often without extra load on the Bosch cloud.
+
+Each camera is also added as a device, together with its model and firmware version. Cameras that are added to or removed from the account are added or removed in Home Assistant automatically.
+
+### Privacy mode
+
+The **Privacy mode** switch turns the privacy mode of a camera on or off. While privacy mode is on, the camera does not record or stream. The switch is shown with the configuration entities of the device.
+
+### Wi-Fi signal strength
+
+The **Wi-Fi signal strength** sensor shows how well a camera is connected to your Wi-Fi network, in percent. It is a diagnostic sensor and is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
+
+### Restart
+
+The **Restart** button restarts a camera. It is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
+
+### Firmware
+
+The **Firmware** entity shows the installed firmware version of a camera and whether a newer version is available. Bosch installs firmware updates on its own, so you cannot start an update from Home Assistant. While an update is installed, the entity shows its progress.
+
+### Camera light
+
+The **Camera light** entity switches the light of an Eyes Outdoor camera on and off. The light cannot be dimmed. The entity is only added for the Eyes Outdoor camera.
+
+## Data updates
+
+The integration polls the Bosch cloud for the list of cameras every 5 minutes. The image of a camera is only retrieved when it is requested.
+
+## Known limitations
+
+### Event images
+
+Live streaming is not available yet. The camera entity only shows the latest available event image. A camera without any event image has no image to show.
+
+### Cloud connection
+
+A cloud connection is required.
+
+## Troubleshooting
+
+### The login page does not return to Home Assistant
+
+#### Symptom
+
+After signing in, you are not sent back to Home Assistant.
+
+#### Resolution
+
+1. Make sure [My Home Assistant](https://my.home-assistant.io/) is configured with your instance URL in the same browser you use to sign in.
+2. Start the setup again from {% my integrations title="**Settings** > **Devices & services**" %}.
+
+### Signing in again
+
+#### Symptom
+
+Home Assistant shows that the integration needs you to sign in again.
+
+#### Resolution
+
+Follow the prompt to sign in again with your SingleKey ID. The cameras and their entities stay as they are.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

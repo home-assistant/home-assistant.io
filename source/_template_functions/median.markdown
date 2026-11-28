@@ -39,7 +39,7 @@ output: "21.5"
 ```signature
 median(
     *args: list | float,
-    default: Any = None,
+    default: Any,
 ) -> float
 ```
 
@@ -55,7 +55,7 @@ values:
   type: list
 default:
   description: >
-    Value to return if the calculation fails (for example, if the list is empty or contains non-numeric values). If not provided, an error is raised instead.
+    The value to return if the calculation fails, such as `0`. For example, the calculation fails if the list is empty or contains non-numeric values. If you leave out `default` and the calculation fails, `median` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}

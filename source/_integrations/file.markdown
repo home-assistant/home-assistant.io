@@ -1,23 +1,10 @@
 ---
-title: File
 description: Instructions on how to integrate sensors which read from files into Home Assistant.
-ha_category:
-  - Notifications
-  - Sensor
-  - Utility
 ha_release: pre 0.7
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@fabaff'
 ha_domain: file
-ha_platforms:
-  - notify
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_config_flow: true
 ---
 
 The **File** {% term integration %} allows storing notifications in a file or setting up a sensor based on a file's content.

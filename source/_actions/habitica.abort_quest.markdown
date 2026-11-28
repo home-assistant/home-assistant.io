@@ -2,6 +2,7 @@
 title: "Abort an active quest"
 action: habitica.abort_quest
 domain: habitica
+response: optional
 description: "Terminates your Habitica party's ongoing quest and resets all progress."
 ---
 
@@ -54,6 +55,10 @@ config_entry:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

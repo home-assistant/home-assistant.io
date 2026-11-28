@@ -8,7 +8,7 @@ related_actions:
   - ecobee.set_occupancy_modes
 ---
 
-The **Set fan minimum on time** action sets the minimum amount of time, in minutes, that the fan runs each hour.
+The **ecobee: Set fan minimum on time** action sets the minimum amount of time, in minutes, that the fan runs each hour.
 
 This is handy when you want to keep air circulating for a set number of minutes per hour, for example to even out the temperature between rooms.
 

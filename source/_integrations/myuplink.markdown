@@ -1,33 +1,10 @@
 ---
-title: myUplink
 description: Instructions on how to set up the myUplink integration within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
-ha_iot_class: Cloud Polling
 ha_release: '2024.2'
 ha_domain: myuplink
-ha_codeowners:
-  - '@pajzo'
-  - '@astrandb'
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: hub
 related:
   - url: https://myuplink.com/
     title: myUplink web portal
-ha_quality_scale: silver
 ---
 
 The **myUplink** {% term integration %} lets you get information about and control heat-pump devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).
@@ -66,9 +43,50 @@ The integration configuration will require the **Client ID** and **Client Secret
 
 ## Supported heat-pump systems
 
-The integration supports all heat-pump devices that can be connected to the myUplink cloud service. See [Works with myUplink](https://myuplink.com/legal/works-with/en).
+The integration supports all heat-pump devices that can be connected to the myUplink cloud service. See [Works with myUplink](https://myuplink.com/works-with).
 However, the representation in Home Assistant depends on how and to what extent the manufacturer has implemented the service.
 
+## Supported functionality
+
+Each device in your myUplink account, such as a heat pump or a control module, becomes a device in Home Assistant, named after its myUplink system. Which entities you get depends on the model and on what the manufacturer makes available in myUplink, so the list differs between installations.
+
+Most data points that myUplink reports for a device become an entity. The type of the entity is chosen from what the data point says about itself. Data points used for scheduling are left out, as are some data points that the integration knows aren't useful on specific models.
+
+Entity names come from myUplink, for example "Room temperature (BT50)".
+
+### Binary sensors
+
+- **Alarm**
+  - **Description**: On when the system has an active alarm.
+  - **Remarks**: There is one for each myUplink system, on its first device.
+- **Connectivity**
+  - **Description**: Whether the device is connected to myUplink.
+  - **Remarks**: There is one for each device.
+- Data points that can only be off or on, and that you can't change.
+
+### Numbers
+
+- Data points with a minimum and a maximum value that you can change.
+
+### Selects
+
+- Data points with a list of options that you can change.
+
+### Sensors
+
+- Everything else that has a numeric value, such as temperatures, energy, and operating times.
+  - On some models, a few common data points, such as status, priority, compressor status, and additional heating, show their state as text from myUplink. For those, an extra sensor named after the data point, with "raw" at the end, holds the original number. It is disabled by default.
+  - Energy log sensors are disabled by default.
+
+### Switches
+
+- Data points that can only be off or on, and that you can change.
+
+### Updates
+
+- **Firmware**
+  - **Description**: The installed and the latest available firmware version.
+  - **Remarks**: Firmware is updated through myUplink, not from Home Assistant.
 ## Use cases
 
 Common use cases include:
@@ -77,6 +95,8 @@ Common use cases include:
 - **Smart Notifications**: Get alerts when the water temperature is low in the heater tank
 - **Automation**: Adjust the temperature curve offset during holiday mode
 - **Analytics**: View long-term statistics and graphs for the relevant sensors
+
+{% include integrations/actions.md %}
 
 ## Example
 

@@ -1,17 +1,7 @@
 ---
-title: Times of the Day
 description: Instructions on how to integrate Times of the Day binary sensors within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Helper
 ha_release: 0.89
-ha_iot_class: Calculated
-ha_quality_scale: internal
-ha_config_flow: true
 ha_domain: tod
-ha_platforms:
-  - binary_sensor
-ha_integration_type: helper
 ---
 
 The **Times of the Day** {% term integration %} provides a binary sensor that gets its values by checking if the current time is within defined time ranges.
@@ -21,15 +11,27 @@ The **Times of the Day** {% term integration %} provides a binary sensor that ge
 {% configuration_basic %}
 Name:
   description: The name the binary sensor should have. This can be changed later.
+Turn on based on:
+  description: A choice of `time` or `sun position` that should be used to turn on.
 On time:
-  description: The time when the sensor should turn on.
+  description: The time when the sensor should turn on, applicable when `time` is chosen.
+On sun position:
+  description: The position of the sun when the sensor should turn on, applicable when `sun position` is chosen. Either `sunrise` or `sunset` must be selected.
+On offset:
+  description: The offset you want to apply to the sun position when the sensor should turn on. Options are `before`, `after` or `no offset`. If an offset is selected then a duration is required.
+Turn off based on:
+  description: A choice of time or sun position that should be used to turn off.
 Off time:
-  description: The time when the sensor should turn off.
+  description: The time when the sensor should turn off, applicable when `time` is chosen.
+Off sun position:
+  description: The position of the sun when the sensor should turn off, applicable when `sun position` is chosen. Either `sunrise` or `sunset` must be selected.
+Off offset:
+  description: The offset you want to apply to the sun position when the sensor should turn off. Options are `before`, `after` or `no offset`. If an offset is selected then a duration is required.
 {% endconfiguration_basic %}
 
 ## YAML configuration
 
-Alternatively, this integration can be configured and set up manually via YAML. This has some additional functionality over the UI setup.
+Alternatively, this integration can be configured and set up manually via YAML.
 
 The time ranges can be provided as an absolute local time or by using the `sunrise` or `sunset` keyword, calculated based on the sun position for the location.
 

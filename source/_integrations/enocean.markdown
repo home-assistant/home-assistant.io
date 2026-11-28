@@ -1,22 +1,7 @@
 ---
-title: EnOcean
 description: Connect EnOcean devices to Home Assistant
-ha_category:
-  - Binary sensor
-  - Hub
-  - Light
-  - Sensor
-  - Switch
 ha_release: 0.21
-ha_iot_class: Local Push
 ha_domain: enocean
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - light
-  - sensor
-  - switch
-ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -24,7 +9,7 @@ related:
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
 
-The EnOcean integration adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/product/usb-300/) in order for it to work.
+The EnOcean integration adds support for some of these devices. You will need an EnOcean USB dongle in order for it to work. Dongles that speak the EnOcean Serial Protocol 3 (ESP3), like the [USB300](https://www.enocean.com/product/usb-300/), and dongles that speak the older EnOcean Serial Protocol 2 (ESP2), like the Eltako FAM-USB, are both supported. Home Assistant detects which protocol your dongle speaks when you set up the integration.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -87,7 +72,7 @@ name:
   type: string
   default: EnOcean binary sensor
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: device_class
 {% endconfiguration %}
@@ -119,7 +104,7 @@ automation:
           entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```
 
-You can find the `event_data` `id` by going to {% my developer_events title="**Settings** > **Tools** > **Events**" %} and listening to "button_pressed" events. Then hit a button on the device and you should see an event.
+You can find the `event_data` `id` by going to {% my tools_events title="**Settings** > **Tools** > **Events**" %} and listening to "button_pressed" events. Then hit a button on the device and you should see an event.
 
 ## Light
 
@@ -323,6 +308,8 @@ The window handle sensor can have the following states:
 ## Switch
 
 An EnOcean switch can take many forms. Currently, only a few types have been tested: Permundo PSC234 and Nod On SIN-2-1-01.
+
+Switches cannot be controlled through a dongle that speaks ESP2, like the Eltako FAM-USB: the telegrams these switches need cannot be sent with that protocol.
 
 To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file:
 

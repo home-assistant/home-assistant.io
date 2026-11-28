@@ -1,37 +1,26 @@
 ---
-title: Edifier Infrared
-description: Integration to control Edifier speakers using an infrared transmitter.
-ha_category:
-  - Button
-  - Media player
+description: Integration to control Edifier speakers using an infrared emitter.
 ha_release: 2026.7
-ha_iot_class: Assumed State
-ha_codeowners:
-  - '@abmantis'
 ha_domain: edifier_infrared
-ha_config_flow: true
-ha_platforms:
-  - button
-  - media_player
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
-The **Edifier Infrared** {% term integration %} lets you control an Edifier speaker using any infrared transmitter previously configured in Home Assistant.
+The **Edifier Infrared** {% term integration %} lets you control an Edifier speaker using any infrared emitter previously configured in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the speaker but there is no feedback channel to confirm the current state. The integration therefore uses assumed states.
 
 ## Prerequisites
 
-Before setting up the Edifier Infrared integration, you need a working infrared transmitter set up in Home Assistant that exposes an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your Edifier speaker.
+{% include integrations/infrared_controlled.md %}
+
+For example, you can use an ESPHome device with an IR LED pointed at your Edifier speaker.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Speaker model or remote profile:
   description: The Edifier speaker model or remote profile to control. Pick the option that best matches your hardware so the integration uses the right IR command set. Some options correspond to shared remote profiles rather than exact speaker model names.
-IR transmitter:
-  description: The infrared transmitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR transmitter.
+Infrared emitter:
+  description: The infrared emitter entity to use for sending commands. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
 {% endconfiguration_basic %}
 
 ## Supported devices
@@ -40,12 +29,14 @@ The integration supports the following Edifier speaker models and remote profile
 
 - R1280DB
 - R1280T
+- R1380DB
 - R1700BT
 - R1700BTs
 - R1855DB
 - R2000DB
 - R2730DB
 - RC10D1
+- RC13D
 - RC17A
 - RC20G
 - RC31A

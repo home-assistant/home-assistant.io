@@ -45,18 +45,14 @@ section#collaboration {
             font-weight: 300;
             align-items: center;
             display: flex;
-            gap: 16px;
+            gap: 24px;
 
             @include bp(tablet) {
                 font-size: 20px;
             }
 
             img {
-                height: 25px;
-
-                @include bp(tablet) {
-                    height: 30px;
-                }
+                height: 20px;
             }
         }
 
@@ -69,6 +65,12 @@ section#collaboration {
             @include bp(tablet) {
                 gap: 18px;
                 width: calc(6 / 12 * 100%);
+            }
+
+            p a {
+                color: inherit;
+                text-decoration: underline;
+                text-underline-offset: 0.15em;
             }
         }
     }

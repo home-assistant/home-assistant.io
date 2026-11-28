@@ -1,15 +1,7 @@
 ---
-title: Recorder
 description: Instructions on how to configure the data recorder for Home Assistant.
-ha_category:
-  - History
 ha_release: pre 0.7
-ha_quality_scale: internal
 ha_domain: recorder
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: system
 related:
   - docs: /integrations/sql/
     title: SQL integration
@@ -17,7 +9,7 @@ related:
 
 The **Recorder** {% term integration %} stores the history of your Home Assistant entities in a database. Every time an {% term entity %} changes state, such as a light turning on, a sensor reporting a new temperature, or a door being opened, the recorder writes that change to the database. It can also store events that happen on your system, which makes it possible to look back in time and see what happened in your home.
 
-Many parts of Home Assistant rely on this stored data. The [**History**](/integrations/history/) and [**Activity**](/integrations/logbook/) panels, the graphs shown on dashboard cards, and long-term statistics all read from the database that the recorder maintains. Without the recorder, Home Assistant would still show the current state of your home, but it would not keep this history for those features.
+Many parts of Home Assistant rely on this stored data. The [**History**](/integrations/history/) and [**Activity**](/integrations/logbook/) panels, the graphs shown on dashboard cards, and [long-term statistics](/docs/configuration/long-term-statistics/) all read from the database that the recorder maintains. Without the recorder, Home Assistant would still show the current state of your home, but it would not keep this history for those features.
 
 The flow of data looks like this:
 
@@ -98,7 +90,7 @@ recorder:
       default: true
       type: boolean
     auto_repack:
-      description: Automatically repack the database every second sunday after the auto purge. Without a repack, the database may not decrease in size even after purging, which takes up disk space and can make Home Assistant slow. If you disable `auto_repack` it is recommended that you create an automation to call the [`recorder.purge`](#action-purge) periodically. This flag has no effect if `auto_purge` is disabled.
+      description: Automatically repack the database on the second Sunday of each month, after the auto purge. Without a repack, the database may not decrease in size even after purging, which takes up disk space and can make Home Assistant slow. If you disable `auto_repack` it is recommended that you create an automation to call the [`recorder.purge`](#action-purge) periodically. This flag has no effect if `auto_purge` is disabled.
       required: false
       default: true
       type: boolean
@@ -234,7 +226,7 @@ recorder:
 
 When using SQLite, if the system encounters unrecoverable disk corruption, it will move the database aside and create a new database to keep the system online. In this case, having at least 2.5x the database size available in free disk space is essential. Starting a new database is the system's last resort recovery option and is usually caused by failing flash storage, an inadequate power supply, an unclean shutdown, or another hardware failure.
 
-In this event, it may be possible to recover the old database by following the [SQLite recovery guide](https://www.sqlite.org/recovery.html).
+In this event, it may be possible to recover the old database by following the [SQLite recovery guide](https://www.sqlite.org/recovery.html). The old database files are kept next to the new database, with `.corrupt.<time>` added to their names (for example, `home-assistant_v2.db.corrupt.<time>`). A repair in {% my repairs title="**Settings** > **System** > **Repairs**" %} shows how many files are kept and how much space they take. Once you no longer need them, the repair can delete them for you, or you can ignore the repair to keep the files.
 
 ## Custom database engines
 

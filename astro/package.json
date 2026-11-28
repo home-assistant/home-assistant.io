@@ -1,0 +1,25 @@
+{
+  "name": "home-assistant-io-astro",
+  "description": "Astro build of the Home Assistant website (migration in progress)",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test \"src/lib/*.test.mjs\""
+  },
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "0.21.0",
+    "astro": "7.4.13",
+    "gsap": "3.15.1",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "sass": "^1.104.1"
+  }
+}

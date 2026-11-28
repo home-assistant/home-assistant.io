@@ -1,0 +1,9 @@
+{
+  "domain": "image_processing",
+  "name": "Image processing",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

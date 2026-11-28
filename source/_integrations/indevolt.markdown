@@ -1,27 +1,7 @@
 ---
-title: Indevolt
 description: Instructions on how to integrate your Indevolt device with Home Assistant.
 ha_release: 2026.3
-ha_category:
-  - Energy
-  - Sensor
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@xirt'
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - number
-  - select
-  - sensor
-  - switch
 ha_domain: indevolt
-ha_integration_type: device
-ha_dhcp: true
-ha_zeroconf: true
-ha_quality_scale: platinum
-ha_config_flow: true
 ---
 
 The **Indevolt** {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
@@ -160,15 +140,15 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 
 {% include integrations/actions.md %}
 
-## Examples
+## Indevolt automation examples
 
-### Setting emergency SOC based on forecasted minimum temperatures
+### Automation: Setting emergency SOC based on forecasted minimum temperatures
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_manage_auto_emergency_soc.yml" %}
+{% blueprint_example blueprint="indevolt/manage_auto_emergency_soc.yaml" %}
 
-### Dynamically control battery discharge based on battery state, grid import/export and solar production
+### Automation: Dynamically control battery discharge based on battery state, grid import/export and solar production
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_smart_discharge.yml" %}
+{% blueprint_example blueprint="indevolt/smart_discharge.yaml" %}
 
 ## Data updates
 

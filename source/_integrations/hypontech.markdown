@@ -1,21 +1,7 @@
 ---
-title: Hypontech Cloud
 description: Instructions on how to integrate Hypontech Cloud solar inverters within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Sensor
 ha_release: 2026.3
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@jcisio'
 ha_domain: hypontech
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Hypontech Cloud** {% term integration %} allows you to monitor your Hypontech solar inverter system through the [Hypontech Cloud](https://www.hypon.cloud) platform and integrate the data into your Home Assistant installation.

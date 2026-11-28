@@ -1,24 +1,7 @@
 ---
-title: Nice G.O.
 description: Control Nice G.O. garage doors
 ha_release: '2024.9'
-ha_category:
-  - Cover
-  - Event
-  - Light
-  - Switch
-ha_iot_class: Cloud Push
-ha_config_flow: true
-ha_codeowners:
-  - '@IceBotYT'
 ha_domain: nice_go
-ha_platforms:
-  - cover
-  - diagnostics
-  - event
-  - light
-  - switch
-ha_integration_type: hub
 ---
 
 The **Nice G.O.** {% term integration %} is used to integrate with [Nice/Linear](https://linear-solutions.com/) and [Mighty Mule](https://mightymule.com/) products.

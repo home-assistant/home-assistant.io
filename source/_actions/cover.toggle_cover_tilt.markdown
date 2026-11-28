@@ -50,6 +50,7 @@ This action has no additional YAML options beyond the target.
 ## Good to know
 
 - This action only works with cover entities that support tilting.
+- Some covers have two closed tilt positions, 0 and 100. This action opens the slats from either of them. For details, refer to [Tilt positions](/integrations/cover/#tilt-positions).
 
 {% include actions/try_it.md %}
 
@@ -59,7 +60,8 @@ This action has no additional YAML options beyond the target.
 
 Toggle a cover tilt each time you press a button.
 
-- **Trigger**: Button is pressed
+- **Trigger**: State changed
+  - **Entity**: Toggle blind tilt helper
 - **Action**: Toggle cover tilt
   - **Target**: Living room blind
 

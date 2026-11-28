@@ -1,18 +1,10 @@
 ---
-title: Supervisord
 description: Instructions on how to integrate Supervisord within Home Assistant.
-ha_category:
-  - System monitor
 ha_release: '0.20'
-ha_iot_class: Local Polling
 ha_domain: supervisord
-ha_platforms:
-  - sensor
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **Supervisord** {% term integration %} allows you to track the states of [Supervisord](http://supervisord.org/).

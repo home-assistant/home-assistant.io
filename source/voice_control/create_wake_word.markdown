@@ -33,7 +33,7 @@ Enabling a wake word consists of 2 steps:
 ### Prerequisites
 
 - Home Assistant version 2023.10 or later, installed with the Home Assistant Operating System
-- Assist configured either with [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local Assist pipeline](/voice_control/voice_remote_local_assistant)
+- Assist configured either with [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local Assist pipeline](/voice_control/voice_remote_local_assistant)
 - All the [Best Practices](/voice_control/best_practices) we recommend.
 
 ### Installing the openWakeWord app
@@ -54,7 +54,7 @@ Enabling a wake word consists of 2 steps:
 3. Give your assistant a name, for example the wake word you are going to use.
 4. Select the language you are going to use to speak to Home Assistant.
    - If the **Text-to-speech** and **Speech-to-text** sections do not provide language selectors, this means you do not have an Assist pipeline set up.
-   - Set up [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
+   - Set up [Home Assistant Link](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
 5. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
 6. To define the wake word engine, in the top-right corner of the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Add streaming wake word**.
    - Troubleshooting: If you don't see the three dots {% icon "mdi:dots-vertical" %} menu, go to {% my integrations title="**Settings** > **Devices & services**" %} and make sure the **openWakeWord** component of the **Wyoming** integration is added.
@@ -130,13 +130,12 @@ Depending on the word, training a model on your own wake word may take a few ite
 5. Under **Wake word**, select **openwakeword**.
    - Then, select your own personal wake word.
    - If there is no **Wake word** option, make sure you have the app installed and successfully completed the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial.
+   - The model file added to `/share/openwakeword` is used by the streaming openWakeWord engine. It does not appear in the ESPHome device's **Wake word** selector, which is for on-device microWakeWord models.
 6. Enable this new assistant on your ATOM Echo device.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
       - Under **M5Stack ATOM Echo**, select **1 device**.
    - Under **Configuration**, make sure **Use wake word** is enabled.
    - Select the assistant with your wake word.
-
-     ![Select the assistant with your wake word](/images/assist/wake_word_select_assistant.png)
 7. Test your new wake word.
    - Speak your wake word followed by a command, such as "Turn on the lights in the kitchen".
    - When the ATOM Echo picks up the wake word, it starts blinking blue.
