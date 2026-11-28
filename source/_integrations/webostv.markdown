@@ -54,7 +54,9 @@ The **LG webOS TV** integration provides the following entities.
 
 ### Turning on the TV from Home Assistant
 
-To turn on your TV from Home Assistant, you need to create an automation using the [TV turn on requested](/triggers/webostv.turn_on/) trigger. Without this automation, the TV appears as unavailable when it is off.
+The integration can turn on supported TVs automatically using Wake-on-LAN when the TV reports its MAC address.
+If you have an automation using the [TV turn on requested](/triggers/webostv.turn_on/) trigger, that automation is used instead.
+If no MAC address is available and no turn-on automation is configured, the TV appears as unavailable when it is off.
 
 If you want to use an automation to turn on an LG webOS TV, install an {% term integration %} such as [HDMI-CEC](/integrations/hdmi_cec/) or [Wake-on-LAN](/integrations/wake_on_lan/). They provide an action that can power on the TV.
 
