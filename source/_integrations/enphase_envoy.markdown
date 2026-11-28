@@ -734,8 +734,8 @@ This action changes the value for:
 | - | - | - |
 | `entity_id` | no | Name(s) of entities. For example, `number.enpower_12345678901001_reserve_battery_level`. |
 | `value` | no | Enpower reserve battery level: The target value between 0 and 100 |
-| | no | Standby generator exercise_interval: Number of weeks between exercises starting from 1 |
-| | no | Standby generator exercise_duration: Time in minutes the exercise should run, rounded to multiples of 10 minutes. |
+| `value` | no | Standby generator exercise_interval: Number of weeks between exercises starting from 1 |
+| `value` | no | Standby generator exercise_duration: Time in minutes the exercise should run, rounded to multiples of 10 minutes. |
 
 Example:
 
@@ -747,7 +747,7 @@ data:
   value: "25"
 ```
 
-### Action `select.select`
+### Action `select.select_option`
 
 This action changes the:
 
@@ -759,8 +759,8 @@ This action changes the:
 | - | - | - |
 | `entity_id` | no | Name(s) of entities. For example, `select.nc2_generator_action`. |
 | `option` | no | for relay modes: `powered`, `not_powered`, `schedule`, `none` |
-| | no | for storage modes: `backup`, `self_consumption`, `savings` |
-| | no | for exercise days: `sun`, `mon`, `tue`, `wed`, `thu`, `fri`, `sat` |
+| `option` | no | for storage modes: `backup`, `self_consumption`, `savings` |
+| `option` | no | for exercise days: `sun`, `mon`, `tue`, `wed`, `thu`, `fri`, `sat` |
 
 Example:
 
@@ -813,7 +813,7 @@ This action changes the [time value](/actions/time.set_value/) of:
 | Data attribute | Optional | Description |
 | - | - | - |
 | `entity_id` | no | Name(s) of entities. For example, `time.generator_1234_exercise_start_time`. |
-| `time` | no | Time to set in 24 hour format `HH:MM:SS`. |
+| `time` | no | Time to set in 24-hour `HH:MM:SS` format. |
 
 Example:
 
