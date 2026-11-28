@@ -7,7 +7,7 @@ related:
     title: Configuration file
 ---
 
-The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors.
+The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches, sensors, air quality monitors, and air purifiers.
 
 The manufacturer's app is required to connect new devices to the network.
 
@@ -20,6 +20,8 @@ The following devices are supported:
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro`, `RM4 TV mate` and `RM5 plus`
 - Wi-Fi Controlled Switches: `BG1`, `SC1`
 - Smart Light Bulbs: `LB1`,`LB2`
+- Air Quality Monitors: `LIFAair LAM05`
+- Air Purifiers: `LIFAair LA300/LA500-series` (connected via LAM05)
 
 {% include integrations/config_flow.md %}
 
@@ -33,6 +35,7 @@ The {% term entities %} are divided into the following subdomains:
 
 - [Binary sensor](#binary-sensor)
 - [Climate](#climate)
+- [Fan](#fan)
 - [Infrared](#infrared)
 - [Number](#number)
 - [Radio frequency](#radio-frequency)
@@ -47,9 +50,15 @@ The {% term entities %} are divided into the following subdomains:
 
 The `binary_sensor` {% term entity %} shows the status of the heating output of a Broadlink thermostat. When the heating output is on, the entity is on. Home Assistant creates this entity automatically when you configure a thermostat.
 
+A LIFAair LAM05 also creates a **Purifier online** diagnostic binary sensor. This entity is on when a paired LIFAair air purifier is connected to the monitor.
+
 ## Climate
 
 The `climate` entities allow you to monitor and control Broadlink thermostats. The minimum and maximum setpoints of the thermostat set the range of the target temperature. Refer to [Number](#number).
+
+## Fan
+
+The `fan` {% term entity %} allows you to control a LIFAair air purifier that is paired with a LIFAair LAM05 air quality monitor. The entity is unavailable when the paired air purifier is offline.
 
 ## Infrared
 
