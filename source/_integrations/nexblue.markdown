@@ -62,6 +62,7 @@ The integration provides the following binary sensors:
 
 - **Cable lock state**: Whether the charging cable is locked by the charger.
 - **Charging enabled**: Whether charging is enabled on the charger.
+- **Vehicle connected**: Whether a vehicle is plugged in to the charger. This is derived from the charging state, so it is off while the charger reports that charging is unavailable.
 
 ### Switches
 
