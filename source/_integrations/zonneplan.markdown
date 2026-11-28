@@ -59,6 +59,21 @@ If your account has a Zonneplan home battery, the integration adds a device for 
 - **Charge cycles**: The number of full charge cycles.
 - **Backup power capacity** (diagnostic): The most energy that can be reserved for backup power, in Wh.
 
+#### EV charge point
+
+If your account has a Zonneplan EV charge point, the integration adds these sensors to each charge point device:
+
+- **Status**: What the charge point is doing: `Standby`, `Vehicle detected`, `Charging`, or `Error`.
+- **Power**: The power the charge point delivers to the car, in W.
+- **Session energy**: The energy charged in the current or last session, in kWh.
+- **Session cost**: The cost of the current or last session.
+- **Session flex result**: What flexible charging saved in the current or last session.
+- **Session average price**: The average electricity price of the current or last session, per kWh.
+- **Session start**: When the current or last session started.
+- **Session charged distance**: The driving range charged in the current or last session, in km.
+- **Next schedule start** and **Next schedule end**: The start and end of the next planned charging window.
+- **Load balancing health** (diagnostic, disabled by default): Whether dynamic load balancing works: `Healthy` or `Unhealthy`.
+
 ### Binary sensors
 
 - **Electricity price low**: On while the current hour falls in today's block of cheapest hours, the same block as the low price start and end time sensors. Off at all other hours. The state updates at the start of every hour.
