@@ -28,6 +28,16 @@ Language:
     description: "Override the Home Assistant language for forecast texts and warnings. Defaults to **Follow Home Assistant server language**. If that language is not English, French, Dutch, or German, English is used."
 {% endconfiguration_basic %}
 
+## Reconfiguration
+
+To move an entry to a new location:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **IRM KMI Weather Belgium**.
+2. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Pick the new location and select **Submit**.
+
+You can also move to another municipality. The entities keep their entity IDs and history, and the entry and its device take the name of the new municipality unless you renamed the entry. A municipality that already has an entry cannot be chosen.
+
 ## Supported features
 
 The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
