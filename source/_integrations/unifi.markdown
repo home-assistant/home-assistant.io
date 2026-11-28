@@ -193,7 +193,7 @@ Entities appear for each Policy-Based Routing Rule. The switches can be identifi
 
 ### Control Zone-Based Firewall Policies
 
-Entities appear for each Zone-Based Firewall Policy. The switches can be identified from icon {% icon "mdi:security-network" %}.
+Entities appear for each Zone-Based Firewall Policy. The switches can be identified from icon {% icon "mdi:security-network" %}. Each policy gets its own [child device](/docs/configuration/customizing-entities/#parent-and-child-devices), named after the policy, under the **UniFi Network** device.
 
 ## Sensor
 
@@ -262,7 +262,7 @@ The schedule is evaluated in the time zone of the UniFi Network application. If 
 
 ## Firewall policy schedules
 
-You can change the schedule of each Zone-Based Firewall Policy you created, for example to block a network from now until the next morning. The entities belong to the **UniFi Network** device. They are disabled by default and require admin privileges, so first [enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the ones you need. Changes are sent to the UniFi Network application right away.
+You can change the schedule of each Zone-Based Firewall Policy you created, for example to block a network from now until the next morning. Each policy's entities belong to its own [child device](/docs/configuration/customizing-entities/#parent-and-child-devices) under the **UniFi Network** device, named after the policy. The entities are disabled by default and require admin privileges, so first [enable](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) the ones you need. Changes are sent to the UniFi Network application right away.
 
 - **Schedule** (select): The schedule mode: **Always**, **Every day**, **Every week**, **One time**, or **Custom**. **Every week** and **Custom** can only be chosen in the UniFi Network application.
 - **Schedule start** and **Schedule end** (time): The time window the policy applies in each day.
