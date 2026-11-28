@@ -15,7 +15,7 @@ You need the name of your region as MeteoAlarm uses it, or its EMMA_ID code:
 - Open [MeteoAlarm](https://meteoalarm.org) and find your region on the map. Its name is shown when you select it.
 - Alternatively, look up the region's EMMA_ID code, such as `ES098` for Sierra Sur de Sevilla, with the [MeteoAlarm EMMA_ID region explorer](https://saratoga-weather.org/meteoalarm-map/).
 
-A code is the safest choice: some names appear in more than one region, and the name is matched as a regular expression. In Spain, for example, land and coastal regions often have similar names, such as "Ceuta" and "Costa - Ceuta", so the name "Ceuta" also matches the coastal region.
+A code is the safest choice, because some regions have similar names. A name matches a whole region name, ignoring case, so "Ceuta" doesn't match "Costa - Ceuta".
 
 {% include integrations/config_flow.md %}
 
