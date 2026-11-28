@@ -10,26 +10,19 @@ Integrates Airthings sensors into Home Assistant.
 
 While this integration works without an Airthings SmartLink hub, using one will provide live updates to your sensor data. Without a hub, you'll need to rely on the Airthings mobile app to sync data over Bluetooth and upload it to the cloud.
 
-Requires Airthings hardware and a valid Airthings Dashboard login.
+Requires Airthings hardware and an Airthings account.
 
 ## Prerequisites
 
 Airthings API setup (needed to acquire the required ID and Secret for the Home Assistant Airthings Integration).
 
-1. Login [here](https://dashboard.airthings.com/integrations/api-integration) to find your credentials.
-2. Select [Integrations](https://dashboard.airthings.com/integrations/api-integration) from the left side-bar.
-3. Click on "Request API Client" to set up an API connection.
-4. Name your API connection (e.g., "Home Assistant"). Note: The name field has a character limit and longer names will be truncated.
-5. Give the connection an accurate description.
-6. Select a Resource Scope.
-7. Select an access Type, for example, Confidential.
-8. Select a flow type.
-9. Set enable to "on".
-10. Save the settings.
+1. Sign in to the [Airthings Consumer API portal](https://consumer-api-doc.airthings.com/dashboard) with your Airthings account.
+2. Select **My Applications**.
+3. Select **Create New Application**.
+4. Enter a name (for example, "Home Assistant") and a description.
+5. Store the client ID and secret in a safe place.
 
-Upon saving the settings, you will be presented with a generated id and secret.
-
-The Airthings integration can now be activated using the generated id and secret that you have just created.
+The Airthings integration can now be activated using the ID and secret that you have just created.
 
 {% include integrations/config_flow.md %}
 
