@@ -36,6 +36,10 @@ In addition, the entity can have the following states. Each item shows the inter
 
 The integration cache can be controlled with the `cache` option in the action to `speak` or `say`, setting it to `True` to enable it (default), or `False` to disable it. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
 
+## Pregeneration
+
+If the `pregenerate` option is set, the entire audio will be generated before sending it to the media player. This avoids playback stopping early on long messages but delays the start of playback.
+
 ## Preferred audio settings
 
 Each TTS platform produces audio samples in different formats, not always compatible with every media player. TTS integration building block supports a way to configure preferred target audio format through `options` option of `speak` or `say` actions.
