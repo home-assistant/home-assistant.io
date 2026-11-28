@@ -150,6 +150,31 @@ homekit:
               description: Name of the entity to show in HomeKit. HomeKit will cache the name on the first run so the accessory must be [reset](#resetting-accessories) for any change to take effect.
               required: false
               type: string
+            adaptive_lighting:
+              description: Only for `light` entities. Exposes Apple's Adaptive Lighting on the light. Only applies to lights that support both brightness and color temperature. The Home app then sends a color temperature schedule that Home Assistant follows until you change the color manually.
+              required: false
+              type: boolean
+              default: '`false`'
+            min_color_temp_kelvin:
+              description: Only for `light` entities. Overrides the minimum color temperature advertised to HomeKit, in kelvin. This is the warm end of the range. Useful for bulbs that misbehave at the warm end of their advertised range.
+              required: false
+              type: integer
+            max_color_temp_kelvin:
+              description: Only for `light` entities. Overrides the maximum color temperature advertised to HomeKit, in kelvin. This is the cool end of the range. Useful for bulbs that misbehave at the cool end of their advertised range.
+              required: false
+              type: integer
+            rgb_below_kelvin:
+              description: Only for `light` entities. Below this color temperature, Home Assistant sends an `rgb_color` value blended towards `warm_rgb_color` instead of a color temperature. Applies to manual and adaptive color temperature changes. Useful for bulbs whose color LEDs can produce a warmer tone than their white channel.
+              required: false
+              type: integer
+            warm_rgb_color:
+              description: Only for `light` entities. The `[red, green, blue]` color that the warm blend reaches at the lowest advertised color temperature. Only valid together with `rgb_below_kelvin`.
+              required: false
+              type: list
+            floor_rgb_color:
+              description: Only for `light` entities. The `[red, green, blue]` color that the warm blend starts from at `rgb_below_kelvin`. By default the color is derived from `rgb_below_kelvin`. Only valid together with `rgb_below_kelvin`.
+              required: false
+              type: list
             linked_battery_sensor:
               description: The `entity_id` of a `sensor` entity to use as the battery of the accessory.
               required: false
@@ -409,6 +434,33 @@ There is no prebuffer, so the first seconds of a motion event are missing from t
 
 Recordings are sent to the home hub over a random TCP port, which changes on every start. Docker port mapping cannot forward it, so use host networking. See also [Firewall](#firewall).
 
+## Adaptive lighting
+
+You can expose Apple's Adaptive Lighting on a `light` entity by setting `adaptive_lighting` in `entity_config`.
+The option is only available on bridges configured in YAML.
+
+```yaml
+# Example configuration.yaml entry
+homekit:
+  - filter:
+      include_entities:
+        - light.bedroom
+    entity_config:
+      light.bedroom:
+        adaptive_lighting: true
+```
+
+The Home app then sends a color temperature schedule to the accessory, and Home Assistant follows it until you change the color manually in HomeKit.
+Changing the color manually stops Adaptive Lighting.
+Turning the light off pauses the schedule instead of stopping it: Home Assistant skips updates while the light is off and resumes the saved schedule when the light turns back on.
+A schedule that is saved when Home Assistant restarts is restored automatically.
+
+Some bulbs accept color temperature commands below the range where they actually produce light.
+For those, you can narrow the range that Home Assistant advertises to HomeKit with `min_color_temp_kelvin` and `max_color_temp_kelvin`, in kelvin.
+
+Bulbs whose color LEDs can produce a warmer tone than their white channel can also blend to an RGB color below a configured temperature.
+Set `rgb_below_kelvin` together with `warm_rgb_color` to enable the blend, and optionally `floor_rgb_color` to choose the color the blend starts from.
+
 ## Configure Filter
 
 By default, all entities except [hidden entities](/docs/configuration/customizing-entities/#hidden-entities) and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
@@ -474,7 +526,7 @@ The following integrations are currently supported:
 | fan                                                           | Fan / AirPurifier      | Support for `on / off`, `direction` and `oscillating`. Represented as a fan by default but can be changed by using `type` within `entity_config`. Defaults to an air purifier when there's a linked PM2.5 sensor.                                                                                                                                                                                                                                                                                                                                                                                       |
 | fan                                                           | Fan / AirPurifier      | All fans that support `speed` and `speed_list` through value mapping: `speed_list` is assumed to contain values in ascending order. The numeric ranges of HomeKit map to a corresponding entry of `speed_list`. The first entry of `speed_list` should be equivalent to `off` to match HomeKit's concept of fan speeds. (Example: `speed_list` = [`off`, `low`, `high`]; `off` -> `<= 33`; `low` -> between `33` and `66`; `high` -> `> 66`). The same applies for fans represented as air purifiers (see above). |
 | humidifier                                                    | HumidifierDehumidifier | Humidifier and Dehumidifier devices.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| light                                                         | Light                  | Support for `on / off`, `brightness` and `rgb_color`.                                                                                                                                                                                                                                                                                                                                                                                        |
+| light                                                         | Light                  | Support for `on / off`, `brightness` and `rgb_color`. Optional [Adaptive Lighting](#adaptive-lighting) support.                                                                                                                                                                                                                                                                                                                                                                                        |
 | lock                                                          | DoorLock               | Support for `lock / unlock`. A doorbell event / sensor can be linked with `linked_doorbell_sensor`.                                                                                                                                                                                                                                                                                                                                                                                                             |
 | media_player                                                  | MediaPlayer            | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`.                                                                                                                                                                                                                                         |
 | media_player                                                  | TelevisionMediaPlayer  | All media players that have `tv` as their `device_class`.  Represented as Television and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later.                                                                                                                                       |
