@@ -41,3 +41,26 @@ This integration supports the following actions (see [Climate](/integrations/cli
   - `auto` enable schedule based operation
   - `day` enable day mode
   - `night` enable night mode
+
+## Room devices
+
+A Home Assistant device is created for each heat area. The climate entity and the entities associated with the room are grouped under this device.
+
+## Numbers
+
+The number platform exposes the settings provided by the Alpha 2 base for each heat area. Available entities can include:
+
+- Temperature offset
+- Heating temperature for day and night
+- Cooling temperature for day and night
+- Minimum and maximum target temperature
+
+Temperature values can be adjusted in steps of 0.1 °C. The temperature offset ranges from -5 °C to 5 °C; the other settings range from 0 °C to 50 °C. An entity is created only when the corresponding setting is available from the base.
+
+## Sensors
+
+The sensor platform reports the valve opening as a percentage when this value is available from the base.
+
+## Binary sensors
+
+A battery binary sensor is created for an I/O device associated with a heat area. It turns on when the battery is weak or empty.
