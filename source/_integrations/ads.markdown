@@ -47,6 +47,16 @@ ip_address:
   type: string
 {% endconfiguration %}
 
+## Connection and availability
+
+Home Assistant checks the connection to the ADS device every 30 seconds.
+
+- If the device stops answering, for example after a network outage or a restart, the ADS entities become unavailable. Home Assistant reconnects on its own once the device answers again, waiting longer between attempts the longer the device stays away, up to 5 minutes. The entities then show current values again.
+- If the device answers but its PLC is not running, for example while it is stopped from TwinCAT, the ADS entities are unavailable until the PLC runs again. This can take up to 30 seconds after the PLC is started.
+- While the connection is lost, writing a value with the `ads.write_data_by_name` action fails with an error instead of being dropped.
+
+The log shows one message when the connection is lost and one when it is back.
+
 {% include integrations/actions.md %}
 
 ## Binary sensor
