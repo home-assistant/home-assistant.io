@@ -4,6 +4,7 @@ action: fritz.dial
 domain: fritz
 description: "Makes a FRITZ!Box dial a phone number."
 related_actions:
+  - fritz.get_mesh_info
   - fritz.set_guest_wifi_password
 ---
 
