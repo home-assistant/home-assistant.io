@@ -8,6 +8,7 @@ The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or <
 
 - Binary sensors that parse the event stream and present camera/NVR events as sensors with either an "off" or "on" state, and become unavailable while the event stream is disconnected
 - Camera entities with <abbr title="Real Time Streaming Protocol">RTSP</abbr> streaming and <abbr title="Hypertext Transfer Protocol">HTTP</abbr> snapshot capabilities
+- Number, select, and switch entities to view and change the image settings of a camera, or of each camera attached to an NVR, such as brightness, <abbr title="Wide Dynamic Range">WDR</abbr>, and day/night mode, and sensor entities that show the settings a camera does not let you change
 
 The platform will automatically add all sensors to Home Assistant that are
 configured within the camera/nvr interface to "Notify the surveillance center"
@@ -168,6 +169,259 @@ Each event entity reports one of these event types when it triggers:
 Whether your device classifies events, and which of these values it uses, depends on the model and the firmware. Devices that do not classify report `triggered` every time.
 
 Use these entities when you want an automation to react only to a particular kind of trigger, for example to send a notification for a person crossing a line but not for a vehicle. Use the binary sensors instead when you want to know whether an event is currently active.
+
+## Image settings
+
+For a camera, the integration reads which image settings the camera supports and creates an entity for each one. These are the settings you find in the image configuration of the camera's web interface. Changing an entity changes the setting on the camera. Changes you make in the web interface of the camera show up in Home Assistant within 30 seconds.
+
+For an NVR, the integration does the same for each camera attached to the NVR. The entities of a camera are on the device of its channel, for example **Home channel 1**, the same device as the camera entity and binary sensors of that channel.
+
+Which settings exist depends on the model and the firmware. The integration only creates entities for the settings your camera reports. For example, a camera with a fixed iris has no iris controls, and a camera without a built-in light has no light controls.
+
+The numbers, selects, and switches are configuration entities on the device page of the camera. The sensors, for settings the camera does not let you change, are diagnostic entities (see [Sensor](#sensor)). Many of the less common ones are disabled by default to keep the device page readable. To use one, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, select the entity, and enable it. You do not need to restart Home Assistant.
+
+### Number
+
+Numbers control the image settings that have a range. A number is created for each of these settings that your camera reports. The minimum and maximum come from the camera, and values are whole numbers.
+
+These numbers are enabled by default:
+
+- **Brightness**
+- **Contrast**
+- **Saturation**
+- **Sharpness**
+- **Gain**
+- **Shutter speed**
+- **WDR level**
+- **Highlight compensation level**
+- **Light brightness**
+
+These numbers are disabled by default:
+
+- **Gain limit**
+- **Night-to-day sensitivity**
+- **Night-to-day delay**
+- **Auto iris level**
+- **P-Iris level**
+- **Maximum iris level**
+- **Minimum iris level**
+- **White balance red**
+- **White balance blue**
+- **Noise reduction level**
+- **Spatial noise reduction level**
+- **Temporal noise reduction level**
+- **Smart noise reduction level**
+- **Defog level**
+- **Smart supplement light distance**
+- **Smart supplement light high-light distance**
+- **Smart supplement light low-light distance**
+- **White light brightness limit**
+- **IR light brightness**
+- **IR light brightness limit**
+- **IR high brightness**
+- **IR low brightness**
+- **IR brightness limit**
+- **Event intelligence white light brightness**
+- **Event intelligence IR light brightness**
+- **Lens distortion correction level**
+
+### Select
+
+Selects control the image settings that offer a list of choices. A select is created for each of these settings that your camera reports with two or more choices. The choices are the ones your camera lists.
+
+Named choices are translated, for example **Auto**, **Day**, and **Night** for **Day/night mode**. Choices that are numbers, such as shutter speeds, are shown as the camera reports them. Some settings can show up as a switch or as a select, depending on how your camera reports them.
+
+These selects are enabled by default:
+
+- **WDR**
+- **Backlight compensation mode**
+- **Backlight compensation**
+- **Highlight compensation mode**
+- **Day/night mode**
+- **Shutter speed**
+- **Noise reduction**
+- **White balance**
+- **Supplement light**
+- **Light brightness mode**
+
+These selects are disabled by default:
+
+- **Day/night schedule type**
+- **Night-to-day sensitivity**
+- **Exposure mode**
+- **P-Iris mode**
+- **Smart supplement light mode**
+- **Maximum shutter speed**
+- **Minimum shutter speed**
+- **Iris level**
+- **Color mode**
+- **Defog**
+- **Flip direction**
+- **Power line frequency**
+- **Supplement light mode**
+- **Event intelligence brightness mode**
+- **IR light mode**
+- **Scene mode**
+- **Focus mode**
+- **Focus distance mode**
+- **Focus limit mode**
+- **Digital slow shutter level**
+- **Zoom limit ratio**
+- **Capture mode**
+
+Changing **Power line frequency** may require a camera restart before it takes effect.
+
+### Sensor
+
+If a camera offers only one choice for a setting, that setting cannot be changed, so there is no select for it. For example, a camera with a fixed iris offers only **Manual** for its exposure mode. The integration shows the value of such a setting as a read-only sensor instead.
+
+The sensors have the same names as the selects and switches listed in this section: a switch setting the camera reports with only one value is shown as a sensor too. They are diagnostic entities and are disabled by default. Enable a sensor as described at the start of this section.
+
+### Switch
+
+Switches control the on/off image settings of a camera. A switch is created for each of these settings that your camera reports.
+
+These switches are enabled by default:
+
+- **Highlight compensation**
+- **Backlight compensation**
+- **Smart supplement light**
+
+These switches are disabled by default:
+
+- **Image flip**
+- **Lens distortion correction**
+- **Image stabilization**
+- **Digital slow shutter**
+- **Image freeze**
+- **Lens initialization**
+- **Proportional pan**
+- **Image loss detection**
+
+### Settings that exclude each other
+
+Some cameras do not allow certain settings to be on at the same time:
+
+- WDR cannot be on together with highlight compensation or backlight compensation.
+- Highlight compensation cannot be on together with WDR or defog.
+
+When you turn one of them on while another is on, the integration first turns the other one off, and then applies your change. The entity of the setting that was turned off updates right after the change, and the logbook records what happened. For example: **Front Porch Highlight compensation was turned off automatically so that Front Porch WDR could be changed**.
+
+If the camera still refuses the change, Home Assistant shows the reason the camera gave in the error message.
+
+## Data updates
+
+The binary sensors and event entities get their data through the event stream of the device. The device sends changes to Home Assistant as they happen.
+
+Home Assistant {% term polling polls %} the image settings of a camera, or of each camera attached to an NVR, every 30 seconds, and again right after you change one in Home Assistant. The image setting entities are unavailable while the camera or NVR cannot be reached.
+
+## Known limitations
+
+- The image settings are those of the first video channel of the camera.
+- An NVR lists the cameras whose image settings it can reach. A camera that the NVR cannot reach, that is disabled on the NVR, or that has no image settings gets no entities.
+- Home Assistant reads and changes the image settings of the cameras of an NVR one at a time. Changes to one camera can take a moment if the NVR is busy with another.
+- Only the settings your camera reports are available. Settings that your model or firmware does not support, or that need other permissions, do not appear.
+- Changing an image setting needs a user who is allowed to change the parameters of the camera remotely. See the troubleshooting section.
+
+## Troubleshooting
+
+{% details "There are no image setting entities" %}
+
+### Symptom: The camera has entities for events, but none for image settings
+
+The integration works, but there are no number, select, switch, or sensor entities for the image settings of the camera.
+
+#### Description
+
+Image settings are optional. If the camera does not offer them, or does not allow the user to read them, the integration works as before and creates no image setting entities. Many of the entities that exist are also disabled by default.
+
+#### Resolution
+
+1. Check the entities of the device, including the disabled ones, as described in the image settings section.
+2. Check the logs for `Not allowed to read the image settings`. If it is there, give the user the **Remote: Parameters Settings** permission in the user management section of the camera's web interface, or use an administrator account.
+3. Check the logs for `Unable to read the image settings` or `Unable to read the image values`. Make sure the camera is reachable, then reload the integration.
+4. If the camera does not offer image settings in its web interface either, no entities are created. This is not an error and nothing is logged.
+5. For an NVR, the cameras attached to it are only listed if they are enabled on the NVR and the NVR can read their image settings. Check the logs for `Unable to read the image settings of channel`, which names the channel that failed.
+6. Some NVRs report themselves as a camera. The integration then reads the camera endpoints first, and, if the device rejects them, tries the NVR endpoints once. If you still have no entities, download the diagnostics as described below and include them in your report.
+
+{% enddetails %}
+
+{% details "Changing an image setting fails" %}
+
+### Symptom: Home Assistant shows an error when you change a setting
+
+#### Description
+
+The camera did not take the change. Home Assistant shows one of these messages:
+
+- **This user is not allowed to change the image settings of the device.** The user does not have the permission to change the settings.
+- **The device rejected the username or password.** The stored credentials are no longer valid. Home Assistant also asks you to reauthenticate.
+- **Failed to connect.** The camera did not answer.
+- **Unable to change the image setting:** followed by the reason the camera gave.
+- **The device did not accept the image setting.** The camera answered with an error that has no further explanation.
+
+#### Resolution
+
+- For the first message, give the user the **Remote: Parameters Settings** permission, or use an administrator account.
+- For the second message, follow the reauthentication notification.
+- For the third message, make sure the camera is on and reachable from Home Assistant, then try again.
+- For the last two messages, check the reason shown. If it does not help, download the diagnostics as described below and include them in your report.
+
+{% enddetails %}
+
+{% details "Reporting a problem or missing settings" %}
+
+### Symptom: You want to report a problem, or a setting of your camera is missing
+
+#### Description
+
+The diagnostics list every image setting that the camera reported, or for an NVR, the settings of each attached camera by channel, with its type, allowed values, and current value. They also tell whether the integration has an entity for each setting. The host name, user name, password, name, and device ID are removed. The diagnostics also include the image settings documents as the camera sent them, which are what is needed to add support for a camera model.
+
+#### Resolution
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration.
+2. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
+3. Select **Download diagnostics**. A JSON file is downloaded.
+4. Upload the file to your issue report when requested.
+
+{% enddetails %}
+
+{% details "The device rejects the username or password" %}
+
+### Symptom: "Invalid authentication" when adding the device
+
+When you add the device, the form shows **Invalid authentication**.
+
+#### Description
+
+The device rejected the username or password you entered.
+
+#### Resolution
+
+1. Check the username and password by signing in to the web interface of the device.
+2. Make sure the user has the permissions described at the start of this page, and that **WEB Authentication** is set to `digest/basic`.
+3. If the problem continues, try a user with administrator rights. Some devices only accept an administrator account.
+
+{% enddetails %}
+
+{% details "Home Assistant asks you to reauthenticate" %}
+
+### Symptom: A notification says the authentication expired
+
+Home Assistant shows a reauthentication notification for your Hikvision device, and the entities of the device are not available.
+
+#### Description
+
+The device rejected the stored username or password, for example because you changed the password of the user. Home Assistant stops connecting to the device until you enter the current credentials. This avoids repeated failed sign-ins, which can lock the user on the device for a while.
+
+#### Resolution
+
+1. Follow the reauthentication notification.
+2. Enter the current username and password. They must belong to the same device. If they belong to a different device, Home Assistant stops with the message **The credentials belong to a different device than the one being reauthenticated.**
+
+The host, port, and SSL settings are kept, and Home Assistant reloads the integration without removing your entities or automations.
+
+{% enddetails %}
 
 ## Removing the integration
 
