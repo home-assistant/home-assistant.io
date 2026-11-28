@@ -44,10 +44,15 @@ Filters narrow the table down, so you only see the items that match.
 
 2. In the filters panel, choose what you want to see.
    - Which filters are available depends on the table. For example, you can filter by [floors](/docs/organizing/floors/), [areas](/docs/organizing/areas/), [labels](/docs/organizing/labels/), and [categories](/docs/organizing/categories/) once you have created them.
-   - To find items that don't have an area yet, select **No area** in the area filter.
    - To remove a filter, select **Clear filter**.
 
    ![Screenshots showing the filter panel that tables can have, allowing you to easily find what you are looking for](/images/organizing/filter-panel.png)
+
+### Finding items without an area, label, or other value
+
+Not every item has an area, a label, or a category. To find those items, select the **No …** option at the top of the filter's list, such as **No area**, **No device**, **No label**, or **No category**. You can select it together with other options. For example, select **No label** and **Lighting** to show the items that have the **Lighting** label or no label at all.
+
+Filters where every item always has a value, such as **Integrations**, don't have this option.
 
 ### Filtering by floor and area
 
