@@ -1,0 +1,108 @@
+---
+title: Haus-Bus
+description: Integrate Haus-Bus controllers and devices with Home Assistant.
+ha_category:
+  - Hub
+  - Cover
+ha_iot_class: Local Push
+ha_config_flow: true
+ha_codeowners:
+  - '@hausbus'
+ha_domain: hausbus
+ha_release: '2026.10'
+ha_platforms:
+  - cover
+ha_integration_type: hub
+ha_quality_scale: bronze
+---
+
+The **Haus-Bus** {% term integration %} lets you connect [Haus-Bus](https://www.haus-bus.de/) controllers and devices to Home Assistant. It communicates locally with the Haus-Bus controller and automatically discovers supported devices on the bus.
+
+## Supported devices
+
+- [Haus-Bus 8-channel Rollomodul](https://www.haus-bus.de/?showProduct=15)
+
+## Prerequisites
+
+Before setting up the integration:
+
+- A supported Haus-Bus controller must be installed and running on the local network.
+- The controller must be reachable from Home Assistant.
+- At least one supported Haus-Bus shutter channel must be configured on the controller.
+
+{% include integrations/config_flow.md %}
+
+During setup, Home Assistant searches your local network for a Haus-Bus controller. This can take a moment. If a controller is found, setup completes automatically. If no controller is found within the search period, you can retry the search.
+
+After setup, supported Haus-Bus devices are created automatically.
+
+## Supported functionality
+
+The **** integration provides the following entities.
+
+### Cover
+
+Each roller shutter channel on the  controller is exposed as a cover {% term entity %} with the shutter device class. The entity reports the current position as a percentage, whether the shutter is open or closed, and whether it is currently opening or closing.
+
+You can control each shutter with the following actions:
+
+- **Open**: Fully opens the shutter.
+- **Close**: Fully closes the shutter.
+- **Stop**: Stops the shutter while it is moving.
+- **Set position**: Moves the shutter to a specific position, from fully closed
+  to fully open.
+
+The {% term entity %}  name comes from the channel name configured on the  hardware.
+
+## Haus-Bus automation examples
+
+### Automation: Close the shutters at sunset
+
+This automation closes a shutter when the sun sets.
+
+```yaml
+automations:
+  - alias: "Close shutters at sunset"
+    triggers:
+      - trigger: sun
+        event: sunset
+    actions:
+      - action: cover.close_cover
+        target:
+          entity_id: cover.living_room_shutter
+```
+
+### Automation: Open the shutters at sunrise
+
+This automation opens a shutter when the sun rises.
+
+```yaml
+automations:
+  - alias: "Open shutters at sunrise"
+    triggers:
+      - trigger: sun
+        event: sunrise
+    actions:
+      - action: cover.open_cover
+        target:
+          entity_id: cover.living_room_shutter
+```
+
+## Troubleshooting
+
+If no devices are discovered:
+
+- Verify that the Haus-Bus controller is connected to the local network.
+- Verify that Home Assistant can reach the controller.
+- Verify that supported shutter channels are configured on the controller.
+- Reload the integration from its page under {% my integrations title="**Settings** > **Devices & services**" %}.
+
+For more information, visit the [Haus-Bus website](https://www.haus-bus.de/).
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+Removing the integration does not modify the configuration of the Haus-Bus controller or connected Haus-Bus devices.
