@@ -54,11 +54,28 @@ With the **Home Assistant** [set of AI tools](/integrations/llm/#sets-of-ai-tool
 
 For what you can ask, and the steps, refer to [Setting up and organizing with AI](/common-tasks/general/setting-up-with-ai/). To find a problem with AI, refer to [Troubleshooting with AI](/docs/configuration/troubleshooting/#troubleshooting-with-ai).
 
-### AI apps and other services
+### Home Assistant in AI apps
 
-AI apps outside Home Assistant can use Home Assistant too. The [Model Context Protocol](/integrations/mcp_server/) integration lets an AI app, such as Claude or ChatGPT, read and control your home with the same AI tools.
+You might already use an {% term "AI app" %}, such as Claude or ChatGPT, on your phone or computer. With the [Model Context Protocol](/integrations/mcp_server/) integration, that AI app can use Home Assistant. The AI app connects to Home Assistant, and gets the same {% term "AI tools" %} as a conversation agent in Assist.
 
-In the other direction, the [Model Context Protocol Client](/integrations/mcp/) integration gives your conversation agent AI tools from other services. For example, it can search the web.
+This is useful in the following situations:
+
+- You want to talk to your home in the AI app that you already use. For example, ask "Is the garage door closed?" in the app.
+- You want help to set up and organize Home Assistant in a longer conversation. For details, refer to [Setting up and organizing with AI](/common-tasks/general/setting-up-with-ai/).
+
+You need an AI app that supports <abbr title="Model Context Protocol">MCP</abbr> servers. Refer to the [Prerequisites](/integrations/mcp_server/#prerequisites) of the Model Context Protocol integration. To set up your AI app, refer to [Client configuration](/integrations/mcp_server/#client-configuration).
+
+### AI tools from other apps
+
+Your AI conversation agent in Assist can also work with other apps that you use. For example, it can search your notes in a note-taking app, or add a task to your project tracker. The other app doesn't need AI. It offers actions, such as "search notes", through an MCP server. The [Model Context Protocol Client](/integrations/mcp/) integration connects Home Assistant to their MCP server, and adds that MCP server's actions as a new set of AI tools. When you ask something, the AI model of your conversation agent decides which AI tools to use.
+
+This is useful in the following situations:
+
+- You want to ask Assist about information outside Home Assistant. For example, ask "What's on my packing list?" when the list is in your notes.
+- You want Assist to remember things between conversations. Some MCP servers store what you tell them.
+- You want Assist to search the web in ways that Home Assistant can't do on its own.
+
+You need an AI conversation agent that can use AI tools, and an app with an MCP server. You don't need an AI app. With a cloud provider, the results of the AI tools make each request larger, so they add to the cost. For a list of example MCP servers, and what else you need, refer to the [Prerequisites](/integrations/mcp/#prerequisites) of the Model Context Protocol Client integration. For the steps, refer to [Using the MCP tools in a conversation agent](/integrations/mcp/#using-the-mcp-tools-in-a-conversation-agent).
 
 ## Cloud services and local models
 
@@ -80,7 +97,7 @@ A local model runs on a computer in your own network, so your requests don't lea
 
 ## Privacy, cost, and accuracy
 
-Before you use AI, think about the following:
+A few considerations before you use AI:
 
 - Privacy: With a cloud service, your AI provider receives what you say, and the information about your home that the AI reads. An AI conversation agent only sees the entities that you [expose to voice assistants](/voice_control/voice_remote_expose_devices/). The **Home Assistant** set of AI tools is the exception: it reaches everything.
 - Cost: Most cloud providers charge for the amount of text that they process. The more entities you expose, the larger each request gets. An automation that uses AI every time it runs adds to the cost too. Check the pricing of your provider, and set usage limits if it offers them.
@@ -88,13 +105,15 @@ Before you use AI, think about the following:
 
 ## AI documentation by topic
 
+Information about using AI in Home Assistant is spread over several parts of the documentation, such as integrations, voice assistants, automations, and troubleshooting. This section lists these pages, grouped by topic.
+
 ### AI integrations and tools
 
-- [AI integrations](/integrations/category/ai_voice/ai_models/): All integrations that add AI models
-- [LLM integration](/integrations/llm/): The AI tools, the sets of AI tools, and the list of every tool
+- [AI integrations](/integrations/category/ai_voice/ai_models/): List of integrations that add AI models
+- [LLM integration](/integrations/llm/): List of the AI tools that let a conversation agent or an AI app read and control Home Assistant, and how to set them up
 - [AI Task](/integrations/ai_task/): AI for a single job in automations, scripts, and the **Suggest** button
 - [Model Context Protocol](/integrations/mcp_server/): Connecting AI apps to Home Assistant
-- [Model Context Protocol Client](/integrations/mcp/): Extra tools from other services for your conversation agent
+- [Model Context Protocol Client](/integrations/mcp/): Connecting other apps to your AI conversation agent
 
 ### Voice and Assist
 
@@ -131,8 +150,3 @@ Before you use AI, think about the following:
 - [Viewing and downloading logs](/common-tasks/general/logs/)
 - [Backups](/common-tasks/general/backups/)
 - [Action history](/docs/tools/dev-tools/#action-history-tab): Which actions were performed, and by what
-
-### Background
-
-- [Building the AI-powered local smart home](/blog/2025/09/11/ai-in-home-assistant/): The AI features of Home Assistant and how to pick a model
-- [AI agents for the smart home](/blog/2024/06/07/ai-agents-for-the-smart-home/): The vision for AI in the smart home
