@@ -40,6 +40,8 @@ Remote model:
   description: "The remote profile to use. **Generic Gree** matches existing setups. **YAP1F / YAP1FB** matches Cooper&Hunter units with a YAP1F or YAP1FB remote and enables extra options. Choose the profile during setup. To change it later, select **Reconfigure** for the device."
 Expose Generic remote options:
   description: "Show Turbo, Display light, Health ionizer, and X-Fan for the Generic profile. Sleep, Fresh air, and Timer are always shown."
+I-Feel temperature sensor:
+  description: "YAP1F only. A temperature sensor whose reading is sent to the air conditioner as the room temperature while **I-Feel** is on. It is optional."
 {% endconfiguration_basic %}
 
 ## Reconfiguring the integration
@@ -74,7 +76,7 @@ Switches send a full new command each time, like the climate entity. When the ai
 - **Display light**: YAP1F always. Generic only when **Expose Generic remote options** is on.
 - **Health ionizer**: YAP1F always. Generic only when **Expose Generic remote options** is on.
 - **X-Fan**: YAP1F always. Generic only when **Expose Generic remote options** is on.
-- **I-Feel**: YAP1F only.
+- **I-Feel**: YAP1F only. With an **I-Feel temperature sensor** selected, the unit regulates on that sensor instead of its own. See [I-Feel room temperature](#i-feel-room-temperature).
 - **Econo**: YAP1F only, Cool mode only. Switching to another mode turns it off.
 - **Absence**: YAP1F only, Heat mode only. Switching to another mode turns it off.
 
@@ -109,6 +111,10 @@ The climate entity offers the modes you selected during setup, in addition to **
 ### Temperature range
 
 Supported range: 16 °C to 30 °C in 1 °C steps.
+
+### I-Feel room temperature
+
+With I-Feel on, the YAP1F remote reports the temperature it measures, and the unit regulates on that report instead of the sensor in its indoor unit. If you select an **I-Feel temperature sensor**, the integration sends that sensor's reading in the same way. It sends a report after each command, whenever the reading changes by a whole degree, and every 10 minutes. It sends reports only while I-Feel is on and the unit is on. The unit uses the latest report it received, so a physical remote with I-Feel on also overrides it.
 
 ### Physical remote state tracking
 
