@@ -24,6 +24,8 @@ related:
     title: Number
   - docs: /integrations/sensor/
     title: Sensor
+  - docs: /integrations/switch/
+    title: Switch
 ---
 
 The **Intesis Modbus** {% term integration %} lets you control an air conditioner that is connected to an [Intesis](https://www.intesis.com) Modbus gateway. The gateway is wired to the air conditioner's own control bus and makes the unit available over Modbus RTU. Home Assistant talks to the gateway locally over a serial connection, without a cloud service.
@@ -114,6 +116,19 @@ The **Intesis Modbus** integration provides the following entities.
 - **Control lock**
   - **Description**: What the remote controller of the air conditioner is allowed to do. The value is *Remote unlocked*, *On/off locked*, *All locked*, or *Remote only*.
   - **Remarks**: This sensor is disabled by default.
+
+### Switches
+
+- **Remote controller lock**
+  - **Description**: Disables the remote controller of the air conditioner, so the unit can only be controlled from Home Assistant.
+- **Window contact**
+  - **Description**: Tells the gateway that a window is open. Turn it on from an automation that follows a window sensor. After the open window timeout, the gateway turns the air conditioner off.
+- **Gateway disabled**
+  - **Description**: Disables the gateway, so it stops passing commands to the air conditioner.
+  - **Remarks**: This switch is disabled by default.
+- **XY bus master**
+  - **Description**: Makes the gateway the master on the control bus of the air conditioner. Exactly one device on that bus has to be the master.
+  - **Remarks**: This switch is disabled by default. Only change it if you know how the remote controller of the air conditioner is set.
 
 ## Intesis Modbus automation examples
 
