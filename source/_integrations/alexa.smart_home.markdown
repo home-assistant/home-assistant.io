@@ -309,6 +309,18 @@ alexa:
         description: "The light in the kitchen"
       switch.stairs:
         display_categories: LIGHT
+      climate.thermostat:
+        expose_power_controller: false
+```
+
+When using Home Assistant Cloud, configure this option under `cloud.alexa.entity_config`:
+
+```yaml
+cloud:
+  alexa:
+    entity_config:
+      climate.thermostat:
+        expose_power_controller: false
 ```
 
 {% configuration %}
@@ -394,6 +406,11 @@ alexa:
                     Display category and iconography each entity is shown in the Alexa app. Separate each category with a comma. First category is primary. e.g., `MUSIC_SYSTEM,STREAMING_DEVICE,SPEAKER`. See [Alexa Display Categories](#alexa-display-categories) for a list of available categories.
                   required: false
                   type: string
+                expose_power_controller:
+                  description: >-
+                    For climate entities, set to `false` to hide the power control in Alexa while retaining thermostat mode and temperature controls. Defaults to `true`. For Home Assistant Cloud, set this option under `cloud.alexa.entity_config`.
+                  required: false
+                  type: boolean
 {% endconfiguration %}
 
 <!-- omit in toc -->
