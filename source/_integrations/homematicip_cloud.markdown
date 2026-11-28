@@ -377,6 +377,19 @@ Support for a device lands in the library first and reaches Home Assistant with 
 
 Allow Home Assistant to control the device under **Access Control** in the Homematic IP app. For the `HmIP-DLD`, also make sure that no PIN is set.
 
+### Create a debug log
+
+A debug log helps when you report a problem. If the integration is already set up, [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) on its page.
+
+If the problem happens during setup, there is no integration page yet. Before you start the setup, use the [Actions tab](/docs/tools/dev-tools/#actions-tab) in **Settings** > **Tools** to call the [`logger.set_level`](/actions/logger.set_level/) action, and download the log from {% my logs title="**Settings** > **System** > **Logs**" %} afterwards. The log level returns to normal after the next restart of Home Assistant.
+
+```yaml
+action: logger.set_level
+data:
+  homeassistant.components.homematicip_cloud: debug
+  homematicip: debug
+```
+
 ### All entities are unavailable
 
 Home Assistant has lost the connection to the Homematic IP cloud. Check whether the Homematic IP app still reaches your devices. If the setup shows that the cloud is throttling your IP address, wait until the time in the message has passed, Home Assistant then reconnects by itself.
