@@ -61,4 +61,6 @@ Temperature values can be adjusted in steps of 0.1 °C. The temperature offset r
 
 The sensor platform reports the valve opening as a percentage when this value is available from the base.
 
+## Binary sensors
+
 A battery binary sensor is created for an I/O device associated with a heat area. It turns on when the battery is weak or empty.
