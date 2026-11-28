@@ -14,10 +14,10 @@ The integration can discover most Bluetooth-enabled Oral-B toothbrushes. Brushes
 
 ## Supported devices
 
-- [IO Series 4](https://oralb.com/en-us/products/electric-toothbrushes/io-series-4-rechargeable-electric-toothbrush-blue/)
-- [IO Series 6](https://oralb.com/en-us/products/electric-toothbrushes/io-series-6-electric-toothbrush-gray-opal/)
+- [IO Series 4](https://oralb.com/en-us/products/electric-toothbrushes/oral-b-io-series-4-clean-gum-care-rechargeable-electric-toothbrush-matte-white/)
+- [IO Series 6](https://oralb.com/en-us/products/electric-toothbrushes/oral-b-io-series-6-rechargeable-electric-toothbrush-connected-coach-grey-opal/)
 - [IO Series 7](https://oralb.com/en-us/products/electric-toothbrushes/io-series-7-electric-toothbrush-sapphire-blue/)
-- [IO Series 8](https://oralb.com/en-us/products/electric-toothbrushes/io-series-8-electric-toothbrush-black-onyx/)
+- [IO Series 8](https://oralb.com/en-us/products/shop-all/io-series-8-rechargeable-electric-toothbrush-black-onyx)
 - [IO Series 9](https://oralb.com/en-us/products/electric-toothbrushes/io-series-9-rechargeable-electric-toothbrush-in-rose-quartz/)
 - [Smart Series 4000](https://www.service.oralb.com/us/en/products/3754/)
 - [Smart Series 6000](https://www.service.oralb.com/us/en/products/3754/)
