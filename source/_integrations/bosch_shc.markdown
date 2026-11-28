@@ -158,6 +158,8 @@ Room Thermostat II devices provide a humidity sensor if the device supports it a
 
 Battery-powered devices also provide a diagnostic **Battery level** sensor (**OK**, **Low**, or **Critically low**; unknown if the device reports nothing). It is disabled by default because the **Battery** binary sensor already reports when the battery is low; [enable it](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) if you need the finer levels.
 
+A Smart Plug or Smart Plug Compact in Mini-PV mode also provides an **Energy yield** sensor and a **Power yield** sensor (the production as a positive value, 0 W while the plug is consuming).
+
 In addition, a single **Open doors and windows** sensor is added for the whole home, not tied to a specific device. Its state is the total number of currently open doors, windows, and other openings, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` state attributes.
 
 ### Switches
