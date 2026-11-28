@@ -1,6 +1,6 @@
 ---
 title: BUSY Bar
-description: Monitor the battery and Wi-Fi connection of your BUSY Bar in Home Assistant.
+description: Monitor the battery and Wi-Fi connection of your BUSY Bar and press its keys from Home Assistant.
 ha_categories:
   - sensors
 ha_release: 2026.12
@@ -12,11 +12,12 @@ ha_domain: busybar
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - button
   - sensor
 ha_integration_type: device
 ---
 
-The **BUSY Bar** {% term integration %} monitors the battery and Wi-Fi connection of your [BUSY Bar](https://busy.app). It communicates directly with the bar over your local network. No cloud account is required.
+The **BUSY Bar** {% term integration %} monitors the battery and Wi-Fi connection of your [BUSY Bar](https://busy.app) and lets you press its keys from Home Assistant. It communicates directly with the bar over your local network. No cloud account is required.
 
 ## Supported devices
 
@@ -39,6 +40,24 @@ API key:
 
 ## Supported functionality
 
+### Buttons
+
+Each button sends a single key press to your bar, the same as pressing that key on the bar.
+
+- **BUSY**
+- **Start/Pause**
+- **Off**
+
+The following buttons are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). You can enable them in the entity settings if needed.
+
+- **Custom**
+- **Up**
+- **Down**
+- **OK**
+- **Back**
+- **Apps**
+- **Settings**
+
 ### Sensors
 
 - **Battery**: The remaining battery charge, as a percentage.
@@ -50,7 +69,7 @@ The integration {% term polling polls %} your bar every 30 seconds for its statu
 
 ## Known limitations
 
-The integration monitors your bar. It does not control sessions, display notifications, or provide button events.
+The integration does not display notifications or detect when someone presses a key on the bar itself.
 
 ## Troubleshooting
 
