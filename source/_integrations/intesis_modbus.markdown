@@ -18,6 +18,8 @@ related:
     title: Intesis
   - docs: /integrations/serial/#setting-up-a-serial-connection-in-home-assistant
     title: Setting up a serial connection in Home Assistant
+  - docs: /integrations/button/
+    title: Button
   - docs: /integrations/climate/
     title: Climate
   - docs: /integrations/number/
@@ -71,6 +73,16 @@ Unit has a swing vane:
 ## Supported functionality
 
 The **Intesis Modbus** integration provides the following entities.
+
+### Buttons
+
+- **Clear external temperature reference**
+  - **Description**: Withdraws the external temperature reference, so the air conditioner regulates on its own sensor again.
+- **Reset error**
+  - **Description**: Acknowledges the error the air conditioner reports.
+- **Restart**
+  - **Description**: Restarts the gateway. It takes about two minutes to start up, during which the air conditioner can't be controlled from Home Assistant.
+  - **Remarks**: This button is disabled by default.
 
 ### Climate
 
