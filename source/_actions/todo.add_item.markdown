@@ -39,7 +39,7 @@ Description:
   description: A longer description of the item than the name provides. Only available on to-do lists that support descriptions.
   required: false
 Parent item name or UID:
-  description: The name or UID of the item to add this item to as a subtask. Only available on to-do lists that support subtasks.
+  description: The name or UID of the item to add this item to as a subtask. If you have items with the same name, use the parent's UID instead. You can find the UID with the [Get to-do list items](/actions/todo.get_items/) action. Only available on to-do lists that support subtasks.
   required: false
 {% endoptions_ui %}
 
@@ -80,7 +80,7 @@ description:
   required: false
   type: string
 parent:
-  description: The name or UID of the item to add this item to as a subtask. Only on to-do lists that support subtasks.
+  description: The name or UID of the item to add this item to as a subtask. If you have items with the same name, use the parent's UID instead. You can find the UID with the `todo.get_items` action. Only on to-do lists that support subtasks.
   required: false
   type: string
 {% endoptions_yaml %}
@@ -130,10 +130,10 @@ automation: |
 
 ### Action: add a subtask to an existing item
 
-Add milk to the shopping list as a subtask of the item named Dairy.
+Add milk as a subtask of the item named Dairy on a grocery list that supports subtasks.
 
 - **Action**: Add to-do list item
-  - **Target**: Shopping list
+  - **Target**: Groceries
   - **Item name**: Milk
   - **Parent item name or UID**: Dairy
 
@@ -143,7 +143,7 @@ Add milk to the shopping list as a subtask of the item named Dairy.
 action: |
   action: todo.add_item
   target:
-    entity_id: todo.shopping_list
+    entity_id: todo.groceries
   data:
     item: "Milk"
     parent: "Dairy"

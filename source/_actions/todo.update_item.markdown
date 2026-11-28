@@ -45,7 +45,7 @@ Description:
   description: A longer description of the item than the name provides. Only available on to-do lists that support descriptions.
   required: false
 Parent item name or UID:
-  description: The name or UID of the item to make this item a subtask of. Only available on to-do lists that support subtasks.
+  description: The name or UID of the item to make this item a subtask of. If you have items with the same name, use the parent's UID instead. Only available on to-do lists that support subtasks.
   required: false
 {% endoptions_ui %}
 
@@ -93,7 +93,7 @@ description:
   required: false
   type: string
 parent:
-  description: The name or UID of the item to make this item a subtask of. An empty value turns a subtask back into a top-level item. Only on to-do lists that support subtasks.
+  description: The name or UID of the item to make this item a subtask of. If you have items with the same name, use the parent's UID instead. An empty value turns a subtask back into a top-level item. Only on to-do lists that support subtasks.
   required: false
   type: string
 {% endoptions_yaml %}
@@ -142,10 +142,10 @@ automation: |
 
 ### Action: make an item a subtask of another item
 
-Move the item named Milk under the item named Dairy on the shopping list.
+Move the item named Milk under the item named Dairy on a grocery list that supports subtasks.
 
 - **Action**: Update to-do list item
-  - **Target**: Shopping list
+  - **Target**: Groceries
   - **Item name or UID**: Milk
   - **Parent item name or UID**: Dairy
 
@@ -155,7 +155,7 @@ Move the item named Milk under the item named Dairy on the shopping list.
 action: |
   action: todo.update_item
   target:
-    entity_id: todo.shopping_list
+    entity_id: todo.groceries
   data:
     item: "Milk"
     parent: "Dairy"

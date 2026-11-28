@@ -34,9 +34,9 @@ In addition, the entity can have the following states. Each item shows the inter
 
 ## Subtasks
 
-Some to-do lists support subtasks. A subtask is an item that belongs to another item on the same list, its parent. Subtasks are one level deep: a subtask can't have subtasks of its own.
+A to-do list can support subtasks. A subtask is an item that belongs to another item on the same list, its parent. Subtasks are one level deep: a subtask can't have subtasks of its own.
 
-On these lists, the [Add to-do list item](/actions/todo.add_item/) and [Update to-do list item](/actions/todo.update_item/) actions take the parent of an item, and the [Get to-do list items](/actions/todo.get_items/) action returns the UID of the parent as `parent_uid`. Whether a list supports subtasks, and what happens to the subtasks when you complete or remove their parent, depends on the integration that provides it.
+On a list that supports subtasks, the [Add to-do list item](/actions/todo.add_item/) and [Update to-do list item](/actions/todo.update_item/) actions take the parent of an item, and the [Get to-do list items](/actions/todo.get_items/) action returns the UID of the parent as `parent_uid`. Whether a list supports subtasks, and what happens to the subtasks when you complete or remove their parent, depends on the integration that provides it.
 
 ## Blueprint to add an item to a dedicated list
 
