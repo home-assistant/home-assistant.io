@@ -61,6 +61,7 @@ The following entities are not part of a target because of how they are set up:
 - [Hidden entities](/docs/configuration/customizing-entities/#hidden-entities). For example, if an action turns on all lights in the living room, a hidden light in that room stays off. To hide or show an entity, refer to [Hiding an entity](/docs/configuration/customizing-entities/#hiding-an-entity).
 - Configuration and diagnostic entities, such as a firmware update or the signal strength of a device. If you put a label on the entity itself, and target that label, the entity is part of the target.
   - Battery triggers and conditions, such as [Battery became low](/triggers/battery.became_low/) and [Battery is low](/conditions/battery.is_low/), are an exception. They include configuration and diagnostic entities, because many devices show their battery as a diagnostic entity.
+  - Update triggers and conditions, such as [Update became available](/triggers/update.became_available/) and [Update is available](/conditions/update.is_available/), are an exception. They include configuration and diagnostic entities, because many devices show their update as a diagnostic entity.
 
 ## Targets stay up to date
 
