@@ -197,6 +197,17 @@
 </li>
 
 <li>
+  {% icon "mdi:star-four-points" %} {% active_link /docs/ai/ AI in Home Assistant %}
+  {% if doc == 'ai' or include.docs_index %}
+  <ul>
+    <li>{% active_link /docs/ai/ AI in Home Assistant %}</li>
+    <li>{% active_link /common-tasks/general/configuring-with-ai/ Configuring Home Assistant with AI %}</li>
+    <li>{% active_link /docs/configuration/troubleshooting/#troubleshooting-with-ai Troubleshooting with AI %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
   {% icon "mdi:category" %} {% active_link /docs/organizing/ Organization %}
   {% if doc == 'organizing' or include.docs_index %}
   <ul>
