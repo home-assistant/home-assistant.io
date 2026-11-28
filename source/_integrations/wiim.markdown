@@ -59,6 +59,14 @@ The media player entity gives you complete control over your WiiM device from Ho
 
 - **Media Browsing**: Browse presets, playlists, and the device’s current playback queue, enabling dynamic selection of media from the Home Assistant interface.
 
+### Sound modes
+
+On supported devices, use the media player's **Sound mode** control to select a graphic equalizer (GEQ) preset. The available presets are read from your device.
+
+Selecting a preset changes the equalizer for the device's current input source only. Home Assistant updates the selected sound mode when you switch inputs or change the equalizer preset in the WiiM app. You can also select a preset in automations using the `media_player.select_sound_mode` action.
+
+When the graphic equalizer is turned off, no sound mode is selected.
+
 ### Audio output
 
 Devices with HTTP API support provide an **Audio Output** select entity. Use it to switch between the outputs reported by your device, such as Line Out or Optical Out. Available options depend on the device and its connected audio hardware.
