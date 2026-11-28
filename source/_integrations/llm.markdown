@@ -36,7 +36,7 @@ To avoid this:
 - For everyday voice control, use a separate {% term assistant %} whose conversation agent only uses **Device control**. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
 {% endimportant %}
 
-## What the Home Assistant AI tools can reach
+## What the Home Assistant AI tools can do
 
 The Home Assistant {% term "AI tools" %} can read the state of every entity, the status of your {% term integrations %}, your logs, and the history of your sensors. They can also read the configuration of your automations, scripts, scenes, and blueprints, and the traces of your automations and scripts. For the full list, refer to [List of Home Assistant AI tools](#list-of-home-assistant-ai-tools).
 
@@ -127,25 +127,25 @@ The **Home Assistant** set of {% term "AI tools" %} contains the AI tools in the
 
 #### General AI tools
 
-- **Render template** (`homeassistant__render_template`): Renders a [template](/docs/templating/) and returns the result. Templates can read the state and attributes of all {% term entities %}. Only reads.
-  - To do this yourself: Use the **Template** tab, under {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
 - **Search Home Assistant** (`search__search`): Finds entities, devices, areas, floors, labels, automations, scripts, and scenes by name. It can also find disabled entities and devices. Only reads.
   - To do this yourself: Use the [quick search](/docs/tools/quick-search/).
+- **Render template** (`homeassistant__render_template`): Renders a [template](/docs/templating/) and returns the result. Templates can read the state and attributes of all {% term entities %}. Only reads.
+  - To do this yourself: Use the **Template** tab, under {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
+- **Get date and time** (`llm__GetDateTime`): Returns the current date and time. Both built-in sets of AI tools, **Device control** and **Home Assistant**, have this tool. Only reads.
 - **Search actions** (`homeassistant__search_actions`): Finds the {% term actions %} that Home Assistant can perform, with their targets and fields. Only reads.
   - To do this yourself: Use the **Actions** tab, under {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
 - **Call action** (`homeassistant__call_action`): Performs an action, and returns its response if it has one. Changes things.
   - To do this yourself: Use the **Actions** tab, under {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
   - To see which actions the conversation agent performed: Go to **Settings** > **Tools** > **Action history**.
-- **Get date and time** (`llm__GetDateTime`): Returns the current date and time. Both built-in sets of AI tools, **Device control** and **Home Assistant**, have this tool. Only reads.
 
 #### Integration AI tools
 
+- **Search available integrations** (`config__search_integrations`): Searches the integrations and helpers that you can set up from the UI, including ones that you haven't added yet. It can filter by category. For example, it can list only helpers. Only reads.
+  - To do this yourself: Select **Add integration**, under {% my integrations title="**Settings** > **Devices & services**" %}.
 - **Get config entries** (`config__get_config_entries`): Lists the {% term integrations %} and helpers that are set up, with their status, such as loaded or failed to set up, and the reason for an error. It can filter by integration and by status. Some integrations add more than one service. Each service has its own button on the integration page. For example, [OpenAI](/integrations/openai_conversation/) has **Add conversation agent**. For these integrations, it also lists the services that you added. Only reads.
   - To do this yourself: Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 - **Reload config entry** (`config__reload_config_entry`): Reloads an integration that is set up. For example, it helps after a temporary connection error. Changes things.
   - To do this yourself: On the integration page, under {% my integrations title="**Settings** > **Devices & services**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Reload** on the integration entry.
-- **Search available integrations** (`config__search_integrations`): Searches the integrations and helpers that you can set up from the UI, including ones that you haven't added yet. It can filter by category. For example, it can list only helpers. Only reads.
-  - To do this yourself: Select **Add integration**, under {% my integrations title="**Settings** > **Devices & services**" %}.
 - **Get config flows in progress** (`config__get_flows_in_progress`): Lists the flows that Home Assistant started by itself and that are waiting for you. For example, it lists devices that Home Assistant discovered, and integrations that ask you to sign in again. Only reads.
   - To do this yourself: Go to {% my integrations title="**Settings** > **Devices & services**" %}. Discovered devices and integrations that need your attention are shown at the top.
 - **Start configuration flow** (`config__start_flow`): Starts to add an integration or a helper. It can also start to change the options of an integration that is set up, or its connection settings. For example, connection settings are a host name or a password. It can also add a service to an integration. For example, it can add a conversation agent to OpenAI. It can also change the settings of a service that you added. Changes things.
@@ -229,6 +229,8 @@ These AI tools only read data. They can't change, run, or turn on or off your au
 
 - **Get system info** (`system_health__get_system_info`): Returns the installation type, the CPU architecture, the time zone, and the versions of Home Assistant Core, the frontend, Python, the operating system, and the Supervisor. For example, you can use it to fill in a bug report. Only reads.
   - To do this yourself: Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **System information**.
+- **Get installed apps** (`hassio__get_apps`): Lists your installed apps, with their version, whether an update is available, and whether they are running. It's only available on {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} installations. Only reads.
+  - To do this yourself: Go to {% my supervisor title="**Settings** > **Apps**" %}.
 - **Get core config** (`config__get_core_config`): Returns the information about your home. This includes the name, the location and elevation, the radius of the home zone, the time zone, the country, the currency, the language, and the unit system. It also returns the Home Assistant URLs. Only reads.
   - To do this yourself: Go to {% my general title="**Settings** > **System** > **Home information**" %}. For the URLs, go to {% my network title="**Settings** > **System** > **Network**" %}.
 - **Update core config** (`config__update_core_config`): Changes the information about your home and the Home Assistant URLs. It only changes the settings it's asked to change. If it changes the unit system, the units of your sensors change too. Units that you set yourself stay the same. Changes things.
@@ -239,11 +241,11 @@ These AI tools only read data. They can't change, run, or turn on or off your au
   - Some fixes have a step that needs your browser. For example, you sign in to an account. When a fix reaches such a step, the AI tool cancels the fix. Fix these issues yourself under {% my repairs title="**Settings** > **System** > **Repairs**" %}.
 - **Configure repair fix flow step** (`repairs__configure_fix_flow`): Goes through the steps of a fix that **Start repair fix flow** started. It fills in the fields of each step and selects options in menus. It can also cancel the fix. Changes things.
   - To do this yourself: Fill in the dialog that opens when you select the issue.
-- **Get installed apps** (`hassio__get_apps`): Lists your installed apps, with their version, whether an update is available, and whether they are running. It's only available on {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} installations. Only reads.
-  - To do this yourself: Go to {% my supervisor title="**Settings** > **Apps**" %}.
 
 #### History and log AI tools
 
+- **Search statistics** (`history__search_statistics`): Finds statistics by name, by the alias of the entity, or by ID. This includes statistics without an entity. It can filter by the type of unit, for example, energy or power. It can also filter by the type of statistic. For example, it can find only meters that count up, such as an energy meter, or only measurements, such as a temperature. For each statistic, it returns its ID, name, and unit. The conversation agent uses the ID with **Get history** or **Update energy preferences**. Only reads.
+  - To do this yourself: Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
 - **Get history** (`history__get_history`): Returns statistics, not individual state changes. For example, it can return the mean, minimum, and maximum temperature per 5 minutes or per hour. It works for entities with statistics, such as sensors with a state class. It also works for statistics that an integration adds without an entity. For example, the [Opower](/integrations/opower/) integration adds the energy use from your utility this way. Only reads.
   - To do this yourself: Use the {% my history title="**History**" %} panel.
 - **Get system log entries** (`system_log__get_entries`): Returns recent errors and warnings from the system log. It doesn't include info or debug messages. It can filter by level and by integration. Only reads.
@@ -252,10 +254,6 @@ These AI tools only read data. They can't change, run, or turn on or off your au
   - On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} installations, the ID is `hassio__get_logs`. It also reads the logs of the Supervisor, the operating system, the DNS, audio, and multicast plugins, and your apps.
   - On {% term "Home Assistant Container" %} installations, and on other installations without the Supervisor, the ID is `system_log__get_logs`. It only reads the Home Assistant log, and it needs the log file.
   - To do this yourself: Under {% my logs title="**Settings** > **System** > **Logs**" %}, select **Menu** {% icon "mdi:dots-vertical" %} > **Show raw logs**.
-
-
-- **Search statistics** (`history__search_statistics`): Finds statistics by name, by the alias of the entity, or by ID. This includes statistics without an entity. It can filter by the type of unit, for example, energy or power. It can also filter by the type of statistic. For example, it can find only meters that count up, such as an energy meter, or only measurements, such as a temperature. For each statistic, it returns its ID, name, and unit. The conversation agent uses the ID with **Get history** or **Update energy preferences**. Only reads.
-  - To do this yourself: Go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
 
 #### Energy AI tools
 

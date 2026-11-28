@@ -398,10 +398,7 @@ entities:
 
 Above the divider are regular entity rows, below one of type `buttons`. Note that regular entity rows automatically show the entity name, whereas for buttons you have to explicitly specify a label / name.
 
-<p class='img'>
-<img src='/images/dashboards/entity_row_buttons.jpg' alt='Screenshot of buttons row'>
-Screenshot of buttons row.
-</p>
+{% include dashboard/demo.html demo="entities_buttons_row" caption="Regular entity rows, and a buttons row below the divider." %}
 
 ```yaml
 type: entities

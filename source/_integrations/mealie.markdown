@@ -15,7 +15,7 @@ ha_domain: mealie
 
 ## Supported versions
 
-Mealie instances version 3.2.0 and later are supported.
+Mealie instances version 3.7.0 and later are supported.
 
 ## Prerequisites
 

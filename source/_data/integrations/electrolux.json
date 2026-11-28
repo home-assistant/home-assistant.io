@@ -1,0 +1,28 @@
+{
+  "domain": "electrolux",
+  "name": "Electrolux",
+  "integration_type": "hub",
+  "codeowners": [
+    "@electrolux-oss"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "appliances_cleaning",
+    "climate"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "climate",
+    "fan",
+    "humidifier",
+    "light",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "vacuum"
+  ]
+}
