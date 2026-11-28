@@ -334,6 +334,61 @@ To keep the address from changing, reserve an IP address for the Smart Hub in yo
 
 {% enddetails %}
 
+{% details "The Smart Hub hostname doesn't resolve" %}
+
+### Symptom: "The hostname didn't resolve to an IPv4 address"
+
+When you enter a hostname in the **Host** field, the form shows the message "The hostname didn't resolve to an IPv4 address". Or the integration entry shows the error "Unable to resolve iZone Smart Hub host name", followed by the hostname.
+
+#### Description
+
+Home Assistant can't find an IPv4 address for the hostname. The Smart Hub only supports IPv4.
+
+#### Resolution
+
+1. Check that the hostname is spelled correctly.
+2. Make sure your router or DNS server has an IPv4 address for the hostname.
+3. Enter the Smart Hub IP address instead of the hostname.
+
+{% enddetails %}
+
+{% details "Another device answers at the Smart Hub address" %}
+
+### Symptom: "A device answered at this address, but not with iZone controller data"
+
+When you enter the Smart Hub address in the **Host** field, the form shows the message "A device answered at this address, but not with iZone controller data". Or the integration entry shows an error that the device at the address didn't reply with iZone controller data.
+
+#### Description
+
+A device answers on TCP port `80` at the address, but its reply isn't from an iZone controller. Usually the address belongs to another device, for example after your router gave the Smart Hub address to something else.
+
+#### Resolution
+
+1. In your router's list of connected devices, check which device has the address.
+2. Enter the address of the Smart Hub.
+3. To keep the address from changing, reserve an IP address for the Smart Hub in your router.
+
+If the address belongs to the Smart Hub, download the [diagnostics](#diagnostics) and report an issue.
+
+{% enddetails %}
+
+{% details "A different iZone controller answers at the address" %}
+
+### Symptom: "A different iZone controller answered at the address"
+
+The integration entry shows an error that a different iZone controller answered at the address instead of this controller. Or setting up a discovered controller ends with the message "A different iZone controller answered at the address this controller was discovered at".
+
+#### Description
+
+You have more than one Smart Hub, and they swapped IP addresses, for example after your router restarted. Home Assistant keeps retrying, and finds the controller at its new address when discovery can reach it.
+
+#### Resolution
+
+1. Make sure discovery works, as described in [Network settings](#network-settings).
+2. To keep the addresses from changing, reserve an IP address for each Smart Hub in your router.
+
+{% enddetails %}
+
 {% details "The Smart Hub isn't paired" %}
 
 ### Symptom: "This iZone Smart Hub is not paired with an air conditioner"
