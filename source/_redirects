@@ -37,6 +37,10 @@ layout: null
 /amber https://support.nabucasa.com/hc/en-us/categories/24734575925149-Home-Assistant-Yellow 301!
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
+# Blog pages past the last one, such as /blog/posts/56/ from when the blog
+# had 10 posts per page. Pages that exist are served as usual (no `!`).
+/blog/posts/* /blog/ 302
+
 # Design & User research
 /join-chat-design https://discord.com/channels/330944238910963714/1475553148847526123
 

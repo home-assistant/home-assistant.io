@@ -93,7 +93,7 @@ top bar and in the sidebar. {%- endcomment -%}
           <div class="grid__item four-fifths desk-wide-three-quarters lap-one-whole palm-one-whole">
           {% elsif page.no_toc == true %}
           <div class="grid__item one-whole desk-wide-three-quarters">
-          {% elsif page.is_homepage or page.layout == "landingpage" %}
+          {% elsif page.is_homepage or page.layout == "landingpage" or page.layout == "blog_listing" %}
           <div class="grid__item one-whole">
           {% elsif doc=="categories" %}
           <div class="grid__item two-thirds desk-wide-three-quarters lap-one-whole palm-one-whole">
@@ -101,7 +101,7 @@ top bar and in the sidebar. {%- endcomment -%}
           <div class="grid__item two-thirds desk-wide-seven-twelfths lap-one-whole palm-one-whole">
           {% endif %}
 
-            {% if page.is_homepage or page.layout == "landingpage"  %}
+            {% if page.is_homepage or page.layout == "landingpage" or page.layout == "blog_listing" %}
               {{ content }}
             {% else %}
               {{ content | output_modder }}
@@ -113,7 +113,7 @@ top bar and in the sidebar. {%- endcomment -%}
           {% if page.sidebar == false and is_wwha_post == false %}
             {% assign show_sidebar = false %}
           {% endif %}
-          {% if page.layout == "landingpage" %}
+          {% if page.layout == "landingpage" or page.layout == "blog_listing" %}
             {% assign show_sidebar = false %}
           {% endif %}
           {% if show_sidebar %}

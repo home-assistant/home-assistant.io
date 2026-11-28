@@ -95,22 +95,6 @@ module Jekyll
 
   end
 
-  # The CategoryIndex class creates a single category page for the specified category.
-  class CategoryIndex < CategoryPage
-
-    # Initializes a new CategoryIndex.
-    #
-    #  +site+         is the Jekyll Site instance.
-    #  +base+         is the String path to the <source>.
-    #  +category_dir+ is the String path between <source> and the category folder.
-    #  +category+     is the category currently being processed.
-    def initialize(site, base, category_dir, category)
-      template_path = File.join(base, '_layouts', 'category_index.html')
-      super(template_path, 'index.html', site, base, category_dir, category)
-    end
-
-  end
-
   # The CategoryFeed class creates an Atom feed for the specified category.
   class CategoryFeed < CategoryPage
 
@@ -133,20 +117,12 @@ module Jekyll
   # The Site class is a built-in Jekyll class with access to global site config information.
   class Site
 
-    # Creates an instance of CategoryIndex for each category page, renders it, and
-    # writes the output to a file.
+    # Creates the Atom feed for a category. The category pages themselves
+    # are built by blog_listings.rb, with the rest of the blog's listings.
     #
     #  +category+ is the category currently being processed.
     def write_category_index(category)
       target_dir = GenerateCategories.category_dir(self.config['category_dir'], category)
-      index      = CategoryIndex.new(self, self.source, target_dir, category)
-      if index.render?
-        index.render(self.layouts, site_payload)
-        index.write(self.dest)
-        # Record the fact that this pages has been added, otherwise Site::cleanup will remove it.
-        self.pages << index
-      end
-
       # Create an Atom-feed for each index.
       feed = CategoryFeed.new(self, self.source, target_dir, category)
       if feed.render?
@@ -159,21 +135,15 @@ module Jekyll
 
     # Loops through the list of category pages and processes each one.
     def write_category_indexes
-      if self.layouts.key? 'category_index'
-        self.categories.keys.each do |category|
-          self.write_category_index(category)
-        end
-
-      # Throw an exception if the layout couldn't be found.
-      else
-        throw "No 'category_index' layout found."
+      self.categories.keys.each do |category|
+        self.write_category_index(category)
       end
     end
 
   end
 
 
-  # Jekyll hook - the generate method is called by jekyll, and generates all of the category pages.
+  # Jekyll hook - the generate method is called by jekyll, and generates the category feeds.
   class GenerateCategories < Generator
     safe true
     priority :low

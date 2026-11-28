@@ -1,0 +1,93 @@
+---
+layout: default
+---
+{%- comment -%}
+  The blog's listing pages: the blog index and the pages for each
+  category, author and year, and each category's years. Built by
+  plugins/blog_listings.rb, which
+  gives the posts and filters in page.listing.
+{%- endcomment -%}
+{%- assign listing = page.listing -%}
+<link rel="stylesheet" href="/stylesheets/homeassistant/pages/blog/index.css" />
+{%- if listing.previous_url %}
+<link rel="prev" href="{{ listing.previous_url }}" />
+{%- endif %}
+{%- if listing.next_url %}
+<link rel="next" href="{{ listing.next_url }}" />
+{%- endif %}
+
+<div class="blog-listing">
+  <header class="blog-listing-intro">
+    {%- unless listing.is_index %}
+    <div class="breadcrumbs">
+      <a href="/">Home</a>
+      {%- for crumb in listing.breadcrumbs %} ▸ <a href="{{ crumb.url }}">{{ crumb.name }}</a>{% endfor %}
+    </div>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+        {%- for crumb in listing.breadcrumbs %}
+        { "@type": "ListItem", "position": {{ forloop.index | plus: 1 }}, "name": {{ crumb.name | jsonify }}, "item": "{{ site.url }}{{ crumb.url }}" },
+        {%- endfor %}
+        { "@type": "ListItem", "position": {{ listing.breadcrumbs.size | plus: 2 }}, "name": {{ page.title | jsonify }}, "item": "{{ site.url }}{{ page.url }}" }
+      ]
+    }
+    </script>
+    {%- endunless %}
+    <h1>{{ listing.heading }}</h1>
+    {%- comment -%}
+      The blog's own intro, and a category's when source/_data/blog_categories.yml
+      gives one (see plugins/blog_listings.rb).
+    {%- endcomment -%}
+    {%- if listing.intro %}
+    <p>{{ listing.intro }}</p>
+    {%- endif %}
+  </header>
+
+  {% include blog/listing/filter_bar.html %}
+
+  {%- comment -%}
+    With a featured post, the page steps down: one wide card, two
+    cards with images, then rows of three without images. Other pages
+    are rows of three only.
+  {%- endcomment %}
+  {%- assign compact_offset = 0 %}
+  {%- if listing.featured %}
+  {%- assign compact_offset = 2 %}
+  <div class="blog-listing-featured">
+    {% include blog/listing/card.html entry=listing.featured size="featured" %}
+  </div>
+  <ul class="blog-listing-secondary">
+    {%- for entry in listing.entries limit: 2 %}
+    <li>{% include blog/listing/card.html entry=entry size="secondary" %}</li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+
+  <ul class="blog-listing-grid">
+    {%- for entry in listing.entries offset: compact_offset %}
+    <li>{% include blog/listing/card.html entry=entry size="compact" %}</li>
+    {%- endfor %}
+  </ul>
+
+  {%- if listing.total_pages > 1 %}
+  <nav class="blog-pagination" aria-label="Blog pages">
+    {%- if listing.previous_url %}
+    <a class="blog-pagination-arrow previous" href="{{ listing.previous_url }}" aria-label="Newer posts">{% icon "mdi:arrow-left" %}</a>
+    {%- else %}
+    <span class="blog-pagination-arrow disabled" aria-hidden="true">{% icon "mdi:arrow-left" %}</span>
+    {%- endif %}
+    {%- comment -%} A long list of page numbers, and a short one for phones. {%- endcomment %}
+    {%- include blog/listing/page_numbers.html items=listing.pages class="wide" %}
+    {%- include blog/listing/page_numbers.html items=listing.compact_pages class="compact" %}
+    {%- if listing.next_url %}
+    <a class="blog-pagination-arrow" href="{{ listing.next_url }}" aria-label="Older posts">{% icon "mdi:arrow-right" %}</a>
+    {%- else %}
+    <span class="blog-pagination-arrow disabled" aria-hidden="true">{% icon "mdi:arrow-right" %}</span>
+    {%- endif %}
+  </nav>
+  {%- endif %}
+</div>

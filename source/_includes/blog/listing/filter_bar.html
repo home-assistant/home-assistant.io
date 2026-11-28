@@ -1,0 +1,118 @@
+{%- comment -%}
+  The blog's filters: the active filters, each removable on its own (shown
+  only when a filter is active), and a Filters button that opens a drawer with every category, year and
+  author. The drawer's lists show what each choice gives from this page,
+  so a category's years, or a year's categories, combine the two. The
+  drawer is a side panel on wider screens and a bottom sheet on phones.
+
+  Every filter is a link to a static page, so filtering works without
+  JavaScript. The drawer opens with invoker commands (commandfor),
+  with a small script for browsers that don't support them yet.
+  See plugins/blog_listings.rb for page.listing.
+{%- endcomment -%}
+{%- assign listing = page.listing -%}
+{%- assign drawer = listing.drawer -%}
+
+<div class="blog-toolbar">
+  {%- if listing.filters.size > 0 %}
+  <div class="blog-active-filter">
+    {%- for filter in listing.filters %}
+    {%- capture prefix %}{% case filter.kind %}{% when "category" %}Category{% when "year" %}Year{% else %}Author{% endcase %}{% endcapture %}
+    <a class="blog-chip active" href="{{ filter.remove_url }}" aria-label="Remove filter {{ prefix }}: {{ filter.label }}">
+      <span><span class="blog-chip-prefix">{{ prefix }}:</span> {{ filter.label }}</span> {% icon "mdi:close" %}
+    </a>
+    {%- endfor %}
+    <span class="blog-result-count">{{ listing.count }} {% if listing.count == 1 %}post{% else %}posts{% endif %}</span>
+    {%- if listing.filters.size > 1 %}
+    <a class="blog-clear-filter" href="/blog/">Clear filters</a>
+    {%- endif %}
+  </div>
+  {%- endif %}
+  <div class="blog-actions">
+    <button type="button" class="blog-action blog-filters-button" commandfor="blog-filters" command="show-modal">
+      {% icon "mdi:filter-variant" %} Filters
+    </button>
+    <a class="blog-action blog-feed" href="{{ listing.feed }}">{% icon "mdi:rss" %} <span>RSS</span></a>
+  </div>
+</div>
+
+<dialog id="blog-filters" class="blog-drawer" closedby="any" aria-labelledby="blog-filters-title">
+  <header class="blog-drawer-header">
+    <h2 id="blog-filters-title">Filter posts</h2>
+    <button type="button" class="blog-drawer-close" commandfor="blog-filters" command="close" aria-label="Close filters">{% icon "mdi:close" %}</button>
+  </header>
+  <div class="blog-drawer-body">
+    <section>
+      <h3>Category</h3>
+      <ul>
+        {%- assign item = drawer.all_categories %}
+        <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}><span class="label">{{ item.label }}</span> <span class="blog-count">{{ item.count }}</span></a></li>
+        {%- for item in drawer.top_categories %}
+        <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}><span class="label">{{ item.label }}</span> <span class="blog-count">{{ item.count }}</span></a></li>
+        {%- endfor %}
+      </ul>
+      {%- if drawer.more_categories.size > 0 %}
+      <details class="blog-drawer-more"{% if drawer.more_open %} open{% endif %}>
+        <summary>More categories</summary>
+        <ul>
+          {%- for item in drawer.more_categories %}
+          <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}><span class="label">{{ item.label }}</span> <span class="blog-count">{{ item.count }}</span></a></li>
+          {%- endfor %}
+        </ul>
+      </details>
+      {%- endif %}
+    </section>
+    <section>
+      <h3>Year</h3>
+      <ul class="blog-drawer-years">
+        {%- assign item = drawer.all_years %}
+        <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- for item in drawer.years %}
+        <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </section>
+    <section>
+      <h3>Author</h3>
+      <ul>
+        {%- for item in drawer.authors %}
+        <li><a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}>
+          {%- if item.avatar %}<img src="{{ item.avatar }}" alt="" width="24" height="24" loading="lazy" />{% else %}<span class="avatar-placeholder" aria-hidden="true"></span>{% endif %}
+          <span class="label">{{ item.label }}</span> <span class="blog-count">{{ item.count }}</span></a></li>
+        {%- endfor %}
+      </ul>
+    </section>
+  </div>
+  <footer class="blog-drawer-footer">
+    {%- if listing.filters.size > 0 %}
+    <a href="/blog/">Clear filters</a>
+    {%- else %}
+    <span></span>
+    {%- endif %}
+    <button type="button" class="blog-drawer-done" commandfor="blog-filters" command="close">Done</button>
+  </footer>
+</dialog>
+
+<script>
+  (() => {
+    const dialog = document.getElementById("blog-filters");
+    if (!dialog) return;
+    if (!("commandForElement" in HTMLButtonElement.prototype)) {
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("button[commandfor='blog-filters']");
+        if (!button) return;
+        if (button.getAttribute("command") === "show-modal") dialog.showModal();
+        else dialog.close();
+      });
+    }
+    if (!("closedBy" in HTMLDialogElement.prototype)) {
+      dialog.addEventListener("click", (event) => {
+        if (event.target !== dialog) return;
+        const rect = dialog.getBoundingClientRect();
+        const inside = rect.top <= event.clientY && event.clientY <= rect.bottom &&
+          rect.left <= event.clientX && event.clientX <= rect.right;
+        if (!inside) dialog.close();
+      });
+    }
+  })();
+</script>
