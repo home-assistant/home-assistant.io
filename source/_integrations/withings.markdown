@@ -115,6 +115,8 @@ The **Basal metabolic rate** sensor shows your estimated daily energy requiremen
 
 Withings lists basal metabolic rate as requiring its Advanced Biomarkers API plan. See [Withings' available health data](https://developer.withings.com/developer-guide/v3/data-api/all-available-health-data/) for supported devices and API availability.
 
+{% include integrations/actions.md %}
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
