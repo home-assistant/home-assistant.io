@@ -15,6 +15,10 @@ The integration will connect to your account and download all available data fro
 You may need a valid subscription with myUplink to control your equipment with switch, select, and number entities.
 {% endnote %}
 
+A setting that can only be off or on becomes a switch, and a setting with a range becomes a number. This includes settings whose range starts or ends at 0, such as **Activate SG Ready via API**. Those used to be read-only sensors. If one of those old sensors is used in an automation or script, it is kept for now, and a repair issue tells you which switch or number to use instead.
+
+The settings of the unit itself, in the **Software Debug** category in myUplink, such as the settings for its local REST API, are created as disabled configuration entities. Enable them if you need them.
+
 ## Prerequisites
 
 1. Visit [https://myuplink.com/register](https://myuplink.com/register) and sign up for a user account.
