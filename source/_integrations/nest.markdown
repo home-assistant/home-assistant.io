@@ -272,6 +272,13 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 {% enddetails %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Camera snapshots over WebRTC:
+  description: For cameras that only support WebRTC, get snapshots through go2rtc instead of a placeholder. Off by default. See [WebRTC camera snapshots](#webrtc-camera-snapshots).
+{% endconfiguration_basic %}
+
 ## Climate
 
 All Google Nest Thermostat models are exposed as a `climate` entity that use the [Thermostat Traits](https://developers.google.com/nest/device-access/traits/device/thermostat-hvac) in the SDM API. State changes to the thermostat are reported to Home Assistant through the Cloud Pubsub subscriber.
@@ -311,7 +318,7 @@ This feature is enabled by the following permissions:
 Home Assistant supports all SDM API features. However, every Camera or Doorbell device has a different set of built-in capabilities. A Camera device has one of the following live stream types:
 
 - **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` actions like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
-- **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` actions like stream recording are *not supported*.
+- **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` actions like stream recording are *not supported*. Their snapshots are a placeholder image, unless [WebRTC camera snapshots](#webrtc-camera-snapshots) are enabled.
 
 Given a camera named `Front Yard`, then the camera is created with a name such as `camera.front_yard`.
 
@@ -337,6 +344,15 @@ support capturing media (snapshots or clips) through device triggers. The table 
 | Nest Doorbell (wired, 2nd gen)                                                   |      WebRTC       |     Motion<br>Person<br>Chime      |        Clip Preview (mp4, gif)         |
 | Nest Hub Max                                                                     | RTSP<br>Recording |   Motion<br>Person<br>Sound<br>    |             Snapshot (jpg)             |
 
+### WebRTC camera snapshots
+
+The SDM API has no snapshots for WebRTC cameras. To get real snapshots, enable **Camera snapshots over WebRTC** in the [integration options](#options).
+
+This uses the [go2rtc](/integrations/go2rtc/) integration. Home Assistant runs go2rtc itself on {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %} installations. On other installations, configure go2rtc with a `url` to a go2rtc server that has the `nest` module. Your Nest OAuth client ID, client secret, and refresh token are passed to go2rtc.
+
+An external go2rtc server receives these credentials in the request URL and keeps them in its configuration, also after you turn the option off. Use an `https://` URL for it, so they aren't sent unencrypted, and keep its configuration private.
+
+A snapshot is reused for two minutes, so it can be up to two minutes old. Each new one opens a short WebRTC session to the camera, which may wake a battery camera, and counts toward Google's [command limits](https://developers.google.com/nest/device-access/project/limits) for the camera: 30 a minute and 100 an hour for Sandbox projects. Those limits are shared with any other app that uses the camera through Google's Device Access API.
 
 ## Event
 
@@ -541,7 +557,7 @@ Workaround: If you have enabled AP, create and use a secondary, standard Google 
 
 ### Google Home App migration and cameras
 
-Migrating your cameras to the Google Home App converts cameras from RTSP to WebRTC, which results in the loss of snapshot functionality. Additionally, there is a known issue where media is not currently published for these events; this has been reported to the Nest SDM team and is an unexpected side effect of their migration.
+Migrating your cameras to the Google Home App converts cameras from RTSP to WebRTC. The SDM API has no snapshots for WebRTC cameras. See [WebRTC camera snapshots](#webrtc-camera-snapshots). Additionally, there is a known issue where media is not currently published for events from these cameras; this has been reported to the Nest SDM team and is an unexpected side effect of their migration.
 
 ### Temperature sensors partially supported
 
