@@ -13,6 +13,7 @@ Warning data is provided by GeoSphere Austria under the [Creative Commons Attrib
 ## Use cases
 
 - Get notified when an official weather warning is issued for your home or another location in Austria.
+- Forward the full warning text, impacts, and recommendations as a notification when a warning is issued or updated.
 - Trigger automations when the warning level rises that close covers or disable irrigation, for example.
 - Show the current warning level on your dashboard.
 
@@ -71,6 +72,27 @@ When there is no warning, the sensor state is **No warning** and these attribute
 To get every warning with its full text, impacts, and recommendations, use the [Get warnings](/actions/geosphere_austria_warnings.get_warnings/) action.
 
 {% include integrations/actions.md %}
+
+### Events
+
+- **Warning**
+  - **Description**: Fires when GeoSphere Austria issues a new warning or updates an existing one for the monitored municipality.
+  - **Event types**: Issued, Updated.
+
+Each event carries the full warning as attributes:
+
+- `type`: The kind of weather event. One of `storm`, `rain`, `snow`, `black_ice`, `thunderstorm`, `heat`, or `cold`.
+- `level`: The severity of the warning. One of `yellow`, `orange`, or `red`.
+- `start`: When the warning starts, in ISO 8601 format.
+- `end`: When the warning ends, in ISO 8601 format.
+- `text`: The warning text.
+- `impacts`: The expected impacts.
+- `recommendations`: The recommended actions.
+- `meteo_text`: The meteorological description of the weather situation.
+- `update_reason`: Why the warning was updated, if provided.
+- `warning_id`, `change_id`, `course_id`: The identifiers GeoSphere Austria assigns to the warning, its revision, and its time segment.
+
+Warnings that already exist when Home Assistant starts do not fire an event, so a restart does not repeat notifications for known warnings.
 
 ## Automation examples
 
@@ -158,9 +180,47 @@ automation: |
 
 {% enddetails %}
 
+### Automation: forwarding the warning text
+
+Get a notification with the full warning text whenever a warning is issued or updated.
+
+- **Trigger**: State changed
+  - **Entity**: Innsbruck warning (`event.innsbruck_warning`)
+  - **Not to**: Unavailable, Unknown
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: `{{ trigger.to_state.attributes.text }} {{ trigger.to_state.attributes.impacts }} {{ trigger.to_state.attributes.recommendations }}`
+  - **Title**: `Weather warning`
+
+{% details "YAML example for forwarding the warning text" %}
+
+{% example %}
+automation: |
+  alias: "Forward weather warning text"
+  triggers:
+    - trigger: state
+      entity_id: event.innsbruck_warning
+      not_to:
+        - unavailable
+        - unknown
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Weather warning"
+        message: >-
+          {{ trigger.to_state.attributes.text }}
+          {{ trigger.to_state.attributes.recommendations }}
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 The integration {% term polling polls %} the GeoSphere Austria warning service every 5 minutes. Each poll first checks whether GeoSphere Austria published new warning data, and only downloads the full data when something changed. No authentication or API key is required.
+
+Warning texts, such as those returned by the [Get warnings](/actions/geosphere_austria_warnings.get_warnings/) action and the **Warning** event, are provided in German when the Home Assistant language is set to German, and in English for all other languages.
 
 ## Known limitations
 
