@@ -54,15 +54,17 @@ The **LG webOS TV** integration provides the following entities.
 
 ### Turning on the TV from Home Assistant
 
-To turn on your TV from Home Assistant, you need to create an automation using the [TV turn on requested](/triggers/webostv.turn_on/) trigger. Without this automation, the TV appears as unavailable when it is off.
+To turn on your TV from Home Assistant, the integration uses Wake-on-LAN.
+This works on webOS 3.0 and newer when Wake-on-LAN is enabled on the TV (see [Troubleshooting](#turning-on-the-tv-does-not-work)) and the TV has reported its <abbr title="Media Access Control">MAC</abbr> address.
 
-If you want to use an automation to turn on an LG webOS TV, install an {% term integration %} such as [HDMI-CEC](/integrations/hdmi_cec/) or [Wake-on-LAN](/integrations/wake_on_lan/). They provide an action that can power on the TV.
+If you have an automation that uses the [TV turn on requested](/triggers/webostv.turn_on/) trigger, it is used instead of the integration's Wake-on-LAN.
+Use an automation when Wake-on-LAN doesn't work for your setup, for example, if your TV doesn't report a MAC address, is on a different subnet, or you want to turn it on using [HDMI-CEC](/integrations/hdmi_cec/) or [infrared](/integrations/lg_infrared/).
 
-A common setup for webOS 3.0 and higher is to use Wake-on-LAN. For this to work, your TV should be connected to your network through Ethernet instead of wireless, and you should enable **LG Connect Apps** in the TV network settings, or **Mobile App** in the general settings on older models. The exact setting name can vary by model and webOS version.
+If a MAC address is known, the TV appears as **off** when it is off.
+If Wake-on-LAN is disabled on the TV or the wake-up packet cannot reach it, the TV may stay off without Home Assistant reporting an error.
+Enable Wake-on-LAN on the TV or create a turn-on automation to use another method.
 
-{% important %}
-This usually only works if the TV is connected to the same network. Routing the Wake-on-LAN packet to a different subnet requires special configuration on your router or may not be possible.
-{% endimportant %}
+If no MAC address is known and no turn-on automation exists, the TV appears as **unavailable** when it is off.
 
 {% include integrations/actions.md %}
 
@@ -174,16 +176,27 @@ The behavior of the next and previous buttons is different depending on the acti
 
 This integration uses the [SSDP](/integrations/ssdp) integration, which must be enabled for device discovery to work.
 
-### [WakeOnLan](/integrations/wake_on_lan/) does not work
+### Turning on the TV does not work
 
-On newer models (2025+), WakeOnLan may need to be enabled in the TV settings by going to **Settings** > **Support** > **IP control settings** > **Wake on LAN**.
+On newer models (2025+), Wake-on-LAN may need to be enabled in the TV settings by going to **Settings** > **Support** > **IP control settings** > **Wake on LAN**.
 For other models (2017+) the same settings is under **Settings** > **General** > **Mobile TV On** > **Turn On Via WiFi**, see [these instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
+
+Check that Home Assistant and the TV are on the same subnet.
+
+If the TV still does not turn on, use an automation with the [TV turn on requested](/triggers/webostv.turn_on/) trigger to use another turn-on method.
+This automation takes priority over the integration's Wake-on-LAN.
 
 ### Pairing fails when trying to add the TV
 
 Make sure to enable *LG Connect Apps* feature in *Network* settings of the TV.
 
 ## Known limitations
+
+{% important %}
+For the integration's Wake-on-LAN to work, Home Assistant and the TV must be on the same subnet.
+Routing the Wake-on-LAN packet to a different subnet requires special configuration on your router or may not be possible.
+For these setups, use a turn-on automation.
+{% endimportant %}
 
 - If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on ports 3000 & 3001 with the TCP protocol from Home Assistant to your TV.
 - Most newer TV firmware does not allow passing the `icon` parameter to the `notify` command, the TV will ignore the icon and only display the message.
