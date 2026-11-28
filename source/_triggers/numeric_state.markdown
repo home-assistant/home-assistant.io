@@ -28,7 +28,8 @@ To use this trigger in an automation:
 10. Set **Above**, **Below**, or both. If you set both, the trigger reacts when the value of the numeric state or attribute enters the range between them.
 11. Optional: In **Value template**, enter a template that will be used to calculate the numeric value.
 12. Optional: In **For at least**, enter how long the numeric state or attribute value must remain unchanged or stay within the configured threshold before the trigger fires. You can enter a template by selecting **Template** instead of **Duration**.
-13. Select **Save**.
+13. Optional: Turn on **Ignore unknown and unavailable states** so the trigger does not fire when the entity becomes `unknown` or `unavailable`, or when it comes back.
+14. Select **Save**.
 
 ### Options in the UI
 
@@ -50,6 +51,9 @@ Value template:
   required: false
 For at least:
   description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Default is `0` hours, `00` minutes and `00` seconds (fires immediately).
+  required: false
+Ignore unknown and unavailable states:
+  description: Ignores changes to or from `unknown` and `unavailable`, instead of treating them as outside the threshold. Turned off by default.
   required: false
 {% endoptions_ui %}
 
@@ -98,6 +102,11 @@ for:
   required: false
   type: [string, integer, map, template]
   default: "00:00:00"
+ignore_invalid_states:
+  description: Set to `true` to ignore changes to or from `unknown` and `unavailable`, instead of treating them as outside the threshold. The trigger then only fires when the value crosses the threshold between two valid numbers. Only the state of the entity itself is checked. With `attribute`, a missing or empty attribute still counts as outside the threshold.
+  required: false
+  type: boolean
+  default: false
 {% endoptions_yaml %}
 
 ## Targets of the trigger
@@ -115,6 +124,8 @@ This trigger watches one or more entities selected in the UI options **Entity** 
 - If you use an entity in **Above** (`above`) or **Below** (`below`), Home Assistant compares the value of the watched entity against the value of that entity only when the watched entity updates.
 - If you use **For at least** (`for`), the timer resets if Home Assistant restarts or automations reload.
 - When you use `value_template`, the `state` variable is the [state object](/docs/configuration/state_object) for the entity you selected with `entity_id`.
+- By default, `unknown` and `unavailable` count as outside the threshold. If a sensor goes `unavailable` and comes back with a value inside the threshold, the trigger fires, even if the value did not change. This also happens after Home Assistant restarts, when the value changes from `unknown` to its first reading. To prevent this, turn on **Ignore unknown and unavailable states** (`ignore_invalid_states: true`). The trigger then ignores the change to `unavailable` and the change back, so it only fires when the value crosses the threshold between two valid readings. This matches newer triggers like [Temperature crossed threshold](/triggers/temperature.crossed_threshold/). If the value crossed the threshold while the entity was `unavailable`, the trigger does not fire.
+- With **Ignore unknown and unavailable states** (`ignore_invalid_states`) turned on, a **For at least** (`for`) timer that is running still stops if the entity becomes `unknown` or `unavailable`, because Home Assistant cannot confirm the value stayed within the threshold.
 
 {% include triggers/try_it.md %}
 
@@ -176,6 +187,31 @@ automation: |
         entity_id: notify.my_device
       data:
         message: "The front door lock battery has been below 20% for 30 minutes."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: announce when the washing machine finishes, without false alarms
+
+If the washing machine power drops below 5 W, this automation announces that the cycle is finished. It ignores `unknown` and `unavailable` values, so a smart plug that drops off the network, or a Home Assistant restart, does not trigger the announcement. If the cycle finishes while the plug is offline, the announcement is skipped.
+
+{% details "YAML example for a washing machine that ignores invalid states" %}
+
+{% example %}
+automation: |
+  alias: "Announce when the washing machine finishes"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.washing_machine_power
+      below: 5
+      for: "00:02:00"
+      ignore_invalid_states: true
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The washing machine is finished."
 {% endexample %}
 
 {% enddetails %}
