@@ -61,7 +61,64 @@ wind_speed: 35.17
 wind_speed_unit: km/h
 ```
 
+{% include integrations/triggers.md %}
+
 {% include integrations/actions.md %}
+
+## Weather automation examples
+
+### Automation: close windows when it starts raining
+
+When the weather entity for your home starts reporting rain, close all windows to keep the rain out.
+
+- **Trigger**: Started raining
+  - **Target**: `weather.home`
+- **Action**: Close cover
+
+{% details "YAML example for closing windows when rain starts" %}
+
+{% example %}
+automation: |
+  alias: "Close windows when it starts raining"
+  triggers:
+    - trigger: weather.started_raining
+      target:
+        entity_id: weather.home
+  actions:
+    - action: cover.close_cover
+      target:
+        entity_id: cover.windows
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: turn on outdoor lights when it gets foggy
+
+When the weather entity for your home changes to the **Fog** condition, turn on the outdoor lights to improve visibility.
+
+- **Trigger**: Weather condition changed
+  - **Target**: `weather.home`
+  - **Conditions**: Fog
+- **Action**: Turn on light
+
+{% details "YAML example for turning on lights in fog" %}
+
+{% example %}
+automation: |
+  alias: "Turn on outdoor lights in fog"
+  triggers:
+    - trigger: weather.condition_changed
+      target:
+        entity_id: weather.home
+      options:
+        condition: "fog"
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.outdoor
+{% endexample %}
+
+{% enddetails %}
 
 ## Examples
 
