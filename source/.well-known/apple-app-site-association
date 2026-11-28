@@ -8,7 +8,9 @@
           "NOT /ios/beta",
           "NOT /ios/beta/*",
           "/ios/*",
-          "/tag/*"
+          "/tag/*",
+          "/get-mobile-app",
+          "/get-mobile-app/*"
         ]
       },
       {
@@ -17,7 +19,9 @@
           "NOT /ios/beta",
           "NOT /ios/beta/*",
           "/ios/*",
-          "/tag/*"
+          "/tag/*",
+          "/get-mobile-app",
+          "/get-mobile-app/*"
         ]
       },
       {
@@ -26,7 +30,9 @@
           "NOT /ios/beta",
           "NOT /ios/beta/*",
           "/ios/*",
-          "/tag/*"
+          "/tag/*",
+          "/get-mobile-app",
+          "/get-mobile-app/*"
         ]
       },
       {
@@ -35,7 +41,9 @@
           "NOT /ios/beta",
           "NOT /ios/beta/*",
           "/ios/*",
-          "/tag/*"
+          "/tag/*",
+          "/get-mobile-app",
+          "/get-mobile-app/*"
         ]
       },
       {
@@ -44,7 +52,9 @@
           "NOT /ios/beta",
           "NOT /ios/beta/*",
           "/ios/*",
-          "/tag/*"
+          "/tag/*",
+          "/get-mobile-app",
+          "/get-mobile-app/*"
         ]
       },
       {
@@ -53,7 +63,9 @@
           "NOT /ios/beta",
           "NOT /ios/beta/*",
           "/ios/*",
-          "/tag/*"
+          "/tag/*",
+          "/get-mobile-app",
+          "/get-mobile-app/*"
         ]
       },
       {
@@ -62,7 +74,9 @@
           "NOT /ios/beta",
           "NOT /ios/beta/*",
           "/ios/*",
-          "/tag/*"
+          "/tag/*",
+          "/get-mobile-app",
+          "/get-mobile-app/*"
         ]
       },
       {
@@ -71,7 +85,9 @@
           "NOT /ios/beta",
           "NOT /ios/beta/*",
           "/ios/*",
-          "/tag/*"
+          "/tag/*",
+          "/get-mobile-app",
+          "/get-mobile-app/*"
         ]
       }
     ]
