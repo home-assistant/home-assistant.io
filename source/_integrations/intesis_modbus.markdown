@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_integration_type: device
 ha_platforms:
   - climate
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 related:
   - url: https://www.intesis.com
     title: Intesis
