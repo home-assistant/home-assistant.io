@@ -1,5 +1,5 @@
 ---
-description: Instructions on how to give your Home Assistant AI conversation agent extra tools from a Model Context Protocol (MCP) server.
+description: Instructions on how to add AI tools from a Model Context Protocol (MCP) server to a Home Assistant conversation agent that uses AI.
 ha_release: 2025.2
 ha_domain: mcp
 related:
@@ -9,22 +9,22 @@ related:
     title: Model Context Protocol
 ---
 
-The **Model Context Protocol Client** {% term integration %} gives your AI [conversation agent](/integrations/conversation/) in Home Assistant extra tools from an MCP server of your choice. For example, you can connect the MCP server of a service you already use, such as a project tracker or a note-taking app, and then ask Assist about it. You can also connect to an MCP server that lets Assist remember things between conversations, or search the web in ways Home Assistant can't do on its own.
+The **Model Context Protocol Client** {% term integration %} adds {% term "AI tools" %} from an MCP server of your choice to Home Assistant. A {% term "conversation agent" %} that uses AI can then use these AI tools. For example, you can connect the MCP server of a service you already use, such as a project tracker or a note-taking app, and then ask Assist about it. You can also connect to an MCP server that lets Assist remember things between conversations, or search the web in ways Home Assistant can't do on its own.
 
-The [Model Context Protocol](https://modelcontextprotocol.io) (<abbr title="Model Context Protocol">MCP</abbr>) is an open standard that lets AI apps use tools and information from other services. With this integration, Home Assistant is the MCP *client*. It connects to an MCP server and passes that server's tools on to your conversation agent.
+The [Model Context Protocol](https://modelcontextprotocol.io) (<abbr title="Model Context Protocol">MCP</abbr>) is an open standard that lets AI software use tools and information from other services. With this integration, Home Assistant is the MCP *client*. It connects to an MCP server and passes that server's tools on to your conversation agent as AI tools.
 
 {% tip %}
 Home Assistant has two MCP integrations, and they work in opposite directions:
 
-- **Model Context Protocol Client** (this page): Your Home Assistant conversation agent uses tools from another service.
-- [**Model Context Protocol**](/integrations/mcp_server/): Another AI app, such as Claude or ChatGPT, controls Home Assistant.
+- **Model Context Protocol Client** (this page): Your Home Assistant conversation agent uses AI tools from another service.
+- [**Model Context Protocol**](/integrations/mcp_server/): An {% term "AI app" %}, such as Claude or ChatGPT, controls Home Assistant.
 
 If you want to talk to Claude or ChatGPT and have it turn on your lights, you need the [Model Context Protocol](/integrations/mcp_server/) integration.
 {% endtip %}
 
 ## Prerequisites
 
-- An AI conversation agent in Home Assistant that can use tools. For example, [Anthropic](/integrations/anthropic/), [Google Gemini](/integrations/google_generative_ai_conversation/), [Ollama](/integrations/ollama/), or [OpenAI](/integrations/openai_conversation/).
+- A conversation agent in Home Assistant that uses AI and can use AI tools. For example, [Anthropic](/integrations/anthropic/), [Google Gemini](/integrations/google_generative_ai_conversation/), [Ollama](/integrations/ollama/), or [OpenAI](/integrations/openai_conversation/).
 - The URL of an [MCP server](https://modelcontextprotocol.io/examples) that Home Assistant can reach over the network.
 - If your MCP server only runs locally using <abbr title="Standard input/output">*stdio*</abbr>, you also need an MCP proxy, such as [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy), to make it available over the network.
 - If your MCP server requires you to sign in, an OAuth client ID and client secret from the service that provides the MCP server.
@@ -55,28 +55,28 @@ After that, you sign in to the service that provides the MCP server and give Hom
 
 ## Using the MCP tools in a conversation agent
 
-After you add the integration, your conversation agent doesn't use the new tools until you allow it.
+After you add the integration, your conversation agent doesn't use the new AI tools until you allow it.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration of your conversation agent, for example **OpenAI**.
 2. Next to the conversation agent, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Under **AI tools**, select the MCP server. It is listed by its name. You can keep **Device control** selected as well, so the agent can still control your home.
+3. Under **AI tools**, select the set of AI tools of the MCP server. It's listed under the name of the MCP server. You can keep **Device control** selected as well, so the conversation agent can still control your home.
 4. Select **Submit**.
 
-The next time you talk to this conversation agent, it can use the tools from the MCP server.
+The next time you talk to this conversation agent, it can use the AI tools from the MCP server.
 
 ## How it works
 
-Home Assistant acts as a client to the MCP server you specify. It connects to the MCP server and asks for the list of tools it offers. These tools are then made available to Home Assistant conversation agents, in the same way as the tools of **Device control**. For more details on the protocol, refer to the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction#general-architecture).
+Home Assistant acts as a client to the MCP server you specify. It connects to the MCP server and asks for the list of tools it offers. These tools are then made available to Home Assistant conversation agents as AI tools, in the same way as the AI tools in the **Device control** set. For more details on the protocol, refer to the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction#general-architecture).
 
 Home Assistant connects to MCP servers over the network. It first tries the [Streamable HTTP transport](https://modelcontextprotocol.io/docs/concepts/transports#streamable-http). If the MCP server doesn't support it, Home Assistant uses the [Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse) instead.
 
-Many MCP servers are made to run as a local command-line tool that an AI app starts directly, using the [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport. Home Assistant can't start these servers itself. Use an MCP proxy, such as [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy), to run the server and make it available to Home Assistant over the network.
+Many MCP servers are made to run as a local command-line tool that AI software on your computer starts directly, using the [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport. Home Assistant can't start these servers itself. Use an MCP proxy, such as [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy), to run the server and make it available to Home Assistant over the network.
 
 ## Supported functionality
 
 ### Tools
 
-[MCP Tools](https://modelcontextprotocol.io/docs/concepts/tools) let an LLM perform actions or look up information. The tools of the MCP server become available to the conversation agents that you allow to use them.
+[MCP Tools](https://modelcontextprotocol.io/docs/concepts/tools) let a conversation agent perform actions or look up information. The tools of the MCP server become AI tools for the conversation agents that you allow to use them.
 
 ### Authorization
 
@@ -88,13 +88,12 @@ Home Assistant checks the MCP server for its list of available tools every 30 mi
 
 ## Known limitations
 
-The Home Assistant Model Context Protocol Client integration currently only supports a subset of MCP features:
+The Model Context Protocol Client integration only supports MCP tools. It doesn't support the following MCP features:
 
-- **Prompts**: Not supported
-- **Tools**: Supported
-- **Resources**: Not supported
-- **Sampling**: Not supported
-- **Notifications**: Not supported
+- Prompts
+- Resources
+- Sampling
+- Notifications
 
 ## Troubleshooting
 
