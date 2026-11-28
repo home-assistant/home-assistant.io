@@ -62,6 +62,7 @@ Floor heating actuators are operated through the climate group (`HMIP-FAL230-C6`
 ### Events
 
 - Button presses of remote controls, wall-mounted buttons, and other devices with push-buttons (`HmIP-RC8`, `HmIP-MOD-RC8`, `HmIP-WRC2`, `HmIPW-WRC2`, `HmIP-WRC6`, `HmIP-WRC6-230`, `HmIPW-WRC6`, `HmIP-WRCC2`, `HmIP-WRCR`, `HmIP-BRC2`, `HmIP-KRC4`, `HmIP-KRCA`, `HmIP-KRC-K`, `HmIP-DBB`, `HmIP-WGC`, `HmIP-WGS`, `HmIP-SMI55`, `ELV-SH-CRC`), see [Button events](#button-events)
+- Button presses of contact interfaces and wired input modules whose inputs are set to push-button mode (`HmIP-FCI1`, `HmIP-FCI6`, `HmIPW-DRI16`, `HmIPW-DRI32`)
 - Doorbell events for devices that expose a `DOOR_BELL_INPUT` channel, like `HmIP-DSD-PCB` and `HmIP-DBB`
 
 ### Fans
