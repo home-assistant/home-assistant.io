@@ -46,7 +46,11 @@ If you don't have a sensor installed yet and would like to see the open or close
 
 ## Data updates
 
-The integration {% term polling polls %} the Fluss+ cloud API every 30 minutes for updated device status. After you open or close a cover, the integration also schedules an additional status refresh, so the entity state catches up without waiting for the next scheduled poll. This ensures the entity reflects its new position without waiting for the next scheduled poll.
+The integration {% term polling polls %} the Fluss+ cloud API every 30 minutes for updated device status. After you open or close a cover, the integration also schedules an additional status refresh, so the entity reflects its new position without waiting for the next scheduled poll.
+
+If the Fluss+ cloud API refuses a status request, for example because the account has reached its API usage limit for the current billing cycle, the integration keeps running. In that case, buttons stay available and covers report as unavailable until a status request succeeds again. Home Assistant logs an informational message the first time a device's status cannot be read, and logs again when that status is available, so a long outage is not repeated on every update. Pressing a button reports the error that the API returns.
+
+If the API rejects the API key itself, the integration asks you to reauthenticate instead of treating the device as temporarily unreachable.
 
 ## Removing the integration
 
