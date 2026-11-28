@@ -108,6 +108,12 @@ Devices that report the modulation of their internal pump have the following sen
 
 Not every device reports both. Some gas boilers only report the target.
 
+Devices that report locks and maintenance messages have the following binary sensors:
+
+- **Malfunction lock**: on while the device is locked out because of a fault
+- **External lock**: on while an external contact blocks the device
+- **Service message**: on while the device reports a service message, for example that maintenance is due. The messages themselves are shown in the ViCare app.
+
 {% include integrations/actions.md %}
 
 ## Viessmann ViCare automation examples
