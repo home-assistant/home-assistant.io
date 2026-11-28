@@ -1,5 +1,5 @@
 ---
-title: "Setting up and organizing with AI"
+title: "Configuring Home Assistant with AI"
 description: "Ask a conversation agent in Assist or an AI app to organize your home, explain your automations, set up the Energy dashboard, and fix repair issues."
 related:
   - docs: /integrations/llm/
@@ -10,7 +10,7 @@ related:
     title: Troubleshooting with AI
 ---
 
-AI can help you set up and organize Home Assistant. You ask in your own words, and the AI does the work in Home Assistant for you. For example, it can move your devices to the right areas, explain what an automation does, or add your solar panels to the **Energy** dashboard.
+AI can help you configure Home Assistant and organize your home. You ask in your own words, and the AI does the work in Home Assistant for you. For example, it can move your devices to the right areas, explain what an automation does, or add your solar panels to the **Energy** dashboard.
 
 You can ask a {% term "conversation agent" %} in {% term Assist %}, or an {% term "AI app" %}, such as Claude or ChatGPT. Both use the **Home Assistant** set of {% term "AI tools" %}. Only administrators can use this set.
 
@@ -54,7 +54,7 @@ To avoid this:
 
 - Before you ask AI to change things, [create a backup](/common-tasks/general/backups/#creating-a-manual-backup).
 - Before you rename an entity, or delete an area, a floor, or a label, check which automations and scripts use it. For an entity, open its dialog, and select **Menu** {% icon "mdi:dots-vertical" %} > **Related**.
-- Use a separate assistant to set up and organize Home Assistant. For everyday voice control, keep an assistant whose conversation agent only uses **Device control**. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](/integrations/llm/#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
+- Use a separate assistant to configure Home Assistant. For everyday voice control, keep an assistant whose conversation agent only uses **Device control**. For the steps, refer to [Setting up a separate assistant for the Home Assistant AI tools](/integrations/llm/#setting-up-a-separate-assistant-for-the-home-assistant-ai-tools).
 - To try it without changing anything, use an AI app with **Read-only** turned on. A conversation agent always gets the entire set of AI tools, so you can't limit it to reading.
 - After each change, check the result in Home Assistant.
 {% endimportant %}
