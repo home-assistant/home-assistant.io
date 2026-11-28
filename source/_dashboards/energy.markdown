@@ -29,7 +29,7 @@ To show or hide cards on the built-in Energy dashboard, see [customizing the Ene
 
 This card allows you to pick what data to show. Changing it in this card will influence the data in all other cards.
 Specific dates and ranges can be selected by opening the date range picker. The current period can be compared to the previous one using the compare data option within the menu.
-With `show_combine_sources`, the menu also has a **Combine sources** option for the energy cards linked to this date picker. The Energy dashboard turns it on for its **Electricity**, **Gas**, and **Water** tabs when they have two or more sources of the same type. For more information, see [combining sources of the same type](/docs/energy/#combining-sources-of-the-same-type).
+With `show_combine_sources`, the menu also has a **Combine sources** option for the energy cards linked to this date picker. The Energy dashboard turns it on for its **Electricity**, **Gas**, **Water**, and **Heat** tabs when they have two or more sources of the same type. For more information, see [combining sources of the same type](/docs/energy/#combining-sources-of-the-same-type).
 
 ### YAML configuration
 
@@ -556,6 +556,40 @@ type: water-flow-sankey
 layout: horizontal
 ```
 
+## Heat consumption graph
+
+The heat consumption graph card shows the amount of heat consumed per source.
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-heat-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total heat consumed chip.
+  type: string
+combine_sources:
+  required: false
+  description: "When true, shows all heat sources as one series. If not set, the card follows the **Combine sources** option of a linked [energy date picker](#energy-date-picker) once that option is shown. A source type with only one source is not changed."
+  type: boolean
+  default: false
+{% endconfiguration %}
+
+### Example
+
+```yaml
+type: energy-heat-graph
+```
+
 ## Energy distribution
 
 <p class='img'>
@@ -626,7 +660,7 @@ type:
   type: string
 types:
   required: false
-  description: "If defined, table displays listed types of consumption only. Valid values are: `grid`, `solar`, `battery`, `gas`, and `water`."
+  description: "If defined, table displays listed types of consumption only. Valid values are: `grid`, `solar`, `battery`, `gas`, `water`, and `heat`."
   type: list
 show_only_totals:
   required: false

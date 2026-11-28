@@ -49,7 +49,9 @@ Further data that is read from the device is added as diagnostic entities:
 
 ## Energy dashboard
 
-Either heat usage or volume usage can be used as "Gas" on the energy dashboard. If your device reports GJ, enter the price per GJ. If your device reports MWh, enter the price per MWh. In both cases, the energy dashboard converts usage to kWh.
+To track your heat usage on the Energy dashboard, add the heat usage sensor as a [heat source](/docs/energy/heat/).
+The Energy dashboard converts GJ and MWh to kWh.
+A static price is entered per kWh. A price entity can use any energy unit, such as EUR/GJ or EUR/MWh.
 
 ## Polling the device
 

@@ -8,7 +8,7 @@ Home Assistant turns your home into a clear, easy-to-read picture of how energy 
 
 {% my energy badge %} {% my config_energy badge %}
 
-The Energy dashboard works with electricity, gas, and water. For each one, your usage is grouped into three simple types: what you consume, what you produce, and what you store. You can start with a single source, even just your electricity meter, and add more as you go. Every source you add makes the picture more complete.
+The Energy dashboard works with electricity, gas, water, and heat. Your usage is grouped into three simple types: what you consume, what you produce, and what you store. Gas, water, and heat only have consumption. You can start with a single source, even just your electricity meter, and add more as you go. Every source you add makes the picture more complete.
 
 Home Assistant is open and works with hardware from many different brands, so you are not locked into one ecosystem. Any energy monitor, smart plug, solar inverter, or utility meter that integrates with Home Assistant can feed data into the Energy dashboard.
 
@@ -22,6 +22,7 @@ To add energy data to the dashboard, start with the type of source or device you
 - [Integrate your home batteries](/docs/energy/battery/)
 - [Integrate your gas consumption](/docs/energy/gas/)
 - [Integrate your water consumption](/docs/energy/water/)
+- [Integrate your heat consumption](/docs/energy/heat/)
 - [Integrate individual devices](/docs/energy/individual-devices/)
 
 If you have a sensor that returns instantaneous power readings (W or kW), then to add a sensor that returns energy usage or generation (kWh), refer to the [Riemann sum integral integration](/integrations/integration/#energy).
@@ -59,7 +60,7 @@ To show or hide cards on the Energy dashboard:
 
 1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy** > **Edit dashboard**" %}.
 2. In the toolbar, select **Customize cards**.
-3. In the **Customize energy** dialog, expand a section, such as **Overview**, **Electricity**, **Gas**, **Water**, or **Now**.
+3. In the **Customize energy** dialog, expand a section, such as **Overview**, **Electricity**, **Gas**, **Water**, **Heat**, or **Now**.
 4. Turn the switch for each card on or off.
 5. Select **Save**.
 
@@ -83,9 +84,9 @@ If you have more than one source of the same type, like two grid tariffs, severa
 
 To combine sources of the same type:
 
-1. Open the {% my energy title="Energy dashboard" %} and go to the **Electricity**, **Gas**, or **Water** tab.
+1. Open the {% my energy title="Energy dashboard" %} and go to the **Electricity**, **Gas**, **Water**, or **Heat** tab.
 2. In the date picker at the bottom of the page, select **Menu** {% icon "mdi:dots-vertical" %} > **Combine sources**.
 
 To show each source on its own again, select **Combine sources** again.
 
-The **Combine sources** option is only shown on a tab where at least one source type has two or more sources. A type with a single source always looks the same. Home Assistant remembers your choice in your browser and applies it to the **Electricity**, **Gas**, and **Water** tabs. The **Summary** tab always combines sources, so the option is not shown there.
+The **Combine sources** option is only shown on a tab where at least one source type has two or more sources. A type with a single source always looks the same. Home Assistant remembers your choice in your browser and applies it to the **Electricity**, **Gas**, **Water**, and **Heat** tabs. The **Summary** tab always combines sources, so the option is not shown there.
