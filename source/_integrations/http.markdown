@@ -146,7 +146,7 @@ All [requests](https://contributors.home-assistant.io/core/internals/rest-api/#p
 
 ## IP filtering and banning
 
-If you want to apply additional IP filtering and automatically ban brute force attempts, turn on **Enable IP banning** and set **Login attempts before ban** to the maximum number of attempts before a ban is activated. After the first ban, an `ip_bans.yaml` file is created in the root configuration folder. It contains the banned IP address and the time in UTC when it was added:
+If you want to apply additional IP filtering and automatically ban brute force attempts, turn on **Enable IP banning** and set **Login attempts before ban** to the maximum number of attempts before a ban is activated.
 
 {% note %}
 
@@ -154,19 +154,42 @@ If you use [Home Assistant Link](/integrations/link/) for remote access, Home As
 
 {% endnote %}
 
-```yaml
-203.0.113.42:
-  banned_at: "2016-11-16T19:20:03"
-```
-
 After a ban is added, a persistent notification appears in the Home Assistant frontend.
 
-IP bans do not expire automatically. To clear an IP ban, you can either:
+### Managing banned IP addresses
 
-- Remove the specific IP entry from `ip_bans.yaml`.
-- Delete the entire `ip_bans.yaml` file. It will be recreated automatically the next time a ban occurs.
+Home Assistant stores the banned IP addresses itself. To see them, go to {% my network title="**Settings** > **System** > **Network**" %} and find the **Banned IP addresses** section. It lists each banned IP address with the time it was banned.
 
-After making changes, restart Home Assistant to apply them.
+IP bans do not expire automatically. To remove a ban, select **Unban** next to the IP address and confirm. The change applies right away, without a restart. You can also use the [`http.unban` action](#action-httpunban).
+
+### Migrating from `ip_bans.yaml`
+
+Earlier versions of Home Assistant stored banned IP addresses in an `ip_bans.yaml` file in the root configuration folder. On the first start after the update, Home Assistant imports the banned IP addresses from this file and renames it to `ip_bans.yaml.migrated`. After that, Home Assistant no longer reads `ip_bans.yaml`. If the file appears again, Home Assistant raises a repair issue; remove the file and restart Home Assistant.
+
+If `ip_bans.yaml` cannot be read, Home Assistant raises a repair issue, leaves the file as it is, and tries to import it again on the next start. Check the logs for the cause, then correct or remove the file and restart Home Assistant.
+
+### Action `http.unban`
+
+Removes the ban of an IP address that was banned after too many failed login attempts. Only administrators can use this action.
+
+| Data attribute | Optional | Description                     |
+| -------------- | -------- | ------------------------------- |
+| `ip_address`   | no       | The banned IP address to unban. |
+
+```yaml
+action: http.unban
+data:
+  ip_address: "203.0.113.42"
+```
+
+### Locked out by an IP ban
+
+If your own IP address is banned, unban it from a device that connects from a different IP address, for example your phone on mobile data instead of Wi-Fi.
+
+If that is not possible, delete the `.storage/http.ip_bans` file in your configuration folder and restart Home Assistant. This removes all IP bans. The `.storage` folder is hidden:
+
+- With the Samba app, turn on showing hidden items in your file manager. On Windows, select **View** > **Show** > **Hidden items**. On macOS, press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> in Finder.
+- With the Studio Code Server or SSH app, open a terminal and run `rm /config/.storage/http.ip_bans`.
 
 ## Hosting files
 
