@@ -35,7 +35,7 @@ Support for tech-in messages is not implemented.
 
 {% include integrations/config_flow.md %}
 
-Despite the UI-based configuration of the hub, the entities are still configured using YAML see next chapters).
+Binary sensors are [added in the UI](#adding-a-binary-sensor). Despite the UI-based configuration of the hub, lights, sensors and switches are still configured using YAML (see next chapters).
 
 ## Binary sensor
 
@@ -51,8 +51,36 @@ The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/spec
 - F6-02-01 (Light and Blind Control - Application Style 1)
 - F6-02-02 (Light and Blind Control - Application Style 2)
 
-To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+### Adding a binary sensor
+
+To add a wall switch, you need its EnOcean ID. This is the 4 bytes long number written on the device, for example `FE:DC:BA:98`.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the EnOcean integration.
+2. Select **Add device**.
+3. Enter the **Device ID**.
+4. Optionally, select a **Device class**. It sets the [class of the device](/integrations/binary_sensor/). The binary sensor itself has no on/off state: what the switch does is reported by the `button_pressed` event described below.
+5. Select **Submit**.
+
+The binary sensor is named after its ID, for example **Rocker switch FE:DC:BA:98**. You can rename it afterwards. The device class cannot be changed later; to change it, remove the device and add it again.
+
+To remove a binary sensor, select the three dots {% icon "mdi:dots-vertical" %} menu next to the device on the integration page, and select **Delete**.
+
+### Binary sensors configured in YAML
+
+Configuring EnOcean binary sensors in {% term "`configuration.yaml`" %} is deprecated and will be removed in Home Assistant 2027.6.
+
+If you have binary sensors configured in YAML, they are imported into the EnOcean integration automatically when Home Assistant starts. Each one is then listed as a device under your EnOcean hub and keeps its entity ID. A repair issue is created to remind you to remove the YAML configuration:
+
+1. Remove the entries with `platform: enocean` under `binary_sensor:` from your {% term "`configuration.yaml`" %} file. Keep the EnOcean entries under `light:`, `sensor:` and `switch:`; they are not imported yet.
+2. Restart Home Assistant.
+
+A binary sensor is not imported in the following cases. The repair issue then says which one applies:
+
+- Its `id` is not four bytes long.
+- The EnOcean hub is not set up.
+- Another binary sensor with the same `id` but a different `device_class` has already been imported. A device can only be set up once.
+
+The YAML configuration that is imported looks like this:
 
 ```yaml
 # Example configuration.yaml entry
