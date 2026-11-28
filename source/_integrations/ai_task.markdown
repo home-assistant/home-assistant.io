@@ -68,22 +68,23 @@ Prerequisites:
 
 - An administrator account in Home Assistant.
 
-To get AI suggestions for an automation:
+To get AI suggestions:
 
 1. If you haven't yet, set up an AI integration that adds AI tasks. For example, set up [OpenAI](/integrations/openai_conversation/).
    - You don't need a conversation agent or an AI app.
    - Some AI integrations don't add an AI task when you set them up. For example, in [Ollama](/integrations/ollama/#configuration-options), you add one with **Add AI task**.
 2. Choose a preferred AI task entity for data generation. For the steps, refer to [Choosing the preferred AI task entities](#choosing-the-preferred-ai-task-entities).
    - Without it, the **Suggest** button doesn't appear.
-3. Go to {% my automations title="**Settings** > **Automations & scenes**" %}, and open an automation.
-4. In the top-right corner, select **Menu** {% icon "mdi:dots-vertical" %} > **Rename**.
-   - For a new automation, the dialog opens when you save it for the first time.
-5. In the dialog, select **Suggest** {% icon "mdi:star-four-points" %}.
-   - Result: AI fills in a name, a description, a category, and labels.
-   - AI only suggests categories and labels that you already created.
-   - For scripts and scenes, it works the same way. In the dialog of an area, it suggests labels and a floor that you already created. If the name is empty, it also suggests a name.
-6. Check the suggestions, and change them if you want to.
-7. Select **Rename**, or **Save** for a new automation.
+3. Open the dialog of what you want suggestions for:
+   - For an automation, a script, or a scene: Go to {% my automations title="**Settings** > **Automations & scenes**" %}, and open it. In the top-right corner, select **Menu** {% icon "mdi:dots-vertical" %} > **Rename**. For a new one, the dialog opens when you save it for the first time.
+   - For an area: Go to {% my areas title="**Settings** > **Areas, labels & zones**" %}, and open the area. Select **Area settings** {% icon "mdi:pencil" %}. For a new area, select **Create area**.
+4. In the dialog, select **Suggest** {% icon "mdi:star-four-points" %}.
+   - Result: AI fills in the fields with its suggestions.
+   - For an automation, a script, or a scene, it suggests a name, a description, a category, and labels.
+   - For an area, it suggests labels and a floor. If the name is empty, it also suggests a name.
+   - AI only suggests categories, labels, and floors that you already created.
+5. Check the suggestions, and change them if you want to.
+6. To save, select **Rename**, **Save**, or **Create**, depending on the dialog.
 
 ## AI task states
 
