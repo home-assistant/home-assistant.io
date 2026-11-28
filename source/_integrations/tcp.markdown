@@ -1,203 +1,114 @@
 ---
+title: TCP
 description: Instructions on how to set up TCP within Home Assistant.
 ha_release: 0.14
+ha_iot_class: Local Polling
+ha_config_flow: true
 ha_domain: tcp
+ha_integration_type: service
+ha_platforms:
+  - binary_sensor
+  - sensor
 related:
   - docs: /docs/configuration/
     title: Configuration file
+  - docs: /docs/templating/where-to-use/#processing-incoming-data
+    title: Templates for incoming data
 ---
 
-The **TCP** {% term integration %} allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.
+The **TCP** {% term integration %} allows you to integrate services that communicate over a TCP socket with a simple request/reply mechanism. Home Assistant connects to the server, sends a text payload, and uses the response as the state of an entity.
 
-There is currently support for the following device types within Home Assistant:
+## Supported functions
 
-- [Binary sensor](#binary-sensor)
-- [Sensor](#sensor)
+Each entry creates one device with:
 
-## Sensor
+- **Sensor**: always created. Its state is the response of the server, or the result of the value template if one is set.
+- **Binary sensor**: created only if you set a value for **On**. It is on when the state is equal to that value.
 
-To enable the TCP {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: tcp
-    host: IP_ADDRESS
-    port: PORT
-    payload: PAYLOAD
-```
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of the TCP server.
+Port:
+  description: The port of the TCP server.
+Payload:
+  description: The text sent to the server after connecting to get the response you are interested in.
+Timeout:
+  description: How long, in seconds, to wait for the connection and for the response before giving up. Defaults to 10.
+Buffer size:
+  description: The maximum number of bytes read from the response. Increase it if you expect a larger response. Defaults to 1024.
+Unit of measurement:
+  description: The unit of measurement of the sensor.
+Value template:
+  description: A [template](/docs/templating/where-to-use/#processing-incoming-data) to extract the value from the response. The response is available as `value`. By default the entire response is the value.
+Value for on:
+  description: If set, a binary sensor is created in addition to the sensor. It is on when the state is equal to this value.
+Use SSL:
+  description: Use an SSL/TLS connection. Defaults to off.
+Verify SSL certificate:
+  description: Verify the certificate of the server. Turn it off if the server uses a self-signed certificate. Defaults to on.
+{% endconfiguration_basic %}
 
-{% configuration %}
-name:
-  description: The name you'd like to give the sensor in Home Assistant.
-  required: false
-  type: string
-host:
-  description: The hostname/IP address to connect to.
-  required: true
-  type: string
-port:
-  description: The port to connect to the host on.
-  required: true
-  type: integer
-payload:
-  description: What to send to the host to get the response we're interested in.
-  required: true
-  type: string
-timeout:
-  description: How long in seconds to wait for a response from the service before giving up and disconnecting.
-  required: false
-  default: 10
-  type: integer
-value_template:
-  description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
-  required: false
-  type: template
-unit_of_measurement:
-  description: The unit of measurement to use for the value.
-  required: false
-  type: string
-buffer_size:
-  description: The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default.
-  required: false
-  default: "`1024`"
-  type: integer
-ssl:
-  description: If `true`, use SSL/TLS.
-  required: false
-  default: false
-  type: boolean
-verify_ssl:
-  description: Set this to `false` if the server is using a self-signed certificate.
-  required: false
-  default: true
-  type: boolean
-{% endconfiguration %}
+Before creating the entry, Home Assistant checks that it can connect to the server. Entries with the same host, port and payload cannot be added twice.
 
-### Examples
+### Reconfiguring
 
-In this section you find some real-life examples of how to use this sensor.
+All the parameters above can be changed after the entry was created. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the TCP entry, then select the three dots {% icon "mdi:dots-vertical" %} and choose **Reconfigure**. If you add or remove the value for **On**, the binary sensor is created or removed accordingly.
 
-#### EBUSd
+## Data updates
 
-The [EBUSd](https://github.com/john30/ebusd/wiki) service enables connection to an EBUS serial bus on some home heating/cooling systems. Using this service it is possible to extract various metrics which may be useful to have within Home Assistant. To use EBUSd, you connect to it using a TCP socket and send it a command. The service will respond with the value it has received from EBUS. On the command line, this would look something like:
+Home Assistant polls the server every 30 seconds. At each update it opens a new connection, sends the payload, reads one response of up to the buffer size and closes the connection.
+
+## Examples
+
+### EBUSd
+
+The [EBUSd](https://github.com/john30/ebusd/wiki) service connects to an eBUS serial bus on some home heating and cooling systems. To use it, you connect to it using a TCP socket and send it a command. On the command line this looks like:
 
 ```bash
-$ echo "r WaterPressure" | nc 10.0.0.127 8888
-0.903;ok
+echo "r WaterPressure" | nc 10.0.0.127 8888
 ```
 
-You will notice that the output from the service is not just a single value (it contains ";ok" as well). To grab the value we're interested in, we can use a Jinja2 template. The response received is injected into the template as the `value` variable. To use this value within Home Assistant, use the following configuration:
+The server answers with `0.903;ok`. The response contains more than the value, so use a template to keep only the first part.
 
-```yaml
-sensor:
-# Example configuration.yaml entry
-  - platform: tcp
-    name: Central Heating Pressure
-    host: 10.0.0.127
-    port: 8888
-    timeout: 5
-    payload: "r WaterPressure\n"
-    value_template: "{{ value.split(';')[0] }}"
-    unit_of_measurement: Bar
-```
+| Parameter | Value |
+| --------- | ----- |
+| Host | `10.0.0.127` |
+| Port | `8888` |
+| Payload | `r WaterPressure` |
+| Timeout | `5` |
+| Value template | `{{ value.split(';')[0] }}` |
+| Unit of measurement | `bar` |
 
-#### hddtemp
+### Binary sensor
 
-The tool `hddtemp` collects the temperature of your hard disks.
+If your server answers `1` when a device is on, set **Value for on** to `1`. A binary sensor is created together with the sensor, and it is on while the response is `1`.
 
-```bash
-$ hddtemp
-/dev/sda: SAMSUNG MZMTE256HMHP-000L1: 39°C
-```
+## Use cases
 
-With `hddtemp -d` you can run the tool in TCP/IP daemon mode on port 7634 which enables you to get the data across the network.
+- Read a value from a service that has no dedicated integration but answers requests over a plain TCP socket, such as the daemons of home heating systems or simple monitoring tools.
+- Check the on/off status of a device that answers with a fixed value.
 
-```bash
-$ telnet localhost 7634
-Trying 127.0.0.1...
-Connected to localhost.
-Escape character is '^]'.
-|/dev/sda|SAMSUNG MZMTE256HMHP-000L1|38|C|Connection closed by foreign host.
-```
+## Known limitations
 
-The entry for the `configuration.yaml` file for a `hddtemp` sensor could look like the example below.
+- Only one response is read per update, up to the configured buffer size. Longer responses are truncated.
+- The payload is sent as plain text. Binary protocols are not supported.
+- The server is polled, so state changes are detected with a delay of up to 30 seconds. Persistent connections for receiving ongoing pushed updates are not supported.
+- There is no authentication, other than what the server itself requires in the payload.
 
-```yaml
-sensor:
-# Example configuration.yaml entry
-  - platform: tcp
-    name: HDD temperature
-    host: 127.0.0.1
-    port: 7634
-    timeout: 5
-    payload: "\n"
-    value_template: "{{ value.split('|')[3] }}"
-    unit_of_measurement: "°C"
-```
+## Troubleshooting
 
-## Binary sensor
+### The entry cannot be added: "Failed to connect"
 
-The TCP Binary Sensor is a type of [TCP Sensor](#sensor) which is either "off" or "on". To use this sensor type, in addition to the configuration for the TCP Sensor, you must supply a `value_on` value to represent what is returned when the device is turned on.
+Check that the host and port are correct, that the server is running and that no firewall is blocking the connection.
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+### The entities are unavailable
 
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: tcp
-    host: IP_ADDRESS
-    port: PORT
-    payload: PAYLOAD
-    value_on: 1
-```
+Home Assistant could not connect, send the payload or receive a response within the timeout. The details are in the log. Increase the **Timeout** if the server answers slowly.
 
-{% configuration %}
-name:
-  description: The name you'd like to give the sensor in Home Assistant.
-  required: false
-  type: string
-  default: TCP Sensor
-host:
-  description: The hostname/IP address to connect to.
-  required: true
-  type: string
-port:
-  description: The port to connect to the host on.
-  required: true
-  type: integer
-payload:
-  description: What to send to the host to get the response we're interested in.
-  required: true
-  type: string
-value_on:
-  description: The value returned when the device is "on".
-  required: true
-  type: string
-value_template:
-  description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract the value.
-  required: false
-  type: template
-  default: entire response is the value
-buffer_size:
-  description: The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default.
-  required: false
-  type: integer
-  default: 1024
-timeout:
-  description: How long in seconds to wait for a response from the service before giving up and disconnecting.
-  required: false
-  type: integer
-  default: 10
-ssl:
-  description: If `true`, use SSL/TLS.
-  required: false
-  default: false
-  type: boolean
-verify_ssl:
-  description: Set this to `false` if the server is using a self-signed certificate.
-  required: false
-  default: true
-  type: boolean
-{% endconfiguration %}
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
