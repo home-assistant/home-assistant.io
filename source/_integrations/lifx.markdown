@@ -106,13 +106,14 @@ By default, the LIFX Ceiling and LIFX Mirror each show as a single light. Each a
 
 Both buttons are configuration entities.
 
-### Selects
+### Numbers
 
 - **Infrared brightness**
-  - **Description**: Sets how bright the infrared LEDs run when the visible brightness is low.
-  - **Options**: `Disabled`, `25%`, `50%` or `100%`
+  - **Description**: Sets how bright the infrared LEDs run when the visible brightness is low, from 0% (off) to 100%.
   - **Available for**: LIFX Nightvision lights
-  - **Remarks**: Configuration entity. In an automation or a script, change it with the [**Select option**](/actions/select.select_option/) action.
+  - **Remarks**: Configuration entity. In an automation or a script, change it with the [**Set number value**](/actions/number.set_value/) action.
+
+### Selects
 
 - **Mood**
   - **Description**: Applies one of the LIFX app's Moods to the light, the way the app does.

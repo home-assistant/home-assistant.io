@@ -47,7 +47,7 @@ You can also set any color and brightness option that the [**Turn on light**](/a
 
 {% important %}
 
-The **Infrared** option is deprecated. Use the **Infrared brightness** entity that Home Assistant creates for every LIFX Nightvision bulb instead. In an automation or a script, target that entity with the [**Select option**](/actions/select.select_option/) action. If you still use **Infrared**, Home Assistant logs a warning that points you at the right entity.
+The **Infrared** option is deprecated. Use the **Infrared brightness** number that Home Assistant creates for every LIFX Nightvision bulb instead. In an automation or a script, target that entity with the [**Set number value**](/actions/number.set_value/) action. The number is a percentage from 0 to 100, not a level from 0 to 255. If you still use **Infrared**, Home Assistant logs a warning that points you at the right entity.
 
 {% endimportant %}
 
@@ -85,7 +85,7 @@ zones:
   required: false
   type: list
 infrared:
-  description: The automatic infrared level, from 0 to 255, used when the light brightness is low on a LIFX Nightvision bulb. This option is deprecated. Use the Infrared brightness entity with the select.select_option action instead.
+  description: The automatic infrared level, from 0 to 255, used when the light brightness is low on a LIFX Nightvision bulb. This option is deprecated. Use the Infrared brightness number with the number.set_value action instead.
   required: false
   type: integer
 {% endoptions_yaml %}
@@ -97,7 +97,7 @@ You can also use any color and brightness option that the [`light.turn_on`](/act
 ## Good to know
 
 - If you don't specify a `power` option, the light will stay in its current power state. There is no default, so the action won't switch a light on or off unless you tell it to.
-- The `infrared` option is deprecated. Home Assistant logs a warning telling you to use the **Infrared brightness** entity with the [`select.select_option`](/actions/select.select_option/) action instead, and returns an error if the target is not a LIFX Nightvision bulb.
+- The `infrared` option is deprecated. Home Assistant logs a warning telling you to use the **Infrared brightness** number with the [`number.set_value`](/actions/number.set_value/) action instead, and returns an error if the target is not a LIFX Nightvision bulb.
 - The `zones` option only applies to multizone lights. On any other LIFX light, it is ignored and the whole light changes color.
   - LIFX Z and Lightstrip have 8 zones per segment, up to 10 segments, for a maximum of 80 zones (numbered 0 to 79).
   - LIFX Beam has 10 zones per segment plus 1 per corner piece, up to 8 segments and 2 corners, for a maximum of 82 zones (numbered 0 to 81).
