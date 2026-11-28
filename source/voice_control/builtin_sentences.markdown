@@ -155,7 +155,7 @@ To send a vacuum to clean an area, the vacuum must support cleaning areas, and i
 
 ## Timers
 
-Timers created with Assist are voice timers. They are separate from [Timer helper entities](/integrations/timer/) and do not create `timer.*` entities that you can use in dashboards, scripts, or automations.
+Timers created with Assist are voice timers. On supported devices, they are kept in a [Timer list entity](/integrations/timer_list/#voice-timers). You can control these timers with actions and use their events in automations. They are separate from [Timer helper entities](/integrations/timer/).
 
 A voice timer belongs to the {% term "voice satellite" %} where you start it. The voice satellite must support timers. For example, [Home Assistant Voice Preview Edition](/voice-pe/) supports them. The Assist dialog in Home Assistant doesn't. If you start a timer where timers aren't supported, Assist responds that the device doesn't support timers.
 
