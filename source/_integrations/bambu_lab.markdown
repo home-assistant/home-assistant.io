@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: bambu_lab
 ha_integration_type: device
 ha_platforms:
+  - camera
   - diagnostics
   - light
   - sensor
@@ -23,7 +24,7 @@ related:
     title: Bambu Lab
 ---
 
-The **Bambu Lab** {% term integration %} lets you follow your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. You can see what the printer is doing, how far along the print is, when it will finish, and the temperatures of the bed and the chamber. You can also turn the light inside the printer on and off.
+The **Bambu Lab** {% term integration %} lets you follow your [Bambu Lab](https://bambulab.com) 3D printer in Home Assistant. You can see what the printer is doing, how far along the print is, when it will finish, and the temperatures of the bed and the chamber. You can also watch the camera of the printer, and turn the light inside the printer on and off.
 
 The integration talks directly to the printer over your local network. It does not use the Bambu Lab cloud, and the printer sends its updates to Home Assistant as soon as something changes. For example, you can get a notification on your phone the moment a print finishes, or when the printer pauses a print and needs your attention.
 
@@ -57,6 +58,8 @@ To set up the integration, you need three things from your printer. You can find
 
 The printer does not have to be in LAN only mode.
 
+Some printers serve the video of their camera as a stream, which is turned off by default. To see the camera of such a printer in Home Assistant, turn on the video stream for your local network in the settings of the printer.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -73,6 +76,13 @@ Before Home Assistant sends the access code, it checks that the device at the ad
 ## Supported functionality
 
 The **Bambu Lab** integration adds your printer as a device, with the following entities.
+
+### Cameras
+
+- **Camera**
+  - **Description**: The camera inside the printer.
+  - **Available for printers**: Printers with a camera.
+  - **Remarks**: Printers like the A1 and P1 series send a new image every second or two, so the camera shows images, not video. Other printers serve a video stream, which you turn on in the settings of the printer, as described in the [prerequisites](#prerequisites). The camera is unavailable while that stream is turned off.
 
 ### Lights
 
@@ -177,7 +187,6 @@ When the connection to the printer is lost, for example because the printer is t
 ## Known limitations
 
 - Apart from the chamber light, the integration cannot control the printer yet. For example, you cannot pause a print.
-- The integration does not show the camera of the printer yet.
 - Home Assistant does not find printers on your network by itself yet. You enter the IP address and serial number yourself.
 - If the access code of the printer changes, the integration can no longer connect. Remove the printer from Home Assistant, and add it again with the new access code.
 - If the IP address of the printer changes, the integration can no longer connect. To prevent this, give the printer a fixed IP address in your router. Otherwise, remove the printer from Home Assistant, and add it again with the new address.
@@ -250,6 +259,24 @@ Something answered at the address you entered, but it is not a Bambu Lab printer
 
 1. Check the IP address on the screen of the printer.
 2. Enter the address again.
+
+{% enddetails %}
+
+{% details "The camera is unavailable or shows no image" %}
+
+### Symptom: The camera is unavailable, or shows no image, while the sensors work
+
+The sensors of the printer show values, but the **Camera** is unavailable or does not show an image.
+
+#### Description
+
+A printer with a video stream only serves it on your network when it is turned on in the settings of the printer. Other printers send images over a separate connection.
+
+#### Resolution
+
+1. If your printer has a video stream, turn it on in the settings of the printer, as described in the [prerequisites](#prerequisites).
+   - Result: The camera becomes available right away.
+2. Make sure Home Assistant can reach the printer on TCP port 322 for a video stream, or on TCP port 6000 for images. If the printer is in a different network than Home Assistant, allow this port in your firewall.
 
 {% enddetails %}
 
