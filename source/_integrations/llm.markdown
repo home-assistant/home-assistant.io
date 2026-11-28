@@ -8,7 +8,7 @@ ha_domain: llm
 
 The **<abbr title="Large Language Model">LLM</abbr>** {% term integration %} provides the {% term "AI tools" %} in Home Assistant. An AI tool is a function that {% term "conversation agents" %} and {% term "AI apps" %} can use to read information, control {% term entities %}, or manage Home Assistant. For example, with AI tools, a conversation agent can tell you the temperature in the living room, turn on your lights, or reload an integration that failed to set up.
 
-The AI tools are grouped into [sets](#sets-of-ai-tools). You choose which sets each conversation agent can use, in its **AI tools** option. AI apps outside Home Assistant can use the same sets through the [Model Context Protocol](/integrations/mcp_server/) integration.
+The AI tools are grouped into [sets](#sets-of-ai-tools). You choose which sets each conversation agent can use, in its **AI tools** option. AI apps outside Home Assistant can use the same sets through the [Model Context Protocol](/integrations/mcp_server/) integration. For what you can ask AI to do with these tools, refer to [Configuring Home Assistant with AI](/common-tasks/general/configuring-with-ai/).
 
 The **LLM** integration is an internal system integration. It loads as part of the [default configuration](/integrations/default_config/). Every AI integration that adds a conversation agent loads it too. You can't add or remove it, and it has no options.
 
