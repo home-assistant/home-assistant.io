@@ -16,6 +16,7 @@ This {% term integration %} is a meta integration that configures a default set 
 - [History](/integrations/history/) (`history`)
 - [Home Assistant Alerts](/integrations/homeassistant_alerts/) (`homeassistant_alerts`)
 - [Home Assistant Link](/integrations/link/) (`cloud`)
+- [Location](/integrations/location/) (`location`)
 - [Activity](/integrations/logbook/) (`logbook`)
 - [Media source](/integrations/media_source/) (`media_source`)
 - [Mobile app support](/integrations/mobile_app/) (`mobile_app`)
