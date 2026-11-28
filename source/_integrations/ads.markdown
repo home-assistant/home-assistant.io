@@ -19,33 +19,30 @@ There is currently support for the following device types within Home Assistant:
 - [Select](#select)
 - [Valve](#valve)
 
-<!-- omit in toc -->
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable ADS, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% configuration_basic %}
+AMS NetID:
+  description: The AMS NetID that identifies the ADS device, for example, `192.168.1.10.1.1`.
+Port:
+  description: The AMS port of the PLC runtime, for example, `851` for the first TwinCAT 3 runtime.
+IP address:
+  description: The IP address of the ADS device. If left empty, it is derived from the AMS NetID.
+{% endconfiguration_basic %}
 
-```yaml
-# Example configuration.yaml entry
-ads:
-  device: "127.0.0.1.1.1"
-  port: 801
-```
+Make sure a route to Home Assistant is configured on the ADS device before setting up the connection, otherwise it cannot be validated.
 
-{% configuration %}
-device:
-  description: The AMS NetId that identifies the device.
-  required: true
-  type: string
-port:
-  description: The port that runs the AMS server on the device, typically this would be 801 or 851.
-  required: true
-  type: integer
-ip_address:
-  description: The IP address of the ADS device, if not set the first 4 bytes of the device id will be used.
-  required: false
-  type: string
-{% endconfiguration %}
+{% note %}
+Configuring the ADS connection in {% term "`configuration.yaml`" %} is deprecated. An existing `ads:` configuration is imported automatically, and a repair issue guides you to remove the `ads:` key from your {% term "`configuration.yaml`" %} file. Entities configured with `platform: ads` are not affected by this change and keep working as described below.
+{% endnote %}
+
+## Reconfiguration
+
+You can change the connection settings at any time without removing and re-adding the {% term integration %}:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **ADS** {% term integration %}, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**.
+3. Update the AMS NetID, port, or IP address, then follow the steps on screen.
 
 {% include integrations/actions.md %}
 
