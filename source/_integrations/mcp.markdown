@@ -66,7 +66,7 @@ The next time you talk to this conversation agent, it can use the AI tools from 
 
 ## How it works
 
-Home Assistant acts as a client to the MCP server you specify. It connects to the MCP server and asks for the list of tools it offers. These tools are then made available to Home Assistant conversation agents as AI tools, in the same way as the AI tools of **Device control**. For more details on the protocol, refer to the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction#general-architecture).
+Home Assistant acts as a client to the MCP server you specify. It connects to the MCP server and asks for the list of tools it offers. These tools are then made available to Home Assistant conversation agents as AI tools, in the same way as the AI tools in the **Device control** set. For more details on the protocol, refer to the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction#general-architecture).
 
 Home Assistant connects to MCP servers over the network. It first tries the [Streamable HTTP transport](https://modelcontextprotocol.io/docs/concepts/transports#streamable-http). If the MCP server doesn't support it, Home Assistant uses the [Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse) instead.
 
