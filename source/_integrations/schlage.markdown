@@ -126,7 +126,9 @@ automation: |
 
 When someone enters too many incorrect codes, the lock disables its keypad. Find out right away, because it could mean that someone is trying to get in.
 
-- **Trigger**: State: Keypad disabled changes to on
+- **Trigger**: State changed
+  - **Entity**: Front door Keypad disabled (`binary_sensor.front_door_keypad_disabled`)
+  - **To**: On
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
