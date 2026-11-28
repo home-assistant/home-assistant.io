@@ -1,0 +1,137 @@
+---
+title: Zentraly
+description: Instructions on how to integrate Zentraly devices with Home Assistant.
+ha_categories:
+  - climate.thermostats_heating
+ha_release: "2026.12"
+ha_iot_class: Local Push
+ha_config_flow: true
+ha_zeroconf: true
+ha_codeowners:
+  - '@zentralySAU'
+ha_domain: zentraly
+ha_integration_type: device
+ha_platforms:
+  - climate
+ha_quality_scale: bronze
+---
+
+The **Zentraly** {% term integration %} lets you control supported thermostats from [Zentraly](https://zentraly.com), a manufacturer of smart home devices for heating, lighting, and electrical control.
+
+The integration communicates directly with Zentraly devices over the local network using a WebSocket connection and does not require a cloud service.
+
+## Prerequisites
+
+Before setting up the integration:
+
+1. Make sure the Zentraly device is powered on.
+2. Make sure the Zentraly device is installed and registered in the Zentraly app, available from the Google Play Store and Apple App Store.
+3. Make sure the Zentraly device is connected to the same local network as Home Assistant.
+4. Enable third-party connections for the device from the advanced device settings in the Zentraly app.
+5. Make sure the Zentraly device is reachable from the Home Assistant host.
+6. Get the device password from the **About device** section in the Zentraly app. You need this password during setup.
+
+## Configuration
+
+Zentraly thermostats can be added through automatic discovery or manually using their IP address, device ID, and device password.
+
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
+2. Under **Discovered**, find the Zentraly thermostat with your device ID and select **Configure**.
+3. Enter the device password from the **About device** section in the Zentraly app and submit the form.
+
+To add a thermostat manually:
+
+1. Go to **{% my integrations title="Settings > Devices & services" %}** and select **Add integration**.
+2. Search for **Zentraly**.
+3. Select **Add a device by IP address**.
+4. Enter the thermostat's IPv4 address, device ID, and device password, and submit the form. The connection uses port 80.
+
+Home Assistant verifies the connection and password and reads the device MAC address before adding the thermostat.
+
+If the thermostat's IP address or port changes, Home Assistant updates its connection details when it receives a new Zeroconf announcement for the same device and reconnects automatically.
+
+If the thermostat does not appear, check that third-party connections are enabled and that Home Assistant and the thermostat are on the same local network. You can also add it manually. Zeroconf announcements can update the address of a manually added thermostat as well.
+
+Changing the IP address through a reconfiguration form is not currently supported. If Zeroconf announcements cannot reach Home Assistant, reserve an address for the thermostat in your router to prevent DHCP address changes from interrupting communication.
+
+{% configuration_basic %}
+Host:
+  description: "The thermostat IPv4 address. Required for manual setup."
+Device ID:
+  description: "The identifier of the thermostat. Required for manual setup."
+Password:
+  description: "The device password shown in the Zentraly app. This is not your Zentraly account password."
+{% endconfiguration_basic %}
+
+## Supported devices
+
+The integration currently supports the following Zentraly devices:
+
+- ZTTIN wireless Wi-Fi thermostat
+
+## Supported functionality
+
+### Climate
+
+The ZTTIN thermostat is represented as a climate entity.
+
+The integration supports:
+
+- Current temperature
+- Target temperature
+- Current humidity
+- Heating demand
+- Manual operating mode
+- Automatic operating mode
+- Off mode
+- Away preset
+
+Changing the target temperature from Home Assistant puts the thermostat into manual mode. If a `climate.set_temperature` action also specifies `hvac_mode`, the integration applies that mode after setting the temperature.
+
+When the Away preset is selected, the thermostat reports its configured Away temperature as the target temperature, which Home Assistant displays. The climate entity does not provide a control for changing the configured Away temperature.
+
+## Zentraly automation examples
+
+You can use the Zentraly climate entity in Home Assistant automations. For example, you can automatically change the target temperature at a specific time.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Set the target temperature at night
+
+This example sets the target temperature of a Zentraly thermostat to 18 °C every day at 22:00. In the automation editor, use a time trigger and the **Set thermostat target temperature** action, selecting your thermostat as the target. Setting the target temperature selects manual mode.
+
+For the YAML example, replace `climate.example` with your thermostat entity ID.
+
+{% details "YAML example for setting the target temperature" %}
+
+{% example %}
+automation: |
+  alias: "Set Zentraly temperature at night"
+  triggers:
+    - trigger: time
+      at: "22:00:00"
+  actions:
+    - action: climate.set_temperature
+      target:
+        entity_id: climate.example
+      data:
+        temperature: 18
+{% endexample %}
+
+{% enddetails %}
+
+## Data updates
+
+Zentraly uses a local WebSocket connection to receive state updates reported by the device.
+
+Home Assistant also reads the device state every five minutes as a synchronization fallback. If you disable polling in the integration's system options, these periodic reads stop. Device reports and state refreshes on startup and reconnection continue.
+
+Hardware and firmware versions are read when the integration loads, including initial setup, Home Assistant startup, and integration reload, and when the device reconnects. There are no periodic version reads or a dedicated manual version refresh. If a version cannot be read, Home Assistant retains its previously known value. A failed version read does not prevent setup or reconnection, or make an otherwise responding thermostat unavailable.
+
+All communication between Home Assistant and the Zentraly device takes place over the local network.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
