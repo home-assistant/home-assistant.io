@@ -1,7 +1,17 @@
 ---
 description: Instructions on how to integrate Arcam FMJ Receivers into Home Assistant.
+ha_category:
+  - Media player
+  - Select
 ha_release: 0.96
 ha_domain: arcam_fmj
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - media_player
+  - select
+  - sensor
+ha_integration_type: device
 ---
 
 The **Arcam FMJ Receivers** integration allows you to control [Arcam Receivers and Processors](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.
@@ -45,6 +55,13 @@ The integration provides the following diagnostic binary sensors, one for each z
 
 - **Zone incoming video interlaced**
   - **Description**: Indicates whether the incoming video signal is using interlaced scanning. It is `on` when the signal is interlaced, `off` when it is progressive, and `unknown` when video parameters are not available.
+
+### Selects
+
+The integration provides the following select entities, one for each zone. 
+
+- **Room equalization**
+  - **Description**: On compatible receivers with Dirac room correction, selects the active room-EQ profile for the zone. Available options are `Off`, the profile names configured on the receiver (shown as `EQ1`, `EQ2`, and `EQ3` when the names cannot be read), and `Not calculated` when a profile has not been computed yet.
 
 ### Sensors
 
