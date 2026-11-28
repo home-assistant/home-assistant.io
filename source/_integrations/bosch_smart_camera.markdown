@@ -53,6 +53,12 @@ The **Privacy mode** switch turns the privacy mode of a camera on or off. While 
 
 The **Wi-Fi signal strength** sensor shows how well a camera is connected to your Wi-Fi network, in percent. It is a diagnostic sensor and is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
 
+### Live stream
+
+The camera entity can show a live stream in dashboards and in the more-info dialog. Home Assistant opens a stream session when you start watching. The camera manages stream sessions of up to 60 minutes. Home Assistant renews the session automatically while you are watching, or while **Preload stream** is enabled for the camera. Otherwise, the session stays open until the camera ends it.
+
+Home Assistant must be able to reach the camera in your local network to show the stream.
+
 ### Restart
 
 The **Restart** button restarts a camera. It is disabled by default. To use it, [enable the entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) from the device page of the camera.
@@ -73,7 +79,11 @@ The integration polls the Bosch cloud for the list of cameras every 5 minutes. T
 
 ### Event images
 
-Live streaming is not available yet. The camera entity only shows the latest available event image. A camera without any event image has no image to show.
+The image of the camera entity is the latest available event image, not a live image. A camera without any event image has no image to show.
+
+### Live stream
+
+The live stream uses the HLS format, so it is shown with a delay of a few seconds. WebRTC is not supported yet.
 
 ### Cloud connection
 
